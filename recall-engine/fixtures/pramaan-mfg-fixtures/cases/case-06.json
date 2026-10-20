@@ -1,0 +1,227 @@
+{
+  "caseId": "case-06",
+  "title": "Wrong-slot scan, lot-level identity (undetected)",
+  "description": "Both slots hold lot BR-204. Technician physically replaces NDE but scans the removal and install as DE. Records are internally consistent.",
+  "captureCoverage": {
+    "coveragePolicy": "COV-BEARING-v1",
+    "sessions": [
+      {
+        "sourceId": "MES",
+        "from": "2026-08-01T00:00:00Z",
+        "to": "2026-10-31T00:00:00Z"
+      },
+      {
+        "sourceId": "ASSY-01",
+        "from": "2026-08-12T08:00:00Z",
+        "to": "2026-08-12T18:00:00Z"
+      },
+      {
+        "sourceId": "REWORK-03",
+        "from": "2026-09-10T08:00:00Z",
+        "to": "2026-09-10T18:00:00Z"
+      }
+    ]
+  },
+  "events": [
+    {
+      "eventId": "C06-E001",
+      "eventType": "WORK_ORDER_OPENED",
+      "schemaVersion": 1,
+      "sourceId": "MES",
+      "sourceSeq": 1,
+      "motorSerial": "M-042",
+      "workOrderId": "MO-042",
+      "recallId": null,
+      "occurredAt": "2026-08-12T09:30:00Z",
+      "timeSource": "DEVICE_SYNCED",
+      "recordedAt": "2026-08-12T09:30:04Z",
+      "actorId": "SYS-MES",
+      "evidenceRefs": [],
+      "supersedesEventId": null,
+      "payload": {
+        "orderType": "BUILD",
+        "expectedChanges": [
+          {
+            "slot": "DE",
+            "action": "INSTALL"
+          },
+          {
+            "slot": "NDE",
+            "action": "INSTALL"
+          }
+        ]
+      }
+    },
+    {
+      "eventId": "C06-E002",
+      "eventType": "COMPONENT_INSTALLED",
+      "schemaVersion": 1,
+      "sourceId": "ASSY-01",
+      "sourceSeq": 1,
+      "motorSerial": "M-042",
+      "workOrderId": "MO-042",
+      "recallId": null,
+      "occurredAt": "2026-08-12T10:00:00Z",
+      "timeSource": "DEVICE_SYNCED",
+      "recordedAt": "2026-08-12T10:00:04Z",
+      "actorId": "EMP-009",
+      "evidenceRefs": [
+        "EV-SCAN-0101"
+      ],
+      "supersedesEventId": null,
+      "payload": {
+        "componentType": "BEARING",
+        "slot": "DE",
+        "part": "BR-6205",
+        "lot": "BR-204",
+        "identityGranularity": "LOT"
+      }
+    },
+    {
+      "eventId": "C06-E003",
+      "eventType": "COMPONENT_INSTALLED",
+      "schemaVersion": 1,
+      "sourceId": "ASSY-01",
+      "sourceSeq": 2,
+      "motorSerial": "M-042",
+      "workOrderId": "MO-042",
+      "recallId": null,
+      "occurredAt": "2026-08-12T10:05:00Z",
+      "timeSource": "DEVICE_SYNCED",
+      "recordedAt": "2026-08-12T10:05:04Z",
+      "actorId": "EMP-009",
+      "evidenceRefs": [
+        "EV-SCAN-0102"
+      ],
+      "supersedesEventId": null,
+      "payload": {
+        "componentType": "BEARING",
+        "slot": "NDE",
+        "part": "BR-6205",
+        "lot": "BR-204",
+        "identityGranularity": "LOT"
+      }
+    },
+    {
+      "eventId": "C06-E004",
+      "eventType": "WORK_ORDER_CLOSED",
+      "schemaVersion": 1,
+      "sourceId": "MES",
+      "sourceSeq": 2,
+      "motorSerial": "M-042",
+      "workOrderId": "MO-042",
+      "recallId": null,
+      "occurredAt": "2026-08-12T11:00:00Z",
+      "timeSource": "DEVICE_SYNCED",
+      "recordedAt": "2026-08-12T11:00:04Z",
+      "actorId": "SYS-MES",
+      "evidenceRefs": [],
+      "supersedesEventId": null,
+      "payload": {
+        "disposition": "COMPLETED"
+      }
+    },
+    {
+      "eventId": "C06-E005",
+      "eventType": "WORK_ORDER_OPENED",
+      "schemaVersion": 1,
+      "sourceId": "MES",
+      "sourceSeq": 3,
+      "motorSerial": "M-042",
+      "workOrderId": "RW-192",
+      "recallId": null,
+      "occurredAt": "2026-09-10T08:45:00Z",
+      "timeSource": "DEVICE_SYNCED",
+      "recordedAt": "2026-09-10T08:45:04Z",
+      "actorId": "SYS-MES",
+      "evidenceRefs": [],
+      "supersedesEventId": null,
+      "payload": {
+        "orderType": "REWORK",
+        "reason": "NCR-0771 bearing noise",
+        "expectedChanges": [
+          {
+            "slot": "DE",
+            "action": "REPLACE"
+          }
+        ]
+      }
+    },
+    {
+      "eventId": "C06-E006",
+      "eventType": "COMPONENT_REMOVED",
+      "schemaVersion": 1,
+      "sourceId": "REWORK-03",
+      "sourceSeq": 1,
+      "motorSerial": "M-042",
+      "workOrderId": "RW-192",
+      "recallId": null,
+      "occurredAt": "2026-09-10T10:00:00Z",
+      "timeSource": "DEVICE_SYNCED",
+      "recordedAt": "2026-09-10T10:00:04Z",
+      "actorId": "EMP-017",
+      "evidenceRefs": [
+        "EV-SCAN-0201"
+      ],
+      "supersedesEventId": null,
+      "payload": {
+        "componentType": "BEARING",
+        "slot": "DE",
+        "endsInstallEventId": "C06-E002",
+        "observedPart": "BR-6205",
+        "observedLot": "BR-204",
+        "identityGranularity": "LOT"
+      }
+    },
+    {
+      "eventId": "C06-E007",
+      "eventType": "COMPONENT_INSTALLED",
+      "schemaVersion": 1,
+      "sourceId": "REWORK-03",
+      "sourceSeq": 2,
+      "motorSerial": "M-042",
+      "workOrderId": "RW-192",
+      "recallId": null,
+      "occurredAt": "2026-09-10T11:00:00Z",
+      "timeSource": "DEVICE_SYNCED",
+      "recordedAt": "2026-09-10T11:00:04Z",
+      "actorId": "EMP-017",
+      "evidenceRefs": [
+        "EV-SCAN-0202"
+      ],
+      "supersedesEventId": null,
+      "payload": {
+        "componentType": "BEARING",
+        "slot": "DE",
+        "part": "BR-6205",
+        "lot": "BR-310",
+        "identityGranularity": "LOT"
+      }
+    },
+    {
+      "eventId": "C06-E008",
+      "eventType": "WORK_ORDER_CLOSED",
+      "schemaVersion": 1,
+      "sourceId": "MES",
+      "sourceSeq": 4,
+      "motorSerial": "M-042",
+      "workOrderId": "RW-192",
+      "recallId": null,
+      "occurredAt": "2026-09-10T11:15:00Z",
+      "timeSource": "DEVICE_SYNCED",
+      "recordedAt": "2026-09-10T11:15:04Z",
+      "actorId": "SYS-MES",
+      "evidenceRefs": [],
+      "supersedesEventId": null,
+      "payload": {
+        "disposition": "COMPLETED"
+      }
+    }
+  ],
+  "groundTruth": {
+    "DE": "BR-204",
+    "NDE": "BR-310",
+    "trueP1Finding": "AFFECTED",
+    "knownLimitation": "LOT_LEVEL_SLOT_AMBIGUITY"
+  }
+}

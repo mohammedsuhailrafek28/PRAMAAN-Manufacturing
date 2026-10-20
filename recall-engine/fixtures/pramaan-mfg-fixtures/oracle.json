@@ -1,0 +1,980 @@
+{
+  "oracleVersion": 1,
+  "cases": [
+    {
+      "caseId": "case-01",
+      "evaluations": [
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 3
+          },
+          "decisionId": "D-case-01-P1",
+          "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+          "operationalAction": "RELEASE_ELIGIBLE",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "REPLACED_WITH_UNAFFECTED_LOT",
+            "IRRELEVANT_SLOT_GAP"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CLEAN",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310"
+            },
+            "NDE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "NOT_IN_POLICY_SCOPE",
+              "currentLotPerRecords": "BR-150",
+              "gaps": [
+                {
+                  "kind": "UNRESOLVED_EXCEPTION",
+                  "eventId": "C01-E007",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 3
+          },
+          "decisionId": "D-case-01-P2",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_MISSING",
+            "IRRELEVANT_SLOT_GAP"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CLEAN",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310"
+            },
+            "NDE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "NOT_IN_POLICY_SCOPE",
+              "currentLotPerRecords": "BR-150",
+              "gaps": [
+                {
+                  "kind": "UNRESOLVED_EXCEPTION",
+                  "eventId": "C01-E007",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "caseId": "case-02",
+      "evaluations": [
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 2,
+            "REWORK-03": 2
+          },
+          "decisionId": "D-case-02-P1",
+          "evidenceFinding": "UNRESOLVED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": true,
+          "reasonCodes": [
+            "NO_TRUSTED_BASELINE",
+            "CURRENT_STATE_UNVERIFIED"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "INSUFFICIENT_EVIDENCE",
+              "baseline": "UNKNOWN",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310"
+            }
+          },
+          "notes": "Decision 2 (strict): removal + install claims do not establish current DE contents without a trusted starting state. A SLOT_STATE_VERIFIED event could support P1 exclusion."
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 2,
+            "REWORK-03": 2
+          },
+          "decisionId": "D-case-02-P2",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_MISSING"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "INSUFFICIENT_EVIDENCE",
+              "baseline": "UNKNOWN",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310"
+            }
+          },
+          "notes": "Exposure evidence is the removal scan's observedLot, subject to that scan's authenticity."
+        }
+      ]
+    },
+    {
+      "caseId": "case-03",
+      "evaluations": [
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 1
+          },
+          "decisionId": "D-case-03-P1",
+          "evidenceFinding": "UNRESOLVED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": true,
+          "reasonCodes": [
+            "DOUBLE_OCCUPANCY",
+            "CURRENT_STATE_UNVERIFIED"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CONFLICT",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "conflicts": [
+                {
+                  "kind": "DOUBLE_OCCUPANCY",
+                  "occupiedBy": "C03-E002"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 1
+          },
+          "decisionId": "D-case-03-P2",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_MISSING"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CONFLICT",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "conflicts": [
+                {
+                  "kind": "DOUBLE_OCCUPANCY",
+                  "occupiedBy": "C03-E002"
+                }
+              ]
+            }
+          },
+          "flags": [
+            "SLOT_RECORD_CONFLICT"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "case-04",
+      "evaluations": [
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 6,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "QA-02": 1,
+            "INSP-01": 1
+          },
+          "decisionId": "D-case-04-P1",
+          "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+          "operationalAction": "RELEASE_ELIGIBLE",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "REPLACED_WITH_UNAFFECTED_LOT",
+            "GAP_BOUNDED_BY_VERIFICATION",
+            "IRRELEVANT_SLOT_GAP"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CLEAN",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "BOUNDED",
+                  "boundedByEventId": "C04-E008"
+                }
+              ]
+            },
+            "NDE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "NOT_IN_POLICY_SCOPE",
+              "currentLotPerRecords": "BR-150",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 6,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "QA-02": 1,
+            "INSP-01": 1
+          },
+          "decisionId": "D-case-04-P2",
+          "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+          "operationalAction": "RELEASE_ELIGIBLE",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_PASSED",
+            "EXPOSURE_REMEDIATED",
+            "GAP_BOUNDED_BY_VERIFICATION",
+            "IRRELEVANT_SLOT_GAP"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CLEAN",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "BOUNDED",
+                  "boundedByEventId": "C04-E008"
+                }
+              ]
+            },
+            "NDE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "NOT_IN_POLICY_SCOPE",
+              "currentLotPerRecords": "BR-150",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            }
+          },
+          "notes": "Requires inspection C04-E011: protocol RC-009-DMG-01, after recall announcement, qualified inspector, PASS."
+        }
+      ]
+    },
+    {
+      "caseId": "case-04b",
+      "evaluations": [
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2
+          },
+          "decisionId": "D-case-04b-P1",
+          "evidenceFinding": "UNRESOLVED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": true,
+          "reasonCodes": [
+            "MATERIAL_CAPTURE_GAP"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            },
+            "NDE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "NOT_IN_POLICY_SCOPE",
+              "currentLotPerRecords": "BR-150",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2
+          },
+          "decisionId": "D-case-04b-P2",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_MISSING",
+            "MATERIAL_CAPTURE_GAP"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            },
+            "NDE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "NOT_IN_POLICY_SCOPE",
+              "currentLotPerRecords": "BR-150",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            }
+          },
+          "notes": "Historical BR-204 exposure is established by the baseline; the gap does not erase it."
+        }
+      ]
+    },
+    {
+      "caseId": "case-04c",
+      "evaluations": [
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 6,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "INSP-01": 1
+          },
+          "decisionId": "D-case-04c-P1",
+          "evidenceFinding": "UNRESOLVED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": true,
+          "reasonCodes": [
+            "MATERIAL_CAPTURE_GAP"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            },
+            "NDE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "NOT_IN_POLICY_SCOPE",
+              "currentLotPerRecords": "BR-150",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 6,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "INSP-01": 1
+          },
+          "decisionId": "D-case-04c-P2",
+          "evidenceFinding": "UNRESOLVED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": true,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_PASSED",
+            "REMEDIATION_COMPLETENESS_UNCERTAIN",
+            "MATERIAL_CAPTURE_GAP"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            },
+            "NDE": {
+              "reconciliation": "CAPTURE_GAP",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "NOT_IN_POLICY_SCOPE",
+              "currentLotPerRecords": "BR-150",
+              "gaps": [
+                {
+                  "kind": "SOURCE_OUTAGE",
+                  "sourceId": "REWORK-03",
+                  "from": "2026-09-10T10:15:00Z",
+                  "to": "2026-09-10T10:45:00Z",
+                  "materiality": "MATERIAL"
+                }
+              ]
+            }
+          },
+          "notes": "Damage risk is addressed, but the unbounded gap leaves the component-replacement half of remediation uncertain."
+        }
+      ]
+    },
+    {
+      "caseId": "case-05",
+      "evaluations": [
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2
+          },
+          "decisionId": "D-case-05-P1-v1",
+          "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+          "operationalAction": "RELEASE_ELIGIBLE",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "REPLACED_WITH_UNAFFECTED_LOT"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CLEAN",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310"
+            }
+          }
+        },
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "QUALITY-PORTAL": 1
+          },
+          "decisionId": "D-case-05-P1-v2",
+          "evidenceFinding": "UNRESOLVED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": true,
+          "reasonCodes": [
+            "LATE_CLAIM_RISK_INCREASING",
+            "PRIOR_EXCLUSION_WITHDRAWN"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CONFLICT",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-207",
+              "conflicts": [
+                {
+                  "kind": "LATE_CORRECTION",
+                  "supersededEventId": "C05-E007",
+                  "correctionEventId": "C05-E009"
+                }
+              ]
+            }
+          },
+          "supersedesDecisionId": "D-case-05-P1-v1",
+          "triggerEventId": "C05-E009",
+          "notificationObligation": {
+            "required": true,
+            "reason": "PRIOR_EXCLUSION_WITHDRAWN",
+            "appliesIfDecisionCommunicated": "D-case-05-P1-v1"
+          },
+          "notes": "Decision 3: risk-increasing late evidence acts immediately (hold) but is not treated as confirmed exposure until reviewed or corroborated."
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2
+          },
+          "decisionId": "D-case-05-P2-v1",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_MISSING"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CLEAN",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310"
+            }
+          }
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "QUALITY-PORTAL": 1
+          },
+          "decisionId": "D-case-05-P2-v2",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_MISSING",
+            "LATE_CLAIM_RISK_INCREASING"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CONFLICT",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-207",
+              "conflicts": [
+                {
+                  "kind": "LATE_CORRECTION",
+                  "supersededEventId": "C05-E007",
+                  "correctionEventId": "C05-E009"
+                }
+              ]
+            }
+          },
+          "supersedesDecisionId": "D-case-05-P2-v1",
+          "triggerEventId": "C05-E009",
+          "notes": "Finding unchanged; reasons updated so the late claim stays visible."
+        }
+      ]
+    },
+    {
+      "caseId": "case-05b",
+      "evaluations": [
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2
+          },
+          "decisionId": "D-case-05b-P1-v1",
+          "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+          "operationalAction": "RELEASE_ELIGIBLE",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "REPLACED_WITH_UNAFFECTED_LOT"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CLEAN",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310"
+            }
+          }
+        },
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "QUALITY-PORTAL": 1
+          },
+          "decisionId": "D-case-05b-P1-v2",
+          "evidenceFinding": "UNRESOLVED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": true,
+          "reasonCodes": [
+            "LATE_CLAIM_RISK_INCREASING",
+            "PRIOR_EXCLUSION_WITHDRAWN"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CONFLICT",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-207",
+              "conflicts": [
+                {
+                  "kind": "LATE_CORRECTION",
+                  "supersededEventId": "C05B-E007",
+                  "correctionEventId": "C05B-E009"
+                }
+              ]
+            }
+          },
+          "supersedesDecisionId": "D-case-05b-P1-v1",
+          "triggerEventId": "C05B-E009",
+          "notificationObligation": {
+            "required": true,
+            "reason": "PRIOR_EXCLUSION_WITHDRAWN",
+            "appliesIfDecisionCommunicated": "D-case-05b-P1-v1"
+          },
+          "notes": "Decision 3: risk-increasing late evidence acts immediately (hold) but is not treated as confirmed exposure until reviewed or corroborated."
+        },
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "QUALITY-PORTAL": 1,
+            "QA-02": 1
+          },
+          "decisionId": "D-case-05b-P1-v3",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "VERIFIED_AFFECTED_LOT_PRESENT",
+            "CORROBORATED_BY_VERIFICATION"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CONFLICT",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-207",
+              "conflicts": [
+                {
+                  "kind": "LATE_CORRECTION",
+                  "supersededEventId": "C05B-E007",
+                  "correctionEventId": "C05B-E009",
+                  "corroboratedByEventId": "C05B-E010"
+                }
+              ]
+            }
+          },
+          "supersedesDecisionId": "D-case-05b-P1-v2",
+          "triggerEventId": "C05B-E010"
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2
+          },
+          "decisionId": "D-case-05b-P2-v1",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_MISSING"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CLEAN",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310"
+            }
+          }
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "QUALITY-PORTAL": 1
+          },
+          "decisionId": "D-case-05b-P2-v2",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_MISSING",
+            "LATE_CLAIM_RISK_INCREASING"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CONFLICT",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-207",
+              "conflicts": [
+                {
+                  "kind": "LATE_CORRECTION",
+                  "supersededEventId": "C05B-E007",
+                  "correctionEventId": "C05B-E009"
+                }
+              ]
+            }
+          },
+          "supersedesDecisionId": "D-case-05b-P2-v1",
+          "triggerEventId": "C05B-E009",
+          "notes": "Finding unchanged; reasons updated so the late claim stays visible."
+        }
+      ]
+    },
+    {
+      "caseId": "case-06",
+      "evaluations": [
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2
+          },
+          "decisionId": "D-case-06-P1",
+          "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+          "operationalAction": "RELEASE_ELIGIBLE",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "REPLACED_WITH_UNAFFECTED_LOT"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CLEAN",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310"
+            }
+          },
+          "flags": [
+            "KNOWN_LIMITATION_LOT_LEVEL_SLOT_AMBIGUITY"
+          ],
+          "notes": "Expected SYSTEM output, which is wrong against ground truth. This case documents an assurance limit; it must not be 'fixed' by tuning the engine to pass it."
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2
+          },
+          "decisionId": "D-case-06-P2",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_MISSING"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CLEAN",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "caseId": "case-06b",
+      "evaluations": [
+        {
+          "policyId": "RC-009/P1",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "QA-02": 1
+          },
+          "decisionId": "D-case-06b-P1",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "VERIFIED_AFFECTED_LOT_PRESENT"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CONFLICT",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310",
+              "conflicts": [
+                {
+                  "kind": "VERIFIED_STATE_MISMATCH",
+                  "verificationEventId": "C06B-E008",
+                  "recordedLot": "BR-310",
+                  "observedLot": "BR-204"
+                }
+              ]
+            }
+          },
+          "flags": [
+            "SLOT_RECORD_CONFLICT"
+          ]
+        },
+        {
+          "policyId": "RC-009/P2",
+          "watermark": {
+            "MES": 4,
+            "ASSY-01": 2,
+            "REWORK-03": 2,
+            "QA-02": 1
+          },
+          "decisionId": "D-case-06b-P2",
+          "evidenceFinding": "AFFECTED",
+          "operationalAction": "RECALL_HOLD",
+          "reviewRequired": false,
+          "reasonCodes": [
+            "HISTORICAL_EXPOSURE_CONFIRMED",
+            "DAMAGE_INSPECTION_MISSING"
+          ],
+          "slots": {
+            "DE": {
+              "reconciliation": "CONFLICT",
+              "baseline": "AS_BUILT_VALIDATED",
+              "identityGranularity": "LOT",
+              "policyRelevance": "RELEVANT",
+              "currentLotPerRecords": "BR-310",
+              "conflicts": [
+                {
+                  "kind": "VERIFIED_STATE_MISMATCH",
+                  "verificationEventId": "C06B-E008",
+                  "recordedLot": "BR-310",
+                  "observedLot": "BR-204"
+                }
+              ]
+            }
+          },
+          "flags": [
+            "SLOT_RECORD_CONFLICT"
+          ]
+        }
+      ]
+    }
+  ]
+}
