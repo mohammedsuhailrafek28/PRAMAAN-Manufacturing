@@ -40,6 +40,8 @@ experiments/foundation/    original isolated interoperability experiments
 docs/                      source attribution, evaluation, reports and screenshots
 ```
 
+Safety remediation after the independent audit (explicit recall scope, durable notification obligations, decision-history integrity, freshness, accessibility): [Phase 3 remediation](docs/PHASE3_REMEDIATION.md).
+
 See [Phase 3 delivery and walkthrough](docs/PHASE3_UNIFIED_APPLICATION.md), [source provenance](docs/PHASE3_SOURCE_PROVENANCE.md), [foundation evaluation](docs/OPEN_SOURCE_FOUNDATION_EVALUATION.md), [engine contract](recall-engine/README.md), and [ledger contract](integration/README.md).
 
 ## Reproduce verification
@@ -54,4 +56,4 @@ git -C ../gs1-epcis checkout 6f71468231838e424bb5dfa836e006e8dc69615c
 .venv/Scripts/python.exe -m application.measure
 ```
 
-The complete GS1 pin and hash evidence are in the foundation evaluation. The GS1 checkout stays external and is not distributed here. `application.verify` writes fresh results to `docs/phase3-validation`, preserving original Phase 2 reports. It runs engine, foundation, integration, application, exporter, UI, browser and production-build gates, and validates newly captured documents against the external schema. The benchmark reports are synthetic local measurements, not production safety or performance claims.
+The complete GS1 pin and hash evidence are in the foundation evaluation. The GS1 checkout stays external and is not distributed here. `application.verify` writes fresh results to `docs/phase3-validation` (override with `--output-dir`); source identity of `recall-engine` and `experiments/foundation` is checked by pinned git tree id, so the command works from a plain clone. It, preserving original Phase 2 reports. It runs engine, foundation, integration, application, exporter, UI, browser and production-build gates, and validates newly captured documents against the external schema. The benchmark reports are synthetic local measurements, not production safety or performance claims.
