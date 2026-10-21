@@ -1,0 +1,487 @@
+{
+  "reviewDate": "2026-10-21",
+  "mavenCentral": [
+    {
+      "artifact": "io.openepcis:openepcis-bom",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-bom/maven-metadata.xml",
+      "release": "0.9.3",
+      "versions": [
+        "0.9.0",
+        "0.9.2",
+        "0.9.3"
+      ],
+      "metadataSha256": "9780a1cd66fca42305c31714036dec13e4d79e60b127da4459c7686ad0d96118",
+      "pomUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-bom/0.9.3/openepcis-bom-0.9.3.pom",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact": "io.openepcis:openepcis-model-core",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-model-core/maven-metadata.xml",
+      "release": "0.9.3",
+      "versions": [
+        "0.9.1",
+        "0.9.2",
+        "0.9.3"
+      ],
+      "metadataSha256": "973773ae37fd0c629ba14a9f6140ed94f525893b851bdfa844370552e4ab7fba",
+      "pomUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-model-core/0.9.3/openepcis-model-core-0.9.3.pom",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "dependencies": [
+        {
+          "groupId": "org.projectlombok",
+          "artifactId": "lombok",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-core",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-annotations",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "jakarta.xml.bind",
+          "artifactId": "jakarta.xml.bind-api",
+          "version": null,
+          "scope": "provided"
+        }
+      ],
+      "jarInspection": {
+        "url": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-model-core/0.9.3/openepcis-model-core-0.9.3.jar",
+        "sha256": "a9c7e487bd53644db0fa8bd55d54501073bcad46dc6d8703f09dfa1180862728",
+        "classMajorVersions": [
+          65
+        ],
+        "javaVersions": [
+          21
+        ]
+      }
+    },
+    {
+      "artifact": "io.openepcis:openepcis-model-epcis",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-model-epcis/maven-metadata.xml",
+      "release": "0.9.3",
+      "versions": [
+        "0.9.2",
+        "0.9.3"
+      ],
+      "metadataSha256": "dcbbb38b62a0e90d71017597e1dbe297d02bbd8b7489a2681b725cd9c578660e",
+      "pomUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-model-epcis/0.9.3/openepcis-model-epcis-0.9.3.pom",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "dependencies": [
+        {
+          "groupId": "io.openepcis",
+          "artifactId": "openepcis-model-rest",
+          "version": null,
+          "scope": "compile"
+        },
+        {
+          "groupId": "io.openepcis",
+          "artifactId": "openepcis-model-core",
+          "version": null,
+          "scope": "compile"
+        },
+        {
+          "groupId": "io.openepcis",
+          "artifactId": "openepcis-digital-link-converter-core",
+          "version": null,
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.projectlombok",
+          "artifactId": "lombok",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "org.apache.commons",
+          "artifactId": "commons-collections4",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "jakarta.xml.bind",
+          "artifactId": "jakarta.xml.bind-api",
+          "version": null,
+          "scope": "provided"
+        },
+        {
+          "groupId": "org.eclipse.persistence",
+          "artifactId": "org.eclipse.persistence.core",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "org.slf4j",
+          "artifactId": "slf4j-api",
+          "version": null,
+          "scope": "provided"
+        },
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-annotations",
+          "version": null,
+          "scope": "provided"
+        },
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-databind",
+          "version": null,
+          "scope": "provided"
+        },
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-core",
+          "version": null,
+          "scope": "provided"
+        },
+        {
+          "groupId": "io.quarkus",
+          "artifactId": "quarkus-rest",
+          "version": null,
+          "scope": "provided"
+        }
+      ],
+      "jarInspection": {
+        "url": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-model-epcis/0.9.3/openepcis-model-epcis-0.9.3.jar",
+        "sha256": "ce831be61939b9b82f6e93cc15f2d85951206f6ae861e85a7fb0dab36dc5bec8",
+        "classMajorVersions": [
+          65
+        ],
+        "javaVersions": [
+          21
+        ]
+      }
+    },
+    {
+      "artifact": "io.openepcis:openepcis-event-hash-generator",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-event-hash-generator/maven-metadata.xml",
+      "release": "0.9.3",
+      "versions": [
+        "0.9.0",
+        "0.9.2",
+        "0.9.3"
+      ],
+      "metadataSha256": "d1f016f606a321c39b6468b869b5735ff3f0edd6b8672193502d605364c8d575",
+      "pomUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-event-hash-generator/0.9.3/openepcis-event-hash-generator-0.9.3.pom",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "dependencies": [
+        {
+          "groupId": "io.openepcis",
+          "artifactId": "openepcis-digital-link-converter-core",
+          "version": "${project.parent.version}",
+          "scope": null
+        },
+        {
+          "groupId": "io.smallrye.reactive",
+          "artifactId": "mutiny",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "org.apache.commons",
+          "artifactId": "commons-collections4",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-databind",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-core",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "io.quarkus",
+          "artifactId": "quarkus-smallrye-context-propagation",
+          "version": null,
+          "scope": "provided"
+        },
+        {
+          "groupId": "org.slf4j",
+          "artifactId": "slf4j-simple",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "org.slf4j",
+          "artifactId": "slf4j-api",
+          "version": null,
+          "scope": "compile"
+        },
+        {
+          "groupId": "io.openepcis",
+          "artifactId": "openepcis-epcis-constants",
+          "version": "${project.parent.version}",
+          "scope": null
+        },
+        {
+          "groupId": "io.openepcis",
+          "artifactId": "openepcis-test-resources",
+          "version": null,
+          "scope": "test"
+        },
+        {
+          "groupId": "org.junit.jupiter",
+          "artifactId": "junit-jupiter",
+          "version": null,
+          "scope": "test"
+        },
+        {
+          "groupId": "commons-io",
+          "artifactId": "commons-io",
+          "version": null,
+          "scope": "test"
+        },
+        {
+          "groupId": "io.openepcis",
+          "artifactId": "openepcis-reactive-event-publisher",
+          "version": "${project.parent.version}",
+          "scope": null
+        },
+        {
+          "groupId": "io.smallrye.reactive",
+          "artifactId": "mutiny-zero-flow-adapters",
+          "version": "1.0.0",
+          "scope": null
+        }
+      ],
+      "jarInspection": {
+        "url": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-event-hash-generator/0.9.3/openepcis-event-hash-generator-0.9.3.jar",
+        "sha256": "17aa27ceee033cde1a52703198ebb2c94037fb074c9dfdd5b0033be868a07a4e",
+        "classMajorVersions": [
+          65
+        ],
+        "javaVersions": [
+          21
+        ]
+      }
+    },
+    {
+      "artifact": "io.openepcis:openepcis-digital-link-converter-core",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-digital-link-converter-core/maven-metadata.xml",
+      "release": "0.9.3",
+      "versions": [
+        "0.9.3"
+      ],
+      "metadataSha256": "d122f3ad76ae65e1def727c253965efa86600585efdebe2ae45a098d5eb1d607",
+      "pomUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-digital-link-converter-core/0.9.3/openepcis-digital-link-converter-core-0.9.3.pom",
+      "licenses": [],
+      "dependencies": [
+        {
+          "groupId": "io.openepcis",
+          "artifactId": "openepcis-epcis-constants",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "io.openepcis",
+          "artifactId": "openepcis-digital-link-validator-core",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "org.projectlombok",
+          "artifactId": "lombok",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "com.fasterxml.jackson.datatype",
+          "artifactId": "jackson-datatype-jsr310",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-databind",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "org.slf4j",
+          "artifactId": "slf4j-api",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "org.junit.jupiter",
+          "artifactId": "junit-jupiter-api",
+          "version": null,
+          "scope": "test"
+        },
+        {
+          "groupId": "org.junit.jupiter",
+          "artifactId": "junit-jupiter-engine",
+          "version": null,
+          "scope": "test"
+        },
+        {
+          "groupId": "org.slf4j",
+          "artifactId": "slf4j-simple",
+          "version": null,
+          "scope": "test"
+        }
+      ]
+    },
+    {
+      "artifact": "io.openepcis:openepcis-reactive-event-publisher",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-reactive-event-publisher/maven-metadata.xml",
+      "release": "0.9.3",
+      "versions": [
+        "0.9.2",
+        "0.9.3"
+      ],
+      "metadataSha256": "a23762ce26332326ca90b34bf0eb109a038007de8425d8a69831cab046435b57",
+      "pomUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-reactive-event-publisher/0.9.3/openepcis-reactive-event-publisher-0.9.3.pom",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "dependencies": [
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-databind",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-core",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "com.fasterxml.jackson.datatype",
+          "artifactId": "jackson-datatype-jsr310",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "io.openepcis",
+          "artifactId": "openepcis-epcis-constants",
+          "version": "${project.version}",
+          "scope": null
+        },
+        {
+          "groupId": "io.smallrye.reactive",
+          "artifactId": "mutiny",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-buffer",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "io.vertx",
+          "artifactId": "vertx-core",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "commons-io",
+          "artifactId": "commons-io",
+          "version": null,
+          "scope": null
+        },
+        {
+          "groupId": "org.junit.jupiter",
+          "artifactId": "junit-jupiter",
+          "version": null,
+          "scope": "test"
+        },
+        {
+          "groupId": "org.reactivestreams",
+          "artifactId": "reactive-streams-tck-flow",
+          "version": "1.0.4",
+          "scope": "test"
+        },
+        {
+          "groupId": "org.testng",
+          "artifactId": "testng",
+          "version": "7.10.2",
+          "scope": "test"
+        },
+        {
+          "groupId": "org.junit.support",
+          "artifactId": "testng-engine",
+          "version": "1.0.5",
+          "scope": "test"
+        },
+        {
+          "groupId": "com.fasterxml.jackson.datatype",
+          "artifactId": "jackson-datatype-jdk8",
+          "version": null,
+          "scope": "test"
+        },
+        {
+          "groupId": "org.slf4j",
+          "artifactId": "slf4j-simple",
+          "version": null,
+          "scope": "test"
+        }
+      ]
+    },
+    {
+      "artifact": "io.openepcis:openepcis-capture-service",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-capture-service/maven-metadata.xml",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "artifact": "io.openepcis:openepcis-capture-kafka-streams",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-capture-kafka-streams/maven-metadata.xml",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "artifact": "io.openepcis:openepcis-repository-opensearch",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-repository-opensearch/maven-metadata.xml",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "artifact": "io.openepcis:openepcis-query",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-query/maven-metadata.xml",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "artifact": "io.openepcis:openepcis-repository-api",
+      "metadataUrl": "https://repo.maven.apache.org/maven2/io/openepcis/openepcis-repository-api/maven-metadata.xml",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "compose": {
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "docker-compose.rest-api-ce.yml",
+      "config",
+      "--quiet"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": "",
+    "servicesStarted": false
+  }
+}

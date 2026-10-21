@@ -1,0 +1,240 @@
+{
+  "dependencyCommand": [
+    "C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/foundation-upstream/apache-maven-3.9.11/bin/mvn.cmd",
+    "-f",
+    "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\foundation-study\\experiments\\foundation\\java-probe\\pom.xml",
+    "-Dmaven.repo.local=C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\foundation-upstream\\m2",
+    "org.apache.maven.plugins:maven-dependency-plugin:3.8.1:build-classpath",
+    "-Dmdep.outputFile=classpath.txt",
+    "-B",
+    "-q"
+  ],
+  "resolution": {
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "runtimeArtifacts": [
+    {
+      "groupId": "io.openepcis",
+      "artifactId": "openepcis-event-hash-generator",
+      "version": "0.9.3",
+      "sha256": "17aa27ceee033cde1a52703198ebb2c94037fb074c9dfdd5b0033be868a07a4e"
+    },
+    {
+      "groupId": "io.openepcis",
+      "artifactId": "openepcis-digital-link-converter-core",
+      "version": "0.9.3",
+      "sha256": "d6c598149577910e39376874954114174afbc0cbd3dd07986dad76a053757240"
+    },
+    {
+      "groupId": "io.openepcis",
+      "artifactId": "openepcis-digital-link-validator-core",
+      "version": "0.9.3",
+      "sha256": "99a586eb073a86c0edbfd72fd82266a8665cbdba05d0892ba76f7439ded75148"
+    },
+    {
+      "groupId": "io.openepcis",
+      "artifactId": "openepcis-digital-link-utils",
+      "version": "0.9.3",
+      "sha256": "9857f44f388ecf2640555fea44a280500d677aa4ff7a540805b5ca7dc8b9ce95"
+    },
+    {
+      "groupId": "jakarta.enterprise",
+      "artifactId": "jakarta.enterprise.cdi-api",
+      "version": "4.1.0",
+      "sha256": "c42c808f17925129a0800f618febe050d966e181a4c7384c8a5e7a0283d68699"
+    },
+    {
+      "groupId": "jakarta.enterprise",
+      "artifactId": "jakarta.enterprise.lang-model",
+      "version": "4.1.0",
+      "sha256": "bb56f571f60d2862b2387d5468fe8f5540f8094727283ed991f89082708095ee"
+    },
+    {
+      "groupId": "jakarta.annotation",
+      "artifactId": "jakarta.annotation-api",
+      "version": "3.0.0",
+      "sha256": "b01f55552284cfb149411e64eabca75e942d26d2e1786b32914250e4330afaa2"
+    },
+    {
+      "groupId": "jakarta.el",
+      "artifactId": "jakarta.el-api",
+      "version": "6.0.0",
+      "sha256": "f33d0becf2d5516730ba5cc99a7b5a2b1f62986bf0a3370249cdff9a2f171507"
+    },
+    {
+      "groupId": "jakarta.interceptor",
+      "artifactId": "jakarta.interceptor-api",
+      "version": "2.2.0",
+      "sha256": "d240d72b4dd38a2e431c804079810010cb97903678fa5f987fb7434878b04398"
+    },
+    {
+      "groupId": "jakarta.inject",
+      "artifactId": "jakarta.inject-api",
+      "version": "2.0.1",
+      "sha256": "f7dc98062fccf14126abb751b64fab12c312566e8cbdc8483598bffcea93af7c"
+    },
+    {
+      "groupId": "net.sf.barcode4j",
+      "artifactId": "barcode4j",
+      "version": "2.1",
+      "sha256": "eb7252cc41a1539bcd018348e9f60e0942872bdaa49c58051e656a6be94969fb"
+    },
+    {
+      "groupId": "avalon-framework",
+      "artifactId": "avalon-framework-impl",
+      "version": "4.2.0",
+      "sha256": "ed42c573cab460ca634b5c64a3b40ed1d67d6ee47fe25f87947370bede6af814"
+    },
+    {
+      "groupId": "commons-cli",
+      "artifactId": "commons-cli",
+      "version": "1.0",
+      "sha256": "43f24850b7b7b7d79c5fa652418518fbdf427e602b1edabe6f11b85fb93eb013"
+    },
+    {
+      "groupId": "commons-logging",
+      "artifactId": "commons-logging",
+      "version": "1.0",
+      "sha256": "45c22f543d2b5d0c20f2cac58b9cc0c8afedc273b6fc77c7545b3ad0b0041459"
+    },
+    {
+      "groupId": "commons-lang",
+      "artifactId": "commons-lang",
+      "version": "1.0",
+      "sha256": "d327c033f798997b9ad85b33242e2e88b49bbb1369cfe23e10b2686bd4cf3218"
+    },
+    {
+      "groupId": "junit",
+      "artifactId": "junit",
+      "version": "3.7",
+      "sha256": "170d31297cd401b6338679f393900421e64d38b542538b549f3f1a0f26bcd848"
+    },
+    {
+      "groupId": "com.fasterxml.jackson.datatype",
+      "artifactId": "jackson-datatype-jsr310",
+      "version": "2.19.2",
+      "sha256": "9709f43e0fa5625633ee66db6c078fb1e8c7ca02092696ba95ea785dbf0fa6a1"
+    },
+    {
+      "groupId": "io.smallrye.reactive",
+      "artifactId": "mutiny",
+      "version": "2.9.5",
+      "sha256": "7e3d1ac6016cfb1526d8e49abf48bb72bf752305e6cd7f5609f9d3f75e04bd90"
+    },
+    {
+      "groupId": "io.smallrye.common",
+      "artifactId": "smallrye-common-annotation",
+      "version": "2.13.8",
+      "sha256": "fe53213df16492127c40b24ff4c347413a506a4408f13bb6146af324175115dc"
+    },
+    {
+      "groupId": "org.jctools",
+      "artifactId": "jctools-core",
+      "version": "4.0.5",
+      "sha256": "d65e5f38bcd0984e26f87187687f1f70dd52740c4d5e046f8d104e01ab5db95f"
+    },
+    {
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-collections4",
+      "version": "4.5.0-M3",
+      "sha256": "2719966979cdc68fadf5e0ec17050084ce46473930d9419ae1b65890dc094349"
+    },
+    {
+      "groupId": "com.fasterxml.jackson.core",
+      "artifactId": "jackson-databind",
+      "version": "2.19.2",
+      "sha256": "0a1bd4e9b0d670e632d40ee8c625ad376233502f03c2f5889baea95d025b47a7"
+    },
+    {
+      "groupId": "com.fasterxml.jackson.core",
+      "artifactId": "jackson-annotations",
+      "version": "2.19.2",
+      "sha256": "e516743a316dcf83c572ffc9cb6e8c5e8c134880c8c5155b02f7b34e9c5dc3cf"
+    },
+    {
+      "groupId": "com.fasterxml.jackson.core",
+      "artifactId": "jackson-core",
+      "version": "2.19.2",
+      "sha256": "aa77eaf29293a868c47372194f7c5287d77d9370b04ea25d3fffc1e4904b5880"
+    },
+    {
+      "groupId": "org.slf4j",
+      "artifactId": "slf4j-api",
+      "version": "2.0.13",
+      "sha256": "e7c2a48e8515ba1f49fa637d57b4e2f590b3f5bd97407ac699c3aa5efb1204a9"
+    },
+    {
+      "groupId": "io.openepcis",
+      "artifactId": "openepcis-epcis-constants",
+      "version": "0.9.3",
+      "sha256": "b51bfbdca65b9c811f5e7e49b497486d3f36e1cf6dbc77a2d20b6cee20555faa"
+    },
+    {
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-lang3",
+      "version": "3.18.0",
+      "sha256": "4eeeae8d20c078abb64b015ec158add383ac581571cddc45c68f0c9ae0230720"
+    },
+    {
+      "groupId": "io.openepcis",
+      "artifactId": "openepcis-reactive-event-publisher",
+      "version": "0.9.3",
+      "sha256": "cc42e72dfcb9eff1e0f2447ce065b592e0f2c0eb4894ecab3170c334092ea2e2"
+    },
+    {
+      "groupId": "io.smallrye.reactive",
+      "artifactId": "mutiny-zero-flow-adapters",
+      "version": "1.0.0",
+      "sha256": "b5c4ee0219a9c826291846246513760bd9001d4929266f1544f1a84946666a52"
+    },
+    {
+      "groupId": "org.reactivestreams",
+      "artifactId": "reactive-streams",
+      "version": "1.0.4",
+      "sha256": "f75ca597789b3dac58f61857b9ac2e1034a68fa672db35055a8fb4509e325f28"
+    },
+    {
+      "groupId": "io.openepcis",
+      "artifactId": "openepcis-model-epcis",
+      "version": "0.9.3",
+      "sha256": "ce831be61939b9b82f6e93cc15f2d85951206f6ae861e85a7fb0dab36dc5bec8"
+    },
+    {
+      "groupId": "io.openepcis",
+      "artifactId": "openepcis-model-rest",
+      "version": "0.9.3",
+      "sha256": "c80f48e1446583e8627faf12e4b651ea67c7c63f7283f50419744a8d979edc1f"
+    },
+    {
+      "groupId": "io.openepcis",
+      "artifactId": "openepcis-model-core",
+      "version": "0.9.3",
+      "sha256": "a9c7e487bd53644db0fa8bd55d54501073bcad46dc6d8703f09dfa1180862728"
+    },
+    {
+      "groupId": "org.projectlombok",
+      "artifactId": "lombok",
+      "version": "1.18.42",
+      "sha256": "3488a4e9994c26596baaceebee58cad36a50e3bdaec5be72b5834d3c3b560306"
+    },
+    {
+      "groupId": "org.eclipse.persistence",
+      "artifactId": "org.eclipse.persistence.core",
+      "version": "4.0.7",
+      "sha256": "930b2997270852ce608dcbea20d745e010a57e3cf012761841d1d48a628e12e1"
+    },
+    {
+      "groupId": "org.eclipse.persistence",
+      "artifactId": "org.eclipse.persistence.asm",
+      "version": "9.8.0",
+      "sha256": "abf81426b7de980f0c29156fdb9d5e93a6be4be2391cdc43d6dc2b0c5b6f6445"
+    }
+  ],
+  "hashProbe": {
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "SLF4J(W): No SLF4J providers were found.\nSLF4J(W): Defaulting to no-operation (NOP) logger implementation\nSLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.\nException in thread \"main\" java.lang.NoClassDefFoundError: org/apache/commons/io/input/ReaderInputStream\n\tat io.openepcis.eventhash.EventHashGenerator.fromJson(EventHashGenerator.java:174)\n\tat io.openepcis.eventhash.EventHashGenerator.fromJson(EventHashGenerator.java:189)\n\tat Probe.main(Probe.java:10)\nCaused by: java.lang.ClassNotFoundException: org.apache.commons.io.input.ReaderInputStream\n\tat java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)\n\tat java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)\n\tat io.openepcis.eventhash.EventHashGenerator.fromJson(EventHashGenerator.java:174)\n\tat io.openepcis.eventhash.EventHashGenerator.fromJson(EventHashGenerator.java:189)\n\tat Probe.main(Probe.java:10)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat jdk.compiler/com.sun.tools.javac.launcher.Main.execute(Main.java:484)\n\tat jdk.compiler/com.sun.tools.javac.launcher.Main.run(Main.java:208)\n\tat jdk.compiler/com.sun.tools.javac.launcher.Main.main(Main.java:135)\n"
+  }
+}
