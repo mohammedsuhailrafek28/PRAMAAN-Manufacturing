@@ -1,0 +1,7 @@
+# Research-only JSON-LD/standards conformance. Not production dependencies.
+# frozendict declares LGPL v3; do not bundle this closure without rights review.
+-r requirements.lock
+PyLD==2.0.4
+cachetools==7.2.4
+frozendict==2.4.7
+lxml==6.1.3
