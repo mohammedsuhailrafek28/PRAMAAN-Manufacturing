@@ -32,7 +32,7 @@ class ApplicationTests(unittest.TestCase):
     def test_full_manufacturing_flow_and_reopen(self):
         m = "MTR-TEST-001"
         self.app.create_unit(m)
-        self.app.announce("BR-204")
+        self.app.announce("BR-204", ["DE"])
         self.assertEqual(self.current(m)["operationalAction"], "RECALL_HOLD")
         self.app.assemble(m, "BR-204", "BR-310")
         self.app.ship(m)
@@ -63,7 +63,8 @@ class ApplicationTests(unittest.TestCase):
         self.app.seed_demo()
         initial = self.app.snapshot()
         self.app.seed_demo()
-        self.assertEqual(initial, self.app.snapshot())
+        again = self.app.snapshot()
+        self.assertEqual({k: v for k, v in initial.items() if k != "generatedAt"}, {k: v for k, v in again.items() if k != "generatedAt"})
         expected = {"MTR-26001": "AFFECTED", "MTR-26002": "UNRESOLVED", "MTR-26003": "EXCLUDED_WITH_EVIDENCE", "MTR-26004": "UNRESOLVED", "MTR-26005": "UNRESOLVED"}
         for m, finding in expected.items():
             self.assertEqual(self.current(m)["evidenceFinding"], finding)
@@ -79,7 +80,7 @@ class ApplicationTests(unittest.TestCase):
         self.assertIsNone(snap["units"][0]["shipment"])
         with self.assertRaises(ValidationFailure):
             self.app.ship("MTR-UNKNOWN")
-        self.app.announce("BR-204")
+        self.app.announce("BR-204", ["DE"])
         d = self.current("MTR-UNKNOWN")
         self.assertEqual(d["operationalAction"], "RECALL_HOLD")
         self.assertNotEqual(d["evidenceFinding"], "EXCLUDED_WITH_EVIDENCE")
@@ -100,9 +101,9 @@ class ApplicationTests(unittest.TestCase):
     def test_append_only_material_and_policy(self):
         self.app.create_unit("MTR-IMMUTABLE")
         self.app.assemble("MTR-IMMUTABLE", "BR-310", "BR-312")
-        self.app.announce("BR-204")
+        self.app.announce("BR-204", ["DE"])
         with self.assertRaises(ValidationFailure):
-            self.app.announce("DIFFERENT-SCOPE")
+            self.app.announce("DIFFERENT-SCOPE", ["DE"])
         self.assertEqual(self.app.policy()["affectedLots"], ["BR-204"])
         import sqlite3
         for sql in ("UPDATE events SET native='{}'", "DELETE FROM recall_announcements"):

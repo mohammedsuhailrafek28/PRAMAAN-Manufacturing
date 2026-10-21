@@ -200,6 +200,13 @@ export interface RecallSnapshot {
   components: Component[];
   lots: Lot[];
   lineage?: Array<{ unitId: string; rawMaterialLot: string; supplierName: string; lot: string; serial?: string; materialEventId: string; manufacturingEventId: string }>;
-  notifications?: Array<NotificationObligation & { unitId: string; decisionId: string; deliveryStatus: string }>;
+  notifications?: Array<NotificationObligation & {
+    unitId: string; decisionId: string; deliveryStatus: string;
+    obligationId?: string; status?: "OPEN" | "RESOLVED";
+    resolution?: { actor: string; resolution: string; note: string; at: string; deliveryAcknowledged: false } | null;
+  }>;
   recallAnnounced?: boolean;
+  /** Server clock when this snapshot was built; with ledgerHead it dates the data. Absent on fixtures. */
+  generatedAt?: string;
+  ledgerHead?: { chainHead: string; links: number };
 }

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { StaleBanner, StaleContext, type StaleInfo } from "./components/Freshness";
 import { ProvenanceBar } from "./components/ProvenanceBar";
 import type { RecallDataSource } from "./data/RecallDataSource";
 import type { RecallSnapshot } from "./domain/types";
@@ -7,6 +8,7 @@ import { Case06Comparison } from "./views/Case06Comparison";
 import { FleetBoard } from "./views/FleetBoard";
 import { LotInvestigationView } from "./views/LotInvestigation";
 import { UnitDetail, type UnitTab } from "./views/UnitDetail";
+import { NotificationObligations } from "./views/NotificationObligations";
 import { ManufacturingWorkbench } from "./views/ManufacturingWorkbench";
 
 type State =
@@ -33,8 +35,12 @@ export function parseRoute(hash: string): Route {
   return { page: "fleet" };
 }
 
-export function App({ source }: { source: RecallDataSource }) {
+export const HEARTBEAT_MS = 5000;
+
+export function App({ source, heartbeatMs = HEARTBEAT_MS }: { source: RecallDataSource; heartbeatMs?: number }) {
   const [state, setState] = useState<State>({ status: "loading" });
+  const [stale, setStale] = useState<StaleInfo | null>(null);
+  const verifiedAt = useRef<string | null>(null);
   const [policyId, setPolicyId] = useState("RC-009/P1");
   const [hash, setHash] = useState(() => window.location.hash);
   const [busy, setBusy] = useState(false);
@@ -50,7 +56,7 @@ export function App({ source }: { source: RecallDataSource }) {
     const ctl = new AbortController();
     source
       .load(ctl.signal)
-      .then((snap) => { setPolicyId(snap.policies[0]?.policyId ?? ""); setState({ status: "ready", snap }); })
+      .then((snap) => { setPolicyId(snap.policies[0]?.policyId ?? ""); setState({ status: "ready", snap }); setStale(null); verifiedAt.current = new Date().toISOString(); })
       .catch((e: unknown) => {
         if (ctl.signal.aborted) return;
         if (e instanceof SnapshotValidationError) setState({ status: "error", message: e.message, issues: e.issues });
@@ -58,6 +64,34 @@ export function App({ source }: { source: RecallDataSource }) {
       });
     return () => ctl.abort();
   }, [source]);
+
+  // Bounded freshness: while a live source is shown, probe it. A failed probe marks everything on screen as
+  // historical immediately; a changed ledger head triggers a reload instead of showing superseded decisions.
+  const snapForBeat = state.status === "ready" ? state.snap : null;
+  useEffect(() => {
+    if (!snapForBeat || !source.heartbeat) return;
+    let alive = true;
+    let reloading = false;
+    const beat = async () => {
+      try {
+        const hb = await source.heartbeat!();
+        if (!alive) return;
+        setStale(null);
+        verifiedAt.current = new Date().toISOString();
+        if (snapForBeat.ledgerHead && hb.ledgerHead.chainHead !== snapForBeat.ledgerHead.chainHead && !reloading) {
+          reloading = true;
+          const fresh = await source.load();
+          if (alive) { setState({ status: "ready", snap: fresh }); setPolicyId((p) => fresh.policies.some((x) => x.policyId === p) ? p : fresh.policies[0]?.policyId ?? ""); }
+        }
+      } catch (e) {
+        if (!alive) return;
+        setStale((cur) => cur ?? { since: new Date().toISOString(), reason: e instanceof Error ? e.message : String(e),
+          lastVerifiedAt: verifiedAt.current, dataGeneratedAt: snapForBeat.generatedAt ?? null });
+      }
+    };
+    const timer = setInterval(() => { void beat(); }, heartbeatMs);
+    return () => { alive = false; clearInterval(timer); };
+  }, [snapForBeat, source, heartbeatMs]);
 
   const route = parseRoute(hash);
   const run = async (path: string, body: Record<string, unknown>) => {
@@ -108,16 +142,17 @@ export function App({ source }: { source: RecallDataSource }) {
           </div>
         )}
         {state.status === "ready" && (
-          <>
+          <StaleContext.Provider value={stale}>
+            {stale && <StaleBanner info={stale} />}
             <ProvenanceBar snap={state.snap} policyId={policyId} onPolicy={setPolicyId} sourceLabel={source.label} />
-            {source.command && <ManufacturingWorkbench snap={state.snap} run={run} busy={busy} />}
+            {source.command && <ManufacturingWorkbench snap={state.snap} run={run} busy={busy || !!stale} />}
             {captureStatus && <p role="status" data-testid="capture-status">{captureStatus}</p>}
-            {state.snap.notifications && state.snap.notifications.length > 0 && <section className="callout" aria-label="Notification obligations"><h2>Notification obligations</h2><p>Conditional obligations from v3. Displaying a decision does not mark it communicated; no notifications are sent by this application.</p><ul>{state.snap.notifications.map(n => <li key={n.decisionId}><a href={`#/unit/${n.unitId}/history`}>{n.unitId}</a>: {n.reason}; if {n.appliesIfDecisionCommunicated} was communicated. Delivery: {n.deliveryStatus}.</li>)}</ul></section>}
+            <NotificationObligations snap={state.snap} run={source.command ? run : undefined} busy={busy || !!stale} />
             {route.page === "fleet" && <FleetBoard snap={state.snap} policyId={policyId} />}
             {route.page === "unit" && <UnitDetail snap={state.snap} unitId={route.unitId} policyId={policyId} tab={route.tab} />}
             {route.page === "lot" && <LotInvestigationView snap={state.snap} policyId={policyId} lotId={route.lotId} />}
             {route.page === "case06" && <Case06Comparison snap={state.snap} policyId={policyId} unitId={route.unitId} />}
-          </>
+          </StaleContext.Provider>
         )}
       </main>
     </>

@@ -10,5 +10,6 @@ if Path(pramaan_recall.__file__).resolve().parent != ENGINE / "pramaan_recall":
     raise RuntimeError("Unexpected recall-engine package")
 
 Config = pramaan_recall.Config
+evaluate = pramaan_recall.evaluate
 evaluate_series = pramaan_recall.evaluate_series
 replay = pramaan_recall.replay

@@ -14,11 +14,13 @@ from .service import ROOT, Manufacturing
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--gs1-checkout", type=Path, required=True)
+    parser.add_argument("--output-dir", type=Path, default=ROOT/"docs"/"phase3-validation",
+                        help="where reports are written (default: docs/phase3-validation)")
     args = parser.parse_args()
     sys.path.insert(0, str(ROOT/"integration"))
     import run_validation as baseline
-    out = ROOT/"docs"/"phase3-validation"
-    out.mkdir(exist_ok=True)
+    out = args.output_dir.resolve()
+    out.mkdir(parents=True, exist_ok=True)
     baseline.REPORTS = out
     gates = baseline.verify_baselines(args.gs1_checkout)
     conformance = baseline.external_conformance(args.gs1_checkout)
@@ -47,7 +49,7 @@ def main():
         return dict(exitCode=0, elapsedSeconds=round(time.perf_counter()-start,3))
     npm="npm.cmd" if os.name=="nt" else "npm"
     checks = {
-        "application": run("application-tests", [sys.executable,"-m","unittest","application.test_application","-v"]),
+        "application": run("application-tests", [sys.executable,"-m","unittest","application.test_application","application.test_remediation","-v"]),
         "exporter": run("exporter-tests", [sys.executable,"-m","unittest","discover","-s","recall-ui/tests","-p","test_*.py","-v"]),
         "snapshot": run("snapshot-check", [sys.executable,"recall-ui/tools/export_snapshot.py","--check"]),
         "ui": run("ui-tests", [npm,"test"], ROOT/"recall-ui"),

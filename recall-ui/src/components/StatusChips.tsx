@@ -1,5 +1,6 @@
 import { ACTION_TEXT, FINDING_TEXT } from "../domain/glossary";
 import type { Decision } from "../domain/types";
+import { useStale } from "./Freshness";
 
 // Evidence finding, operational action and review flag are three separate facts.
 // Each chip carries a glyph AND a text label; color is only reinforcement.
@@ -21,9 +22,10 @@ export function FindingChip({ finding }: { finding: Decision["evidenceFinding"] 
 
 export function ActionChip({ action }: { action: Decision["operationalAction"] }) {
   const t = ACTION_TEXT[action];
+  const stale = useStale();
   return (
-    <span className={`chip action-${action}`} title={t?.explain} data-testid="chip-action">
-      <span className="chip-cap">Operational action</span>
+    <span className={`chip action-${action}${stale ? " is-historical" : ""}`} title={t?.explain} data-testid="chip-action">
+      <span className="chip-cap">{stale ? "Last recorded action · not current" : "Operational action"}</span>
       <span className="chip-body">
         <span aria-hidden="true">{ACTION_GLYPH[action] ?? "•"}</span> {t?.label ?? action}
       </span>

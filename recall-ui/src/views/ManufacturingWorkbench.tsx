@@ -11,6 +11,9 @@ export function ManufacturingWorkbench({ snap, run, busy }: {
   const [lot, setLot] = useState("BR-312");
   const [affected, setAffected] = useState("BR-204");
   const [identity, setIdentity] = useState("SERIAL");
+  // No default scope: an unselected position set cannot be submitted, and the server refuses it too.
+  const [slots, setSlots] = useState<string[]>([]);
+  const toggle = (s: string) => setSlots(cur => cur.includes(s) ? cur.filter(x => x !== s) : [...cur, s]);
   return <details className="workbench" open={snap.units.length === 0}>
     <summary>Manufacturing capture workspace</summary>
     <p>Local synthetic operator commands write EPCIS-compatible evidence to SQLite and re-evaluate with v3. No command authors trusted verification. Assembly and replacement contain multiple durable captures; interrupted work remains incomplete.</p>
@@ -41,9 +44,15 @@ export function ManufacturingWorkbench({ snap, run, busy }: {
     </fieldset>
     <fieldset disabled={busy}>
       <legend>Announce a defective bearing lot</legend>
-      <form onSubmit={e => { e.preventDefault(); void run("recalls", { lot: affected }); }}>
+      <form onSubmit={e => { e.preventDefault(); if (slots.length) void run("recalls", { lot: affected, slots }); }}>
         <label>Defective bearing lot<input required maxLength={80} value={affected} onChange={e => setAffected(e.target.value)} /></label>
-        <button>Announce recall and evaluate</button>
+        <fieldset className="scope">
+          <legend>Affected bearing position (required)</legend>
+          <label className="check"><input type="checkbox" checked={slots.includes("DE")} onChange={() => toggle("DE")} /> Drive end (DE)</label>
+          <label className="check"><input type="checkbox" checked={slots.includes("NDE")} onChange={() => toggle("NDE")} /> Non-drive end (NDE)</label>
+        </fieldset>
+        <button disabled={!slots.length}>Announce recall and evaluate</button>
+        {!slots.length && <p className="muted">Select DE, NDE or both. There is no default scope; a lot found in an unselected position is not treated as recalled.</p>}
       </form>
     </fieldset>
     {busy && <p role="status">Capturing evidence and evaluating…</p>}

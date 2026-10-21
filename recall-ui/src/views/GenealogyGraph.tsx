@@ -25,7 +25,7 @@ export function GenealogyGraph({ snap, unitId }: { snap: RecallSnapshot; unitId:
 
   return (
     <div>
-      <div className="graph-scroll">
+      <div className="graph-scroll" role="region" aria-label={`Genealogy diagram for ${unit.unitId} (scrollable)`} tabIndex={0}>
         <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="gen-title gen-desc" className="graph" style={{ minWidth: 760 }}>
           <title id="gen-title">Genealogy of {unit.unitId}</title>
           <desc id="gen-desc">

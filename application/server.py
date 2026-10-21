@@ -83,7 +83,9 @@ def make_server(database, port=4173, seed=False):
                         if path == "/api/units":
                             app.create_unit(body.get("serial"), body.get("title", "IE3 11 kW electric motor"))
                         elif path == "/api/recalls":
-                            app.announce(body.get("lot"))
+                            app.announce(body.get("lot"), body.get("slots"))
+                        elif len(parts) == 4 and parts[:2] == ["api", "notifications"] and parts[3] == "resolve":
+                            app.resolve_notification(parts[2], body.get("resolution"), body.get("note"))
                         elif len(parts) == 4 and parts[:2] == ["api", "units"]:
                             motor, action = parts[2:]
                             if action == "assemble":
@@ -100,6 +102,10 @@ def make_server(database, port=4173, seed=False):
                             return self.send(404, {"error": "Unknown command"})
                         snap = app.snapshot()
                         return self.send(200, {"snapshot": snap, "captureToDecisionMs": (time.perf_counter()-started)*1000})
+                    if path == "/api/heartbeat":
+                        return self.send(200, app.heartbeat())
+                    if path == "/api/integrity":
+                        return self.send(200, dict(status="VERIFIED", ledgerHead=app.ledger.anchor()))
                     snap = app.snapshot()
                     if path == "/api/snapshot":
                         return self.send(200, snap)

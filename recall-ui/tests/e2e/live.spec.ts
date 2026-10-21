@@ -23,7 +23,10 @@ test("live manufacturing capture, genealogy, recall, replacement and late withdr
   const assemblyVisibleMs = Date.now()-started;
   await page.getByRole("button", { name: "Record synthetic shipment", exact: true }).click();
   await expect(row).toContainText("SHP-26-E2E-001");
-  await page.getByRole("button", { name: "Announce recall and evaluate", exact: true }).click();
+  const announce = page.getByRole("button", { name: "Announce recall and evaluate", exact: true });
+  await expect(announce).toBeDisabled();  // no default scope
+  await page.getByLabel("Drive end (DE)").check();
+  await announce.click();
   await expect(row).toContainText("Affected");
   const replacementStarted = Date.now();
   await page.getByRole("button", { name: "Capture authorized DE replacement", exact: true }).click();
@@ -32,6 +35,17 @@ test("live manufacturing capture, genealogy, recall, replacement and late withdr
   await page.getByRole("button", { name: "Inject late untrusted affected-lot observation", exact: true }).click();
   await expect(row).toContainText("Recall hold");
   await expect(row).toContainText("Unresolved");
+  const outstanding = page.getByTestId("obligation-open").filter({ hasText: "MTR-E2E-001" });
+  await expect(outstanding).toHaveCount(1);
+  await page.getByRole("button", { name: "Inject late untrusted affected-lot observation", exact: true }).click();
+  await expect(page.getByTestId("capture-status")).toContainText("Evidence captured");
+  await expect(outstanding).toHaveCount(1);  // a later evaluation must not erase it
+  await page.reload();
+  await expect(outstanding).toHaveCount(1);  // nor a reload
+  await outstanding.getByLabel("Resolution note").fill("Customer told by phone; QA lead");
+  await outstanding.getByRole("button", { name: "Attest correction communicated" }).click();
+  await expect(page.getByTestId("obligation-open").filter({ hasText: "MTR-E2E-001" })).toHaveCount(0);
+  await expect(page.getByTestId("obligation-resolved").filter({ hasText: "MTR-E2E-001" })).toContainText("not a delivery acknowledgement");
   await page.goto("/#/unit/MTR-E2E-001/genealogy");
   await expect(page.getByRole("heading", { name: "Ledger-backed material genealogy" })).toBeVisible();
   await expect(page.getByText("Shipment capture is not a release authorization.", { exact: false })).toBeVisible();

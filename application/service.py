@@ -5,7 +5,7 @@ trusted verification. Read models are derived from verified ledger snapshots.
 No fixture oracle/ground-truth or test helper is imported here.
 """
 import copy
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -149,21 +149,41 @@ class Manufacturing:
             shipmentId=f"SHP-26-{motor.removeprefix('MTR-')}", customer="Aster Pump Systems — synthetic customer",
             destination="Coimbatore distribution centre", assemblyEventId=closed["eventId"]))
 
-    def announce(self, affected_lot):
+    SLOTS = ("DE", "NDE")
+
+    @classmethod
+    def scope(cls, slots):
+        """Explicit recalled-position scope. There is no default: a missing or unsupported scope is refused."""
+        if (not isinstance(slots, list) or not slots or len(set(slots)) != len(slots)
+                or any(type(s) is not str or s not in cls.SLOTS for s in slots)):
+            raise ValidationFailure("Recall scope must explicitly list the affected bearing positions: DE, NDE or both")
+        return [s for s in cls.SLOTS if s in slots]
+
+    def announce(self, affected_lot, affected_slots=None):
         if not isinstance(affected_lot, str) or not affected_lot or len(affected_lot)>80:
             raise ValidationFailure("An affected bearing lot is required")
+        slots = self.scope(affected_slots)
         old = self.policy()
-        if old and old["affectedLots"] == [affected_lot]:
+        if old and old["affectedLots"] == [affected_lot] and old["affectedSlots"] == slots:
             return old
         if old:
-            raise ValidationFailure("This local demonstration supports one immutable recall scope per database; use a new database for another affected lot")
+            raise ValidationFailure("This local demonstration supports one immutable recall scope per database; use a new database for another affected lot or position scope")
         at = self.tick("2026-10-20T08:00:00Z")
         policy = dict(policyId=RECALL_ID+"/P1", recallId=RECALL_ID, version=(old["version"]+1 if old else 1),
-                      announcedAt=at, affectedPart=PART, affectedLots=[affected_lot], affectedSlots=["DE"],
+                      announcedAt=at, affectedPart=PART, affectedLots=[affected_lot], affectedSlots=slots,
                       exposureBasis="CURRENT_INSTALLATION", damageInspection=None)
         with self.db:
             self.db.execute("INSERT INTO recall_announcements VALUES(?,?,?)", (policy["version"], json.dumps(policy), digest(policy)))
         return policy
+
+    def resolve_notification(self, obligation_id, resolution, note, actor="ROLE:QUALITY"):
+        """Operator attestation only. It never records or implies a delivered notice."""
+        return self.ledger.resolve_obligation(obligation_id, actor=actor, resolution=resolution, note=note,
+                                              at=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+
+    def heartbeat(self):
+        """Cheap liveness plus integrity head; the UI uses it to tell current status from remembered data."""
+        return dict(status="OK", at=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), ledgerHead=self.ledger.anchor())
 
     def policy(self):
         row = self.db.execute("SELECT policy,hash FROM recall_announcements ORDER BY version DESC LIMIT 1").fetchone()
@@ -214,7 +234,7 @@ class Manufacturing:
                  ("MTR-26005", "Untrusted affected-bearing observation", "BR-310", "BR-312", "SERIAL", False)]
         for serial, title, de, nde, identity, gap in specs:
             self.create_unit(serial, title, gap=gap); self.assemble(serial, de, nde, identity); self.ship(serial)
-        self.announce("BR-204")
+        self.announce("BR-204", ["DE"])  # explicit scope: the seeded defect is a drive-end bearing lot
         self.snapshot()  # issue pre-rework records using the actual evaluator
         self.replace("MTR-26002", "BR-312")
         self.replace("MTR-26004", "BR-312")
@@ -260,8 +280,13 @@ class Manufacturing:
                 stored = self.db.execute("SELECT payload FROM decision_runs WHERE motor=? AND policy_hash=? ORDER BY ordinal DESC LIMIT 1", (motor, digest(policy))).fetchone()
                 history = [b["decision"] for b in json.loads(stored[0])["bundles"] if not b["decision"].get("unchanged")]
                 decisions[motor][policy["policyId"]] = dict(current=bundle["decision"], history=history)
-                if bundle["decision"].get("notificationObligation"):
-                    notifications.append(dict(unitId=motor, decisionId=bundle["decision"]["decisionId"], **bundle["decision"]["notificationObligation"], deliveryStatus="NOT_SENT"))
+                # Obligations come from the durable registry, not from the current decision body, so
+                # they stay visible across later evaluations until explicitly resolved.
+                for ob in self.ledger.obligations(motor):
+                    notifications.append(dict(unitId=motor, obligationId=ob["obligationId"], decisionId=ob["createdByDecisionId"],
+                                              required=True, reason=ob["reason"], appliesIfDecisionCommunicated=ob["appliesIfDecisionCommunicated"],
+                                              communicated=ob["communicated"], status=ob["status"], resolution=ob["resolution"],
+                                              deliveryStatus="NOT_SENT"))
                 legacy = engine_bridge.pramaan_recall.evaluate_series(case, policy, self.ledger._config(motor)["coverage"], [wm], engine_bridge.Config.legacy())[-1]
                 if any(d["reasonCodes"] and "AMBIGUOUS_SLOT_ATTRIBUTION" in d["reasonCodes"] for d in history):
                     comparison.append(dict(unitId=motor, policyId=policy["policyId"], legacy=legacy, current=bundle["decision"]))
@@ -269,7 +294,8 @@ class Manufacturing:
                     engine=dict(version="phase1.2-untrusted-observation", semanticsProfile="UNTRUSTED_OBSERVATION_V3"),
                     comparisonEngine=dict(version="phase1-0.1", semanticsProfile="P1_LEGACY"), fixtureManifests={},
                     overlay=dict(file="none", sha256="", kind="NONE", covers="No shipment/supplier overlays"), oracleFilesRead=False),
-                    recall=policy or dict(recallId=RECALL_ID, version=0, announcedAt=None, affectedPart=PART, affectedLots=[], affectedSlots=["DE"]),
+                    recall=policy or dict(recallId=RECALL_ID, version=0, announcedAt=None, affectedPart=PART, affectedLots=[], affectedSlots=[]),
+                    generatedAt=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), ledgerHead=self.ledger.anchor(),
                     policies=[dict(policyId=policy["policyId"], exposureBasis=policy["exposureBasis"], damageInspection=None)] if policy else [],
                     units=units, decisions=decisions, comparison=comparison, components=components, lots=list(lots.values()),
                     lineage=lineage, notifications=notifications, recallAnnounced=bool(policy))

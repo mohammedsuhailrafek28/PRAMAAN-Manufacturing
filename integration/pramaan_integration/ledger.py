@@ -10,7 +10,7 @@ import hashlib
 import json
 import sqlite3
 
-from . import engine_bridge
+from . import engine_bridge, lifecycle
 from .profile import (PROFILE_VERSION, TYPES, ValidationFailure, decode, digest,
                       text, timestamp, validate_native, motor_uri, component_uri)
 
@@ -57,11 +57,114 @@ class Ledger:
             ordinal INTEGER PRIMARY KEY, motor TEXT NOT NULL REFERENCES motors(serial),
             policy_hash TEXT NOT NULL, payload TEXT NOT NULL, hash TEXT NOT NULL);
         CREATE INDEX IF NOT EXISTS decision_history ON decision_runs(motor,policy_hash,ordinal);
+        -- Hash chain over issued decision runs: deleting runs (even with the triggers dropped) is detectable
+        -- from the chain, and the chain head can be exported as an external anchor.
+        CREATE TABLE IF NOT EXISTS decision_chain(
+            ordinal INTEGER PRIMARY KEY, motor TEXT NOT NULL, policy_hash TEXT NOT NULL,
+            run_ordinal INTEGER NOT NULL, run_hash TEXT NOT NULL, previous TEXT NOT NULL, hash TEXT NOT NULL);
+        -- Notification obligations: CREATED by a decision version, RESOLVED only by an explicit attested transition.
+        CREATE TABLE IF NOT EXISTS obligation_events(
+            ordinal INTEGER PRIMARY KEY, obligation_id TEXT NOT NULL, kind TEXT NOT NULL, motor TEXT NOT NULL,
+            body TEXT NOT NULL, previous TEXT NOT NULL, hash TEXT NOT NULL, UNIQUE(obligation_id,kind));
         """)
-        for table in ("motors", "captures", "events", "rejections", "decision_runs"):
+        for table in ("motors", "captures", "events", "rejections", "decision_runs", "decision_chain", "obligation_events"):
             for action in ("UPDATE", "DELETE"):
                 self.db.execute(f"CREATE TRIGGER IF NOT EXISTS {table}_no_{action.lower()} BEFORE {action} ON {table} BEGIN SELECT RAISE(ABORT,'append-only evidence'); END")
+        self._adopt_unchained_runs()
         self.db.commit()
+
+    # -- decision history integrity -------------------------------------------------------------
+    def _adopt_unchained_runs(self):
+        """Databases created before the chain existed: chain their runs once, at open time."""
+        if self.db.execute("SELECT 1 FROM decision_chain LIMIT 1").fetchone():
+            return
+        for run in self.db.execute("SELECT ordinal,motor,policy_hash,hash FROM decision_runs ORDER BY ordinal").fetchall():
+            self._chain(run["motor"], run["policy_hash"], run["ordinal"], run["hash"])
+
+    def _chain(self, motor, policy_hash, run_ordinal, run_hash):
+        head = self.db.execute("SELECT hash FROM decision_chain ORDER BY ordinal DESC LIMIT 1").fetchone()
+        previous = head["hash"] if head else "GENESIS"
+        link = dict(previous=previous, motor=motor, policy=policy_hash, runOrdinal=run_ordinal, runHash=run_hash)
+        self.db.execute("INSERT INTO decision_chain(motor,policy_hash,run_ordinal,run_hash,previous,hash) VALUES(?,?,?,?,?,?)",
+                        (motor, policy_hash, run_ordinal, run_hash, previous, digest(link)))
+
+    def verify_decision_history(self):
+        """Raise LedgerBlocked unless every chained run exists unchanged and every run is chained."""
+        previous, chained = "GENESIS", set()
+        for link in self.db.execute("SELECT * FROM decision_chain ORDER BY ordinal").fetchall():
+            expect = digest(dict(previous=previous, motor=link["motor"], policy=link["policy_hash"],
+                                 runOrdinal=link["run_ordinal"], runHash=link["run_hash"]))
+            if link["previous"] != previous or link["hash"] != expect:
+                raise LedgerBlocked("Decision chain integrity mismatch")
+            run = self.db.execute("SELECT motor,policy_hash,payload,hash FROM decision_runs WHERE ordinal=?", (link["run_ordinal"],)).fetchone()
+            if (run is None or run["hash"] != link["run_hash"] or run["motor"] != link["motor"]
+                    or run["policy_hash"] != link["policy_hash"] or digest(json.loads(run["payload"])) != run["hash"]):
+                raise LedgerBlocked("Decision history deleted or altered")
+            chained.add(link["run_ordinal"])
+            previous = link["hash"]
+        for run in self.db.execute("SELECT ordinal FROM decision_runs").fetchall():
+            if run["ordinal"] not in chained:
+                raise LedgerBlocked("Decision run is not in the decision chain")
+        return dict(head=previous, links=len(chained))
+
+    def anchor(self):
+        """Exportable commitment to all issued decision history; keep it outside this database."""
+        state = self.verify_decision_history()
+        return dict(chainHead=state["head"], links=state["links"])
+
+    def verify_anchor(self, anchor):
+        """The current chain must extend the anchored one; a shorter or rewritten chain is refused."""
+        self.verify_decision_history()
+        if anchor["links"] == 0:
+            return True
+        row = self.db.execute("SELECT hash FROM decision_chain ORDER BY ordinal LIMIT 1 OFFSET ?", (anchor["links"] - 1,)).fetchone()
+        if row is None or row["hash"] != anchor["chainHead"]:
+            raise LedgerBlocked("Decision history does not extend the anchored history")
+        return True
+
+    # -- notification obligations ---------------------------------------------------------------
+    RESOLUTIONS = ("CORRECTION_COMMUNICATED_ATTESTED", "PRIOR_DECISION_NOT_COMMUNICATED_ATTESTED")
+
+    def _obligation_event(self, obligation_id, kind, motor, body):
+        head = self.db.execute("SELECT hash FROM obligation_events ORDER BY ordinal DESC LIMIT 1").fetchone()
+        previous = head["hash"] if head else "GENESIS"
+        link = dict(previous=previous, obligationId=obligation_id, kind=kind, motor=motor, body=body)
+        self.db.execute("INSERT INTO obligation_events(obligation_id,kind,motor,body,previous,hash) VALUES(?,?,?,?,?,?)",
+                        (obligation_id, kind, motor, json.dumps(body), previous, digest(link)))
+
+    def obligations(self, motor=None):
+        """All obligations with derived status. Nothing here asserts that any notice was delivered."""
+        previous, found, order = "GENESIS", {}, []
+        for row in self.db.execute("SELECT * FROM obligation_events ORDER BY ordinal").fetchall():
+            body = json.loads(row["body"])
+            if row["previous"] != previous or row["hash"] != digest(dict(previous=previous, obligationId=row["obligation_id"], kind=row["kind"], motor=row["motor"], body=body)):
+                raise LedgerBlocked("Obligation log integrity mismatch")
+            previous = row["hash"]
+            if row["kind"] == "CREATED":
+                found[row["obligation_id"]] = dict(body, status="OPEN", resolution=None, createdEventHash=row["hash"])
+                order.append(row["obligation_id"])
+            elif row["obligation_id"] not in found:
+                raise LedgerBlocked("Obligation resolution without creation")
+            else:
+                found[row["obligation_id"]].update(status="RESOLVED", resolution=body, resolvedEventHash=row["hash"])
+        return [found[i] for i in order if motor is None or found[i]["motor"] == motor]
+
+    @serialized_decision
+    def resolve_obligation(self, obligation_id, *, actor, resolution, note, at):
+        """Operator attestation that the obligation was handled. This is not a delivery acknowledgement."""
+        text(actor, "actor"); text(note, "note"); timestamp(at)
+        if resolution not in self.RESOLUTIONS:
+            raise ValidationFailure("Unsupported obligation resolution")
+        current = next((o for o in self.obligations() if o["obligationId"] == obligation_id), None)
+        if current is None:
+            raise ValidationFailure("Unknown notification obligation")
+        if current["status"] != "OPEN":
+            raise ValidationFailure("Notification obligation is already resolved")
+        if resolution == "PRIOR_DECISION_NOT_COMMUNICATED_ATTESTED" and current.get("communicated") is True:
+            raise ValidationFailure("Prior decision is recorded as communicated; the correction must be communicated")
+        self._obligation_event(obligation_id, "RESOLVED", current["motor"],
+                               dict(actor=actor, resolution=resolution, note=note, at=at, deliveryAcknowledged=False))
+        return self.obligations()[[o["obligationId"] for o in self.obligations()].index(obligation_id)]
 
     def close(self):
         self.db.close()
@@ -291,6 +394,7 @@ class Ledger:
             if inspection["mustOccurAfter"] < policy["announcedAt"]:
                 raise LedgerBlocked("Inspection cannot predate recall announcement")
         config = self._config(motor)
+        self.verify_decision_history()
         previous = self.db.execute("SELECT payload,hash FROM decision_runs WHERE motor=? AND policy_hash=? ORDER BY ordinal DESC LIMIT 1", (motor, digest(policy))).fetchone()
         old = json.loads(previous["payload"]) if previous else None
         if previous and digest(old) != previous["hash"]:
@@ -309,15 +413,38 @@ class Ledger:
         for a, b in zip(watermarks, watermarks[1:]):
             if any(b[s] < a[s] for s in a):
                 raise LedgerBlocked("Decision watermarks cannot regress")
-        decisions = engine_bridge.evaluate_series(snapshots[-1][0], copy.deepcopy(policy), config["coverage"], history,
-                                                  engine_bridge.Config.v3(), communicated=communicated)
-        bundles = [dict(decision=d, manifest=m, policyDigest=digest(policy)) for d, (_, m) in zip(decisions, snapshots)]
+        # A standing run written under lifecycle v1 stays replayable as issued; the corrected lifecycle
+        # continues it as an explicit new revision rather than rewriting it.
+        if old is None:
+            revision, predecessor = 1, None
+        elif old.get("lifecycleVersion") == lifecycle.LIFECYCLE_VERSION:
+            revision, predecessor = old["revision"], old["predecessor"]
+        else:
+            revision, predecessor = old.get("revision", 1) + 1, old["bundles"][-1]["decision"]
+        pdigest = digest(policy)
+        decisions, _ = lifecycle.extend(snapshots[-1][0], copy.deepcopy(policy), config["coverage"], history,
+                                        engine_bridge.Config.v3(), lifecycle.start_state(predecessor),
+                                        policy_digest=pdigest, revision=revision, communicated=communicated)
+        bundles = [dict(decision=d, manifest=m, policyDigest=pdigest) for d, (_, m) in zip(decisions, snapshots)]
         for bundle in bundles:
             bundle["bundleDigest"] = digest(bundle)
-        payload = dict(watermarks=history, communicated=communicated, bundles=bundles)
+        payload = dict(lifecycleVersion=lifecycle.LIFECYCLE_VERSION, revision=revision, predecessor=predecessor,
+                       watermarks=history, communicated=communicated, bundles=bundles)
         self._blocked(motor)
         if old != payload:
-            self.db.execute("INSERT INTO decision_runs(motor,policy_hash,payload,hash) VALUES(?,?,?,?)", (motor, digest(policy), json.dumps(payload), digest(payload)))
+            cursor = self.db.execute("INSERT INTO decision_runs(motor,policy_hash,payload,hash) VALUES(?,?,?,?)", (motor, pdigest, json.dumps(payload), digest(payload)))
+            self._chain(motor, pdigest, cursor.lastrowid, digest(payload))
+        for bundle in bundles:
+            d = bundle["decision"]
+            if d.get("notificationObligation") and not d.get("unchanged"):
+                ob = d["notificationObligation"]
+                oid = lifecycle.obligation_id(motor, pdigest, ob["appliesIfDecisionCommunicated"], d["decisionId"])
+                if not self.db.execute("SELECT 1 FROM obligation_events WHERE obligation_id=? AND kind='CREATED'", (oid,)).fetchone():
+                    self._obligation_event(oid, "CREATED", motor, dict(
+                        obligationId=oid, motor=motor, recallId=policy["recallId"], policyId=policy["policyId"],
+                        reason=ob["reason"], createdByDecisionId=d["decisionId"],
+                        appliesIfDecisionCommunicated=ob["appliesIfDecisionCommunicated"],
+                        communicated=ob["communicated"], createdAtWatermark=d["watermark"]))
         return [bundles[p] for p in positions]
 
     def replay(self, motor, policy, bundle):

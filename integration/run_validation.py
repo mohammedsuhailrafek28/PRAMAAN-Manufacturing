@@ -39,15 +39,38 @@ def command(command, cwd, filename):
     return dict(command=command, exitCode=proc.returncode, elapsedSeconds=round(time.perf_counter()-start, 3), output=filename)
 
 
+# Source identity is pinned by git tree object id, which exists in every clone of this repository
+# (unlike the originating commits 1620ed3 / bc68dc0, which live only in the research repository).
+# Provenance: recall-engine == tree of 1620ed3a8c78d7ea41063107666d9482fd93dff9 (engine v3, 127 tests);
+# experiments/foundation == tree of bc68dc0ca54f4e35b7e14c6ad09f7af28ab3b00c (21 checks). See docs/PHASE3_SOURCE_PROVENANCE.md.
+PINNED_TREES = {"recall-engine": "22d205d5b2d42e609e8b872c564c7283ffd758e9",
+                "experiments/foundation": "fe6f39294e10b077785ed3afb27806af51acc50c"}
+
+
+def _git(*args):
+    return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
+
+
+def source_tree_identity(path, pinned):
+    """Committed tree id must equal the pin AND the working tree must have no edits or extra files under it."""
+    committed = _git("rev-parse", f"HEAD:{path}")
+    diff = _git("diff", "HEAD", "--exit-code", "--quiet", "--", path)
+    untracked = _git("ls-files", "--others", "--exclude-standard", "--", path)
+    clean = diff.returncode == 0 and untracked.returncode == 0 and not untracked.stdout.strip()
+    tree = committed.stdout.strip() if committed.returncode == 0 else None
+    return dict(path=path, pinnedTree=pinned, committedTree=tree, workingTreeClean=clean, matches=tree == pinned and clean)
+
+
 def verify_baselines(gs1):
     engine = command([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-t", ".", "-v"], ROOT / "recall-engine", "engine-tests.txt")
     foundation = command([sys.executable, "experiments/foundation/interop.py", "--gs1-checkout", str(gs1.resolve()),
                           "--output", str((REPORTS / "foundation-results.json").resolve())], ROOT, "foundation-tests.txt")
     integration = command([sys.executable, "-m", "unittest", "discover", "-s", "integration_tests", "-t", ".", "-v"], ROOT / "integration", "integration-tests.txt")
-    unchanged = subprocess.run(["git", "diff", "1620ed3a8c78d7ea41063107666d9482fd93dff9", "--exit-code", "--", "recall-engine"], cwd=ROOT, capture_output=True, text=True)
-    research = subprocess.run(["git", "diff", "bc68dc0ca54f4e35b7e14c6ad09f7af28ab3b00c", "--exit-code", "--", "experiments/foundation"], cwd=ROOT, capture_output=True, text=True)
+    unchanged = source_tree_identity("recall-engine", PINNED_TREES["recall-engine"])
+    research = source_tree_identity("experiments/foundation", PINNED_TREES["experiments/foundation"])
     result = dict(engine=engine, foundation=foundation, integration=integration,
-                  engineTreeUnmodified=unchanged.returncode == 0, foundationTreeUnmodified=research.returncode == 0)
+                  engineTreeUnmodified=unchanged["matches"], foundationTreeUnmodified=research["matches"],
+                  sourceTrees=dict(engine=unchanged, foundation=research))
     save("test-results.json", result)
     if not all(x["exitCode"] == 0 for x in (engine, foundation, integration)) or not result["engineTreeUnmodified"] or not result["foundationTreeUnmodified"]:
         raise AssertionError("Baseline or integration gate failed; see reports")
