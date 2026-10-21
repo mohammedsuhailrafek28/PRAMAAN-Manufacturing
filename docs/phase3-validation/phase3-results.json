@@ -1,0 +1,100 @@
+{
+  "baselines": {
+    "engine": {
+      "command": [
+        "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\unified-app\\.venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-t",
+        ".",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 32.308,
+      "output": "engine-tests.txt"
+    },
+    "foundation": {
+      "command": [
+        "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\unified-app\\.venv\\Scripts\\python.exe",
+        "experiments/foundation/interop.py",
+        "--gs1-checkout",
+        "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\foundation-upstream\\EPCIS",
+        "--output",
+        "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\unified-app\\docs\\phase3-validation\\foundation-results.json"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.812,
+      "output": "foundation-tests.txt"
+    },
+    "integration": {
+      "command": [
+        "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\unified-app\\.venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "integration_tests",
+        "-t",
+        ".",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.263,
+      "output": "integration-tests.txt"
+    },
+    "engineTreeUnmodified": true,
+    "foundationTreeUnmodified": true
+  },
+  "checks": {
+    "application": {
+      "exitCode": 0,
+      "elapsedSeconds": 7.998
+    },
+    "exporter": {
+      "exitCode": 0,
+      "elapsedSeconds": 0.61
+    },
+    "snapshot": {
+      "exitCode": 0,
+      "elapsedSeconds": 0.265
+    },
+    "ui": {
+      "exitCode": 0,
+      "elapsedSeconds": 4.941
+    },
+    "build": {
+      "exitCode": 0,
+      "elapsedSeconds": 1.882
+    },
+    "browser": {
+      "exitCode": 0,
+      "elapsedSeconds": 24.077
+    }
+  },
+  "liveConformance": {
+    "documents": 58,
+    "gs1SchemaPassed": true,
+    "scope": "Generated supported-profile documents; not a full EPCIS repository certification"
+  },
+  "retainedConformance": {
+    "documents": 2,
+    "events": 19,
+    "schemaPassed": true,
+    "jsonldTraceRoundtripPassed": true,
+    "schemaSha256": "d5ca9b1cad2c403679d9b07fb768108142d73e1dd024198ed64774b56b62227b",
+    "contextSha256": "b5c7cc9367ab638ecb77feb0b9aea222a427d9740bf3dda1b183fc3d4390714f",
+    "scope": "Two complete generated documents; no full repository runtime or complete EPCIS certification"
+  },
+  "retainedSafety": {
+    "scope": "12 authored P1 synthetic histories; not factory evidence; truth not available to decision code",
+    "total": 12,
+    "behaviorAgreements": 12,
+    "unsafeScenarios": 6,
+    "safeScenarios": 6,
+    "falseReleases": 0,
+    "unnecessaryHolds": 3
+  }
+}

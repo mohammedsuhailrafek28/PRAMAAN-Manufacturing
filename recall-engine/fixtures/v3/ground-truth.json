@@ -1,0 +1,41 @@
+{
+  "note": "Synthetic ground truth for the v3 cases. Used by the harness only.",
+  "truths": {
+    "case-08": {
+      "trueP1Finding": "AFFECTED",
+      "basis": "v3 synthetic: the handheld reading is right"
+    },
+    "case-08e": {
+      "trueP1Finding": "UNAFFECTED",
+      "basis": "v3 synthetic: scanner error; DE holds BR-312"
+    },
+    "case-08f": {
+      "trueP1Finding": "UNAFFECTED",
+      "basis": "v3 synthetic: QA check agrees with the records"
+    },
+    "case-08g": {
+      "trueP1Finding": "UNAFFECTED",
+      "basis": "v3 synthetic: the old bearing was replaced afterwards"
+    },
+    "case-08h": {
+      "trueP1Finding": "UNAFFECTED",
+      "basis": "v3 synthetic: DE is clean; NDE is not in scope"
+    },
+    "case-08i": {
+      "trueP1Finding": "AFFECTED",
+      "basis": "v3 synthetic: label scan was valid but the removal was from NDE"
+    },
+    "case-08j": {
+      "trueP1Finding": "UNAFFECTED",
+      "basis": "v3 synthetic: the observation really was old; the engine cannot prove it"
+    },
+    "case-08k": {
+      "trueP1Finding": "UNAFFECTED",
+      "basis": "v3 synthetic: the observation really was old; the engine cannot prove it"
+    },
+    "case-08l": {
+      "trueP1Finding": "UNAFFECTED",
+      "basis": "v3 synthetic: belongs to another motor"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "engine": {
+    "command": [
+      "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\foundation-upstream\\experiment-venv\\Scripts\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-t",
+      ".",
+      "-v"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 32.643,
+    "output": "engine-tests.txt"
+  },
+  "foundation": {
+    "command": [
+      "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\foundation-upstream\\experiment-venv\\Scripts\\python.exe",
+      "experiments/foundation/interop.py",
+      "--gs1-checkout",
+      "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\foundation-upstream\\EPCIS",
+      "--output",
+      "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\phase2-integration\\integration\\reports\\foundation-results.json"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 0.931,
+    "output": "foundation-tests.txt"
+  },
+  "integration": {
+    "command": [
+      "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\foundation-upstream\\experiment-venv\\Scripts\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "integration_tests",
+      "-t",
+      ".",
+      "-v"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 2.471,
+    "output": "integration-tests.txt"
+  },
+  "engineTreeUnmodified": true,
+  "foundationTreeUnmodified": true
+}

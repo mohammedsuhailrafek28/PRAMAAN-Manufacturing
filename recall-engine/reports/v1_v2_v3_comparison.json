@@ -1,0 +1,495 @@
+{
+  "A": {
+    "E1/O1": {
+      "evaluations": 25,
+      "decisionAgree": 25,
+      "fullAgree": 25,
+      "flagAgree": 25,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 13,
+          "decision": 13,
+          "full": 13
+        },
+        "RC-009/P2": {
+          "n": 12,
+          "decision": 12,
+          "full": 12
+        }
+      }
+    },
+    "E2/O2": {
+      "evaluations": 35,
+      "decisionAgree": 35,
+      "fullAgree": 35,
+      "flagAgree": 35,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 18,
+          "decision": 18,
+          "full": 18
+        },
+        "RC-009/P2": {
+          "n": 17,
+          "decision": 17,
+          "full": 17
+        }
+      }
+    },
+    "E3/O3": {
+      "evaluations": 54,
+      "decisionAgree": 54,
+      "fullAgree": 54,
+      "flagAgree": 54,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 28,
+          "decision": 28,
+          "full": 28
+        },
+        "RC-009/P2": {
+          "n": 26,
+          "decision": 26,
+          "full": 26
+        }
+      }
+    },
+    "E3/O1": {
+      "evaluations": 25,
+      "decisionAgree": 24,
+      "fullAgree": 23,
+      "flagAgree": 24,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 13,
+          "decision": 12,
+          "full": 12
+        },
+        "RC-009/P2": {
+          "n": 12,
+          "decision": 12,
+          "full": 11
+        }
+      }
+    },
+    "E3/O2": {
+      "evaluations": 35,
+      "decisionAgree": 35,
+      "fullAgree": 35,
+      "flagAgree": 35,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 18,
+          "decision": 18,
+          "full": 18
+        },
+        "RC-009/P2": {
+          "n": 17,
+          "decision": 17,
+          "full": 17
+        }
+      }
+    },
+    "E2/O1": {
+      "evaluations": 25,
+      "decisionAgree": 24,
+      "fullAgree": 23,
+      "flagAgree": 24,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 13,
+          "decision": 12,
+          "full": 12
+        },
+        "RC-009/P2": {
+          "n": 12,
+          "decision": 12,
+          "full": 11
+        }
+      }
+    },
+    "E1/O2": {
+      "evaluations": 35,
+      "decisionAgree": 32,
+      "fullAgree": 27,
+      "flagAgree": 32,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 18,
+          "decision": 15,
+          "full": 14
+        },
+        "RC-009/P2": {
+          "n": 17,
+          "decision": 17,
+          "full": 13
+        }
+      }
+    },
+    "E1/O3": {
+      "evaluations": 54,
+      "decisionAgree": 42,
+      "fullAgree": 36,
+      "flagAgree": 42,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 28,
+          "decision": 18,
+          "full": 17
+        },
+        "RC-009/P2": {
+          "n": 26,
+          "decision": 24,
+          "full": 19
+        }
+      }
+    },
+    "E2/O3": {
+      "evaluations": 54,
+      "decisionAgree": 46,
+      "fullAgree": 46,
+      "flagAgree": 46,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 28,
+          "decision": 22,
+          "full": 22
+        },
+        "RC-009/P2": {
+          "n": 26,
+          "decision": 24,
+          "full": 24
+        }
+      }
+    }
+  },
+  "A_extra": {
+    "native_disagreements": {
+      "E1/O1": [],
+      "E2/O2": [],
+      "E3/O3": []
+    },
+    "divergences": [
+      {
+        "against": "E3/O1",
+        "caseId": "case-06",
+        "policyId": "RC-009/P1",
+        "v_old": "EXCLUDED_WITH_EVIDENCE",
+        "v_new": "UNRESOLVED",
+        "classification": "DECLARED_IN_V2_TRANSITION"
+      },
+      {
+        "against": "E3/O1",
+        "caseId": "case-06",
+        "policyId": "RC-009/P2",
+        "v_old": "AFFECTED",
+        "v_new": "AFFECTED",
+        "classification": "DECLARED_IN_V2_TRANSITION"
+      }
+    ]
+  },
+  "B": {
+    "truthAffected": [
+      "case-06",
+      "case-06b",
+      "case-06c",
+      "case-06d",
+      "case-08",
+      "case-08i"
+    ],
+    "truthUnaffected": [
+      "case-06e",
+      "case-06f",
+      "case-07",
+      "case-08e",
+      "case-08f",
+      "case-08g",
+      "case-08h",
+      "case-08j",
+      "case-08k",
+      "case-08l"
+    ],
+    "false_releases": {
+      "E1": [
+        "case-06 P1",
+        "case-06c P1",
+        "case-08 P1",
+        "case-08i P1"
+      ],
+      "E2": [
+        "case-08 P1"
+      ],
+      "E3": []
+    },
+    "releases_p1": {
+      "E1": [
+        "case-01 P1",
+        "case-04 P1",
+        "case-06 P1",
+        "case-06c P1",
+        "case-06e P1",
+        "case-06f P1",
+        "case-07 P1",
+        "case-08 P1",
+        "case-08e P1",
+        "case-08f P1",
+        "case-08g P1",
+        "case-08h P1",
+        "case-08i P1",
+        "case-08j P1",
+        "case-08k P1",
+        "case-08l P1"
+      ],
+      "E2": [
+        "case-01 P1",
+        "case-04 P1",
+        "case-06f P1",
+        "case-07 P1",
+        "case-08 P1",
+        "case-08e P1",
+        "case-08f P1",
+        "case-08g P1",
+        "case-08h P1",
+        "case-08j P1",
+        "case-08k P1",
+        "case-08l P1"
+      ],
+      "E3": [
+        "case-01 P1",
+        "case-04 P1",
+        "case-06f P1",
+        "case-07 P1",
+        "case-08f P1",
+        "case-08g P1",
+        "case-08h P1",
+        "case-08l P1"
+      ]
+    },
+    "releases_all": {
+      "E1": [
+        "case-01 P1",
+        "case-04 P1",
+        "case-04 P2",
+        "case-06 P1",
+        "case-06c P1",
+        "case-06e P1",
+        "case-06f P1",
+        "case-07 P1",
+        "case-08 P1",
+        "case-08e P1",
+        "case-08f P1",
+        "case-08g P1",
+        "case-08h P1",
+        "case-08i P1",
+        "case-08j P1",
+        "case-08k P1",
+        "case-08l P1"
+      ],
+      "E2": [
+        "case-01 P1",
+        "case-04 P1",
+        "case-04 P2",
+        "case-06f P1",
+        "case-07 P1",
+        "case-08 P1",
+        "case-08e P1",
+        "case-08f P1",
+        "case-08g P1",
+        "case-08h P1",
+        "case-08j P1",
+        "case-08k P1",
+        "case-08l P1"
+      ],
+      "E3": [
+        "case-01 P1",
+        "case-04 P1",
+        "case-04 P2",
+        "case-06f P1",
+        "case-07 P1",
+        "case-08f P1",
+        "case-08g P1",
+        "case-08h P1",
+        "case-08l P1"
+      ]
+    },
+    "unaffected": {
+      "E1": {
+        "released": [
+          "case-06e",
+          "case-06f",
+          "case-07",
+          "case-08e",
+          "case-08f",
+          "case-08g",
+          "case-08h",
+          "case-08j",
+          "case-08k",
+          "case-08l"
+        ],
+        "heldUnresolved": [],
+        "heldAffected": []
+      },
+      "E2": {
+        "released": [
+          "case-06f",
+          "case-07",
+          "case-08e",
+          "case-08f",
+          "case-08g",
+          "case-08h",
+          "case-08j",
+          "case-08k",
+          "case-08l"
+        ],
+        "heldUnresolved": [
+          "case-06e"
+        ],
+        "heldAffected": []
+      },
+      "E3": {
+        "released": [
+          "case-06f",
+          "case-07",
+          "case-08f",
+          "case-08g",
+          "case-08h",
+          "case-08l"
+        ],
+        "heldUnresolved": [
+          "case-06e",
+          "case-08e",
+          "case-08j",
+          "case-08k"
+        ],
+        "heldAffected": []
+      }
+    },
+    "never_affected_from_untrusted_alone": []
+  },
+  "E": {
+    "v2_to_v3": {
+      "released_now_held": [
+        {
+          "case": "case-08",
+          "policy": "RC-009/P1",
+          "before": "EXCLUDED_WITH_EVIDENCE",
+          "after": "UNRESOLVED",
+          "truth": "AFFECTED",
+          "assessment": "INTENDED (release was false)"
+        },
+        {
+          "case": "case-08e",
+          "policy": "RC-009/P1",
+          "before": "EXCLUDED_WITH_EVIDENCE",
+          "after": "UNRESOLVED",
+          "truth": "UNAFFECTED",
+          "assessment": "USEFULNESS COST (truth UNAFFECTED, now held)"
+        },
+        {
+          "case": "case-08j",
+          "policy": "RC-009/P1",
+          "before": "EXCLUDED_WITH_EVIDENCE",
+          "after": "UNRESOLVED",
+          "truth": "UNAFFECTED",
+          "assessment": "USEFULNESS COST (truth UNAFFECTED, now held)"
+        },
+        {
+          "case": "case-08k",
+          "policy": "RC-009/P1",
+          "before": "EXCLUDED_WITH_EVIDENCE",
+          "after": "UNRESOLVED",
+          "truth": "UNAFFECTED",
+          "assessment": "USEFULNESS COST (truth UNAFFECTED, now held)"
+        }
+      ],
+      "held_now_released": [],
+      "other": []
+    },
+    "v1_to_v2": {
+      "released_now_held": [
+        {
+          "case": "case-06",
+          "policy": "RC-009/P1",
+          "before": "EXCLUDED_WITH_EVIDENCE",
+          "after": "UNRESOLVED",
+          "truth": "AFFECTED",
+          "assessment": "INTENDED (release was false)"
+        },
+        {
+          "case": "case-06c",
+          "policy": "RC-009/P1",
+          "before": "EXCLUDED_WITH_EVIDENCE",
+          "after": "UNRESOLVED",
+          "truth": "AFFECTED",
+          "assessment": "INTENDED (release was false)"
+        },
+        {
+          "case": "case-06e",
+          "policy": "RC-009/P1",
+          "before": "EXCLUDED_WITH_EVIDENCE",
+          "after": "UNRESOLVED",
+          "truth": "UNAFFECTED",
+          "assessment": "USEFULNESS COST (truth UNAFFECTED, now held)"
+        },
+        {
+          "case": "case-08i",
+          "policy": "RC-009/P1",
+          "before": "EXCLUDED_WITH_EVIDENCE",
+          "after": "UNRESOLVED",
+          "truth": "AFFECTED",
+          "assessment": "INTENDED (release was false)"
+        }
+      ],
+      "held_now_released": [],
+      "other": []
+    },
+    "safety_regressions_v3_vs_v2": [],
+    "behavioral_regressions_vs_o3": [],
+    "unexplained": []
+  },
+  "legacyReplay": {
+    "P1_LEGACY": {
+      "records": 25,
+      "reproduced": 25,
+      "profile": "P1_LEGACY"
+    },
+    "SLOT_ATTRIBUTION_V2": {
+      "records": 35,
+      "reproduced": 35,
+      "profile": "SLOT_ATTRIBUTION_V2"
+    },
+    "UNTRUSTED_OBSERVATION_V3": {
+      "records": 54,
+      "reproduced": 54,
+      "profile": "UNTRUSTED_OBSERVATION_V3"
+    }
+  },
+  "gate": {
+    "zeroFalseReleases": true,
+    "releasesNonZero": true,
+    "noSafetyRegression": true,
+    "noBehavioralRegression": true,
+    "legacyReplayExact": true,
+    "legacyOraclesStillAgree": true,
+    "untrustedNeverAffected": true,
+    "pass": true
+  },
+  "truth": {
+    "case-06": "AFFECTED",
+    "case-06b": "AFFECTED",
+    "case-06c": "AFFECTED",
+    "case-06d": "AFFECTED",
+    "case-06e": "UNAFFECTED",
+    "case-06f": "UNAFFECTED",
+    "case-07": "UNAFFECTED",
+    "case-08": "AFFECTED",
+    "case-08e": "UNAFFECTED",
+    "case-08f": "UNAFFECTED",
+    "case-08g": "UNAFFECTED",
+    "case-08h": "UNAFFECTED",
+    "case-08i": "AFFECTED",
+    "case-08j": "UNAFFECTED",
+    "case-08k": "UNAFFECTED",
+    "case-08l": "UNAFFECTED"
+  }
+}
