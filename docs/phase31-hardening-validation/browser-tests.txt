@@ -1,0 +1,44 @@
+
+> recall-investigation-ui@0.1.0 test:e2e
+> playwright test
+
+
+Running 29 tests using 2 workers
+
+  ok  1 tests\e2e\hardening.spec.ts:23:1 â€º external capture writer withdraws displayed exclusion without an API command (5.2s)
+  ok  2 tests\e2e\hardening.spec.ts:7:1 â€º old successful proxy snapshot cannot renew operational clearance; recovery stays live (5.3s)
+  ok  3 tests\e2e\hardening.spec.ts:38:1 â€º fresh timestamp cannot conceal journal version rollback (3.2s)
+  ok  5 tests\e2e\investigation.spec.ts:9:1 â€º demo workflow: fleet -> unit -> explanation -> history (759ms)
+  ok  6 tests\e2e\investigation.spec.ts:32:1 â€º case 06 before / after shows the safety improvement (476ms)
+  ok  7 tests\e2e\investigation.spec.ts:43:1 â€º lot investigation (449ms)
+  ok  4 tests\e2e\hardening.spec.ts:48:1 â€º suspension invalidates lease before fresh verification; delayed body stays hidden (5.4s)
+  ok  8 tests\e2e\investigation.spec.ts:49:1 â€º mobile layout has no horizontal page scroll (828ms)
+  ok  9 tests\e2e\investigation.spec.ts:61:1 â€º invalid fixture is refused in the browser (545ms)
+  ok 10 tests\e2e\investigation.spec.ts:84:5 â€º axe: fleet (light) (2.3s)
+  ok 11 tests\e2e\investigation.spec.ts:84:5 â€º axe: fleet (dark) (2.3s)
+  ok 12 tests\e2e\investigation.spec.ts:84:5 â€º axe: decision (light) (1.6s)
+  ok 13 tests\e2e\investigation.spec.ts:84:5 â€º axe: decision (dark) (1.6s)
+  ok 14 tests\e2e\investigation.spec.ts:84:5 â€º axe: genealogy (light) (1.4s)
+  ok 15 tests\e2e\investigation.spec.ts:84:5 â€º axe: genealogy (dark) (1.4s)
+  ok 16 tests\e2e\investigation.spec.ts:84:5 â€º axe: history (light) (1.4s)
+  ok 17 tests\e2e\investigation.spec.ts:84:5 â€º axe: history (dark) (1.4s)
+  ok 18 tests\e2e\investigation.spec.ts:84:5 â€º axe: events (light) (1.4s)
+  ok 19 tests\e2e\investigation.spec.ts:84:5 â€º axe: events (dark) (1.5s)
+  ok 20 tests\e2e\investigation.spec.ts:84:5 â€º axe: lot (light) (1.8s)
+  ok 21 tests\e2e\investigation.spec.ts:84:5 â€º axe: lot (dark) (1.8s)
+  ok 22 tests\e2e\investigation.spec.ts:84:5 â€º axe: case06 (light) (1.6s)
+  ok 23 tests\e2e\investigation.spec.ts:84:5 â€º axe: case06 (dark) (1.6s)
+  ok 25 tests\e2e\live.spec.ts:52:1 â€º live responsive and accessibility review (3.9s)
+  ok 26 tests\e2e\live.spec.ts:69:1 â€º backend failure has no implicit fixture fallback (409ms)
+  ok 27 tests\e2e\remediation.spec.ts:8:1 â€º actual backend shutdown revokes live release presentation (4.7s)
+  ok 24 tests\e2e\live.spec.ts:6:1 â€º live manufacturing capture, genealogy, recall, replacement and late withdrawal (10.4s)
+  ok 29 tests\e2e\remediation.spec.ts:41:1 â€º NDE-only affected motor is held by unspecified recall scope through real API (1.8s)
+  ok 28 tests\e2e\remediation.spec.ts:23:1 â€º live long identifiers: decision, history and keyboard-scrollable genealogy at 390px (5.1s)
+
+  29 passed (43.6s)
+[WebServer] (node:8336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:6696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:26876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

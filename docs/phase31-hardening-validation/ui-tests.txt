@@ -1,0 +1,13 @@
+
+> recall-investigation-ui@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/phase31-a31-hardening-clean/recall-ui
+
+
+ Test Files  5 passed (5)
+      Tests  33 passed (33)
+   Start at  21:41:54
+   Duration  3.48s (environment 62%, tests 11%, transform 11%, setup 9%, import 6%, worker 1%)
+

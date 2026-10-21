@@ -1,0 +1,16 @@
+{
+  "testedCommit": "903f37b8f06c572b19953e171b2176b09ebaf5e7",
+  "transport": "git clone --no-local --depth 1 --single-branch from local committed worktree; independent Git pack, no shared objects",
+  "shallow": true,
+  "freshVenv": true,
+  "freshNpmCi": true,
+  "verifierExit": 0,
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "chrome": "155.0.8059.80",
+  "missingOriginatingCommitObjects": {
+    "1620ed3a8c78d7ea41063107666d9482fd93dff9": true,
+    "bc68dc0ca54f4e35b7e14c6ad09f7af28ab3b00c": true
+  },
+  "sourceDiffAfterVerification": []
+}

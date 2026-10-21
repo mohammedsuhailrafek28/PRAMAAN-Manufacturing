@@ -1,0 +1,200 @@
+
+> recall-investigation-ui@0.1.0 test:e2e
+> playwright test
+
+
+Running 29 tests using 8 workers
+
+  ok  6 tests\e2e\investigation.spec.ts:43:1 â€º lot investigation (4.8s)
+  ok  7 tests\e2e\investigation.spec.ts:32:1 â€º case 06 before / after shows the safety improvement (6.4s)
+  ok  5 tests\e2e\investigation.spec.ts:9:1 â€º demo workflow: fleet -> unit -> explanation -> history (8.9s)
+  ok  8 tests\e2e\investigation.spec.ts:49:1 â€º mobile layout has no horizontal page scroll (9.6s)
+  ok  9 tests\e2e\investigation.spec.ts:61:1 â€º invalid fixture is refused in the browser (4.7s)
+  ok 12 tests\e2e\investigation.spec.ts:84:5 â€º axe: decision (light) (3.9s)
+  ok 10 tests\e2e\investigation.spec.ts:84:5 â€º axe: fleet (light) (6.8s)
+  ok 13 tests\e2e\investigation.spec.ts:84:5 â€º axe: decision (dark) (4.3s)
+  ok 11 tests\e2e\investigation.spec.ts:84:5 â€º axe: fleet (dark) (5.9s)
+  ok 14 tests\e2e\investigation.spec.ts:84:5 â€º axe: genealogy (light) (3.0s)
+  ok 15 tests\e2e\investigation.spec.ts:84:5 â€º axe: genealogy (dark) (3.1s)
+  ok 16 tests\e2e\investigation.spec.ts:84:5 â€º axe: history (light) (3.2s)
+  ok 17 tests\e2e\investigation.spec.ts:84:5 â€º axe: history (dark) (3.1s)
+  ok 18 tests\e2e\investigation.spec.ts:84:5 â€º axe: events (light) (3.5s)
+  ok 19 tests\e2e\investigation.spec.ts:84:5 â€º axe: events (dark) (3.2s)
+  x   4 tests\e2e\hardening.spec.ts:47:1 â€º suspension invalidates lease before fresh verification; delayed body stays hidden (12.1s)
+  x   3 tests\e2e\hardening.spec.ts:37:1 â€º fresh timestamp cannot conceal journal version rollback (12.5s)
+  ok  1 tests\e2e\hardening.spec.ts:22:1 â€º external capture writer withdraws displayed exclusion without an API command (22.1s)
+  x   2 tests\e2e\hardening.spec.ts:7:1 â€º old successful proxy snapshot cannot renew operational clearance; recovery stays live (14.1s)
+  ok 20 tests\e2e\investigation.spec.ts:84:5 â€º axe: lot (light) (4.7s)
+  ok 21 tests\e2e\investigation.spec.ts:84:5 â€º axe: lot (dark) (4.6s)
+  ok 24 tests\e2e\live.spec.ts:69:1 â€º backend failure has no implicit fixture fallback (855ms)
+  ok 22 tests\e2e\investigation.spec.ts:84:5 â€º axe: case06 (light) (3.0s)
+  ok 23 tests\e2e\investigation.spec.ts:84:5 â€º axe: case06 (dark) (3.3s)
+  ok 26 tests\e2e\remediation.spec.ts:41:1 â€º NDE-only affected motor is held by unspecified recall scope through real API (4.9s)
+  ok 25 tests\e2e\remediation.spec.ts:23:1 â€º live long identifiers: decision, history and keyboard-scrollable genealogy at 390px (9.4s)
+  ok 29 tests\e2e\remediation.spec.ts:8:1 â€º actual backend shutdown revokes live release presentation (8.6s)
+  x  27 tests\e2e\live.spec.ts:6:1 â€º live manufacturing capture, genealogy, recall, replacement and late withdrawal (8.5s)
+  ok 28 tests\e2e\live.spec.ts:52:1 â€º live responsive and accessibility review (9.7s)
+
+
+  1) tests\e2e\hardening.spec.ts:7:1 â€º old successful proxy snapshot cannot renew operational clearance; recovery stays live 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByTestId('chip-action').first()
+    Expected substring: "Release eligible"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByTestId('chip-action').first() with timeout 5000ms
+      - waiting for getByTestId('chip-action').first()
+
+
+       8 |  const old=await(await page.request.get('/api/snapshot')).json();
+       9 |  await page.goto('/#/unit/MTR-26003/decision');
+    > 10 |  await expect(page.getByTestId('chip-action').first()).toContainText('Release eligible');
+         |                                                        ^
+      11 |  old.freshness.verifiedAt=new Date(Date.now()-60000).toISOString();
+      12 |  await page.route('**/api/snapshot',r=>r.fulfill({json:old}));
+      13 |  await expect(page.getByTestId('load-error')).toBeVisible({timeout:8000});
+        at C:\Users\HAIL\Documents\PRAMAAN-Manufacturing\phase31-a31-hardening\recall-ui\tests\e2e\hardening.spec.ts:10:56
+
+    Error Context: test-results\hardening-old-successful-p-b01e9-earance-recovery-stays-live\error-context.md
+
+    attachment #2: trace (application/zip) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    test-results\hardening-old-successful-p-b01e9-earance-recovery-stays-live\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\hardening-old-successful-p-b01e9-earance-recovery-stays-live\trace.zip
+
+    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+  2) tests\e2e\hardening.spec.ts:37:1 â€º fresh timestamp cannot conceal journal version rollback â”€â”€â”€â”€
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('chip-action').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('chip-action').first() with timeout 5000ms
+      - waiting for getByTestId('chip-action').first()
+
+
+      38 |  const old=await(await page.request.get('/api/snapshot')).json();
+      39 |  await page.goto('/#/unit/MTR-26003/decision');
+    > 40 |  await expect(page.getByTestId('chip-action').first()).toBeVisible();
+         |                                                        ^
+      41 |  const rollback=structuredClone(old);rollback.freshness.sequence=1;
+      42 |  await page.route('**/api/snapshot',r=>{rollback.freshness.verifiedAt=new Date().toISOString();return r.fulfill({json:rollback});});
+      43 |  await expect(page.getByTestId('load-error')).toBeVisible({timeout:8000});
+        at C:\Users\HAIL\Documents\PRAMAAN-Manufacturing\phase31-a31-hardening\recall-ui\tests\e2e\hardening.spec.ts:40:56
+
+    Error Context: test-results\hardening-fresh-timestamp--8267f-al-journal-version-rollback\error-context.md
+
+    attachment #2: trace (application/zip) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    test-results\hardening-fresh-timestamp--8267f-al-journal-version-rollback\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\hardening-fresh-timestamp--8267f-al-journal-version-rollback\trace.zip
+
+    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+  3) tests\e2e\hardening.spec.ts:47:1 â€º suspension invalidates lease before fresh verification; delayed body stays hidden 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('chip-action').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('chip-action').first() with timeout 5000ms
+      - waiting for getByTestId('chip-action').first()
+
+
+      47 | test('suspension invalidates lease before fresh verification; delayed body stays hidden',async({page})=>{
+      48 |  await page.goto('/#/unit/MTR-26003/decision');
+    > 49 |  await expect(page.getByTestId('chip-action').first()).toBeVisible();
+         |                                                        ^
+      50 |  await page.route('**/api/snapshot',async r=>{await new Promise(resolve=>setTimeout(resolve,6000));await r.abort().catch(()=>{});});
+      51 |  await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));
+      52 |  await expect(page.getByTestId('chip-action')).toHaveCount(0);
+        at C:\Users\HAIL\Documents\PRAMAAN-Manufacturing\phase31-a31-hardening\recall-ui\tests\e2e\hardening.spec.ts:49:56
+
+    Error Context: test-results\hardening-suspension-inval-aea53-n-delayed-body-stays-hidden\error-context.md
+
+    attachment #2: trace (application/zip) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    test-results\hardening-suspension-inval-aea53-n-delayed-body-stays-hidden\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\hardening-suspension-inval-aea53-n-delayed-body-stays-hidden\trace.zip
+
+    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+  4) tests\e2e\live.spec.ts:6:1 â€º live manufacturing capture, genealogy, recall, replacement and late withdrawal 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByTestId('capture-status')
+    Expected substring: "Evidence captured"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByTestId('capture-status') with timeout 5000ms
+      - waiting for getByTestId('capture-status')
+
+
+      14 |   await page.getByLabel("New motor serial").fill("MTR-E2E-001");
+      15 |   await page.getByRole("button", { name: "Create unit", exact: true }).click();
+    > 16 |   await expect(page.getByTestId("capture-status")).toContainText("Evidence captured");
+         |                                                    ^
+      17 |   await page.getByLabel("Motor to capture").selectOption("MTR-E2E-001");
+      18 |   const row = page.getByRole("row").filter({ has: page.getByRole("link", { name: "MTR-E2E-001", exact: true }) });
+      19 |   await expect(row).toContainText("Recall hold");
+        at C:\Users\HAIL\Documents\PRAMAAN-Manufacturing\phase31-a31-hardening\recall-ui\tests\e2e\live.spec.ts:16:52
+
+    Error Context: test-results\live-live-manufacturing-ca-50759-acement-and-late-withdrawal\error-context.md
+
+    attachment #2: trace (application/zip) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    test-results\live-live-manufacturing-ca-50759-acement-and-late-withdrawal\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\live-live-manufacturing-ca-50759-acement-and-late-withdrawal\trace.zip
+
+    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+  4 failed
+    tests\e2e\hardening.spec.ts:7:1 â€º old successful proxy snapshot cannot renew operational clearance; recovery stays live 
+    tests\e2e\hardening.spec.ts:37:1 â€º fresh timestamp cannot conceal journal version rollback â”€â”€â”€â”€â”€
+    tests\e2e\hardening.spec.ts:47:1 â€º suspension invalidates lease before fresh verification; delayed body stays hidden 
+    tests\e2e\live.spec.ts:6:1 â€º live manufacturing capture, genealogy, recall, replacement and late withdrawal 
+  25 passed (41.5s)
+[WebServer] (node:11276) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:36636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33988) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:25248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3044) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33736) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32140) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27716) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12672) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:21288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

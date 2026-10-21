@@ -83,4 +83,3 @@ The UI checks server timestamp/maximum age, local lease, request generation,
 archive/journal continuity and evidence/decision regressions. This is bounded
 freshness, not cryptographic protection against a proxy forging fresh metadata.
 See `docs/PHASE31_A31_HARDENING_C1_C3.md` for verification and limitations.
-
