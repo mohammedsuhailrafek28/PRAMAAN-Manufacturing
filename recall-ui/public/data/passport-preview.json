@@ -1,0 +1,5851 @@
+{
+ "comparison": [
+  {
+   "current": {
+    "assuranceWarnings": [],
+    "caseId": "MTR-26002",
+    "coverageDigest": "b44a5f46968bac6c89e775c925ccbced407b272d468fb82cf8fc83e1f4e8e9e1",
+    "decisionId": "A31-MTR-26002-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v2",
+    "engineVersion": "phase1.2-untrusted-observation",
+    "evidenceEventIds": [
+     "urn:pramaan:MTR-26002:MES:1",
+     "urn:pramaan:MTR-26002:ASSY:1",
+     "urn:pramaan:MTR-26002:ASSY:2",
+     "urn:pramaan:MTR-26002:MES:2",
+     "urn:pramaan:MTR-26002:MES:3",
+     "urn:pramaan:MTR-26002:REWORK:1",
+     "urn:pramaan:MTR-26002:REWORK:2",
+     "urn:pramaan:MTR-26002:MES:4"
+    ],
+    "evidenceFinding": "UNRESOLVED",
+    "evidenceRefs": [
+     "demo-record:MTR-26002:ASSY:1",
+     "demo-record:MTR-26002:ASSY:2",
+     "demo-record:MTR-26002:MES:1",
+     "demo-record:MTR-26002:MES:2",
+     "demo-record:MTR-26002:MES:3",
+     "demo-record:MTR-26002:MES:4",
+     "demo-record:MTR-26002:REWORK:1",
+     "demo-record:MTR-26002:REWORK:2"
+    ],
+    "flags": [],
+    "identityGranularity": "LOT",
+    "integrityIssues": [],
+    "motorSerial": "MTR-26002",
+    "operationalAction": "RECALL_HOLD",
+    "policyId": "RC-026-014/P1",
+    "policyVersion": 1,
+    "publicationProfile": "APPLICATION_PUBLICATION_A31",
+    "reasonCodes": [
+     "AMBIGUOUS_SLOT_ATTRIBUTION"
+    ],
+    "recallId": "RC-026-014",
+    "reviewRequired": true,
+    "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+    "slotAttribution": [
+     {
+      "accessEvidenceEventId": null,
+      "ambiguous": true,
+      "assurance": "CLAIMED_SLOT",
+      "at": "2026-10-20T08:01:30Z",
+      "candidates": [
+       {
+        "basis": "RECORDED_OCCUPANT_MATCH",
+        "claimed": true,
+        "slot": "DE",
+        "supportingEventIds": [
+         "urn:pramaan:MTR-26002:ASSY:1"
+        ]
+       },
+       {
+        "basis": "RECORDED_OCCUPANT_MATCH",
+        "claimed": false,
+        "slot": "NDE",
+        "supportingEventIds": [
+         "urn:pramaan:MTR-26002:ASSY:2"
+        ]
+       }
+      ],
+      "claimedSlot": "DE",
+      "cleared": false,
+      "clearedBy": null,
+      "labelScans": [],
+      "observed": {
+       "granularity": "LOT",
+       "lot": "BR-204",
+       "part": "BR-6205",
+       "serial": null
+      },
+      "rejectedLabelScans": [],
+      "removalEventId": "urn:pramaan:MTR-26002:REWORK:1",
+      "ruledOutSlots": [],
+      "supportingEventIds": [
+       "urn:pramaan:MTR-26002:ASSY:1",
+       "urn:pramaan:MTR-26002:ASSY:2",
+       "urn:pramaan:MTR-26002:REWORK:1"
+      ],
+      "unrulableAlternatives": []
+     }
+    ],
+    "slotVerdicts": {
+     "DE": {
+      "finding": "UNRESOLVED",
+      "reasons": [
+       "AMBIGUOUS_SLOT_ATTRIBUTION"
+      ]
+     }
+    },
+    "slots": {
+     "DE": {
+      "baseline": "AS_BUILT_VALIDATED",
+      "conflicts": [],
+      "currentLotPerRecords": "BR-312",
+      "gaps": [],
+      "identityGranularity": "LOT",
+      "policyRelevance": "RELEVANT",
+      "reconciliation": "AMBIGUOUS_ATTRIBUTION",
+      "state": "OCCUPIED",
+      "verifications": []
+     }
+    },
+    "supersededEventIds": [],
+    "supersedesDecisionId": "A31-MTR-26002-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+    "triggerEventId": "urn:pramaan:MTR-26002:REWORK:2",
+    "unchanged": false,
+    "untrustedObservations": [],
+    "version": 2,
+    "watermark": {
+     "ASSY:MTR-26002": 2,
+     "MATERIAL:MTR-26002": 6,
+     "MES:MTR-26002": 4,
+     "REWORK:MTR-26002": 2,
+     "SHIP:MTR-26002": 1
+    },
+    "workOrders": {
+     "BUILD-MTR-26002": {
+      "disposition": "COMPLETED",
+      "obligations": [
+       {
+        "action": "INSTALL",
+        "satisfiedBy": [
+         "urn:pramaan:MTR-26002:ASSY:1"
+        ],
+        "slot": "DE",
+        "status": "MET"
+       },
+       {
+        "action": "INSTALL",
+        "satisfiedBy": [
+         "urn:pramaan:MTR-26002:ASSY:2"
+        ],
+        "slot": "NDE",
+        "status": "MET"
+       }
+      ],
+      "reconciliation": "RECONCILED",
+      "status": "CLOSED",
+      "unexpectedEventIds": []
+     },
+     "RW-MTR-26002-1": {
+      "disposition": "COMPLETED",
+      "obligations": [
+       {
+        "action": "REPLACE",
+        "satisfiedBy": [
+         "urn:pramaan:MTR-26002:REWORK:1",
+         "urn:pramaan:MTR-26002:REWORK:2"
+        ],
+        "slot": "DE",
+        "status": "MET"
+       }
+      ],
+      "reconciliation": "RECONCILED",
+      "status": "CLOSED",
+      "unexpectedEventIds": []
+     }
+    }
+   },
+   "legacy": {
+    "assuranceWarnings": [],
+    "caseId": "MTR-26002",
+    "coverageDigest": "b44a5f46968bac6c89e775c925ccbced407b272d468fb82cf8fc83e1f4e8e9e1",
+    "decisionId": "D-MTR-26002-P1-v1",
+    "engineVersion": "phase1-0.1",
+    "evidenceEventIds": [
+     "urn:pramaan:MTR-26002:MES:1",
+     "urn:pramaan:MTR-26002:ASSY:1",
+     "urn:pramaan:MTR-26002:ASSY:2",
+     "urn:pramaan:MTR-26002:MES:2",
+     "urn:pramaan:MTR-26002:MES:3",
+     "urn:pramaan:MTR-26002:REWORK:1",
+     "urn:pramaan:MTR-26002:REWORK:2",
+     "urn:pramaan:MTR-26002:MES:4"
+    ],
+    "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+    "evidenceRefs": [
+     "demo-record:MTR-26002:ASSY:1",
+     "demo-record:MTR-26002:ASSY:2",
+     "demo-record:MTR-26002:MES:1",
+     "demo-record:MTR-26002:MES:2",
+     "demo-record:MTR-26002:MES:3",
+     "demo-record:MTR-26002:MES:4",
+     "demo-record:MTR-26002:REWORK:1",
+     "demo-record:MTR-26002:REWORK:2"
+    ],
+    "flags": [
+     "KNOWN_LIMITATION_LOT_LEVEL_SLOT_AMBIGUITY"
+    ],
+    "identityGranularity": "LOT",
+    "integrityIssues": [],
+    "motorSerial": "MTR-26002",
+    "operationalAction": "RELEASE_ELIGIBLE",
+    "policyId": "RC-026-014/P1",
+    "policyVersion": 1,
+    "reasonCodes": [
+     "REPLACED_WITH_UNAFFECTED_LOT"
+    ],
+    "recallId": "RC-026-014",
+    "reviewRequired": false,
+    "semanticsProfile": "P1_LEGACY",
+    "slotAttribution": [],
+    "slotVerdicts": {
+     "DE": {
+      "finding": "EXCLUDED_WITH_EVIDENCE",
+      "reasons": [
+       "REPLACED_WITH_UNAFFECTED_LOT"
+      ]
+     }
+    },
+    "slots": {
+     "DE": {
+      "baseline": "AS_BUILT_VALIDATED",
+      "conflicts": [],
+      "currentLotPerRecords": "BR-312",
+      "gaps": [],
+      "identityGranularity": "LOT",
+      "policyRelevance": "RELEVANT",
+      "reconciliation": "CLEAN",
+      "state": "OCCUPIED",
+      "verifications": []
+     }
+    },
+    "supersededEventIds": [],
+    "supersedesDecisionId": null,
+    "triggerEventId": null,
+    "unchanged": false,
+    "untrustedObservations": [],
+    "version": 1,
+    "watermark": {
+     "ASSY:MTR-26002": 2,
+     "MATERIAL:MTR-26002": 6,
+     "MES:MTR-26002": 4,
+     "REWORK:MTR-26002": 2,
+     "SHIP:MTR-26002": 1
+    },
+    "workOrders": {
+     "BUILD-MTR-26002": {
+      "disposition": "COMPLETED",
+      "obligations": [
+       {
+        "action": "INSTALL",
+        "satisfiedBy": [
+         "urn:pramaan:MTR-26002:ASSY:1"
+        ],
+        "slot": "DE",
+        "status": "MET"
+       },
+       {
+        "action": "INSTALL",
+        "satisfiedBy": [
+         "urn:pramaan:MTR-26002:ASSY:2"
+        ],
+        "slot": "NDE",
+        "status": "MET"
+       }
+      ],
+      "reconciliation": "RECONCILED",
+      "status": "CLOSED",
+      "unexpectedEventIds": []
+     },
+     "RW-MTR-26002-1": {
+      "disposition": "COMPLETED",
+      "obligations": [
+       {
+        "action": "REPLACE",
+        "satisfiedBy": [
+         "urn:pramaan:MTR-26002:REWORK:1",
+         "urn:pramaan:MTR-26002:REWORK:2"
+        ],
+        "slot": "DE",
+        "status": "MET"
+       }
+      ],
+      "reconciliation": "RECONCILED",
+      "status": "CLOSED",
+      "unexpectedEventIds": []
+     }
+    }
+   },
+   "policyId": "RC-026-014/P1",
+   "unitId": "MTR-26002"
+  }
+ ],
+ "components": [
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26001:ASSY:1",
+   "installedAt": "2026-10-10T08:02:00Z",
+   "lot": "BR-204",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": "BRG-MTR-26001-DE-01",
+   "slot": "DE",
+   "sourceId": "ASSY:MTR-26001",
+   "supersededBy": null,
+   "unitId": "MTR-26001"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26001:ASSY:2",
+   "installedAt": "2026-10-10T08:03:30Z",
+   "lot": "BR-310",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": "BRG-MTR-26001-NDE-01",
+   "slot": "NDE",
+   "sourceId": "ASSY:MTR-26001",
+   "supersededBy": null,
+   "unitId": "MTR-26001"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26002:ASSY:1",
+   "installedAt": "2026-10-10T08:06:30Z",
+   "lot": "BR-204",
+   "part": "BR-6205",
+   "removalEventId": "urn:pramaan:MTR-26002:REWORK:1",
+   "removedAt": "2026-10-20T08:01:30Z",
+   "serial": null,
+   "slot": "DE",
+   "sourceId": "ASSY:MTR-26002",
+   "supersededBy": null,
+   "unitId": "MTR-26002"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26002:ASSY:2",
+   "installedAt": "2026-10-10T08:08:00Z",
+   "lot": "BR-204",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": null,
+   "slot": "NDE",
+   "sourceId": "ASSY:MTR-26002",
+   "supersededBy": null,
+   "unitId": "MTR-26002"
+  },
+  {
+   "claimedBy": "OP-REWORK-12",
+   "componentId": "urn:pramaan:MTR-26002:REWORK:2",
+   "installedAt": "2026-10-20T08:03:00Z",
+   "lot": "BR-312",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": null,
+   "slot": "DE",
+   "sourceId": "REWORK:MTR-26002",
+   "supersededBy": null,
+   "unitId": "MTR-26002"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26003:ASSY:1",
+   "installedAt": "2026-10-10T08:11:00Z",
+   "lot": "BR-310",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": "BRG-MTR-26003-DE-01",
+   "slot": "DE",
+   "sourceId": "ASSY:MTR-26003",
+   "supersededBy": null,
+   "unitId": "MTR-26003"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26003:ASSY:2",
+   "installedAt": "2026-10-10T08:12:30Z",
+   "lot": "BR-312",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": "BRG-MTR-26003-NDE-01",
+   "slot": "NDE",
+   "sourceId": "ASSY:MTR-26003",
+   "supersededBy": null,
+   "unitId": "MTR-26003"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26004:ASSY:1",
+   "installedAt": "2026-10-10T08:15:30Z",
+   "lot": "BR-204",
+   "part": "BR-6205",
+   "removalEventId": "urn:pramaan:MTR-26004:REWORK:1",
+   "removedAt": "2026-10-20T08:04:30Z",
+   "serial": "BRG-MTR-26004-DE-01",
+   "slot": "DE",
+   "sourceId": "ASSY:MTR-26004",
+   "supersededBy": null,
+   "unitId": "MTR-26004"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26004:ASSY:2",
+   "installedAt": "2026-10-10T08:17:00Z",
+   "lot": "BR-310",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": "BRG-MTR-26004-NDE-01",
+   "slot": "NDE",
+   "sourceId": "ASSY:MTR-26004",
+   "supersededBy": null,
+   "unitId": "MTR-26004"
+  },
+  {
+   "claimedBy": "OP-REWORK-12",
+   "componentId": "urn:pramaan:MTR-26004:REWORK:2",
+   "installedAt": "2026-10-20T08:06:00Z",
+   "lot": "BR-312",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": "BRG-MTR-26004-DE-R9",
+   "slot": "DE",
+   "sourceId": "REWORK:MTR-26004",
+   "supersededBy": null,
+   "unitId": "MTR-26004"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26005:ASSY:1",
+   "installedAt": "2026-10-10T08:20:00Z",
+   "lot": "BR-310",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": "BRG-MTR-26005-DE-01",
+   "slot": "DE",
+   "sourceId": "ASSY:MTR-26005",
+   "supersededBy": null,
+   "unitId": "MTR-26005"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26005:ASSY:2",
+   "installedAt": "2026-10-10T08:21:30Z",
+   "lot": "BR-312",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": "BRG-MTR-26005-NDE-01",
+   "slot": "NDE",
+   "sourceId": "ASSY:MTR-26005",
+   "supersededBy": null,
+   "unitId": "MTR-26005"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26007:ASSY:1",
+   "installedAt": "2026-10-20T08:09:00Z",
+   "lot": "BR-310",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": "BRG-MTR-26007-DE-01",
+   "slot": "DE",
+   "sourceId": "ASSY:MTR-26007",
+   "supersededBy": null,
+   "unitId": "MTR-26007"
+  },
+  {
+   "claimedBy": "OP-ASSEMBLY-07",
+   "componentId": "urn:pramaan:MTR-26007:ASSY:2",
+   "installedAt": "2026-10-20T08:10:30Z",
+   "lot": "BR-312",
+   "part": "BR-6205",
+   "removalEventId": null,
+   "removedAt": null,
+   "serial": "BRG-MTR-26007-NDE-01",
+   "slot": "NDE",
+   "sourceId": "ASSY:MTR-26007",
+   "supersededBy": null,
+   "unitId": "MTR-26007"
+  }
+ ],
+ "decisions": {
+  "MTR-26001": {
+   "RC-026-014/P1": {
+    "current": {
+     "assuranceWarnings": [],
+     "caseId": "MTR-26001",
+     "coverageDigest": "7a069505781ba870c1d637d9dae7fcdc53627954007ef0c4708f70f0446d338d",
+     "decisionId": "A31-MTR-26001-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+     "engineVersion": "phase1.2-untrusted-observation",
+     "evidenceEventIds": [
+      "urn:pramaan:MTR-26001:MES:1",
+      "urn:pramaan:MTR-26001:ASSY:1",
+      "urn:pramaan:MTR-26001:ASSY:2",
+      "urn:pramaan:MTR-26001:MES:2"
+     ],
+     "evidenceFinding": "AFFECTED",
+     "evidenceRefs": [
+      "demo-record:MTR-26001:ASSY:1",
+      "demo-record:MTR-26001:ASSY:2",
+      "demo-record:MTR-26001:MES:1",
+      "demo-record:MTR-26001:MES:2"
+     ],
+     "flags": [],
+     "identityGranularity": "SERIAL",
+     "integrityIssues": [],
+     "motorSerial": "MTR-26001",
+     "operationalAction": "RECALL_HOLD",
+     "policyId": "RC-026-014/P1",
+     "policyVersion": 1,
+     "publicationProfile": "APPLICATION_PUBLICATION_A31",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED"
+     ],
+     "recallId": "RC-026-014",
+     "reviewRequired": false,
+     "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+     "slotAttribution": [],
+     "slotVerdicts": {
+      "DE": {
+       "finding": "AFFECTED",
+       "reasons": [
+        "AFFECTED_LOT_INSTALLED"
+       ]
+      }
+     },
+     "slots": {
+      "DE": {
+       "baseline": "AS_BUILT_VALIDATED",
+       "conflicts": [],
+       "currentLotPerRecords": "BR-204",
+       "gaps": [],
+       "identityGranularity": "SERIAL",
+       "policyRelevance": "RELEVANT",
+       "reconciliation": "CLEAN",
+       "state": "OCCUPIED",
+       "verifications": []
+      }
+     },
+     "supersededEventIds": [],
+     "supersedesDecisionId": null,
+     "triggerEventId": null,
+     "unchanged": false,
+     "untrustedObservations": [],
+     "version": 1,
+     "watermark": {
+      "ASSY:MTR-26001": 2,
+      "MATERIAL:MTR-26001": 4,
+      "MES:MTR-26001": 2,
+      "SHIP:MTR-26001": 1
+     },
+     "workOrders": {
+      "BUILD-MTR-26001": {
+       "disposition": "COMPLETED",
+       "obligations": [
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26001:ASSY:1"
+         ],
+         "slot": "DE",
+         "status": "MET"
+        },
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26001:ASSY:2"
+         ],
+         "slot": "NDE",
+         "status": "MET"
+        }
+       ],
+       "reconciliation": "RECONCILED",
+       "status": "CLOSED",
+       "unexpectedEventIds": []
+      }
+     }
+    },
+    "history": [
+     {
+      "assuranceWarnings": [],
+      "caseId": "MTR-26001",
+      "coverageDigest": "7a069505781ba870c1d637d9dae7fcdc53627954007ef0c4708f70f0446d338d",
+      "decisionId": "A31-MTR-26001-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "engineVersion": "phase1.2-untrusted-observation",
+      "evidenceEventIds": [
+       "urn:pramaan:MTR-26001:MES:1",
+       "urn:pramaan:MTR-26001:ASSY:1",
+       "urn:pramaan:MTR-26001:ASSY:2",
+       "urn:pramaan:MTR-26001:MES:2"
+      ],
+      "evidenceFinding": "AFFECTED",
+      "evidenceRefs": [
+       "demo-record:MTR-26001:ASSY:1",
+       "demo-record:MTR-26001:ASSY:2",
+       "demo-record:MTR-26001:MES:1",
+       "demo-record:MTR-26001:MES:2"
+      ],
+      "flags": [],
+      "identityGranularity": "SERIAL",
+      "integrityIssues": [],
+      "motorSerial": "MTR-26001",
+      "operationalAction": "RECALL_HOLD",
+      "policyId": "RC-026-014/P1",
+      "policyVersion": 1,
+      "publicationProfile": "APPLICATION_PUBLICATION_A31",
+      "reasonCodes": [
+       "AFFECTED_LOT_INSTALLED"
+      ],
+      "recallId": "RC-026-014",
+      "reviewRequired": false,
+      "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+      "slotAttribution": [],
+      "slotVerdicts": {
+       "DE": {
+        "finding": "AFFECTED",
+        "reasons": [
+         "AFFECTED_LOT_INSTALLED"
+        ]
+       }
+      },
+      "slots": {
+       "DE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-204",
+        "gaps": [],
+        "identityGranularity": "SERIAL",
+        "policyRelevance": "RELEVANT",
+        "reconciliation": "CLEAN",
+        "state": "OCCUPIED",
+        "verifications": []
+       }
+      },
+      "supersededEventIds": [],
+      "supersedesDecisionId": null,
+      "triggerEventId": null,
+      "unchanged": false,
+      "untrustedObservations": [],
+      "version": 1,
+      "watermark": {
+       "ASSY:MTR-26001": 2,
+       "MATERIAL:MTR-26001": 4,
+       "MES:MTR-26001": 2,
+       "SHIP:MTR-26001": 1
+      },
+      "workOrders": {
+       "BUILD-MTR-26001": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26001:ASSY:1"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         },
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26001:ASSY:2"
+          ],
+          "slot": "NDE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       }
+      }
+     }
+    ]
+   }
+  },
+  "MTR-26002": {
+   "RC-026-014/P1": {
+    "current": {
+     "assuranceWarnings": [],
+     "caseId": "MTR-26002",
+     "coverageDigest": "b44a5f46968bac6c89e775c925ccbced407b272d468fb82cf8fc83e1f4e8e9e1",
+     "decisionId": "A31-MTR-26002-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v2",
+     "engineVersion": "phase1.2-untrusted-observation",
+     "evidenceEventIds": [
+      "urn:pramaan:MTR-26002:MES:1",
+      "urn:pramaan:MTR-26002:ASSY:1",
+      "urn:pramaan:MTR-26002:ASSY:2",
+      "urn:pramaan:MTR-26002:MES:2",
+      "urn:pramaan:MTR-26002:MES:3",
+      "urn:pramaan:MTR-26002:REWORK:1",
+      "urn:pramaan:MTR-26002:REWORK:2",
+      "urn:pramaan:MTR-26002:MES:4"
+     ],
+     "evidenceFinding": "UNRESOLVED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:ASSY:1",
+      "demo-record:MTR-26002:ASSY:2",
+      "demo-record:MTR-26002:MES:1",
+      "demo-record:MTR-26002:MES:2",
+      "demo-record:MTR-26002:MES:3",
+      "demo-record:MTR-26002:MES:4",
+      "demo-record:MTR-26002:REWORK:1",
+      "demo-record:MTR-26002:REWORK:2"
+     ],
+     "flags": [],
+     "identityGranularity": "LOT",
+     "integrityIssues": [],
+     "motorSerial": "MTR-26002",
+     "operationalAction": "RECALL_HOLD",
+     "policyId": "RC-026-014/P1",
+     "policyVersion": 1,
+     "publicationProfile": "APPLICATION_PUBLICATION_A31",
+     "reasonCodes": [
+      "AMBIGUOUS_SLOT_ATTRIBUTION"
+     ],
+     "recallId": "RC-026-014",
+     "reviewRequired": true,
+     "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+     "slotAttribution": [
+      {
+       "accessEvidenceEventId": null,
+       "ambiguous": true,
+       "assurance": "CLAIMED_SLOT",
+       "at": "2026-10-20T08:01:30Z",
+       "candidates": [
+        {
+         "basis": "RECORDED_OCCUPANT_MATCH",
+         "claimed": true,
+         "slot": "DE",
+         "supportingEventIds": [
+          "urn:pramaan:MTR-26002:ASSY:1"
+         ]
+        },
+        {
+         "basis": "RECORDED_OCCUPANT_MATCH",
+         "claimed": false,
+         "slot": "NDE",
+         "supportingEventIds": [
+          "urn:pramaan:MTR-26002:ASSY:2"
+         ]
+        }
+       ],
+       "claimedSlot": "DE",
+       "cleared": false,
+       "clearedBy": null,
+       "labelScans": [],
+       "observed": {
+        "granularity": "LOT",
+        "lot": "BR-204",
+        "part": "BR-6205",
+        "serial": null
+       },
+       "rejectedLabelScans": [],
+       "removalEventId": "urn:pramaan:MTR-26002:REWORK:1",
+       "ruledOutSlots": [],
+       "supportingEventIds": [
+        "urn:pramaan:MTR-26002:ASSY:1",
+        "urn:pramaan:MTR-26002:ASSY:2",
+        "urn:pramaan:MTR-26002:REWORK:1"
+       ],
+       "unrulableAlternatives": []
+      }
+     ],
+     "slotVerdicts": {
+      "DE": {
+       "finding": "UNRESOLVED",
+       "reasons": [
+        "AMBIGUOUS_SLOT_ATTRIBUTION"
+       ]
+      }
+     },
+     "slots": {
+      "DE": {
+       "baseline": "AS_BUILT_VALIDATED",
+       "conflicts": [],
+       "currentLotPerRecords": "BR-312",
+       "gaps": [],
+       "identityGranularity": "LOT",
+       "policyRelevance": "RELEVANT",
+       "reconciliation": "AMBIGUOUS_ATTRIBUTION",
+       "state": "OCCUPIED",
+       "verifications": []
+      }
+     },
+     "supersededEventIds": [],
+     "supersedesDecisionId": "A31-MTR-26002-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+     "triggerEventId": "urn:pramaan:MTR-26002:REWORK:2",
+     "unchanged": false,
+     "untrustedObservations": [],
+     "version": 2,
+     "watermark": {
+      "ASSY:MTR-26002": 2,
+      "MATERIAL:MTR-26002": 6,
+      "MES:MTR-26002": 4,
+      "REWORK:MTR-26002": 2,
+      "SHIP:MTR-26002": 1
+     },
+     "workOrders": {
+      "BUILD-MTR-26002": {
+       "disposition": "COMPLETED",
+       "obligations": [
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26002:ASSY:1"
+         ],
+         "slot": "DE",
+         "status": "MET"
+        },
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26002:ASSY:2"
+         ],
+         "slot": "NDE",
+         "status": "MET"
+        }
+       ],
+       "reconciliation": "RECONCILED",
+       "status": "CLOSED",
+       "unexpectedEventIds": []
+      },
+      "RW-MTR-26002-1": {
+       "disposition": "COMPLETED",
+       "obligations": [
+        {
+         "action": "REPLACE",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26002:REWORK:1",
+          "urn:pramaan:MTR-26002:REWORK:2"
+         ],
+         "slot": "DE",
+         "status": "MET"
+        }
+       ],
+       "reconciliation": "RECONCILED",
+       "status": "CLOSED",
+       "unexpectedEventIds": []
+      }
+     }
+    },
+    "history": [
+     {
+      "assuranceWarnings": [],
+      "caseId": "MTR-26002",
+      "coverageDigest": "b44a5f46968bac6c89e775c925ccbced407b272d468fb82cf8fc83e1f4e8e9e1",
+      "decisionId": "A31-MTR-26002-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "engineVersion": "phase1.2-untrusted-observation",
+      "evidenceEventIds": [
+       "urn:pramaan:MTR-26002:MES:1",
+       "urn:pramaan:MTR-26002:ASSY:1",
+       "urn:pramaan:MTR-26002:ASSY:2",
+       "urn:pramaan:MTR-26002:MES:2"
+      ],
+      "evidenceFinding": "AFFECTED",
+      "evidenceRefs": [
+       "demo-record:MTR-26002:ASSY:1",
+       "demo-record:MTR-26002:ASSY:2",
+       "demo-record:MTR-26002:MES:1",
+       "demo-record:MTR-26002:MES:2"
+      ],
+      "flags": [],
+      "identityGranularity": "LOT",
+      "integrityIssues": [],
+      "motorSerial": "MTR-26002",
+      "operationalAction": "RECALL_HOLD",
+      "policyId": "RC-026-014/P1",
+      "policyVersion": 1,
+      "publicationProfile": "APPLICATION_PUBLICATION_A31",
+      "reasonCodes": [
+       "AFFECTED_LOT_INSTALLED"
+      ],
+      "recallId": "RC-026-014",
+      "reviewRequired": false,
+      "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+      "slotAttribution": [],
+      "slotVerdicts": {
+       "DE": {
+        "finding": "AFFECTED",
+        "reasons": [
+         "AFFECTED_LOT_INSTALLED"
+        ]
+       }
+      },
+      "slots": {
+       "DE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-204",
+        "gaps": [],
+        "identityGranularity": "LOT",
+        "policyRelevance": "RELEVANT",
+        "reconciliation": "CLEAN",
+        "state": "OCCUPIED",
+        "verifications": []
+       }
+      },
+      "supersededEventIds": [],
+      "supersedesDecisionId": null,
+      "triggerEventId": null,
+      "unchanged": false,
+      "untrustedObservations": [],
+      "version": 1,
+      "watermark": {
+       "ASSY:MTR-26002": 2,
+       "MATERIAL:MTR-26002": 4,
+       "MES:MTR-26002": 2,
+       "SHIP:MTR-26002": 1
+      },
+      "workOrders": {
+       "BUILD-MTR-26002": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26002:ASSY:1"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         },
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26002:ASSY:2"
+          ],
+          "slot": "NDE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       }
+      }
+     },
+     {
+      "assuranceWarnings": [],
+      "caseId": "MTR-26002",
+      "coverageDigest": "b44a5f46968bac6c89e775c925ccbced407b272d468fb82cf8fc83e1f4e8e9e1",
+      "decisionId": "A31-MTR-26002-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v2",
+      "engineVersion": "phase1.2-untrusted-observation",
+      "evidenceEventIds": [
+       "urn:pramaan:MTR-26002:MES:1",
+       "urn:pramaan:MTR-26002:ASSY:1",
+       "urn:pramaan:MTR-26002:ASSY:2",
+       "urn:pramaan:MTR-26002:MES:2",
+       "urn:pramaan:MTR-26002:MES:3",
+       "urn:pramaan:MTR-26002:REWORK:1",
+       "urn:pramaan:MTR-26002:REWORK:2",
+       "urn:pramaan:MTR-26002:MES:4"
+      ],
+      "evidenceFinding": "UNRESOLVED",
+      "evidenceRefs": [
+       "demo-record:MTR-26002:ASSY:1",
+       "demo-record:MTR-26002:ASSY:2",
+       "demo-record:MTR-26002:MES:1",
+       "demo-record:MTR-26002:MES:2",
+       "demo-record:MTR-26002:MES:3",
+       "demo-record:MTR-26002:MES:4",
+       "demo-record:MTR-26002:REWORK:1",
+       "demo-record:MTR-26002:REWORK:2"
+      ],
+      "flags": [],
+      "identityGranularity": "LOT",
+      "integrityIssues": [],
+      "motorSerial": "MTR-26002",
+      "operationalAction": "RECALL_HOLD",
+      "policyId": "RC-026-014/P1",
+      "policyVersion": 1,
+      "publicationProfile": "APPLICATION_PUBLICATION_A31",
+      "reasonCodes": [
+       "AMBIGUOUS_SLOT_ATTRIBUTION"
+      ],
+      "recallId": "RC-026-014",
+      "reviewRequired": true,
+      "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+      "slotAttribution": [
+       {
+        "accessEvidenceEventId": null,
+        "ambiguous": true,
+        "assurance": "CLAIMED_SLOT",
+        "at": "2026-10-20T08:01:30Z",
+        "candidates": [
+         {
+          "basis": "RECORDED_OCCUPANT_MATCH",
+          "claimed": true,
+          "slot": "DE",
+          "supportingEventIds": [
+           "urn:pramaan:MTR-26002:ASSY:1"
+          ]
+         },
+         {
+          "basis": "RECORDED_OCCUPANT_MATCH",
+          "claimed": false,
+          "slot": "NDE",
+          "supportingEventIds": [
+           "urn:pramaan:MTR-26002:ASSY:2"
+          ]
+         }
+        ],
+        "claimedSlot": "DE",
+        "cleared": false,
+        "clearedBy": null,
+        "labelScans": [],
+        "observed": {
+         "granularity": "LOT",
+         "lot": "BR-204",
+         "part": "BR-6205",
+         "serial": null
+        },
+        "rejectedLabelScans": [],
+        "removalEventId": "urn:pramaan:MTR-26002:REWORK:1",
+        "ruledOutSlots": [],
+        "supportingEventIds": [
+         "urn:pramaan:MTR-26002:ASSY:1",
+         "urn:pramaan:MTR-26002:ASSY:2",
+         "urn:pramaan:MTR-26002:REWORK:1"
+        ],
+        "unrulableAlternatives": []
+       }
+      ],
+      "slotVerdicts": {
+       "DE": {
+        "finding": "UNRESOLVED",
+        "reasons": [
+         "AMBIGUOUS_SLOT_ATTRIBUTION"
+        ]
+       }
+      },
+      "slots": {
+       "DE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-312",
+        "gaps": [],
+        "identityGranularity": "LOT",
+        "policyRelevance": "RELEVANT",
+        "reconciliation": "AMBIGUOUS_ATTRIBUTION",
+        "state": "OCCUPIED",
+        "verifications": []
+       }
+      },
+      "supersededEventIds": [],
+      "supersedesDecisionId": "A31-MTR-26002-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "triggerEventId": "urn:pramaan:MTR-26002:REWORK:2",
+      "unchanged": false,
+      "untrustedObservations": [],
+      "version": 2,
+      "watermark": {
+       "ASSY:MTR-26002": 2,
+       "MATERIAL:MTR-26002": 6,
+       "MES:MTR-26002": 4,
+       "REWORK:MTR-26002": 2,
+       "SHIP:MTR-26002": 1
+      },
+      "workOrders": {
+       "BUILD-MTR-26002": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26002:ASSY:1"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         },
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26002:ASSY:2"
+          ],
+          "slot": "NDE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       },
+       "RW-MTR-26002-1": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "REPLACE",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26002:REWORK:1",
+           "urn:pramaan:MTR-26002:REWORK:2"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       }
+      }
+     }
+    ]
+   }
+  },
+  "MTR-26003": {
+   "RC-026-014/P1": {
+    "current": {
+     "assuranceWarnings": [],
+     "caseId": "MTR-26003",
+     "coverageDigest": "25e5650e7bcc9d4177b4900ab945ac9115d9e8912fa7ddc4bd14fd93ea5d5b94",
+     "decisionId": "A31-MTR-26003-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+     "engineVersion": "phase1.2-untrusted-observation",
+     "evidenceEventIds": [
+      "urn:pramaan:MTR-26003:MES:1",
+      "urn:pramaan:MTR-26003:ASSY:1",
+      "urn:pramaan:MTR-26003:ASSY:2",
+      "urn:pramaan:MTR-26003:MES:2"
+     ],
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "evidenceRefs": [
+      "demo-record:MTR-26003:ASSY:1",
+      "demo-record:MTR-26003:ASSY:2",
+      "demo-record:MTR-26003:MES:1",
+      "demo-record:MTR-26003:MES:2"
+     ],
+     "flags": [],
+     "identityGranularity": "SERIAL",
+     "integrityIssues": [],
+     "motorSerial": "MTR-26003",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "policyId": "RC-026-014/P1",
+     "policyVersion": 1,
+     "publicationProfile": "APPLICATION_PUBLICATION_A31",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ],
+     "recallId": "RC-026-014",
+     "reviewRequired": false,
+     "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+     "slotAttribution": [],
+     "slotVerdicts": {
+      "DE": {
+       "finding": "EXCLUDED_WITH_EVIDENCE",
+       "reasons": [
+        "AS_BUILT_UNAFFECTED_LOT"
+       ]
+      }
+     },
+     "slots": {
+      "DE": {
+       "baseline": "AS_BUILT_VALIDATED",
+       "conflicts": [],
+       "currentLotPerRecords": "BR-310",
+       "gaps": [],
+       "identityGranularity": "SERIAL",
+       "policyRelevance": "RELEVANT",
+       "reconciliation": "CLEAN",
+       "state": "OCCUPIED",
+       "verifications": []
+      }
+     },
+     "supersededEventIds": [],
+     "supersedesDecisionId": null,
+     "triggerEventId": null,
+     "unchanged": false,
+     "untrustedObservations": [],
+     "version": 1,
+     "watermark": {
+      "ASSY:MTR-26003": 2,
+      "MATERIAL:MTR-26003": 4,
+      "MES:MTR-26003": 2,
+      "SHIP:MTR-26003": 1
+     },
+     "workOrders": {
+      "BUILD-MTR-26003": {
+       "disposition": "COMPLETED",
+       "obligations": [
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26003:ASSY:1"
+         ],
+         "slot": "DE",
+         "status": "MET"
+        },
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26003:ASSY:2"
+         ],
+         "slot": "NDE",
+         "status": "MET"
+        }
+       ],
+       "reconciliation": "RECONCILED",
+       "status": "CLOSED",
+       "unexpectedEventIds": []
+      }
+     }
+    },
+    "history": [
+     {
+      "assuranceWarnings": [],
+      "caseId": "MTR-26003",
+      "coverageDigest": "25e5650e7bcc9d4177b4900ab945ac9115d9e8912fa7ddc4bd14fd93ea5d5b94",
+      "decisionId": "A31-MTR-26003-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "engineVersion": "phase1.2-untrusted-observation",
+      "evidenceEventIds": [
+       "urn:pramaan:MTR-26003:MES:1",
+       "urn:pramaan:MTR-26003:ASSY:1",
+       "urn:pramaan:MTR-26003:ASSY:2",
+       "urn:pramaan:MTR-26003:MES:2"
+      ],
+      "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+      "evidenceRefs": [
+       "demo-record:MTR-26003:ASSY:1",
+       "demo-record:MTR-26003:ASSY:2",
+       "demo-record:MTR-26003:MES:1",
+       "demo-record:MTR-26003:MES:2"
+      ],
+      "flags": [],
+      "identityGranularity": "SERIAL",
+      "integrityIssues": [],
+      "motorSerial": "MTR-26003",
+      "operationalAction": "RELEASE_ELIGIBLE",
+      "policyId": "RC-026-014/P1",
+      "policyVersion": 1,
+      "publicationProfile": "APPLICATION_PUBLICATION_A31",
+      "reasonCodes": [
+       "AS_BUILT_UNAFFECTED_LOT"
+      ],
+      "recallId": "RC-026-014",
+      "reviewRequired": false,
+      "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+      "slotAttribution": [],
+      "slotVerdicts": {
+       "DE": {
+        "finding": "EXCLUDED_WITH_EVIDENCE",
+        "reasons": [
+         "AS_BUILT_UNAFFECTED_LOT"
+        ]
+       }
+      },
+      "slots": {
+       "DE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-310",
+        "gaps": [],
+        "identityGranularity": "SERIAL",
+        "policyRelevance": "RELEVANT",
+        "reconciliation": "CLEAN",
+        "state": "OCCUPIED",
+        "verifications": []
+       }
+      },
+      "supersededEventIds": [],
+      "supersedesDecisionId": null,
+      "triggerEventId": null,
+      "unchanged": false,
+      "untrustedObservations": [],
+      "version": 1,
+      "watermark": {
+       "ASSY:MTR-26003": 2,
+       "MATERIAL:MTR-26003": 4,
+       "MES:MTR-26003": 2,
+       "SHIP:MTR-26003": 1
+      },
+      "workOrders": {
+       "BUILD-MTR-26003": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26003:ASSY:1"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         },
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26003:ASSY:2"
+          ],
+          "slot": "NDE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       }
+      }
+     }
+    ]
+   }
+  },
+  "MTR-26004": {
+   "RC-026-014/P1": {
+    "current": {
+     "assuranceWarnings": [],
+     "caseId": "MTR-26004",
+     "coverageDigest": "5fceed8be488b6b02b6e8af9cb8b055f664fde6f6a38b85a4d2ba1ec5bde0125",
+     "decisionId": "A31-MTR-26004-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v2",
+     "engineVersion": "phase1.2-untrusted-observation",
+     "evidenceEventIds": [
+      "urn:pramaan:MTR-26004:MES:1",
+      "urn:pramaan:MTR-26004:ASSY:1",
+      "urn:pramaan:MTR-26004:ASSY:2",
+      "urn:pramaan:MTR-26004:MES:2",
+      "urn:pramaan:MTR-26004:MES:3",
+      "urn:pramaan:MTR-26004:REWORK:1",
+      "urn:pramaan:MTR-26004:REWORK:2",
+      "urn:pramaan:MTR-26004:MES:4"
+     ],
+     "evidenceFinding": "UNRESOLVED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:ASSY:1",
+      "demo-record:MTR-26004:ASSY:2",
+      "demo-record:MTR-26004:MES:1",
+      "demo-record:MTR-26004:MES:2",
+      "demo-record:MTR-26004:MES:3",
+      "demo-record:MTR-26004:MES:4",
+      "demo-record:MTR-26004:REWORK:1",
+      "demo-record:MTR-26004:REWORK:2"
+     ],
+     "flags": [],
+     "identityGranularity": "SERIAL",
+     "integrityIssues": [],
+     "motorSerial": "MTR-26004",
+     "operationalAction": "RECALL_HOLD",
+     "policyId": "RC-026-014/P1",
+     "policyVersion": 1,
+     "publicationProfile": "APPLICATION_PUBLICATION_A31",
+     "reasonCodes": [
+      "MATERIAL_CAPTURE_GAP"
+     ],
+     "recallId": "RC-026-014",
+     "reviewRequired": true,
+     "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+     "slotAttribution": [
+      {
+       "accessEvidenceEventId": null,
+       "ambiguous": false,
+       "assurance": "CLAIMED_SLOT",
+       "at": "2026-10-20T08:04:30Z",
+       "candidates": [
+        {
+         "basis": "RECORDED_OCCUPANT_MATCH",
+         "claimed": true,
+         "slot": "DE",
+         "supportingEventIds": [
+          "urn:pramaan:MTR-26004:ASSY:1"
+         ]
+        }
+       ],
+       "claimedSlot": "DE",
+       "cleared": false,
+       "clearedBy": null,
+       "labelScans": [],
+       "observed": {
+        "granularity": "SERIAL",
+        "lot": "BR-204",
+        "part": "BR-6205",
+        "serial": "BRG-MTR-26004-DE-01"
+       },
+       "rejectedLabelScans": [],
+       "removalEventId": "urn:pramaan:MTR-26004:REWORK:1",
+       "ruledOutSlots": [],
+       "supportingEventIds": [
+        "urn:pramaan:MTR-26004:ASSY:1",
+        "urn:pramaan:MTR-26004:REWORK:1"
+       ],
+       "unrulableAlternatives": []
+      }
+     ],
+     "slotVerdicts": {
+      "DE": {
+       "finding": "UNRESOLVED",
+       "reasons": [
+        "MATERIAL_CAPTURE_GAP"
+       ]
+      }
+     },
+     "slots": {
+      "DE": {
+       "baseline": "AS_BUILT_VALIDATED",
+       "conflicts": [],
+       "currentLotPerRecords": "BR-312",
+       "gaps": [
+        {
+         "from": "2026-10-02T00:00:00Z",
+         "kind": "SOURCE_OUTAGE",
+         "materiality": "MATERIAL",
+         "sourceId": "ASSY:MTR-26004",
+         "to": "2026-10-09T00:00:00Z"
+        }
+       ],
+       "identityGranularity": "SERIAL",
+       "policyRelevance": "RELEVANT",
+       "reconciliation": "CAPTURE_GAP",
+       "state": "OCCUPIED",
+       "verifications": []
+      },
+      "NDE": {
+       "baseline": "AS_BUILT_VALIDATED",
+       "conflicts": [],
+       "currentLotPerRecords": "BR-310",
+       "gaps": [
+        {
+         "from": "2026-10-02T00:00:00Z",
+         "kind": "SOURCE_OUTAGE",
+         "materiality": "MATERIAL",
+         "sourceId": "ASSY:MTR-26004",
+         "to": "2026-10-09T00:00:00Z"
+        }
+       ],
+       "identityGranularity": "SERIAL",
+       "policyRelevance": "NOT_IN_POLICY_SCOPE",
+       "reconciliation": "CAPTURE_GAP",
+       "state": "OCCUPIED",
+       "verifications": []
+      }
+     },
+     "supersededEventIds": [],
+     "supersedesDecisionId": "A31-MTR-26004-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+     "triggerEventId": "urn:pramaan:MTR-26004:REWORK:2",
+     "unchanged": false,
+     "untrustedObservations": [],
+     "version": 2,
+     "watermark": {
+      "ASSY:MTR-26004": 2,
+      "MATERIAL:MTR-26004": 6,
+      "MES:MTR-26004": 4,
+      "REWORK:MTR-26004": 2,
+      "SHIP:MTR-26004": 1
+     },
+     "workOrders": {
+      "BUILD-MTR-26004": {
+       "disposition": "COMPLETED",
+       "obligations": [
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26004:ASSY:1"
+         ],
+         "slot": "DE",
+         "status": "MET"
+        },
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26004:ASSY:2"
+         ],
+         "slot": "NDE",
+         "status": "MET"
+        }
+       ],
+       "reconciliation": "RECONCILED",
+       "status": "CLOSED",
+       "unexpectedEventIds": []
+      },
+      "RW-MTR-26004-1": {
+       "disposition": "COMPLETED",
+       "obligations": [
+        {
+         "action": "REPLACE",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26004:REWORK:1",
+          "urn:pramaan:MTR-26004:REWORK:2"
+         ],
+         "slot": "DE",
+         "status": "MET"
+        }
+       ],
+       "reconciliation": "RECONCILED",
+       "status": "CLOSED",
+       "unexpectedEventIds": []
+      }
+     }
+    },
+    "history": [
+     {
+      "assuranceWarnings": [],
+      "caseId": "MTR-26004",
+      "coverageDigest": "5fceed8be488b6b02b6e8af9cb8b055f664fde6f6a38b85a4d2ba1ec5bde0125",
+      "decisionId": "A31-MTR-26004-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "engineVersion": "phase1.2-untrusted-observation",
+      "evidenceEventIds": [
+       "urn:pramaan:MTR-26004:MES:1",
+       "urn:pramaan:MTR-26004:ASSY:1",
+       "urn:pramaan:MTR-26004:ASSY:2",
+       "urn:pramaan:MTR-26004:MES:2"
+      ],
+      "evidenceFinding": "UNRESOLVED",
+      "evidenceRefs": [
+       "demo-record:MTR-26004:ASSY:1",
+       "demo-record:MTR-26004:ASSY:2",
+       "demo-record:MTR-26004:MES:1",
+       "demo-record:MTR-26004:MES:2"
+      ],
+      "flags": [],
+      "identityGranularity": "SERIAL",
+      "integrityIssues": [],
+      "motorSerial": "MTR-26004",
+      "operationalAction": "RECALL_HOLD",
+      "policyId": "RC-026-014/P1",
+      "policyVersion": 1,
+      "publicationProfile": "APPLICATION_PUBLICATION_A31",
+      "reasonCodes": [
+       "MATERIAL_CAPTURE_GAP"
+      ],
+      "recallId": "RC-026-014",
+      "reviewRequired": true,
+      "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+      "slotAttribution": [],
+      "slotVerdicts": {
+       "DE": {
+        "finding": "UNRESOLVED",
+        "reasons": [
+         "MATERIAL_CAPTURE_GAP"
+        ]
+       }
+      },
+      "slots": {
+       "DE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-204",
+        "gaps": [
+         {
+          "from": "2026-10-02T00:00:00Z",
+          "kind": "SOURCE_OUTAGE",
+          "materiality": "MATERIAL",
+          "sourceId": "ASSY:MTR-26004",
+          "to": "2026-10-09T00:00:00Z"
+         }
+        ],
+        "identityGranularity": "SERIAL",
+        "policyRelevance": "RELEVANT",
+        "reconciliation": "CAPTURE_GAP",
+        "state": "OCCUPIED",
+        "verifications": []
+       },
+       "NDE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-310",
+        "gaps": [
+         {
+          "from": "2026-10-02T00:00:00Z",
+          "kind": "SOURCE_OUTAGE",
+          "materiality": "MATERIAL",
+          "sourceId": "ASSY:MTR-26004",
+          "to": "2026-10-09T00:00:00Z"
+         }
+        ],
+        "identityGranularity": "SERIAL",
+        "policyRelevance": "NOT_IN_POLICY_SCOPE",
+        "reconciliation": "CAPTURE_GAP",
+        "state": "OCCUPIED",
+        "verifications": []
+       }
+      },
+      "supersededEventIds": [],
+      "supersedesDecisionId": null,
+      "triggerEventId": null,
+      "unchanged": false,
+      "untrustedObservations": [],
+      "version": 1,
+      "watermark": {
+       "ASSY:MTR-26004": 2,
+       "MATERIAL:MTR-26004": 4,
+       "MES:MTR-26004": 2,
+       "SHIP:MTR-26004": 1
+      },
+      "workOrders": {
+       "BUILD-MTR-26004": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26004:ASSY:1"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         },
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26004:ASSY:2"
+          ],
+          "slot": "NDE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       }
+      }
+     },
+     {
+      "assuranceWarnings": [],
+      "caseId": "MTR-26004",
+      "coverageDigest": "5fceed8be488b6b02b6e8af9cb8b055f664fde6f6a38b85a4d2ba1ec5bde0125",
+      "decisionId": "A31-MTR-26004-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v2",
+      "engineVersion": "phase1.2-untrusted-observation",
+      "evidenceEventIds": [
+       "urn:pramaan:MTR-26004:MES:1",
+       "urn:pramaan:MTR-26004:ASSY:1",
+       "urn:pramaan:MTR-26004:ASSY:2",
+       "urn:pramaan:MTR-26004:MES:2",
+       "urn:pramaan:MTR-26004:MES:3",
+       "urn:pramaan:MTR-26004:REWORK:1",
+       "urn:pramaan:MTR-26004:REWORK:2",
+       "urn:pramaan:MTR-26004:MES:4"
+      ],
+      "evidenceFinding": "UNRESOLVED",
+      "evidenceRefs": [
+       "demo-record:MTR-26004:ASSY:1",
+       "demo-record:MTR-26004:ASSY:2",
+       "demo-record:MTR-26004:MES:1",
+       "demo-record:MTR-26004:MES:2",
+       "demo-record:MTR-26004:MES:3",
+       "demo-record:MTR-26004:MES:4",
+       "demo-record:MTR-26004:REWORK:1",
+       "demo-record:MTR-26004:REWORK:2"
+      ],
+      "flags": [],
+      "identityGranularity": "SERIAL",
+      "integrityIssues": [],
+      "motorSerial": "MTR-26004",
+      "operationalAction": "RECALL_HOLD",
+      "policyId": "RC-026-014/P1",
+      "policyVersion": 1,
+      "publicationProfile": "APPLICATION_PUBLICATION_A31",
+      "reasonCodes": [
+       "MATERIAL_CAPTURE_GAP"
+      ],
+      "recallId": "RC-026-014",
+      "reviewRequired": true,
+      "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+      "slotAttribution": [
+       {
+        "accessEvidenceEventId": null,
+        "ambiguous": false,
+        "assurance": "CLAIMED_SLOT",
+        "at": "2026-10-20T08:04:30Z",
+        "candidates": [
+         {
+          "basis": "RECORDED_OCCUPANT_MATCH",
+          "claimed": true,
+          "slot": "DE",
+          "supportingEventIds": [
+           "urn:pramaan:MTR-26004:ASSY:1"
+          ]
+         }
+        ],
+        "claimedSlot": "DE",
+        "cleared": false,
+        "clearedBy": null,
+        "labelScans": [],
+        "observed": {
+         "granularity": "SERIAL",
+         "lot": "BR-204",
+         "part": "BR-6205",
+         "serial": "BRG-MTR-26004-DE-01"
+        },
+        "rejectedLabelScans": [],
+        "removalEventId": "urn:pramaan:MTR-26004:REWORK:1",
+        "ruledOutSlots": [],
+        "supportingEventIds": [
+         "urn:pramaan:MTR-26004:ASSY:1",
+         "urn:pramaan:MTR-26004:REWORK:1"
+        ],
+        "unrulableAlternatives": []
+       }
+      ],
+      "slotVerdicts": {
+       "DE": {
+        "finding": "UNRESOLVED",
+        "reasons": [
+         "MATERIAL_CAPTURE_GAP"
+        ]
+       }
+      },
+      "slots": {
+       "DE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-312",
+        "gaps": [
+         {
+          "from": "2026-10-02T00:00:00Z",
+          "kind": "SOURCE_OUTAGE",
+          "materiality": "MATERIAL",
+          "sourceId": "ASSY:MTR-26004",
+          "to": "2026-10-09T00:00:00Z"
+         }
+        ],
+        "identityGranularity": "SERIAL",
+        "policyRelevance": "RELEVANT",
+        "reconciliation": "CAPTURE_GAP",
+        "state": "OCCUPIED",
+        "verifications": []
+       },
+       "NDE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-310",
+        "gaps": [
+         {
+          "from": "2026-10-02T00:00:00Z",
+          "kind": "SOURCE_OUTAGE",
+          "materiality": "MATERIAL",
+          "sourceId": "ASSY:MTR-26004",
+          "to": "2026-10-09T00:00:00Z"
+         }
+        ],
+        "identityGranularity": "SERIAL",
+        "policyRelevance": "NOT_IN_POLICY_SCOPE",
+        "reconciliation": "CAPTURE_GAP",
+        "state": "OCCUPIED",
+        "verifications": []
+       }
+      },
+      "supersededEventIds": [],
+      "supersedesDecisionId": "A31-MTR-26004-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "triggerEventId": "urn:pramaan:MTR-26004:REWORK:2",
+      "unchanged": false,
+      "untrustedObservations": [],
+      "version": 2,
+      "watermark": {
+       "ASSY:MTR-26004": 2,
+       "MATERIAL:MTR-26004": 6,
+       "MES:MTR-26004": 4,
+       "REWORK:MTR-26004": 2,
+       "SHIP:MTR-26004": 1
+      },
+      "workOrders": {
+       "BUILD-MTR-26004": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26004:ASSY:1"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         },
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26004:ASSY:2"
+          ],
+          "slot": "NDE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       },
+       "RW-MTR-26004-1": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "REPLACE",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26004:REWORK:1",
+           "urn:pramaan:MTR-26004:REWORK:2"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       }
+      }
+     }
+    ]
+   }
+  },
+  "MTR-26005": {
+   "RC-026-014/P1": {
+    "current": {
+     "assuranceWarnings": [],
+     "caseId": "MTR-26005",
+     "coverageDigest": "6fdc418aa837c42b4ecb4b77364b04b7147df9aed5fa02f84cd0cd05b872f472",
+     "decisionId": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v2",
+     "engineVersion": "phase1.2-untrusted-observation",
+     "evidenceEventIds": [
+      "urn:pramaan:MTR-26005:MES:1",
+      "urn:pramaan:MTR-26005:ASSY:1",
+      "urn:pramaan:MTR-26005:ASSY:2",
+      "urn:pramaan:MTR-26005:MES:2",
+      "urn:pramaan:MTR-26005:HANDHELD:1"
+     ],
+     "evidenceFinding": "UNRESOLVED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:ASSY:1",
+      "demo-record:MTR-26005:ASSY:2",
+      "demo-record:MTR-26005:HANDHELD:1",
+      "demo-record:MTR-26005:MES:1",
+      "demo-record:MTR-26005:MES:2"
+     ],
+     "flags": [],
+     "identityGranularity": "SERIAL",
+     "integrityIssues": [],
+     "motorSerial": "MTR-26005",
+     "notificationObligation": {
+      "appliesIfDecisionCommunicated": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "communicated": null,
+      "decisionId": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v2",
+      "deliveryEvidence": null,
+      "deliveryStatus": "NOT_SENT",
+      "obligationId": "b678b9bd28c2fac032403b700c734a20ce065e76ef955ef834546c7e499921ec",
+      "reason": "PRIOR_EXCLUSION_WITHDRAWN",
+      "required": true,
+      "unitId": "MTR-26005"
+     },
+     "operationalAction": "RECALL_HOLD",
+     "policyId": "RC-026-014/P1",
+     "policyVersion": 1,
+     "precautionaryHold": true,
+     "publicationProfile": "APPLICATION_PUBLICATION_A31",
+     "reasonCodes": [
+      "UNTRUSTED_AFFECTED_OBSERVATION",
+      "PRIOR_EXCLUSION_WITHDRAWN"
+     ],
+     "recallId": "RC-026-014",
+     "reviewRequired": true,
+     "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+     "slotAttribution": [],
+     "slotVerdicts": {
+      "DE": {
+       "finding": "UNRESOLVED",
+       "reasons": [
+        "UNTRUSTED_AFFECTED_OBSERVATION"
+       ]
+      }
+     },
+     "slots": {
+      "DE": {
+       "baseline": "AS_BUILT_VALIDATED",
+       "conflicts": [],
+       "currentLotPerRecords": "BR-310",
+       "gaps": [],
+       "identityGranularity": "SERIAL",
+       "policyRelevance": "RELEVANT",
+       "reconciliation": "CLEAN",
+       "state": "OCCUPIED",
+       "verifications": [
+        {
+         "actor": "OP-OBSERVATION-21",
+         "at": "2026-10-20T08:07:00Z",
+         "eventId": "urn:pramaan:MTR-26005:HANDHELD:1",
+         "granularity": "LOT",
+         "lot": "BR-204",
+         "part": "BR-6205",
+         "provisional": true,
+         "rec": "2026-10-20T08:07:04Z",
+         "rejectedReasons": [
+          "SOURCE_NOT_TRUSTED",
+          "METHOD_NOT_APPROVED",
+          "ACTOR_NOT_AUTHORIZED"
+         ],
+         "source": "HANDHELD:MTR-26005",
+         "trusted": false,
+         "ts": "SYNTHETIC_SIMULATED"
+        }
+       ]
+      }
+     },
+     "supersededEventIds": [],
+     "supersedesDecisionId": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+     "triggerEventId": "urn:pramaan:MTR-26005:HANDHELD:1",
+     "unchanged": false,
+     "untrustedObservations": [
+      {
+       "eventId": "urn:pramaan:MTR-26005:HANDHELD:1",
+       "observed": {
+        "lot": "BR-204",
+        "part": "BR-6205",
+        "serial": null
+       },
+       "rejectedReasons": [
+        "SOURCE_NOT_TRUSTED",
+        "METHOD_NOT_APPROVED",
+        "ACTOR_NOT_AUTHORIZED"
+       ],
+       "resolvedBy": null,
+       "slot": "DE",
+       "staleBy": null,
+       "status": "BLOCKING"
+      }
+     ],
+     "version": 2,
+     "watermark": {
+      "ASSY:MTR-26005": 2,
+      "HANDHELD:MTR-26005": 1,
+      "MATERIAL:MTR-26005": 4,
+      "MES:MTR-26005": 2,
+      "SHIP:MTR-26005": 1
+     },
+     "workOrders": {
+      "BUILD-MTR-26005": {
+       "disposition": "COMPLETED",
+       "obligations": [
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26005:ASSY:1"
+         ],
+         "slot": "DE",
+         "status": "MET"
+        },
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26005:ASSY:2"
+         ],
+         "slot": "NDE",
+         "status": "MET"
+        }
+       ],
+       "reconciliation": "RECONCILED",
+       "status": "CLOSED",
+       "unexpectedEventIds": []
+      }
+     }
+    },
+    "history": [
+     {
+      "assuranceWarnings": [],
+      "caseId": "MTR-26005",
+      "coverageDigest": "6fdc418aa837c42b4ecb4b77364b04b7147df9aed5fa02f84cd0cd05b872f472",
+      "decisionId": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "engineVersion": "phase1.2-untrusted-observation",
+      "evidenceEventIds": [
+       "urn:pramaan:MTR-26005:MES:1",
+       "urn:pramaan:MTR-26005:ASSY:1",
+       "urn:pramaan:MTR-26005:ASSY:2",
+       "urn:pramaan:MTR-26005:MES:2"
+      ],
+      "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+      "evidenceRefs": [
+       "demo-record:MTR-26005:ASSY:1",
+       "demo-record:MTR-26005:ASSY:2",
+       "demo-record:MTR-26005:MES:1",
+       "demo-record:MTR-26005:MES:2"
+      ],
+      "flags": [],
+      "identityGranularity": "SERIAL",
+      "integrityIssues": [],
+      "motorSerial": "MTR-26005",
+      "operationalAction": "RELEASE_ELIGIBLE",
+      "policyId": "RC-026-014/P1",
+      "policyVersion": 1,
+      "publicationProfile": "APPLICATION_PUBLICATION_A31",
+      "reasonCodes": [
+       "AS_BUILT_UNAFFECTED_LOT"
+      ],
+      "recallId": "RC-026-014",
+      "reviewRequired": false,
+      "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+      "slotAttribution": [],
+      "slotVerdicts": {
+       "DE": {
+        "finding": "EXCLUDED_WITH_EVIDENCE",
+        "reasons": [
+         "AS_BUILT_UNAFFECTED_LOT"
+        ]
+       }
+      },
+      "slots": {
+       "DE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-310",
+        "gaps": [],
+        "identityGranularity": "SERIAL",
+        "policyRelevance": "RELEVANT",
+        "reconciliation": "CLEAN",
+        "state": "OCCUPIED",
+        "verifications": []
+       }
+      },
+      "supersededEventIds": [],
+      "supersedesDecisionId": null,
+      "triggerEventId": null,
+      "unchanged": false,
+      "untrustedObservations": [],
+      "version": 1,
+      "watermark": {
+       "ASSY:MTR-26005": 2,
+       "MATERIAL:MTR-26005": 4,
+       "MES:MTR-26005": 2,
+       "SHIP:MTR-26005": 1
+      },
+      "workOrders": {
+       "BUILD-MTR-26005": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26005:ASSY:1"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         },
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26005:ASSY:2"
+          ],
+          "slot": "NDE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       }
+      }
+     },
+     {
+      "assuranceWarnings": [],
+      "caseId": "MTR-26005",
+      "coverageDigest": "6fdc418aa837c42b4ecb4b77364b04b7147df9aed5fa02f84cd0cd05b872f472",
+      "decisionId": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v2",
+      "engineVersion": "phase1.2-untrusted-observation",
+      "evidenceEventIds": [
+       "urn:pramaan:MTR-26005:MES:1",
+       "urn:pramaan:MTR-26005:ASSY:1",
+       "urn:pramaan:MTR-26005:ASSY:2",
+       "urn:pramaan:MTR-26005:MES:2",
+       "urn:pramaan:MTR-26005:HANDHELD:1"
+      ],
+      "evidenceFinding": "UNRESOLVED",
+      "evidenceRefs": [
+       "demo-record:MTR-26005:ASSY:1",
+       "demo-record:MTR-26005:ASSY:2",
+       "demo-record:MTR-26005:HANDHELD:1",
+       "demo-record:MTR-26005:MES:1",
+       "demo-record:MTR-26005:MES:2"
+      ],
+      "flags": [],
+      "identityGranularity": "SERIAL",
+      "integrityIssues": [],
+      "motorSerial": "MTR-26005",
+      "notificationObligation": {
+       "appliesIfDecisionCommunicated": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+       "communicated": null,
+       "decisionId": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v2",
+       "deliveryEvidence": null,
+       "deliveryStatus": "NOT_SENT",
+       "obligationId": "b678b9bd28c2fac032403b700c734a20ce065e76ef955ef834546c7e499921ec",
+       "reason": "PRIOR_EXCLUSION_WITHDRAWN",
+       "required": true,
+       "unitId": "MTR-26005"
+      },
+      "operationalAction": "RECALL_HOLD",
+      "policyId": "RC-026-014/P1",
+      "policyVersion": 1,
+      "precautionaryHold": true,
+      "publicationProfile": "APPLICATION_PUBLICATION_A31",
+      "reasonCodes": [
+       "UNTRUSTED_AFFECTED_OBSERVATION",
+       "PRIOR_EXCLUSION_WITHDRAWN"
+      ],
+      "recallId": "RC-026-014",
+      "reviewRequired": true,
+      "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+      "slotAttribution": [],
+      "slotVerdicts": {
+       "DE": {
+        "finding": "UNRESOLVED",
+        "reasons": [
+         "UNTRUSTED_AFFECTED_OBSERVATION"
+        ]
+       }
+      },
+      "slots": {
+       "DE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-310",
+        "gaps": [],
+        "identityGranularity": "SERIAL",
+        "policyRelevance": "RELEVANT",
+        "reconciliation": "CLEAN",
+        "state": "OCCUPIED",
+        "verifications": [
+         {
+          "actor": "OP-OBSERVATION-21",
+          "at": "2026-10-20T08:07:00Z",
+          "eventId": "urn:pramaan:MTR-26005:HANDHELD:1",
+          "granularity": "LOT",
+          "lot": "BR-204",
+          "part": "BR-6205",
+          "provisional": true,
+          "rec": "2026-10-20T08:07:04Z",
+          "rejectedReasons": [
+           "SOURCE_NOT_TRUSTED",
+           "METHOD_NOT_APPROVED",
+           "ACTOR_NOT_AUTHORIZED"
+          ],
+          "source": "HANDHELD:MTR-26005",
+          "trusted": false,
+          "ts": "SYNTHETIC_SIMULATED"
+         }
+        ]
+       }
+      },
+      "supersededEventIds": [],
+      "supersedesDecisionId": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "triggerEventId": "urn:pramaan:MTR-26005:HANDHELD:1",
+      "unchanged": false,
+      "untrustedObservations": [
+       {
+        "eventId": "urn:pramaan:MTR-26005:HANDHELD:1",
+        "observed": {
+         "lot": "BR-204",
+         "part": "BR-6205",
+         "serial": null
+        },
+        "rejectedReasons": [
+         "SOURCE_NOT_TRUSTED",
+         "METHOD_NOT_APPROVED",
+         "ACTOR_NOT_AUTHORIZED"
+        ],
+        "resolvedBy": null,
+        "slot": "DE",
+        "staleBy": null,
+        "status": "BLOCKING"
+       }
+      ],
+      "version": 2,
+      "watermark": {
+       "ASSY:MTR-26005": 2,
+       "HANDHELD:MTR-26005": 1,
+       "MATERIAL:MTR-26005": 4,
+       "MES:MTR-26005": 2,
+       "SHIP:MTR-26005": 1
+      },
+      "workOrders": {
+       "BUILD-MTR-26005": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26005:ASSY:1"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         },
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26005:ASSY:2"
+          ],
+          "slot": "NDE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       }
+      }
+     }
+    ]
+   }
+  },
+  "MTR-26006": {
+   "RC-026-014/P1": {
+    "current": {
+     "assuranceWarnings": [],
+     "caseId": "MTR-26006",
+     "coverageDigest": "874392068f3ad282d2fd1d8d29b431a402bd4a1cde8fc94c1ed9431c4fb3faf9",
+     "decisionId": "A31-MTR-26006-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+     "engineVersion": "phase1.2-untrusted-observation",
+     "evidenceEventIds": [],
+     "evidenceFinding": "UNRESOLVED",
+     "evidenceRefs": [],
+     "flags": [],
+     "identityGranularity": "UNKNOWN",
+     "integrityIssues": [],
+     "motorSerial": null,
+     "operationalAction": "RECALL_HOLD",
+     "policyId": "RC-026-014/P1",
+     "policyVersion": 1,
+     "publicationProfile": "APPLICATION_PUBLICATION_A31",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ],
+     "recallId": "RC-026-014",
+     "reviewRequired": true,
+     "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+     "slotAttribution": [],
+     "slotVerdicts": {
+      "DE": {
+       "finding": "UNRESOLVED",
+       "reasons": [
+        "NO_TRUSTED_BASELINE",
+        "CURRENT_STATE_UNVERIFIED"
+       ]
+      }
+     },
+     "slots": {
+      "DE": {
+       "baseline": "UNKNOWN",
+       "conflicts": [],
+       "gaps": [],
+       "identityGranularity": "UNKNOWN",
+       "policyRelevance": "RELEVANT",
+       "reconciliation": "INSUFFICIENT_EVIDENCE",
+       "state": "UNKNOWN",
+       "verifications": []
+      }
+     },
+     "supersededEventIds": [],
+     "supersedesDecisionId": null,
+     "triggerEventId": null,
+     "unchanged": false,
+     "untrustedObservations": [],
+     "version": 1,
+     "watermark": {},
+     "workOrders": {}
+    },
+    "history": [
+     {
+      "assuranceWarnings": [],
+      "caseId": "MTR-26006",
+      "coverageDigest": "874392068f3ad282d2fd1d8d29b431a402bd4a1cde8fc94c1ed9431c4fb3faf9",
+      "decisionId": "A31-MTR-26006-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "engineVersion": "phase1.2-untrusted-observation",
+      "evidenceEventIds": [],
+      "evidenceFinding": "UNRESOLVED",
+      "evidenceRefs": [],
+      "flags": [],
+      "identityGranularity": "UNKNOWN",
+      "integrityIssues": [],
+      "motorSerial": null,
+      "operationalAction": "RECALL_HOLD",
+      "policyId": "RC-026-014/P1",
+      "policyVersion": 1,
+      "publicationProfile": "APPLICATION_PUBLICATION_A31",
+      "reasonCodes": [
+       "NO_TRUSTED_BASELINE",
+       "CURRENT_STATE_UNVERIFIED"
+      ],
+      "recallId": "RC-026-014",
+      "reviewRequired": true,
+      "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+      "slotAttribution": [],
+      "slotVerdicts": {
+       "DE": {
+        "finding": "UNRESOLVED",
+        "reasons": [
+         "NO_TRUSTED_BASELINE",
+         "CURRENT_STATE_UNVERIFIED"
+        ]
+       }
+      },
+      "slots": {
+       "DE": {
+        "baseline": "UNKNOWN",
+        "conflicts": [],
+        "gaps": [],
+        "identityGranularity": "UNKNOWN",
+        "policyRelevance": "RELEVANT",
+        "reconciliation": "INSUFFICIENT_EVIDENCE",
+        "state": "UNKNOWN",
+        "verifications": []
+       }
+      },
+      "supersededEventIds": [],
+      "supersedesDecisionId": null,
+      "triggerEventId": null,
+      "unchanged": false,
+      "untrustedObservations": [],
+      "version": 1,
+      "watermark": {},
+      "workOrders": {}
+     }
+    ]
+   }
+  },
+  "MTR-26007": {
+   "RC-026-014/P1": {
+    "current": {
+     "assuranceWarnings": [],
+     "caseId": "MTR-26007",
+     "coverageDigest": "d5fcbc09f9a2f28c18db1952d21ccc2ef081d7a75c0b86eae4b25b081b709538",
+     "decisionId": "A31-MTR-26007-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+     "engineVersion": "phase1.2-untrusted-observation",
+     "evidenceEventIds": [
+      "urn:pramaan:MTR-26007:MES:1",
+      "urn:pramaan:MTR-26007:ASSY:1",
+      "urn:pramaan:MTR-26007:ASSY:2",
+      "urn:pramaan:MTR-26007:MES:2"
+     ],
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "evidenceRefs": [
+      "demo-record:MTR-26007:ASSY:1",
+      "demo-record:MTR-26007:ASSY:2",
+      "demo-record:MTR-26007:MES:1",
+      "demo-record:MTR-26007:MES:2"
+     ],
+     "flags": [],
+     "identityGranularity": "SERIAL",
+     "integrityIssues": [],
+     "motorSerial": "MTR-26007",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "policyId": "RC-026-014/P1",
+     "policyVersion": 1,
+     "publicationProfile": "APPLICATION_PUBLICATION_A31",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ],
+     "recallId": "RC-026-014",
+     "reviewRequired": false,
+     "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+     "slotAttribution": [],
+     "slotVerdicts": {
+      "DE": {
+       "finding": "EXCLUDED_WITH_EVIDENCE",
+       "reasons": [
+        "AS_BUILT_UNAFFECTED_LOT"
+       ]
+      }
+     },
+     "slots": {
+      "DE": {
+       "baseline": "AS_BUILT_VALIDATED",
+       "conflicts": [],
+       "currentLotPerRecords": "BR-310",
+       "gaps": [],
+       "identityGranularity": "SERIAL",
+       "policyRelevance": "RELEVANT",
+       "reconciliation": "CLEAN",
+       "state": "OCCUPIED",
+       "verifications": []
+      }
+     },
+     "supersededEventIds": [],
+     "supersedesDecisionId": null,
+     "triggerEventId": null,
+     "unchanged": false,
+     "untrustedObservations": [],
+     "version": 1,
+     "watermark": {
+      "ASSY:MTR-26007": 2,
+      "MATERIAL:MTR-26007": 4,
+      "MES:MTR-26007": 2
+     },
+     "workOrders": {
+      "BUILD-MTR-26007": {
+       "disposition": "COMPLETED",
+       "obligations": [
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26007:ASSY:1"
+         ],
+         "slot": "DE",
+         "status": "MET"
+        },
+        {
+         "action": "INSTALL",
+         "satisfiedBy": [
+          "urn:pramaan:MTR-26007:ASSY:2"
+         ],
+         "slot": "NDE",
+         "status": "MET"
+        }
+       ],
+       "reconciliation": "RECONCILED",
+       "status": "CLOSED",
+       "unexpectedEventIds": []
+      }
+     }
+    },
+    "history": [
+     {
+      "assuranceWarnings": [],
+      "caseId": "MTR-26007",
+      "coverageDigest": "d5fcbc09f9a2f28c18db1952d21ccc2ef081d7a75c0b86eae4b25b081b709538",
+      "decisionId": "A31-MTR-26007-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+      "engineVersion": "phase1.2-untrusted-observation",
+      "evidenceEventIds": [
+       "urn:pramaan:MTR-26007:MES:1",
+       "urn:pramaan:MTR-26007:ASSY:1",
+       "urn:pramaan:MTR-26007:ASSY:2",
+       "urn:pramaan:MTR-26007:MES:2"
+      ],
+      "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+      "evidenceRefs": [
+       "demo-record:MTR-26007:ASSY:1",
+       "demo-record:MTR-26007:ASSY:2",
+       "demo-record:MTR-26007:MES:1",
+       "demo-record:MTR-26007:MES:2"
+      ],
+      "flags": [],
+      "identityGranularity": "SERIAL",
+      "integrityIssues": [],
+      "motorSerial": "MTR-26007",
+      "operationalAction": "RELEASE_ELIGIBLE",
+      "policyId": "RC-026-014/P1",
+      "policyVersion": 1,
+      "publicationProfile": "APPLICATION_PUBLICATION_A31",
+      "reasonCodes": [
+       "AS_BUILT_UNAFFECTED_LOT"
+      ],
+      "recallId": "RC-026-014",
+      "reviewRequired": false,
+      "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+      "slotAttribution": [],
+      "slotVerdicts": {
+       "DE": {
+        "finding": "EXCLUDED_WITH_EVIDENCE",
+        "reasons": [
+         "AS_BUILT_UNAFFECTED_LOT"
+        ]
+       }
+      },
+      "slots": {
+       "DE": {
+        "baseline": "AS_BUILT_VALIDATED",
+        "conflicts": [],
+        "currentLotPerRecords": "BR-310",
+        "gaps": [],
+        "identityGranularity": "SERIAL",
+        "policyRelevance": "RELEVANT",
+        "reconciliation": "CLEAN",
+        "state": "OCCUPIED",
+        "verifications": []
+       }
+      },
+      "supersededEventIds": [],
+      "supersedesDecisionId": null,
+      "triggerEventId": null,
+      "unchanged": false,
+      "untrustedObservations": [],
+      "version": 1,
+      "watermark": {
+       "ASSY:MTR-26007": 2,
+       "MATERIAL:MTR-26007": 4,
+       "MES:MTR-26007": 2
+      },
+      "workOrders": {
+       "BUILD-MTR-26007": {
+        "disposition": "COMPLETED",
+        "obligations": [
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26007:ASSY:1"
+          ],
+          "slot": "DE",
+          "status": "MET"
+         },
+         {
+          "action": "INSTALL",
+          "satisfiedBy": [
+           "urn:pramaan:MTR-26007:ASSY:2"
+          ],
+          "slot": "NDE",
+          "status": "MET"
+         }
+        ],
+        "reconciliation": "RECONCILED",
+        "status": "CLOSED",
+        "unexpectedEventIds": []
+       }
+      }
+     }
+    ]
+   }
+  }
+ },
+ "freshness": {
+  "archiveId": "4f5a7e0331304ba3b829002e13cbf8bf",
+  "headHash": "8cc64715a34a2c1a4f5b85d611904d88b02c9ed58e50ebfc9d09398147fe111d",
+  "maxAgeSeconds": 0,
+  "sequence": 12,
+  "status": "HISTORICAL_UNANCHORED",
+  "verifiedAt": "2026-10-21T17:07:33Z"
+ },
+ "lineage": [
+  {
+   "backedByLedger": true,
+   "lot": "BR-204",
+   "manufacturingEventId": "urn:pramaan:MTR-26001:MATERIAL:2",
+   "materialEventId": "urn:pramaan:MTR-26001:MATERIAL:1",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-410",
+   "serial": "BRG-MTR-26001-DE-01",
+   "supplierId": "SUP-NSB-01",
+   "supplierName": "Northstar Bearings \u2014 synthetic supplier",
+   "unitId": "MTR-26001"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-310",
+   "manufacturingEventId": "urn:pramaan:MTR-26001:MATERIAL:4",
+   "materialEventId": "urn:pramaan:MTR-26001:MATERIAL:3",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "serial": "BRG-MTR-26001-NDE-01",
+   "supplierId": "SUP-KAV-02",
+   "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+   "unitId": "MTR-26001"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-204",
+   "manufacturingEventId": "urn:pramaan:MTR-26002:MATERIAL:2",
+   "materialEventId": "urn:pramaan:MTR-26002:MATERIAL:1",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-410",
+   "serial": null,
+   "supplierId": "SUP-NSB-01",
+   "supplierName": "Northstar Bearings \u2014 synthetic supplier",
+   "unitId": "MTR-26002"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-204",
+   "manufacturingEventId": "urn:pramaan:MTR-26002:MATERIAL:4",
+   "materialEventId": "urn:pramaan:MTR-26002:MATERIAL:3",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-410",
+   "serial": null,
+   "supplierId": "SUP-NSB-01",
+   "supplierName": "Northstar Bearings \u2014 synthetic supplier",
+   "unitId": "MTR-26002"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-312",
+   "manufacturingEventId": "urn:pramaan:MTR-26002:MATERIAL:6",
+   "materialEventId": "urn:pramaan:MTR-26002:MATERIAL:5",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "serial": null,
+   "supplierId": "SUP-KAV-02",
+   "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+   "unitId": "MTR-26002"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-310",
+   "manufacturingEventId": "urn:pramaan:MTR-26003:MATERIAL:2",
+   "materialEventId": "urn:pramaan:MTR-26003:MATERIAL:1",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "serial": "BRG-MTR-26003-DE-01",
+   "supplierId": "SUP-KAV-02",
+   "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+   "unitId": "MTR-26003"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-312",
+   "manufacturingEventId": "urn:pramaan:MTR-26003:MATERIAL:4",
+   "materialEventId": "urn:pramaan:MTR-26003:MATERIAL:3",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "serial": "BRG-MTR-26003-NDE-01",
+   "supplierId": "SUP-KAV-02",
+   "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+   "unitId": "MTR-26003"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-204",
+   "manufacturingEventId": "urn:pramaan:MTR-26004:MATERIAL:2",
+   "materialEventId": "urn:pramaan:MTR-26004:MATERIAL:1",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-410",
+   "serial": "BRG-MTR-26004-DE-01",
+   "supplierId": "SUP-NSB-01",
+   "supplierName": "Northstar Bearings \u2014 synthetic supplier",
+   "unitId": "MTR-26004"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-310",
+   "manufacturingEventId": "urn:pramaan:MTR-26004:MATERIAL:4",
+   "materialEventId": "urn:pramaan:MTR-26004:MATERIAL:3",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "serial": "BRG-MTR-26004-NDE-01",
+   "supplierId": "SUP-KAV-02",
+   "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+   "unitId": "MTR-26004"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-312",
+   "manufacturingEventId": "urn:pramaan:MTR-26004:MATERIAL:6",
+   "materialEventId": "urn:pramaan:MTR-26004:MATERIAL:5",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "serial": "BRG-MTR-26004-DE-R9",
+   "supplierId": "SUP-KAV-02",
+   "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+   "unitId": "MTR-26004"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-310",
+   "manufacturingEventId": "urn:pramaan:MTR-26005:MATERIAL:2",
+   "materialEventId": "urn:pramaan:MTR-26005:MATERIAL:1",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "serial": "BRG-MTR-26005-DE-01",
+   "supplierId": "SUP-KAV-02",
+   "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+   "unitId": "MTR-26005"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-312",
+   "manufacturingEventId": "urn:pramaan:MTR-26005:MATERIAL:4",
+   "materialEventId": "urn:pramaan:MTR-26005:MATERIAL:3",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "serial": "BRG-MTR-26005-NDE-01",
+   "supplierId": "SUP-KAV-02",
+   "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+   "unitId": "MTR-26005"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-310",
+   "manufacturingEventId": "urn:pramaan:MTR-26007:MATERIAL:2",
+   "materialEventId": "urn:pramaan:MTR-26007:MATERIAL:1",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "serial": "BRG-MTR-26007-DE-01",
+   "supplierId": "SUP-KAV-02",
+   "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+   "unitId": "MTR-26007"
+  },
+  {
+   "backedByLedger": true,
+   "lot": "BR-312",
+   "manufacturingEventId": "urn:pramaan:MTR-26007:MATERIAL:4",
+   "materialEventId": "urn:pramaan:MTR-26007:MATERIAL:3",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "serial": "BRG-MTR-26007-NDE-01",
+   "supplierId": "SUP-KAV-02",
+   "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+   "unitId": "MTR-26007"
+  }
+ ],
+ "lots": [
+  {
+   "affected": true,
+   "backedByLedger": true,
+   "evidenceEventId": "urn:pramaan:MTR-26004:MATERIAL:2",
+   "lotId": "BR-204",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-410",
+   "supplier": "Northstar Bearings \u2014 synthetic supplier"
+  },
+  {
+   "affected": false,
+   "backedByLedger": true,
+   "evidenceEventId": "urn:pramaan:MTR-26007:MATERIAL:2",
+   "lotId": "BR-310",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "supplier": "Kaveri Precision \u2014 synthetic supplier"
+  },
+  {
+   "affected": false,
+   "backedByLedger": true,
+   "evidenceEventId": "urn:pramaan:MTR-26007:MATERIAL:4",
+   "lotId": "BR-312",
+   "part": "BR-6205",
+   "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+   "rawMaterialLot": "STEEL-26-518",
+   "supplier": "Kaveri Precision \u2014 synthetic supplier"
+  }
+ ],
+ "notifications": [
+  {
+   "appliesIfDecisionCommunicated": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v1",
+   "communicated": null,
+   "decisionId": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-4f5a7e0331304ba3b829002e13cbf8bf-v2",
+   "deliveryEvidence": null,
+   "deliveryStatus": "NOT_SENT",
+   "obligationId": "b678b9bd28c2fac032403b700c734a20ce065e76ef955ef834546c7e499921ec",
+   "reason": "PRIOR_EXCLUSION_WITHDRAWN",
+   "required": true,
+   "status": "PENDING",
+   "unitId": "MTR-26005"
+  }
+ ],
+ "policies": [
+  {
+   "damageInspection": null,
+   "exposureBasis": "CURRENT_INSTALLATION",
+   "policyId": "RC-026-014/P1"
+  }
+ ],
+ "provenance": {
+  "adapter": "BackendRecallDataSource \u2192 SQLite \u2192 actual v3",
+  "comparisonEngine": {
+   "semanticsProfile": "P1_LEGACY",
+   "version": "phase1-0.1"
+  },
+  "dataKind": "LIVE_LEDGER_SYNTHETIC",
+  "engine": {
+   "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+   "version": "phase1.2-untrusted-observation"
+  },
+  "fixtureManifests": {},
+  "oracleFilesRead": false,
+  "overlay": {
+   "covers": "No shipment/supplier overlays",
+   "file": "none",
+   "kind": "NONE",
+   "sha256": ""
+  }
+ },
+ "recall": {
+  "affectedLots": [
+   "BR-204"
+  ],
+  "affectedPart": "BR-6205",
+  "affectedSlots": [
+   "DE"
+  ],
+  "announcedAt": "2026-10-20T08:00:30Z",
+  "damageInspection": null,
+  "exposureBasis": "CURRENT_INSTALLATION",
+  "policyId": "RC-026-014/P1",
+  "recallId": "RC-026-014",
+  "scopeDeclaration": "EXPLICIT_POSITIONS",
+  "version": 1
+ },
+ "recallAnnounced": true,
+ "schemaVersion": 1,
+ "units": [
+  {
+   "captureSessions": [
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MES:MTR-26001",
+     "sourceId": "MES:MTR-26001",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:ASSY:MTR-26001",
+     "sourceId": "ASSY:MTR-26001",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:REWORK:MTR-26001",
+     "sourceId": "REWORK:MTR-26001",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:QA:MTR-26001",
+     "sourceId": "QA:MTR-26001",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:HANDHELD:MTR-26001",
+     "sourceId": "HANDHELD:MTR-26001",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MATERIAL:MTR-26001",
+     "sourceId": "MATERIAL:MTR-26001",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:SHIP:MTR-26001",
+     "sourceId": "SHIP:MTR-26001",
+     "to": "2027-12-31T23:59:59Z"
+    }
+   ],
+   "description": "Synthetic electric-motor manufacturing history captured in the durable ledger.",
+   "eventCount": 9,
+   "events": [
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26001",
+     "eventId": "urn:pramaan:MTR-26001:MES:1",
+     "eventType": "WORK_ORDER_OPENED",
+     "evidenceRefs": [
+      "demo-record:MTR-26001:MES:1"
+     ],
+     "motorSerial": "MTR-26001",
+     "occurredAt": "2026-10-10T08:00:30Z",
+     "payload": {
+      "expectedChanges": [
+       {
+        "action": "INSTALL",
+        "slot": "DE"
+       },
+       {
+        "action": "INSTALL",
+        "slot": "NDE"
+       }
+      ],
+      "orderType": "BUILD"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:00:34Z",
+     "repository": {
+      "captureSha256": "5590eec402cc5431ae816fed89efc2b03ecac0293a96a0e2ed5c2ef14fba3c6d",
+      "eventChainHash": "3adbb8b470e780e307a18814063671a639210359076f977ac2ec3e7b5b09c53a",
+      "localReceivedAt": "2026-10-21T17:07:31Z",
+      "recordTime": "2026-10-10T08:00:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26001",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26001"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26001",
+     "eventId": "urn:pramaan:MTR-26001:MATERIAL:1",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26001:MATERIAL:1"
+     ],
+     "motorSerial": "MTR-26001",
+     "occurredAt": "2026-10-10T08:01:00Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-410",
+      "supplierId": "SUP-NSB-01",
+      "supplierName": "Northstar Bearings \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:01:04Z",
+     "repository": {
+      "captureSha256": "661b2cbf1ddc26b54e250c567a846ba448524ef96142e81ff57caed61b322ee7",
+      "eventChainHash": "b657ad8ffdb9a422792d5f625ca128fa327878f211c7d5f54dd01a29092950db",
+      "localReceivedAt": "2026-10-21T17:07:31Z",
+      "recordTime": "2026-10-10T08:01:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26001",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26001",
+     "eventId": "urn:pramaan:MTR-26001:MATERIAL:2",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26001:MATERIAL:2"
+     ],
+     "motorSerial": "MTR-26001",
+     "occurredAt": "2026-10-10T08:01:30Z",
+     "payload": {
+      "lot": "BR-204",
+      "materialEventId": "urn:pramaan:MTR-26001:MATERIAL:1",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-410",
+      "serial": "BRG-MTR-26001-DE-01",
+      "supplierId": "SUP-NSB-01"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:01:34Z",
+     "repository": {
+      "captureSha256": "42c698c8711fa094a069c30c0c6c53606338e92cf910ef8cad59d9c3a9958979",
+      "eventChainHash": "8ccea196eb87687bd0800e807cb40dbb54fa017015bc25b7859534df4c1c49cf",
+      "localReceivedAt": "2026-10-21T17:07:31Z",
+      "recordTime": "2026-10-10T08:01:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26001",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26001",
+     "eventId": "urn:pramaan:MTR-26001:ASSY:1",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26001:ASSY:1"
+     ],
+     "motorSerial": "MTR-26001",
+     "occurredAt": "2026-10-10T08:02:00Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-204",
+      "manufacturingEventId": "urn:pramaan:MTR-26001:MATERIAL:2",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26001-DE-01",
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:02:04Z",
+     "repository": {
+      "captureSha256": "82a68c0cb3a07bd4e8b84b7fa91189759def130700e7d334e2c8970316375f77",
+      "eventChainHash": "9c2e84b0468a3d8b9cdd3a21c53d1c37177c119c5b2bfcc98106d42d8bdaea95",
+      "localReceivedAt": "2026-10-21T17:07:31Z",
+      "recordTime": "2026-10-10T08:02:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26001",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26001"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26001",
+     "eventId": "urn:pramaan:MTR-26001:MATERIAL:3",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26001:MATERIAL:3"
+     ],
+     "motorSerial": "MTR-26001",
+     "occurredAt": "2026-10-10T08:02:30Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-518",
+      "supplierId": "SUP-KAV-02",
+      "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:02:34Z",
+     "repository": {
+      "captureSha256": "badcc081588da3e0078236fb99b1e68ed22ef8e1d0db9b332c20f19fc6e54467",
+      "eventChainHash": "952c16ae0af17db4649ad0109e1b62d3c47e456d9259f4b8e76a75db61585b61",
+      "localReceivedAt": "2026-10-21T17:07:31Z",
+      "recordTime": "2026-10-10T08:02:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26001",
+     "sourceSeq": 3,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26001",
+     "eventId": "urn:pramaan:MTR-26001:MATERIAL:4",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26001:MATERIAL:4"
+     ],
+     "motorSerial": "MTR-26001",
+     "occurredAt": "2026-10-10T08:03:00Z",
+     "payload": {
+      "lot": "BR-310",
+      "materialEventId": "urn:pramaan:MTR-26001:MATERIAL:3",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-518",
+      "serial": "BRG-MTR-26001-NDE-01",
+      "supplierId": "SUP-KAV-02"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:03:04Z",
+     "repository": {
+      "captureSha256": "4143e30bdbd836a734491771149ee010faae9523bc7f10056696762fa06e182f",
+      "eventChainHash": "38eb297f6ea5ecfc8c6e06306f058b168e3c05d80332ec37d41b75dab18b6c54",
+      "localReceivedAt": "2026-10-21T17:07:31Z",
+      "recordTime": "2026-10-10T08:03:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26001",
+     "sourceSeq": 4,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26001",
+     "eventId": "urn:pramaan:MTR-26001:ASSY:2",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26001:ASSY:2"
+     ],
+     "motorSerial": "MTR-26001",
+     "occurredAt": "2026-10-10T08:03:30Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-310",
+      "manufacturingEventId": "urn:pramaan:MTR-26001:MATERIAL:4",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26001-NDE-01",
+      "slot": "NDE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:03:34Z",
+     "repository": {
+      "captureSha256": "f8384dd60daaa09a2d91e587757db277c5e8e57899b557e942755095324fb6ac",
+      "eventChainHash": "29f6a0738ba6eda2bec56f7a39e0a46b5150031c1c997707ed1765e3cbfa93e0",
+      "localReceivedAt": "2026-10-21T17:07:31Z",
+      "recordTime": "2026-10-10T08:03:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26001",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26001"
+    },
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26001",
+     "eventId": "urn:pramaan:MTR-26001:MES:2",
+     "eventType": "WORK_ORDER_CLOSED",
+     "evidenceRefs": [
+      "demo-record:MTR-26001:MES:2"
+     ],
+     "motorSerial": "MTR-26001",
+     "occurredAt": "2026-10-10T08:04:00Z",
+     "payload": {
+      "disposition": "COMPLETED"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:04:04Z",
+     "repository": {
+      "captureSha256": "b5b06ead5d293e33c3171c3133fd090297bc40673780e7344779b21f1c7b5cca",
+      "eventChainHash": "98e39bb87d5b277d970c0beee285460ae10894b416f58e144d5d19a663f037a9",
+      "localReceivedAt": "2026-10-21T17:07:31Z",
+      "recordTime": "2026-10-10T08:04:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26001",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26001"
+    },
+    {
+     "actorId": "DISPATCH-09",
+     "captureSessionId": "session:SHIP:MTR-26001",
+     "eventId": "urn:pramaan:MTR-26001:SHIP:1",
+     "eventType": "MOTOR_SHIPPED",
+     "evidenceRefs": [
+      "demo-record:MTR-26001:SHIP:1"
+     ],
+     "motorSerial": "MTR-26001",
+     "occurredAt": "2026-10-10T08:04:30Z",
+     "payload": {
+      "assemblyEventId": "urn:pramaan:MTR-26001:MES:2",
+      "customer": "Aster Pump Systems \u2014 synthetic customer",
+      "destination": "Coimbatore distribution centre",
+      "shipmentId": "SHP-26-26001"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:04:34Z",
+     "repository": {
+      "captureSha256": "b7790d3a6e43bfa18e3fae6fe1c48f790f90c059af72519fd566b161d22547e5",
+      "eventChainHash": "2d45f334f7052dab3c34924b54b87950296a60b11eea2cab5ee7c27bccb7de4d",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:04:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "SHIP:MTR-26001",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    }
+   ],
+   "family": "Electric motors \u00b7 IE3",
+   "fixtureSet": "LIVE_LEDGER_SYNTHETIC",
+   "manifest": {
+    "configurationDigest": "a384aa297a7bfee6202b87f819c15cb1cea7617fcc50eca891e197321cdf3181",
+    "evidence": [
+     {
+      "captureSha256": "5590eec402cc5431ae816fed89efc2b03ecac0293a96a0e2ed5c2ef14fba3c6d",
+      "eventId": "urn:pramaan:MTR-26001:MES:1",
+      "hash": "3adbb8b470e780e307a18814063671a639210359076f977ac2ec3e7b5b09c53a"
+     },
+     {
+      "captureSha256": "661b2cbf1ddc26b54e250c567a846ba448524ef96142e81ff57caed61b322ee7",
+      "eventId": "urn:pramaan:MTR-26001:MATERIAL:1",
+      "hash": "b657ad8ffdb9a422792d5f625ca128fa327878f211c7d5f54dd01a29092950db"
+     },
+     {
+      "captureSha256": "42c698c8711fa094a069c30c0c6c53606338e92cf910ef8cad59d9c3a9958979",
+      "eventId": "urn:pramaan:MTR-26001:MATERIAL:2",
+      "hash": "8ccea196eb87687bd0800e807cb40dbb54fa017015bc25b7859534df4c1c49cf"
+     },
+     {
+      "captureSha256": "82a68c0cb3a07bd4e8b84b7fa91189759def130700e7d334e2c8970316375f77",
+      "eventId": "urn:pramaan:MTR-26001:ASSY:1",
+      "hash": "9c2e84b0468a3d8b9cdd3a21c53d1c37177c119c5b2bfcc98106d42d8bdaea95"
+     },
+     {
+      "captureSha256": "badcc081588da3e0078236fb99b1e68ed22ef8e1d0db9b332c20f19fc6e54467",
+      "eventId": "urn:pramaan:MTR-26001:MATERIAL:3",
+      "hash": "952c16ae0af17db4649ad0109e1b62d3c47e456d9259f4b8e76a75db61585b61"
+     },
+     {
+      "captureSha256": "4143e30bdbd836a734491771149ee010faae9523bc7f10056696762fa06e182f",
+      "eventId": "urn:pramaan:MTR-26001:MATERIAL:4",
+      "hash": "38eb297f6ea5ecfc8c6e06306f058b168e3c05d80332ec37d41b75dab18b6c54"
+     },
+     {
+      "captureSha256": "f8384dd60daaa09a2d91e587757db277c5e8e57899b557e942755095324fb6ac",
+      "eventId": "urn:pramaan:MTR-26001:ASSY:2",
+      "hash": "29f6a0738ba6eda2bec56f7a39e0a46b5150031c1c997707ed1765e3cbfa93e0"
+     },
+     {
+      "captureSha256": "b5b06ead5d293e33c3171c3133fd090297bc40673780e7344779b21f1c7b5cca",
+      "eventId": "urn:pramaan:MTR-26001:MES:2",
+      "hash": "98e39bb87d5b277d970c0beee285460ae10894b416f58e144d5d19a663f037a9"
+     },
+     {
+      "captureSha256": "b7790d3a6e43bfa18e3fae6fe1c48f790f90c059af72519fd566b161d22547e5",
+      "eventId": "urn:pramaan:MTR-26001:SHIP:1",
+      "hash": "2d45f334f7052dab3c34924b54b87950296a60b11eea2cab5ee7c27bccb7de4d"
+     }
+    ],
+    "evidenceSnapshotDigest": "d860a5368c6167dc04c9ea770c3d45eb881cbed84b860f470cd268eda806e81b",
+    "profile": "pramaan-bearing-epcis/1",
+    "watermark": {
+     "ASSY:MTR-26001": 2,
+     "HANDHELD:MTR-26001": 0,
+     "MATERIAL:MTR-26001": 4,
+     "MES:MTR-26001": 2,
+     "QA:MTR-26001": 0,
+     "REWORK:MTR-26001": 0,
+     "SHIP:MTR-26001": 1
+    }
+   },
+   "motorSerial": "MTR-26001",
+   "shipment": {
+    "assemblyEventId": "urn:pramaan:MTR-26001:MES:2",
+    "backedByLedger": true,
+    "customer": "Aster Pump Systems \u2014 synthetic customer",
+    "destination": "Coimbatore distribution centre",
+    "evidenceEventId": "urn:pramaan:MTR-26001:SHIP:1",
+    "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+    "shipmentId": "SHP-26-26001",
+    "shippedAt": "2026-10-10T08:04:30Z"
+   },
+   "title": "Serial-tracked assembly",
+   "unitId": "MTR-26001"
+  },
+  {
+   "captureSessions": [
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MES:MTR-26002",
+     "sourceId": "MES:MTR-26002",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:ASSY:MTR-26002",
+     "sourceId": "ASSY:MTR-26002",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:REWORK:MTR-26002",
+     "sourceId": "REWORK:MTR-26002",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:QA:MTR-26002",
+     "sourceId": "QA:MTR-26002",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:HANDHELD:MTR-26002",
+     "sourceId": "HANDHELD:MTR-26002",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MATERIAL:MTR-26002",
+     "sourceId": "MATERIAL:MTR-26002",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:SHIP:MTR-26002",
+     "sourceId": "SHIP:MTR-26002",
+     "to": "2027-12-31T23:59:59Z"
+    }
+   ],
+   "description": "Synthetic electric-motor manufacturing history captured in the durable ledger.",
+   "eventCount": 15,
+   "events": [
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:MES:1",
+     "eventType": "WORK_ORDER_OPENED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:MES:1"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-10T08:05:00Z",
+     "payload": {
+      "expectedChanges": [
+       {
+        "action": "INSTALL",
+        "slot": "DE"
+       },
+       {
+        "action": "INSTALL",
+        "slot": "NDE"
+       }
+      ],
+      "orderType": "BUILD"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:05:04Z",
+     "repository": {
+      "captureSha256": "474f616d56fa2194ebed71df1d3e59ab05f399cf19d27c49ece6b28ff7cff48c",
+      "eventChainHash": "563779f19c8551f4ae61e3cca88a4b1a9adae2079a67f6b6bd122d57769df993",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:05:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26002",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26002"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:MATERIAL:1",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:MATERIAL:1"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-10T08:05:30Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-410",
+      "supplierId": "SUP-NSB-01",
+      "supplierName": "Northstar Bearings \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:05:34Z",
+     "repository": {
+      "captureSha256": "750f1226a322296aa1f59b0cb161078d10b17e160181fc3a4590569779926b39",
+      "eventChainHash": "09b98e14479bbb945526faec22935620314fd01c3705ae37c4ad6f3ab932937d",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:05:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26002",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:MATERIAL:2",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:MATERIAL:2"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-10T08:06:00Z",
+     "payload": {
+      "lot": "BR-204",
+      "materialEventId": "urn:pramaan:MTR-26002:MATERIAL:1",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-410",
+      "serial": null,
+      "supplierId": "SUP-NSB-01"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:06:04Z",
+     "repository": {
+      "captureSha256": "8085a883b88794ce6281c13260cdde25cf31b604b67fd2ecdac1a7e1f92c8f4b",
+      "eventChainHash": "322bf396786838c325108e436ae471fbc4c1e800e46776a6d6ad5a5508373b7a",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:06:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26002",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:ASSY:1",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:ASSY:1"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-10T08:06:30Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "LOT",
+      "lot": "BR-204",
+      "manufacturingEventId": "urn:pramaan:MTR-26002:MATERIAL:2",
+      "part": "BR-6205",
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:06:34Z",
+     "repository": {
+      "captureSha256": "b69d22629ab142692b4f193744f3cd5b2edbb7959353611a2b483a3055a489f2",
+      "eventChainHash": "21745e5ffa7ef409a410215a2001275b94d3d8e2479ea23665ac3697ebfb7646",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:06:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26002",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26002"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:MATERIAL:3",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:MATERIAL:3"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-10T08:07:00Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-410",
+      "supplierId": "SUP-NSB-01",
+      "supplierName": "Northstar Bearings \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:07:04Z",
+     "repository": {
+      "captureSha256": "f2856c2e6eb21269012ec620214a9a0b470226ced34a04a8b86834486bf7fcea",
+      "eventChainHash": "955a0a3370f33c6f540d502398eb32bc84c7d10b485052004c7b960cab5a0921",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:07:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26002",
+     "sourceSeq": 3,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:MATERIAL:4",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:MATERIAL:4"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-10T08:07:30Z",
+     "payload": {
+      "lot": "BR-204",
+      "materialEventId": "urn:pramaan:MTR-26002:MATERIAL:3",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-410",
+      "serial": null,
+      "supplierId": "SUP-NSB-01"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:07:34Z",
+     "repository": {
+      "captureSha256": "a861147446d9aa9bd5cbc0cb9268f6186c0794a74e14ca2c73a6728e8cd1015e",
+      "eventChainHash": "7ae28f777e059d8cefc484c8a2cc5335b033708f7c39e92fe2d3de2d214f1643",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:07:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26002",
+     "sourceSeq": 4,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:ASSY:2",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:ASSY:2"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-10T08:08:00Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "LOT",
+      "lot": "BR-204",
+      "manufacturingEventId": "urn:pramaan:MTR-26002:MATERIAL:4",
+      "part": "BR-6205",
+      "slot": "NDE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:08:04Z",
+     "repository": {
+      "captureSha256": "5f6e2e9b687c0074ce647e2ebbf29f9accceff681857b3d488533c59256a42cb",
+      "eventChainHash": "80358c0d3d9472d260e170c1d71704a51dec29c6dc3d2a15fcce39e2b872f42b",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:08:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26002",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26002"
+    },
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:MES:2",
+     "eventType": "WORK_ORDER_CLOSED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:MES:2"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-10T08:08:30Z",
+     "payload": {
+      "disposition": "COMPLETED"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:08:34Z",
+     "repository": {
+      "captureSha256": "ecbc5ba832222cf3c4b8553e80f662146968b164dd63ac71ea51d7fe08fdf415",
+      "eventChainHash": "8a02949ef64a4fa57c2ca306034acd7a01d39702abd89b14142af8455dac6122",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:08:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26002",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26002"
+    },
+    {
+     "actorId": "DISPATCH-09",
+     "captureSessionId": "session:SHIP:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:SHIP:1",
+     "eventType": "MOTOR_SHIPPED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:SHIP:1"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-10T08:09:00Z",
+     "payload": {
+      "assemblyEventId": "urn:pramaan:MTR-26002:MES:2",
+      "customer": "Aster Pump Systems \u2014 synthetic customer",
+      "destination": "Coimbatore distribution centre",
+      "shipmentId": "SHP-26-26002"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:09:04Z",
+     "repository": {
+      "captureSha256": "b3933e689c3f9a5edb8d04bdea0d2aef58d0039378d9dd7f3a6b07e8708f8d03",
+      "eventChainHash": "e866517ae2328ffe9f38b1562576c4004dc9761cc817bfce6a9c4097dbf9ab1f",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:09:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "SHIP:MTR-26002",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:MES:3",
+     "eventType": "WORK_ORDER_OPENED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:MES:3"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-20T08:01:00Z",
+     "payload": {
+      "expectedChanges": [
+       {
+        "action": "REPLACE",
+        "slot": "DE"
+       }
+      ],
+      "orderType": "REWORK"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:01:04Z",
+     "repository": {
+      "captureSha256": "df3d30ba43a0a0dd8b572e228072296fc2aafcc2afb404cb4074e9885a7c0b0f",
+      "eventChainHash": "8e17456b8af7b562b2aae97bc532a52de0f44c803e2904d15d7425149c15a2c4",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:01:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26002",
+     "sourceSeq": 3,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "RW-MTR-26002-1"
+    },
+    {
+     "actorId": "OP-REWORK-12",
+     "captureSessionId": "session:REWORK:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:REWORK:1",
+     "eventType": "COMPONENT_REMOVED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:REWORK:1"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-20T08:01:30Z",
+     "payload": {
+      "componentType": "BEARING",
+      "endsInstallEventId": "urn:pramaan:MTR-26002:ASSY:1",
+      "identityGranularity": "LOT",
+      "observedLot": "BR-204",
+      "observedPart": "BR-6205",
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:01:34Z",
+     "repository": {
+      "captureSha256": "59e1277231555c04b669000eb747bc15db29f9fa342559e132abb4315c050bda",
+      "eventChainHash": "c4bcb7453343a2eaf23b7f83026da1e8ec759ee4fec5be56cbcdb1875a83c731",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:01:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "REWORK:MTR-26002",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "RW-MTR-26002-1"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:MATERIAL:5",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:MATERIAL:5"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-20T08:02:00Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-518",
+      "supplierId": "SUP-KAV-02",
+      "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:02:04Z",
+     "repository": {
+      "captureSha256": "0d9153868a477b8cea9532b1eb4897513218b300161368409cc2017a63611c4d",
+      "eventChainHash": "52c647992a21e7c92ecc7bf9cbe600e94b3590df29b77ce01792a5c009b54054",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:02:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26002",
+     "sourceSeq": 5,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:MATERIAL:6",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:MATERIAL:6"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-20T08:02:30Z",
+     "payload": {
+      "lot": "BR-312",
+      "materialEventId": "urn:pramaan:MTR-26002:MATERIAL:5",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-518",
+      "serial": null,
+      "supplierId": "SUP-KAV-02"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:02:34Z",
+     "repository": {
+      "captureSha256": "bb22203c95854cf60f9a4b60a40bed6cd0130830262dbbbe564ec770aebee8b1",
+      "eventChainHash": "8fe62949048f2067afb5f70177fd2429b18921773d4c54838b48c6a972a8bd59",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:02:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26002",
+     "sourceSeq": 6,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-REWORK-12",
+     "captureSessionId": "session:REWORK:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:REWORK:2",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:REWORK:2"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-20T08:03:00Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "LOT",
+      "lot": "BR-312",
+      "manufacturingEventId": "urn:pramaan:MTR-26002:MATERIAL:6",
+      "part": "BR-6205",
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:03:04Z",
+     "repository": {
+      "captureSha256": "130111ae17e59d3a437c746ed9fa9df62971e409ba2e80161665dee5048e70be",
+      "eventChainHash": "65f5efdc21e7c5308033023efb443ef13af5c9f2d864a1246dfd0de1da216156",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:03:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "REWORK:MTR-26002",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "RW-MTR-26002-1"
+    },
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26002",
+     "eventId": "urn:pramaan:MTR-26002:MES:4",
+     "eventType": "WORK_ORDER_CLOSED",
+     "evidenceRefs": [
+      "demo-record:MTR-26002:MES:4"
+     ],
+     "motorSerial": "MTR-26002",
+     "occurredAt": "2026-10-20T08:03:30Z",
+     "payload": {
+      "disposition": "COMPLETED"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:03:34Z",
+     "repository": {
+      "captureSha256": "98cec139b4115b6c534d9a9b4f93596b7f71354c888a860caf448020dc6ed204",
+      "eventChainHash": "bbc53c50efed48a51980e00fed6e77bcd865f5fddf28a2b5b448a0ea682795d1",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:03:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26002",
+     "sourceSeq": 4,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "RW-MTR-26002-1"
+    }
+   ],
+   "family": "Electric motors \u00b7 IE3",
+   "fixtureSet": "LIVE_LEDGER_SYNTHETIC",
+   "manifest": {
+    "configurationDigest": "92eaba7a6a440d9008cfe5afb80eabb76645b92567a059cbd0fb9b5f1e0de6a9",
+    "evidence": [
+     {
+      "captureSha256": "474f616d56fa2194ebed71df1d3e59ab05f399cf19d27c49ece6b28ff7cff48c",
+      "eventId": "urn:pramaan:MTR-26002:MES:1",
+      "hash": "563779f19c8551f4ae61e3cca88a4b1a9adae2079a67f6b6bd122d57769df993"
+     },
+     {
+      "captureSha256": "750f1226a322296aa1f59b0cb161078d10b17e160181fc3a4590569779926b39",
+      "eventId": "urn:pramaan:MTR-26002:MATERIAL:1",
+      "hash": "09b98e14479bbb945526faec22935620314fd01c3705ae37c4ad6f3ab932937d"
+     },
+     {
+      "captureSha256": "8085a883b88794ce6281c13260cdde25cf31b604b67fd2ecdac1a7e1f92c8f4b",
+      "eventId": "urn:pramaan:MTR-26002:MATERIAL:2",
+      "hash": "322bf396786838c325108e436ae471fbc4c1e800e46776a6d6ad5a5508373b7a"
+     },
+     {
+      "captureSha256": "b69d22629ab142692b4f193744f3cd5b2edbb7959353611a2b483a3055a489f2",
+      "eventId": "urn:pramaan:MTR-26002:ASSY:1",
+      "hash": "21745e5ffa7ef409a410215a2001275b94d3d8e2479ea23665ac3697ebfb7646"
+     },
+     {
+      "captureSha256": "f2856c2e6eb21269012ec620214a9a0b470226ced34a04a8b86834486bf7fcea",
+      "eventId": "urn:pramaan:MTR-26002:MATERIAL:3",
+      "hash": "955a0a3370f33c6f540d502398eb32bc84c7d10b485052004c7b960cab5a0921"
+     },
+     {
+      "captureSha256": "a861147446d9aa9bd5cbc0cb9268f6186c0794a74e14ca2c73a6728e8cd1015e",
+      "eventId": "urn:pramaan:MTR-26002:MATERIAL:4",
+      "hash": "7ae28f777e059d8cefc484c8a2cc5335b033708f7c39e92fe2d3de2d214f1643"
+     },
+     {
+      "captureSha256": "5f6e2e9b687c0074ce647e2ebbf29f9accceff681857b3d488533c59256a42cb",
+      "eventId": "urn:pramaan:MTR-26002:ASSY:2",
+      "hash": "80358c0d3d9472d260e170c1d71704a51dec29c6dc3d2a15fcce39e2b872f42b"
+     },
+     {
+      "captureSha256": "ecbc5ba832222cf3c4b8553e80f662146968b164dd63ac71ea51d7fe08fdf415",
+      "eventId": "urn:pramaan:MTR-26002:MES:2",
+      "hash": "8a02949ef64a4fa57c2ca306034acd7a01d39702abd89b14142af8455dac6122"
+     },
+     {
+      "captureSha256": "b3933e689c3f9a5edb8d04bdea0d2aef58d0039378d9dd7f3a6b07e8708f8d03",
+      "eventId": "urn:pramaan:MTR-26002:SHIP:1",
+      "hash": "e866517ae2328ffe9f38b1562576c4004dc9761cc817bfce6a9c4097dbf9ab1f"
+     },
+     {
+      "captureSha256": "df3d30ba43a0a0dd8b572e228072296fc2aafcc2afb404cb4074e9885a7c0b0f",
+      "eventId": "urn:pramaan:MTR-26002:MES:3",
+      "hash": "8e17456b8af7b562b2aae97bc532a52de0f44c803e2904d15d7425149c15a2c4"
+     },
+     {
+      "captureSha256": "59e1277231555c04b669000eb747bc15db29f9fa342559e132abb4315c050bda",
+      "eventId": "urn:pramaan:MTR-26002:REWORK:1",
+      "hash": "c4bcb7453343a2eaf23b7f83026da1e8ec759ee4fec5be56cbcdb1875a83c731"
+     },
+     {
+      "captureSha256": "0d9153868a477b8cea9532b1eb4897513218b300161368409cc2017a63611c4d",
+      "eventId": "urn:pramaan:MTR-26002:MATERIAL:5",
+      "hash": "52c647992a21e7c92ecc7bf9cbe600e94b3590df29b77ce01792a5c009b54054"
+     },
+     {
+      "captureSha256": "bb22203c95854cf60f9a4b60a40bed6cd0130830262dbbbe564ec770aebee8b1",
+      "eventId": "urn:pramaan:MTR-26002:MATERIAL:6",
+      "hash": "8fe62949048f2067afb5f70177fd2429b18921773d4c54838b48c6a972a8bd59"
+     },
+     {
+      "captureSha256": "130111ae17e59d3a437c746ed9fa9df62971e409ba2e80161665dee5048e70be",
+      "eventId": "urn:pramaan:MTR-26002:REWORK:2",
+      "hash": "65f5efdc21e7c5308033023efb443ef13af5c9f2d864a1246dfd0de1da216156"
+     },
+     {
+      "captureSha256": "98cec139b4115b6c534d9a9b4f93596b7f71354c888a860caf448020dc6ed204",
+      "eventId": "urn:pramaan:MTR-26002:MES:4",
+      "hash": "bbc53c50efed48a51980e00fed6e77bcd865f5fddf28a2b5b448a0ea682795d1"
+     }
+    ],
+    "evidenceSnapshotDigest": "93b3c71e6527a0d32a129f697dff3133df9154401bf520d1f2a81ff31ec22ac9",
+    "profile": "pramaan-bearing-epcis/1",
+    "watermark": {
+     "ASSY:MTR-26002": 2,
+     "HANDHELD:MTR-26002": 0,
+     "MATERIAL:MTR-26002": 6,
+     "MES:MTR-26002": 4,
+     "QA:MTR-26002": 0,
+     "REWORK:MTR-26002": 2,
+     "SHIP:MTR-26002": 1
+    }
+   },
+   "motorSerial": "MTR-26002",
+   "shipment": {
+    "assemblyEventId": "urn:pramaan:MTR-26002:MES:2",
+    "backedByLedger": true,
+    "customer": "Aster Pump Systems \u2014 synthetic customer",
+    "destination": "Coimbatore distribution centre",
+    "evidenceEventId": "urn:pramaan:MTR-26002:SHIP:1",
+    "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+    "shipmentId": "SHP-26-26002",
+    "shippedAt": "2026-10-10T08:09:00Z"
+   },
+   "title": "Lot-level ambiguity",
+   "unitId": "MTR-26002"
+  },
+  {
+   "captureSessions": [
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MES:MTR-26003",
+     "sourceId": "MES:MTR-26003",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:ASSY:MTR-26003",
+     "sourceId": "ASSY:MTR-26003",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:REWORK:MTR-26003",
+     "sourceId": "REWORK:MTR-26003",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:QA:MTR-26003",
+     "sourceId": "QA:MTR-26003",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:HANDHELD:MTR-26003",
+     "sourceId": "HANDHELD:MTR-26003",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MATERIAL:MTR-26003",
+     "sourceId": "MATERIAL:MTR-26003",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:SHIP:MTR-26003",
+     "sourceId": "SHIP:MTR-26003",
+     "to": "2027-12-31T23:59:59Z"
+    }
+   ],
+   "description": "Synthetic electric-motor manufacturing history captured in the durable ledger.",
+   "eventCount": 9,
+   "events": [
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26003",
+     "eventId": "urn:pramaan:MTR-26003:MES:1",
+     "eventType": "WORK_ORDER_OPENED",
+     "evidenceRefs": [
+      "demo-record:MTR-26003:MES:1"
+     ],
+     "motorSerial": "MTR-26003",
+     "occurredAt": "2026-10-10T08:09:30Z",
+     "payload": {
+      "expectedChanges": [
+       {
+        "action": "INSTALL",
+        "slot": "DE"
+       },
+       {
+        "action": "INSTALL",
+        "slot": "NDE"
+       }
+      ],
+      "orderType": "BUILD"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:09:34Z",
+     "repository": {
+      "captureSha256": "3f57cec1e35df912fb781deb5d2c5247b45ba8abe2d50fb2afcf705fb4b13572",
+      "eventChainHash": "4cc694ce896a4644450d6830b9b467fcb60916875ebd8fe1b29c9c4e0a0f05b7",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:09:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26003",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26003"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26003",
+     "eventId": "urn:pramaan:MTR-26003:MATERIAL:1",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26003:MATERIAL:1"
+     ],
+     "motorSerial": "MTR-26003",
+     "occurredAt": "2026-10-10T08:10:00Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-518",
+      "supplierId": "SUP-KAV-02",
+      "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:10:04Z",
+     "repository": {
+      "captureSha256": "ca9a3182a786c3afa97c18d61a3b2e1235588a87d251cf0154f7a89f0bd8121d",
+      "eventChainHash": "4228c7a65525505f08e934b942729bb24d4414ec9c622e9355ad3531f7be97e4",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:10:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26003",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26003",
+     "eventId": "urn:pramaan:MTR-26003:MATERIAL:2",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26003:MATERIAL:2"
+     ],
+     "motorSerial": "MTR-26003",
+     "occurredAt": "2026-10-10T08:10:30Z",
+     "payload": {
+      "lot": "BR-310",
+      "materialEventId": "urn:pramaan:MTR-26003:MATERIAL:1",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-518",
+      "serial": "BRG-MTR-26003-DE-01",
+      "supplierId": "SUP-KAV-02"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:10:34Z",
+     "repository": {
+      "captureSha256": "8569ba16af6d92fe913c1153f4974b73c921b4aa5bc58c3adeaef5b63705d6d0",
+      "eventChainHash": "7cc5c1334eadda0620841ac62c86c2a02f2b6850c3a3a0f10ed04df52067fd61",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:10:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26003",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26003",
+     "eventId": "urn:pramaan:MTR-26003:ASSY:1",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26003:ASSY:1"
+     ],
+     "motorSerial": "MTR-26003",
+     "occurredAt": "2026-10-10T08:11:00Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-310",
+      "manufacturingEventId": "urn:pramaan:MTR-26003:MATERIAL:2",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26003-DE-01",
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:11:04Z",
+     "repository": {
+      "captureSha256": "c722b4ebbf4ca417ef869e8d6128c9f70e6069f6f1d12ac90279ebf249109df4",
+      "eventChainHash": "cdaddd0e7cf2c44a45c74a90651030fc9dc80f6943d4ea1168bd37cc253bef68",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:11:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26003",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26003"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26003",
+     "eventId": "urn:pramaan:MTR-26003:MATERIAL:3",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26003:MATERIAL:3"
+     ],
+     "motorSerial": "MTR-26003",
+     "occurredAt": "2026-10-10T08:11:30Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-518",
+      "supplierId": "SUP-KAV-02",
+      "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:11:34Z",
+     "repository": {
+      "captureSha256": "4a5fdda23ed8af79a462b8909ddd5c57c78d5b628c6807445e03c7b2a458ddaa",
+      "eventChainHash": "f72e81c1df9495e91464281e5f451f75741632fa985fc707420cf3e2da6845e0",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:11:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26003",
+     "sourceSeq": 3,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26003",
+     "eventId": "urn:pramaan:MTR-26003:MATERIAL:4",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26003:MATERIAL:4"
+     ],
+     "motorSerial": "MTR-26003",
+     "occurredAt": "2026-10-10T08:12:00Z",
+     "payload": {
+      "lot": "BR-312",
+      "materialEventId": "urn:pramaan:MTR-26003:MATERIAL:3",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-518",
+      "serial": "BRG-MTR-26003-NDE-01",
+      "supplierId": "SUP-KAV-02"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:12:04Z",
+     "repository": {
+      "captureSha256": "a0d2576e2b392255fd25a3d6b89af74f9f3539ccb4e012030ec479d75632137f",
+      "eventChainHash": "3b11813c6ed866cea46ed1a161707d46a4a21b6bf94657094c838b474682d197",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:12:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26003",
+     "sourceSeq": 4,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26003",
+     "eventId": "urn:pramaan:MTR-26003:ASSY:2",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26003:ASSY:2"
+     ],
+     "motorSerial": "MTR-26003",
+     "occurredAt": "2026-10-10T08:12:30Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-312",
+      "manufacturingEventId": "urn:pramaan:MTR-26003:MATERIAL:4",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26003-NDE-01",
+      "slot": "NDE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:12:34Z",
+     "repository": {
+      "captureSha256": "e428982c8e0b20aee58318bc16928cb98d770ff5120c01718ec75d18a326ebcc",
+      "eventChainHash": "e4d05c4e8ccc32e6d7cab782af629f33f07cbf5d1e7b7696fe0b240caed7093e",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:12:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26003",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26003"
+    },
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26003",
+     "eventId": "urn:pramaan:MTR-26003:MES:2",
+     "eventType": "WORK_ORDER_CLOSED",
+     "evidenceRefs": [
+      "demo-record:MTR-26003:MES:2"
+     ],
+     "motorSerial": "MTR-26003",
+     "occurredAt": "2026-10-10T08:13:00Z",
+     "payload": {
+      "disposition": "COMPLETED"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:13:04Z",
+     "repository": {
+      "captureSha256": "985ae851061ca2121083045c51739ca35a2c4a989cdda203f7930afa9fee195e",
+      "eventChainHash": "a667bacac2712569fb3bbb8674593e3df3c551b7875779d6b9f161fd7b9422db",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:13:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26003",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26003"
+    },
+    {
+     "actorId": "DISPATCH-09",
+     "captureSessionId": "session:SHIP:MTR-26003",
+     "eventId": "urn:pramaan:MTR-26003:SHIP:1",
+     "eventType": "MOTOR_SHIPPED",
+     "evidenceRefs": [
+      "demo-record:MTR-26003:SHIP:1"
+     ],
+     "motorSerial": "MTR-26003",
+     "occurredAt": "2026-10-10T08:13:30Z",
+     "payload": {
+      "assemblyEventId": "urn:pramaan:MTR-26003:MES:2",
+      "customer": "Aster Pump Systems \u2014 synthetic customer",
+      "destination": "Coimbatore distribution centre",
+      "shipmentId": "SHP-26-26003"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:13:34Z",
+     "repository": {
+      "captureSha256": "6a68acb715a5acaa5e50a55e04f1c64fb2f2ca821301675c20fbbfdc45efa6f9",
+      "eventChainHash": "a4c1aca662b04e6b484ce7912842ea4b55fec0fafcd16c65c1d151bd5c57a668",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:13:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "SHIP:MTR-26003",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    }
+   ],
+   "family": "Electric motors \u00b7 IE3",
+   "fixtureSet": "LIVE_LEDGER_SYNTHETIC",
+   "manifest": {
+    "configurationDigest": "5519ac128d7704ec1b536bfefb1015632a6eb123156250af7e304e232d0b3d11",
+    "evidence": [
+     {
+      "captureSha256": "3f57cec1e35df912fb781deb5d2c5247b45ba8abe2d50fb2afcf705fb4b13572",
+      "eventId": "urn:pramaan:MTR-26003:MES:1",
+      "hash": "4cc694ce896a4644450d6830b9b467fcb60916875ebd8fe1b29c9c4e0a0f05b7"
+     },
+     {
+      "captureSha256": "ca9a3182a786c3afa97c18d61a3b2e1235588a87d251cf0154f7a89f0bd8121d",
+      "eventId": "urn:pramaan:MTR-26003:MATERIAL:1",
+      "hash": "4228c7a65525505f08e934b942729bb24d4414ec9c622e9355ad3531f7be97e4"
+     },
+     {
+      "captureSha256": "8569ba16af6d92fe913c1153f4974b73c921b4aa5bc58c3adeaef5b63705d6d0",
+      "eventId": "urn:pramaan:MTR-26003:MATERIAL:2",
+      "hash": "7cc5c1334eadda0620841ac62c86c2a02f2b6850c3a3a0f10ed04df52067fd61"
+     },
+     {
+      "captureSha256": "c722b4ebbf4ca417ef869e8d6128c9f70e6069f6f1d12ac90279ebf249109df4",
+      "eventId": "urn:pramaan:MTR-26003:ASSY:1",
+      "hash": "cdaddd0e7cf2c44a45c74a90651030fc9dc80f6943d4ea1168bd37cc253bef68"
+     },
+     {
+      "captureSha256": "4a5fdda23ed8af79a462b8909ddd5c57c78d5b628c6807445e03c7b2a458ddaa",
+      "eventId": "urn:pramaan:MTR-26003:MATERIAL:3",
+      "hash": "f72e81c1df9495e91464281e5f451f75741632fa985fc707420cf3e2da6845e0"
+     },
+     {
+      "captureSha256": "a0d2576e2b392255fd25a3d6b89af74f9f3539ccb4e012030ec479d75632137f",
+      "eventId": "urn:pramaan:MTR-26003:MATERIAL:4",
+      "hash": "3b11813c6ed866cea46ed1a161707d46a4a21b6bf94657094c838b474682d197"
+     },
+     {
+      "captureSha256": "e428982c8e0b20aee58318bc16928cb98d770ff5120c01718ec75d18a326ebcc",
+      "eventId": "urn:pramaan:MTR-26003:ASSY:2",
+      "hash": "e4d05c4e8ccc32e6d7cab782af629f33f07cbf5d1e7b7696fe0b240caed7093e"
+     },
+     {
+      "captureSha256": "985ae851061ca2121083045c51739ca35a2c4a989cdda203f7930afa9fee195e",
+      "eventId": "urn:pramaan:MTR-26003:MES:2",
+      "hash": "a667bacac2712569fb3bbb8674593e3df3c551b7875779d6b9f161fd7b9422db"
+     },
+     {
+      "captureSha256": "6a68acb715a5acaa5e50a55e04f1c64fb2f2ca821301675c20fbbfdc45efa6f9",
+      "eventId": "urn:pramaan:MTR-26003:SHIP:1",
+      "hash": "a4c1aca662b04e6b484ce7912842ea4b55fec0fafcd16c65c1d151bd5c57a668"
+     }
+    ],
+    "evidenceSnapshotDigest": "d713075d2a12415238a5dbf1c19c23260e2a34b768118b7d62e40dedcd4cfa79",
+    "profile": "pramaan-bearing-epcis/1",
+    "watermark": {
+     "ASSY:MTR-26003": 2,
+     "HANDHELD:MTR-26003": 0,
+     "MATERIAL:MTR-26003": 4,
+     "MES:MTR-26003": 2,
+     "QA:MTR-26003": 0,
+     "REWORK:MTR-26003": 0,
+     "SHIP:MTR-26003": 1
+    }
+   },
+   "motorSerial": "MTR-26003",
+   "shipment": {
+    "assemblyEventId": "urn:pramaan:MTR-26003:MES:2",
+    "backedByLedger": true,
+    "customer": "Aster Pump Systems \u2014 synthetic customer",
+    "destination": "Coimbatore distribution centre",
+    "evidenceEventId": "urn:pramaan:MTR-26003:SHIP:1",
+    "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+    "shipmentId": "SHP-26-26003",
+    "shippedAt": "2026-10-10T08:13:30Z"
+   },
+   "title": "Unaffected supplier lot",
+   "unitId": "MTR-26003"
+  },
+  {
+   "captureSessions": [
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MES:MTR-26004",
+     "sourceId": "MES:MTR-26004",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-10-09T00:00:00Z",
+     "sessionId": "session:ASSY:MTR-26004",
+     "sourceId": "ASSY:MTR-26004",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:REWORK:MTR-26004",
+     "sourceId": "REWORK:MTR-26004",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:QA:MTR-26004",
+     "sourceId": "QA:MTR-26004",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:HANDHELD:MTR-26004",
+     "sourceId": "HANDHELD:MTR-26004",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MATERIAL:MTR-26004",
+     "sourceId": "MATERIAL:MTR-26004",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:SHIP:MTR-26004",
+     "sourceId": "SHIP:MTR-26004",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-10-01T00:00:00Z",
+     "sessionId": "old:MTR-26004",
+     "sourceId": "ASSY:MTR-26004",
+     "to": "2026-10-02T00:00:00Z"
+    }
+   ],
+   "description": "Synthetic electric-motor manufacturing history captured in the durable ledger.",
+   "eventCount": 15,
+   "events": [
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:MES:1",
+     "eventType": "WORK_ORDER_OPENED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:MES:1"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-10T08:14:00Z",
+     "payload": {
+      "expectedChanges": [
+       {
+        "action": "INSTALL",
+        "slot": "DE"
+       },
+       {
+        "action": "INSTALL",
+        "slot": "NDE"
+       }
+      ],
+      "orderType": "BUILD"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:14:04Z",
+     "repository": {
+      "captureSha256": "563ceae2f7f5c0d6d00752cbcafb34d3c5347670771c099e40dde4573545aa36",
+      "eventChainHash": "6e3c7d85d4efbb304006663883f3424d15e3d1162abcb2c43691afc66e77777c",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:14:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26004",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26004"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:MATERIAL:1",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:MATERIAL:1"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-10T08:14:30Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-410",
+      "supplierId": "SUP-NSB-01",
+      "supplierName": "Northstar Bearings \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:14:34Z",
+     "repository": {
+      "captureSha256": "15f6583657208458cfb2f336f05a2ead21b358dc168eecfc12ff17db9738e558",
+      "eventChainHash": "cf41b3635224d325f3db296ddfa1ff17566eeae1c0765a0e523a9bdf6f150be6",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:14:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26004",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:MATERIAL:2",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:MATERIAL:2"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-10T08:15:00Z",
+     "payload": {
+      "lot": "BR-204",
+      "materialEventId": "urn:pramaan:MTR-26004:MATERIAL:1",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-410",
+      "serial": "BRG-MTR-26004-DE-01",
+      "supplierId": "SUP-NSB-01"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:15:04Z",
+     "repository": {
+      "captureSha256": "326d0db53ec805ee3b8bd47652a15b8e2e8ec6528b54791343e5e066458731b6",
+      "eventChainHash": "ced357a81392a597d76114017eace3cef39d2ab9669212cf81298843dbe2596a",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:15:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26004",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:ASSY:1",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:ASSY:1"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-10T08:15:30Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-204",
+      "manufacturingEventId": "urn:pramaan:MTR-26004:MATERIAL:2",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26004-DE-01",
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:15:34Z",
+     "repository": {
+      "captureSha256": "d643c48bf823282b7cd14e2f0718b71275c52b2d4180d6e570dfa90c27269df1",
+      "eventChainHash": "2271abe58c0da8698cb742b364179231f5b2dc0514fe522c67fa8014294b1aa8",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:15:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26004",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26004"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:MATERIAL:3",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:MATERIAL:3"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-10T08:16:00Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-518",
+      "supplierId": "SUP-KAV-02",
+      "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:16:04Z",
+     "repository": {
+      "captureSha256": "5b3e8fb2408cc2fcf5d2988e1c1faedac92c31180492e08099804469f6cf1cf9",
+      "eventChainHash": "de44806a1fe2ec9f54fb5ef35e09b58b4c88b43946b431b9c2b94e1eee146fcc",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:16:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26004",
+     "sourceSeq": 3,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:MATERIAL:4",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:MATERIAL:4"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-10T08:16:30Z",
+     "payload": {
+      "lot": "BR-310",
+      "materialEventId": "urn:pramaan:MTR-26004:MATERIAL:3",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-518",
+      "serial": "BRG-MTR-26004-NDE-01",
+      "supplierId": "SUP-KAV-02"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:16:34Z",
+     "repository": {
+      "captureSha256": "14d9c72607136799b2df4b10295f60501b397cb1dbf9261a2ec15d4272e60c34",
+      "eventChainHash": "5aa47683981e0bb9dc454bc17de14d687a367ebf2b259c16017d3c4336796df8",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:16:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26004",
+     "sourceSeq": 4,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:ASSY:2",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:ASSY:2"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-10T08:17:00Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-310",
+      "manufacturingEventId": "urn:pramaan:MTR-26004:MATERIAL:4",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26004-NDE-01",
+      "slot": "NDE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:17:04Z",
+     "repository": {
+      "captureSha256": "72c7a6c167d50c396a7b764aad3c0129727096495588e14c2c2e2c322037780f",
+      "eventChainHash": "45c2eae127fdddba816e70bd661f4ad12470cce6f52d4abb9a3fc2a5046cb4dd",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:17:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26004",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26004"
+    },
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:MES:2",
+     "eventType": "WORK_ORDER_CLOSED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:MES:2"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-10T08:17:30Z",
+     "payload": {
+      "disposition": "COMPLETED"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:17:34Z",
+     "repository": {
+      "captureSha256": "8a6b33b8573c0aa491880682c5061c0b33c8eb98e148bbd19c2196be2d10165a",
+      "eventChainHash": "c191d11b12f722fb544395b78d7c3ee060a7dae8803ef79da917e4e4de277af9",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:17:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26004",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26004"
+    },
+    {
+     "actorId": "DISPATCH-09",
+     "captureSessionId": "session:SHIP:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:SHIP:1",
+     "eventType": "MOTOR_SHIPPED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:SHIP:1"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-10T08:18:00Z",
+     "payload": {
+      "assemblyEventId": "urn:pramaan:MTR-26004:MES:2",
+      "customer": "Aster Pump Systems \u2014 synthetic customer",
+      "destination": "Coimbatore distribution centre",
+      "shipmentId": "SHP-26-26004"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:18:04Z",
+     "repository": {
+      "captureSha256": "5714147644b8e9ac4f0935957444a8cc7ca4c121e747335009525731717b4931",
+      "eventChainHash": "03f45b329cd16986047d50ed30dac49486fed6f670583181b49089e79c2a3f28",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:18:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "SHIP:MTR-26004",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:MES:3",
+     "eventType": "WORK_ORDER_OPENED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:MES:3"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-20T08:04:00Z",
+     "payload": {
+      "expectedChanges": [
+       {
+        "action": "REPLACE",
+        "slot": "DE"
+       }
+      ],
+      "orderType": "REWORK"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:04:04Z",
+     "repository": {
+      "captureSha256": "2ddf89c4af56bf29d750b10c46b62b5f959789d5fc2cabf035ac45d63febb4b2",
+      "eventChainHash": "ea4891ccc21245fc7009a556ff07b256c5b70da36e0ccb0351081819ca5d0a50",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:04:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26004",
+     "sourceSeq": 3,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "RW-MTR-26004-1"
+    },
+    {
+     "actorId": "OP-REWORK-12",
+     "captureSessionId": "session:REWORK:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:REWORK:1",
+     "eventType": "COMPONENT_REMOVED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:REWORK:1"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-20T08:04:30Z",
+     "payload": {
+      "componentType": "BEARING",
+      "endsInstallEventId": "urn:pramaan:MTR-26004:ASSY:1",
+      "identityGranularity": "SERIAL",
+      "observedLot": "BR-204",
+      "observedPart": "BR-6205",
+      "observedSerial": "BRG-MTR-26004-DE-01",
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:04:34Z",
+     "repository": {
+      "captureSha256": "77714da6edf4511d042fb6c413c8cb1a78d619941483c433b9551aa8a6b84f5e",
+      "eventChainHash": "9d3f39c32e7929d57e5b16b25962e23e7f65a210ea96d72c3e00eba3a6b6c039",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:04:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "REWORK:MTR-26004",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "RW-MTR-26004-1"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:MATERIAL:5",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:MATERIAL:5"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-20T08:05:00Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-518",
+      "supplierId": "SUP-KAV-02",
+      "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:05:04Z",
+     "repository": {
+      "captureSha256": "76cef30f787820927ae0d64b1a5d65c4302bdd49da9890bdce6dfa06e4757781",
+      "eventChainHash": "7aff7dbdca1f8ee23343cec8b960ffc5afb7817872ab44b01a87eac08b20d981",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:05:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26004",
+     "sourceSeq": 5,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:MATERIAL:6",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:MATERIAL:6"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-20T08:05:30Z",
+     "payload": {
+      "lot": "BR-312",
+      "materialEventId": "urn:pramaan:MTR-26004:MATERIAL:5",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-518",
+      "serial": "BRG-MTR-26004-DE-R9",
+      "supplierId": "SUP-KAV-02"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:05:34Z",
+     "repository": {
+      "captureSha256": "0758081d3c7a9d29bed29cef661f44721564f92ce74c05e2f35812941c991c25",
+      "eventChainHash": "943afc9e10284c54bf337c99ca19f017aa97af4784fe9ebdba8fb32d51dff259",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:05:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26004",
+     "sourceSeq": 6,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-REWORK-12",
+     "captureSessionId": "session:REWORK:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:REWORK:2",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:REWORK:2"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-20T08:06:00Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-312",
+      "manufacturingEventId": "urn:pramaan:MTR-26004:MATERIAL:6",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26004-DE-R9",
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:06:04Z",
+     "repository": {
+      "captureSha256": "e0f30c8bed2d7a42752412e1ca304989e1b4861319e25b18d23318072faa841c",
+      "eventChainHash": "caa5a02e959c85350fd892e72080e69ef8c7007785c8e780e1d9cd1917c46e75",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:06:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "REWORK:MTR-26004",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "RW-MTR-26004-1"
+    },
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26004",
+     "eventId": "urn:pramaan:MTR-26004:MES:4",
+     "eventType": "WORK_ORDER_CLOSED",
+     "evidenceRefs": [
+      "demo-record:MTR-26004:MES:4"
+     ],
+     "motorSerial": "MTR-26004",
+     "occurredAt": "2026-10-20T08:06:30Z",
+     "payload": {
+      "disposition": "COMPLETED"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:06:34Z",
+     "repository": {
+      "captureSha256": "268f7bd10b871929c6fe16edb20bbdc3f073fbce147b1885991ac761a6900334",
+      "eventChainHash": "2024a2972b02e2fb84666a3b5f1c30faba8eec2f7f83f1e5c88091ba126ff400",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:06:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26004",
+     "sourceSeq": 4,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "RW-MTR-26004-1"
+    }
+   ],
+   "family": "Electric motors \u00b7 IE3",
+   "fixtureSet": "LIVE_LEDGER_SYNTHETIC",
+   "manifest": {
+    "configurationDigest": "7f0ef55aa023c66654f33cff573656ec0bf1dccc3eae61dc493b70a6943203e0",
+    "evidence": [
+     {
+      "captureSha256": "563ceae2f7f5c0d6d00752cbcafb34d3c5347670771c099e40dde4573545aa36",
+      "eventId": "urn:pramaan:MTR-26004:MES:1",
+      "hash": "6e3c7d85d4efbb304006663883f3424d15e3d1162abcb2c43691afc66e77777c"
+     },
+     {
+      "captureSha256": "15f6583657208458cfb2f336f05a2ead21b358dc168eecfc12ff17db9738e558",
+      "eventId": "urn:pramaan:MTR-26004:MATERIAL:1",
+      "hash": "cf41b3635224d325f3db296ddfa1ff17566eeae1c0765a0e523a9bdf6f150be6"
+     },
+     {
+      "captureSha256": "326d0db53ec805ee3b8bd47652a15b8e2e8ec6528b54791343e5e066458731b6",
+      "eventId": "urn:pramaan:MTR-26004:MATERIAL:2",
+      "hash": "ced357a81392a597d76114017eace3cef39d2ab9669212cf81298843dbe2596a"
+     },
+     {
+      "captureSha256": "d643c48bf823282b7cd14e2f0718b71275c52b2d4180d6e570dfa90c27269df1",
+      "eventId": "urn:pramaan:MTR-26004:ASSY:1",
+      "hash": "2271abe58c0da8698cb742b364179231f5b2dc0514fe522c67fa8014294b1aa8"
+     },
+     {
+      "captureSha256": "5b3e8fb2408cc2fcf5d2988e1c1faedac92c31180492e08099804469f6cf1cf9",
+      "eventId": "urn:pramaan:MTR-26004:MATERIAL:3",
+      "hash": "de44806a1fe2ec9f54fb5ef35e09b58b4c88b43946b431b9c2b94e1eee146fcc"
+     },
+     {
+      "captureSha256": "14d9c72607136799b2df4b10295f60501b397cb1dbf9261a2ec15d4272e60c34",
+      "eventId": "urn:pramaan:MTR-26004:MATERIAL:4",
+      "hash": "5aa47683981e0bb9dc454bc17de14d687a367ebf2b259c16017d3c4336796df8"
+     },
+     {
+      "captureSha256": "72c7a6c167d50c396a7b764aad3c0129727096495588e14c2c2e2c322037780f",
+      "eventId": "urn:pramaan:MTR-26004:ASSY:2",
+      "hash": "45c2eae127fdddba816e70bd661f4ad12470cce6f52d4abb9a3fc2a5046cb4dd"
+     },
+     {
+      "captureSha256": "8a6b33b8573c0aa491880682c5061c0b33c8eb98e148bbd19c2196be2d10165a",
+      "eventId": "urn:pramaan:MTR-26004:MES:2",
+      "hash": "c191d11b12f722fb544395b78d7c3ee060a7dae8803ef79da917e4e4de277af9"
+     },
+     {
+      "captureSha256": "5714147644b8e9ac4f0935957444a8cc7ca4c121e747335009525731717b4931",
+      "eventId": "urn:pramaan:MTR-26004:SHIP:1",
+      "hash": "03f45b329cd16986047d50ed30dac49486fed6f670583181b49089e79c2a3f28"
+     },
+     {
+      "captureSha256": "2ddf89c4af56bf29d750b10c46b62b5f959789d5fc2cabf035ac45d63febb4b2",
+      "eventId": "urn:pramaan:MTR-26004:MES:3",
+      "hash": "ea4891ccc21245fc7009a556ff07b256c5b70da36e0ccb0351081819ca5d0a50"
+     },
+     {
+      "captureSha256": "77714da6edf4511d042fb6c413c8cb1a78d619941483c433b9551aa8a6b84f5e",
+      "eventId": "urn:pramaan:MTR-26004:REWORK:1",
+      "hash": "9d3f39c32e7929d57e5b16b25962e23e7f65a210ea96d72c3e00eba3a6b6c039"
+     },
+     {
+      "captureSha256": "76cef30f787820927ae0d64b1a5d65c4302bdd49da9890bdce6dfa06e4757781",
+      "eventId": "urn:pramaan:MTR-26004:MATERIAL:5",
+      "hash": "7aff7dbdca1f8ee23343cec8b960ffc5afb7817872ab44b01a87eac08b20d981"
+     },
+     {
+      "captureSha256": "0758081d3c7a9d29bed29cef661f44721564f92ce74c05e2f35812941c991c25",
+      "eventId": "urn:pramaan:MTR-26004:MATERIAL:6",
+      "hash": "943afc9e10284c54bf337c99ca19f017aa97af4784fe9ebdba8fb32d51dff259"
+     },
+     {
+      "captureSha256": "e0f30c8bed2d7a42752412e1ca304989e1b4861319e25b18d23318072faa841c",
+      "eventId": "urn:pramaan:MTR-26004:REWORK:2",
+      "hash": "caa5a02e959c85350fd892e72080e69ef8c7007785c8e780e1d9cd1917c46e75"
+     },
+     {
+      "captureSha256": "268f7bd10b871929c6fe16edb20bbdc3f073fbce147b1885991ac761a6900334",
+      "eventId": "urn:pramaan:MTR-26004:MES:4",
+      "hash": "2024a2972b02e2fb84666a3b5f1c30faba8eec2f7f83f1e5c88091ba126ff400"
+     }
+    ],
+    "evidenceSnapshotDigest": "3eca6edf5e954dc31d3f02ad740ca4782f1e5715142b8650e61261eb53de81fc",
+    "profile": "pramaan-bearing-epcis/1",
+    "watermark": {
+     "ASSY:MTR-26004": 2,
+     "HANDHELD:MTR-26004": 0,
+     "MATERIAL:MTR-26004": 6,
+     "MES:MTR-26004": 4,
+     "QA:MTR-26004": 0,
+     "REWORK:MTR-26004": 2,
+     "SHIP:MTR-26004": 1
+    }
+   },
+   "motorSerial": "MTR-26004",
+   "shipment": {
+    "assemblyEventId": "urn:pramaan:MTR-26004:MES:2",
+    "backedByLedger": true,
+    "customer": "Aster Pump Systems \u2014 synthetic customer",
+    "destination": "Coimbatore distribution centre",
+    "evidenceEventId": "urn:pramaan:MTR-26004:SHIP:1",
+    "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+    "shipmentId": "SHP-26-26004",
+    "shippedAt": "2026-10-10T08:18:00Z"
+   },
+   "title": "Capture coverage gap",
+   "unitId": "MTR-26004"
+  },
+  {
+   "captureSessions": [
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MES:MTR-26005",
+     "sourceId": "MES:MTR-26005",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:ASSY:MTR-26005",
+     "sourceId": "ASSY:MTR-26005",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:REWORK:MTR-26005",
+     "sourceId": "REWORK:MTR-26005",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:QA:MTR-26005",
+     "sourceId": "QA:MTR-26005",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:HANDHELD:MTR-26005",
+     "sourceId": "HANDHELD:MTR-26005",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MATERIAL:MTR-26005",
+     "sourceId": "MATERIAL:MTR-26005",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:SHIP:MTR-26005",
+     "sourceId": "SHIP:MTR-26005",
+     "to": "2027-12-31T23:59:59Z"
+    }
+   ],
+   "description": "Synthetic electric-motor manufacturing history captured in the durable ledger.",
+   "eventCount": 10,
+   "events": [
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26005",
+     "eventId": "urn:pramaan:MTR-26005:MES:1",
+     "eventType": "WORK_ORDER_OPENED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:MES:1"
+     ],
+     "motorSerial": "MTR-26005",
+     "occurredAt": "2026-10-10T08:18:30Z",
+     "payload": {
+      "expectedChanges": [
+       {
+        "action": "INSTALL",
+        "slot": "DE"
+       },
+       {
+        "action": "INSTALL",
+        "slot": "NDE"
+       }
+      ],
+      "orderType": "BUILD"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:18:34Z",
+     "repository": {
+      "captureSha256": "dfd1045f0de9f195dc0c71479f32c04108debad8726b0ac2f7804e9daf10388e",
+      "eventChainHash": "b198120cda2b563b084fcbd86ffb07b3218fe9c3356a2f35ce4c91ed46cb8480",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:18:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26005",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26005"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26005",
+     "eventId": "urn:pramaan:MTR-26005:MATERIAL:1",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:MATERIAL:1"
+     ],
+     "motorSerial": "MTR-26005",
+     "occurredAt": "2026-10-10T08:19:00Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-518",
+      "supplierId": "SUP-KAV-02",
+      "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:19:04Z",
+     "repository": {
+      "captureSha256": "f09e89eb8e48a7088f8df557bfa7aab9b0a5c2cba64106a4f9cce2eb7a8deea9",
+      "eventChainHash": "6a846c81edc1df5ac6269be53e789efcfc2f74d65a1a2668ebb1acf3cb906988",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:19:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26005",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26005",
+     "eventId": "urn:pramaan:MTR-26005:MATERIAL:2",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:MATERIAL:2"
+     ],
+     "motorSerial": "MTR-26005",
+     "occurredAt": "2026-10-10T08:19:30Z",
+     "payload": {
+      "lot": "BR-310",
+      "materialEventId": "urn:pramaan:MTR-26005:MATERIAL:1",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-518",
+      "serial": "BRG-MTR-26005-DE-01",
+      "supplierId": "SUP-KAV-02"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:19:34Z",
+     "repository": {
+      "captureSha256": "e502635ae0396b3d13d78ba19c53536b78b0ef66b98fa23b08ee2d8cb739b7a4",
+      "eventChainHash": "aa9cb6eccfba4f078b9cbbaf3e2c9915372bb70ed881f6955e41a82f40bc4ea7",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:19:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26005",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26005",
+     "eventId": "urn:pramaan:MTR-26005:ASSY:1",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:ASSY:1"
+     ],
+     "motorSerial": "MTR-26005",
+     "occurredAt": "2026-10-10T08:20:00Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-310",
+      "manufacturingEventId": "urn:pramaan:MTR-26005:MATERIAL:2",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26005-DE-01",
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:20:04Z",
+     "repository": {
+      "captureSha256": "da25bf2ecd5b8c3171506332170a986c7278c3be6687b927f1925c6468693988",
+      "eventChainHash": "d73c2773354e5304d20955f6b0ed7c9cf616a0addd5496655835cfc422d1ad1d",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:20:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26005",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26005"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26005",
+     "eventId": "urn:pramaan:MTR-26005:MATERIAL:3",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:MATERIAL:3"
+     ],
+     "motorSerial": "MTR-26005",
+     "occurredAt": "2026-10-10T08:20:30Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-518",
+      "supplierId": "SUP-KAV-02",
+      "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:20:34Z",
+     "repository": {
+      "captureSha256": "ff53c9b4a1e7f826127ecc629047c937c5c39fa6d9f240ce176ffc7e68a0379f",
+      "eventChainHash": "e803ea99bc7699bab76d8d8fe9cdee66447669ff26c4a7dff364afe77c914851",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:20:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26005",
+     "sourceSeq": 3,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26005",
+     "eventId": "urn:pramaan:MTR-26005:MATERIAL:4",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:MATERIAL:4"
+     ],
+     "motorSerial": "MTR-26005",
+     "occurredAt": "2026-10-10T08:21:00Z",
+     "payload": {
+      "lot": "BR-312",
+      "materialEventId": "urn:pramaan:MTR-26005:MATERIAL:3",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-518",
+      "serial": "BRG-MTR-26005-NDE-01",
+      "supplierId": "SUP-KAV-02"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:21:04Z",
+     "repository": {
+      "captureSha256": "13acde9ce0f0a176efd28f743a2e60203c9f9e9e5f1c92432e0f2f5e806f7d5e",
+      "eventChainHash": "bd5f2ab767a9458675ccd6b7f45d5f50681b10aa3f270ba33bc3bb1e1daeaf20",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:21:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26005",
+     "sourceSeq": 4,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26005",
+     "eventId": "urn:pramaan:MTR-26005:ASSY:2",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:ASSY:2"
+     ],
+     "motorSerial": "MTR-26005",
+     "occurredAt": "2026-10-10T08:21:30Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-312",
+      "manufacturingEventId": "urn:pramaan:MTR-26005:MATERIAL:4",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26005-NDE-01",
+      "slot": "NDE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:21:34Z",
+     "repository": {
+      "captureSha256": "9e6cc04c7e4775b112df4e8041207470d1370133f24a4c7d945e524e1def66c9",
+      "eventChainHash": "fe8c73940945e0b30e3315102af6054056ea8e228994501726a035a51843fb2c",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:21:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26005",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26005"
+    },
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26005",
+     "eventId": "urn:pramaan:MTR-26005:MES:2",
+     "eventType": "WORK_ORDER_CLOSED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:MES:2"
+     ],
+     "motorSerial": "MTR-26005",
+     "occurredAt": "2026-10-10T08:22:00Z",
+     "payload": {
+      "disposition": "COMPLETED"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:22:04Z",
+     "repository": {
+      "captureSha256": "6dfd3f2f688fafde4d0034efd628d5e438b0e2f682151c609ab469b57d74bc0e",
+      "eventChainHash": "a65344c839b0bfa3d35094dd26e12aa4266053de272908aa4fda6d3b23094c9e",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:22:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26005",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26005"
+    },
+    {
+     "actorId": "DISPATCH-09",
+     "captureSessionId": "session:SHIP:MTR-26005",
+     "eventId": "urn:pramaan:MTR-26005:SHIP:1",
+     "eventType": "MOTOR_SHIPPED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:SHIP:1"
+     ],
+     "motorSerial": "MTR-26005",
+     "occurredAt": "2026-10-10T08:22:30Z",
+     "payload": {
+      "assemblyEventId": "urn:pramaan:MTR-26005:MES:2",
+      "customer": "Aster Pump Systems \u2014 synthetic customer",
+      "destination": "Coimbatore distribution centre",
+      "shipmentId": "SHP-26-26005"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-10T08:22:34Z",
+     "repository": {
+      "captureSha256": "0ecfefbe57b6b3997d266fb832b58a22db6c1c16cf136241aa24bd393d1be28a",
+      "eventChainHash": "6ca5f568b5159ac4de7268d87b98373c44598876223079d6045e43f24f7408da",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-10T08:22:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "SHIP:MTR-26005",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-OBSERVATION-21",
+     "captureSessionId": "session:HANDHELD:MTR-26005",
+     "eventId": "urn:pramaan:MTR-26005:HANDHELD:1",
+     "eventType": "SLOT_STATE_VERIFIED",
+     "evidenceRefs": [
+      "demo-record:MTR-26005:HANDHELD:1"
+     ],
+     "motorSerial": "MTR-26005",
+     "occurredAt": "2026-10-20T08:07:00Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "LOT",
+      "method": "HANDHELD_LABEL_READ",
+      "observedLot": "BR-204",
+      "observedPart": "BR-6205",
+      "provisional": true,
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:07:04Z",
+     "repository": {
+      "captureSha256": "1b03842411386539d25bb2e83a53b44d86982bcebe7ea362eff4dc34b4e01cdf",
+      "eventChainHash": "ad2d39b0116852c93b2b5bee533405c100def2c3f94ac87cac66188edff8859e",
+      "localReceivedAt": "2026-10-21T17:07:32Z",
+      "recordTime": "2026-10-20T08:07:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "HANDHELD:MTR-26005",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    }
+   ],
+   "family": "Electric motors \u00b7 IE3",
+   "fixtureSet": "LIVE_LEDGER_SYNTHETIC",
+   "manifest": {
+    "configurationDigest": "eb1822f93edbcb45e47f5b689adabc9a16fa6f744aeca2e4681b3fac0406fb03",
+    "evidence": [
+     {
+      "captureSha256": "dfd1045f0de9f195dc0c71479f32c04108debad8726b0ac2f7804e9daf10388e",
+      "eventId": "urn:pramaan:MTR-26005:MES:1",
+      "hash": "b198120cda2b563b084fcbd86ffb07b3218fe9c3356a2f35ce4c91ed46cb8480"
+     },
+     {
+      "captureSha256": "f09e89eb8e48a7088f8df557bfa7aab9b0a5c2cba64106a4f9cce2eb7a8deea9",
+      "eventId": "urn:pramaan:MTR-26005:MATERIAL:1",
+      "hash": "6a846c81edc1df5ac6269be53e789efcfc2f74d65a1a2668ebb1acf3cb906988"
+     },
+     {
+      "captureSha256": "e502635ae0396b3d13d78ba19c53536b78b0ef66b98fa23b08ee2d8cb739b7a4",
+      "eventId": "urn:pramaan:MTR-26005:MATERIAL:2",
+      "hash": "aa9cb6eccfba4f078b9cbbaf3e2c9915372bb70ed881f6955e41a82f40bc4ea7"
+     },
+     {
+      "captureSha256": "da25bf2ecd5b8c3171506332170a986c7278c3be6687b927f1925c6468693988",
+      "eventId": "urn:pramaan:MTR-26005:ASSY:1",
+      "hash": "d73c2773354e5304d20955f6b0ed7c9cf616a0addd5496655835cfc422d1ad1d"
+     },
+     {
+      "captureSha256": "ff53c9b4a1e7f826127ecc629047c937c5c39fa6d9f240ce176ffc7e68a0379f",
+      "eventId": "urn:pramaan:MTR-26005:MATERIAL:3",
+      "hash": "e803ea99bc7699bab76d8d8fe9cdee66447669ff26c4a7dff364afe77c914851"
+     },
+     {
+      "captureSha256": "13acde9ce0f0a176efd28f743a2e60203c9f9e9e5f1c92432e0f2f5e806f7d5e",
+      "eventId": "urn:pramaan:MTR-26005:MATERIAL:4",
+      "hash": "bd5f2ab767a9458675ccd6b7f45d5f50681b10aa3f270ba33bc3bb1e1daeaf20"
+     },
+     {
+      "captureSha256": "9e6cc04c7e4775b112df4e8041207470d1370133f24a4c7d945e524e1def66c9",
+      "eventId": "urn:pramaan:MTR-26005:ASSY:2",
+      "hash": "fe8c73940945e0b30e3315102af6054056ea8e228994501726a035a51843fb2c"
+     },
+     {
+      "captureSha256": "6dfd3f2f688fafde4d0034efd628d5e438b0e2f682151c609ab469b57d74bc0e",
+      "eventId": "urn:pramaan:MTR-26005:MES:2",
+      "hash": "a65344c839b0bfa3d35094dd26e12aa4266053de272908aa4fda6d3b23094c9e"
+     },
+     {
+      "captureSha256": "0ecfefbe57b6b3997d266fb832b58a22db6c1c16cf136241aa24bd393d1be28a",
+      "eventId": "urn:pramaan:MTR-26005:SHIP:1",
+      "hash": "6ca5f568b5159ac4de7268d87b98373c44598876223079d6045e43f24f7408da"
+     },
+     {
+      "captureSha256": "1b03842411386539d25bb2e83a53b44d86982bcebe7ea362eff4dc34b4e01cdf",
+      "eventId": "urn:pramaan:MTR-26005:HANDHELD:1",
+      "hash": "ad2d39b0116852c93b2b5bee533405c100def2c3f94ac87cac66188edff8859e"
+     }
+    ],
+    "evidenceSnapshotDigest": "a6ed75ac5e3ad48ea1bcd2bdc51e6d6a4b00f5ce0df4b7cbf48b0817e8f0892c",
+    "profile": "pramaan-bearing-epcis/1",
+    "watermark": {
+     "ASSY:MTR-26005": 2,
+     "HANDHELD:MTR-26005": 1,
+     "MATERIAL:MTR-26005": 4,
+     "MES:MTR-26005": 2,
+     "QA:MTR-26005": 0,
+     "REWORK:MTR-26005": 0,
+     "SHIP:MTR-26005": 1
+    }
+   },
+   "motorSerial": "MTR-26005",
+   "shipment": {
+    "assemblyEventId": "urn:pramaan:MTR-26005:MES:2",
+    "backedByLedger": true,
+    "customer": "Aster Pump Systems \u2014 synthetic customer",
+    "destination": "Coimbatore distribution centre",
+    "evidenceEventId": "urn:pramaan:MTR-26005:SHIP:1",
+    "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
+    "shipmentId": "SHP-26-26005",
+    "shippedAt": "2026-10-10T08:22:30Z"
+   },
+   "title": "Untrusted affected-bearing observation",
+   "unitId": "MTR-26005"
+  },
+  {
+   "captureSessions": [
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MES:MTR-26006",
+     "sourceId": "MES:MTR-26006",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:ASSY:MTR-26006",
+     "sourceId": "ASSY:MTR-26006",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:REWORK:MTR-26006",
+     "sourceId": "REWORK:MTR-26006",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:QA:MTR-26006",
+     "sourceId": "QA:MTR-26006",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:HANDHELD:MTR-26006",
+     "sourceId": "HANDHELD:MTR-26006",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MATERIAL:MTR-26006",
+     "sourceId": "MATERIAL:MTR-26006",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:SHIP:MTR-26006",
+     "sourceId": "SHIP:MTR-26006",
+     "to": "2027-12-31T23:59:59Z"
+    }
+   ],
+   "description": "Synthetic electric-motor manufacturing history captured in the durable ledger.",
+   "eventCount": 0,
+   "events": [],
+   "family": "Electric motors \u00b7 IE3",
+   "fixtureSet": "LIVE_LEDGER_SYNTHETIC",
+   "manifest": {
+    "configurationDigest": "e83e66a675a3dc9a3d95848901c4eaed0e2fe3934e1073af825e890a805475d6",
+    "evidence": [],
+    "evidenceSnapshotDigest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "profile": "pramaan-bearing-epcis/1",
+    "watermark": {
+     "ASSY:MTR-26006": 0,
+     "HANDHELD:MTR-26006": 0,
+     "MATERIAL:MTR-26006": 0,
+     "MES:MTR-26006": 0,
+     "QA:MTR-26006": 0,
+     "REWORK:MTR-26006": 0,
+     "SHIP:MTR-26006": 0
+    }
+   },
+   "motorSerial": "MTR-26006",
+   "shipment": null,
+   "title": "Partially recorded synthetic motor",
+   "unitId": "MTR-26006"
+  },
+  {
+   "captureSessions": [
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MES:MTR-26007",
+     "sourceId": "MES:MTR-26007",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:ASSY:MTR-26007",
+     "sourceId": "ASSY:MTR-26007",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:REWORK:MTR-26007",
+     "sourceId": "REWORK:MTR-26007",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:QA:MTR-26007",
+     "sourceId": "QA:MTR-26007",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:HANDHELD:MTR-26007",
+     "sourceId": "HANDHELD:MTR-26007",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:MATERIAL:MTR-26007",
+     "sourceId": "MATERIAL:MTR-26007",
+     "to": "2027-12-31T23:59:59Z"
+    },
+    {
+     "authenticated": true,
+     "from": "2026-01-01T00:00:00Z",
+     "sessionId": "session:SHIP:MTR-26007",
+     "sourceId": "SHIP:MTR-26007",
+     "to": "2027-12-31T23:59:59Z"
+    }
+   ],
+   "description": "Synthetic electric-motor manufacturing history captured in the durable ledger.",
+   "eventCount": 8,
+   "events": [
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26007",
+     "eventId": "urn:pramaan:MTR-26007:MES:1",
+     "eventType": "WORK_ORDER_OPENED",
+     "evidenceRefs": [
+      "demo-record:MTR-26007:MES:1"
+     ],
+     "motorSerial": "MTR-26007",
+     "occurredAt": "2026-10-20T08:07:30Z",
+     "payload": {
+      "expectedChanges": [
+       {
+        "action": "INSTALL",
+        "slot": "DE"
+       },
+       {
+        "action": "INSTALL",
+        "slot": "NDE"
+       }
+      ],
+      "orderType": "BUILD"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:07:34Z",
+     "repository": {
+      "captureSha256": "cd5976b351273ccf73287865cee23fc30d16e9a49f4f8750ddc4f8966246e54a",
+      "eventChainHash": "d728e0e08ec7a1e7c7bd64f11e6c1c941bae457214ae930fe716caaad0e51d9d",
+      "localReceivedAt": "2026-10-21T17:07:33Z",
+      "recordTime": "2026-10-20T08:07:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26007",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26007"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26007",
+     "eventId": "urn:pramaan:MTR-26007:MATERIAL:1",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26007:MATERIAL:1"
+     ],
+     "motorSerial": "MTR-26007",
+     "occurredAt": "2026-10-20T08:08:00Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-518",
+      "supplierId": "SUP-KAV-02",
+      "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:08:04Z",
+     "repository": {
+      "captureSha256": "2596d016d271a96df2a7e582b3a4d7638dfbb958e82e1fce698a92fa2c7d4b1d",
+      "eventChainHash": "234f2477bfb83ef91410f97e3f053dc6344395160ecb82e36430a28e40da848e",
+      "localReceivedAt": "2026-10-21T17:07:33Z",
+      "recordTime": "2026-10-20T08:08:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26007",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26007",
+     "eventId": "urn:pramaan:MTR-26007:MATERIAL:2",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26007:MATERIAL:2"
+     ],
+     "motorSerial": "MTR-26007",
+     "occurredAt": "2026-10-20T08:08:30Z",
+     "payload": {
+      "lot": "BR-310",
+      "materialEventId": "urn:pramaan:MTR-26007:MATERIAL:1",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-518",
+      "serial": "BRG-MTR-26007-DE-01",
+      "supplierId": "SUP-KAV-02"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:08:34Z",
+     "repository": {
+      "captureSha256": "495f777e2d1fb3870e4790a7e1a2ef1bb9705dcf39579f94cc5f92d952971338",
+      "eventChainHash": "e2173c93fdff031d243c0c1a508789f9f8c316769dc6c65c4e7f09420e1644ab",
+      "localReceivedAt": "2026-10-21T17:07:33Z",
+      "recordTime": "2026-10-20T08:08:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26007",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26007",
+     "eventId": "urn:pramaan:MTR-26007:ASSY:1",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26007:ASSY:1"
+     ],
+     "motorSerial": "MTR-26007",
+     "occurredAt": "2026-10-20T08:09:00Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-310",
+      "manufacturingEventId": "urn:pramaan:MTR-26007:MATERIAL:2",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26007-DE-01",
+      "slot": "DE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:09:04Z",
+     "repository": {
+      "captureSha256": "7604dc4d77650101deccef4b1734594b14a60f77617b78f173c13af8c70295b5",
+      "eventChainHash": "26a737d829f50b6be59a91380c1809a818c97693e7e7534eb25b5d6146f90821",
+      "localReceivedAt": "2026-10-21T17:07:33Z",
+      "recordTime": "2026-10-20T08:09:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26007",
+     "sourceSeq": 1,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26007"
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26007",
+     "eventId": "urn:pramaan:MTR-26007:MATERIAL:3",
+     "eventType": "MATERIAL_ALLOCATED",
+     "evidenceRefs": [
+      "demo-record:MTR-26007:MATERIAL:3"
+     ],
+     "motorSerial": "MTR-26007",
+     "occurredAt": "2026-10-20T08:09:30Z",
+     "payload": {
+      "rawMaterialLot": "STEEL-26-518",
+      "supplierId": "SUP-KAV-02",
+      "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:09:34Z",
+     "repository": {
+      "captureSha256": "3c8615e67e05d79e89efad96bf8d68c06ff4a977666dca45a3e9bd94f1f848b4",
+      "eventChainHash": "10c6533c488fd40c07891874182887322fd84bb7171d9b135ac7160ffb6e2775",
+      "localReceivedAt": "2026-10-21T17:07:33Z",
+      "recordTime": "2026-10-20T08:09:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26007",
+     "sourceSeq": 3,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "SUPPLIER-INTAKE-04",
+     "captureSessionId": "session:MATERIAL:MTR-26007",
+     "eventId": "urn:pramaan:MTR-26007:MATERIAL:4",
+     "eventType": "BEARING_MANUFACTURED",
+     "evidenceRefs": [
+      "demo-record:MTR-26007:MATERIAL:4"
+     ],
+     "motorSerial": "MTR-26007",
+     "occurredAt": "2026-10-20T08:10:00Z",
+     "payload": {
+      "lot": "BR-312",
+      "materialEventId": "urn:pramaan:MTR-26007:MATERIAL:3",
+      "part": "BR-6205",
+      "rawMaterialLot": "STEEL-26-518",
+      "serial": "BRG-MTR-26007-NDE-01",
+      "supplierId": "SUP-KAV-02"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:10:04Z",
+     "repository": {
+      "captureSha256": "d695c58eb96e18a6097d78a9f472e9590338e62b564f08ad82ed6e4e12906962",
+      "eventChainHash": "23168cb3e17a9183e1b19e96de0109efabd171075efb198297757da5d525fd93",
+      "localReceivedAt": "2026-10-21T17:07:33Z",
+      "recordTime": "2026-10-20T08:10:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MATERIAL:MTR-26007",
+     "sourceSeq": 4,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": null
+    },
+    {
+     "actorId": "OP-ASSEMBLY-07",
+     "captureSessionId": "session:ASSY:MTR-26007",
+     "eventId": "urn:pramaan:MTR-26007:ASSY:2",
+     "eventType": "COMPONENT_INSTALLED",
+     "evidenceRefs": [
+      "demo-record:MTR-26007:ASSY:2"
+     ],
+     "motorSerial": "MTR-26007",
+     "occurredAt": "2026-10-20T08:10:30Z",
+     "payload": {
+      "componentType": "BEARING",
+      "identityGranularity": "SERIAL",
+      "lot": "BR-312",
+      "manufacturingEventId": "urn:pramaan:MTR-26007:MATERIAL:4",
+      "part": "BR-6205",
+      "serial": "BRG-MTR-26007-NDE-01",
+      "slot": "NDE"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:10:34Z",
+     "repository": {
+      "captureSha256": "09dadc37d7b44047f2fad2e279080767ca05d13f0842bccb58004aa03d72022c",
+      "eventChainHash": "474041ba263b229ada8258cc063e468a9388f26972d3225a855297ec1b04c832",
+      "localReceivedAt": "2026-10-21T17:07:33Z",
+      "recordTime": "2026-10-20T08:10:38Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "ASSY:MTR-26007",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26007"
+    },
+    {
+     "actorId": "MES-SYSTEM",
+     "captureSessionId": "session:MES:MTR-26007",
+     "eventId": "urn:pramaan:MTR-26007:MES:2",
+     "eventType": "WORK_ORDER_CLOSED",
+     "evidenceRefs": [
+      "demo-record:MTR-26007:MES:2"
+     ],
+     "motorSerial": "MTR-26007",
+     "occurredAt": "2026-10-20T08:11:00Z",
+     "payload": {
+      "disposition": "COMPLETED"
+     },
+     "recallId": null,
+     "recordedAt": "2026-10-20T08:11:04Z",
+     "repository": {
+      "captureSha256": "8ea8ec32e3e0aadd69d407f36c22add16fa115134747d428981db1a0e41ecb20",
+      "eventChainHash": "b2916384a44a5f9f13cec4146e0bc333875923ee77cf12b5fa0b1ad3af115773",
+      "localReceivedAt": "2026-10-21T17:07:33Z",
+      "recordTime": "2026-10-20T08:11:08Z"
+     },
+     "schemaVersion": 1,
+     "sourceId": "MES:MTR-26007",
+     "sourceSeq": 2,
+     "supersedesEventId": null,
+     "timeSource": "SYNTHETIC_SIMULATED",
+     "workOrderId": "BUILD-MTR-26007"
+    }
+   ],
+   "family": "Electric motors \u00b7 IE3",
+   "fixtureSet": "LIVE_LEDGER_SYNTHETIC",
+   "manifest": {
+    "configurationDigest": "ad006e78e6757e860c84564d8fc79feac147e2d284197018f191f9427267aee8",
+    "evidence": [
+     {
+      "captureSha256": "cd5976b351273ccf73287865cee23fc30d16e9a49f4f8750ddc4f8966246e54a",
+      "eventId": "urn:pramaan:MTR-26007:MES:1",
+      "hash": "d728e0e08ec7a1e7c7bd64f11e6c1c941bae457214ae930fe716caaad0e51d9d"
+     },
+     {
+      "captureSha256": "2596d016d271a96df2a7e582b3a4d7638dfbb958e82e1fce698a92fa2c7d4b1d",
+      "eventId": "urn:pramaan:MTR-26007:MATERIAL:1",
+      "hash": "234f2477bfb83ef91410f97e3f053dc6344395160ecb82e36430a28e40da848e"
+     },
+     {
+      "captureSha256": "495f777e2d1fb3870e4790a7e1a2ef1bb9705dcf39579f94cc5f92d952971338",
+      "eventId": "urn:pramaan:MTR-26007:MATERIAL:2",
+      "hash": "e2173c93fdff031d243c0c1a508789f9f8c316769dc6c65c4e7f09420e1644ab"
+     },
+     {
+      "captureSha256": "7604dc4d77650101deccef4b1734594b14a60f77617b78f173c13af8c70295b5",
+      "eventId": "urn:pramaan:MTR-26007:ASSY:1",
+      "hash": "26a737d829f50b6be59a91380c1809a818c97693e7e7534eb25b5d6146f90821"
+     },
+     {
+      "captureSha256": "3c8615e67e05d79e89efad96bf8d68c06ff4a977666dca45a3e9bd94f1f848b4",
+      "eventId": "urn:pramaan:MTR-26007:MATERIAL:3",
+      "hash": "10c6533c488fd40c07891874182887322fd84bb7171d9b135ac7160ffb6e2775"
+     },
+     {
+      "captureSha256": "d695c58eb96e18a6097d78a9f472e9590338e62b564f08ad82ed6e4e12906962",
+      "eventId": "urn:pramaan:MTR-26007:MATERIAL:4",
+      "hash": "23168cb3e17a9183e1b19e96de0109efabd171075efb198297757da5d525fd93"
+     },
+     {
+      "captureSha256": "09dadc37d7b44047f2fad2e279080767ca05d13f0842bccb58004aa03d72022c",
+      "eventId": "urn:pramaan:MTR-26007:ASSY:2",
+      "hash": "474041ba263b229ada8258cc063e468a9388f26972d3225a855297ec1b04c832"
+     },
+     {
+      "captureSha256": "8ea8ec32e3e0aadd69d407f36c22add16fa115134747d428981db1a0e41ecb20",
+      "eventId": "urn:pramaan:MTR-26007:MES:2",
+      "hash": "b2916384a44a5f9f13cec4146e0bc333875923ee77cf12b5fa0b1ad3af115773"
+     }
+    ],
+    "evidenceSnapshotDigest": "8cf766dcf059203066f1f42110bd5735d99915e2cc16696cde125d47dd94f5a9",
+    "profile": "pramaan-bearing-epcis/1",
+    "watermark": {
+     "ASSY:MTR-26007": 2,
+     "HANDHELD:MTR-26007": 0,
+     "MATERIAL:MTR-26007": 4,
+     "MES:MTR-26007": 2,
+     "QA:MTR-26007": 0,
+     "REWORK:MTR-26007": 0,
+     "SHIP:MTR-26007": 0
+    }
+   },
+   "motorSerial": "MTR-26007",
+   "shipment": null,
+   "title": "Assembled, not shipped",
+   "unitId": "MTR-26007"
+  }
+ ]
+}
