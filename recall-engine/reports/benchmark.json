@@ -1,0 +1,65 @@
+{
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "note": "single thread, wall clock, perf_counter_ns"
+  },
+  "A_fixtures": {
+    "evaluationsPerPass": 25,
+    "passes": 200,
+    "eventsPerCase": {
+      "min": 4,
+      "max": 12
+    },
+    "latencyUs": {
+      "n": 5000,
+      "mean": 185.7,
+      "p50": 145.3,
+      "p95": 391.4,
+      "p99": 590.9,
+      "max": 1244.4
+    }
+  },
+  "B_history_size": [
+    {
+      "events": 9,
+      "medianMs": 0.141,
+      "usPerEvent": 15.64
+    },
+    {
+      "events": 109,
+      "medianMs": 0.849,
+      "usPerEvent": 7.79
+    },
+    {
+      "events": 1009,
+      "medianMs": 9.67,
+      "usPerEvent": 9.58
+    },
+    {
+      "events": 5009,
+      "medianMs": 59.602,
+      "usPerEvent": 11.9
+    },
+    {
+      "events": 20009,
+      "medianMs": 272.685,
+      "usPerEvent": 13.63
+    }
+  ],
+  "C_fleet": {
+    "motors": 10000,
+    "evaluations": 20000,
+    "totalEvents": 87000,
+    "wallSeconds": 3.67,
+    "meanUsPerEvaluation": 183.5,
+    "evaluationsPerSecond": 5450,
+    "buildSecondsNotTimed": 2.08,
+    "findings": {
+      "EXCLUDED_WITH_EVIDENCE": 4000,
+      "AFFECTED": 10000,
+      "UNRESOLVED": 6000
+    }
+  }
+}

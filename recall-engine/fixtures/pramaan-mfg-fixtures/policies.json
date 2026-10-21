@@ -1,0 +1,69 @@
+{
+  "recallPolicies": [
+    {
+      "recallId": "RC-009",
+      "version": 1,
+      "announcedAt": "2026-10-01T00:00:00Z",
+      "affectedPart": "BR-6205",
+      "affectedLots": [
+        "BR-204",
+        "BR-207"
+      ],
+      "affectedSlots": [
+        "DE"
+      ],
+      "policyId": "RC-009/P1",
+      "exposureBasis": "CURRENT_INSTALLATION",
+      "damageInspection": null
+    },
+    {
+      "recallId": "RC-009",
+      "version": 1,
+      "announcedAt": "2026-10-01T00:00:00Z",
+      "affectedPart": "BR-6205",
+      "affectedLots": [
+        "BR-204",
+        "BR-207"
+      ],
+      "affectedSlots": [
+        "DE"
+      ],
+      "policyId": "RC-009/P2",
+      "exposureBasis": "HISTORICAL_OPERATION",
+      "damageInspection": {
+        "protocolId": "RC-009-DMG-01",
+        "mustOccurAfter": "2026-10-01T00:00:00Z",
+        "requiredResult": "PASS",
+        "inspectorQualification": "RC-009-DMG-01"
+      }
+    }
+  ],
+  "coveragePolicy": {
+    "coveragePolicyId": "COV-BEARING-v1",
+    "mandatoryCapture": [
+      {
+        "operation": "COMPONENT_INSTALLED",
+        "sources": [
+          "ASSY-01",
+          "REWORK-03"
+        ]
+      },
+      {
+        "operation": "COMPONENT_REMOVED",
+        "sources": [
+          "REWORK-03"
+        ]
+      },
+      {
+        "operation": "WORK_ORDER_*",
+        "sources": [
+          "MES"
+        ]
+      }
+    ],
+    "trustedVerifierSources": [
+      "QA-02"
+    ],
+    "rule": "A source outage is a gap for every slot it could affect unless a later trusted SLOT_STATE_VERIFIED re-establishes that slot's state."
+  }
+}

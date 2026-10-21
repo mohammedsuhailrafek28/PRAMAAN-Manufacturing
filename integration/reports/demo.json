@@ -1,0 +1,995 @@
+{
+  "policy": {
+    "policyId": "RECALL-DEMO/P1",
+    "recallId": "RECALL-DEMO",
+    "version": 1,
+    "announcedAt": "2026-10-01T00:00:00Z",
+    "affectedPart": "BEARING-6205",
+    "affectedLots": [
+      "LOT-AFFECTED",
+      "LOT-CORRECTED"
+    ],
+    "affectedSlots": [
+      "DE"
+    ],
+    "exposureBasis": "CURRENT_INSTALLATION",
+    "damageInspection": null
+  },
+  "coverage": {
+    "coveragePolicyId": "PHASE2-COVERAGE/1",
+    "mandatoryCapture": [
+      {
+        "operation": "COMPONENT_INSTALLED",
+        "sources": [
+          "ASSY:M-DEMO",
+          "REWORK:M-DEMO"
+        ]
+      },
+      {
+        "operation": "COMPONENT_REMOVED",
+        "sources": [
+          "REWORK:M-DEMO"
+        ]
+      },
+      {
+        "operation": "WORK_ORDER_*",
+        "sources": [
+          "MES:M-DEMO"
+        ]
+      }
+    ],
+    "trustedVerifierSources": [
+      "QA:M-DEMO"
+    ],
+    "slotAttribution": {
+      "version": 3,
+      "unknownSlotIsCandidate": true,
+      "labelAssociationWindowSeconds": 60,
+      "slotLabels": [
+        {
+          "labelId": "LABEL:M-DEMO:DE",
+          "motorSerial": "M-DEMO",
+          "slot": "DE",
+          "status": "ACTIVE",
+          "provisionedAt": "2026-08-01T00:00:00Z",
+          "revokedAt": null
+        },
+        {
+          "labelId": "LABEL:M-DEMO:NDE",
+          "motorSerial": "M-DEMO",
+          "slot": "NDE",
+          "status": "ACTIVE",
+          "provisionedAt": "2026-08-01T00:00:00Z",
+          "revokedAt": null
+        }
+      ],
+      "labelScanSources": [
+        "REWORK:M-DEMO"
+      ],
+      "approvedVerificationMethods": [
+        "LOT_LABEL_AND_MARKING_VISUAL",
+        "SERIAL_MARKING_VISUAL"
+      ],
+      "authorizedVerifierActors": [
+        "INDEPENDENT-QA"
+      ],
+      "accessEvidenceSources": [
+        "QA:M-DEMO"
+      ],
+      "approvedAccessMethods": [
+        "STATION_FIXTURE_RECORD"
+      ],
+      "observationClockSkewSeconds": 300,
+      "trustedTimeSources": [
+        "DEVICE_SYNCED"
+      ]
+    }
+  },
+  "genealogyBeforeReplacement": {
+    "relationships": [
+      {
+        "eventId": "urn:pramaan:M-DEMO:e2",
+        "action": "COMPONENT_INSTALLED",
+        "motorSerial": "M-DEMO",
+        "parentID": "https://example.org/pramaan/phase2/motor/M-DEMO",
+        "childID": "https://example.org/pramaan/phase2/part/BEARING-6205/lot/LOT-AFFECTED",
+        "slot": "DE",
+        "occurredAt": "2026-08-01T08:01:00Z",
+        "producerRecordedAt": "2026-08-01T08:01:04Z",
+        "sourceId": "ASSY:M-DEMO",
+        "sourceSeq": 1,
+        "supersedesEventId": null,
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "part": "BEARING-6205",
+          "lot": "LOT-AFFECTED",
+          "identityGranularity": "LOT"
+        }
+      },
+      {
+        "eventId": "urn:pramaan:M-DEMO:e3",
+        "action": "COMPONENT_INSTALLED",
+        "motorSerial": "M-DEMO",
+        "parentID": "https://example.org/pramaan/phase2/motor/M-DEMO",
+        "childID": "https://example.org/pramaan/phase2/part/BEARING-6205/lot/LOT-NDE",
+        "slot": "NDE",
+        "occurredAt": "2026-08-01T08:02:00Z",
+        "producerRecordedAt": "2026-08-01T08:02:04Z",
+        "sourceId": "ASSY:M-DEMO",
+        "sourceSeq": 2,
+        "supersedesEventId": null,
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "NDE",
+          "part": "BEARING-6205",
+          "lot": "LOT-NDE",
+          "identityGranularity": "LOT"
+        }
+      }
+    ],
+    "manifest": {
+      "profile": "pramaan-bearing-epcis/1",
+      "watermark": {
+        "ASSY:M-DEMO": 2,
+        "HANDHELD:M-DEMO": 0,
+        "MES:M-DEMO": 2,
+        "QA:M-DEMO": 0,
+        "REWORK:M-DEMO": 0
+      },
+      "configurationDigest": "6fe77fed3fce7fddc394f52c170294a90515e223d61b73ae46235dc473751722",
+      "evidence": [
+        {
+          "eventId": "urn:pramaan:M-DEMO:e1",
+          "hash": "bb9ee29ee72b047fba4c68dc277ba769dff6acf44ac1ba25aeb5e8aeda5c1457",
+          "captureSha256": "8441aaf017c9ec7ee050e29aff1bf81fcc1ce07572c3484dd71a65e81c5a2ba9"
+        },
+        {
+          "eventId": "urn:pramaan:M-DEMO:e2",
+          "hash": "97c4af97f39fd43d6e4ef5c132c89bce32d50790905f8e86ef2a8320288cf928",
+          "captureSha256": "00a94752a3bd7387a77bff697697ab9785236faeac96251eb27689b864c8229f"
+        },
+        {
+          "eventId": "urn:pramaan:M-DEMO:e3",
+          "hash": "ba232fb36b81ad15059fddcb3a140a74459804cfa2de9eaa56491b07e4fba2a9",
+          "captureSha256": "62b56ff2d3d18e0133cb9ecfd6035a3b6fa650c44de784ea3cada0367262c347"
+        },
+        {
+          "eventId": "urn:pramaan:M-DEMO:e4",
+          "hash": "f509333594c0b98daaad8278c7a16455fd211e432ad98cc25f6c85314ec32fd8",
+          "captureSha256": "16cad9cee96c7bbc2c075cf08ab7fe8c789052c1b270fbb25aac554549740e29"
+        }
+      ],
+      "evidenceSnapshotDigest": "32c39bc9e0ce9c11fd88cd9dfcc16b14a944c9a00352e21128a6c09165146fd5"
+    }
+  },
+  "genealogyAfterReplacement": {
+    "relationships": [
+      {
+        "eventId": "urn:pramaan:M-DEMO:e2",
+        "action": "COMPONENT_INSTALLED",
+        "motorSerial": "M-DEMO",
+        "parentID": "https://example.org/pramaan/phase2/motor/M-DEMO",
+        "childID": "https://example.org/pramaan/phase2/part/BEARING-6205/lot/LOT-AFFECTED",
+        "slot": "DE",
+        "occurredAt": "2026-08-01T08:01:00Z",
+        "producerRecordedAt": "2026-08-01T08:01:04Z",
+        "sourceId": "ASSY:M-DEMO",
+        "sourceSeq": 1,
+        "supersedesEventId": null,
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "part": "BEARING-6205",
+          "lot": "LOT-AFFECTED",
+          "identityGranularity": "LOT"
+        }
+      },
+      {
+        "eventId": "urn:pramaan:M-DEMO:e3",
+        "action": "COMPONENT_INSTALLED",
+        "motorSerial": "M-DEMO",
+        "parentID": "https://example.org/pramaan/phase2/motor/M-DEMO",
+        "childID": "https://example.org/pramaan/phase2/part/BEARING-6205/lot/LOT-NDE",
+        "slot": "NDE",
+        "occurredAt": "2026-08-01T08:02:00Z",
+        "producerRecordedAt": "2026-08-01T08:02:04Z",
+        "sourceId": "ASSY:M-DEMO",
+        "sourceSeq": 2,
+        "supersedesEventId": null,
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "NDE",
+          "part": "BEARING-6205",
+          "lot": "LOT-NDE",
+          "identityGranularity": "LOT"
+        }
+      },
+      {
+        "eventId": "urn:pramaan:M-DEMO:e6",
+        "action": "COMPONENT_REMOVED",
+        "motorSerial": "M-DEMO",
+        "parentID": "https://example.org/pramaan/phase2/motor/M-DEMO",
+        "childID": "https://example.org/pramaan/phase2/part/BEARING-6205/lot/LOT-AFFECTED",
+        "slot": "DE",
+        "occurredAt": "2026-09-01T08:01:00Z",
+        "producerRecordedAt": "2026-09-01T08:01:04Z",
+        "sourceId": "REWORK:M-DEMO",
+        "sourceSeq": 1,
+        "supersedesEventId": null,
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "observedPart": "BEARING-6205",
+          "observedLot": "LOT-AFFECTED",
+          "identityGranularity": "LOT",
+          "endsInstallEventId": "urn:pramaan:M-DEMO:e2"
+        }
+      },
+      {
+        "eventId": "urn:pramaan:M-DEMO:e7",
+        "action": "COMPONENT_INSTALLED",
+        "motorSerial": "M-DEMO",
+        "parentID": "https://example.org/pramaan/phase2/motor/M-DEMO",
+        "childID": "https://example.org/pramaan/phase2/part/BEARING-6205/lot/LOT-SAFE",
+        "slot": "DE",
+        "occurredAt": "2026-09-01T08:02:00Z",
+        "producerRecordedAt": "2026-09-01T08:02:04Z",
+        "sourceId": "REWORK:M-DEMO",
+        "sourceSeq": 2,
+        "supersedesEventId": null,
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "part": "BEARING-6205",
+          "lot": "LOT-SAFE",
+          "identityGranularity": "LOT"
+        }
+      }
+    ],
+    "manifest": {
+      "profile": "pramaan-bearing-epcis/1",
+      "watermark": {
+        "ASSY:M-DEMO": 2,
+        "HANDHELD:M-DEMO": 0,
+        "MES:M-DEMO": 4,
+        "QA:M-DEMO": 0,
+        "REWORK:M-DEMO": 2
+      },
+      "configurationDigest": "6fe77fed3fce7fddc394f52c170294a90515e223d61b73ae46235dc473751722",
+      "evidence": [
+        {
+          "eventId": "urn:pramaan:M-DEMO:e1",
+          "hash": "bb9ee29ee72b047fba4c68dc277ba769dff6acf44ac1ba25aeb5e8aeda5c1457",
+          "captureSha256": "8441aaf017c9ec7ee050e29aff1bf81fcc1ce07572c3484dd71a65e81c5a2ba9"
+        },
+        {
+          "eventId": "urn:pramaan:M-DEMO:e2",
+          "hash": "97c4af97f39fd43d6e4ef5c132c89bce32d50790905f8e86ef2a8320288cf928",
+          "captureSha256": "00a94752a3bd7387a77bff697697ab9785236faeac96251eb27689b864c8229f"
+        },
+        {
+          "eventId": "urn:pramaan:M-DEMO:e3",
+          "hash": "ba232fb36b81ad15059fddcb3a140a74459804cfa2de9eaa56491b07e4fba2a9",
+          "captureSha256": "62b56ff2d3d18e0133cb9ecfd6035a3b6fa650c44de784ea3cada0367262c347"
+        },
+        {
+          "eventId": "urn:pramaan:M-DEMO:e4",
+          "hash": "f509333594c0b98daaad8278c7a16455fd211e432ad98cc25f6c85314ec32fd8",
+          "captureSha256": "16cad9cee96c7bbc2c075cf08ab7fe8c789052c1b270fbb25aac554549740e29"
+        },
+        {
+          "eventId": "urn:pramaan:M-DEMO:e5",
+          "hash": "657d14e8b193fdd32511a3d2ec78956f18e81a0d54e7c1ce1159871a4dee4d72",
+          "captureSha256": "ae86d14b2da81f274ae19c9d9f0b81d73f86c53f3516dacb5ebe0a1652aa0b46"
+        },
+        {
+          "eventId": "urn:pramaan:M-DEMO:e6",
+          "hash": "892a630ba47a66bab6037c6525a86aae108b4f965b6d39d3a72ca8b30ab3ef81",
+          "captureSha256": "042d64ac3d38da1d8fbb3254233b99b845cb293b8b812d36049af40725626425"
+        },
+        {
+          "eventId": "urn:pramaan:M-DEMO:e7",
+          "hash": "94f2c378b11fdcb500d5cbd87efff311730bd978ae12fc6c80965389bc5643aa",
+          "captureSha256": "3c6e695daa999d172a851ac31d44393b61cb1cd0ea095da0fa78f070f28a21bb"
+        },
+        {
+          "eventId": "urn:pramaan:M-DEMO:e8",
+          "hash": "f079133a5f0e9368d9f80385dead60111e84492245d3ccf960c4df35f892a457",
+          "captureSha256": "309745d0aa5e10ae7cb141593ec7b8c047efd9dc155cf4e9436e06b3cd970b92"
+        }
+      ],
+      "evidenceSnapshotDigest": "0ffbb50b3f8a550287323cd83d4b06635f8f54aa4530ae99f782f5778491783a"
+    }
+  },
+  "decisions": [
+    {
+      "decision": {
+        "caseId": "M-DEMO",
+        "motorSerial": "M-DEMO",
+        "policyId": "RECALL-DEMO/P1",
+        "policyVersion": 1,
+        "recallId": "RECALL-DEMO",
+        "engineVersion": "phase1.2-untrusted-observation",
+        "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+        "coverageDigest": "1480bea0065447c695ea5a69a91dc69a15e616ce69564ea12c287117d8d027e2",
+        "watermark": {
+          "ASSY:M-DEMO": 2,
+          "MES:M-DEMO": 2
+        },
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "AFFECTED_LOT_INSTALLED"
+        ],
+        "flags": [],
+        "identityGranularity": "LOT",
+        "slots": {
+          "DE": {
+            "reconciliation": "CLEAN",
+            "baseline": "AS_BUILT_VALIDATED",
+            "identityGranularity": "LOT",
+            "policyRelevance": "RELEVANT",
+            "currentLotPerRecords": "LOT-AFFECTED",
+            "state": "OCCUPIED",
+            "gaps": [],
+            "conflicts": [],
+            "verifications": []
+          }
+        },
+        "workOrders": {
+          "BUILD": {
+            "status": "CLOSED",
+            "disposition": "COMPLETED",
+            "reconciliation": "RECONCILED",
+            "obligations": [
+              {
+                "slot": "DE",
+                "action": "INSTALL",
+                "status": "MET",
+                "satisfiedBy": [
+                  "urn:pramaan:M-DEMO:e2"
+                ]
+              },
+              {
+                "slot": "NDE",
+                "action": "INSTALL",
+                "status": "MET",
+                "satisfiedBy": [
+                  "urn:pramaan:M-DEMO:e3"
+                ]
+              }
+            ],
+            "unexpectedEventIds": []
+          }
+        },
+        "integrityIssues": [],
+        "evidenceEventIds": [
+          "urn:pramaan:M-DEMO:e1",
+          "urn:pramaan:M-DEMO:e2",
+          "urn:pramaan:M-DEMO:e3",
+          "urn:pramaan:M-DEMO:e4"
+        ],
+        "supersededEventIds": [],
+        "evidenceRefs": [
+          "scan:M-DEMO:1",
+          "scan:M-DEMO:2",
+          "scan:M-DEMO:3",
+          "scan:M-DEMO:4"
+        ],
+        "assuranceWarnings": [],
+        "slotVerdicts": {
+          "DE": {
+            "finding": "AFFECTED",
+            "reasons": [
+              "AFFECTED_LOT_INSTALLED"
+            ]
+          }
+        },
+        "slotAttribution": [],
+        "untrustedObservations": [],
+        "decisionId": "D-M-DEMO-P1-v1",
+        "version": 1,
+        "unchanged": false,
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "manifest": {
+        "profile": "pramaan-bearing-epcis/1",
+        "watermark": {
+          "ASSY:M-DEMO": 2,
+          "HANDHELD:M-DEMO": 0,
+          "MES:M-DEMO": 2,
+          "QA:M-DEMO": 0,
+          "REWORK:M-DEMO": 0
+        },
+        "configurationDigest": "6fe77fed3fce7fddc394f52c170294a90515e223d61b73ae46235dc473751722",
+        "evidence": [
+          {
+            "eventId": "urn:pramaan:M-DEMO:e1",
+            "hash": "bb9ee29ee72b047fba4c68dc277ba769dff6acf44ac1ba25aeb5e8aeda5c1457",
+            "captureSha256": "8441aaf017c9ec7ee050e29aff1bf81fcc1ce07572c3484dd71a65e81c5a2ba9"
+          },
+          {
+            "eventId": "urn:pramaan:M-DEMO:e2",
+            "hash": "97c4af97f39fd43d6e4ef5c132c89bce32d50790905f8e86ef2a8320288cf928",
+            "captureSha256": "00a94752a3bd7387a77bff697697ab9785236faeac96251eb27689b864c8229f"
+          },
+          {
+            "eventId": "urn:pramaan:M-DEMO:e3",
+            "hash": "ba232fb36b81ad15059fddcb3a140a74459804cfa2de9eaa56491b07e4fba2a9",
+            "captureSha256": "62b56ff2d3d18e0133cb9ecfd6035a3b6fa650c44de784ea3cada0367262c347"
+          },
+          {
+            "eventId": "urn:pramaan:M-DEMO:e4",
+            "hash": "f509333594c0b98daaad8278c7a16455fd211e432ad98cc25f6c85314ec32fd8",
+            "captureSha256": "16cad9cee96c7bbc2c075cf08ab7fe8c789052c1b270fbb25aac554549740e29"
+          }
+        ],
+        "evidenceSnapshotDigest": "32c39bc9e0ce9c11fd88cd9dfcc16b14a944c9a00352e21128a6c09165146fd5"
+      },
+      "policyDigest": "d7a1a3605cbe3e9f042a8f69d5eacdc3ce50c2936d8b834d5c26b42a2b6fdfa4",
+      "bundleDigest": "a882e0a2823c7b2e35e6c17bce1d66791098ee0cb969feb3cf35d87f33ddaefd"
+    },
+    {
+      "decision": {
+        "caseId": "M-DEMO",
+        "motorSerial": "M-DEMO",
+        "policyId": "RECALL-DEMO/P1",
+        "policyVersion": 1,
+        "recallId": "RECALL-DEMO",
+        "engineVersion": "phase1.2-untrusted-observation",
+        "semanticsProfile": "UNTRUSTED_OBSERVATION_V3",
+        "coverageDigest": "1480bea0065447c695ea5a69a91dc69a15e616ce69564ea12c287117d8d027e2",
+        "watermark": {
+          "ASSY:M-DEMO": 2,
+          "MES:M-DEMO": 4,
+          "REWORK:M-DEMO": 2
+        },
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ],
+        "flags": [],
+        "identityGranularity": "LOT",
+        "slots": {
+          "DE": {
+            "reconciliation": "CLEAN",
+            "baseline": "AS_BUILT_VALIDATED",
+            "identityGranularity": "LOT",
+            "policyRelevance": "RELEVANT",
+            "currentLotPerRecords": "LOT-SAFE",
+            "state": "OCCUPIED",
+            "gaps": [],
+            "conflicts": [],
+            "verifications": []
+          }
+        },
+        "workOrders": {
+          "BUILD": {
+            "status": "CLOSED",
+            "disposition": "COMPLETED",
+            "reconciliation": "RECONCILED",
+            "obligations": [
+              {
+                "slot": "DE",
+                "action": "INSTALL",
+                "status": "MET",
+                "satisfiedBy": [
+                  "urn:pramaan:M-DEMO:e2"
+                ]
+              },
+              {
+                "slot": "NDE",
+                "action": "INSTALL",
+                "status": "MET",
+                "satisfiedBy": [
+                  "urn:pramaan:M-DEMO:e3"
+                ]
+              }
+            ],
+            "unexpectedEventIds": []
+          },
+          "REWORK": {
+            "status": "CLOSED",
+            "disposition": "COMPLETED",
+            "reconciliation": "RECONCILED",
+            "obligations": [
+              {
+                "slot": "DE",
+                "action": "REPLACE",
+                "status": "MET",
+                "satisfiedBy": [
+                  "urn:pramaan:M-DEMO:e6",
+                  "urn:pramaan:M-DEMO:e7"
+                ]
+              }
+            ],
+            "unexpectedEventIds": []
+          }
+        },
+        "integrityIssues": [],
+        "evidenceEventIds": [
+          "urn:pramaan:M-DEMO:e1",
+          "urn:pramaan:M-DEMO:e2",
+          "urn:pramaan:M-DEMO:e3",
+          "urn:pramaan:M-DEMO:e4",
+          "urn:pramaan:M-DEMO:e5",
+          "urn:pramaan:M-DEMO:e6",
+          "urn:pramaan:M-DEMO:e7",
+          "urn:pramaan:M-DEMO:e8"
+        ],
+        "supersededEventIds": [],
+        "evidenceRefs": [
+          "scan:M-DEMO:1",
+          "scan:M-DEMO:2",
+          "scan:M-DEMO:3",
+          "scan:M-DEMO:4",
+          "scan:M-DEMO:5",
+          "scan:M-DEMO:6",
+          "scan:M-DEMO:7",
+          "scan:M-DEMO:8"
+        ],
+        "assuranceWarnings": [],
+        "slotVerdicts": {
+          "DE": {
+            "finding": "EXCLUDED_WITH_EVIDENCE",
+            "reasons": [
+              "REPLACED_WITH_UNAFFECTED_LOT"
+            ]
+          }
+        },
+        "slotAttribution": [
+          {
+            "removalEventId": "urn:pramaan:M-DEMO:e6",
+            "claimedSlot": "DE",
+            "at": "2026-09-01T08:01:00Z",
+            "observed": {
+              "part": "BEARING-6205",
+              "lot": "LOT-AFFECTED",
+              "serial": null,
+              "granularity": "LOT"
+            },
+            "assurance": "CLAIMED_SLOT",
+            "labelScans": [],
+            "rejectedLabelScans": [],
+            "candidates": [
+              {
+                "slot": "DE",
+                "basis": "RECORDED_OCCUPANT_MATCH",
+                "claimed": true,
+                "supportingEventIds": [
+                  "urn:pramaan:M-DEMO:e2"
+                ]
+              }
+            ],
+            "ruledOutSlots": [],
+            "accessEvidenceEventId": null,
+            "ambiguous": false,
+            "cleared": false,
+            "clearedBy": null,
+            "unrulableAlternatives": [],
+            "supportingEventIds": [
+              "urn:pramaan:M-DEMO:e2",
+              "urn:pramaan:M-DEMO:e6"
+            ]
+          }
+        ],
+        "untrustedObservations": [],
+        "decisionId": "D-M-DEMO-P1-v2",
+        "version": 2,
+        "unchanged": false,
+        "supersedesDecisionId": "D-M-DEMO-P1-v1",
+        "triggerEventId": "urn:pramaan:M-DEMO:e7"
+      },
+      "manifest": {
+        "profile": "pramaan-bearing-epcis/1",
+        "watermark": {
+          "ASSY:M-DEMO": 2,
+          "HANDHELD:M-DEMO": 0,
+          "MES:M-DEMO": 4,
+          "QA:M-DEMO": 0,
+          "REWORK:M-DEMO": 2
+        },
+        "configurationDigest": "6fe77fed3fce7fddc394f52c170294a90515e223d61b73ae46235dc473751722",
+        "evidence": [
+          {
+            "eventId": "urn:pramaan:M-DEMO:e1",
+            "hash": "bb9ee29ee72b047fba4c68dc277ba769dff6acf44ac1ba25aeb5e8aeda5c1457",
+            "captureSha256": "8441aaf017c9ec7ee050e29aff1bf81fcc1ce07572c3484dd71a65e81c5a2ba9"
+          },
+          {
+            "eventId": "urn:pramaan:M-DEMO:e2",
+            "hash": "97c4af97f39fd43d6e4ef5c132c89bce32d50790905f8e86ef2a8320288cf928",
+            "captureSha256": "00a94752a3bd7387a77bff697697ab9785236faeac96251eb27689b864c8229f"
+          },
+          {
+            "eventId": "urn:pramaan:M-DEMO:e3",
+            "hash": "ba232fb36b81ad15059fddcb3a140a74459804cfa2de9eaa56491b07e4fba2a9",
+            "captureSha256": "62b56ff2d3d18e0133cb9ecfd6035a3b6fa650c44de784ea3cada0367262c347"
+          },
+          {
+            "eventId": "urn:pramaan:M-DEMO:e4",
+            "hash": "f509333594c0b98daaad8278c7a16455fd211e432ad98cc25f6c85314ec32fd8",
+            "captureSha256": "16cad9cee96c7bbc2c075cf08ab7fe8c789052c1b270fbb25aac554549740e29"
+          },
+          {
+            "eventId": "urn:pramaan:M-DEMO:e5",
+            "hash": "657d14e8b193fdd32511a3d2ec78956f18e81a0d54e7c1ce1159871a4dee4d72",
+            "captureSha256": "ae86d14b2da81f274ae19c9d9f0b81d73f86c53f3516dacb5ebe0a1652aa0b46"
+          },
+          {
+            "eventId": "urn:pramaan:M-DEMO:e6",
+            "hash": "892a630ba47a66bab6037c6525a86aae108b4f965b6d39d3a72ca8b30ab3ef81",
+            "captureSha256": "042d64ac3d38da1d8fbb3254233b99b845cb293b8b812d36049af40725626425"
+          },
+          {
+            "eventId": "urn:pramaan:M-DEMO:e7",
+            "hash": "94f2c378b11fdcb500d5cbd87efff311730bd978ae12fc6c80965389bc5643aa",
+            "captureSha256": "3c6e695daa999d172a851ac31d44393b61cb1cd0ea095da0fa78f070f28a21bb"
+          },
+          {
+            "eventId": "urn:pramaan:M-DEMO:e8",
+            "hash": "f079133a5f0e9368d9f80385dead60111e84492245d3ccf960c4df35f892a457",
+            "captureSha256": "309745d0aa5e10ae7cb141593ec7b8c047efd9dc155cf4e9436e06b3cd970b92"
+          }
+        ],
+        "evidenceSnapshotDigest": "0ffbb50b3f8a550287323cd83d4b06635f8f54aa4530ae99f782f5778491783a"
+      },
+      "policyDigest": "d7a1a3605cbe3e9f042a8f69d5eacdc3ce50c2936d8b834d5c26b42a2b6fdfa4",
+      "bundleDigest": "16edaa9b36a5844310ff7d77dfdb5bfb1517e6c2fb139aaddf0e68fe4a6067c6"
+    }
+  ],
+  "replayFindings": [
+    "AFFECTED",
+    "EXCLUDED_WITH_EVIDENCE"
+  ],
+  "nativeEngineInput": {
+    "caseId": "M-DEMO",
+    "captureCoverage": {
+      "coveragePolicy": "PHASE2-COVERAGE/1",
+      "sessions": [
+        {
+          "authenticated": true,
+          "from": "2026-08-01T00:00:00Z",
+          "sessionId": "session:MES:M-DEMO",
+          "sourceId": "MES:M-DEMO",
+          "to": "2026-10-31T23:59:59Z"
+        },
+        {
+          "authenticated": true,
+          "from": "2026-08-01T00:00:00Z",
+          "sessionId": "session:ASSY:M-DEMO",
+          "sourceId": "ASSY:M-DEMO",
+          "to": "2026-10-31T23:59:59Z"
+        },
+        {
+          "authenticated": true,
+          "from": "2026-08-01T00:00:00Z",
+          "sessionId": "session:REWORK:M-DEMO",
+          "sourceId": "REWORK:M-DEMO",
+          "to": "2026-10-31T23:59:59Z"
+        },
+        {
+          "authenticated": true,
+          "from": "2026-08-01T00:00:00Z",
+          "sessionId": "session:QA:M-DEMO",
+          "sourceId": "QA:M-DEMO",
+          "to": "2026-10-31T23:59:59Z"
+        },
+        {
+          "authenticated": true,
+          "from": "2026-08-01T00:00:00Z",
+          "sessionId": "session:HANDHELD:M-DEMO",
+          "sourceId": "HANDHELD:M-DEMO",
+          "to": "2026-10-31T23:59:59Z"
+        }
+      ]
+    },
+    "events": [
+      {
+        "eventType": "WORK_ORDER_OPENED",
+        "schemaVersion": 1,
+        "sourceId": "MES:M-DEMO",
+        "sourceSeq": 1,
+        "motorSerial": "M-DEMO",
+        "workOrderId": "BUILD",
+        "recallId": null,
+        "recordedAt": "2026-08-01T08:00:04Z",
+        "timeSource": "DEVICE_SYNCED",
+        "actorId": "SYSTEM",
+        "evidenceRefs": [
+          "scan:M-DEMO:1"
+        ],
+        "supersedesEventId": null,
+        "captureSessionId": "session:MES:M-DEMO",
+        "payload": {
+          "orderType": "BUILD",
+          "expectedChanges": [
+            {
+              "slot": "DE",
+              "action": "INSTALL"
+            },
+            {
+              "slot": "NDE",
+              "action": "INSTALL"
+            }
+          ]
+        },
+        "eventId": "urn:pramaan:M-DEMO:e1",
+        "occurredAt": "2026-08-01T08:00:00Z"
+      },
+      {
+        "eventType": "COMPONENT_INSTALLED",
+        "schemaVersion": 1,
+        "sourceId": "ASSY:M-DEMO",
+        "sourceSeq": 1,
+        "motorSerial": "M-DEMO",
+        "workOrderId": "BUILD",
+        "recallId": null,
+        "recordedAt": "2026-08-01T08:01:04Z",
+        "timeSource": "DEVICE_SYNCED",
+        "actorId": "BUILDER",
+        "evidenceRefs": [
+          "scan:M-DEMO:2"
+        ],
+        "supersedesEventId": null,
+        "captureSessionId": "session:ASSY:M-DEMO",
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "part": "BEARING-6205",
+          "lot": "LOT-AFFECTED",
+          "identityGranularity": "LOT"
+        },
+        "eventId": "urn:pramaan:M-DEMO:e2",
+        "occurredAt": "2026-08-01T08:01:00Z"
+      },
+      {
+        "eventType": "COMPONENT_INSTALLED",
+        "schemaVersion": 1,
+        "sourceId": "ASSY:M-DEMO",
+        "sourceSeq": 2,
+        "motorSerial": "M-DEMO",
+        "workOrderId": "BUILD",
+        "recallId": null,
+        "recordedAt": "2026-08-01T08:02:04Z",
+        "timeSource": "DEVICE_SYNCED",
+        "actorId": "BUILDER",
+        "evidenceRefs": [
+          "scan:M-DEMO:3"
+        ],
+        "supersedesEventId": null,
+        "captureSessionId": "session:ASSY:M-DEMO",
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "NDE",
+          "part": "BEARING-6205",
+          "lot": "LOT-NDE",
+          "identityGranularity": "LOT"
+        },
+        "eventId": "urn:pramaan:M-DEMO:e3",
+        "occurredAt": "2026-08-01T08:02:00Z"
+      },
+      {
+        "eventType": "WORK_ORDER_CLOSED",
+        "schemaVersion": 1,
+        "sourceId": "MES:M-DEMO",
+        "sourceSeq": 2,
+        "motorSerial": "M-DEMO",
+        "workOrderId": "BUILD",
+        "recallId": null,
+        "recordedAt": "2026-08-01T08:03:04Z",
+        "timeSource": "DEVICE_SYNCED",
+        "actorId": "SYSTEM",
+        "evidenceRefs": [
+          "scan:M-DEMO:4"
+        ],
+        "supersedesEventId": null,
+        "captureSessionId": "session:MES:M-DEMO",
+        "payload": {
+          "disposition": "COMPLETED"
+        },
+        "eventId": "urn:pramaan:M-DEMO:e4",
+        "occurredAt": "2026-08-01T08:03:00Z"
+      },
+      {
+        "eventType": "WORK_ORDER_OPENED",
+        "schemaVersion": 1,
+        "sourceId": "MES:M-DEMO",
+        "sourceSeq": 3,
+        "motorSerial": "M-DEMO",
+        "workOrderId": "REWORK",
+        "recallId": null,
+        "recordedAt": "2026-09-01T08:00:04Z",
+        "timeSource": "DEVICE_SYNCED",
+        "actorId": "SYSTEM",
+        "evidenceRefs": [
+          "scan:M-DEMO:5"
+        ],
+        "supersedesEventId": null,
+        "captureSessionId": "session:MES:M-DEMO",
+        "payload": {
+          "orderType": "REWORK",
+          "expectedChanges": [
+            {
+              "slot": "DE",
+              "action": "REPLACE"
+            }
+          ]
+        },
+        "eventId": "urn:pramaan:M-DEMO:e5",
+        "occurredAt": "2026-09-01T08:00:00Z"
+      },
+      {
+        "eventType": "COMPONENT_REMOVED",
+        "schemaVersion": 1,
+        "sourceId": "REWORK:M-DEMO",
+        "sourceSeq": 1,
+        "motorSerial": "M-DEMO",
+        "workOrderId": "REWORK",
+        "recallId": null,
+        "recordedAt": "2026-09-01T08:01:04Z",
+        "timeSource": "DEVICE_SYNCED",
+        "actorId": "REWORKER",
+        "evidenceRefs": [
+          "scan:M-DEMO:6"
+        ],
+        "supersedesEventId": null,
+        "captureSessionId": "session:REWORK:M-DEMO",
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "observedPart": "BEARING-6205",
+          "observedLot": "LOT-AFFECTED",
+          "identityGranularity": "LOT",
+          "endsInstallEventId": "urn:pramaan:M-DEMO:e2"
+        },
+        "eventId": "urn:pramaan:M-DEMO:e6",
+        "occurredAt": "2026-09-01T08:01:00Z"
+      },
+      {
+        "eventType": "COMPONENT_INSTALLED",
+        "schemaVersion": 1,
+        "sourceId": "REWORK:M-DEMO",
+        "sourceSeq": 2,
+        "motorSerial": "M-DEMO",
+        "workOrderId": "REWORK",
+        "recallId": null,
+        "recordedAt": "2026-09-01T08:02:04Z",
+        "timeSource": "DEVICE_SYNCED",
+        "actorId": "REWORKER",
+        "evidenceRefs": [
+          "scan:M-DEMO:7"
+        ],
+        "supersedesEventId": null,
+        "captureSessionId": "session:REWORK:M-DEMO",
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "part": "BEARING-6205",
+          "lot": "LOT-SAFE",
+          "identityGranularity": "LOT"
+        },
+        "eventId": "urn:pramaan:M-DEMO:e7",
+        "occurredAt": "2026-09-01T08:02:00Z"
+      },
+      {
+        "eventType": "WORK_ORDER_CLOSED",
+        "schemaVersion": 1,
+        "sourceId": "MES:M-DEMO",
+        "sourceSeq": 4,
+        "motorSerial": "M-DEMO",
+        "workOrderId": "REWORK",
+        "recallId": null,
+        "recordedAt": "2026-09-01T08:03:04Z",
+        "timeSource": "DEVICE_SYNCED",
+        "actorId": "SYSTEM",
+        "evidenceRefs": [
+          "scan:M-DEMO:8"
+        ],
+        "supersedesEventId": null,
+        "captureSessionId": "session:MES:M-DEMO",
+        "payload": {
+          "disposition": "COMPLETED"
+        },
+        "eventId": "urn:pramaan:M-DEMO:e8",
+        "occurredAt": "2026-09-01T08:03:00Z"
+      }
+    ]
+  },
+  "captures": [
+    {
+      "documentSha256": "8441aaf017c9ec7ee050e29aff1bf81fcc1ce07572c3484dd71a65e81c5a2ba9",
+      "localRepositoryReceivedAt": "2026-10-21T09:16:30Z"
+    },
+    {
+      "documentSha256": "00a94752a3bd7387a77bff697697ab9785236faeac96251eb27689b864c8229f",
+      "localRepositoryReceivedAt": "2026-10-21T09:16:30Z"
+    },
+    {
+      "documentSha256": "62b56ff2d3d18e0133cb9ecfd6035a3b6fa650c44de784ea3cada0367262c347",
+      "localRepositoryReceivedAt": "2026-10-21T09:16:30Z"
+    },
+    {
+      "documentSha256": "16cad9cee96c7bbc2c075cf08ab7fe8c789052c1b270fbb25aac554549740e29",
+      "localRepositoryReceivedAt": "2026-10-21T09:16:30Z"
+    },
+    {
+      "documentSha256": "ae86d14b2da81f274ae19c9d9f0b81d73f86c53f3516dacb5ebe0a1652aa0b46",
+      "localRepositoryReceivedAt": "2026-10-21T09:16:30Z"
+    },
+    {
+      "documentSha256": "042d64ac3d38da1d8fbb3254233b99b845cb293b8b812d36049af40725626425",
+      "localRepositoryReceivedAt": "2026-10-21T09:16:30Z"
+    },
+    {
+      "documentSha256": "3c6e695daa999d172a851ac31d44393b61cb1cd0ea095da0fa78f070f28a21bb",
+      "localRepositoryReceivedAt": "2026-10-21T09:16:30Z"
+    },
+    {
+      "documentSha256": "309745d0aa5e10ae7cb141593ec7b8c047efd9dc155cf4e9436e06b3cd970b92",
+      "localRepositoryReceivedAt": "2026-10-21T09:16:30Z"
+    }
+  ],
+  "epcisExample": {
+    "@context": [
+      "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+      {
+        "pramaan": "https://example.org/pramaan/phase2/",
+        "trace": {
+          "@id": "https://example.org/pramaan/phase2/trace",
+          "@type": "@json"
+        }
+      }
+    ],
+    "type": "EPCISDocument",
+    "schemaVersion": "2.0",
+    "creationDate": "2026-10-21T10:00:00Z",
+    "epcisBody": {
+      "eventList": [
+        {
+          "type": "AssociationEvent",
+          "eventID": "urn:pramaan:M-DEMO:e2",
+          "eventTime": "2026-08-01T08:01:00Z",
+          "eventTimeZoneOffset": "+00:00",
+          "recordTime": "2026-10-21T10:00:00Z",
+          "action": "ADD",
+          "bizStep": "assembling",
+          "trace": {
+            "eventType": "COMPONENT_INSTALLED",
+            "schemaVersion": 1,
+            "sourceId": "ASSY:M-DEMO",
+            "sourceSeq": 1,
+            "motorSerial": "M-DEMO",
+            "workOrderId": "BUILD",
+            "recallId": null,
+            "recordedAt": "2026-08-01T08:01:04Z",
+            "timeSource": "DEVICE_SYNCED",
+            "actorId": "BUILDER",
+            "evidenceRefs": [
+              "scan:M-DEMO:2"
+            ],
+            "supersedesEventId": null,
+            "captureSessionId": "session:ASSY:M-DEMO",
+            "payload": {
+              "componentType": "BEARING",
+              "slot": "DE",
+              "part": "BEARING-6205",
+              "lot": "LOT-AFFECTED",
+              "identityGranularity": "LOT"
+            }
+          },
+          "parentID": "https://example.org/pramaan/phase2/motor/M-DEMO",
+          "childEPCs": [
+            "https://example.org/pramaan/phase2/part/BEARING-6205/lot/LOT-AFFECTED"
+          ]
+        }
+      ]
+    }
+  },
+  "survivesDatabaseReopen": true
+}

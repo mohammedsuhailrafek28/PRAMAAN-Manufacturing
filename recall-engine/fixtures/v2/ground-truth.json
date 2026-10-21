@@ -1,0 +1,29 @@
+{
+  "note": "Synthetic ground truth for cases whose original file carries none. case-06 keeps its inline groundTruth block (v1 file, unchanged). Used by the harness only.",
+  "truths": {
+    "case-06b": {
+      "trueP1Finding": "AFFECTED",
+      "basis": "v1 case description: QA observed BR-204 still in DE"
+    },
+    "case-06c": {
+      "trueP1Finding": "AFFECTED",
+      "basis": "v2 synthetic: label scan was valid but the physical removal was from NDE"
+    },
+    "case-06d": {
+      "trueP1Finding": "AFFECTED",
+      "basis": "v2 synthetic: the bearing physically removed was NDE's SN-204-0002"
+    },
+    "case-06e": {
+      "trueP1Finding": "UNAFFECTED",
+      "basis": "v2 synthetic: DE really was replaced; the engine cannot know that"
+    },
+    "case-06f": {
+      "trueP1Finding": "UNAFFECTED",
+      "basis": "v2 synthetic: independent physical check agrees with the records"
+    },
+    "case-07": {
+      "trueP1Finding": "UNAFFECTED",
+      "basis": "v2 synthetic: unambiguous replacement"
+    }
+  }
+}

@@ -1,0 +1,370 @@
+{
+  "reviewDate": "2026-10-21",
+  "repositories": [
+    {
+      "repository": "https://github.com/openepcis/epcis-repository-ce",
+      "commit": "e81a857771c4c4a2d12e62b60a2dbc094551aa6e",
+      "commitDate": "2026-01-10T15:45:43+01:00",
+      "subject": "add missing dependency",
+      "files": {
+        "LICENSE": {
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "url": "https://github.com/openepcis/epcis-repository-ce/blob/e81a857771c4c4a2d12e62b60a2dbc094551aa6e/LICENSE",
+          "restrictiveHeaderDetected": false
+        },
+        "README.md": {
+          "sha256": "f0e32e985061d6009f3688312a1759278e5308cf297f26061466c9c4eb8f21ff",
+          "url": "https://github.com/openepcis/epcis-repository-ce/blob/e81a857771c4c4a2d12e62b60a2dbc094551aa6e/README.md",
+          "restrictiveHeaderDetected": false
+        },
+        "parent/pom.xml": {
+          "sha256": "8d0a1f713e3737565e02fe1b06bccdd07951611452bc2eb79c8068969668e1bd",
+          "url": "https://github.com/openepcis/epcis-repository-ce/blob/e81a857771c4c4a2d12e62b60a2dbc094551aa6e/parent/pom.xml",
+          "restrictiveHeaderDetected": false
+        },
+        "distributions/community-edition/pom.xml": {
+          "sha256": "ea48e62973a9736c90b1d31a96c1010928dc7d12e761b93f8c82d66e4416da2e",
+          "url": "https://github.com/openepcis/epcis-repository-ce/blob/e81a857771c4c4a2d12e62b60a2dbc094551aa6e/distributions/community-edition/pom.xml",
+          "restrictiveHeaderDetected": true
+        },
+        "docker/docker-compose.yml": {
+          "sha256": "f383549659a3a876e3a71ae0b5536bc5caeb7ae465bf8635e47fbb18bafb79bc",
+          "url": "https://github.com/openepcis/epcis-repository-ce/blob/e81a857771c4c4a2d12e62b60a2dbc094551aa6e/docker/docker-compose.yml",
+          "restrictiveHeaderDetected": false
+        },
+        "modules/openepcis-rest-api-common/pom.xml": {
+          "sha256": "a35b858e7e388af31ed87ddf97ad97ca0ecbef1d26f613b71502e1ee2d05b6f0",
+          "url": "https://github.com/openepcis/epcis-repository-ce/blob/e81a857771c4c4a2d12e62b60a2dbc094551aa6e/modules/openepcis-rest-api-common/pom.xml",
+          "restrictiveHeaderDetected": false
+        }
+      },
+      "metadata": {
+        "archived": false,
+        "disabled": false,
+        "pushed_at": "2026-10-21T07:56:47Z",
+        "open_issues_count": 5,
+        "default_branch": "main"
+      },
+      "releaseError": "HTTP Error 404: Not Found"
+    },
+    {
+      "repository": "https://github.com/openepcis/openepcis-models",
+      "commit": "88e82414d169aa8d82efe9d074d07e82203f1112",
+      "commitDate": "2026-10-08T15:27:20+02:00",
+      "subject": "Merge pull request #76 from openepcis/feat/capture-error-locations",
+      "files": {
+        "LICENSE": {
+          "sha256": "b66a7ba2276d9d3ed16e0ab14fcfae1a669f4c1ccd67fe257bcdf090fbc097e4",
+          "url": "https://github.com/openepcis/openepcis-models/blob/88e82414d169aa8d82efe9d074d07e82203f1112/LICENSE",
+          "restrictiveHeaderDetected": false
+        },
+        "pom.xml": {
+          "sha256": "c66d770c491f95adeca11522e74f9bb093f0fabc2d7e722af2372e4765912e7e",
+          "url": "https://github.com/openepcis/openepcis-models/blob/88e82414d169aa8d82efe9d074d07e82203f1112/pom.xml",
+          "restrictiveHeaderDetected": false
+        },
+        "core/pom.xml": {
+          "sha256": "db501e066bd9838a34dbd71d5e850138c83749e34082592ce3094ffc48689c97",
+          "url": "https://github.com/openepcis/openepcis-models/blob/88e82414d169aa8d82efe9d074d07e82203f1112/core/pom.xml",
+          "restrictiveHeaderDetected": false
+        },
+        "epcis/pom.xml": {
+          "sha256": "cd7281b78fe2e94ad6b4993c4a2bbfb935cc465d2eac75f213ca2a6e65e975b4",
+          "url": "https://github.com/openepcis/openepcis-models/blob/88e82414d169aa8d82efe9d074d07e82203f1112/epcis/pom.xml",
+          "restrictiveHeaderDetected": false
+        }
+      },
+      "metadata": {
+        "archived": false,
+        "disabled": false,
+        "pushed_at": "2026-10-08T13:27:23Z",
+        "open_issues_count": 0,
+        "default_branch": "main"
+      },
+      "releaseError": "HTTP Error 404: Not Found"
+    },
+    {
+      "repository": "https://github.com/openepcis/openepcis-event-hash-generator",
+      "commit": "bcfcb169e03bb2c60c4e86abfd76b1d626b3c9c3",
+      "commitDate": "2026-09-07T10:04:21+02:00",
+      "subject": "add coverage profile to generate jacoco reports",
+      "files": {
+        "LICENSE": {
+          "sha256": "b66a7ba2276d9d3ed16e0ab14fcfae1a669f4c1ccd67fe257bcdf090fbc097e4",
+          "url": "https://github.com/openepcis/openepcis-event-hash-generator/blob/bcfcb169e03bb2c60c4e86abfd76b1d626b3c9c3/LICENSE",
+          "restrictiveHeaderDetected": false
+        },
+        "pom.xml": {
+          "sha256": "47ba4b15ff18e168c5d9ea40179f4323ae931bdc95c5e05f8ea03afbab97f14b",
+          "url": "https://github.com/openepcis/openepcis-event-hash-generator/blob/bcfcb169e03bb2c60c4e86abfd76b1d626b3c9c3/pom.xml",
+          "restrictiveHeaderDetected": false
+        },
+        "core/pom.xml": {
+          "sha256": "14d13b58d9ef2c1c326d8a61231ea6d2fcf5e1b03c6c4e6c3b4f9422d66d4a46",
+          "url": "https://github.com/openepcis/openepcis-event-hash-generator/blob/bcfcb169e03bb2c60c4e86abfd76b1d626b3c9c3/core/pom.xml",
+          "restrictiveHeaderDetected": false
+        },
+        "core/src/main/java/io/openepcis/eventhash/EventHashGenerator.java": {
+          "sha256": "d0f2cc6a9007b711336d1b7a50069c79b4babb7a5c64c59c69eec148afcb372d",
+          "url": "https://github.com/openepcis/openepcis-event-hash-generator/blob/bcfcb169e03bb2c60c4e86abfd76b1d626b3c9c3/core/src/main/java/io/openepcis/eventhash/EventHashGenerator.java",
+          "restrictiveHeaderDetected": false
+        }
+      },
+      "metadata": {
+        "archived": false,
+        "disabled": false,
+        "pushed_at": "2026-09-07T08:04:23Z",
+        "open_issues_count": 2,
+        "default_branch": "main"
+      },
+      "latestRelease": {
+        "tag_name": "v0.9.3",
+        "published_at": "2026-06-11T20:03:30Z",
+        "html_url": "https://github.com/openepcis/openepcis-event-hash-generator/releases/tag/v0.9.3"
+      }
+    },
+    {
+      "repository": "https://github.com/openepcis/openepcis-event-sentry",
+      "commit": "fe0a043c35fca81284a813fd793de2657165b380",
+      "commitDate": "2026-09-09T11:36:06+02:00",
+      "subject": "Merge pull request #60 from sboeckelmann/epcis/context-and-schemaversion",
+      "files": {
+        "LICENSE": {
+          "sha256": "197b4152707c1ae23afae32308855b0375c353371ba9d0da3f353039eba926f7",
+          "url": "https://github.com/openepcis/openepcis-event-sentry/blob/fe0a043c35fca81284a813fd793de2657165b380/LICENSE",
+          "restrictiveHeaderDetected": false
+        },
+        "package.json": {
+          "sha256": "ba50580467fd702af151af78f643c7737476802203cb69985b8a3322020999b9",
+          "url": "https://github.com/openepcis/openepcis-event-sentry/blob/fe0a043c35fca81284a813fd793de2657165b380/package.json",
+          "restrictiveHeaderDetected": false
+        },
+        "src/validation/validator.js": {
+          "sha256": "39c63aa85eb9bea91eb64ea5c1ad7b1c84c2be6e86b5cb1bea9e1d7a8506753b",
+          "url": "https://github.com/openepcis/openepcis-event-sentry/blob/fe0a043c35fca81284a813fd793de2657165b380/src/validation/validator.js",
+          "restrictiveHeaderDetected": true
+        },
+        "src/index.js": {
+          "sha256": "895749aa8fad0c11c68b54999743a0eff91a0370af2a482b192da0db1760dc65",
+          "url": "https://github.com/openepcis/openepcis-event-sentry/blob/fe0a043c35fca81284a813fd793de2657165b380/src/index.js",
+          "restrictiveHeaderDetected": true
+        }
+      },
+      "metadata": {
+        "archived": false,
+        "disabled": false,
+        "pushed_at": "2026-09-09T09:36:06Z",
+        "open_issues_count": 1,
+        "default_branch": "main"
+      },
+      "releaseError": "HTTP Error 404: Not Found"
+    },
+    {
+      "repository": "https://github.com/openepcis/openepcis-bom",
+      "commit": "1e1e26deedec9856f4317f1874a51cad44a37fa6",
+      "commitDate": "2026-09-02T16:04:45+02:00",
+      "subject": "fix github action: build only, no maven central deploy from ci",
+      "files": {
+        "LICENSE": {
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "url": "https://github.com/openepcis/openepcis-bom/blob/1e1e26deedec9856f4317f1874a51cad44a37fa6/LICENSE",
+          "restrictiveHeaderDetected": false
+        },
+        "pom.xml": {
+          "sha256": "7524a6d3a01426216807f2592fa7666fc54234aa443d74ec14a91dd7413ad589",
+          "url": "https://github.com/openepcis/openepcis-bom/blob/1e1e26deedec9856f4317f1874a51cad44a37fa6/pom.xml",
+          "restrictiveHeaderDetected": true
+        }
+      },
+      "metadata": {
+        "archived": false,
+        "disabled": false,
+        "pushed_at": "2026-10-21T07:42:49Z",
+        "open_issues_count": 2,
+        "default_branch": "main"
+      },
+      "releaseError": "HTTP Error 404: Not Found"
+    },
+    {
+      "repository": "https://github.com/eclipse-tractusx/traceability-foss",
+      "commit": "4cbf377f90eb5336d3bcded5885695d311d6e80a",
+      "commitDate": "2025-06-10T07:53:01+02:00",
+      "subject": "Merge pull request #1474 from Cofinity-X/fix/sig-release#1442-record-information-admin-role",
+      "files": {
+        "LICENSE": {
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "url": "https://github.com/eclipse-tractusx/traceability-foss/blob/4cbf377f90eb5336d3bcded5885695d311d6e80a/LICENSE",
+          "restrictiveHeaderDetected": false
+        },
+        "LICENSE_non-code": {
+          "sha256": "da12b03484e582f87e5b0fc4a8c0340e56389fb18a1da8220860dfc9a2025e28",
+          "url": "https://github.com/eclipse-tractusx/traceability-foss/blob/4cbf377f90eb5336d3bcded5885695d311d6e80a/LICENSE_non-code",
+          "restrictiveHeaderDetected": false
+        },
+        "NOTICE.md": {
+          "sha256": "2174c2bb9675bf4b0096af98a5b5b89c30f5118e5b7d94ab2cc69a19dd5ffe3c",
+          "url": "https://github.com/eclipse-tractusx/traceability-foss/blob/4cbf377f90eb5336d3bcded5885695d311d6e80a/NOTICE.md",
+          "restrictiveHeaderDetected": false
+        },
+        "pom.xml": {
+          "sha256": "a5860eddb82b35aa9b8e4fba3ac909612e48e6c8475f246163d884630d99bc94",
+          "url": "https://github.com/eclipse-tractusx/traceability-foss/blob/4cbf377f90eb5336d3bcded5885695d311d6e80a/pom.xml",
+          "restrictiveHeaderDetected": false
+        },
+        "frontend/package.json": {
+          "sha256": "1909d4ec8224dc756625df5f1eea123526977deb7b93a2e9548cb0f5b05dbd0f",
+          "url": "https://github.com/eclipse-tractusx/traceability-foss/blob/4cbf377f90eb5336d3bcded5885695d311d6e80a/frontend/package.json",
+          "restrictiveHeaderDetected": false
+        },
+        "COMPATIBILITY_MATRIX.md": {
+          "sha256": "e270295787024df30b43209c2b3f3365d83236306eb2a0138c7669759007f683",
+          "url": "https://github.com/eclipse-tractusx/traceability-foss/blob/4cbf377f90eb5336d3bcded5885695d311d6e80a/COMPATIBILITY_MATRIX.md",
+          "restrictiveHeaderDetected": false
+        },
+        "tx-models/pom.xml": {
+          "sha256": "62b9c58859b86c17425470302781d5beb39a53474d0af4b808c6e683817eaf33",
+          "url": "https://github.com/eclipse-tractusx/traceability-foss/blob/4cbf377f90eb5336d3bcded5885695d311d6e80a/tx-models/pom.xml",
+          "restrictiveHeaderDetected": false
+        }
+      },
+      "metadata": {
+        "archived": false,
+        "disabled": false,
+        "pushed_at": "2026-02-09T13:37:21Z",
+        "open_issues_count": 185,
+        "default_branch": "main"
+      },
+      "latestRelease": {
+        "tag_name": "15.0.1",
+        "published_at": "2025-05-30T09:03:59Z",
+        "html_url": "https://github.com/eclipse-tractusx/traceability-foss/releases/tag/15.0.1"
+      }
+    },
+    {
+      "repository": "https://github.com/eclipse-tractusx/industry-core-hub",
+      "commit": "ade4edfc19dedb448e6fed89cfc4e41241306964",
+      "commitDate": "2026-10-20T07:30:16Z",
+      "subject": "chore(deps): update DEPENDENCIES_ICHUB-BACKEND [skip ci]",
+      "files": {
+        "LICENSE": {
+          "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+          "url": "https://github.com/eclipse-tractusx/industry-core-hub/blob/ade4edfc19dedb448e6fed89cfc4e41241306964/LICENSE",
+          "restrictiveHeaderDetected": false
+        },
+        "LICENSE_non-code": {
+          "sha256": "da12b03484e582f87e5b0fc4a8c0340e56389fb18a1da8220860dfc9a2025e28",
+          "url": "https://github.com/eclipse-tractusx/industry-core-hub/blob/ade4edfc19dedb448e6fed89cfc4e41241306964/LICENSE_non-code",
+          "restrictiveHeaderDetected": false
+        },
+        "NOTICE.md": {
+          "sha256": "cc6c07c63ed852fc0e188fbb8e2de48f8fd1d19d290ac0b7073a337b7419b583",
+          "url": "https://github.com/eclipse-tractusx/industry-core-hub/blob/ade4edfc19dedb448e6fed89cfc4e41241306964/NOTICE.md",
+          "restrictiveHeaderDetected": false
+        },
+        "ichub-backend/requirements.txt": {
+          "sha256": "8a932cd81bc0de369cefc8d66ff646e7c90615cb9710292cbbb7a916bee0dba3",
+          "url": "https://github.com/eclipse-tractusx/industry-core-hub/blob/ade4edfc19dedb448e6fed89cfc4e41241306964/ichub-backend/requirements.txt",
+          "restrictiveHeaderDetected": false
+        },
+        "ichub-backend/setup.py": {
+          "sha256": "16b1dae0eeb8b0177e792bd789b6f52f6a0e5cf6bb0186cb6bc3f1f03f88db55",
+          "url": "https://github.com/eclipse-tractusx/industry-core-hub/blob/ade4edfc19dedb448e6fed89cfc4e41241306964/ichub-backend/setup.py",
+          "restrictiveHeaderDetected": false
+        },
+        "ichub-backend/services/provider/part_management_service.py": {
+          "sha256": "4f313dcd3f01a3e81d8276a7a1a6bc9289fdce489d412112cc60553bb52261e6",
+          "url": "https://github.com/eclipse-tractusx/industry-core-hub/blob/ade4edfc19dedb448e6fed89cfc4e41241306964/ichub-backend/services/provider/part_management_service.py",
+          "restrictiveHeaderDetected": false
+        }
+      },
+      "metadata": {
+        "archived": false,
+        "disabled": false,
+        "pushed_at": "2026-10-20T14:08:56Z",
+        "open_issues_count": 73,
+        "default_branch": "main"
+      },
+      "latestRelease": {
+        "tag_name": "v0.5.0",
+        "published_at": "2026-03-17T00:13:46Z",
+        "html_url": "https://github.com/eclipse-tractusx/industry-core-hub/releases/tag/v0.5.0"
+      }
+    },
+    {
+      "repository": "https://github.com/eclipse-tractusx/tractusx-sdk",
+      "commit": "54653fea92c73bd9a1882a3bd4263a7066fac3d3",
+      "commitDate": "2026-10-16T15:36:54+02:00",
+      "subject": "Merge pull request #250 from eclipse-tractusx/dependabot/pip/anyio-4.14.2",
+      "files": {
+        "LICENSE": {
+          "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+          "url": "https://github.com/eclipse-tractusx/tractusx-sdk/blob/54653fea92c73bd9a1882a3bd4263a7066fac3d3/LICENSE",
+          "restrictiveHeaderDetected": false
+        },
+        "LICENSE_non-code": {
+          "sha256": "da12b03484e582f87e5b0fc4a8c0340e56389fb18a1da8220860dfc9a2025e28",
+          "url": "https://github.com/eclipse-tractusx/tractusx-sdk/blob/54653fea92c73bd9a1882a3bd4263a7066fac3d3/LICENSE_non-code",
+          "restrictiveHeaderDetected": false
+        },
+        "NOTICE.md": {
+          "sha256": "cc6c07c63ed852fc0e188fbb8e2de48f8fd1d19d290ac0b7073a337b7419b583",
+          "url": "https://github.com/eclipse-tractusx/tractusx-sdk/blob/54653fea92c73bd9a1882a3bd4263a7066fac3d3/NOTICE.md",
+          "restrictiveHeaderDetected": false
+        },
+        "pyproject.toml": {
+          "sha256": "c06cad31bf923d1fb94672bf9964f2f4e879f53c9e2e90191aa14b2d68afb50e",
+          "url": "https://github.com/eclipse-tractusx/tractusx-sdk/blob/54653fea92c73bd9a1882a3bd4263a7066fac3d3/pyproject.toml",
+          "restrictiveHeaderDetected": false
+        }
+      },
+      "metadata": {
+        "archived": false,
+        "disabled": false,
+        "pushed_at": "2026-10-20T14:02:04Z",
+        "open_issues_count": 30,
+        "default_branch": "main"
+      },
+      "latestRelease": {
+        "tag_name": "v0.8.3",
+        "published_at": "2026-09-25T10:02:08Z",
+        "html_url": "https://github.com/eclipse-tractusx/tractusx-sdk/releases/tag/v0.8.3"
+      }
+    },
+    {
+      "repository": "https://github.com/gs1/EPCIS",
+      "commit": "6f71468231838e424bb5dfa836e006e8dc69615c",
+      "commitDate": "2026-09-04T14:11:12+01:00",
+      "subject": "Create epcis-context.jsonld",
+      "files": {
+        "LICENSE": {
+          "sha256": "dfc002b68fd3370d490803ef7e5de23dd0ebdc554705ee1b65e5c6426df06e21",
+          "url": "https://github.com/gs1/EPCIS/blob/6f71468231838e424bb5dfa836e006e8dc69615c/LICENSE",
+          "restrictiveHeaderDetected": false
+        },
+        "Disclaimer": {
+          "sha256": "5f4ab66e82d7d3275ebcc9b4d534250e40e11344775124a3226662025ed7e669",
+          "url": "https://github.com/gs1/EPCIS/blob/6f71468231838e424bb5dfa836e006e8dc69615c/Disclaimer",
+          "restrictiveHeaderDetected": false
+        },
+        "EPCIS-JSON-Schema.json": {
+          "sha256": "d5ca9b1cad2c403679d9b07fb768108142d73e1dd024198ed64774b56b62227b",
+          "url": "https://github.com/gs1/EPCIS/blob/6f71468231838e424bb5dfa836e006e8dc69615c/EPCIS-JSON-Schema.json",
+          "restrictiveHeaderDetected": false
+        },
+        "epcis-context.jsonld": {
+          "sha256": "b5c7cc9367ab638ecb77feb0b9aea222a427d9740bf3dda1b183fc3d4390714f",
+          "url": "https://github.com/gs1/EPCIS/blob/6f71468231838e424bb5dfa836e006e8dc69615c/epcis-context.jsonld",
+          "restrictiveHeaderDetected": false
+        }
+      },
+      "metadata": {
+        "archived": false,
+        "disabled": false,
+        "pushed_at": "2026-09-04T13:11:03Z",
+        "open_issues_count": 46,
+        "default_branch": "master"
+      },
+      "releaseError": "HTTP Error 404: Not Found"
+    }
+  ]
+}

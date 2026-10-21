@@ -1,0 +1,248 @@
+{
+  "n": 20,
+  "withTruth": 1,
+  "rows": [
+    {
+      "caseId": "case-01",
+      "policy": "RC-009/P1",
+      "engine": "EXCLUDED_WITH_EVIDENCE",
+      "oracle": "EXCLUDED_WITH_EVIDENCE",
+      "truth": null,
+      "verdict": "no ground truth (exclusion unverified)"
+    },
+    {
+      "caseId": "case-01",
+      "policy": "RC-009/P2",
+      "engine": "AFFECTED",
+      "oracle": "AFFECTED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-02",
+      "policy": "RC-009/P1",
+      "engine": "UNRESOLVED",
+      "oracle": "UNRESOLVED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-02",
+      "policy": "RC-009/P2",
+      "engine": "AFFECTED",
+      "oracle": "AFFECTED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-03",
+      "policy": "RC-009/P1",
+      "engine": "UNRESOLVED",
+      "oracle": "UNRESOLVED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-03",
+      "policy": "RC-009/P2",
+      "engine": "AFFECTED",
+      "oracle": "AFFECTED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-04",
+      "policy": "RC-009/P1",
+      "engine": "EXCLUDED_WITH_EVIDENCE",
+      "oracle": "EXCLUDED_WITH_EVIDENCE",
+      "truth": null,
+      "verdict": "no ground truth (exclusion unverified)"
+    },
+    {
+      "caseId": "case-04",
+      "policy": "RC-009/P2",
+      "engine": "EXCLUDED_WITH_EVIDENCE",
+      "oracle": "EXCLUDED_WITH_EVIDENCE",
+      "truth": null,
+      "verdict": "no ground truth (exclusion unverified)"
+    },
+    {
+      "caseId": "case-04b",
+      "policy": "RC-009/P1",
+      "engine": "UNRESOLVED",
+      "oracle": "UNRESOLVED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-04b",
+      "policy": "RC-009/P2",
+      "engine": "AFFECTED",
+      "oracle": "AFFECTED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-04c",
+      "policy": "RC-009/P1",
+      "engine": "UNRESOLVED",
+      "oracle": "UNRESOLVED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-04c",
+      "policy": "RC-009/P2",
+      "engine": "UNRESOLVED",
+      "oracle": "UNRESOLVED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-05",
+      "policy": "RC-009/P1",
+      "engine": "UNRESOLVED",
+      "oracle": "UNRESOLVED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-05",
+      "policy": "RC-009/P2",
+      "engine": "AFFECTED",
+      "oracle": "AFFECTED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-05b",
+      "policy": "RC-009/P1",
+      "engine": "AFFECTED",
+      "oracle": "AFFECTED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-05b",
+      "policy": "RC-009/P2",
+      "engine": "AFFECTED",
+      "oracle": "AFFECTED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-06",
+      "policy": "RC-009/P1",
+      "engine": "EXCLUDED_WITH_EVIDENCE",
+      "oracle": "EXCLUDED_WITH_EVIDENCE",
+      "truth": "AFFECTED",
+      "verdict": "**FALSE EXCLUSION**"
+    },
+    {
+      "caseId": "case-06",
+      "policy": "RC-009/P2",
+      "engine": "AFFECTED",
+      "oracle": "AFFECTED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-06b",
+      "policy": "RC-009/P1",
+      "engine": "AFFECTED",
+      "oracle": "AFFECTED",
+      "truth": null,
+      "verdict": "no ground truth"
+    },
+    {
+      "caseId": "case-06b",
+      "policy": "RC-009/P2",
+      "engine": "AFFECTED",
+      "oracle": "AFFECTED",
+      "truth": null,
+      "verdict": "no ground truth"
+    }
+  ],
+  "falseExcl": [
+    "case-06 RC-009/P1"
+  ],
+  "falseExclStrict": [],
+  "exclTotal": 4,
+  "exclWithTruth": 1,
+  "unres": 6,
+  "unresByPol": {
+    "RC-009/P1": 5,
+    "RC-009/P2": 1
+  },
+  "byPolicy": {
+    "RC-009/P1": {
+      "e": {
+        "EXCLUDED_WITH_EVIDENCE": 3,
+        "AFFECTED": 2,
+        "UNRESOLVED": 5
+      },
+      "o": {
+        "EXCLUDED_WITH_EVIDENCE": 3,
+        "AFFECTED": 2,
+        "UNRESOLVED": 5
+      },
+      "diff": 0
+    },
+    "RC-009/P2": {
+      "e": {
+        "EXCLUDED_WITH_EVIDENCE": 1,
+        "AFFECTED": 8,
+        "UNRESOLVED": 1
+      },
+      "o": {
+        "EXCLUDED_WITH_EVIDENCE": 1,
+        "AFFECTED": 8,
+        "UNRESOLVED": 1
+      },
+      "diff": 0
+    }
+  },
+  "verifAblation": [
+    {
+      "caseId": "case-04",
+      "policy": "RC-009/P1",
+      "with": "EXCLUDED_WITH_EVIDENCE",
+      "without": "UNRESOLVED",
+      "effect": "loses exclusion (more cautious)"
+    },
+    {
+      "caseId": "case-04",
+      "policy": "RC-009/P2",
+      "with": "EXCLUDED_WITH_EVIDENCE",
+      "without": "UNRESOLVED",
+      "effect": "loses exclusion (more cautious)"
+    },
+    {
+      "caseId": "case-05b",
+      "policy": "RC-009/P1",
+      "with": "AFFECTED",
+      "without": "UNRESOLVED",
+      "effect": "loses information, still held"
+    },
+    {
+      "caseId": "case-06b",
+      "policy": "RC-009/P1",
+      "with": "AFFECTED",
+      "without": "EXCLUDED_WITH_EVIDENCE",
+      "effect": "hides risk: finding becomes EXCLUDED"
+    }
+  ],
+  "lateAblation": [
+    {
+      "caseId": "case-05",
+      "policy": "RC-009/P1",
+      "with": "UNRESOLVED",
+      "without": "EXCLUDED_WITH_EVIDENCE",
+      "effect": "hides risk: finding becomes EXCLUDED"
+    }
+  ],
+  "withdrawn": [
+    "case-05 RC-009/P1: D-case-05-P1-v1 (EXCLUDED) superseded by D-case-05-P1-v2 (UNRESOLVED, RECALL_HOLD, reviewRequired=true); notification obligation: PRIOR_EXCLUSION_WITHDRAWN if D-case-05-P1-v1 was communicated",
+    "case-05b RC-009/P1: D-case-05b-P1-v1 (EXCLUDED) superseded by D-case-05b-P1-v2 (UNRESOLVED, RECALL_HOLD, reviewRequired=true); notification obligation: PRIOR_EXCLUSION_WITHDRAWN if D-case-05b-P1-v1 was communicated"
+  ]
+}
