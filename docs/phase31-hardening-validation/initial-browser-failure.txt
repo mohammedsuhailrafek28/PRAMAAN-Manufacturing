@@ -36,7 +36,7 @@ Running 29 tests using 8 workers
   ok 28 tests\e2e\live.spec.ts:52:1 â€º live responsive and accessibility review (9.7s)
 
 
-  1) tests\e2e\hardening.spec.ts:7:1 â€º old successful proxy snapshot cannot renew operational clearance; recovery stays live 
+  1) tests\e2e\hardening.spec.ts:7:1 â€º old successful proxy snapshot cannot renew operational clearance; recovery stays live
 
     Error: expect(locator).toContainText(expected) failed
 
@@ -102,7 +102,7 @@ Running 29 tests using 8 workers
 
     â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-  3) tests\e2e\hardening.spec.ts:47:1 â€º suspension invalidates lease before fresh verification; delayed body stays hidden 
+  3) tests\e2e\hardening.spec.ts:47:1 â€º suspension invalidates lease before fresh verification; delayed body stays hidden
 
     Error: expect(locator).toBeVisible() failed
 
@@ -135,7 +135,7 @@ Running 29 tests using 8 workers
 
     â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-  4) tests\e2e\live.spec.ts:6:1 â€º live manufacturing capture, genealogy, recall, replacement and late withdrawal 
+  4) tests\e2e\live.spec.ts:6:1 â€º live manufacturing capture, genealogy, recall, replacement and late withdrawal
 
     Error: expect(locator).toContainText(expected) failed
 
@@ -169,10 +169,10 @@ Running 29 tests using 8 workers
     â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   4 failed
-    tests\e2e\hardening.spec.ts:7:1 â€º old successful proxy snapshot cannot renew operational clearance; recovery stays live 
+    tests\e2e\hardening.spec.ts:7:1 â€º old successful proxy snapshot cannot renew operational clearance; recovery stays live
     tests\e2e\hardening.spec.ts:37:1 â€º fresh timestamp cannot conceal journal version rollback â”€â”€â”€â”€â”€
-    tests\e2e\hardening.spec.ts:47:1 â€º suspension invalidates lease before fresh verification; delayed body stays hidden 
-    tests\e2e\live.spec.ts:6:1 â€º live manufacturing capture, genealogy, recall, replacement and late withdrawal 
+    tests\e2e\hardening.spec.ts:47:1 â€º suspension invalidates lease before fresh verification; delayed body stays hidden
+    tests\e2e\live.spec.ts:6:1 â€º live manufacturing capture, genealogy, recall, replacement and late withdrawal
   25 passed (41.5s)
 [WebServer] (node:11276) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 [WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
