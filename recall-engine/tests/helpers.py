@@ -66,3 +66,44 @@ def codes(d):
 
 def empty_case():
     return dict(caseId="empty", events=[], captureCoverage=dict(coveragePolicy="COV-BEARING-v1", sessions=[]))
+
+
+# ---- version 2 (slot attribution) -------------------------------------------------
+FIX2 = os.path.join(ROOT, "fixtures", "v2")
+POLICIES2, COVERAGE2 = load_policies(os.path.join(FIX2, "policies.json"))
+V2 = Config(slot_attribution=True)
+
+
+def case2(name):
+    for d in (FIX2, FIX):
+        p = os.path.join(d, "cases", f"case-{name}.json")
+        if os.path.exists(p):
+            return copy.deepcopy(load_case(p))
+    raise KeyError(name)
+
+
+def run2(c, pid=P1, wm=None, cov=None, cfg=V2):
+    return evaluate(c, copy.deepcopy(POLICIES2[pid]), cov or copy.deepcopy(COVERAGE2), wm, cfg)
+
+
+def cov2():
+    return copy.deepcopy(COVERAGE2)
+
+
+def renumber(c):
+    """Per-source sequence by recordedAt after events were added or moved mid-timeline."""
+    seq = {}
+    for e in sorted(c["events"], key=lambda e: (e["recordedAt"], e["occurredAt"], e["eventId"])):
+        seq[e["sourceId"]] = seq.get(e["sourceId"], 0) + 1
+        e["sourceSeq"] = seq[e["sourceId"]]
+    return c
+
+
+def by_type(c, etype, source=None):
+    return next(e for e in c["events"] if e["eventType"] == etype and (source is None or e["sourceId"] == source))
+
+
+def move(c, e, occurred):
+    e["occurredAt"] = occurred
+    e["recordedAt"] = (datetime.strptime(occurred, FMT) + timedelta(seconds=4)).strftime(FMT)
+    return renumber(c)

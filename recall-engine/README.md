@@ -7,8 +7,9 @@ Scope is deliberately small: replay a motor's event history up to per-source ing
 ## Run
 
 ```bash
-python -m unittest discover -s tests -t .     # 57 tests (from recall-engine/)
+python -m unittest discover -s tests -t .     # 99 tests (from recall-engine/): 57 Phase 1 + 42 slot attribution
 python harness/run_reports.py                 # behavioral + safety reports -> reports/
+python harness/compare_versions.py              # v1 vs v2 comparison -> reports/v1_v2_comparison.*
 python bench/benchmark.py                     # latency benchmark -> reports/benchmark.*
 python -I fixtures/pramaan-mfg-fixtures/validate.py   # original fixture validator
 ```
@@ -60,3 +61,36 @@ Fixtures and oracle are unmodified. Nothing below was patched; each was resolved
 * `timeSource` (e.g. `OPERATOR_ENTERED`) is not used for trust; trust comes from source, mandatory coverage, and verification.
 * Not modelled (as in the fixtures): hashes/signatures, stores issue feed, test-rig results.
 * Synthetic tests do not establish factory-level correctness.
+
+## Phase 1.1: slot attribution safety (opt-in, `Config(slot_attribution=True)`)
+
+Phase 1 behaviour is the default and is unchanged (`fixtures/pramaan-mfg-fixtures/` and its oracle are **version 1**, byte-for-byte; `Config()` still reproduces all 25 expectations). Version 2 adds `fixtures/v2/` (new cases, `policies.json` with a `slotAttribution` block, `oracle-v2.json`, `ground-truth.json`, `VERSION_TRANSITION.{md,json}`, `build_v2.py`). The exact v1 -> v2 transition (2 changed evaluations, 10 added, 23 carried over unchanged, v1 file hashes) is in `fixtures/v2/VERSION_TRANSITION.md`.
+
+**AMBIGUOUS_SLOT_ATTRIBUTION.** A removal scan is ambiguous when its observed part and lot (or serial) match the recorded occupants of more than one slot at that time, or match the claimed slot while another slot's state is unknown. All other slots are treated as accessible; unknown state and coverage gaps never rule a slot out. Only trusted `SLOT_ACCESS_EVIDENCE` (approved source and method, same work order, earlier than the removal, different actor) can. Candidates and supporting event ids are listed in `slotAttribution`. Ambiguity is not a wrong-slot finding: it creates no conflict. It blocks an exclusion only when the removed lot is affected and the removal was claimed for the slot being evaluated. The slot's reconciliation shows `AMBIGUOUS_ATTRIBUTION` while it stands.
+
+| Assurance | What it is | Clears ambiguity |
+|---|---|---|
+| `CLAIMED_SLOT` | operator-selected position | no |
+| `OBSERVED_SLOT_LABEL` | provisioned motor+slot label, valid binding, same motor / work order / capture session, within `labelAssociationWindowSeconds` (60, a prototype parameter) of the removal scan | no |
+| `CORROBORATED_SLOT` | `SLOT_STATE_VERIFIED` after the removal from a trusted verifier source, authorized actor, approved method, and independent of the operator claim (actor not in the slot's history, source and evidence refs distinct from the claim events, not derived from them) | yes, for P1 current state |
+
+A label for a different slot than the claim is a `REMOVAL_SLOT_LABEL_MISMATCH` conflict. Corroboration re-establishes current state only; historical exposure (P2) is not erased. A verification that fails independence is recorded with `rejectedReasons` and counts for nothing.
+
+**Serial identity.** A removal serial that matches the installed serial of a *different* slot is a `REMOVAL_SERIAL_IN_OTHER_SLOT` conflict (UNRESOLVED, reconciliation `CONFLICT`), even when the claimed slot has no record. Serial agreement with the claimed slot neither proves position nor repairs an untrusted baseline.
+
+**Fail-safe configuration.** With `slot_attribution=True` but no `slotAttribution` block in the coverage policy, nothing can clear an ambiguity (no approved methods, no labels).
+
+**Policy switch to decide.** `unknownSlotIsCandidate` (default true) makes a sibling slot with no usable record a candidate. Setting it false is the less safe reading (a missing sibling record can then not trigger ambiguity). It changes no v1 fixture.
+
+### v1 vs v2 results (`reports/v1_v2_comparison.md`)
+
+Zero false releases against synthetic ground truth (v1 engine: 2, case-06 and case-06c); 5 EXCLUDED decisions remain (4 in P1); one correct replacement (case-06e) is now held because its records are indistinguishable from the wrong-slot case-06c; no regressions.
+
+### Limits that remain (physical world)
+
+* A label scan shows a scanner read a label near the removal, not where the bearing came from. Labels can be scanned away from the slot, moved or copied. Records for 06c and 06e are identical; the engine cannot know which is true, so both are held.
+* `CORROBORATED_SLOT` is metadata-level independence (source, actor, evidence refs, method). A careless or colluding verifier at an approved source clears an ambiguity. The authorized-actor list and approved methods are static prototype configuration.
+* The 60 s window is a prototype parameter, not a proven safety standard. Session "authentication" is a flag on the session record (default true), not a verified credential.
+* Serial associations are the installation records. If both the install scan and the removal scan are wrong the same way, nothing contradicts them.
+* An untrusted verification that observes an affected lot is still ignored (Phase 1 behaviour), not turned into a hold.
+* Ground truth is synthetic and covers P1 only. Zero false releases here is a property of 7 authored cases, not evidence about a factory.

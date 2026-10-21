@@ -27,6 +27,8 @@ CONFLICT_REASON = {
     "REMOVAL_NOT_LINKED": "REMOVAL_RECORD_INCONSISTENT",
     "REMOVAL_FROM_EMPTY": "REMOVAL_RECORD_INCONSISTENT",
     "VERIFIED_STATE_MISMATCH": "VERIFIED_STATE_MISMATCH",
+    "REMOVAL_SLOT_LABEL_MISMATCH": "REMOVAL_SLOT_LABEL_MISMATCH",
+    "REMOVAL_SERIAL_IN_OTHER_SLOT": "REMOVAL_SERIAL_IN_OTHER_SLOT",
 }
 
 
@@ -114,15 +116,24 @@ def p1_slot(policy, s, siblings, cfg):
     if blockers:
         return dict(finding=UNRES, reasons=reasons + blockers, review=True, flags=flags)
 
+    # An uncleared ambiguous attribution of an affected-lot removal claimed for this
+    # slot means the affected part may still be in it. Only CORROBORATED_SLOT clears it.
+    pending = [a for a in s.ambiguities if not a["cleared"] and is_affected(policy, a["observed"])]         if cfg.slot_attribution else []
     if s.state == "EMPTY" and v is None:
+        if pending:
+            return dict(finding=UNRES, review=True, flags=flags,
+                        reasons=reasons + ["AMBIGUOUS_SLOT_ATTRIBUTION"])
         return dict(finding=EXCL, reasons=reasons + ["SLOT_EMPTY"], review=review, flags=flags)
     if is_affected(policy, occ):
         return dict(finding=AFF, reasons=reasons + ["AFFECTED_LOT_INSTALLED"],
                     review=review, flags=flags)
+    if pending:
+        return dict(finding=UNRES, review=True, flags=flags,
+                    reasons=reasons + ["AMBIGUOUS_SLOT_ATTRIBUTION"])
 
     replaced = any(is_affected(policy, x) for x in s.removals) or \
         any(is_affected(policy, x) and x["kind"] == "REMOVAL_OBSERVED" for x in s.exposures)
-    if replaced and not v and _lot_ambiguous(policy, s, siblings):
+    if replaced and not v and not cfg.slot_attribution and _lot_ambiguous(policy, s, siblings):
         if cfg.strict_lot_ambiguity:
             return dict(finding=UNRES, review=True, flags=flags,
                         reasons=reasons + ["LOT_LEVEL_SLOT_AMBIGUITY"])

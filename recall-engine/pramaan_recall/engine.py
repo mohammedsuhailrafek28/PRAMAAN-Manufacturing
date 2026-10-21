@@ -5,6 +5,7 @@ from . import coverage as cov
 from . import integrity, ledger, policy as pol, workorders
 
 ENGINE_VERSION = "phase1-0.1"
+ENGINE_VERSION_SLOT_ATTRIBUTION = "phase1.1-slot-attribution"
 ACTION = {pol.EXCL: "RELEASE_ELIGIBLE", pol.AFF: "RECALL_HOLD", pol.UNRES: "RECALL_HOLD"}
 
 
@@ -14,6 +15,12 @@ class Config:
     # slot holds the same lot, as UNRESOLVED. Off by default: the agreed
     # semantics (and the supplied expectations) accept lot-level identity.
     strict_lot_ambiguity: bool = False
+    # Slot-attribution safety (opt-in; default keeps the original contract). Detects
+    # AMBIGUOUS_SLOT_ATTRIBUTION, grades attribution assurance (claimed / observed
+    # label / corroborated) and reasons over serial-to-slot associations. Supersedes
+    # strict_lot_ambiguity when on. Parameters come from the coverage policy's
+    # "slotAttribution" block; without it nothing can clear an ambiguity.
+    slot_attribution: bool = False
 
 
 def _clean(d):
@@ -44,8 +51,9 @@ def evaluate(case, policy, coverage, watermark=None, config=None):
     wo = workorders.reconcile(active)
     mand = {op: cov.mandatory_sources(coverage, op)
             for op in ("COMPONENT_INSTALLED", "COMPONENT_REMOVED")}
+    attr = coverage.get("slotAttribution", {}) if cfg.slot_attribution else None
     rp = ledger.Replay(by_id, superseded, mand, set(coverage["trustedVerifierSources"]),
-                       wo["workOrders"])
+                       wo["workOrders"], attr=attr, sessions=sessions)
     rp.run(active)
 
     resolved = {e["payload"].get("exceptionEventId") for e in active
@@ -60,12 +68,14 @@ def evaluate(case, policy, coverage, watermark=None, config=None):
     horizon = max((e["recordedAt"] for e in visible), default=None)
     ledger.apply_gaps(rp.slots, cov.outages(sessions, coverage, horizon), exceptions,
                       issues, wo, by_id)
+    if cfg.slot_attribution:
+        ledger.finalize_attribution(rp.slots)
 
     d = pol.decide(policy, rp.slots, active, cfg)
-    return _assemble(case, policy, wm, visible, by_id, superseded, wo, rp, d, issues)
+    return _assemble(case, policy, wm, visible, by_id, superseded, wo, rp, d, issues, cfg)
 
 
-def _assemble(case, policy, wm, visible, by_id, superseded, wo, rp, d, issues):
+def _assemble(case, policy, wm, visible, by_id, superseded, wo, rp, d, issues, cfg):
     names = policy["affectedSlots"]
     rel = [rp.slots[n] for n in names]
     slots_out = {}
@@ -88,6 +98,8 @@ def _assemble(case, policy, wm, visible, by_id, superseded, wo, rp, d, issues):
             ev += [g.get("eventId"), g.get("boundedByEventId")]
         for lc in s.late_claims:
             ev += [lc["correctionEventId"], lc["supersededEventId"], lc["corroboratedBy"]]
+        for a in s.ambiguities:
+            ev += a["supportingEventIds"]
     ev += d["extraEvidence"]
     for w in wo["workOrders"].values():
         if any(o["slot"] in names for o in w["obligations"]):
@@ -104,7 +116,7 @@ def _assemble(case, policy, wm, visible, by_id, superseded, wo, rp, d, issues):
     return dict(
         caseId=case.get("caseId"), motorSerial=visible[0]["motorSerial"] if visible else None,
         policyId=policy["policyId"], policyVersion=policy["version"], recallId=policy["recallId"],
-        engineVersion=ENGINE_VERSION,
+        engineVersion=ENGINE_VERSION_SLOT_ATTRIBUTION if cfg.slot_attribution else ENGINE_VERSION,
         watermark={k: v for k, v in sorted(wm.items()) if v > 0},
         evidenceFinding=d["finding"], operationalAction=ACTION[d["finding"]],
         reviewRequired=bool(d["review"]), reasonCodes=d["reasons"], flags=d["flags"],
@@ -116,4 +128,5 @@ def _assemble(case, policy, wm, visible, by_id, superseded, wo, rp, d, issues):
         integrityIssues=issues, evidenceEventIds=ev, supersededEventIds=sup,
         evidenceRefs=refs, assuranceWarnings=warn,
         slotVerdicts={n: dict(finding=v["finding"], reasons=v["reasons"])
-                      for n, v in d["perSlot"].items()})
+                      for n, v in d["perSlot"].items()},
+        slotAttribution=[a for s in rel for a in s.attributions] if cfg.slot_attribution else [])
