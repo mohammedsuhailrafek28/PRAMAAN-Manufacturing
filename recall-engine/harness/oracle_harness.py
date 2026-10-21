@@ -17,9 +17,11 @@ from pramaan_recall import Config, evaluate, evaluate_series, load_case, load_po
 
 FIX = os.path.join(ROOT, "fixtures", "pramaan-mfg-fixtures")
 FIX2 = os.path.join(ROOT, "fixtures", "v2")
+FIX3 = os.path.join(ROOT, "fixtures", "v3")
 EXCL, AFF, UNRES = "EXCLUDED_WITH_EVIDENCE", "AFFECTED", "UNRESOLVED"
-V1_CONFIG = Config()
-V2_CONFIG = Config(slot_attribution=True)
+V1_CONFIG = Config.legacy()
+V2_CONFIG = Config.v2()
+V3_CONFIG = Config.v3()
 
 
 def load_all(version=1, policy_version=None):
@@ -27,15 +29,16 @@ def load_all(version=1, policy_version=None):
     oracle-v2). `policy_version` picks the recall/coverage policy file (default: same as
     `version`); the v2 file carries the same recall policies plus the slot-attribution
     block, so a v2 engine can be scored against the v1 oracle. v1 files are only read."""
-    root = FIX2 if (policy_version or version) == 2 else FIX
+    root = {1: FIX, 2: FIX2, 3: FIX3}[policy_version or version]
     policies, coverage = load_policies(os.path.join(root, "policies.json"))
     cases = {}
-    dirs = [FIX] + ([FIX2] if version == 2 else [])
+    dirs = [FIX, FIX2, FIX3][:version]
     for d in dirs:
         for p in sorted(glob.glob(os.path.join(d, "cases", "*.json"))):
             c = load_case(p)
             cases[c["caseId"]] = c
-    ofile = os.path.join(FIX2, "oracle-v2.json") if version == 2 else os.path.join(FIX, "oracle.json")
+    ofile = {1: os.path.join(FIX, "oracle.json"), 2: os.path.join(FIX2, "oracle-v2.json"),
+             3: os.path.join(FIX3, "oracle-v3.json")}[version]
     with open(ofile, encoding="utf-8") as f:
         oracle = {o["caseId"]: o["evaluations"] for o in json.load(f)["cases"]}
     return policies, coverage, cases, oracle
@@ -44,8 +47,14 @@ def load_all(version=1, policy_version=None):
 def load_truth(cases):
     """caseId -> trueP1Finding (AFFECTED / UNAFFECTED). Inline groundTruth wins; the v2
     sidecar fills the rest. Disagreement between the two is an error."""
-    with open(os.path.join(FIX2, "ground-truth.json"), encoding="utf-8") as f:
-        side = {k: v["trueP1Finding"] for k, v in json.load(f)["truths"].items()}
+    side = {}
+    for d in (FIX2, FIX3):
+        p = os.path.join(d, "ground-truth.json")
+        if os.path.exists(p):
+            with open(p, encoding="utf-8") as f:
+                for k, v in json.load(f)["truths"].items():
+                    if side.setdefault(k, v["trueP1Finding"]) != v["trueP1Finding"]:
+                        raise ValueError(f"ground truth conflict for {k}")
     out = {}
     for cid, c in cases.items():
         inline = (c.get("groundTruth") or {}).get("trueP1Finding")
@@ -132,6 +141,7 @@ def compare(exp, got, exp_series, got_series):
 # ----------------------------------------------------------------- runs ----
 def run_behavioral(cfg=None, version=1, policy_version=None):
     """Replay every oracle evaluation through the engine lifecycle."""
+    cfg = cfg or V1_CONFIG
     policies, coverage, cases, oracle = load_all(version, policy_version)
     rows = []
     for cid, evals in oracle.items():
@@ -151,6 +161,7 @@ def run_behavioral(cfg=None, version=1, policy_version=None):
 
 def run_final(cfg=None, drop_sources=(), version=1, policy_version=None):
     """Engine finding at the full watermark per (case, policy); optionally ablate sources."""
+    cfg = cfg or V1_CONFIG
     policies, coverage, cases, oracle = load_all(version, policy_version)
     out = {}
     for cid, case in cases.items():

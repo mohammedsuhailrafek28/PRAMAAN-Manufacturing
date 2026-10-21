@@ -7,9 +7,11 @@ Scope is deliberately small: replay a motor's event history up to per-source ing
 ## Run
 
 ```bash
-python -m unittest discover -s tests -t .     # 99 tests (from recall-engine/): 57 Phase 1 + 42 slot attribution
+python -m unittest discover -s tests -t .     # 127 tests (from recall-engine/): 57 Phase 1 + 42 v2 + 28 v3
 python harness/run_reports.py                 # behavioral + safety reports -> reports/
 python harness/compare_versions.py              # v1 vs v2 comparison -> reports/v1_v2_comparison.*
+python harness/compare_profiles.py              # legacy/v2/v3 comparison + replay -> reports/v1_v2_v3_comparison.*
+python harness/mutation_check.py                # 15 safety mutants must all be killed
 python bench/benchmark.py                     # latency benchmark -> reports/benchmark.*
 python -I fixtures/pramaan-mfg-fixtures/validate.py   # original fixture validator
 ```
@@ -94,3 +96,30 @@ Zero false releases against synthetic ground truth (v1 engine: 2, case-06 and ca
 * Serial associations are the installation records. If both the install scan and the removal scan are wrong the same way, nothing contradicts them.
 * An untrusted verification that observes an affected lot is still ignored (Phase 1 behaviour), not turned into a hold.
 * Ground truth is synthetic and covers P1 only. Zero false releases here is a property of 7 authored cases, not evidence about a factory.
+
+## Phase 1.2: untrusted affected-bearing observations (semantics profile v3)
+
+**Semantics profiles.** A decision records `semanticsProfile` and a `coverageDigest`: `P1_LEGACY` (Phase 1, `Config.legacy()` == `Config()`), `SLOT_ATTRIBUTION_V2` (`Config.v2()`), `UNTRUSTED_OBSERVATION_V3` (`Config.v3()`). `evaluate()` and `evaluate_series()` with no config now use `Config.default()` = v3, **for new evaluations only**. `replay(case, policy, coverage, record)` re-runs a stored decision under the profile it names (records without one are legacy) and refuses if the coverage policy changed. Explicit configs, the v1/v2 fixtures, and their oracles are untouched and still agree 25/25 and 35/35 under their own profiles.
+
+**UNTRUSTED_AFFECTED_OBSERVATION.** A `SLOT_STATE_VERIFIED` that is not trusted (untrusted source, or fails the v2 independence checks) and reports an affected lot:
+
+* in a policy-relevant slot of this motor -> P1 `UNRESOLVED` + `RECALL_HOLD` + review, **never `AFFECTED`**, unless something answers it:
+  * *stale*: a later install in that slot, or
+  * *resolved*: a later `CORROBORATED_SLOT` verification.
+  "Later" is proven only if `occurredAt` is later by more than `observationClockSkewSeconds` (300, prototype) **and** `recordedAt` is later **and** both events carry a clock in `trustedTimeSources`. A late-arriving, operator-clocked or near-simultaneous observation therefore keeps blocking.
+* P2: an affected-lot sighting counts as unconfirmed historical exposure, so P2 is `UNRESOLVED`, not an exclusion.
+* in a slot outside the policy scope -> does not block; flag `OUT_OF_SCOPE_UNTRUSTED_AFFECTED_OBSERVATION` and review.
+* not attributable (other motor or no slot) -> does not block; flag `UNATTRIBUTABLE_UNTRUSTED_AFFECTED_OBSERVATION` and review.
+* an observation of an unaffected lot is recorded and never releases anything or blocks.
+
+Arriving after a release, it supersedes the exclusion through the existing lifecycle: `RECALL_HOLD`, `precautionaryHold`, `PRIOR_EXCLUSION_WITHDRAWN`, notification obligation. Missing time parameters in the coverage policy fail safe (nothing is stale or resolved).
+
+Fixtures `fixtures/v3/` (cases 08 .. 08l, `oracle-v3.json` = the 35 v2 evaluations unchanged + 19 new, `VERSION_TRANSITION.md`). Results: `reports/v1_v2_v3_comparison.md`; mutation run: `reports/mutation_v3.txt`.
+
+### Limits that remain (v3)
+
+* Only `SLOT_STATE_VERIFIED` is treated as an observation. A bad reading carried by any other event type is not seen.
+* A coherent but false reading is held, not disproved; held false alarms need a human or an independent check (cases 08e, 08j, 08k).
+* Trust of a source, an actor, a clock and the 300 s margin are static prototype configuration.
+* Observations about a different motor are surfaced but never block; a mistyped serial can hide a real risk behind a flag.
+* Ground truth is synthetic (P1 only); zero false releases describes the authored cases, not a factory.

@@ -24,7 +24,7 @@ def evaluate_series(case, policy, coverage, watermarks, config=None, communicate
     the outcome changes; unchanged entries point at the standing decision.
     Earlier decisions are never edited or removed.
     """
-    cfg = config or Config()
+    cfg = config if config is not None else Config.default()
     suffix = policy["policyId"].split("/")[-1]
     by_id = {e["eventId"]: e for e in case["events"]}
     out, prev, prev_wm, n = [], None, {}, 0

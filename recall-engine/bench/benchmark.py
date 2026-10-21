@@ -19,7 +19,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, ROOT)
 
-from pramaan_recall import evaluate, load_case, load_policies  # noqa: E402
+from pramaan_recall import Config, load_case, load_policies  # noqa: E402
+from pramaan_recall import evaluate as _evaluate  # noqa: E402
+
+
+def evaluate(c, p, coverage, w=None):
+    """Phase 1 benchmark: legacy semantics, as originally measured."""
+    return _evaluate(c, p, coverage, w, Config.legacy())
+
 from tests.helpers import add_event  # noqa: E402
 from harness.oracle_harness import load_all  # noqa: E402
 

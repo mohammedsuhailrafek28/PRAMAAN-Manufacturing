@@ -57,7 +57,7 @@ def add_event(c, etype, source, occurred, actor, payload, wo=None, supersedes=No
 
 
 def run(c, pid=P1, wm=None, cfg=None, pol=None):
-    return evaluate(c, pol or policy(pid), COVERAGE, wm, cfg)
+    return evaluate(c, pol or policy(pid), COVERAGE, wm, cfg or Config.legacy())
 
 
 def codes(d):
@@ -71,7 +71,8 @@ def empty_case():
 # ---- version 2 (slot attribution) -------------------------------------------------
 FIX2 = os.path.join(ROOT, "fixtures", "v2")
 POLICIES2, COVERAGE2 = load_policies(os.path.join(FIX2, "policies.json"))
-V2 = Config(slot_attribution=True)
+V2 = Config.v2()
+V3 = Config.v3()
 
 
 def case2(name):

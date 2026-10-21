@@ -52,6 +52,7 @@ class Slot:
         self.actors = set()
         self.claims = []              # operator-originated events a verifier must be independent of
         self.attributions = []        # one per removal (attribution mode only)
+        self.untrusted_obs = []       # observations of this slot that were not trusted (v3 only)
 
     def note(self, e):
         self.events.append(e["eventId"])
@@ -59,7 +60,8 @@ class Slot:
 
     def claim(self, e):
         self.claims.append(dict(eventId=e["eventId"], source=e["sourceId"], actor=e["actorId"],
-                                refs=set(e.get("evidenceRefs") or [])))
+                                refs=set(e.get("evidenceRefs") or []), kind=e["eventType"],
+                                at=e["occurredAt"], rec=e["recordedAt"], ts=e.get("timeSource")))
 
     @property
     def ambiguities(self):
@@ -105,7 +107,10 @@ def same_item(a, b):
 
 
 class Replay:
-    def __init__(self, by_id, superseded, mand, trusted_verifiers, wo, attr=None, sessions=()):
+    def __init__(self, by_id, superseded, mand, trusted_verifiers, wo, attr=None, sessions=(),
+                 motor=None, track_untrusted=False):
+        self.motor, self.track_untrusted = motor, track_untrusted
+        self.unattributed_obs = []    # untrusted observations not tied to this motor / a slot
         self.by_id, self.superseded = by_id, superseded
         self.mand, self.verifiers, self.wo = mand, trusted_verifiers, wo
         self.attr, self.sessions = attr, list(sessions)
@@ -208,9 +213,17 @@ class Replay:
         s.state, s.occupant, s.candidates, s.double = "EMPTY", None, [], False
 
     def verify(self, e):
-        p, s = e["payload"], self.slot(e["payload"]["slot"])
+        p = e["payload"]
+        if self.track_untrusted and (not p.get("slot") or e.get("motorSerial") != self.motor):
+            self.unattributed_obs.append(dict(
+                eventId=e["eventId"], slot=p.get("slot"), motorSerial=e.get("motorSerial"),
+                observed=dict(part=p.get("observedPart"), lot=p.get("observedLot"),
+                              serial=p.get("observedSerial")),
+                reason="NO_SLOT" if not p.get("slot") else "MOTOR_NOT_THIS_HISTORY"))
+            return
+        s = self.slot(p["slot"])
         obs = _occ(p, e, ("observedPart", "observedLot", "observedSerial"))
-        v = dict(obs, at=e["occurredAt"], actor=e["actorId"],
+        v = dict(obs, at=e["occurredAt"], rec=e["recordedAt"], ts=e.get("timeSource"), actor=e["actorId"],
                  provisional=bool(p.get("provisional")),
                  trusted=(e["sourceId"] in self.verifiers
                           and e["actorId"] not in s.actors))
@@ -223,6 +236,11 @@ class Replay:
                 v["assurance"] = "CORROBORATED_SLOT"
         s.verifications.append(v)
         if not v["trusted"]:
+            if self.track_untrusted:
+                s.untrusted_obs.append(dict(
+                    eventId=e["eventId"], at=v["at"], rec=v["rec"], ts=v["ts"],
+                    observed=dict(part=v.get("part"), lot=v.get("lot"), serial=v.get("serial")),
+                    reasons=v.get("rejectedReasons") or ["UNTRUSTED"], staleBy=None, resolvedBy=None))
             return
         s.note(e)
         cur = s.occupant if (s.state == "OCCUPIED" and not s.double) else None
@@ -478,3 +496,35 @@ def finalize_attribution(slots):
                     a["unrulableAlternatives"].append(dict(slot=name, reason="STATE_UNKNOWN"))
                 elif any(g["materiality"] == "MATERIAL" for g in t.gaps):
                     a["unrulableAlternatives"].append(dict(slot=name, reason="UNRESOLVED_COVERAGE_GAP"))
+
+
+def _delta(a, b):
+    """Signed seconds a - b; None if either timestamp is malformed."""
+    try:
+        return (datetime.strptime(a, _TS) - datetime.strptime(b, _TS)).total_seconds()
+    except (TypeError, ValueError):
+        return None
+
+
+def clearly_after(attr, x, o):
+    """Is x certainly later than o? Requires both orderings (occurredAt beyond the clock-skew
+    margin AND recordedAt) and clocks we trust for both events. Anything less is 'not
+    provably later', which keeps a risk open rather than closing it."""
+    skew, trusted = attr.get("observationClockSkewSeconds"), attr.get("trustedTimeSources", [])
+    if skew is None or x["ts"] not in trusted or o["ts"] not in trusted:
+        return False
+    d = _delta(x["at"], o["at"])
+    return d is not None and d > skew and x["rec"] > o["rec"]
+
+
+def finalize_observations(slots, attr):
+    """Mark each untrusted observation stale (a later install replaced the contents) or
+    resolved (a later CORROBORATED_SLOT verification), judged conservatively."""
+    for s in slots.values():
+        for o in s.untrusted_obs:
+            inst = [c for c in s.claims if c["kind"] == "COMPONENT_INSTALLED" and clearly_after(attr, c, o)]
+            ver = [v for v in s.verifications if v["trusted"] and clearly_after(attr, v, o)]
+            if inst:
+                o["staleBy"] = min(inst, key=lambda c: c["at"])["eventId"]
+            if ver:
+                o["resolvedBy"] = min(ver, key=lambda v: v["at"])["eventId"]

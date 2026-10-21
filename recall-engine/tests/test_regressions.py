@@ -237,7 +237,7 @@ class LateEvidenceAndLifecycle(unittest.TestCase):
 
     def test_lifecycle_preserves_history_and_records_notification(self):
         c = case("05")
-        s = evaluate_series(c, policy(P1), COVERAGE, self._wms(c), communicated=("D-case-05-P1-v1",))
+        s = evaluate_series(c, policy(P1), COVERAGE, self._wms(c), Config.legacy(), communicated=("D-case-05-P1-v1",))
         v1_before = copy.deepcopy(s[0])
         self.assertEqual([x["version"] for x in s], [1, 2])
         self.assertEqual(s[1]["supersedesDecisionId"], s[0]["decisionId"])
@@ -251,7 +251,7 @@ class LateEvidenceAndLifecycle(unittest.TestCase):
     def test_unchanged_evaluation_does_not_issue_a_new_version(self):
         c = case("05")
         w1 = self._wms(c)[0]
-        s = evaluate_series(c, policy(P1), COVERAGE, [w1, w1])
+        s = evaluate_series(c, policy(P1), COVERAGE, [w1, w1], Config.legacy())
         self.assertEqual([x["unchanged"] for x in s], [False, True])
         self.assertEqual(s[1]["decisionId"], s[0]["decisionId"])
 

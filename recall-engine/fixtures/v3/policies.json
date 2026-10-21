@@ -1,0 +1,116 @@
+{
+  "recallPolicies": [
+    {
+      "recallId": "RC-009",
+      "version": 1,
+      "announcedAt": "2026-10-01T00:00:00Z",
+      "affectedPart": "BR-6205",
+      "affectedLots": [
+        "BR-204",
+        "BR-207"
+      ],
+      "affectedSlots": [
+        "DE"
+      ],
+      "policyId": "RC-009/P1",
+      "exposureBasis": "CURRENT_INSTALLATION",
+      "damageInspection": null
+    },
+    {
+      "recallId": "RC-009",
+      "version": 1,
+      "announcedAt": "2026-10-01T00:00:00Z",
+      "affectedPart": "BR-6205",
+      "affectedLots": [
+        "BR-204",
+        "BR-207"
+      ],
+      "affectedSlots": [
+        "DE"
+      ],
+      "policyId": "RC-009/P2",
+      "exposureBasis": "HISTORICAL_OPERATION",
+      "damageInspection": {
+        "protocolId": "RC-009-DMG-01",
+        "mustOccurAfter": "2026-10-01T00:00:00Z",
+        "requiredResult": "PASS",
+        "inspectorQualification": "RC-009-DMG-01"
+      }
+    }
+  ],
+  "coveragePolicy": {
+    "coveragePolicyId": "COV-BEARING-v1",
+    "mandatoryCapture": [
+      {
+        "operation": "COMPONENT_INSTALLED",
+        "sources": [
+          "ASSY-01",
+          "REWORK-03"
+        ]
+      },
+      {
+        "operation": "COMPONENT_REMOVED",
+        "sources": [
+          "REWORK-03"
+        ]
+      },
+      {
+        "operation": "WORK_ORDER_*",
+        "sources": [
+          "MES"
+        ]
+      }
+    ],
+    "trustedVerifierSources": [
+      "QA-02"
+    ],
+    "rule": "A source outage is a gap for every slot it could affect unless a later trusted SLOT_STATE_VERIFIED re-establishes that slot's state.",
+    "slotAttribution": {
+      "version": 3,
+      "note": "Prototype parameters, not a proven safety standard.",
+      "labelAssociationWindowSeconds": 60,
+      "unknownSlotIsCandidate": true,
+      "labelScanSources": [
+        "ASSY-01",
+        "REWORK-03"
+      ],
+      "slotLabels": [
+        {
+          "labelId": "LBL-M042-DE",
+          "motorSerial": "M-042",
+          "slot": "DE",
+          "status": "ACTIVE",
+          "provisionedAt": "2026-08-01T00:00:00Z",
+          "revokedAt": null
+        },
+        {
+          "labelId": "LBL-M042-NDE",
+          "motorSerial": "M-042",
+          "slot": "NDE",
+          "status": "ACTIVE",
+          "provisionedAt": "2026-08-01T00:00:00Z",
+          "revokedAt": null
+        }
+      ],
+      "approvedVerificationMethods": [
+        "LOT_LABEL_AND_MARKING_VISUAL",
+        "SERIAL_MARKING_VISUAL",
+        "DISASSEMBLY_INSPECTION"
+      ],
+      "authorizedVerifierActors": [
+        "EMP-031"
+      ],
+      "accessEvidenceSources": [
+        "QA-02"
+      ],
+      "approvedAccessMethods": [
+        "DISASSEMBLY_RECORD",
+        "STATION_FIXTURE_RECORD"
+      ],
+      "observationClockSkewSeconds": 300,
+      "trustedTimeSources": [
+        "DEVICE_SYNCED"
+      ]
+    }
+  }
+}

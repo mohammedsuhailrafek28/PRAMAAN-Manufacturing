@@ -54,6 +54,23 @@ def records_may_be_affected(policy, s):
     return any(is_affected(policy, o) for o in cands)
 
 
+def observation_status(policy, s, o):
+    """BLOCKING / STALE / RESOLVED / UNAFFECTED for one untrusted observation of slot s."""
+    if not is_affected(policy, o["observed"]):
+        return "UNAFFECTED"
+    if o.get("resolvedBy"):
+        return "RESOLVED"
+    if o.get("staleBy"):
+        return "STALE"
+    return "BLOCKING"
+
+
+def blocking_observations(policy, s):
+    """Untrusted affected-lot observations of a slot that nothing trustworthy and provably
+    later has answered. They hold a release; they never establish exposure (not AFFECTED)."""
+    return [o for o in s.untrusted_obs if observation_status(policy, s, o) == "BLOCKING"]
+
+
 def material_gaps(s):
     return [g for g in s.gaps if g["materiality"] == "MATERIAL"]
 
@@ -118,18 +135,21 @@ def p1_slot(policy, s, siblings, cfg):
 
     # An uncleared ambiguous attribution of an affected-lot removal claimed for this
     # slot means the affected part may still be in it. Only CORROBORATED_SLOT clears it.
-    pending = [a for a in s.ambiguities if not a["cleared"] and is_affected(policy, a["observed"])]         if cfg.slot_attribution else []
+    precaution = []
+    if cfg.slot_attribution:
+        if any(not a["cleared"] and is_affected(policy, a["observed"]) for a in s.ambiguities):
+            precaution.append("AMBIGUOUS_SLOT_ATTRIBUTION")
+        if cfg.untrusted_observation and blocking_observations(policy, s):
+            precaution.append("UNTRUSTED_AFFECTED_OBSERVATION")
     if s.state == "EMPTY" and v is None:
-        if pending:
-            return dict(finding=UNRES, review=True, flags=flags,
-                        reasons=reasons + ["AMBIGUOUS_SLOT_ATTRIBUTION"])
+        if precaution:
+            return dict(finding=UNRES, review=True, flags=flags, reasons=reasons + precaution)
         return dict(finding=EXCL, reasons=reasons + ["SLOT_EMPTY"], review=review, flags=flags)
     if is_affected(policy, occ):
         return dict(finding=AFF, reasons=reasons + ["AFFECTED_LOT_INSTALLED"],
                     review=review, flags=flags)
-    if pending:
-        return dict(finding=UNRES, review=True, flags=flags,
-                    reasons=reasons + ["AMBIGUOUS_SLOT_ATTRIBUTION"])
+    if precaution:
+        return dict(finding=UNRES, review=True, flags=flags, reasons=reasons + precaution)
 
     replaced = any(is_affected(policy, x) for x in s.removals) or \
         any(is_affected(policy, x) and x["kind"] == "REMOVAL_OBSERVED" for x in s.exposures)
@@ -194,7 +214,7 @@ def exposure_confirmed(policy, s):
         any(is_affected(policy, v) and v["trusted"] for v in s.verifications)
 
 
-def p2_slot(policy, s, p1v, insp):
+def p2_slot(policy, s, p1v, insp, cfg):
     ec = completeness_reasons(policy, s)
     if exposure_confirmed(policy, s):
         reasons = ["HISTORICAL_EXPOSURE_CONFIRMED"]
@@ -220,6 +240,9 @@ def p2_slot(policy, s, p1v, insp):
         any(is_affected(policy, lc["claim"]) for lc in s.late_claims)
     if claimed:
         return dict(finding=UNRES, reasons=["LATE_CLAIM_RISK_INCREASING"], review=True, flags=[])
+    # history: an untrusted sighting of an affected lot is unconfirmed exposure, however old
+    if cfg.untrusted_observation and any(is_affected(policy, o["observed"]) for o in s.untrusted_obs):
+        return dict(finding=UNRES, reasons=["UNTRUSTED_AFFECTED_OBSERVATION"], review=True, flags=[])
     if p1v["finding"] == EXCL and not s.gaps and s.trusted:
         return dict(finding=EXCL, reasons=["NO_HISTORICAL_EXPOSURE"], review=p1v["review"], flags=[])
     reasons = ["EXPOSURE_UNKNOWN"]
@@ -231,7 +254,7 @@ def p2_slot(policy, s, p1v, insp):
 
 
 # ------------------------------------------------------------ decision ---
-def decide(policy, slots, active, cfg):
+def decide(policy, slots, active, cfg, unattributed=()):
     names = policy["affectedSlots"]
     rel = [slots[n] for n in names]
     allslots = list(slots.values())
@@ -242,7 +265,7 @@ def decide(policy, slots, active, cfg):
             per[s.name] = p1v
         elif policy["exposureBasis"] == "HISTORICAL_OPERATION":
             insp = inspection_status(policy, active, s.name)
-            per[s.name] = p2_slot(policy, s, p1v, insp)
+            per[s.name] = p2_slot(policy, s, p1v, insp, cfg)
             evidence += insp["eventIds"] if exposure_confirmed(policy, s) else []
         else:
             raise ValueError(f"unknown exposureBasis {policy['exposureBasis']}")
@@ -260,5 +283,17 @@ def decide(policy, slots, active, cfg):
         if any(c["kind"] in HARD_CONFLICTS and CONFLICT_REASON[c["kind"]] not in reasons
                for c in s.conflicts):
             _add(flags, "SLOT_RECORD_CONFLICT")
+    if cfg.untrusted_observation:
+        for s in allslots:
+            hit = [o for o in s.untrusted_obs if is_affected(policy, o["observed"])]
+            if s.name not in names and hit:
+                _add(flags, "OUT_OF_SCOPE_UNTRUSTED_AFFECTED_OBSERVATION")
+                review = True
+            elif s.name in names and any(observation_status(policy, s, o) in ("STALE", "RESOLVED")
+                                         for o in hit):
+                _add(flags, "UNTRUSTED_AFFECTED_OBSERVATION_SUPERSEDED")
+        if any(is_affected(policy, o["observed"]) for o in unattributed):
+            _add(flags, "UNATTRIBUTABLE_UNTRUSTED_AFFECTED_OBSERVATION")
+            review = True
     return dict(finding=finding, reasons=reasons, flags=flags, review=review,
                 perSlot=per, extraEvidence=evidence)
