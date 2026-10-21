@@ -64,9 +64,10 @@ class RemediationTests(unittest.TestCase):
     def test_authorized_resolution_is_explicit_and_audited_not_delivery(self):
         self.app.seed_demo();oid=self.app.snapshot()['notifications'][0]['obligationId']
         with self.assertRaises(PermissionError):self.app.audit.resolve(oid,principal='stranger',evidence_refs=['urn:evidence:1'],reason='reviewed')
-        self.app.audit.resolve(oid,principal='test-authorized-owner',evidence_refs=['urn:pramaan:MTR-26005:HANDHELD:1'],reason='Owner resolution, not delivery',authorize=lambda p:p=='test-authorized-owner')
-        self.assertEqual(self.app.snapshot()['notifications'],[])
-        self.assertTrue(any(k=='OBLIGATION_RESOLVED' for k,_ in self.app.audit.verify()))
+        with self.assertRaises(PermissionError):
+            self.app.audit.resolve(oid,principal='test-authorized-owner',evidence_refs=['urn:pramaan:MTR-26005:HANDHELD:1'],reason='Owner resolution, not delivery',authorize=lambda p:True)
+        self.assertEqual(len(self.app.snapshot()['notifications']),1)
+        self.assertFalse(any(k=='OBLIGATION_RESOLVED' for k,_ in self.app.audit.verify()))
         self.assertEqual(self.current('MTR-26005')['operationalAction'],'RECALL_HOLD')
 
     def test_delete_all_history_detected_and_not_reset(self):

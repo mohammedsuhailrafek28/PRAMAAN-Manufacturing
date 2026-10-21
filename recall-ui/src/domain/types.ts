@@ -183,6 +183,7 @@ export interface Provenance {
   oracleFilesRead: boolean;
 }
 export interface RecallSnapshot {
+  freshness?: { verifiedAt: string; maxAgeSeconds: number; status: string; archiveId: string; sequence: number; headHash: string };
   schemaVersion: 1;
   provenance: Provenance;
   recall: {

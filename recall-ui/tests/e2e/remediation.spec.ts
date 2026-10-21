@@ -7,7 +7,7 @@ import { resolve, join } from "node:path";
 
 test("actual backend shutdown revokes live release presentation", async ({ page }) => {
   const python=resolve(process.platform==='win32'?'../.venv/Scripts/python.exe':'../.venv/bin/python');
-  const server=spawn(python,['app.py','--seed-demo','--database',join(mkdtempSync(join(tmpdir(),'pramaan-offline-')),'db.sqlite'),'--port','4182'],{cwd:resolve('..'),stdio:'ignore',windowsHide:true});
+  const server=spawn(python,['recall-ui/tests/browser_server.py',join(mkdtempSync(join(tmpdir(),'pramaan-offline-')),'db.sqlite'),'--port','4182'],{cwd:resolve('..'),stdio:'ignore',windowsHide:true});
   try {
     await expect(async()=>{ expect((await page.request.get('http://127.0.0.1:4182/api/session')).ok()).toBeTruthy(); }).toPass({timeout:15000});
     await page.goto('http://127.0.0.1:4182/#/unit/MTR-26003/decision');
@@ -42,7 +42,7 @@ test("NDE-only affected motor is held by unspecified recall scope through real A
   // The shared seed has an explicitly restricted DE policy; prove NDE capture
   // and explicit scope using a separate empty local backend instead of mutating it.
   const python=resolve(process.platform==='win32'?'../.venv/Scripts/python.exe':'../.venv/bin/python');
-  const server=spawn(python,['app.py','--database',join(mkdtempSync(join(tmpdir(),'pramaan-scope-')),'db.sqlite'),'--port','4183'],{cwd:resolve('..'),stdio:'ignore',windowsHide:true});
+  const server=spawn(python,['recall-ui/tests/browser_server.py',join(mkdtempSync(join(tmpdir(),'pramaan-scope-')),'db.sqlite'),'--empty','--port','4183'],{cwd:resolve('..'),stdio:'ignore',windowsHide:true});
   try{
     await expect(async()=>{expect((await page.request.get('http://127.0.0.1:4183/api/session')).ok()).toBeTruthy();}).toPass({timeout:15000});
     const session=await(await page.request.get('http://127.0.0.1:4183/api/session')).json();

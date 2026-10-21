@@ -114,7 +114,12 @@ class ApplicationTests(unittest.TestCase):
 class HttpTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
-        self.server = make_server(Path(self.tmp.name)/"http.sqlite", 0, True)
+        from .anchors import export_anchor
+        database=Path(self.tmp.name)/'http.sqlite'
+        seed=Manufacturing(database); seed.seed_demo()
+        anchor=Path(self.tmp.name)/'owner-anchor.json'
+        anchor.write_text(json.dumps(export_anchor(seed))); seed.close()
+        self.server = make_server(database, 0, trusted_anchor=anchor)
         self.thread = threading.Thread(target=self.server.serve_forever, daemon=True); self.thread.start()
         self.base = f"http://127.0.0.1:{self.server.server_port}"
         self.token = self.request("/api/session")["token"]

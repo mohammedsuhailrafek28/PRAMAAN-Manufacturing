@@ -17,7 +17,7 @@ def main():
     args = parser.parse_args()
     sys.path.insert(0, str(ROOT/"integration"))
     import run_validation as baseline
-    out = ROOT/"docs"/"phase31-validation"/"verification"
+    out = ROOT/"docs"/"phase31-hardening-validation"
     out.mkdir(exist_ok=True)
     baseline.REPORTS = out
     from .provenance import verify
@@ -66,6 +66,7 @@ def main():
     checks = {
         "application": run("application-tests", [sys.executable,"-m","unittest","application.test_application","-v"]),
         "remediation": run("remediation-tests", [sys.executable,"-m","unittest","application.test_remediation","-v"]),
+        "hardening": run("hardening-tests", [sys.executable,"-m","unittest","application.test_hardening","-v"]),
         "exporter": run("exporter-tests", [sys.executable,"-m","unittest","discover","-s","recall-ui/tests","-p","test_*.py","-v"]),
         "snapshot": run("snapshot-check", [sys.executable,"recall-ui/tools/export_snapshot.py","--check"]),
         "ui": run("ui-tests", [npm,"test"], ROOT/"recall-ui"),

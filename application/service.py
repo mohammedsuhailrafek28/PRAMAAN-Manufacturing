@@ -236,7 +236,9 @@ class Manufacturing:
         self.observe("MTR-26005", "BR-204")
         self.snapshot()
 
-    def snapshot(self):
+    def snapshot(self, *, trusted_anchor=None):
+        # Raw publications remain historical without a trusted external prefix.
+        anchor_status = trusted_anchor.verify(self) if trusted_anchor else None
         self.audit.verify()
         policy = self.policy()
         units, components, lots, decisions, comparison, lineage, notifications = [], [], {}, {}, [], [], []
@@ -283,5 +285,9 @@ class Manufacturing:
                     recall=policy or dict(recallId=RECALL_ID, version=0, announcedAt=None, affectedPart=PART, affectedLots=[], affectedSlots=["DE"]),
                     policies=[dict(policyId=policy["policyId"], exposureBasis=policy["exposureBasis"], damageInspection=None)] if policy else [],
                     units=units, decisions=decisions, comparison=comparison, components=components, lots=list(lots.values()),
-                    lineage=lineage, notifications=self.audit.outstanding(), recallAnnounced=bool(policy),
-                    freshness=dict(verifiedAt=self.ledger._now(), status="VERIFIED_LOCAL_SYNTHETIC", maxAgeSeconds=5))
+                    lineage=lineage, notifications=[dict(n,status='PENDING') for n in self.audit.outstanding()], recallAnnounced=bool(policy),
+                    freshness=dict(verifiedAt=self.ledger._now(), status="VERIFIED_ANCHORED_SYNTHETIC" if anchor_status else "HISTORICAL_UNANCHORED",
+                                   maxAgeSeconds=5 if anchor_status else 0,
+                                   archiveId=self.db.execute('SELECT archive_id FROM app_audit_head WHERE id=1').fetchone()[0],
+                                   sequence=self.db.execute('SELECT count FROM app_audit_head WHERE id=1').fetchone()[0],
+                                   headHash=self.db.execute('SELECT hash FROM app_audit_head WHERE id=1').fetchone()[0]))

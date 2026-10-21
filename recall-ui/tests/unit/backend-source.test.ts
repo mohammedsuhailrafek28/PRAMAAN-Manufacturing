@@ -18,7 +18,7 @@ it("refuses contradictory backend decisions", async () => {
 });
 it("passes the local token and validates the returned mutation snapshot", async () => {
   const fetch = vi.fn().mockResolvedValueOnce({ json: async () => ({ token: "test-local-token" }) })
-    .mockResolvedValueOnce({ ok: true, json: async () => ({ snapshot: realSnapshot(), captureToDecisionMs: 123 }) });
+    .mockResolvedValueOnce({ ok: true, json: async () => ({ snapshot: {...realSnapshot(),freshness:{status:'VERIFIED_ANCHORED_SYNTHETIC',verifiedAt:new Date().toISOString(),maxAgeSeconds:5,archiveId:'test',sequence:1,headHash:'hash'}}, captureToDecisionMs: 123 }) });
   vi.stubGlobal("fetch", fetch);
   const result = await new BackendRecallDataSource().command("units", { serial: "MTR-TEST" });
   expect(result.captureToDecisionMs).toBe(123);
@@ -33,4 +33,20 @@ it("bounds a hung backend request and aborts its transport", async () => {
 it("also bounds a response whose JSON body never completes", async () => {
   vi.stubGlobal('fetch',vi.fn().mockResolvedValue({ok:true,status:200,json:()=>new Promise(()=>{})}));
   await expect(new BackendRecallDataSource(20).load()).rejects.toThrow('timed out');
+});
+
+it('rejects a successful stale replay instead of treating arrival as verification',async()=>{
+ const snap={...realSnapshot(),freshness:{status:'VERIFIED_ANCHORED_SYNTHETIC',verifiedAt:new Date(Date.now()-60000).toISOString(),maxAgeSeconds:5,archiveId:'test',sequence:1,headHash:'hash'}};
+ vi.stubGlobal('fetch',vi.fn().mockResolvedValue({ok:true,json:async()=>snap}));
+ await expect(new BackendRecallDataSource().load()).rejects.toThrow(/expired/);
+});
+
+it('late older concurrent request cannot overwrite the latest accepted response',async()=>{
+ const snap={...realSnapshot(),freshness:{status:'VERIFIED_ANCHORED_SYNTHETIC',verifiedAt:new Date().toISOString(),maxAgeSeconds:5,archiveId:'test',sequence:1,headHash:'hash'}};
+ let release!:(v:unknown)=>void;
+ vi.stubGlobal('fetch',vi.fn().mockImplementationOnce(()=>new Promise(r=>{release=r;})).mockResolvedValueOnce({ok:true,json:async()=>snap}));
+ const source=new BackendRecallDataSource();const old=source.load();
+ await expect(source.load()).resolves.toBeTruthy();
+ release({ok:true,json:async()=>snap});
+ await expect(old).rejects.toThrow(/Superseded/);
 });

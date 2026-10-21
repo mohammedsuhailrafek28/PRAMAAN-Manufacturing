@@ -70,8 +70,10 @@ class Audit:
 
     def outstanding(self, records=None):
         records = self.verify() if records is None else records
-        resolved = {p['obligationId'] for k,p in records if k == 'OBLIGATION_RESOLVED'}
-        return [p for k,p in records if k == 'OBLIGATION_CREATED' and p['obligationId'] not in resolved]
+        # No independently authenticated resolution exists in this prototype.
+        # Retain old RESOLVED entries as historical claims, not authority to
+        # suppress a pending obligation. Historical decision replay is unchanged.
+        return [p for k,p in records if k == 'OBLIGATION_CREATED']
 
     def decide(self, motor, policy):
         self.db.execute("BEGIN IMMEDIATE")
@@ -129,27 +131,11 @@ class Audit:
             self.db.rollback()
             raise
 
-    def resolve(self, obligation_id, *, principal, evidence_refs, reason, authorize=lambda principal: False):
-        """Trusted control-plane boundary; no HTTP resolution endpoint/identity is invented.
-
-        Default denies everyone. An integrating authenticated authority must supply
-        the authorizer. Resolution records no delivery acknowledgement.
+    def resolve(self, *args, **kwargs):
+        """Disabled. Historical resolution entries replay, but no new resolution
+        is authorized by caller-provided principal, callback or demo identity.
         """
-        if not isinstance(principal,str) or not principal or not authorize(principal) or not isinstance(evidence_refs,list) or not evidence_refs or any(not isinstance(r,str) or not r for r in evidence_refs) or not isinstance(reason,str) or not reason.strip():
-            raise PermissionError('Explicit authority, evidence and reason required')
-        self.db.execute('BEGIN IMMEDIATE')
-        try:
-            records=self.verify()
-            obligation=next((p for p in self.outstanding(records) if p['obligationId']==obligation_id),None)
-            if not obligation:
-                raise ValueError('Outstanding obligation not found')
-            known={e['eventId'] for _,e in self.ledger._verified_rows(obligation['unitId'])}
-            if any(r not in known for r in evidence_refs):
-                raise ValueError('Resolution evidence must reference archived events for this motor')
-            self.append('OBLIGATION_RESOLVED', dict(obligationId=obligation_id, principal=principal, evidenceRefs=evidence_refs, reason=reason))
-            self.db.commit()
-        except Exception:
-            self.db.rollback(); raise
+        raise PermissionError('Notification resolution disabled pending authenticated identity and authorization')
 
     def replay(self, entry):
         records=self.verify()

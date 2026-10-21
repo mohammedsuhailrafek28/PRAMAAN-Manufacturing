@@ -1,5 +1,6 @@
 import type { RecallSnapshot } from "../domain/types";
 import { validateSnapshot } from "../domain/validate";
+import { verifyFreshness } from './freshness';
 
 /**
  * The only seam between the UI and wherever recall decisions come from.
@@ -14,6 +15,15 @@ export interface RecallDataSource {
 
 /** No automatic fixture fallback: a failed backend never supplies stale release decisions. */
 export class BackendRecallDataSource implements RecallDataSource {
+  private previous: RecallSnapshot | null = null;
+  private generation = 0;
+  private accept(body: unknown, generation: number) {
+    const snap = validateSnapshot(body);
+    if (generation !== this.generation) throw new Error('Superseded backend response');
+    verifyFreshness(snap, this.previous);
+    this.previous = snap;
+    return snap;
+  }
   readonly label = "Live SQLite ledger (synthetic manufacturing demo)";
   constructor(private timeoutMs = 4000) {}
   private async request(url: string, init: RequestInit = {}) {
@@ -33,18 +43,20 @@ export class BackendRecallDataSource implements RecallDataSource {
     }
   }
   async load(signal?: AbortSignal): Promise<RecallSnapshot> {
+    const generation = ++this.generation;
     const res = await this.request("/api/snapshot", { signal, cache: "no-store" });
     if (!res.ok) throw new Error(`Ledger unavailable: HTTP ${res.status}`);
-    return validateSnapshot(res.body);
+    return this.accept(res.body, generation);
   }
   async command(path: string, body: Record<string, unknown>) {
+    const generation = ++this.generation;
     const session = (await this.request("/api/session")).body as {token:string};
     const res = await this.request(`/api/${path}`, { method: "POST", headers: {
       "Content-Type": "application/json", "X-Pramaan-Token": session.token,
     }, body: JSON.stringify(body) });
     const result = res.body as {error?:string;snapshot:unknown;captureToDecisionMs:number};
     if (!res.ok) throw new Error(result.error ?? `Capture failed: HTTP ${res.status}`);
-    return { snapshot: validateSnapshot(result.snapshot), captureToDecisionMs: Number(result.captureToDecisionMs) };
+    return { snapshot: this.accept(result.snapshot, generation), captureToDecisionMs: Number(result.captureToDecisionMs) };
   }
 }
 

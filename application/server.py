@@ -19,8 +19,10 @@ class LocalServer(ThreadingHTTPServer):
     daemon_threads = True
 
 
-def make_server(database, port=4173, seed=False):
+def make_server(database, port=4173, seed=False, *, trusted_anchor=None):
     database = Path(database).resolve()
+    from .anchors import TrustedAnchor
+    anchor = TrustedAnchor(trusted_anchor) if trusted_anchor else None
     database.parent.mkdir(parents=True, exist_ok=True)
     service = Manufacturing(database)
     try:
@@ -74,6 +76,9 @@ def make_server(database, port=4173, seed=False):
                 try:
                     app = Manufacturing(database)
                     if mutate:
+                        if anchor is None:
+                            raise LedgerBlocked('Trusted external anchor required for operational commands')
+                        anchor.verify(app)
                         length = int(self.headers.get("Content-Length", "0"))
                         if length <= 0 or length > 1024*1024:
                             raise ValidationFailure("JSON body must be 1..1048576 bytes")
@@ -101,9 +106,11 @@ def make_server(database, port=4173, seed=False):
                                 return self.send(404, {"error": "Unknown command"})
                         else:
                             return self.send(404, {"error": "Unknown command"})
-                        snap = app.snapshot()
+                        snap = app.snapshot(trusted_anchor=anchor)
                         return self.send(200, {"snapshot": snap, "captureToDecisionMs": (time.perf_counter()-started)*1000})
-                    snap = app.snapshot()
+                    if anchor is None and path != '/api/snapshot':
+                        raise LedgerBlocked('Trusted external anchor required; only historical snapshot envelope available')
+                    snap = app.snapshot(trusted_anchor=anchor)
                     if path == "/api/snapshot":
                         return self.send(200, snap)
                     if path == "/api/motors":
@@ -142,8 +149,9 @@ def main():
     parser.add_argument("--database", default=str(ROOT / ".local" / "manufacturing.sqlite"))
     parser.add_argument("--port", type=int, default=4173)
     parser.add_argument("--seed-demo", action="store_true")
+    parser.add_argument("--trusted-anchor", type=Path, help="Owner-custodied external anchor; mandatory for current operational decisions")
     args = parser.parse_args()
-    server = make_server(args.database, args.port, args.seed_demo)
+    server = make_server(args.database, args.port, args.seed_demo, trusted_anchor=args.trusted_anchor)
     print(f"Manufacturing PRAMAAN: http://127.0.0.1:{server.server_port} (local synthetic demo)", flush=True)
     try:
         server.serve_forever()

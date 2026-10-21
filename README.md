@@ -57,3 +57,30 @@ git -C ../gs1-epcis checkout 6f71468231838e424bb5dfa836e006e8dc69615c
 ```
 
 The GS1 checkout stays external and is not distributed here. Without arguments, `application.verify` uses `PRAMAAN_GS1_CHECKOUT` if set, otherwise `../gs1-epcis`. From an activated environment, `python -m application.verify` runs the same complete gate. It verifies pinned schema/context bytes and 126 engine/foundation/integration file hashes without requiring source Git commit objects. It writes results to `docs/phase31-validation/verification`, preserving earlier reports. Gates include the expanded synthetic safety suite and timeout/offline/mobile regressions as well as all original suites. Benchmark reports are synthetic local measurements, not production safety or performance claims.
+# A31 C1–C3 hardening
+
+Operational API decisions now require an explicitly owner-custodied external
+anchor. An unanchored server exposes only a historical snapshot envelope; it
+cannot authorize operational commands or current UI eligibility. Notification
+resolution is disabled, including caller-supplied authorization callbacks.
+
+For an existing, independently reviewed synthetic database:
+
+```powershell
+python -m application.anchors export --database .local/manufacturing.sqlite --anchor C:\owner-custody\checkpoint-001.json
+python -m application.anchors verify --database .local/manufacturing.sqlite --anchor C:\owner-custody\checkpoint-001.json
+python app.py --database .local/manufacturing.sqlite --trusted-anchor C:\owner-custody\checkpoint-001.json
+```
+
+Export creates a new file exclusively; it does not establish trust in that file.
+Its custody and the latest checkpoint must be maintained independently. Verify
+the previous checkpoint before accepting a successor. A valid extension is
+accepted, so rollback of **uncheckpointed** later changes cannot be detected by
+an older reference. Replacing both DB and reference is outside this mechanism's
+trust model. A local writable path is not an authenticated anchor service.
+
+The UI checks server timestamp/maximum age, local lease, request generation,
+archive/journal continuity and evidence/decision regressions. This is bounded
+freshness, not cryptographic protection against a proxy forging fresh metadata.
+See `docs/PHASE31_A31_HARDENING_C1_C3.md` for verification and limitations.
+
