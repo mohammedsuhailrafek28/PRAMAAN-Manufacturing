@@ -7,6 +7,6 @@ test_api_reads_provenance_genealogy_decisions_and_obligations (application.test_
 test_commands_require_local_token_and_no_cross_origin (application.test_application.HttpTests.test_commands_require_local_token_and_no_cross_origin) ... ok
 
 ----------------------------------------------------------------------
-Ran 7 tests in 8.571s
+Ran 7 tests in 8.760s
 
 OK

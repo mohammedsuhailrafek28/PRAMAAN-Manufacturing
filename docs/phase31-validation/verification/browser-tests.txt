@@ -5,48 +5,48 @@
 
 Running 25 tests using 8 workers
 
-  ok  2 tests\e2e\investigation.spec.ts:32:1 â€º case 06 before / after shows the safety improvement (1.9s)
-  ok  4 tests\e2e\investigation.spec.ts:61:1 â€º invalid fixture is refused in the browser (2.5s)
-  ok  3 tests\e2e\investigation.spec.ts:49:1 â€º mobile layout has no horizontal page scroll (3.5s)
-  ok  1 tests\e2e\investigation.spec.ts:9:1 â€º demo workflow: fleet -> unit -> explanation -> history (3.6s)
-  ok  6 tests\e2e\investigation.spec.ts:43:1 â€º lot investigation (3.7s)
-  ok  8 tests\e2e\investigation.spec.ts:84:5 â€º axe: decision (light) (5.5s)
-  ok  9 tests\e2e\investigation.spec.ts:84:5 â€º axe: decision (dark) (4.1s)
-  ok 10 tests\e2e\investigation.spec.ts:84:5 â€º axe: genealogy (light) (3.7s)
-  ok  7 tests\e2e\investigation.spec.ts:84:5 â€º axe: fleet (dark) (6.7s)
-  ok  5 tests\e2e\investigation.spec.ts:84:5 â€º axe: fleet (light) (7.1s)
-  ok 12 tests\e2e\investigation.spec.ts:84:5 â€º axe: history (light) (5.0s)
-  ok 11 tests\e2e\investigation.spec.ts:84:5 â€º axe: genealogy (dark) (5.3s)
-  ok 13 tests\e2e\investigation.spec.ts:84:5 â€º axe: history (dark) (4.9s)
-  ok 14 tests\e2e\investigation.spec.ts:84:5 â€º axe: events (light) (3.8s)
-  ok 18 tests\e2e\investigation.spec.ts:84:5 â€º axe: case06 (light) (4.0s)
-  ok 15 tests\e2e\investigation.spec.ts:84:5 â€º axe: events (dark) (5.2s)
-  ok 22 tests\e2e\live.spec.ts:69:1 â€º backend failure has no implicit fixture fallback (2.4s)
+  ok  3 tests\e2e\investigation.spec.ts:32:1 â€º case 06 before / after shows the safety improvement (5.7s)
+  ok  2 tests\e2e\investigation.spec.ts:43:1 â€º lot investigation (6.5s)
+  ok  6 tests\e2e\investigation.spec.ts:61:1 â€º invalid fixture is refused in the browser (6.9s)
+  ok  4 tests\e2e\investigation.spec.ts:49:1 â€º mobile layout has no horizontal page scroll (7.3s)
+  ok  1 tests\e2e\investigation.spec.ts:9:1 â€º demo workflow: fleet -> unit -> explanation -> history (7.4s)
+  ok 11 tests\e2e\investigation.spec.ts:84:5 â€º axe: genealogy (dark) (3.1s)
+  ok 10 tests\e2e\investigation.spec.ts:84:5 â€º axe: genealogy (light) (3.5s)
+  ok  8 tests\e2e\investigation.spec.ts:84:5 â€º axe: fleet (dark) (10.3s)
+  ok  9 tests\e2e\investigation.spec.ts:84:5 â€º axe: decision (dark) (4.2s)
+  ok  5 tests\e2e\investigation.spec.ts:84:5 â€º axe: fleet (light) (10.5s)
+  ok 12 tests\e2e\investigation.spec.ts:84:5 â€º axe: history (light) (4.3s)
+  ok 13 tests\e2e\investigation.spec.ts:84:5 â€º axe: history (dark) (4.3s)
+  ok  7 tests\e2e\investigation.spec.ts:84:5 â€º axe: decision (light) (13.1s)
+  ok 15 tests\e2e\investigation.spec.ts:84:5 â€º axe: events (dark) (3.3s)
+  ok 18 tests\e2e\investigation.spec.ts:84:5 â€º axe: case06 (light) (3.4s)
+  ok 14 tests\e2e\investigation.spec.ts:84:5 â€º axe: events (light) (3.9s)
+  ok 22 tests\e2e\live.spec.ts:69:1 â€º backend failure has no implicit fixture fallback (936ms)
+  ok 19 tests\e2e\investigation.spec.ts:84:5 â€º axe: case06 (dark) (4.1s)
+  ok 17 tests\e2e\investigation.spec.ts:84:5 â€º axe: lot (dark) (5.5s)
   ok 16 tests\e2e\investigation.spec.ts:84:5 â€º axe: lot (light) (5.7s)
-  ok 17 tests\e2e\investigation.spec.ts:84:5 â€º axe: lot (dark) (5.4s)
-  ok 19 tests\e2e\investigation.spec.ts:84:5 â€º axe: case06 (dark) (3.9s)
-  ok 25 tests\e2e\remediation.spec.ts:41:1 â€º NDE-only affected motor is held by unspecified recall scope through real API (3.6s)
-  ok 21 tests\e2e\live.spec.ts:52:1 â€º live responsive and accessibility review (7.7s)
+  ok 25 tests\e2e\remediation.spec.ts:41:1 â€º NDE-only affected motor is held by unspecified recall scope through real API (3.5s)
+  ok 21 tests\e2e\live.spec.ts:52:1 â€º live responsive and accessibility review (7.6s)
   ok 24 tests\e2e\remediation.spec.ts:23:1 â€º live long identifiers: decision, history and keyboard-scrollable genealogy at 390px (7.3s)
-  ok 23 tests\e2e\remediation.spec.ts:8:1 â€º actual backend shutdown revokes live release presentation (8.7s)
-  ok 20 tests\e2e\live.spec.ts:6:1 â€º live manufacturing capture, genealogy, recall, replacement and late withdrawal (14.4s)
+  ok 23 tests\e2e\remediation.spec.ts:8:1 â€º actual backend shutdown revokes live release presentation (8.3s)
+  ok 20 tests\e2e\live.spec.ts:6:1 â€º live manufacturing capture, genealogy, recall, replacement and late withdrawal (14.3s)
 
-  25 passed (29.7s)
-[WebServer] (node:37860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+  25 passed (34.8s)
+[WebServer] (node:30056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 [WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
-(node:27940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:34952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:3388) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:27920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:27248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:28340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:33220) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:36004) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:4216) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:31036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:35720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:33700) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:15696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:25196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:35836) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:2416) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)

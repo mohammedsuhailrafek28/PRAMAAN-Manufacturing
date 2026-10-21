@@ -44,6 +44,6 @@ test_untrusted_unaffected_verification_never_resolves_ambiguity (integration_tes
 test_watermark_hiding_reference_refused (integration_tests.test_integration.IntegrationTests.test_watermark_hiding_reference_refused) ... ok
 
 ----------------------------------------------------------------------
-Ran 44 tests in 1.991s
+Ran 44 tests in 2.025s
 
 OK

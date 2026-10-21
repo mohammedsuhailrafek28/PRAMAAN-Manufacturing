@@ -1,0 +1,32 @@
+{
+  "testedCodeCommit": "3cf6bc9d91aef92c170feb2a6de1f80ba455cdbe",
+  "cloneCommand": "git clone --no-local --depth 1 --single-branch --branch fix/phase3-safety-remediation <Manufacturing PRAMAAN repository> <fresh directory>",
+  "shallow": true,
+  "missingSourceCommitObjects": {
+    "bc68dc0ca54f4e35b7e14c6ad09f7af28ab3b00c": true,
+    "1620ed3a8c78d7ea41063107666d9482fd93dff9": true
+  },
+  "freshPythonVenv": true,
+  "freshNpmCi": true,
+  "command": ".venv/Scripts/python.exe -m application.verify",
+  "environment": {
+    "PRAMAAN_GS1_CHECKOUT": "external GS1 EPCIS checkout at documented pin"
+  },
+  "exitCode": 0,
+  "testCounts": {
+    "engine": 127,
+    "integration": 44,
+    "application": 7,
+    "remediation": 16,
+    "exporter": 7,
+    "ui": 27,
+    "browser": 25,
+    "foundation": 21
+  },
+  "sourceDiffAfterVerification": [],
+  "artifactChanges": "Only generated docs reports/screenshots; runtime sources unchanged",
+  "logs": "../verification",
+  "scope": "Tested source code is unchanged by final documentation-only delivery commit.",
+  "activatedEquivalent": "python -m application.verify",
+  "cloneTransport": "Local Git pack transport with --no-local --depth 1; no shared objects or worktree reuse"
+}

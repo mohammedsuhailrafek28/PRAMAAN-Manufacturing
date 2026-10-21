@@ -127,6 +127,6 @@ test_untrusted_observation_requires_slot_attribution (tests.test_untrusted_obser
 test_v2_oracle_cases_are_unchanged_under_v3 (tests.test_untrusted_observation.UntrustedObservationBlocker.test_v2_oracle_cases_are_unchanged_under_v3) ... ok
 
 ----------------------------------------------------------------------
-Ran 127 tests in 32.261s
+Ran 127 tests in 33.099s
 
 OK

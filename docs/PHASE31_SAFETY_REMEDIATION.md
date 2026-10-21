@@ -106,7 +106,7 @@ No deletion or overwrite of an earlier database is required. Reports are written
 
 ## Regression gates and synthetic safety
 
-| Gate | Required/expected final result |
+| Gate | Clean-clone result |
 | --- | --- |
 | Existing engine suite | 127 passing; original source bytes unchanged |
 | Foundation interoperability | 21 passing |
@@ -118,9 +118,11 @@ No deletion or overwrite of an earlier database is required. Reports are written
 | Browser | 22 original + 3 live remediation tests = 25 passing |
 | Build/typecheck | TypeScript + Vite production build passing |
 | GS1 | 58 live seed documents plus retained 2 documents / 19 events validated with pinned external schema/context |
-| Clean clone | Complete verifier must pass without imported source commit objects; see committed clean-clone proof/logs |
+| Clean clone | Complete verifier passed without imported source commit objects; see committed clean-clone proof/logs |
 
 The expanded [25-case synthetic suite](phase31-validation/expanded-safety.json) includes the scope Cartesian product, ambiguity, capture gaps, untrusted affected observations, clean replacement, late withdrawal, unknown baseline and double installation. Expected behavior and physical truth live only in test/reporting modules. **25/25 behavioral agreement; 0 false releases among 14 unsafe cases; 3 unnecessary holds among 11 safe cases.** “Unsafe” is relative to the declared recall policy/scope, not every possible manufacturing defect. Cases include successive states and are not independent factory trials.
+
+The complete clean-clone run tested code commit `3cf6bc9d91aef92c170feb2a6de1f80ba455cdbe`, with fresh venv/npm installations and no imported engine/foundation commit objects. The clone used Git pack transport from the local Manufacturing repository with `--no-local --depth 1`, not a shared worktree or borrowed object store. The final evidence commit changes documentation only; runtime sources match the tested code. [Proof](phase31-validation/clean-clone/proof.json), [full summary](phase31-validation/clean-clone/phase31-results.json), and [individual logs](phase31-validation/verification/). Per-database archive IDs intentionally differ across fresh runs; within one history exact reevaluations retain identity and semantic results remain reproducible.
 
 Matched default-scope comparison: baseline four DE/NDE lot combinations had **1 false release among 3 unsafe cases, 0 unnecessary holds among 1 safe case**. After remediation the same four combinations have **0 false releases and 0 unnecessary holds**. The separate, broader 25-case suite intentionally retains three conservative holds where external synthetic truth says safe but evidence is ambiguous/gapped/missing. The retained Phase 2 suite separately has 0 false releases and 3 unnecessary holds across 12 histories; do not add these overlapping synthetic counts as independent trials. Zero in these tests does not prove real factory safety.
 

@@ -7,6 +7,6 @@ test_never_reads_oracle_files (test_export_snapshot.ExportSnapshot.test_never_re
 test_overlay_is_labelled_synthetic_and_outside_the_engine (test_export_snapshot.ExportSnapshot.test_overlay_is_labelled_synthetic_and_outside_the_engine) ... ok
 
 ----------------------------------------------------------------------
-Ran 7 tests in 0.307s
+Ran 7 tests in 0.292s
 
 OK
