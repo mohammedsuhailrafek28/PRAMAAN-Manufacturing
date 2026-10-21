@@ -30,19 +30,21 @@ export function Case06Comparison({ snap, policyId, unitId }: { snap: RecallSnaps
   const rows = snap.comparison.filter((c) => c.policyId === policyId);
   const sel = rows.find((c) => c.unitId === unitId) ?? rows[0];
   const p1 = policyId === P1;
+  const live = snap.provenance.dataKind === "LIVE_LEDGER_SYNTHETIC";
   const legacyFalse = rows.filter((r) => isFalseRelease(r, "legacy")).length;
   const currentFalse = rows.filter((r) => isFalseRelease(r, "current")).length;
   const att = sel?.current.slotAttribution?.[0];
 
   return (
     <div>
-      <h2>Case 06 before and after: slot attribution safety</h2>
+      <h2>{live ? "Live case comparison: slot attribution safety" : "Case 06 before and after: slot attribution safety"}</h2>
       <p>
         Left is the original engine semantics ({snap.provenance.comparisonEngine.version}); right is the current engine ({snap.provenance.engine.version}).
         Both ran over the same synthetic events. Wrong-slot scans are the case: a removal that matches two slots must not clear the wrong one.
       </p>
       {rows.length === 0 && <p className="warn" role="alert">No comparison data in the snapshot.</p>}
-      {!p1 && <p className="callout">Synthetic ground truth is defined for {POLICY_LABEL[P1]} only, so safety labels are shown for P1. Switch policy to see them.</p>}
+      {!p1 && !live && <p className="callout">Synthetic ground truth is defined for {POLICY_LABEL[P1]} only, so safety labels are shown for P1. Switch policy to see them.</p>}
+      {live && <p className="callout">Both verdicts are evaluated from the same ledger events. No ground truth is supplied to either evaluator. Safety scores are measured separately in test tooling.</p>}
 
       {rows.length > 0 && (
         <>

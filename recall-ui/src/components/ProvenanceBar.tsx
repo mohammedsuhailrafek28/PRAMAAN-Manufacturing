@@ -9,17 +9,18 @@ export function ProvenanceBar({ snap, policyId, onPolicy, sourceLabel }: {
   sourceLabel: string;
 }) {
   const p = snap.provenance;
+  const live = p.dataKind === "LIVE_LEDGER_SYNTHETIC";
   return (
     <section className="provenance" aria-label="Data provenance">
       <div className="prov-row">
-        <span className="tag synthetic">Synthetic fixtures. Not real production data.</span>
+        <span className="tag synthetic">{live ? "Live ledger. Synthetic manufacturing data; not production." : "Synthetic fixtures. Not real production data."}</span>
         <span>
           Decisions by recall engine <b>{p.engine.version}</b> ({p.engine.semanticsProfile}). Source: {sourceLabel}.
         </span>
       </div>
       <div className="prov-row">
         <span>
-          Recall <b>{snap.recall.recallId}</b> v{snap.recall.version}, announced {fmtTime(snap.recall.announcedAt)}. Affected part{" "}
+          Recall <b>{snap.recall.recallId}</b> v{snap.recall.version}, {snap.recall.announcedAt ? `announced ${fmtTime(snap.recall.announcedAt)}` : "not announced; no recall decisions issued"}. Affected part{" "}
           <b>{snap.recall.affectedPart}</b>, lots {snap.recall.affectedLots.join(", ")}, slots {snap.recall.affectedSlots.join(", ")}.
         </span>
       </div>
@@ -32,7 +33,7 @@ export function ProvenanceBar({ snap, policyId, onPolicy, sourceLabel }: {
             </option>
           ))}
         </select>
-        <span className="muted">Shipments and suppliers are a synthetic overlay, not engine output.</span>
+        <span className="muted">{live ? "Supplier and shipment links require ledger events. Physical truth is not independently certified." : "Shipments and suppliers are a synthetic overlay, not engine output."}</span>
       </div>
     </section>
   );

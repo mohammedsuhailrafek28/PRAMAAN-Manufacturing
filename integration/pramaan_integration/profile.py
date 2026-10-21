@@ -23,7 +23,7 @@ FIELDS = {"eventType", "schemaVersion", "sourceId", "sourceSeq", "motorSerial",
 TYPES = {"WORK_ORDER_OPENED", "WORK_ORDER_CLOSED", "COMPONENT_INSTALLED",
          "COMPONENT_REMOVED", "SLOT_STATE_VERIFIED", "SLOT_LABEL_SCANNED",
          "SLOT_ACCESS_EVIDENCE", "CAPTURE_EXCEPTION_RAISED", "CAPTURE_EXCEPTION_RESOLVED",
-         "INSPECTION_RECORDED"}
+         "INSPECTION_RECORDED", "MATERIAL_ALLOCATED", "BEARING_MANUFACTURED", "MOTOR_SHIPPED"}
 # Only shape validation for the supported wire profile. Semantics are checked below.
 SCHEMA = {"type": "object", "additionalProperties": False,
           "required": ["@context", "type", "schemaVersion", "creationDate", "epcisBody"],
@@ -149,6 +149,17 @@ def validate_native(e):
             raise ValidationFailure("Explicit inspector qualification list required")
         if not isinstance(p.get("scope"), list) or not p["scope"]:
             raise ValidationFailure("Inspection scope required")
+    if kind == "MATERIAL_ALLOCATED":
+        for key in ("rawMaterialLot", "supplierId", "supplierName"):
+            text(p.get(key), key)
+    if kind == "BEARING_MANUFACTURED":
+        for key in ("rawMaterialLot", "supplierId", "part", "lot"):
+            text(p.get(key), key)
+        uri(p.get("materialEventId"))
+    if kind == "MOTOR_SHIPPED":
+        for key in ("shipmentId", "customer", "destination"):
+            text(p.get(key), key)
+        uri(p.get("assemblyEventId"))
     return e
 
 

@@ -11,4 +11,10 @@ uploads/
 .tmp-*
 .DS_Store
 *.log
+.venv/
+.local/
+__pycache__/
+*.pyc
+test-results/
+playwright-report/
 

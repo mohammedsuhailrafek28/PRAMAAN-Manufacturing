@@ -162,13 +162,22 @@ class Ledger:
                     raise ValidationFailure("Noncontiguous source sequence or recordedAt regression")
                 for ref, event_type in ((e["supersedesEventId"], e["eventType"]),
                                         (e["payload"].get("endsInstallEventId"), "COMPONENT_INSTALLED"),
-                                        (e["payload"].get("exceptionEventId"), "CAPTURE_EXCEPTION_RAISED")):
+                                        (e["payload"].get("exceptionEventId"), "CAPTURE_EXCEPTION_RAISED"),
+                                        (e["payload"].get("materialEventId"), "MATERIAL_ALLOCATED"),
+                                        (e["payload"].get("manufacturingEventId"), "BEARING_MANUFACTURED"),
+                                        (e["payload"].get("assemblyEventId"), "WORK_ORDER_CLOSED")):
                     if ref:
                         target = known.get(ref)
                         if not target or target["eventType"] != event_type or target["recordedAt"] > e["recordedAt"]:
                             raise ValidationFailure("Missing or incompatible event reference")
-                        if e["payload"].get("slot") != target["payload"].get("slot"):
+                        if ref in (e["supersedesEventId"], e["payload"].get("endsInstallEventId")) and e["payload"].get("slot") != target["payload"].get("slot"):
                             raise ValidationFailure("Cross-position reference")
+                        if event_type == "BEARING_MANUFACTURED" and any(e["payload"].get(k) != target["payload"].get(k) for k in ("part", "lot", "serial")):
+                            raise ValidationFailure("Manufactured bearing identity mismatch")
+                        if event_type == "MATERIAL_ALLOCATED" and any(e["payload"].get(k) != target["payload"].get(k) for k in ("rawMaterialLot", "supplierId")):
+                            raise ValidationFailure("Material provenance mismatch")
+                        if e["eventType"] == "MOTOR_SHIPPED" and target["payload"].get("disposition") != "COMPLETED":
+                            raise ValidationFailure("Shipment references incomplete assembly")
                 if any(ref not in known for ref in e["payload"].get("derivedFromEventIds", [])):
                     raise ValidationFailure("Unknown verification provenance reference")
                 if e["eventType"] != "WORK_ORDER_OPENED" and e["workOrderId"] is not None:
@@ -238,7 +247,7 @@ class Ledger:
                 raise LedgerBlocked("Watermark prefix incomplete, including an absent source")
         visible = {e["eventId"] for _, e in rows}
         for _, e in rows:
-            for ref in (e["supersedesEventId"], e["payload"].get("endsInstallEventId"), e["payload"].get("exceptionEventId")):
+            for ref in (e["supersedesEventId"], e["payload"].get("endsInstallEventId"), e["payload"].get("exceptionEventId"), e["payload"].get("materialEventId"), e["payload"].get("manufacturingEventId"), e["payload"].get("assemblyEventId")):
                 if ref and ref not in visible:
                     raise LedgerBlocked("Watermark hides referenced evidence")
         manifest = [dict(eventId=e["eventId"], hash=r["hash"], captureSha256=r["capture"]) for r, e in rows]

@@ -26,7 +26,7 @@ export function EventLog({ unit, decision }: { unit: Unit; decision: Decision | 
               <td data-label="Type">{humanize(e.eventType)}{e.supersedesEventId ? <div className="muted">corrects {e.supersedesEventId}</div> : null}</td>
               <td data-label="Occurred">{fmtTime(e.occurredAt)}<div className="muted">{humanize(e.timeSource)}</div></td>
               <td data-label="Recorded">{fmtTime(e.recordedAt)}</td>
-              <td data-label="Detail">{summary(e.payload)}</td>
+              <td data-label="Detail">{summary(e.payload)}<details><summary>Inspect event provenance</summary><pre>{JSON.stringify(e, null, 2)}</pre></details></td>
               <td data-label="Cited">{cited.has(e.eventId) ? "Yes" : <span className="muted">No</span>}</td>
             </tr>
           ))}

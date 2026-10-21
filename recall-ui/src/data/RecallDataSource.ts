@@ -9,6 +9,26 @@ import { validateSnapshot } from "../domain/validate";
 export interface RecallDataSource {
   readonly label: string;
   load(signal?: AbortSignal): Promise<RecallSnapshot>;
+  command?(path: string, body: Record<string, unknown>): Promise<{ snapshot: RecallSnapshot; captureToDecisionMs: number }>;
+}
+
+/** No automatic fixture fallback: a failed backend never supplies stale release decisions. */
+export class BackendRecallDataSource implements RecallDataSource {
+  readonly label = "Live SQLite ledger (synthetic manufacturing demo)";
+  async load(signal?: AbortSignal): Promise<RecallSnapshot> {
+    const res = await fetch("/api/snapshot", { signal, cache: "no-store" });
+    if (!res.ok) throw new Error(`Ledger unavailable: HTTP ${res.status}`);
+    return validateSnapshot(await res.json());
+  }
+  async command(path: string, body: Record<string, unknown>) {
+    const session = await fetch("/api/session").then(r => r.json());
+    const res = await fetch(`/api/${path}`, { method: "POST", headers: {
+      "Content-Type": "application/json", "X-Pramaan-Token": session.token,
+    }, body: JSON.stringify(body) });
+    const result = await res.json();
+    if (!res.ok) throw new Error(result.error ?? `Capture failed: HTTP ${res.status}`);
+    return { snapshot: validateSnapshot(result.snapshot), captureToDecisionMs: Number(result.captureToDecisionMs) };
+  }
 }
 
 export class FixtureSnapshotSource implements RecallDataSource {

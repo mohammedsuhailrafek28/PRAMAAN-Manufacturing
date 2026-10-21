@@ -1,0 +1,55 @@
+
+> recall-investigation-ui@0.1.0 test:e2e
+> playwright test
+
+node.exe : [WebServer] (node:30520) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 22 tests using 8 workers
+
+(node:11192) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:30488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:30640) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  5 tests\e2e\investigation.spec.ts:61:1 › invalid fixture is refused in the browser (2.8s)
+  ok  2 tests\e2e\investigation.spec.ts:32:1 › case 06 before / after shows the safety improvement (2.8s)
+  ok  3 tests\e2e\investigation.spec.ts:43:1 › lot investigation (2.9s)
+  ok  1 tests\e2e\investigation.spec.ts:9:1 › demo workflow: fleet -> unit -> explanation -> history (3.5s)
+  ok  4 tests\e2e\investigation.spec.ts:49:1 › mobile layout has no horizontal page scroll (4.1s)
+  ok  6 tests\e2e\investigation.spec.ts:84:5 › axe: decision (light) (5.9s)
+  ok 11 tests\e2e\investigation.spec.ts:84:5 › axe: genealogy (dark) (3.8s)
+  ok 10 tests\e2e\investigation.spec.ts:84:5 › axe: genealogy (light) (3.9s)
+  ok  9 tests\e2e\investigation.spec.ts:84:5 › axe: decision (dark) (4.2s)
+  ok  7 tests\e2e\investigation.spec.ts:84:5 › axe: fleet (light) (7.2s)
+  ok  8 tests\e2e\investigation.spec.ts:84:5 › axe: fleet (dark) (7.2s)
+  ok 12 tests\e2e\investigation.spec.ts:84:5 › axe: history (light) (4.3s)
+  ok 13 tests\e2e\investigation.spec.ts:84:5 › axe: history (dark) (5.2s)
+  ok 14 tests\e2e\investigation.spec.ts:84:5 › axe: events (light) (4.2s)
+  ok 19 tests\e2e\investigation.spec.ts:84:5 › axe: case06 (dark) (3.7s)
+  ok 15 tests\e2e\investigation.spec.ts:84:5 › axe: events (dark) (4.5s)
+  ok 18 tests\e2e\investigation.spec.ts:84:5 › axe: case06 (light) (4.0s)
+  ok 22 tests\e2e\live.spec.ts:69:1 › backend failure has no implicit fixture fallback (1.1s)
+  ok 17 tests\e2e\investigation.spec.ts:84:5 › axe: lot (dark) (4.8s)
+  ok 16 tests\e2e\investigation.spec.ts:84:5 › axe: lot (light) (5.0s)
+  ok 21 tests\e2e\live.spec.ts:52:1 › live responsive and accessibility review (4.9s)
+  ok 20 tests\e2e\live.spec.ts:6:1 › live manufacturing capture, genealogy, recall, replacement and late withdrawal (8.5s)
+
+  22 passed (24.1s)

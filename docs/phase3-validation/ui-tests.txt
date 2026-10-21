@@ -1,0 +1,12 @@
+
+> recall-investigation-ui@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/unified-app/recall-ui
+
+
+ Test Files  4 passed (4)
+      Tests  25 passed (25)
+   Start at  15:15:32
+   Duration  3.43s (environment 65%, tests 15%, setup 11%, import 6%, transform 3%, worker 1%)

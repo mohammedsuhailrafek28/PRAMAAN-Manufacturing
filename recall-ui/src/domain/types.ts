@@ -102,6 +102,7 @@ export interface PolicyDecisions {
   history: Decision[];
 }
 export interface EventRecord {
+  repository?: { captureSha256: string; eventChainHash: string; localReceivedAt: string; recordTime: string };
   eventId: string;
   eventType: string;
   sourceId: string;
@@ -187,7 +188,7 @@ export interface RecallSnapshot {
   recall: {
     recallId: string;
     version: number;
-    announcedAt: string;
+    announcedAt: string | null;
     affectedPart: string;
     affectedLots: string[];
     affectedSlots: string[];
@@ -198,4 +199,7 @@ export interface RecallSnapshot {
   comparison: Comparison[];
   components: Component[];
   lots: Lot[];
+  lineage?: Array<{ unitId: string; rawMaterialLot: string; supplierName: string; lot: string; serial?: string; materialEventId: string; manufacturingEventId: string }>;
+  notifications?: Array<NotificationObligation & { unitId: string; decisionId: string; deliveryStatus: string }>;
+  recallAnnounced?: boolean;
 }

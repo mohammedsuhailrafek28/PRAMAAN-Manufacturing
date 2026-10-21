@@ -148,3 +148,13 @@ table.grid { width: 100%; border-collapse: collapse; background: var(--surface);
   table.responsive td[data-label]::before { content: attr(data-label); display: block; font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; }
   .chip { min-width: 0; }
 }
+.workbench { margin: 1rem 0; padding: 1rem; border: 1px solid var(--border); background: var(--surface); }
+.workbench summary { font-weight: 700; cursor: pointer; }
+.workbench fieldset { min-width: 0; margin: 1rem 0; border: 1px solid var(--border); padding: 1rem; }
+.workbench legend { font-weight: 650; }
+.workbench form { display: flex; flex-wrap: wrap; align-items: end; gap: .8rem; margin: .8rem 0; }
+.workbench label { display: grid; gap: .3rem; max-width: 100%; }
+.workbench input, .workbench select { max-width: 100%; min-height: 42px; padding: .5rem; font: inherit; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 4px; }
+.workbench button { min-height: 42px; white-space: normal; }
+code { overflow-wrap: anywhere; }
+@media (max-width: 720px) { .workbench form { align-items: stretch; flex-direction: column; } .workbench input, .workbench select { width: 100%; } }

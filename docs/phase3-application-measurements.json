@@ -1,0 +1,66 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10",
+  "methodology": "File-backed SQLite WAL; deterministic 5-motor seed plus 1 serial motor; 3 warm-up fleet snapshots; 20 sequential six-capture replacements followed by verified full-fleet snapshot/evaluation; perf_counter; no concurrent clients or production SLA claim. Motor ledger grows each iteration; query/evaluation samples use that growing motor.",
+  "motors": 6,
+  "finalEvents": 186,
+  "measuredReplacementEvents": 120,
+  "captureToFleetDecision": {
+    "samples": 20,
+    "p50Ms": 1460.891,
+    "p95Ms": 3061.802,
+    "maxMs": 3750.555
+  },
+  "validatedGenealogy": {
+    "samples": 20,
+    "p50Ms": 87.937,
+    "p95Ms": 159.43,
+    "maxMs": 241.122
+  },
+  "persistedEvaluation": {
+    "samples": 20,
+    "p50Ms": 572.902,
+    "p95Ms": 1969.721,
+    "maxMs": 2035.366
+  },
+  "safetyScope": "Five seeded synthetic histories, current DE policy only. Truth externally authored; assumed late observation describes an actually affected item. Manufacturing genealogy claims do not certify physical truth.",
+  "safetyCases": [
+    {
+      "motor": "MTR-26001",
+      "syntheticUnsafe": true,
+      "action": "RECALL_HOLD",
+      "falseRelease": false,
+      "unnecessaryHold": false
+    },
+    {
+      "motor": "MTR-26002",
+      "syntheticUnsafe": false,
+      "action": "RECALL_HOLD",
+      "falseRelease": false,
+      "unnecessaryHold": true
+    },
+    {
+      "motor": "MTR-26003",
+      "syntheticUnsafe": false,
+      "action": "RELEASE_ELIGIBLE",
+      "falseRelease": false,
+      "unnecessaryHold": false
+    },
+    {
+      "motor": "MTR-26004",
+      "syntheticUnsafe": false,
+      "action": "RECALL_HOLD",
+      "falseRelease": false,
+      "unnecessaryHold": true
+    },
+    {
+      "motor": "MTR-26005",
+      "syntheticUnsafe": true,
+      "action": "RECALL_HOLD",
+      "falseRelease": false,
+      "unnecessaryHold": false
+    }
+  ],
+  "falseReleases": 0,
+  "unnecessaryHolds": 2
+}

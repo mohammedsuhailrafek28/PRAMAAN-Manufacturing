@@ -32,7 +32,7 @@ export function GenealogyGraph({ snap, unitId }: { snap: RecallSnapshot; unitId:
             {components.length} component install records link supplier lots to motor {unit.motorSerial}
             {unit.shipment ? ` and synthetic shipment ${unit.shipment.shipmentId}` : ", which has no shipment"}.
           </desc>
-          {(["Supplier lot", "Component install", "Motor", "Shipment (synthetic overlay)"] as const).map((t, i) => (
+          {(["Supplier lot", "Component install", "Motor", unit.shipment?.backedByLedger ? "Shipment (ledger evidence)" : "Shipment (synthetic overlay)"]).map((t, i) => (
             <text key={t} x={[COLS.lot, COLS.comp, COLS.motor, COLS.ship][i]} y={24} className="g-head">{t}</text>
           ))}
 
@@ -45,7 +45,7 @@ export function GenealogyGraph({ snap, unitId }: { snap: RecallSnapshot; unitId:
               </g>
             );
           })}
-          <line x1={COLS.motor + 190} y1={motorY + 28} x2={COLS.ship} y2={motorY + 28} className="g-edge g-synthetic" />
+          {unit.shipment && <line x1={COLS.motor + 190} y1={motorY + 28} x2={COLS.ship} y2={motorY + 28} className={`g-edge ${unit.shipment.backedByLedger ? "" : "g-synthetic"}`} />}
 
           {lots.map((l) => {
             const y = lotY(l.lotId);
@@ -53,7 +53,7 @@ export function GenealogyGraph({ snap, unitId }: { snap: RecallSnapshot; unitId:
               <g key={l.lotId} transform={`translate(${COLS.lot},${y})`}>
                 <rect width={190} height={48} rx={4} className={`g-node ${l.affected ? "g-affected" : ""}`} />
                 <text x={8} y={20} className="g-title">Lot {l.lotId}{l.affected ? " ▲" : ""}</text>
-                <text x={8} y={38} className="g-sub">{l.affected ? "Recalled" : "Not recalled"} · {clip(l.supplier ?? "supplier unknown", 34)}</text>
+                <text x={8} y={38} className="g-sub"><title>{l.supplier ?? "supplier unknown"}</title>{clip(`${l.affected ? "Recalled" : "Not recalled"} · ${l.supplier ?? "supplier unknown"}`, 24)}</text>
               </g>
             );
           })}
@@ -75,11 +75,11 @@ export function GenealogyGraph({ snap, unitId }: { snap: RecallSnapshot; unitId:
           </g>
 
           <g transform={`translate(${COLS.ship},${motorY})`}>
-            <rect width={200} height={56} rx={4} className="g-node g-dashed g-synthetic" />
+            <rect width={200} height={56} rx={4} className={`g-node ${unit.shipment?.backedByLedger ? "" : "g-dashed g-synthetic"}`} />
             {unit.shipment ? (
               <>
-                <text x={8} y={22} className="g-title">{unit.shipment.shipmentId} · {unit.shipment.shippedAt.slice(0, 10)}</text>
-                <text x={8} y={42} className="g-sub">{clip(unit.shipment.customer, 34)}</text>
+                <text x={8} y={22} className="g-title"><title>{unit.shipment.shipmentId} · {unit.shipment.shippedAt}</title>{clip(unit.shipment.shipmentId, 23)}</text>
+                <text x={8} y={42} className="g-sub"><title>{unit.shipment.customer}</title>{clip(unit.shipment.customer, 25)}</text>
               </>
             ) : (
               <text x={8} y={32} className="g-sub">Not shipped</text>
@@ -107,6 +107,7 @@ export function GenealogyGraph({ snap, unitId }: { snap: RecallSnapshot; unitId:
           </tbody>
         </table>
       </details>
+      {snap.lineage && <section aria-label="Supplier and raw material provenance"><h3>Ledger-backed material genealogy</h3><p>Synthetic supplier claims, archived as events; no quantity or physical-origin certification is implied.</p><ul className="plain">{snap.lineage.filter(l => l.unitId === unitId).map(l => <li key={l.manufacturingEventId}><b>{l.rawMaterialLot}</b> → {l.supplierName} → bearing lot <b>{l.lot}</b>{l.serial ? ` / ${l.serial}` : " (lot identity only)"}<details><summary>Supporting provenance events</summary><code>{l.materialEventId}</code><br/><code>{l.manufacturingEventId}</code></details></li>)}</ul>{unit.shipment?.backedByLedger === true && <p>Shipment evidence: <code>{String(unit.shipment.evidenceEventId)}</code>. Shipment capture is not a release authorization.</p>}</section>}
     </div>
   );
 }
