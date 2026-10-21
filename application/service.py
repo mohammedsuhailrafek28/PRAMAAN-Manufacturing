@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT / "integration"))
 from pramaan_integration import Ledger, LedgerBlocked, ValidationFailure, encode_document
 from pramaan_integration.profile import digest
 from pramaan_integration import engine_bridge
+from .audit import Audit
 
 RECALL_ID = "RC-026-014"
 PART = "BR-6205"
@@ -44,6 +45,11 @@ class Manufacturing:
         for action in ("UPDATE", "DELETE"):
             self.db.execute(f"CREATE TRIGGER IF NOT EXISTS announcements_no_{action.lower()} BEFORE {action} ON recall_announcements BEGIN SELECT RAISE(ABORT,'immutable recall policy'); END")
         self.db.commit()
+        try:
+            self.audit = Audit(self.ledger)
+        except Exception:
+            self.ledger.close()
+            raise
 
     def close(self):
         self.ledger.close()
@@ -85,7 +91,7 @@ class Manufacturing:
                 labelScanSources=[], approvedVerificationMethods=["SERIAL_MARKING_VISUAL", "LOT_LABEL_AND_MARKING_VISUAL"],
                 authorizedVerifierActors=[ROLES["QA"][0]], accessEvidenceSources=[self.source("QA", serial)],
                 approvedAccessMethods=["STATION_FIXTURE_RECORD"], observationClockSkewSeconds=300,
-                trustedTimeSources=["DEVICE_SYNCED"]))
+                trustedTimeSources=[]))
         self.ledger.register_motor(serial, sources=sources, sessions=sessions, coverage=coverage)
         with self.db:
             self.db.execute("INSERT INTO app_units VALUES(?,?)", (serial, str(title)[:200]))
@@ -102,7 +108,7 @@ class Manufacturing:
         event = dict(eventId=f"urn:pramaan:{motor}:{role}:{wm[source]+1}", eventType=kind,
                      schemaVersion=1, motorSerial=motor, sourceId=source, sourceSeq=wm[source]+1,
                      occurredAt=occurred or at, recordedAt=(datetime.strptime(at, "%Y-%m-%dT%H:%M:%SZ")+timedelta(seconds=4)).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                     actorId=ROLES[role][0], timeSource="DEVICE_SYNCED", evidenceRefs=[f"demo-record:{motor}:{role}:{wm[source]+1}"],
+                     actorId=ROLES[role][0], timeSource="SYNTHETIC_SIMULATED", evidenceRefs=[f"demo-record:{motor}:{role}:{wm[source]+1}"],
                      workOrderId=work_order, recallId=None, supersedesEventId=supersedes,
                      captureSessionId=f"session:{source}", payload=payload)
         # Three distinct clocks: occurrence, producer record, simulated upstream
@@ -149,17 +155,24 @@ class Manufacturing:
             shipmentId=f"SHP-26-{motor.removeprefix('MTR-')}", customer="Aster Pump Systems — synthetic customer",
             destination="Coimbatore distribution centre", assemblyEventId=closed["eventId"]))
 
-    def announce(self, affected_lot):
+    def announce(self, affected_lot, affected_slots=None):
         if not isinstance(affected_lot, str) or not affected_lot or len(affected_lot)>80:
             raise ValidationFailure("An affected bearing lot is required")
+        if affected_slots is None:
+            slots = ["DE", "NDE"]
+        elif not isinstance(affected_slots, list) or not affected_slots or any(type(s) is not str or s not in ("DE", "NDE") for s in affected_slots) or len(set(affected_slots)) != len(affected_slots):
+            raise ValidationFailure("Scope must be a nonempty unique list containing DE, NDE or both")
+        else:
+            slots = sorted(affected_slots, key=("DE", "NDE").index)
         old = self.policy()
-        if old and old["affectedLots"] == [affected_lot]:
+        if old and old["affectedLots"] == [affected_lot] and old['affectedSlots'] == slots:
             return old
         if old:
             raise ValidationFailure("This local demonstration supports one immutable recall scope per database; use a new database for another affected lot")
         at = self.tick("2026-10-20T08:00:00Z")
         policy = dict(policyId=RECALL_ID+"/P1", recallId=RECALL_ID, version=(old["version"]+1 if old else 1),
-                      announcedAt=at, affectedPart=PART, affectedLots=[affected_lot], affectedSlots=["DE"],
+                      announcedAt=at, affectedPart=PART, affectedLots=[affected_lot], affectedSlots=slots,
+                      scopeDeclaration="ALL_COMPATIBLE_POSITIONS" if affected_slots is None else "EXPLICIT_POSITIONS",
                       exposureBasis="CURRENT_INSTALLATION", damageInspection=None)
         with self.db:
             self.db.execute("INSERT INTO recall_announcements VALUES(?,?,?)", (policy["version"], json.dumps(policy), digest(policy)))
@@ -172,6 +185,8 @@ class Manufacturing:
         policy = json.loads(row["policy"])
         if digest(policy) != row["hash"]:
             raise LedgerBlocked("Recall policy integrity mismatch")
+        if 'scopeDeclaration' not in policy:
+            raise LedgerBlocked('Legacy recall scope is not attested; historical replay remains available, current clearance requires an explicitly scoped new database')
         return policy
 
     def replace(self, motor, lot):
@@ -214,7 +229,7 @@ class Manufacturing:
                  ("MTR-26005", "Untrusted affected-bearing observation", "BR-310", "BR-312", "SERIAL", False)]
         for serial, title, de, nde, identity, gap in specs:
             self.create_unit(serial, title, gap=gap); self.assemble(serial, de, nde, identity); self.ship(serial)
-        self.announce("BR-204")
+        self.announce("BR-204", ["DE"])
         self.snapshot()  # issue pre-rework records using the actual evaluator
         self.replace("MTR-26002", "BR-312")
         self.replace("MTR-26004", "BR-312")
@@ -222,6 +237,7 @@ class Manufacturing:
         self.snapshot()
 
     def snapshot(self):
+        self.audit.verify()
         policy = self.policy()
         units, components, lots, decisions, comparison, lineage, notifications = [], [], {}, {}, [], [], []
         for unit in self.db.execute("SELECT serial,title FROM app_units ORDER BY serial").fetchall():
@@ -237,7 +253,7 @@ class Manufacturing:
             shipment = None
             if shipped:
                 e = shipped[-1]
-                shipment = dict(e["payload"], shippedAt=e["occurredAt"], evidenceEventId=e["eventId"], backedByLedger=True)
+                shipment = dict(e["payload"], shippedAt=e["occurredAt"], evidenceEventId=e["eventId"], backedByLedger=True, provenanceAssurance="SYNTHETIC_UNVERIFIED_CLAIM")
             units.append(dict(unitId=motor, motorSerial=motor, title=unit["title"], description="Synthetic electric-motor manufacturing history captured in the durable ledger.",
                               family="Electric motors · IE3", fixtureSet="LIVE_LEDGER_SYNTHETIC", shipment=shipment,
                               eventCount=len(events), events=ui_events, captureSessions=case["captureCoverage"]["sessions"], manifest=manifest))
@@ -245,8 +261,8 @@ class Manufacturing:
                 p = e["payload"]
                 if e["eventType"] == "BEARING_MANUFACTURED":
                     allocated = by_id[p["materialEventId"]]
-                    lots[p["lot"]] = dict(lotId=p["lot"], part=p["part"], affected=bool(policy and p["lot"] in policy["affectedLots"]), supplier=allocated["payload"]["supplierName"], rawMaterialLot=p["rawMaterialLot"], evidenceEventId=e["eventId"], backedByLedger=True)
-                    lineage.append(dict(unitId=motor, **p, manufacturingEventId=e["eventId"], supplierName=allocated["payload"]["supplierName"], backedByLedger=True))
+                    lots[p["lot"]] = dict(lotId=p["lot"], part=p["part"], affected=bool(policy and p["lot"] in policy["affectedLots"]), supplier=allocated["payload"]["supplierName"], rawMaterialLot=p["rawMaterialLot"], evidenceEventId=e["eventId"], backedByLedger=True, provenanceAssurance="SYNTHETIC_UNVERIFIED_CLAIM")
+                    lineage.append(dict(unitId=motor, **p, manufacturingEventId=e["eventId"], supplierName=allocated["payload"]["supplierName"], backedByLedger=True, provenanceAssurance="SYNTHETIC_UNVERIFIED_CLAIM"))
                 if e["eventType"] == "COMPONENT_INSTALLED":
                     removal = next((x for x in events if x["eventType"] == "COMPONENT_REMOVED" and x["payload"].get("endsInstallEventId") == e["eventId"]), None)
                     correction = next((x for x in events if x["supersedesEventId"] == e["eventId"]), None)
@@ -255,16 +271,11 @@ class Manufacturing:
                                            removalEventId=removal["eventId"] if removal else None, supersededBy=correction["eventId"] if correction else None, claimedBy=e["actorId"]))
             decisions[motor] = {}
             if policy:
-                # Read/display is not a delivered notification; communication remains unknown.
-                bundle = self.ledger.decide(motor, policy, [wm])[0]
-                stored = self.db.execute("SELECT payload FROM decision_runs WHERE motor=? AND policy_hash=? ORDER BY ordinal DESC LIMIT 1", (motor, digest(policy))).fetchone()
-                history = [b["decision"] for b in json.loads(stored[0])["bundles"] if not b["decision"].get("unchanged")]
-                decisions[motor][policy["policyId"]] = dict(current=bundle["decision"], history=history)
-                if bundle["decision"].get("notificationObligation"):
-                    notifications.append(dict(unitId=motor, decisionId=bundle["decision"]["decisionId"], **bundle["decision"]["notificationObligation"], deliveryStatus="NOT_SENT"))
+                entry, history = self.audit.decide(motor, policy)
+                decisions[motor][policy["policyId"]] = dict(current=entry["decision"], history=history)
                 legacy = engine_bridge.pramaan_recall.evaluate_series(case, policy, self.ledger._config(motor)["coverage"], [wm], engine_bridge.Config.legacy())[-1]
                 if any(d["reasonCodes"] and "AMBIGUOUS_SLOT_ATTRIBUTION" in d["reasonCodes"] for d in history):
-                    comparison.append(dict(unitId=motor, policyId=policy["policyId"], legacy=legacy, current=bundle["decision"]))
+                    comparison.append(dict(unitId=motor, policyId=policy["policyId"], legacy=legacy, current=entry["decision"]))
         return dict(schemaVersion=1, provenance=dict(dataKind="LIVE_LEDGER_SYNTHETIC", adapter="BackendRecallDataSource → SQLite → actual v3",
                     engine=dict(version="phase1.2-untrusted-observation", semanticsProfile="UNTRUSTED_OBSERVATION_V3"),
                     comparisonEngine=dict(version="phase1-0.1", semanticsProfile="P1_LEGACY"), fixtureManifests={},
@@ -272,4 +283,5 @@ class Manufacturing:
                     recall=policy or dict(recallId=RECALL_ID, version=0, announcedAt=None, affectedPart=PART, affectedLots=[], affectedSlots=["DE"]),
                     policies=[dict(policyId=policy["policyId"], exposureBasis=policy["exposureBasis"], damageInspection=None)] if policy else [],
                     units=units, decisions=decisions, comparison=comparison, components=components, lots=list(lots.values()),
-                    lineage=lineage, notifications=notifications, recallAnnounced=bool(policy))
+                    lineage=lineage, notifications=self.audit.outstanding(), recallAnnounced=bool(policy),
+                    freshness=dict(verifiedAt=self.ledger._now(), status="VERIFIED_LOCAL_SYNTHETIC", maxAgeSeconds=5))

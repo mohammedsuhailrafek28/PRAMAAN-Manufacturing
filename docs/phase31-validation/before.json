@@ -1,0 +1,44 @@
+{
+  "ndeRecall": {
+    "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+    "operationalAction": "RELEASE_ELIGIBLE"
+  },
+  "notificationBefore": [
+    {
+      "unitId": "MTR-26005",
+      "decisionId": "D-MTR-26005-P1-v2",
+      "required": true,
+      "reason": "PRIOR_EXCLUSION_WITHDRAWN",
+      "appliesIfDecisionCommunicated": "D-MTR-26005-P1-v1",
+      "communicated": null,
+      "deliveryStatus": "NOT_SENT"
+    }
+  ],
+  "notificationAfter": [],
+  "staleMaterialResult": {
+    "sameDecisionId": true,
+    "publishedObservations": [],
+    "freshKernelObservations": [
+      {
+        "eventId": "urn:pramaan:MTR-26001:HANDHELD:1",
+        "slot": "DE",
+        "observed": {
+          "part": "BR-6205",
+          "lot": "BR-310",
+          "serial": null
+        },
+        "status": "UNAFFECTED",
+        "rejectedReasons": [
+          "SOURCE_NOT_TRUSTED",
+          "METHOD_NOT_APPROVED",
+          "ACTOR_NOT_AUTHORIZED"
+        ],
+        "staleBy": null,
+        "resolvedBy": null
+      }
+    ]
+  },
+  "historyDeletionRecreated": "D-MTR-26001-P1-v1",
+  "syntheticClock": "DEVICE_SYNCED",
+  "supplierClaimFlag": true
+}

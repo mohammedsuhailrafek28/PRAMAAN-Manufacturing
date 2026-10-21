@@ -24,3 +24,13 @@ it("passes the local token and validates the returned mutation snapshot", async 
   expect(result.captureToDecisionMs).toBe(123);
   expect(fetch.mock.calls[1][1].headers["X-Pramaan-Token"]).toBe("test-local-token");
 });
+it("bounds a hung backend request and aborts its transport", async () => {
+  let signal: AbortSignal | undefined;
+  vi.stubGlobal('fetch',vi.fn((_url,init)=>{signal=init.signal;return new Promise(()=>{});}));
+  await expect(new BackendRecallDataSource(20).load()).rejects.toThrow('timed out');
+  expect(signal?.aborted).toBe(true);
+});
+it("also bounds a response whose JSON body never completes", async () => {
+  vi.stubGlobal('fetch',vi.fn().mockResolvedValue({ok:true,status:200,json:()=>new Promise(()=>{})}));
+  await expect(new BackendRecallDataSource(20).load()).rejects.toThrow('timed out');
+});

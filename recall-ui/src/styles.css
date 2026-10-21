@@ -30,6 +30,7 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 system-ui, "Segoe UI", Roboto, sans-serif; }
+main { overflow-wrap: anywhere; min-width: 0; }
 a { color: var(--accent); }
 code { font-family: ui-monospace, Consolas, monospace; font-size: 0.88em; word-break: break-all; }
 h1 { font-size: 1.15rem; margin: 0; }
@@ -111,6 +112,11 @@ table.grid { width: 100%; border-collapse: collapse; background: var(--surface);
 .history li.superseded { opacity: 0.92; }
 
 .graph-scroll { overflow-x: auto; border: 1px solid var(--border); background: var(--bg); }
+.graph-scroll:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.panel, .panel * { min-width: 0; }
+.panel { overflow-wrap: anywhere; }
+.panel table { table-layout: fixed; width: 100%; }
+.panel pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 .graph { width: 100%; height: auto; display: block; }
 .g-head { font: 700 12px system-ui, sans-serif; fill: var(--muted); text-transform: uppercase; }
 .g-node { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }

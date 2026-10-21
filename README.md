@@ -1,5 +1,7 @@
 # Manufacturing PRAMAAN
 
+**Phase 3.1 safety remediation:** see [root causes, before/after evidence and regression gates](docs/PHASE31_SAFETY_REMEDIATION.md). Start a **new** local demo database with `app.py --seed-demo --database .local/phase31.sqlite`; preserve old Phase 3 databases for historical replay. Their hardcoded scope is not silently reinterpreted as verified current clearance. The v3 evaluator and original engine/foundation/integration source trees remain unchanged.
+
 One local application: EPCIS-compatible capture → append-only SQLite evidence → motor/component genealogy → actual recall assurance engine v3 → Recall Investigation UI.
 
 Official destination: [mohammedsuhailrafek28/PRAMAAN-Manufacturing](https://github.com/mohammedsuhailrafek28/PRAMAAN-Manufacturing). This is the manufacturing project, separate from MSME PRAMAAN. Phase 3 is a local synthetic demonstration ready for review, not a production deployment or shipment release system.
@@ -15,7 +17,7 @@ Set-Location recall-ui
 npm ci --ignore-scripts
 npm run build
 Set-Location ..
-.venv/Scripts/python.exe app.py --seed-demo
+.venv/Scripts/python.exe app.py --seed-demo --database .local/phase31.sqlite
 ```
 
 On macOS/Linux substitute `.venv/bin/python` for `.venv/Scripts/python.exe`. Open **http://127.0.0.1:4173**. One Python process serves the built UI and API from the same loopback origin. SQLite persists at `.local/manufacturing.sqlite`; stop with Ctrl+C. Seeding is idempotent for the completed demo database. To start a fresh manufacturing workflow, use a distinct database path without `--seed-demo`:
@@ -24,7 +26,7 @@ On macOS/Linux substitute `.venv/bin/python` for `.venv/Scripts/python.exe`. Ope
 .venv/Scripts/python.exe app.py --database .local/fresh.sqlite --port 4174
 ```
 
-Use the capture workspace to create a unit, capture DE/NDE assembly, record shipment evidence, announce a defective lot, replace the DE bearing, and inject late contradictory evidence. Decisions always come from v3. A unit with unknown baseline stays held after recall announcement. The local demo provisions synthetic source/actor/session claims; it never generates independent trusted verification. One immutable recall scope is supported per database.
+Use the capture workspace to create a unit, capture DE/NDE assembly, record shipment evidence, announce a defective lot, replace the DE bearing, and inject late contradictory evidence. Missing recall positions default to **both DE and NDE**; the UI also supports explicit DE-only/NDE-only restrictions. The seeded historical DE scenario declares DE explicitly. Exposure decisions come from unchanged v3; application publication history uses `APPLICATION_PUBLICATION_A31`. A unit with unknown baseline stays held. Synthetic clocks are labelled `SYNTHETIC_SIMULATED` and are not registered as trusted. One immutable recall scope remains supported per database.
 
 Fixture demo mode is explicitly selected at **/?mode=fixtures**; it remains read-only and repeatable. A backend error never automatically selects fixtures.
 
@@ -54,4 +56,4 @@ git -C ../gs1-epcis checkout 6f71468231838e424bb5dfa836e006e8dc69615c
 .venv/Scripts/python.exe -m application.measure
 ```
 
-The complete GS1 pin and hash evidence are in the foundation evaluation. The GS1 checkout stays external and is not distributed here. `application.verify` writes fresh results to `docs/phase3-validation`, preserving original Phase 2 reports. It runs engine, foundation, integration, application, exporter, UI, browser and production-build gates, and validates newly captured documents against the external schema. The benchmark reports are synthetic local measurements, not production safety or performance claims.
+The GS1 checkout stays external and is not distributed here. Without arguments, `application.verify` uses `PRAMAAN_GS1_CHECKOUT` if set, otherwise `../gs1-epcis`. From an activated environment, `python -m application.verify` runs the same complete gate. It verifies pinned schema/context bytes and 126 engine/foundation/integration file hashes without requiring source Git commit objects. It writes results to `docs/phase31-validation/verification`, preserving earlier reports. Gates include the expanded synthetic safety suite and timeout/offline/mobile regressions as well as all original suites. Benchmark reports are synthetic local measurements, not production safety or performance claims.

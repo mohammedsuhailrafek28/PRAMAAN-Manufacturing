@@ -15,17 +15,34 @@ export interface RecallDataSource {
 /** No automatic fixture fallback: a failed backend never supplies stale release decisions. */
 export class BackendRecallDataSource implements RecallDataSource {
   readonly label = "Live SQLite ledger (synthetic manufacturing demo)";
+  constructor(private timeoutMs = 4000) {}
+  private async request(url: string, init: RequestInit = {}) {
+    const ctl = new AbortController();
+    const abort = () => ctl.abort();
+    init.signal?.addEventListener("abort", abort, { once: true });
+    if (init.signal?.aborted) ctl.abort();
+    let timer: ReturnType<typeof setTimeout>;
+    try {
+      return await Promise.race([
+        fetch(url, { ...init, signal: ctl.signal }).then(async res => ({ok:res.ok,status:res.status,body:typeof res.json === 'function' ? await res.json() : {}})),
+        new Promise<{ok:boolean;status:number;body:unknown}>((_, reject) => { timer = setTimeout(() => { ctl.abort(); reject(new Error("Backend request timed out; capture outcome may be unknown. Reload verified evidence before retrying.")); }, this.timeoutMs); }),
+      ]);
+    } finally {
+      clearTimeout(timer!);
+      init.signal?.removeEventListener("abort", abort);
+    }
+  }
   async load(signal?: AbortSignal): Promise<RecallSnapshot> {
-    const res = await fetch("/api/snapshot", { signal, cache: "no-store" });
+    const res = await this.request("/api/snapshot", { signal, cache: "no-store" });
     if (!res.ok) throw new Error(`Ledger unavailable: HTTP ${res.status}`);
-    return validateSnapshot(await res.json());
+    return validateSnapshot(res.body);
   }
   async command(path: string, body: Record<string, unknown>) {
-    const session = await fetch("/api/session").then(r => r.json());
-    const res = await fetch(`/api/${path}`, { method: "POST", headers: {
+    const session = (await this.request("/api/session")).body as {token:string};
+    const res = await this.request(`/api/${path}`, { method: "POST", headers: {
       "Content-Type": "application/json", "X-Pramaan-Token": session.token,
     }, body: JSON.stringify(body) });
-    const result = await res.json();
+    const result = res.body as {error?:string;snapshot:unknown;captureToDecisionMs:number};
     if (!res.ok) throw new Error(result.error ?? `Capture failed: HTTP ${res.status}`);
     return { snapshot: validateSnapshot(result.snapshot), captureToDecisionMs: Number(result.captureToDecisionMs) };
   }

@@ -11,6 +11,7 @@ export function ManufacturingWorkbench({ snap, run, busy }: {
   const [lot, setLot] = useState("BR-312");
   const [affected, setAffected] = useState("BR-204");
   const [identity, setIdentity] = useState("SERIAL");
+  const [scope, setScope] = useState(snap.recall.affectedSlots.length ? snap.recall.affectedSlots.join(",") : "DE,NDE");
   return <details className="workbench" open={snap.units.length === 0}>
     <summary>Manufacturing capture workspace</summary>
     <p>Local synthetic operator commands write EPCIS-compatible evidence to SQLite and re-evaluate with v3. No command authors trusted verification. Assembly and replacement contain multiple durable captures; interrupted work remains incomplete.</p>
@@ -41,8 +42,9 @@ export function ManufacturingWorkbench({ snap, run, busy }: {
     </fieldset>
     <fieldset disabled={busy}>
       <legend>Announce a defective bearing lot</legend>
-      <form onSubmit={e => { e.preventDefault(); void run("recalls", { lot: affected }); }}>
+      <form onSubmit={e => { e.preventDefault(); void run("recalls", { lot: affected, affectedSlots: scope.split(",") }); }}>
         <label>Defective bearing lot<input required maxLength={80} value={affected} onChange={e => setAffected(e.target.value)} /></label>
+        <label>Recall positions<select value={scope} onChange={e => setScope(e.target.value)}><option value="DE,NDE">Both DE and NDE (conservative default)</option><option value="DE">DE only (explicit restriction)</option><option value="NDE">NDE only (explicit restriction)</option></select></label>
         <button>Announce recall and evaluate</button>
       </form>
     </fieldset>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ProvenanceBar } from "./components/ProvenanceBar";
 import type { RecallDataSource } from "./data/RecallDataSource";
 import type { RecallSnapshot } from "./domain/types";
@@ -39,6 +39,17 @@ export function App({ source }: { source: RecallDataSource }) {
   const [hash, setHash] = useState(() => window.location.hash);
   const [busy, setBusy] = useState(false);
   const [captureStatus, setCaptureStatus] = useState("");
+  const [verifiedAt, setVerifiedAt] = useState("");
+  const [leaseValid, setLeaseValid] = useState(false);
+  const busyRef = useRef(false);
+  const generation = useRef(0);
+  const leaseTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const [lastSnap, setLastSnap] = useState<RecallSnapshot | null>(null);
+  const renewLease = () => {
+    clearTimeout(leaseTimer.current);
+    setLeaseValid(true); setVerifiedAt(new Date().toISOString());
+    if (source.command) leaseTimer.current=setTimeout(()=>{setLeaseValid(false);setState({status:'error',message:'Verification lease expired; historical release decisions are not currently verified'});},5000);
+  };
 
   useEffect(() => {
     const on = () => setHash(window.location.hash);
@@ -48,31 +59,48 @@ export function App({ source }: { source: RecallDataSource }) {
 
   useEffect(() => {
     const ctl = new AbortController();
-    source
+    let inFlight = false;
+    const refresh = () => {
+      if (inFlight || busyRef.current) return;
+      inFlight = true;
+      const gen = generation.current;
+      source
       .load(ctl.signal)
-      .then((snap) => { setPolicyId(snap.policies[0]?.policyId ?? ""); setState({ status: "ready", snap }); })
+      .then((snap) => {
+        if (ctl.signal.aborted || gen !== generation.current) return;
+        setPolicyId(p => snap.policies.some(s => s.policyId === p) ? p : snap.policies[0]?.policyId ?? "");
+        setState({ status: "ready", snap }); setLastSnap(snap); renewLease();
+      })
       .catch((e: unknown) => {
-        if (ctl.signal.aborted) return;
+        if (ctl.signal.aborted || gen !== generation.current) return;
+        setLeaseValid(false);
         if (e instanceof SnapshotValidationError) setState({ status: "error", message: e.message, issues: e.issues });
         else setState({ status: "error", message: e instanceof Error ? e.message : String(e) });
-      });
-    return () => ctl.abort();
+      }).finally(() => { inFlight=false; });
+    };
+    const resume = () => { if (!document.hidden) { setLeaseValid(false); refresh(); } };
+    refresh();
+    const interval = source.command ? setInterval(refresh, 2000) : undefined;
+    if (source.command) document.addEventListener('visibilitychange', resume);
+    return () => { ctl.abort(); clearInterval(interval); clearTimeout(leaseTimer.current); document.removeEventListener('visibilitychange', resume); };
   }, [source]);
 
   const route = parseRoute(hash);
   const run = async (path: string, body: Record<string, unknown>) => {
     if (!source.command || busy) return;
+    generation.current++; busyRef.current=true; setLeaseValid(false);
     setBusy(true);
     const started = performance.now();
     try {
       const result = await source.command(path, body);
       setPolicyId(result.snapshot.policies[0]?.policyId ?? "");
       setState({ status: "ready", snap: result.snapshot });
+      setLastSnap(result.snapshot); renewLease();
       requestAnimationFrame(() => setCaptureStatus(`Evidence captured. Backend capture-to-decision ${result.captureToDecisionMs.toFixed(1)} ms; browser request-to-render scheduled ${(performance.now()-started).toFixed(1)} ms.`));
     } catch (e) {
       // An interrupted capture can have durable partial evidence. Remove stale decisions.
       setState({ status: "error", message: e instanceof Error ? e.message : String(e) });
-    } finally { setBusy(false); }
+    } finally { setBusy(false); busyRef.current=false; }
   };
   const nav = (page: Route["page"], label: string, href: string) => (
     <a href={href} aria-current={route.page === page ? "page" : undefined}>{label}</a>
@@ -101,22 +129,26 @@ export function App({ source }: { source: RecallDataSource }) {
           <div role="alert" className="error-panel" data-testid="load-error">
             <h2>{state.issues ? "The recall data failed validation" : "Recall data could not be loaded"}</h2>
             <p>{state.message}. No decisions are shown, because unvalidated data could mislead a release decision.</p>
+            {source.command && verifiedAt && <p>Last successful local verification: {verifiedAt}. Earlier decisions are historical evidence, not currently verified operational clearance.</p>}
             <p><a href="/">Reload verified ledger</a></p>
             {state.issues && (
               <ul>{state.issues.slice(0, 20).map((i, k) => <li key={k}><code>{i.path}</code>: {i.message}</li>)}</ul>
             )}
           </div>
         )}
+        {source.command && lastSnap && <ManufacturingWorkbench snap={lastSnap} run={run} busy={busy || state.status !== 'ready'} />}
         {state.status === "ready" && (
           <>
             <ProvenanceBar snap={state.snap} policyId={policyId} onPolicy={setPolicyId} sourceLabel={source.label} />
-            {source.command && <ManufacturingWorkbench snap={state.snap} run={run} busy={busy} />}
+            {source.command && <p role="status">{leaseValid ? `Verified with local synthetic backend at ${verifiedAt}; lease 5 seconds, refresh every 2 seconds.` : "Current decisions unavailable while evidence is being refreshed or captured."}</p>}
             {captureStatus && <p role="status" data-testid="capture-status">{captureStatus}</p>}
             {state.snap.notifications && state.snap.notifications.length > 0 && <section className="callout" aria-label="Notification obligations"><h2>Notification obligations</h2><p>Conditional obligations from v3. Displaying a decision does not mark it communicated; no notifications are sent by this application.</p><ul>{state.snap.notifications.map(n => <li key={n.decisionId}><a href={`#/unit/${n.unitId}/history`}>{n.unitId}</a>: {n.reason}; if {n.appliesIfDecisionCommunicated} was communicated. Delivery: {n.deliveryStatus}.</li>)}</ul></section>}
-            {route.page === "fleet" && <FleetBoard snap={state.snap} policyId={policyId} />}
-            {route.page === "unit" && <UnitDetail snap={state.snap} unitId={route.unitId} policyId={policyId} tab={route.tab} />}
-            {route.page === "lot" && <LotInvestigationView snap={state.snap} policyId={policyId} lotId={route.lotId} />}
-            {route.page === "case06" && <Case06Comparison snap={state.snap} policyId={policyId} unitId={route.unitId} />}
+            {(!source.command || leaseValid) && <>
+              {route.page === "fleet" && <FleetBoard snap={state.snap} policyId={policyId} />}
+              {route.page === "unit" && <UnitDetail snap={state.snap} unitId={route.unitId} policyId={policyId} tab={route.tab} />}
+              {route.page === "lot" && <LotInvestigationView snap={state.snap} policyId={policyId} lotId={route.lotId} />}
+              {route.page === "case06" && <Case06Comparison snap={state.snap} policyId={policyId} unitId={route.unitId} />}
+            </>}
           </>
         )}
       </main>

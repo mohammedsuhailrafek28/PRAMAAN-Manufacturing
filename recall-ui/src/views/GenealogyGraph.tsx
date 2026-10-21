@@ -25,7 +25,7 @@ export function GenealogyGraph({ snap, unitId }: { snap: RecallSnapshot; unitId:
 
   return (
     <div>
-      <div className="graph-scroll">
+      <div className="graph-scroll" role="region" aria-label={`Scrollable genealogy for ${unitId}`} tabIndex={0}>
         <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="gen-title gen-desc" className="graph" style={{ minWidth: 760 }}>
           <title id="gen-title">Genealogy of {unit.unitId}</title>
           <desc id="gen-desc">
@@ -107,7 +107,7 @@ export function GenealogyGraph({ snap, unitId }: { snap: RecallSnapshot; unitId:
           </tbody>
         </table>
       </details>
-      {snap.lineage && <section aria-label="Supplier and raw material provenance"><h3>Ledger-backed material genealogy</h3><p>Synthetic supplier claims, archived as events; no quantity or physical-origin certification is implied.</p><ul className="plain">{snap.lineage.filter(l => l.unitId === unitId).map(l => <li key={l.manufacturingEventId}><b>{l.rawMaterialLot}</b> → {l.supplierName} → bearing lot <b>{l.lot}</b>{l.serial ? ` / ${l.serial}` : " (lot identity only)"}<details><summary>Supporting provenance events</summary><code>{l.materialEventId}</code><br/><code>{l.manufacturingEventId}</code></details></li>)}</ul>{unit.shipment?.backedByLedger === true && <p>Shipment evidence: <code>{String(unit.shipment.evidenceEventId)}</code>. Shipment capture is not a release authorization.</p>}</section>}
+      {snap.lineage && <section aria-label="Supplier and raw material provenance"><h3>Ledger-backed material genealogy</h3><p>Synthetic, unverified supplier claims archived as events. Ledger integrity does not verify supplier identity, physical origin, quantities or clock synchronization.</p><ul className="plain">{snap.lineage.filter(l => l.unitId === unitId).map(l => <li key={l.manufacturingEventId}><b>{l.rawMaterialLot}</b> → {l.supplierName} → bearing lot <b>{l.lot}</b>{l.serial ? ` / ${l.serial}` : " (lot identity only)"}<details><summary>Supporting provenance events</summary><code>{l.materialEventId}</code><br/><code>{l.manufacturingEventId}</code></details></li>)}</ul>{unit.shipment?.backedByLedger === true && <p>Shipment evidence: <code>{String(unit.shipment.evidenceEventId)}</code>. Shipment capture is not a release authorization.</p>}</section>}
     </div>
   );
 }

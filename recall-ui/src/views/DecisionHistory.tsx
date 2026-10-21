@@ -19,7 +19,7 @@ export function DecisionHistory({ history }: { history: Decision[] }) {
   return (
     <div>
       <p className="muted">
-        A new version is issued only when the outcome changes. Earlier versions are kept, never overwritten.
+        Publication versions record material outcome, reasoning, evidence or obligation changes. Earlier versions are kept, never overwritten. Historical fixture versions retain their original lifecycle semantics.
       </p>
       <ol className="history">
         {history.map((d, i) => {

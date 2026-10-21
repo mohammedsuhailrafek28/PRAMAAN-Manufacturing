@@ -70,8 +70,9 @@ def make_server(database, port=4173, seed=False):
         def api(self, path, mutate=False):
             started = time.perf_counter()
             with lock:
-                app = Manufacturing(database)
+                app = None
                 try:
+                    app = Manufacturing(database)
                     if mutate:
                         length = int(self.headers.get("Content-Length", "0"))
                         if length <= 0 or length > 1024*1024:
@@ -83,7 +84,9 @@ def make_server(database, port=4173, seed=False):
                         if path == "/api/units":
                             app.create_unit(body.get("serial"), body.get("title", "IE3 11 kW electric motor"))
                         elif path == "/api/recalls":
-                            app.announce(body.get("lot"))
+                            if set(body)-{'lot','affectedSlots'} or ('affectedSlots' in body and body['affectedSlots'] is None):
+                                raise ValidationFailure('Unsupported or contradictory recall scope fields')
+                            app.announce(body.get("lot"), body.get('affectedSlots'))
                         elif len(parts) == 4 and parts[:2] == ["api", "units"]:
                             motor, action = parts[2:]
                             if action == "assemble":
@@ -129,7 +132,8 @@ def make_server(database, port=4173, seed=False):
                 except Exception:
                     return self.send(500, {"error": "Application operation failed; no decision fallback supplied"})
                 finally:
-                    app.close()
+                    if app:
+                        app.close()
     return LocalServer(("127.0.0.1", port), Handler)
 
 

@@ -1,0 +1,344 @@
+{
+  "scope": "25 authored local synthetic decisions; DE/NDE scope matrix plus ambiguity, gaps, observation, replacement, missing baseline and double installation. Physical truth is supplied only here, not to decision code. Not factory safety evidence.",
+  "total": 25,
+  "unsafeCases": 14,
+  "safeCases": 11,
+  "behaviorAgreements": 25,
+  "falseReleases": 0,
+  "unnecessaryHolds": 3,
+  "cases": [
+    {
+      "case": "de=BR-204;nde=BR-204;scope=None",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-0-af3351c0453e1065b69206ee6cc67a65cb65a970891f2cf2d4280ab7078160d0-64de450824cf4fa09c39a36c868262bf-v1",
+      "reasonCodes": [
+        "AFFECTED_LOT_INSTALLED"
+      ]
+    },
+    {
+      "case": "de=BR-204;nde=BR-204;scope=['DE']",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-1-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-eb3ee104038e4b0d9db09c7f975820cc-v1",
+      "reasonCodes": [
+        "AFFECTED_LOT_INSTALLED"
+      ]
+    },
+    {
+      "case": "de=BR-204;nde=BR-204;scope=['NDE']",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-2-f26a53a24da69b4200eaec0e91d82943c2dc6d05b83a476ecea3e3fae71259b7-ec750b702a244522bbebc983bc98da48-v1",
+      "reasonCodes": [
+        "AFFECTED_LOT_INSTALLED"
+      ]
+    },
+    {
+      "case": "de=BR-204;nde=BR-204;scope=['DE', 'NDE']",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-3-2a6317efb3ef28b281e6e8b77fc1f0924152e70b2403a6d686793d849dac7e8c-fd017626e73c4850a76c45606c6130a3-v1",
+      "reasonCodes": [
+        "AFFECTED_LOT_INSTALLED"
+      ]
+    },
+    {
+      "case": "de=BR-204;nde=BR-310;scope=None",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-4-af3351c0453e1065b69206ee6cc67a65cb65a970891f2cf2d4280ab7078160d0-8ab07fe311614da58ef489dcba6a4af1-v1",
+      "reasonCodes": [
+        "AFFECTED_LOT_INSTALLED",
+        "AS_BUILT_UNAFFECTED_LOT"
+      ]
+    },
+    {
+      "case": "de=BR-204;nde=BR-310;scope=['DE']",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-5-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-772faef7e05e4ac6845c2b3c6437210e-v1",
+      "reasonCodes": [
+        "AFFECTED_LOT_INSTALLED"
+      ]
+    },
+    {
+      "case": "de=BR-204;nde=BR-310;scope=['NDE']",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-6-f26a53a24da69b4200eaec0e91d82943c2dc6d05b83a476ecea3e3fae71259b7-4adfdd2f9ce2401898d3621b3fd81627-v1",
+      "reasonCodes": [
+        "AS_BUILT_UNAFFECTED_LOT"
+      ]
+    },
+    {
+      "case": "de=BR-204;nde=BR-310;scope=['DE', 'NDE']",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-7-2a6317efb3ef28b281e6e8b77fc1f0924152e70b2403a6d686793d849dac7e8c-7bba3a86f6c74c49b25fd790e9a6c47e-v1",
+      "reasonCodes": [
+        "AFFECTED_LOT_INSTALLED",
+        "AS_BUILT_UNAFFECTED_LOT"
+      ]
+    },
+    {
+      "case": "de=BR-310;nde=BR-204;scope=None",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-8-af3351c0453e1065b69206ee6cc67a65cb65a970891f2cf2d4280ab7078160d0-b8afd83c36644f2eaa4f7e3ecb8129c1-v1",
+      "reasonCodes": [
+        "AS_BUILT_UNAFFECTED_LOT",
+        "AFFECTED_LOT_INSTALLED"
+      ]
+    },
+    {
+      "case": "de=BR-310;nde=BR-204;scope=['DE']",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-9-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-b216f2de206a40d2b8bf818d29310cf4-v1",
+      "reasonCodes": [
+        "AS_BUILT_UNAFFECTED_LOT"
+      ]
+    },
+    {
+      "case": "de=BR-310;nde=BR-204;scope=['NDE']",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-10-f26a53a24da69b4200eaec0e91d82943c2dc6d05b83a476ecea3e3fae71259b7-f582f4efaee648ddbc4557e242fd8d9d-v1",
+      "reasonCodes": [
+        "AFFECTED_LOT_INSTALLED"
+      ]
+    },
+    {
+      "case": "de=BR-310;nde=BR-204;scope=['DE', 'NDE']",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-11-2a6317efb3ef28b281e6e8b77fc1f0924152e70b2403a6d686793d849dac7e8c-ecbf803f62d546429e6a0d2a82c9e5e2-v1",
+      "reasonCodes": [
+        "AS_BUILT_UNAFFECTED_LOT",
+        "AFFECTED_LOT_INSTALLED"
+      ]
+    },
+    {
+      "case": "de=BR-310;nde=BR-310;scope=None",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-12-af3351c0453e1065b69206ee6cc67a65cb65a970891f2cf2d4280ab7078160d0-e1c1221eefe94c08910021bcfbbc9d56-v1",
+      "reasonCodes": [
+        "AS_BUILT_UNAFFECTED_LOT"
+      ]
+    },
+    {
+      "case": "de=BR-310;nde=BR-310;scope=['DE']",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-13-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-5675fac516154454bde1365f0516bfe9-v1",
+      "reasonCodes": [
+        "AS_BUILT_UNAFFECTED_LOT"
+      ]
+    },
+    {
+      "case": "de=BR-310;nde=BR-310;scope=['NDE']",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-14-f26a53a24da69b4200eaec0e91d82943c2dc6d05b83a476ecea3e3fae71259b7-491e101946a5440d8874e43157e0e71f-v1",
+      "reasonCodes": [
+        "AS_BUILT_UNAFFECTED_LOT"
+      ]
+    },
+    {
+      "case": "de=BR-310;nde=BR-310;scope=['DE', 'NDE']",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-SAFETY-15-2a6317efb3ef28b281e6e8b77fc1f0924152e70b2403a6d686793d849dac7e8c-82ec556777e8443db9b8f21258edf4e5-v1",
+      "reasonCodes": [
+        "AS_BUILT_UNAFFECTED_LOT"
+      ]
+    },
+    {
+      "case": "seed MTR-26001",
+      "syntheticUnsafe": true,
+      "expectedFinding": "AFFECTED",
+      "actualFinding": "AFFECTED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-26001-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-042f5be1bb924d37b2ed0c242522b8e2-v1",
+      "reasonCodes": [
+        "AFFECTED_LOT_INSTALLED"
+      ]
+    },
+    {
+      "case": "seed MTR-26002",
+      "syntheticUnsafe": false,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": true,
+      "decisionId": "A31-MTR-26002-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-042f5be1bb924d37b2ed0c242522b8e2-v2",
+      "reasonCodes": [
+        "AMBIGUOUS_SLOT_ATTRIBUTION"
+      ]
+    },
+    {
+      "case": "seed MTR-26003",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-26003-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-042f5be1bb924d37b2ed0c242522b8e2-v1",
+      "reasonCodes": [
+        "AS_BUILT_UNAFFECTED_LOT"
+      ]
+    },
+    {
+      "case": "seed MTR-26004",
+      "syntheticUnsafe": false,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": true,
+      "decisionId": "A31-MTR-26004-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-042f5be1bb924d37b2ed0c242522b8e2-v2",
+      "reasonCodes": [
+        "MATERIAL_CAPTURE_GAP"
+      ]
+    },
+    {
+      "case": "seed MTR-26005",
+      "syntheticUnsafe": true,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-042f5be1bb924d37b2ed0c242522b8e2-v2",
+      "reasonCodes": [
+        "UNTRUSTED_AFFECTED_OBSERVATION",
+        "PRIOR_EXCLUSION_WITHDRAWN"
+      ]
+    },
+    {
+      "case": "clean replacement",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-26001-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-042f5be1bb924d37b2ed0c242522b8e2-v2",
+      "reasonCodes": [
+        "REPLACED_WITH_UNAFFECTED_LOT"
+      ]
+    },
+    {
+      "case": "late observation, actual unsafe synthetic truth",
+      "syntheticUnsafe": true,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-26001-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-042f5be1bb924d37b2ed0c242522b8e2-v3",
+      "reasonCodes": [
+        "UNTRUSTED_AFFECTED_OBSERVATION",
+        "PRIOR_EXCLUSION_WITHDRAWN"
+      ]
+    },
+    {
+      "case": "missing baseline, physically safe but unknown to engine",
+      "syntheticUnsafe": false,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": true,
+      "decisionId": "A31-MTR-UNKNOWN-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-042f5be1bb924d37b2ed0c242522b8e2-v1",
+      "reasonCodes": [
+        "NO_TRUSTED_BASELINE",
+        "CURRENT_STATE_UNVERIFIED"
+      ]
+    },
+    {
+      "case": "double installation, affected item physically remains",
+      "syntheticUnsafe": true,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "behaviorAgrees": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "decisionId": "A31-MTR-DOUBLE-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-042f5be1bb924d37b2ed0c242522b8e2-v1",
+      "reasonCodes": [
+        "DOUBLE_OCCUPANCY",
+        "CURRENT_STATE_UNVERIFIED"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "baseline": "4a9e8f2c11e5e12bfd6926bfb9f9a0ee0dd3fa57",
+  "cases": [
+    {
+      "de": "BR-204",
+      "nde": "BR-204",
+      "scope": "unspecified; intended all compatible bearing positions",
+      "syntheticUnsafe": true,
+      "finding": "AFFECTED",
+      "action": "RECALL_HOLD",
+      "falseRelease": false,
+      "unnecessaryHold": false
+    },
+    {
+      "de": "BR-204",
+      "nde": "BR-310",
+      "scope": "unspecified; intended all compatible bearing positions",
+      "syntheticUnsafe": true,
+      "finding": "AFFECTED",
+      "action": "RECALL_HOLD",
+      "falseRelease": false,
+      "unnecessaryHold": false
+    },
+    {
+      "de": "BR-310",
+      "nde": "BR-204",
+      "scope": "unspecified; intended all compatible bearing positions",
+      "syntheticUnsafe": true,
+      "finding": "EXCLUDED_WITH_EVIDENCE",
+      "action": "RELEASE_ELIGIBLE",
+      "falseRelease": true,
+      "unnecessaryHold": false
+    },
+    {
+      "de": "BR-310",
+      "nde": "BR-310",
+      "scope": "unspecified; intended all compatible bearing positions",
+      "syntheticUnsafe": false,
+      "finding": "EXCLUDED_WITH_EVIDENCE",
+      "action": "RELEASE_ELIGIBLE",
+      "falseRelease": false,
+      "unnecessaryHold": false
+    }
+  ],
+  "falseReleases": 1,
+  "unnecessaryHolds": 0
+}

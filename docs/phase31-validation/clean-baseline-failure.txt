@@ -1,0 +1,19 @@
+../unified-app/.venv/Scripts/python.exe : Traceback (most recent call last):
+At line:2 char:1
++ ../unified-app/.venv/Scripts/python.exe -m application.verify --gs1-c ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\HAIL\Documents\PRAMAAN-Manufacturing\phase31-baseline-clean\application\verify.py", line 64, in
+<module>
+    main()
+  File "C:\Users\HAIL\Documents\PRAMAAN-Manufacturing\phase31-baseline-clean\application\verify.py", line 23, in main
+    gates = baseline.verify_baselines(args.gs1_checkout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HAIL\Documents\PRAMAAN-Manufacturing\phase31-baseline-clean\integration\run_validation.py", line 53,
+in verify_baselines
+    raise AssertionError("Baseline or integration gate failed; see reports")
+AssertionError: Baseline or integration gate failed; see reports

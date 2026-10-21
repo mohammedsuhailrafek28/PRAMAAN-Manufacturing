@@ -60,7 +60,8 @@ export function DecisionExplanation({ d, unit }: { d: Decision; unit: Unit }) {
   return (
     <div>
       <DecisionChips d={d} />
-      <p className="lead">{finding?.explain} {d.operationalAction === "RECALL_HOLD" ? "The motor stays on recall hold." : "The motor may be released."}</p>
+      {typeof d.publicationProfile === 'string' && <p className="muted">Publication lifecycle: {d.publicationProfile}. Exposure evaluation uses the recorded engine semantics; lifecycle history is stored separately.</p>}
+      <p className="lead">{finding?.explain} {d.operationalAction === "RECALL_HOLD" ? "The motor stays on recall hold." : "Eligible under this recall policy; this is not shipment authorization."}</p>
       {d.reviewRequired && <p><b>Review is required.</b> A person must look at this motor, separately from the hold.</p>}
       {d.precautionaryHold && <p><b>Precautionary hold.</b> Held because an earlier release no longer stands.</p>}
 

@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { mkdirSync, writeFileSync } from "node:fs";
 
-const screenshots = "../docs/screenshots";
+const screenshots = "../docs/phase31-screenshots";
 test("live manufacturing capture, genealogy, recall, replacement and late withdrawal", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/");
@@ -46,7 +46,7 @@ test("live manufacturing capture, genealogy, recall, replacement and late withdr
   expect(provenance.ok()).toBeTruthy();
   await page.reload();
   await expect(page.getByTestId("chip-finding").first()).toContainText("Unresolved");
-  writeFileSync("../docs/phase3-browser-latency.json", JSON.stringify({ methodology: "Chrome loopback production build, seeded 5 motors plus one new 16-event motor; one measured workflow; wall-clock button click through visible decision assertion (includes browser assertion polling)", assemblyVisibleMs, replacementVisibleMs }, null, 2));
+  writeFileSync("../docs/phase31-validation/browser-latency.json", JSON.stringify({ methodology: "Chrome loopback production build, seeded 5 motors plus one new 16-event motor; one measured workflow; wall-clock button click through visible decision assertion (includes browser assertion polling)", assemblyVisibleMs, replacementVisibleMs }, null, 2));
 });
 
 test("live responsive and accessibility review", async ({ page }) => {
