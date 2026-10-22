@@ -24,7 +24,7 @@ def main():
         with urllib.request.urlopen(chrome['url'],timeout=90) as response,archive.open('xb') as output:
             while block:=response.read(1024*1024): output.write(block)
     check_file(archive,chrome['sha256'])
-    # Re-extract from the authenticated digest on every preparation; never trust
+    # Re-extract from the pinned digest on every preparation; never trust
     # a stale extracted executable just because the ZIP is present.
     with zipfile.ZipFile(archive) as zipped:
         for name in zipped.namelist():
