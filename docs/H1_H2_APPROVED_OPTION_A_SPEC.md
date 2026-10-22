@@ -76,3 +76,8 @@ Do not modify the pinned evaluator, foundation or integration ledger. Keep CI an
 The original live UI scenarios were authored before strict gating and expect current eligibility immediately after writes against an older checkpoint. R5/R10 now require that state to be prefix-only. This conflict must be surfaced in implementation/test reporting: preserving an old release assertion without a separately activated current checkpoint would violate this approved design. Historical raw v3 results and issued decisions must remain unchanged. No test will be silently skipped or an altered expectation represented as an unchanged baseline PASS.
 
 Stop for independent safety review. No merge, deployment or PR is authorized.
+
+## Owner clarifications recovered October 22, 2026
+
+- R3 is after restart using the older checkpoint. In-process regression to an intermediate head is invalid under R1.
+- Archives containing historical `OBLIGATION_RESOLVED` claims remain historical-only. Preserve the rows and block checkpoint export pending an explicitly approved migration. Do not reinterpret those claims as resolution authority or modify the original regression test to conceal this compatibility conflict.
