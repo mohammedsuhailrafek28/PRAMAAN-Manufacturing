@@ -126,6 +126,7 @@ for (const [name, size] of [["desktop", { width: 1280, height: 900 }], ["mobile"
 }
 
 test("large stress data: draws a bounded window, the list keeps every record, and rendering stays quick", async ({ page }) => {
+  test.setTimeout(90_000); // 23 s alone, over the 30 s default when the combined suite loads the machine
   await page.setViewportSize({ width: 1440, height: 1000 });
   const t0 = Date.now();
   await page.goto(`${PREVIEW}&dataset=large#/lot/bearing/BR-204/graph`);
@@ -203,9 +204,9 @@ test.afterEach(() => { child?.kill(); child = undefined; });
 
 test("an unanchored ledger shows its genealogy labelled not current and no recall status", async ({ page }) => {
   const database = join(mkdtempSync(join(tmpdir(), "pramaan-impact-unanchored-")), "db.sqlite");
-  child = spawn(python, ["-c", "import sys;from application.service import Manufacturing;from application.server import make_server;a=Manufacturing(sys.argv[1]);a.seed_demo();a.close();s=make_server(sys.argv[1],int(sys.argv[2]));s.serve_forever()", database, "4191"], { cwd: resolve(".."), stdio: "ignore", windowsHide: true });
-  await expect(async () => { expect((await page.request.get("http://127.0.0.1:4191/api/session")).ok()).toBeTruthy(); }).toPass({ timeout: 20_000 });
-  await page.goto("http://127.0.0.1:4191/impact.html#/lot/bearing/BR-204/list");
+  child = spawn(python, ["-c", "import sys;from application.service import Manufacturing;from application.server import make_server;a=Manufacturing(sys.argv[1]);a.seed_demo();a.close();s=make_server(sys.argv[1],int(sys.argv[2]));s.serve_forever()", database, "4196"], { cwd: resolve(".."), stdio: "ignore", windowsHide: true });
+  await expect(async () => { expect((await page.request.get("http://127.0.0.1:4196/api/session")).ok()).toBeTruthy(); }).toPass({ timeout: 20_000 });
+  await page.goto("http://127.0.0.1:4196/impact.html#/lot/bearing/BR-204/list");
   await expect(page.getByTestId("noncurrent-label")).toBeVisible();
   await expect(page.getByTestId("impact-headline")).toContainText("Current recall status is withheld");
   await expect(page.getByTestId("impact-decision")).toHaveCount(0);
@@ -215,8 +216,8 @@ test("an unanchored ledger shows its genealogy labelled not current and no recal
 
 test("browsing the graph leaves the journal, decisions, notifications and anchor untouched", async ({ page }) => {
   const database = join(mkdtempSync(join(tmpdir(), "pramaan-impact-readonly-")), "db.sqlite");
-  child = spawn(python, ["recall-ui/tests/browser_server.py", database, "--port", "4192"], { cwd: resolve(".."), stdio: "ignore", windowsHide: true });
-  await expect(async () => { expect((await page.request.get("http://127.0.0.1:4192/api/session")).ok()).toBeTruthy(); }).toPass({ timeout: 20_000 });
+  child = spawn(python, ["recall-ui/tests/browser_server.py", database, "--port", "4197"], { cwd: resolve(".."), stdio: "ignore", windowsHide: true });
+  await expect(async () => { expect((await page.request.get("http://127.0.0.1:4197/api/session")).ok()).toBeTruthy(); }).toPass({ timeout: 20_000 });
   const anchor = database.replace(/\.sqlite$/, ".test-owner-anchor.json");
   const dump = () => {
     const r = spawnSync(python, ["-I", "-c", "import sqlite3,sys,json,hashlib;c=sqlite3.connect('file:'+sys.argv[1]+'?mode=ro',uri=True);out={}\nfor (t,) in c.execute(\"select name from sqlite_master where type='table' and name not like 'sqlite_%' order by 1\").fetchall():\n    out[t]=[c.execute('select count(*) from \"'+t+'\"').fetchone()[0], hashlib.sha256(repr(c.execute('select * from \"'+t+'\" order by 1').fetchall()).encode()).hexdigest()]\nprint(json.dumps(out))", database], { encoding: "utf8", windowsHide: true, env: { ...process.env, PYTHONHASHSEED: "0" } });
@@ -226,7 +227,7 @@ test("browsing the graph leaves the journal, decisions, notifications and anchor
   const before = { db: dump(), anchor: readFileSync(anchor, "utf8") };
   const methods: string[] = [];
   page.on("request", (r) => methods.push(r.method()));
-  await page.goto("http://127.0.0.1:4192/impact.html#/lot/bearing/BR-204/graph");
+  await page.goto("http://127.0.0.1:4197/impact.html#/lot/bearing/BR-204/graph");
   await expect(page.getByTestId("impact-headline")).toContainText("named by recall");
   await nodeById(page, "motor:MTR-26001").click();
   await page.getByRole("button", { name: "Trace both ways" }).click();
