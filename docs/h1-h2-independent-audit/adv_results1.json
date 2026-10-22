@@ -1,0 +1,303 @@
+[
+  {
+    "id": "R1",
+    "title": "in-process rollback to exact-checkpoint state after a verified extension",
+    "expected": "ANCHOR_INVALID / ROLLBACK_DETECTED",
+    "observed": "first=ANCHORED_PREFIX_ONLY, then ('raise', 'ROLLBACK_DETECTED')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R1b",
+    "title": "in-process rollback to an intermediate head (between checkpoint and last verified head)",
+    "expected": "ROLLBACK_DETECTED",
+    "observed": "('raise', 'ROLLBACK_DETECTED')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R2",
+    "title": "restart with newest checkpoint, older archive",
+    "expected": "ANCHOR_INVALID / PREFIX_MISMATCH",
+    "observed": "('raise', 'PREFIX_MISMATCH')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R3",
+    "title": "after restart: older checkpoint + intermediate archive",
+    "expected": "ANCHORED_PREFIX_ONLY, eligibility withheld",
+    "observed": "ANCHORED_PREFIX_ONLY elig=[False, False]",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R4",
+    "title": "after restart: archive rolled back to EXACTLY the trusted checkpoint",
+    "expected": "ANCHORED_CURRENT (declared undetectable residual; must not be claimed detected)",
+    "observed": "ANCHORED_CURRENT",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R10",
+    "title": "ledger event appended, not yet evaluated",
+    "expected": "ANCHORED_PREFIX_ONLY",
+    "observed": "ANCHORED_PREFIX_ONLY",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R5",
+    "title": "legitimate capture after checkpoint",
+    "expected": "PREFIX_ONLY, eligibility withheld for ALL motors, holds visible, checkpointRequired",
+    "observed": "ANCHORED_PREFIX_ONLY required=True elig={'MTR-AAA1': False, 'MTR-AAA2': False} A2action=RECALL_HOLD freshness=VERIFIED_PREFIX_SYNTHETIC",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R6/R7-a-decision-only",
+    "title": "forged EVALUATION with recomputed hash chain",
+    "expected": "EXTENSION_INVALID",
+    "observed": "('raise', 'EXTENSION_INVALID')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R6/R7-b-raw-and-decision",
+    "title": "forged EVALUATION with recomputed hash chain",
+    "expected": "EXTENSION_INVALID",
+    "observed": "('raise', 'EXTENSION_INVALID')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R6/R7-c-version-bump",
+    "title": "forged EVALUATION with recomputed hash chain",
+    "expected": "EXTENSION_INVALID",
+    "observed": "('raise', 'EXTENSION_INVALID')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R8",
+    "title": "journal extension with OBLIGATION_CREATED",
+    "expected": "EXTENSION_INVALID",
+    "observed": "('raise', 'EXTENSION_INVALID')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R9",
+    "title": "journal extension with OBLIGATION_RESOLVED",
+    "expected": "RESOLUTION_FORBIDDEN",
+    "observed": "('raise', 'RESOLUTION_FORBIDDEN')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R-unknown-kind",
+    "title": "journal extension with SOMETHING_ELSE",
+    "expected": "EXTENSION_INVALID",
+    "observed": "('raise', 'EXTENSION_INVALID')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R11",
+    "title": "v1 checkpoint over a fully current archive",
+    "expected": "never ANCHORED_CURRENT",
+    "observed": "ANCHORED_PREFIX_ONLY",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R15",
+    "title": "successor without / with correct / with wrong previous",
+    "expected": "PREFIX_MISMATCH / CURRENT / PREFIX_MISMATCH",
+    "observed": "('raise', 'PREFIX_MISMATCH') / ANCHORED_CURRENT / ('raise', 'PREFIX_MISMATCH')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R16-mid-service",
+    "title": "service snapshot after a legacy (manifest-less) row exists for a motor",
+    "expected": "degrade to HISTORICAL_UNVERIFIABLE; no crash",
+    "observed": "KeyError",
+    "verdict": "FAIL"
+  },
+  {
+    "id": "R16-mid",
+    "title": "legacy (manifest-less) row followed by modern publications of the same motor",
+    "expected": "HISTORICAL_UNVERIFIABLE (degrade, never current)",
+    "observed": "HISTORICAL_UNVERIFIABLE",
+    "verdict": "PASS"
+  },
+  {
+    "id": "R19",
+    "title": "checkpoint before policy exists; policy added later",
+    "expected": "ANCHORED_PREFIX_ONLY",
+    "observed": "ANCHORED_PREFIX_ONLY",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X1",
+    "title": "valid-chain, derivation-consistent evaluation of an OLD (excluded) watermark appended after a hold",
+    "expected": "must not yield eligibility; ideally rejected (non-monotonic watermark)",
+    "observed": "H2=VERIFIED; state=ANCHORED_PREFIX_ONLY; A2 current action=RECALL_HOLD version=4; elig=False",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X1-note",
+    "title": "H2 accepts non-monotonic per-motor watermark ordering",
+    "expected": "reject (EXTENSION_INVALID) preferred",
+    "observed": "H2 result ok",
+    "verdict": "FAIL"
+  },
+  {
+    "id": "X2",
+    "title": "evaluation produced under a policy never announced (forged policy) appended with valid chain",
+    "expected": "preferably rejected: entry policy must equal an announced recall_announcements policy",
+    "observed": "H2=VERIFIED; state=ANCHORED_PREFIX_ONLY; A1 elig=False",
+    "verdict": "FAIL"
+  },
+  {
+    "id": "X3-depth3",
+    "title": "export a THIRD-generation checkpoint (previous = non-root successor s1)",
+    "expected": "succeeds (chain must be extendable beyond 2 links)",
+    "observed": "PREFIX_MISMATCH",
+    "verdict": "FAIL"
+  },
+  {
+    "id": "X3",
+    "title": "multiple successors of the same predecessor / chain skipping",
+    "expected": "equivocation cannot be detected by software; document. Observed acceptance states:",
+    "observed": "{\"s1\": \"ANCHORED_PREFIX_ONLY\", \"s2-skips-s1\": \"ANCHORED_CURRENT\"}",
+    "verdict": "None"
+  },
+  {
+    "id": "X4",
+    "title": "111 checkpoint field mutations with recomputed checksum",
+    "expected": "none yields ANCHORED_CURRENT",
+    "observed": "CURRENT for: ['previousCheckpointHash', 'ledger.rows.rejections[drop]', 'ledger.rows.decision_runs[drop]']",
+    "verdict": "FAIL"
+  },
+  {
+    "id": "X4-types",
+    "title": "type-confusion probes (True/1.5/[]/{}) never crash with a non-code error",
+    "expected": "only fixed codes",
+    "observed": "[\"ANCHORED_CURRENT\", \"ANCHORED_PREFIX_ONLY\", \"PREFIX_MISMATCH\"]",
+    "verdict": "FAIL"
+  },
+  {
+    "id": "X5-append_ledger_event",
+    "title": "warm-cache anchor, then append_ledger_event",
+    "expected": "not ANCHORED_CURRENT",
+    "observed": "ANCHORED_PREFIX_ONLY",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X5-create_new_motor",
+    "title": "warm-cache anchor, then create_new_motor",
+    "expected": "not ANCHORED_CURRENT",
+    "observed": "ANCHORED_PREFIX_ONLY",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X5-new_recall_announcement_row",
+    "title": "warm-cache anchor, then new_recall_announcement_row",
+    "expected": "not ANCHORED_CURRENT",
+    "observed": "ANCHORED_PREFIX_ONLY",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X5-edit_captures.received_(unused_by_decisions)",
+    "title": "warm-cache anchor, then edit_captures.received_(unused_by_decisions)",
+    "expected": "not ANCHORED_CURRENT",
+    "observed": "ROLLBACK_DETECTED",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X5-edit_app_clock_(unbound_table)",
+    "title": "warm-cache anchor, then edit_app_clock_(unbound_table)",
+    "expected": "ANCHORED_CURRENT (benign)",
+    "observed": "ANCHORED_CURRENT",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X5-edit_app_units.title",
+    "title": "warm-cache anchor, then edit_app_units.title",
+    "expected": "not ANCHORED_CURRENT",
+    "observed": "ROLLBACK_DETECTED",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X5-truncate_last_journal_entry_with_rehash_(in-process)",
+    "title": "warm-cache anchor, then truncate_last_journal_entry_with_rehash_(in-process)",
+    "expected": "not ANCHORED_CURRENT",
+    "observed": "ROLLBACK_DETECTED",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X6",
+    "title": "equal-length ledger row edit after caches are warm",
+    "expected": "not ANCHORED_CURRENT",
+    "observed": "ROLLBACK_DETECTED",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X7-corrupt-policy-json",
+    "title": "server start",
+    "expected": "fixed STARTUP error",
+    "observed": "IntegrityFailure: PREFIX_MISMATCH",
+    "verdict": "None"
+  },
+  {
+    "id": "X7-corrupt-motor-config",
+    "title": "server start",
+    "expected": "fixed STARTUP error",
+    "observed": "IntegrityFailure: PREFIX_MISMATCH",
+    "verdict": "None"
+  },
+  {
+    "id": "X7-journal-payload-garbage",
+    "title": "server start",
+    "expected": "fixed STARTUP error",
+    "observed": "LedgerBlocked: Invalid application audit payload",
+    "verdict": "None"
+  },
+  {
+    "id": "X7-archive-id-substituted",
+    "title": "server start",
+    "expected": "fixed STARTUP error",
+    "observed": "LedgerBlocked: Application archive identity/legacy anchor changed",
+    "verdict": "None"
+  },
+  {
+    "id": "X8",
+    "title": "independent writer process during polling: monotonic withdrawal",
+    "expected": "once not CURRENT, never CURRENT again; no eligible motor after write",
+    "observed": "states=[(200, 'ANCHORED_CURRENT'), (200, 'ANCHORED_CURRENT'), (200, 'ANCHORED_CURRENT'), (200, 'ANCHORED_CURRENT'), (200, 'ANCHORED_CURRENT'), (200, 'ANCHORED_CURRENT'), (200, 'ANCHORED_CURRENT'), (200, 'ANCHORED_CURRENT'), (200, 'ANCHORED_CURRENT'), (200, 'ANCHORED_PREFIX_ONLY'), (200, 'ANCHORED_PREFIX_ONLY')] backToCurrent=False",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X10",
+    "title": "live server: current -> extension -> rollback to exact checkpoint state",
+    "expected": "current / prefix-only / 409 ROLLBACK (in-process)",
+    "observed": "(200, 'ANCHORED_CURRENT') / (200, 'ANCHORED_PREFIX_ONLY') / (409, 'ROLLBACK_DETECTED')",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X11",
+    "title": "PREFIX_ONLY: sub-resources must not advertise release eligibility without state",
+    "expected": "no RELEASE_ELIGIBLE without eligibility/checkpoint marker",
+    "observed": "state=ANCHORED_PREFIX_ONLY; /decisions has RELEASE_ELIGIBLE=False marker=False; /lots/.. has RELEASE_ELIGIBLE=True marker=True; snapshot actions={'MTR-AAA1': ['RECALL_HOLD'], 'MTR-AAA2': ['RECALL_HOLD']}",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X12",
+    "title": "unanchored server",
+    "expected": "snapshot historical only (eligibility false); other APIs refused",
+    "observed": "{'/api/snapshot': 200, '/api/motors': 409, '/api/motors/MTR-AAA2/decisions': 409, '/api/notifications': 409}; state=UNANCHORED elig=[False, False] status=HISTORICAL_UNANCHORED",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X13",
+    "title": "corrupted / empty / non-JSON / other-archive / missing checkpoint at startup",
+    "expected": "refuse to start; fixed codes only",
+    "observed": "{\"truncated\": \"PREFIX_MISMATCH\", \"empty\": \"PREFIX_MISMATCH\", \"not-json\": \"PREFIX_MISMATCH\", \"other-archive\": \"PREFIX_MISMATCH\", \"missing\": \"AnchorUnavailable\"}",
+    "verdict": "PASS"
+  },
+  {
+    "id": "X14",
+    "title": "successor activation with / without previous file",
+    "expected": "CURRENT / PREFIX_MISMATCH",
+    "observed": "ANCHORED_CURRENT / ('raise', 'PREFIX_MISMATCH')",
+    "verdict": "PASS"
+  }
+]

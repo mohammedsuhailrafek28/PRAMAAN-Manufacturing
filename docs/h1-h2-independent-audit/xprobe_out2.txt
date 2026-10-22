@@ -1,0 +1,13 @@
+STATE0 checkpoint={"state":"ANCHORED_CURRENT","anchoredSequence":10,"checkpointRequired":false,"h2":"VERIFIED"} status=VERIFIED_ANCHORED_SYNTHETIC eligibleUnits=MTR-26003
+CURRENT   main fleet                         {"releaseEligible":true,"recallHold":false,"excludedChip":true,"nonCurrentBanner":false}
+CURRENT   passport                           {"releaseEligible":false,"recallHold":true,"excludedChip":true,"nonCurrentBanner":false}
+CURRENT   investigation                      {"releaseEligible":false,"recallHold":false,"excludedChip":false,"nonCurrentBanner":false}
+CURRENT   impact list MTR-26003 lot BR-310   {"releaseEligible":false,"recallHold":false,"excludedChip":true,"nonCurrentBanner":false}
+STATE1 checkpoint={"state":"ANCHORED_PREFIX_ONLY","anchoredSequence":10,"checkpointRequired":true,"h2":"VERIFIED"} status=VERIFIED_PREFIX_SYNTHETIC eligibleUnits=
+STATE1 raw decision actions in /api/snapshot: MTR-26001:RECALL_HOLD MTR-26002:RECALL_HOLD MTR-26003:RELEASE_ELIGIBLE MTR-26004:RECALL_HOLD MTR-26005:RECALL_HOLD
+STATE1 GET /api/motors/MTR-26003/decisions -> 200 containsRELEASE_ELIGIBLE=true hasEligibilityOrCheckpointField=true
+STATE1 GET /api/lots/BR-310/investigation -> 200 containsRELEASE_ELIGIBLE=true hasEligibilityOrCheckpointField=true
+PREFIXONLY main fleet                        {"releaseEligible":false,"recallHold":true,"excludedChip":false,"nonCurrentBanner":true}
+PREFIXONLY passport                          {"releaseEligible":false,"recallHold":true,"excludedChip":true,"nonCurrentBanner":false}
+PREFIXONLY investigation                     {"releaseEligible":false,"recallHold":false,"excludedChip":false,"nonCurrentBanner":false}
+PREFIXONLY impact list MTR-26003 lot BR-310  {"releaseEligible":false,"recallHold":false,"excludedChip":true,"nonCurrentBanner":false}

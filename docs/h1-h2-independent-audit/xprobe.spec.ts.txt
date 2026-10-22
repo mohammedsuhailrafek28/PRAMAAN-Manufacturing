@@ -1,0 +1,52 @@
+// AUDIT-ONLY scratch probe (never committed to the audited branch): standalone pages vs strict H1/H2 states.
+import { test, expect, type Page } from "@playwright/test";
+import { spawn, spawnSync } from "node:child_process";
+import { mkdtempSync, writeFileSync } from "node:fs";
+import { join, resolve } from "node:path";
+import { tmpdir } from "node:os";
+
+const python = resolve("../.venv/Scripts/python.exe");
+const OUT = process.env.PROBE_OUT ?? "";
+const log: string[] = [];
+
+async function text(page: Page) { await page.waitForTimeout(1500); return (await page.locator("body").innerText()); }
+const flags = (t: string) => ({
+  releaseEligible: /Release eligible/i.test(t),
+  recallHold: /Recall hold/i.test(t),
+  excludedChip: /Excluded with evidence/.test(t),
+  nonCurrentBanner: /not current|withheld|historical|unavailable|checkpoint required/i.test(t),
+});
+
+test("standalone pages under strict checkpoint states", async ({ page }) => {
+  test.setTimeout(180_000);
+  const database = join(mkdtempSync(join(tmpdir(), "pramaan-xprobe-")), "db.sqlite");
+  const server = spawn(python, ["recall-ui/tests/browser_server.py", database, "--port", "4301"], { cwd: resolve(".."), stdio: "ignore", windowsHide: true });
+  try {
+    await expect(async () => { expect((await page.request.get("http://127.0.0.1:4301/api/session")).ok()).toBeTruthy(); }).toPass({ timeout: 30_000 });
+    const base = "http://127.0.0.1:4301";
+    const pages: Array<[string, string]> = [
+      ["main fleet", `${base}/#/unit/MTR-26003/decision`],
+      ["passport", `${base}/passport.html#/passport/MTR-26003`],
+      ["investigation", `${base}/investigation.html#/`],
+      ["impact list MTR-26003 lot BR-310", `${base}/impact.html#/lot/bearing/BR-310/list`],
+    ];
+    const snap0 = await (await page.request.get(`${base}/api/snapshot`)).json();
+    log.push(`STATE0 checkpoint=${JSON.stringify(snap0.checkpoint)} status=${snap0.freshness.status} eligibleUnits=${Object.entries(snap0.eligibility).filter(([, v]: any) => v.currentReleaseEligible).map(([k]) => k)}`);
+    for (const [name, url] of pages) { await page.goto(url); const t = await text(page); log.push(`CURRENT   ${name.padEnd(34)} ${JSON.stringify(flags(t))}`); }
+
+    // legitimate external capture -> ANCHORED_PREFIX_ONLY (R5)
+    const w = spawnSync(python, ["-c", "import sys;from application.service import Manufacturing;a=Manufacturing(sys.argv[1]);a.observe('MTR-26001','BR-204');a.close()", database], { cwd: resolve(".."), encoding: "utf8", windowsHide: true });
+    expect(w.status, w.stderr).toBe(0);
+    const snap1 = await (await page.request.get(`${base}/api/snapshot`)).json();
+    log.push(`STATE1 checkpoint=${JSON.stringify(snap1.checkpoint)} status=${snap1.freshness.status} eligibleUnits=${Object.entries(snap1.eligibility).filter(([, v]: any) => v.currentReleaseEligible).map(([k]) => k)}`);
+    const rawActions = Object.entries(snap1.decisions).map(([m, p]: any) => `${m}:${Object.values(p).map((b: any) => b.current.operationalAction)}`);
+    log.push(`STATE1 raw decision actions in /api/snapshot: ${rawActions.join(" ")}`);
+    for (const ep of ["/api/motors/MTR-26003/decisions", "/api/lots/BR-310/investigation"]) {
+      const r = await page.request.get(`${base}${ep}`); const b = await r.text();
+      log.push(`STATE1 GET ${ep} -> ${r.status()} containsRELEASE_ELIGIBLE=${b.includes("RELEASE_ELIGIBLE")} hasEligibilityOrCheckpointField=${/eligib|checkpoint/i.test(b)}`);
+    }
+    for (const [name, url] of pages) { await page.goto(url); const t = await text(page); log.push(`PREFIXONLY ${name.padEnd(33)} ${JSON.stringify(flags(t))}`); }
+  } finally { server.kill(); }
+  if (OUT) writeFileSync(OUT, log.join("\n"));
+  console.log("\n" + log.join("\n"));
+});
