@@ -292,7 +292,7 @@
  ],
  "components": [
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26001:ASSY:1",
    "installedAt": "2026-10-10T08:02:00Z",
    "lot": "BR-204",
@@ -306,7 +306,7 @@
    "unitId": "MTR-26001"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26001:ASSY:2",
    "installedAt": "2026-10-10T08:03:30Z",
    "lot": "BR-310",
@@ -320,7 +320,7 @@
    "unitId": "MTR-26001"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26002:ASSY:1",
    "installedAt": "2026-10-10T08:06:30Z",
    "lot": "BR-204",
@@ -334,7 +334,7 @@
    "unitId": "MTR-26002"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26002:ASSY:2",
    "installedAt": "2026-10-10T08:08:00Z",
    "lot": "BR-204",
@@ -348,7 +348,7 @@
    "unitId": "MTR-26002"
   },
   {
-   "claimedBy": "OP-REWORK-12",
+   "claimedBy": "ACTOR-05",
    "componentId": "urn:pramaan:MTR-26002:REWORK:2",
    "installedAt": "2026-10-20T08:03:00Z",
    "lot": "BR-312",
@@ -362,7 +362,7 @@
    "unitId": "MTR-26002"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26003:ASSY:1",
    "installedAt": "2026-10-10T08:11:00Z",
    "lot": "BR-310",
@@ -376,7 +376,7 @@
    "unitId": "MTR-26003"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26003:ASSY:2",
    "installedAt": "2026-10-10T08:12:30Z",
    "lot": "BR-312",
@@ -390,7 +390,7 @@
    "unitId": "MTR-26003"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26004:ASSY:1",
    "installedAt": "2026-10-10T08:15:30Z",
    "lot": "BR-204",
@@ -404,7 +404,7 @@
    "unitId": "MTR-26004"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26004:ASSY:2",
    "installedAt": "2026-10-10T08:17:00Z",
    "lot": "BR-310",
@@ -418,7 +418,7 @@
    "unitId": "MTR-26004"
   },
   {
-   "claimedBy": "OP-REWORK-12",
+   "claimedBy": "ACTOR-05",
    "componentId": "urn:pramaan:MTR-26004:REWORK:2",
    "installedAt": "2026-10-20T08:06:00Z",
    "lot": "BR-312",
@@ -432,7 +432,7 @@
    "unitId": "MTR-26004"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26005:ASSY:1",
    "installedAt": "2026-10-10T08:20:00Z",
    "lot": "BR-310",
@@ -446,7 +446,7 @@
    "unitId": "MTR-26005"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26005:ASSY:2",
    "installedAt": "2026-10-10T08:21:30Z",
    "lot": "BR-312",
@@ -460,7 +460,7 @@
    "unitId": "MTR-26005"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26007:ASSY:1",
    "installedAt": "2026-10-20T08:09:00Z",
    "lot": "BR-310",
@@ -474,7 +474,7 @@
    "unitId": "MTR-26007"
   },
   {
-   "claimedBy": "OP-ASSEMBLY-07",
+   "claimedBy": "ACTOR-03",
    "componentId": "urn:pramaan:MTR-26007:ASSY:2",
    "installedAt": "2026-10-20T08:10:30Z",
    "lot": "BR-312",
@@ -1867,7 +1867,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "OP-OBSERVATION-21",
+         "actor": "ACTOR-04",
          "at": "2026-10-20T08:07:00Z",
          "eventId": "urn:pramaan:MTR-26005:HANDHELD:1",
          "granularity": "LOT",
@@ -2109,7 +2109,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "OP-OBSERVATION-21",
+          "actor": "ACTOR-04",
           "at": "2026-10-20T08:07:00Z",
           "eventId": "urn:pramaan:MTR-26005:HANDHELD:1",
           "granularity": "LOT",
@@ -2839,7 +2839,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26001",
      "eventId": "urn:pramaan:MTR-26001:MES:1",
      "eventType": "WORK_ORDER_OPENED",
@@ -2877,7 +2877,7 @@
      "workOrderId": "BUILD-MTR-26001"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26001",
      "eventId": "urn:pramaan:MTR-26001:MATERIAL:1",
      "eventType": "MATERIAL_ALLOCATED",
@@ -2907,7 +2907,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26001",
      "eventId": "urn:pramaan:MTR-26001:MATERIAL:2",
      "eventType": "BEARING_MANUFACTURED",
@@ -2940,7 +2940,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26001",
      "eventId": "urn:pramaan:MTR-26001:ASSY:1",
      "eventType": "COMPONENT_INSTALLED",
@@ -2974,7 +2974,7 @@
      "workOrderId": "BUILD-MTR-26001"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26001",
      "eventId": "urn:pramaan:MTR-26001:MATERIAL:3",
      "eventType": "MATERIAL_ALLOCATED",
@@ -3004,7 +3004,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26001",
      "eventId": "urn:pramaan:MTR-26001:MATERIAL:4",
      "eventType": "BEARING_MANUFACTURED",
@@ -3037,7 +3037,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26001",
      "eventId": "urn:pramaan:MTR-26001:ASSY:2",
      "eventType": "COMPONENT_INSTALLED",
@@ -3071,7 +3071,7 @@
      "workOrderId": "BUILD-MTR-26001"
     },
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26001",
      "eventId": "urn:pramaan:MTR-26001:MES:2",
      "eventType": "WORK_ORDER_CLOSED",
@@ -3099,7 +3099,7 @@
      "workOrderId": "BUILD-MTR-26001"
     },
     {
-     "actorId": "DISPATCH-09",
+     "actorId": "ACTOR-01",
      "captureSessionId": "session:SHIP:MTR-26001",
      "eventId": "urn:pramaan:MTR-26001:SHIP:1",
      "eventType": "MOTOR_SHIPPED",
@@ -3110,8 +3110,8 @@
      "occurredAt": "2026-10-10T08:04:30Z",
      "payload": {
       "assemblyEventId": "urn:pramaan:MTR-26001:MES:2",
-      "customer": "Aster Pump Systems \u2014 synthetic customer",
-      "destination": "Coimbatore distribution centre",
+      "customer": "[not included in preview]",
+      "destination": "[not included in preview]",
       "shipmentId": "SHP-26-26001"
      },
      "recallId": null,
@@ -3197,8 +3197,8 @@
    "shipment": {
     "assemblyEventId": "urn:pramaan:MTR-26001:MES:2",
     "backedByLedger": true,
-    "customer": "Aster Pump Systems \u2014 synthetic customer",
-    "destination": "Coimbatore distribution centre",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "evidenceEventId": "urn:pramaan:MTR-26001:SHIP:1",
     "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
     "shipmentId": "SHP-26-26001",
@@ -3263,7 +3263,7 @@
    "eventCount": 15,
    "events": [
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:MES:1",
      "eventType": "WORK_ORDER_OPENED",
@@ -3301,7 +3301,7 @@
      "workOrderId": "BUILD-MTR-26002"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:MATERIAL:1",
      "eventType": "MATERIAL_ALLOCATED",
@@ -3331,7 +3331,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:MATERIAL:2",
      "eventType": "BEARING_MANUFACTURED",
@@ -3364,7 +3364,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:ASSY:1",
      "eventType": "COMPONENT_INSTALLED",
@@ -3397,7 +3397,7 @@
      "workOrderId": "BUILD-MTR-26002"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:MATERIAL:3",
      "eventType": "MATERIAL_ALLOCATED",
@@ -3427,7 +3427,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:MATERIAL:4",
      "eventType": "BEARING_MANUFACTURED",
@@ -3460,7 +3460,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:ASSY:2",
      "eventType": "COMPONENT_INSTALLED",
@@ -3493,7 +3493,7 @@
      "workOrderId": "BUILD-MTR-26002"
     },
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:MES:2",
      "eventType": "WORK_ORDER_CLOSED",
@@ -3521,7 +3521,7 @@
      "workOrderId": "BUILD-MTR-26002"
     },
     {
-     "actorId": "DISPATCH-09",
+     "actorId": "ACTOR-01",
      "captureSessionId": "session:SHIP:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:SHIP:1",
      "eventType": "MOTOR_SHIPPED",
@@ -3532,8 +3532,8 @@
      "occurredAt": "2026-10-10T08:09:00Z",
      "payload": {
       "assemblyEventId": "urn:pramaan:MTR-26002:MES:2",
-      "customer": "Aster Pump Systems \u2014 synthetic customer",
-      "destination": "Coimbatore distribution centre",
+      "customer": "[not included in preview]",
+      "destination": "[not included in preview]",
       "shipmentId": "SHP-26-26002"
      },
      "recallId": null,
@@ -3552,7 +3552,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:MES:3",
      "eventType": "WORK_ORDER_OPENED",
@@ -3586,7 +3586,7 @@
      "workOrderId": "RW-MTR-26002-1"
     },
     {
-     "actorId": "OP-REWORK-12",
+     "actorId": "ACTOR-05",
      "captureSessionId": "session:REWORK:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:REWORK:1",
      "eventType": "COMPONENT_REMOVED",
@@ -3619,7 +3619,7 @@
      "workOrderId": "RW-MTR-26002-1"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:MATERIAL:5",
      "eventType": "MATERIAL_ALLOCATED",
@@ -3649,7 +3649,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:MATERIAL:6",
      "eventType": "BEARING_MANUFACTURED",
@@ -3682,7 +3682,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-REWORK-12",
+     "actorId": "ACTOR-05",
      "captureSessionId": "session:REWORK:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:REWORK:2",
      "eventType": "COMPONENT_INSTALLED",
@@ -3715,7 +3715,7 @@
      "workOrderId": "RW-MTR-26002-1"
     },
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26002",
      "eventId": "urn:pramaan:MTR-26002:MES:4",
      "eventType": "WORK_ORDER_CLOSED",
@@ -3840,8 +3840,8 @@
    "shipment": {
     "assemblyEventId": "urn:pramaan:MTR-26002:MES:2",
     "backedByLedger": true,
-    "customer": "Aster Pump Systems \u2014 synthetic customer",
-    "destination": "Coimbatore distribution centre",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "evidenceEventId": "urn:pramaan:MTR-26002:SHIP:1",
     "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
     "shipmentId": "SHP-26-26002",
@@ -3906,7 +3906,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26003",
      "eventId": "urn:pramaan:MTR-26003:MES:1",
      "eventType": "WORK_ORDER_OPENED",
@@ -3944,7 +3944,7 @@
      "workOrderId": "BUILD-MTR-26003"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26003",
      "eventId": "urn:pramaan:MTR-26003:MATERIAL:1",
      "eventType": "MATERIAL_ALLOCATED",
@@ -3974,7 +3974,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26003",
      "eventId": "urn:pramaan:MTR-26003:MATERIAL:2",
      "eventType": "BEARING_MANUFACTURED",
@@ -4007,7 +4007,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26003",
      "eventId": "urn:pramaan:MTR-26003:ASSY:1",
      "eventType": "COMPONENT_INSTALLED",
@@ -4041,7 +4041,7 @@
      "workOrderId": "BUILD-MTR-26003"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26003",
      "eventId": "urn:pramaan:MTR-26003:MATERIAL:3",
      "eventType": "MATERIAL_ALLOCATED",
@@ -4071,7 +4071,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26003",
      "eventId": "urn:pramaan:MTR-26003:MATERIAL:4",
      "eventType": "BEARING_MANUFACTURED",
@@ -4104,7 +4104,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26003",
      "eventId": "urn:pramaan:MTR-26003:ASSY:2",
      "eventType": "COMPONENT_INSTALLED",
@@ -4138,7 +4138,7 @@
      "workOrderId": "BUILD-MTR-26003"
     },
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26003",
      "eventId": "urn:pramaan:MTR-26003:MES:2",
      "eventType": "WORK_ORDER_CLOSED",
@@ -4166,7 +4166,7 @@
      "workOrderId": "BUILD-MTR-26003"
     },
     {
-     "actorId": "DISPATCH-09",
+     "actorId": "ACTOR-01",
      "captureSessionId": "session:SHIP:MTR-26003",
      "eventId": "urn:pramaan:MTR-26003:SHIP:1",
      "eventType": "MOTOR_SHIPPED",
@@ -4177,8 +4177,8 @@
      "occurredAt": "2026-10-10T08:13:30Z",
      "payload": {
       "assemblyEventId": "urn:pramaan:MTR-26003:MES:2",
-      "customer": "Aster Pump Systems \u2014 synthetic customer",
-      "destination": "Coimbatore distribution centre",
+      "customer": "[not included in preview]",
+      "destination": "[not included in preview]",
       "shipmentId": "SHP-26-26003"
      },
      "recallId": null,
@@ -4264,8 +4264,8 @@
    "shipment": {
     "assemblyEventId": "urn:pramaan:MTR-26003:MES:2",
     "backedByLedger": true,
-    "customer": "Aster Pump Systems \u2014 synthetic customer",
-    "destination": "Coimbatore distribution centre",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "evidenceEventId": "urn:pramaan:MTR-26003:SHIP:1",
     "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
     "shipmentId": "SHP-26-26003",
@@ -4337,7 +4337,7 @@
    "eventCount": 15,
    "events": [
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:MES:1",
      "eventType": "WORK_ORDER_OPENED",
@@ -4375,7 +4375,7 @@
      "workOrderId": "BUILD-MTR-26004"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:MATERIAL:1",
      "eventType": "MATERIAL_ALLOCATED",
@@ -4405,7 +4405,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:MATERIAL:2",
      "eventType": "BEARING_MANUFACTURED",
@@ -4438,7 +4438,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:ASSY:1",
      "eventType": "COMPONENT_INSTALLED",
@@ -4472,7 +4472,7 @@
      "workOrderId": "BUILD-MTR-26004"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:MATERIAL:3",
      "eventType": "MATERIAL_ALLOCATED",
@@ -4502,7 +4502,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:MATERIAL:4",
      "eventType": "BEARING_MANUFACTURED",
@@ -4535,7 +4535,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:ASSY:2",
      "eventType": "COMPONENT_INSTALLED",
@@ -4569,7 +4569,7 @@
      "workOrderId": "BUILD-MTR-26004"
     },
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:MES:2",
      "eventType": "WORK_ORDER_CLOSED",
@@ -4597,7 +4597,7 @@
      "workOrderId": "BUILD-MTR-26004"
     },
     {
-     "actorId": "DISPATCH-09",
+     "actorId": "ACTOR-01",
      "captureSessionId": "session:SHIP:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:SHIP:1",
      "eventType": "MOTOR_SHIPPED",
@@ -4608,8 +4608,8 @@
      "occurredAt": "2026-10-10T08:18:00Z",
      "payload": {
       "assemblyEventId": "urn:pramaan:MTR-26004:MES:2",
-      "customer": "Aster Pump Systems \u2014 synthetic customer",
-      "destination": "Coimbatore distribution centre",
+      "customer": "[not included in preview]",
+      "destination": "[not included in preview]",
       "shipmentId": "SHP-26-26004"
      },
      "recallId": null,
@@ -4628,7 +4628,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:MES:3",
      "eventType": "WORK_ORDER_OPENED",
@@ -4662,7 +4662,7 @@
      "workOrderId": "RW-MTR-26004-1"
     },
     {
-     "actorId": "OP-REWORK-12",
+     "actorId": "ACTOR-05",
      "captureSessionId": "session:REWORK:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:REWORK:1",
      "eventType": "COMPONENT_REMOVED",
@@ -4696,7 +4696,7 @@
      "workOrderId": "RW-MTR-26004-1"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:MATERIAL:5",
      "eventType": "MATERIAL_ALLOCATED",
@@ -4726,7 +4726,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:MATERIAL:6",
      "eventType": "BEARING_MANUFACTURED",
@@ -4759,7 +4759,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-REWORK-12",
+     "actorId": "ACTOR-05",
      "captureSessionId": "session:REWORK:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:REWORK:2",
      "eventType": "COMPONENT_INSTALLED",
@@ -4793,7 +4793,7 @@
      "workOrderId": "RW-MTR-26004-1"
     },
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26004",
      "eventId": "urn:pramaan:MTR-26004:MES:4",
      "eventType": "WORK_ORDER_CLOSED",
@@ -4918,8 +4918,8 @@
    "shipment": {
     "assemblyEventId": "urn:pramaan:MTR-26004:MES:2",
     "backedByLedger": true,
-    "customer": "Aster Pump Systems \u2014 synthetic customer",
-    "destination": "Coimbatore distribution centre",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "evidenceEventId": "urn:pramaan:MTR-26004:SHIP:1",
     "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
     "shipmentId": "SHP-26-26004",
@@ -4984,7 +4984,7 @@
    "eventCount": 10,
    "events": [
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26005",
      "eventId": "urn:pramaan:MTR-26005:MES:1",
      "eventType": "WORK_ORDER_OPENED",
@@ -5022,7 +5022,7 @@
      "workOrderId": "BUILD-MTR-26005"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26005",
      "eventId": "urn:pramaan:MTR-26005:MATERIAL:1",
      "eventType": "MATERIAL_ALLOCATED",
@@ -5052,7 +5052,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26005",
      "eventId": "urn:pramaan:MTR-26005:MATERIAL:2",
      "eventType": "BEARING_MANUFACTURED",
@@ -5085,7 +5085,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26005",
      "eventId": "urn:pramaan:MTR-26005:ASSY:1",
      "eventType": "COMPONENT_INSTALLED",
@@ -5119,7 +5119,7 @@
      "workOrderId": "BUILD-MTR-26005"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26005",
      "eventId": "urn:pramaan:MTR-26005:MATERIAL:3",
      "eventType": "MATERIAL_ALLOCATED",
@@ -5149,7 +5149,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26005",
      "eventId": "urn:pramaan:MTR-26005:MATERIAL:4",
      "eventType": "BEARING_MANUFACTURED",
@@ -5182,7 +5182,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26005",
      "eventId": "urn:pramaan:MTR-26005:ASSY:2",
      "eventType": "COMPONENT_INSTALLED",
@@ -5216,7 +5216,7 @@
      "workOrderId": "BUILD-MTR-26005"
     },
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26005",
      "eventId": "urn:pramaan:MTR-26005:MES:2",
      "eventType": "WORK_ORDER_CLOSED",
@@ -5244,7 +5244,7 @@
      "workOrderId": "BUILD-MTR-26005"
     },
     {
-     "actorId": "DISPATCH-09",
+     "actorId": "ACTOR-01",
      "captureSessionId": "session:SHIP:MTR-26005",
      "eventId": "urn:pramaan:MTR-26005:SHIP:1",
      "eventType": "MOTOR_SHIPPED",
@@ -5255,8 +5255,8 @@
      "occurredAt": "2026-10-10T08:22:30Z",
      "payload": {
       "assemblyEventId": "urn:pramaan:MTR-26005:MES:2",
-      "customer": "Aster Pump Systems \u2014 synthetic customer",
-      "destination": "Coimbatore distribution centre",
+      "customer": "[not included in preview]",
+      "destination": "[not included in preview]",
       "shipmentId": "SHP-26-26005"
      },
      "recallId": null,
@@ -5275,7 +5275,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-OBSERVATION-21",
+     "actorId": "ACTOR-04",
      "captureSessionId": "session:HANDHELD:MTR-26005",
      "eventId": "urn:pramaan:MTR-26005:HANDHELD:1",
      "eventType": "SLOT_STATE_VERIFIED",
@@ -5381,8 +5381,8 @@
    "shipment": {
     "assemblyEventId": "urn:pramaan:MTR-26005:MES:2",
     "backedByLedger": true,
-    "customer": "Aster Pump Systems \u2014 synthetic customer",
-    "destination": "Coimbatore distribution centre",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "evidenceEventId": "urn:pramaan:MTR-26005:SHIP:1",
     "provenanceAssurance": "SYNTHETIC_UNVERIFIED_CLAIM",
     "shipmentId": "SHP-26-26005",
@@ -5524,7 +5524,7 @@
    "eventCount": 8,
    "events": [
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26007",
      "eventId": "urn:pramaan:MTR-26007:MES:1",
      "eventType": "WORK_ORDER_OPENED",
@@ -5562,7 +5562,7 @@
      "workOrderId": "BUILD-MTR-26007"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26007",
      "eventId": "urn:pramaan:MTR-26007:MATERIAL:1",
      "eventType": "MATERIAL_ALLOCATED",
@@ -5592,7 +5592,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26007",
      "eventId": "urn:pramaan:MTR-26007:MATERIAL:2",
      "eventType": "BEARING_MANUFACTURED",
@@ -5625,7 +5625,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26007",
      "eventId": "urn:pramaan:MTR-26007:ASSY:1",
      "eventType": "COMPONENT_INSTALLED",
@@ -5659,7 +5659,7 @@
      "workOrderId": "BUILD-MTR-26007"
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26007",
      "eventId": "urn:pramaan:MTR-26007:MATERIAL:3",
      "eventType": "MATERIAL_ALLOCATED",
@@ -5689,7 +5689,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "SUPPLIER-INTAKE-04",
+     "actorId": "ACTOR-06",
      "captureSessionId": "session:MATERIAL:MTR-26007",
      "eventId": "urn:pramaan:MTR-26007:MATERIAL:4",
      "eventType": "BEARING_MANUFACTURED",
@@ -5722,7 +5722,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "OP-ASSEMBLY-07",
+     "actorId": "ACTOR-03",
      "captureSessionId": "session:ASSY:MTR-26007",
      "eventId": "urn:pramaan:MTR-26007:ASSY:2",
      "eventType": "COMPONENT_INSTALLED",
@@ -5756,7 +5756,7 @@
      "workOrderId": "BUILD-MTR-26007"
     },
     {
-     "actorId": "MES-SYSTEM",
+     "actorId": "ACTOR-02",
      "captureSessionId": "session:MES:MTR-26007",
      "eventId": "urn:pramaan:MTR-26007:MES:2",
      "eventType": "WORK_ORDER_CLOSED",

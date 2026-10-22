@@ -1,13 +1,14 @@
 // Read-only data adapters. They only ever issue GET requests. The live adapter reuses the application's own
-// snapshot validation and verifyFreshness boundary, unchanged. No adapter falls back to fixture data.
-import { verifyFreshness } from "../data/freshness";
+// shared typed checkpoint/eligibility gate (src/contract/gate.ts). No adapter falls back to fixture data.
+import { GateTracker } from "../contract/gate";
+import { liveLoad } from "../contract/liveLoad";
 import type { RecallSnapshot } from "../domain/types";
 import { validateSnapshot } from "../domain/validate";
 import { scaleSnapshot } from "./syntheticScale";
 
 export interface ImpactLoad {
   snap: RecallSnapshot;
-  /** True only when verifyFreshness accepted this snapshot just now. */
+  /** True only when the shared gate returned CURRENT for this snapshot just now. */
   verified: boolean;
   reason: string;
   /** Remaining server lease in ms when verified, otherwise 0. */
@@ -43,22 +44,13 @@ async function getJson(url: string, timeoutMs: number, signal?: AbortSignal): Pr
 export class LiveImpactSource implements ImpactSource {
   readonly label = "Live SQLite ledger (synthetic manufacturing demo)";
   readonly live = true;
-  private previous: RecallSnapshot | null = null;
+  private tracker = new GateTracker();
   constructor(private timeoutMs = 4000) {}
 
   async load(signal?: AbortSignal): Promise<ImpactLoad> {
-    const res = await getJson("/api/snapshot", this.timeoutMs, signal);
-    if (!res.ok) throw new Error(`Ledger unavailable: HTTP ${res.status}`);
-    const snap = validateSnapshot(res.body);
-    try {
-      const leaseMs = verifyFreshness(snap, this.previous);
-      this.previous = snap;
-      return { snap, verified: true, reason: "", leaseMs };
-    } catch (e) {
-      const message = e instanceof Error ? e.message : String(e);
-      if (/regression/i.test(message)) throw new Error("Snapshot regression detected; the impact graph is withheld.");
-      return { snap, verified: false, reason: message, leaseMs: 0 };
-    }
+    // Classification lives in the shared typed gate; this adapter never inspects error text.
+    const r = await liveLoad(this.tracker, "/api/snapshot", this.timeoutMs, signal);
+    return { snap: r.snap, verified: r.verified, reason: r.reason, leaseMs: r.leaseMs };
   }
 }
 

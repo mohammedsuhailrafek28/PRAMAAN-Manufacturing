@@ -679,7 +679,7 @@
       "state": "OCCUPIED",
       "verifications": [
        {
-        "actor": "EMP-031",
+        "actor": "ACTOR-03",
         "assurance": "CORROBORATED_SLOT",
         "at": "2026-09-10T11:30:00Z",
         "eventId": "C06B-E008",
@@ -688,7 +688,7 @@
         "part": "BR-6205",
         "provisional": true,
         "rec": "2026-09-10T11:30:04Z",
-        "source": "QA-02",
+        "source": "ACTOR-07",
         "trusted": true,
         "ts": "DEVICE_SYNCED"
        }
@@ -702,9 +702,9 @@
     "untrustedObservations": [],
     "version": 1,
     "watermark": {
+     "ACTOR-07": 1,
      "ASSY-01": 2,
      "MES": 4,
-     "QA-02": 1,
      "REWORK-03": 2
     },
     "workOrders": {
@@ -822,7 +822,7 @@
       "state": "OCCUPIED",
       "verifications": [
        {
-        "actor": "EMP-031",
+        "actor": "ACTOR-03",
         "at": "2026-09-10T11:30:00Z",
         "eventId": "C06B-E008",
         "granularity": "LOT",
@@ -830,7 +830,7 @@
         "part": "BR-6205",
         "provisional": true,
         "rec": "2026-09-10T11:30:04Z",
-        "source": "QA-02",
+        "source": "ACTOR-07",
         "trusted": true,
         "ts": "DEVICE_SYNCED"
        }
@@ -844,9 +844,9 @@
     "untrustedObservations": [],
     "version": 1,
     "watermark": {
+     "ACTOR-07": 1,
      "ASSY-01": 2,
      "MES": 4,
-     "QA-02": 1,
      "REWORK-03": 2
     },
     "workOrders": {
@@ -1019,7 +1019,7 @@
       "state": "OCCUPIED",
       "verifications": [
        {
-        "actor": "EMP-031",
+        "actor": "ACTOR-03",
         "assurance": "CORROBORATED_SLOT",
         "at": "2026-09-10T11:30:00Z",
         "eventId": "C06B-E008",
@@ -1028,7 +1028,7 @@
         "part": "BR-6205",
         "provisional": true,
         "rec": "2026-09-10T11:30:04Z",
-        "source": "QA-02",
+        "source": "ACTOR-07",
         "trusted": true,
         "ts": "DEVICE_SYNCED"
        }
@@ -1042,9 +1042,9 @@
     "untrustedObservations": [],
     "version": 1,
     "watermark": {
+     "ACTOR-07": 1,
      "ASSY-01": 2,
      "MES": 4,
-     "QA-02": 1,
      "REWORK-03": 2
     },
     "workOrders": {
@@ -1164,7 +1164,7 @@
       "state": "OCCUPIED",
       "verifications": [
        {
-        "actor": "EMP-031",
+        "actor": "ACTOR-03",
         "at": "2026-09-10T11:30:00Z",
         "eventId": "C06B-E008",
         "granularity": "LOT",
@@ -1172,7 +1172,7 @@
         "part": "BR-6205",
         "provisional": true,
         "rec": "2026-09-10T11:30:04Z",
-        "source": "QA-02",
+        "source": "ACTOR-07",
         "trusted": true,
         "ts": "DEVICE_SYNCED"
        }
@@ -1186,9 +1186,9 @@
     "untrustedObservations": [],
     "version": 1,
     "watermark": {
+     "ACTOR-07": 1,
      "ASSY-01": 2,
      "MES": 4,
-     "QA-02": 1,
      "REWORK-03": 2
     },
     "workOrders": {
@@ -3123,7 +3123,7 @@
       "state": "OCCUPIED",
       "verifications": [
        {
-        "actor": "EMP-031",
+        "actor": "ACTOR-03",
         "assurance": "CORROBORATED_SLOT",
         "at": "2026-09-10T11:30:00Z",
         "eventId": "C06F-E010",
@@ -3132,7 +3132,7 @@
         "part": "BR-6205",
         "provisional": false,
         "rec": "2026-09-10T11:30:04Z",
-        "source": "QA-02",
+        "source": "ACTOR-07",
         "trusted": true,
         "ts": "DEVICE_SYNCED"
        }
@@ -3146,9 +3146,9 @@
     "untrustedObservations": [],
     "version": 1,
     "watermark": {
+     "ACTOR-07": 1,
      "ASSY-01": 2,
      "MES": 4,
-     "QA-02": 1,
      "REWORK-03": 3
     },
     "workOrders": {
@@ -3254,7 +3254,7 @@
       "state": "OCCUPIED",
       "verifications": [
        {
-        "actor": "EMP-031",
+        "actor": "ACTOR-03",
         "at": "2026-09-10T11:30:00Z",
         "eventId": "C06F-E010",
         "granularity": "LOT",
@@ -3262,7 +3262,7 @@
         "part": "BR-6205",
         "provisional": false,
         "rec": "2026-09-10T11:30:04Z",
-        "source": "QA-02",
+        "source": "ACTOR-07",
         "trusted": true,
         "ts": "DEVICE_SYNCED"
        }
@@ -3276,9 +3276,9 @@
     "untrustedObservations": [],
     "version": 1,
     "watermark": {
+     "ACTOR-07": 1,
      "ASSY-01": 2,
      "MES": 4,
-     "QA-02": 1,
      "REWORK-03": 3
     },
     "workOrders": {
@@ -3449,7 +3449,7 @@
       "state": "OCCUPIED",
       "verifications": [
        {
-        "actor": "EMP-031",
+        "actor": "ACTOR-03",
         "assurance": "CORROBORATED_SLOT",
         "at": "2026-09-10T11:30:00Z",
         "eventId": "C06F-E010",
@@ -3458,7 +3458,7 @@
         "part": "BR-6205",
         "provisional": false,
         "rec": "2026-09-10T11:30:04Z",
-        "source": "QA-02",
+        "source": "ACTOR-07",
         "trusted": true,
         "ts": "DEVICE_SYNCED"
        }
@@ -3472,9 +3472,9 @@
     "untrustedObservations": [],
     "version": 1,
     "watermark": {
+     "ACTOR-07": 1,
      "ASSY-01": 2,
      "MES": 4,
-     "QA-02": 1,
      "REWORK-03": 3
     },
     "workOrders": {
@@ -3582,7 +3582,7 @@
       "state": "OCCUPIED",
       "verifications": [
        {
-        "actor": "EMP-031",
+        "actor": "ACTOR-03",
         "at": "2026-09-10T11:30:00Z",
         "eventId": "C06F-E010",
         "granularity": "LOT",
@@ -3590,7 +3590,7 @@
         "part": "BR-6205",
         "provisional": false,
         "rec": "2026-09-10T11:30:04Z",
-        "source": "QA-02",
+        "source": "ACTOR-07",
         "trusted": true,
         "ts": "DEVICE_SYNCED"
        }
@@ -3604,9 +3604,9 @@
     "untrustedObservations": [],
     "version": 1,
     "watermark": {
+     "ACTOR-07": 1,
      "ASSY-01": 2,
      "MES": 4,
-     "QA-02": 1,
      "REWORK-03": 3
     },
     "workOrders": {
@@ -6412,7 +6412,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-031",
+         "actor": "ACTOR-03",
          "assurance": "CORROBORATED_SLOT",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C04-E008",
@@ -6421,7 +6421,7 @@
          "part": "BR-6205",
          "provisional": true,
          "rec": "2026-09-10T11:30:04Z",
-         "source": "QA-02",
+         "source": "ACTOR-07",
          "trusted": true,
          "ts": "DEVICE_SYNCED"
         }
@@ -6454,10 +6454,10 @@
      "untrustedObservations": [],
      "version": 1,
      "watermark": {
+      "ACTOR-07": 1,
       "ASSY-01": 2,
       "INSP-01": 1,
       "MES": 6,
-      "QA-02": 1,
       "REWORK-03": 2
      },
      "workOrders": {
@@ -6613,7 +6613,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C04-E008",
@@ -6622,7 +6622,7 @@
           "part": "BR-6205",
           "provisional": true,
           "rec": "2026-09-10T11:30:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -6655,9 +6655,9 @@
       "untrustedObservations": [],
       "version": 1,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "MES": 4,
-       "QA-02": 1,
        "REWORK-03": 2
       },
       "workOrders": {
@@ -6823,7 +6823,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-031",
+         "actor": "ACTOR-03",
          "assurance": "CORROBORATED_SLOT",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C04-E008",
@@ -6832,7 +6832,7 @@
          "part": "BR-6205",
          "provisional": true,
          "rec": "2026-09-10T11:30:04Z",
-         "source": "QA-02",
+         "source": "ACTOR-07",
          "trusted": true,
          "ts": "DEVICE_SYNCED"
         }
@@ -6865,10 +6865,10 @@
      "untrustedObservations": [],
      "version": 2,
      "watermark": {
+      "ACTOR-07": 1,
       "ASSY-01": 2,
       "INSP-01": 1,
       "MES": 6,
-      "QA-02": 1,
       "REWORK-03": 2
      },
      "workOrders": {
@@ -7040,7 +7040,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C04-E008",
@@ -7049,7 +7049,7 @@
           "part": "BR-6205",
           "provisional": true,
           "rec": "2026-09-10T11:30:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -7082,9 +7082,9 @@
       "untrustedObservations": [],
       "version": 1,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "MES": 4,
-       "QA-02": 1,
        "REWORK-03": 2
       },
       "workOrders": {
@@ -7247,7 +7247,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C04-E008",
@@ -7256,7 +7256,7 @@
           "part": "BR-6205",
           "provisional": true,
           "rec": "2026-09-10T11:30:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -7289,10 +7289,10 @@
       "untrustedObservations": [],
       "version": 2,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "INSP-01": 1,
        "MES": 5,
-       "QA-02": 1,
        "REWORK-03": 2
       },
       "workOrders": {
@@ -10102,7 +10102,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-031",
+         "actor": "ACTOR-03",
          "assurance": "CORROBORATED_SLOT",
          "at": "2026-10-13T10:00:00Z",
          "eventId": "C05B-E010",
@@ -10111,7 +10111,7 @@
          "part": "BR-6205",
          "provisional": true,
          "rec": "2026-10-13T10:00:04Z",
-         "source": "QA-02",
+         "source": "ACTOR-07",
          "trusted": true,
          "ts": "DEVICE_SYNCED"
         }
@@ -10127,9 +10127,9 @@
      "untrustedObservations": [],
      "version": 3,
      "watermark": {
+      "ACTOR-07": 1,
       "ASSY-01": 2,
       "MES": 4,
-      "QA-02": 1,
       "QUALITY-PORTAL": 1,
       "REWORK-03": 2
      },
@@ -10602,7 +10602,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-10-13T10:00:00Z",
           "eventId": "C05B-E010",
@@ -10611,7 +10611,7 @@
           "part": "BR-6205",
           "provisional": true,
           "rec": "2026-10-13T10:00:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -10627,9 +10627,9 @@
       "untrustedObservations": [],
       "version": 3,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "MES": 4,
-       "QA-02": 1,
        "QUALITY-PORTAL": 1,
        "REWORK-03": 2
       },
@@ -10788,7 +10788,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-031",
+         "actor": "ACTOR-03",
          "assurance": "CORROBORATED_SLOT",
          "at": "2026-10-13T10:00:00Z",
          "eventId": "C05B-E010",
@@ -10797,7 +10797,7 @@
          "part": "BR-6205",
          "provisional": true,
          "rec": "2026-10-13T10:00:04Z",
-         "source": "QA-02",
+         "source": "ACTOR-07",
          "trusted": true,
          "ts": "DEVICE_SYNCED"
         }
@@ -10813,9 +10813,9 @@
      "untrustedObservations": [],
      "version": 3,
      "watermark": {
+      "ACTOR-07": 1,
       "ASSY-01": 2,
       "MES": 4,
-      "QA-02": 1,
       "QUALITY-PORTAL": 1,
       "REWORK-03": 2
      },
@@ -11286,7 +11286,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-10-13T10:00:00Z",
           "eventId": "C05B-E010",
@@ -11295,7 +11295,7 @@
           "part": "BR-6205",
           "provisional": true,
           "rec": "2026-10-13T10:00:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -11311,9 +11311,9 @@
       "untrustedObservations": [],
       "version": 3,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "MES": 4,
-       "QA-02": 1,
        "QUALITY-PORTAL": 1,
        "REWORK-03": 2
       },
@@ -12124,7 +12124,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-031",
+         "actor": "ACTOR-03",
          "assurance": "CORROBORATED_SLOT",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C06B-E008",
@@ -12133,7 +12133,7 @@
          "part": "BR-6205",
          "provisional": true,
          "rec": "2026-09-10T11:30:04Z",
-         "source": "QA-02",
+         "source": "ACTOR-07",
          "trusted": true,
          "ts": "DEVICE_SYNCED"
         }
@@ -12147,9 +12147,9 @@
      "untrustedObservations": [],
      "version": 1,
      "watermark": {
+      "ACTOR-07": 1,
       "ASSY-01": 2,
       "MES": 4,
-      "QA-02": 1,
       "REWORK-03": 2
      },
      "workOrders": {
@@ -12313,7 +12313,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C06B-E008",
@@ -12322,7 +12322,7 @@
           "part": "BR-6205",
           "provisional": true,
           "rec": "2026-09-10T11:30:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -12336,9 +12336,9 @@
       "untrustedObservations": [],
       "version": 1,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "MES": 4,
-       "QA-02": 1,
        "REWORK-03": 2
       },
       "workOrders": {
@@ -12506,7 +12506,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-031",
+         "actor": "ACTOR-03",
          "assurance": "CORROBORATED_SLOT",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C06B-E008",
@@ -12515,7 +12515,7 @@
          "part": "BR-6205",
          "provisional": true,
          "rec": "2026-09-10T11:30:04Z",
-         "source": "QA-02",
+         "source": "ACTOR-07",
          "trusted": true,
          "ts": "DEVICE_SYNCED"
         }
@@ -12529,9 +12529,9 @@
      "untrustedObservations": [],
      "version": 1,
      "watermark": {
+      "ACTOR-07": 1,
       "ASSY-01": 2,
       "MES": 4,
-      "QA-02": 1,
       "REWORK-03": 2
      },
      "workOrders": {
@@ -12697,7 +12697,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C06B-E008",
@@ -12706,7 +12706,7 @@
           "part": "BR-6205",
           "provisional": true,
           "rec": "2026-09-10T11:30:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -12720,9 +12720,9 @@
       "untrustedObservations": [],
       "version": 1,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "MES": 4,
-       "QA-02": 1,
        "REWORK-03": 2
       },
       "workOrders": {
@@ -14934,7 +14934,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-031",
+         "actor": "ACTOR-03",
          "assurance": "CORROBORATED_SLOT",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C06F-E010",
@@ -14943,7 +14943,7 @@
          "part": "BR-6205",
          "provisional": false,
          "rec": "2026-09-10T11:30:04Z",
-         "source": "QA-02",
+         "source": "ACTOR-07",
          "trusted": true,
          "ts": "DEVICE_SYNCED"
         }
@@ -14957,9 +14957,9 @@
      "untrustedObservations": [],
      "version": 1,
      "watermark": {
+      "ACTOR-07": 1,
       "ASSY-01": 2,
       "MES": 4,
-      "QA-02": 1,
       "REWORK-03": 3
      },
      "workOrders": {
@@ -15121,7 +15121,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C06F-E010",
@@ -15130,7 +15130,7 @@
           "part": "BR-6205",
           "provisional": false,
           "rec": "2026-09-10T11:30:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -15144,9 +15144,9 @@
       "untrustedObservations": [],
       "version": 1,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "MES": 4,
-       "QA-02": 1,
        "REWORK-03": 3
       },
       "workOrders": {
@@ -15312,7 +15312,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-031",
+         "actor": "ACTOR-03",
          "assurance": "CORROBORATED_SLOT",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C06F-E010",
@@ -15321,7 +15321,7 @@
          "part": "BR-6205",
          "provisional": false,
          "rec": "2026-09-10T11:30:04Z",
-         "source": "QA-02",
+         "source": "ACTOR-07",
          "trusted": true,
          "ts": "DEVICE_SYNCED"
         }
@@ -15335,9 +15335,9 @@
      "untrustedObservations": [],
      "version": 1,
      "watermark": {
+      "ACTOR-07": 1,
       "ASSY-01": 2,
       "MES": 4,
-      "QA-02": 1,
       "REWORK-03": 3
      },
      "workOrders": {
@@ -15501,7 +15501,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C06F-E010",
@@ -15510,7 +15510,7 @@
           "part": "BR-6205",
           "provisional": false,
           "rec": "2026-09-10T11:30:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -15524,9 +15524,9 @@
       "untrustedObservations": [],
       "version": 1,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "MES": 4,
-       "QA-02": 1,
        "REWORK-03": 3
       },
       "workOrders": {
@@ -16278,7 +16278,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C08-E009",
          "granularity": "LOT",
@@ -16465,7 +16465,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C08-E009",
           "granularity": "LOT",
@@ -16656,7 +16656,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C08-E009",
          "granularity": "LOT",
@@ -16845,7 +16845,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C08-E009",
           "granularity": "LOT",
@@ -17036,7 +17036,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C08E-E009",
          "granularity": "LOT",
@@ -17223,7 +17223,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C08E-E009",
           "granularity": "LOT",
@@ -17414,7 +17414,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C08E-E009",
          "granularity": "LOT",
@@ -17603,7 +17603,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C08E-E009",
           "granularity": "LOT",
@@ -17796,7 +17796,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C08F-E009",
          "granularity": "LOT",
@@ -17813,7 +17813,7 @@
          "ts": "DEVICE_SYNCED"
         },
         {
-         "actor": "EMP-031",
+         "actor": "ACTOR-03",
          "assurance": "CORROBORATED_SLOT",
          "at": "2026-09-10T12:00:00Z",
          "eventId": "C08F-E010",
@@ -17822,7 +17822,7 @@
          "part": "BR-6205",
          "provisional": false,
          "rec": "2026-09-10T12:00:04Z",
-         "source": "QA-02",
+         "source": "ACTOR-07",
          "trusted": true,
          "ts": "DEVICE_SYNCED"
         }
@@ -17853,10 +17853,10 @@
      ],
      "version": 1,
      "watermark": {
+      "ACTOR-07": 1,
       "ASSY-01": 2,
       "HANDHELD-09": 1,
       "MES": 4,
-      "QA-02": 1,
       "REWORK-03": 2
      },
      "workOrders": {
@@ -18000,7 +18000,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C08F-E009",
           "granularity": "LOT",
@@ -18017,7 +18017,7 @@
           "ts": "DEVICE_SYNCED"
          },
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-09-10T12:00:00Z",
           "eventId": "C08F-E010",
@@ -18026,7 +18026,7 @@
           "part": "BR-6205",
           "provisional": false,
           "rec": "2026-09-10T12:00:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -18057,10 +18057,10 @@
       ],
       "version": 1,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "HANDHELD-09": 1,
        "MES": 4,
-       "QA-02": 1,
        "REWORK-03": 2
       },
       "workOrders": {
@@ -18208,7 +18208,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C08F-E009",
          "granularity": "LOT",
@@ -18225,7 +18225,7 @@
          "ts": "DEVICE_SYNCED"
         },
         {
-         "actor": "EMP-031",
+         "actor": "ACTOR-03",
          "assurance": "CORROBORATED_SLOT",
          "at": "2026-09-10T12:00:00Z",
          "eventId": "C08F-E010",
@@ -18234,7 +18234,7 @@
          "part": "BR-6205",
          "provisional": false,
          "rec": "2026-09-10T12:00:04Z",
-         "source": "QA-02",
+         "source": "ACTOR-07",
          "trusted": true,
          "ts": "DEVICE_SYNCED"
         }
@@ -18265,10 +18265,10 @@
      ],
      "version": 1,
      "watermark": {
+      "ACTOR-07": 1,
       "ASSY-01": 2,
       "HANDHELD-09": 1,
       "MES": 4,
-      "QA-02": 1,
       "REWORK-03": 2
      },
      "workOrders": {
@@ -18414,7 +18414,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C08F-E009",
           "granularity": "LOT",
@@ -18431,7 +18431,7 @@
           "ts": "DEVICE_SYNCED"
          },
          {
-          "actor": "EMP-031",
+          "actor": "ACTOR-03",
           "assurance": "CORROBORATED_SLOT",
           "at": "2026-09-10T12:00:00Z",
           "eventId": "C08F-E010",
@@ -18440,7 +18440,7 @@
           "part": "BR-6205",
           "provisional": false,
           "rec": "2026-09-10T12:00:04Z",
-          "source": "QA-02",
+          "source": "ACTOR-07",
           "trusted": true,
           "ts": "DEVICE_SYNCED"
          }
@@ -18471,10 +18471,10 @@
       ],
       "version": 1,
       "watermark": {
+       "ACTOR-07": 1,
        "ASSY-01": 2,
        "HANDHELD-09": 1,
        "MES": 4,
-       "QA-02": 1,
        "REWORK-03": 2
       },
       "workOrders": {
@@ -18620,7 +18620,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T09:00:00Z",
          "eventId": "C08G-E006",
          "granularity": "LOT",
@@ -18807,7 +18807,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T09:00:00Z",
           "eventId": "C08G-E006",
           "granularity": "LOT",
@@ -18998,7 +18998,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T09:00:00Z",
          "eventId": "C08G-E006",
          "granularity": "LOT",
@@ -19187,7 +19187,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T09:00:00Z",
           "eventId": "C08G-E006",
           "granularity": "LOT",
@@ -20081,7 +20081,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C08I-E010",
          "granularity": "LOT",
@@ -20285,7 +20285,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C08I-E010",
           "granularity": "LOT",
@@ -20493,7 +20493,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T11:30:00Z",
          "eventId": "C08I-E010",
          "granularity": "LOT",
@@ -20699,7 +20699,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T11:30:00Z",
           "eventId": "C08I-E010",
           "granularity": "LOT",
@@ -20890,7 +20890,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T09:00:00Z",
          "eventId": "C08J-E006",
          "granularity": "LOT",
@@ -21077,7 +21077,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T09:00:00Z",
           "eventId": "C08J-E006",
           "granularity": "LOT",
@@ -21268,7 +21268,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T09:00:00Z",
          "eventId": "C08J-E006",
          "granularity": "LOT",
@@ -21457,7 +21457,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T09:00:00Z",
           "eventId": "C08J-E006",
           "granularity": "LOT",
@@ -21648,7 +21648,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T09:00:00Z",
          "eventId": "C08K-E009",
          "granularity": "LOT",
@@ -21835,7 +21835,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T09:00:00Z",
           "eventId": "C08K-E009",
           "granularity": "LOT",
@@ -22026,7 +22026,7 @@
        "state": "OCCUPIED",
        "verifications": [
         {
-         "actor": "EMP-050",
+         "actor": "ACTOR-05",
          "at": "2026-09-10T09:00:00Z",
          "eventId": "C08K-E009",
          "granularity": "LOT",
@@ -22215,7 +22215,7 @@
         "state": "OCCUPIED",
         "verifications": [
          {
-          "actor": "EMP-050",
+          "actor": "ACTOR-05",
           "at": "2026-09-10T09:00:00Z",
           "eventId": "C08K-E009",
           "granularity": "LOT",
@@ -23091,7 +23091,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C01-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -23118,7 +23118,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C01-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -23141,7 +23141,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C01-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -23164,7 +23164,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C01-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -23181,7 +23181,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C01-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -23205,7 +23205,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C01-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -23229,7 +23229,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C01-E007",
      "eventType": "CAPTURE_EXCEPTION_RAISED",
      "evidenceRefs": [],
@@ -23252,7 +23252,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C01-E008",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -23275,7 +23275,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C01-E009",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -23296,8 +23296,8 @@
    "fixtureSet": "v1",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer A (synthetic)",
-    "destination": "Site 1 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2600",
     "shippedAt": "2026-09-12T09:00:00Z"
    },
@@ -23322,7 +23322,7 @@
    "eventCount": 4,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C02-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -23346,7 +23346,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C02-E002",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -23370,7 +23370,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C02-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -23393,7 +23393,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C02-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -23440,7 +23440,7 @@
    "eventCount": 7,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C03-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -23467,7 +23467,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C03-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -23490,7 +23490,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C03-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -23513,7 +23513,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C03-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -23530,7 +23530,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C03-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -23554,7 +23554,7 @@
      "workOrderId": "RW-193"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C03-E006",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -23577,7 +23577,7 @@
      "workOrderId": "RW-193"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C03-E007",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -23626,7 +23626,7 @@
     },
     {
      "from": "2026-09-10T11:00:00Z",
-     "sourceId": "QA-02",
+     "sourceId": "ACTOR-07",
      "to": "2026-09-10T12:00:00Z"
     },
     {
@@ -23639,7 +23639,7 @@
    "eventCount": 12,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -23666,7 +23666,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C04-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -23689,7 +23689,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C04-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -23712,7 +23712,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -23729,7 +23729,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -23753,7 +23753,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C04-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -23777,7 +23777,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C04-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -23800,7 +23800,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-031",
+     "actorId": "ACTOR-03",
      "eventId": "C04-E008",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -23817,14 +23817,14 @@
       "slot": "DE"
      },
      "recordedAt": "2026-09-10T11:30:04Z",
-     "sourceId": "QA-02",
+     "sourceId": "ACTOR-07",
      "sourceSeq": 1,
      "supersedesEventId": null,
      "timeSource": "DEVICE_SYNCED",
      "workOrderId": null
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04-E009",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -23841,7 +23841,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04-E010",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -23864,7 +23864,7 @@
      "workOrderId": "RRO-007"
     },
     {
-     "actorId": "EMP-052",
+     "actorId": "ACTOR-06",
      "eventId": "C04-E011",
      "eventType": "INSPECTION_RECORDED",
      "evidenceRefs": [
@@ -23895,7 +23895,7 @@
      "workOrderId": "RRO-007"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04-E012",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -23916,8 +23916,8 @@
    "fixtureSet": "v1",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer D (synthetic)",
-    "destination": "Site 4 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2603",
     "shippedAt": "2026-09-15T09:00:00Z"
    },
@@ -23952,7 +23952,7 @@
    "eventCount": 8,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04B-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -23979,7 +23979,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C04B-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24002,7 +24002,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C04B-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24025,7 +24025,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04B-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -24042,7 +24042,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04B-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -24066,7 +24066,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C04B-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -24090,7 +24090,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C04B-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24113,7 +24113,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04B-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -24170,7 +24170,7 @@
    "eventCount": 11,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04C-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -24197,7 +24197,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C04C-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24220,7 +24220,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C04C-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24243,7 +24243,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04C-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -24260,7 +24260,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04C-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -24284,7 +24284,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C04C-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -24308,7 +24308,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C04C-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24331,7 +24331,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04C-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -24348,7 +24348,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04C-E009",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -24371,7 +24371,7 @@
      "workOrderId": "RRO-007"
     },
     {
-     "actorId": "EMP-052",
+     "actorId": "ACTOR-06",
      "eventId": "C04C-E010",
      "eventType": "INSPECTION_RECORDED",
      "evidenceRefs": [
@@ -24402,7 +24402,7 @@
      "workOrderId": "RRO-007"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C04C-E011",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -24423,8 +24423,8 @@
    "fixtureSet": "v1",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer A (synthetic)",
-    "destination": "Site 1 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2605",
     "shippedAt": "2026-09-17T09:00:00Z"
    },
@@ -24459,7 +24459,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C05-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -24486,7 +24486,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C05-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24509,7 +24509,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C05-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24532,7 +24532,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C05-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -24549,7 +24549,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C05-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -24573,7 +24573,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C05-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -24597,7 +24597,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C05-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24620,7 +24620,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C05-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -24637,7 +24637,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-044",
+     "actorId": "ACTOR-04",
      "eventId": "C05-E009",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24665,8 +24665,8 @@
    "fixtureSet": "v1",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer B (synthetic)",
-    "destination": "Site 2 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2606",
     "shippedAt": "2026-09-18T09:00:00Z"
    },
@@ -24698,7 +24698,7 @@
     },
     {
      "from": "2026-10-13T09:30:00Z",
-     "sourceId": "QA-02",
+     "sourceId": "ACTOR-07",
      "to": "2026-10-13T10:30:00Z"
     }
    ],
@@ -24706,7 +24706,7 @@
    "eventCount": 10,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C05B-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -24733,7 +24733,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C05B-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24756,7 +24756,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C05B-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24779,7 +24779,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C05B-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -24796,7 +24796,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C05B-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -24820,7 +24820,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C05B-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -24844,7 +24844,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C05B-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24867,7 +24867,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C05B-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -24884,7 +24884,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-044",
+     "actorId": "ACTOR-04",
      "eventId": "C05B-E009",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -24908,7 +24908,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-031",
+     "actorId": "ACTOR-03",
      "eventId": "C05B-E010",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -24925,7 +24925,7 @@
       "slot": "DE"
      },
      "recordedAt": "2026-10-13T10:00:04Z",
-     "sourceId": "QA-02",
+     "sourceId": "ACTOR-07",
      "sourceSeq": 1,
      "supersedesEventId": null,
      "timeSource": "DEVICE_SYNCED",
@@ -24936,8 +24936,8 @@
    "fixtureSet": "v1",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer C (synthetic)",
-    "destination": "Site 3 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2607",
     "shippedAt": "2026-09-19T09:00:00Z"
    },
@@ -24967,7 +24967,7 @@
    "eventCount": 8,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -24994,7 +24994,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25017,7 +25017,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25040,7 +25040,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -25057,7 +25057,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -25081,7 +25081,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -25105,7 +25105,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25128,7 +25128,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -25149,8 +25149,8 @@
    "fixtureSet": "v1",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer D (synthetic)",
-    "destination": "Site 4 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2608",
     "shippedAt": "2026-09-20T09:00:00Z"
    },
@@ -25180,7 +25180,7 @@
     },
     {
      "from": "2026-09-10T11:00:00Z",
-     "sourceId": "QA-02",
+     "sourceId": "ACTOR-07",
      "to": "2026-09-10T12:00:00Z"
     }
    ],
@@ -25188,7 +25188,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06B-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -25215,7 +25215,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06B-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25238,7 +25238,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06B-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25261,7 +25261,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06B-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -25278,7 +25278,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06B-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -25302,7 +25302,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06B-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -25326,7 +25326,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06B-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25349,7 +25349,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-031",
+     "actorId": "ACTOR-03",
      "eventId": "C06B-E008",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -25366,14 +25366,14 @@
       "slot": "DE"
      },
      "recordedAt": "2026-09-10T11:30:04Z",
-     "sourceId": "QA-02",
+     "sourceId": "ACTOR-07",
      "sourceSeq": 1,
      "supersedesEventId": null,
      "timeSource": "DEVICE_SYNCED",
      "workOrderId": null
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06B-E009",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -25394,8 +25394,8 @@
    "fixtureSet": "v1",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer E (synthetic)",
-    "destination": "Site 5 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2609",
     "shippedAt": "2026-09-21T09:00:00Z"
    },
@@ -25428,7 +25428,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06C-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -25455,7 +25455,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06C-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25478,7 +25478,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06C-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25501,7 +25501,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06C-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -25518,7 +25518,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06C-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -25542,7 +25542,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06C-E006",
      "eventType": "SLOT_LABEL_SCANNED",
      "evidenceRefs": [
@@ -25561,7 +25561,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06C-E007",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -25585,7 +25585,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06C-E008",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25608,7 +25608,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06C-E009",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -25629,8 +25629,8 @@
    "fixtureSet": "v2",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer A (synthetic)",
-    "destination": "Site 1 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2610",
     "shippedAt": "2026-09-12T09:00:00Z"
    },
@@ -25663,7 +25663,7 @@
    "eventCount": 8,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06D-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -25690,7 +25690,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06D-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25714,7 +25714,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06D-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25738,7 +25738,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06D-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -25755,7 +25755,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06D-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -25779,7 +25779,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06D-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -25804,7 +25804,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06D-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25828,7 +25828,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06D-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -25849,8 +25849,8 @@
    "fixtureSet": "v2",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer B (synthetic)",
-    "destination": "Site 2 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2611",
     "shippedAt": "2026-09-13T09:00:00Z"
    },
@@ -25883,7 +25883,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06E-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -25910,7 +25910,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06E-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25933,7 +25933,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06E-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -25956,7 +25956,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06E-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -25973,7 +25973,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06E-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -25997,7 +25997,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06E-E006",
      "eventType": "SLOT_LABEL_SCANNED",
      "evidenceRefs": [
@@ -26016,7 +26016,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06E-E007",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -26040,7 +26040,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06E-E008",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26063,7 +26063,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06E-E009",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -26084,8 +26084,8 @@
    "fixtureSet": "v2",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer C (synthetic)",
-    "destination": "Site 3 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2612",
     "shippedAt": "2026-09-14T09:00:00Z"
    },
@@ -26115,15 +26115,15 @@
     },
     {
      "from": "2026-09-10T11:00:00Z",
-     "sourceId": "QA-02",
+     "sourceId": "ACTOR-07",
      "to": "2026-09-10T12:00:00Z"
     }
    ],
-   "description": "As case-06e, plus an independent QA-02 physical check observing BR-310 in DE.",
+   "description": "As case-06e, plus an independent ACTOR-07 physical check observing BR-310 in DE.",
    "eventCount": 10,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06F-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -26150,7 +26150,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06F-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26173,7 +26173,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C06F-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26196,7 +26196,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06F-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -26213,7 +26213,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06F-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -26237,7 +26237,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06F-E006",
      "eventType": "SLOT_LABEL_SCANNED",
      "evidenceRefs": [
@@ -26256,7 +26256,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06F-E007",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -26280,7 +26280,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C06F-E008",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26303,7 +26303,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C06F-E009",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -26320,7 +26320,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-031",
+     "actorId": "ACTOR-03",
      "eventId": "C06F-E010",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -26336,7 +26336,7 @@
       "slot": "DE"
      },
      "recordedAt": "2026-09-10T11:30:04Z",
-     "sourceId": "QA-02",
+     "sourceId": "ACTOR-07",
      "sourceSeq": 1,
      "supersedesEventId": null,
      "timeSource": "DEVICE_SYNCED",
@@ -26347,8 +26347,8 @@
    "fixtureSet": "v2",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer D (synthetic)",
-    "destination": "Site 4 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2613",
     "shippedAt": "2026-09-15T09:00:00Z"
    },
@@ -26381,7 +26381,7 @@
    "eventCount": 8,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C07-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -26408,7 +26408,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C07-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26431,7 +26431,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C07-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26454,7 +26454,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C07-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -26471,7 +26471,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C07-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -26495,7 +26495,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C07-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -26519,7 +26519,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C07-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26542,7 +26542,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C07-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -26563,8 +26563,8 @@
    "fixtureSet": "v2",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer E (synthetic)",
-    "destination": "Site 5 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2614",
     "shippedAt": "2026-09-16T09:00:00Z"
    },
@@ -26602,7 +26602,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -26629,7 +26629,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26652,7 +26652,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26675,7 +26675,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -26692,7 +26692,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -26716,7 +26716,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -26740,7 +26740,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26763,7 +26763,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -26780,7 +26780,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-050",
+     "actorId": "ACTOR-05",
      "eventId": "C08-E009",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -26807,8 +26807,8 @@
    "fixtureSet": "v3",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer A (synthetic)",
-    "destination": "Site 1 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2615",
     "shippedAt": "2026-09-17T09:00:00Z"
    },
@@ -26846,7 +26846,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08E-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -26873,7 +26873,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08E-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26896,7 +26896,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08E-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -26919,7 +26919,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08E-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -26936,7 +26936,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08E-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -26960,7 +26960,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08E-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -26984,7 +26984,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08E-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27007,7 +27007,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08E-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -27024,7 +27024,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-050",
+     "actorId": "ACTOR-05",
      "eventId": "C08E-E009",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -27051,8 +27051,8 @@
    "fixtureSet": "v3",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer B (synthetic)",
-    "destination": "Site 2 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2616",
     "shippedAt": "2026-09-18T09:00:00Z"
    },
@@ -27087,7 +27087,7 @@
     },
     {
      "from": "2026-09-10T11:45:00Z",
-     "sourceId": "QA-02",
+     "sourceId": "ACTOR-07",
      "to": "2026-09-10T13:00:00Z"
     }
    ],
@@ -27095,7 +27095,7 @@
    "eventCount": 10,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08F-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -27122,7 +27122,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08F-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27145,7 +27145,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08F-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27168,7 +27168,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08F-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -27185,7 +27185,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08F-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -27209,7 +27209,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08F-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -27233,7 +27233,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08F-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27256,7 +27256,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08F-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -27273,7 +27273,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-050",
+     "actorId": "ACTOR-05",
      "eventId": "C08F-E009",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -27296,7 +27296,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "EMP-031",
+     "actorId": "ACTOR-03",
      "eventId": "C08F-E010",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -27312,7 +27312,7 @@
       "slot": "DE"
      },
      "recordedAt": "2026-09-10T12:00:04Z",
-     "sourceId": "QA-02",
+     "sourceId": "ACTOR-07",
      "sourceSeq": 1,
      "supersedesEventId": null,
      "timeSource": "DEVICE_SYNCED",
@@ -27323,8 +27323,8 @@
    "fixtureSet": "v3",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer C (synthetic)",
-    "destination": "Site 3 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2617",
     "shippedAt": "2026-09-19T09:00:00Z"
    },
@@ -27362,7 +27362,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08G-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -27389,7 +27389,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08G-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27412,7 +27412,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08G-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27435,7 +27435,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08G-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -27452,7 +27452,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08G-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -27476,7 +27476,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-050",
+     "actorId": "ACTOR-05",
      "eventId": "C08G-E006",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -27499,7 +27499,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08G-E007",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -27523,7 +27523,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08G-E008",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27546,7 +27546,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08G-E009",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -27567,8 +27567,8 @@
    "fixtureSet": "v3",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer D (synthetic)",
-    "destination": "Site 4 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2618",
     "shippedAt": "2026-09-20T09:00:00Z"
    },
@@ -27606,7 +27606,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08H-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -27633,7 +27633,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08H-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27656,7 +27656,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08H-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27679,7 +27679,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08H-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -27696,7 +27696,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08H-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -27720,7 +27720,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08H-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -27744,7 +27744,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08H-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27767,7 +27767,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08H-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -27784,7 +27784,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-050",
+     "actorId": "ACTOR-05",
      "eventId": "C08H-E009",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -27811,8 +27811,8 @@
    "fixtureSet": "v3",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer E (synthetic)",
-    "destination": "Site 5 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2619",
     "shippedAt": "2026-09-21T09:00:00Z"
    },
@@ -27850,7 +27850,7 @@
    "eventCount": 10,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08I-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -27877,7 +27877,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08I-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27900,7 +27900,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08I-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -27923,7 +27923,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08I-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -27940,7 +27940,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08I-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -27964,7 +27964,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08I-E006",
      "eventType": "SLOT_LABEL_SCANNED",
      "evidenceRefs": [
@@ -27983,7 +27983,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08I-E007",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -28007,7 +28007,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08I-E008",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -28030,7 +28030,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08I-E009",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -28047,7 +28047,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-050",
+     "actorId": "ACTOR-05",
      "eventId": "C08I-E010",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -28074,8 +28074,8 @@
    "fixtureSet": "v3",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer A (synthetic)",
-    "destination": "Site 1 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2620",
     "shippedAt": "2026-09-12T09:00:00Z"
    },
@@ -28113,7 +28113,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08J-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -28140,7 +28140,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08J-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -28163,7 +28163,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08J-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -28186,7 +28186,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08J-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -28203,7 +28203,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08J-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -28227,7 +28227,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-050",
+     "actorId": "ACTOR-05",
      "eventId": "C08J-E006",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -28250,7 +28250,7 @@
      "workOrderId": null
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08J-E007",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -28274,7 +28274,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08J-E008",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -28297,7 +28297,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08J-E009",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -28318,8 +28318,8 @@
    "fixtureSet": "v3",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer B (synthetic)",
-    "destination": "Site 2 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2621",
     "shippedAt": "2026-09-13T09:00:00Z"
    },
@@ -28357,7 +28357,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08K-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -28384,7 +28384,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08K-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -28407,7 +28407,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08K-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -28430,7 +28430,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08K-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -28447,7 +28447,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08K-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -28471,7 +28471,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08K-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -28495,7 +28495,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08K-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -28518,7 +28518,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08K-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -28535,7 +28535,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-050",
+     "actorId": "ACTOR-05",
      "eventId": "C08K-E009",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -28562,8 +28562,8 @@
    "fixtureSet": "v3",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer C (synthetic)",
-    "destination": "Site 3 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2622",
     "shippedAt": "2026-09-14T09:00:00Z"
    },
@@ -28601,7 +28601,7 @@
    "eventCount": 9,
    "events": [
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08L-E001",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -28628,7 +28628,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08L-E002",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -28651,7 +28651,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "EMP-009",
+     "actorId": "ACTOR-01",
      "eventId": "C08L-E003",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -28674,7 +28674,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08L-E004",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -28691,7 +28691,7 @@
      "workOrderId": "MO-042"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08L-E005",
      "eventType": "WORK_ORDER_OPENED",
      "evidenceRefs": [],
@@ -28715,7 +28715,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08L-E006",
      "eventType": "COMPONENT_REMOVED",
      "evidenceRefs": [
@@ -28739,7 +28739,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-017",
+     "actorId": "ACTOR-02",
      "eventId": "C08L-E007",
      "eventType": "COMPONENT_INSTALLED",
      "evidenceRefs": [
@@ -28762,7 +28762,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "SYS-MES",
+     "actorId": "ACTOR-08",
      "eventId": "C08L-E008",
      "eventType": "WORK_ORDER_CLOSED",
      "evidenceRefs": [],
@@ -28779,7 +28779,7 @@
      "workOrderId": "RW-192"
     },
     {
-     "actorId": "EMP-050",
+     "actorId": "ACTOR-05",
      "eventId": "C08L-E009",
      "eventType": "SLOT_STATE_VERIFIED",
      "evidenceRefs": [
@@ -28806,8 +28806,8 @@
    "fixtureSet": "v3",
    "motorSerial": "M-042",
    "shipment": {
-    "customer": "Customer D (synthetic)",
-    "destination": "Site 4 (synthetic)",
+    "customer": "[not included in preview]",
+    "destination": "[not included in preview]",
     "shipmentId": "SHP-2623",
     "shippedAt": "2026-09-15T09:00:00Z"
    },

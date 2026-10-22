@@ -50,8 +50,11 @@ export function PassportApp({ source, pageUrl = window.location.href, pollMs = 2
         if (ctl.signal.aborted || gen !== generation.current) return;
         withdraw();
         const message = e instanceof Error ? e.message : String(e);
+        // WITHHELD: drop every motor-specific record. Only the neutral reason (and the last
+        // accepted watermark, labelled historical) is shown; nothing is kept as "stale".
+        setLast(null);
         setLastError(message);
-        setState((s) => (s.status === "ready" ? s : { status: "error", message }));
+        setState({ status: "error", message });
       }).finally(() => { inFlight = false; });
     };
     const onVisibility = () => { withdraw(); if (!document.hidden) refresh(); };

@@ -184,6 +184,8 @@ export interface Provenance {
 }
 export interface RecallSnapshot {
   freshness?: { verifiedAt: string; maxAgeSeconds: number; status: string; archiveId: string; sequence: number; headHash: string };
+  checkpoint?: { state: 'ANCHOR_INVALID' | 'UNANCHORED' | 'ANCHORED_PREFIX_ONLY' | 'ANCHORED_CURRENT'; anchoredSequence: number | null; checkpointRequired: boolean; h2: string };
+  eligibility?: Record<string, { currentReleaseEligible: boolean }>;
   schemaVersion: 1;
   provenance: Provenance;
   recall: {

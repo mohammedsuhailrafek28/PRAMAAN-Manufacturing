@@ -15,6 +15,8 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from preview_sanitize import sanitize  # noqa: E402  (public preview JSON must not carry customer/destination/operator ids)
 from application.service import Manufacturing  # noqa: E402
 
 OUT = Path(__file__).resolve().parents[1] / "public" / "data" / "investigation-demo.json"
@@ -81,7 +83,7 @@ def main():
             dict(id="after", label="After a later install on MTR-26012 and an assembly record on MTR-26017", snapshot=after),
         ],
     )
-    OUT.write_text(json.dumps(doc, sort_keys=True, separators=(",", ":")), encoding="utf-8")
+    OUT.write_text(json.dumps(sanitize(doc), sort_keys=True, separators=(",", ":")), encoding="utf-8")
     print("wrote", OUT, OUT.stat().st_size, "bytes")
 
 

@@ -25,6 +25,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 ENGINE = os.path.join(REPO, "recall-engine")
 sys.path.insert(0, ENGINE)
+sys.path.insert(0, HERE)
+from preview_sanitize import sanitize  # noqa: E402  (public preview JSON must not carry customer/destination/operator ids)
 
 from pramaan_recall import Config, evaluate_series, load_case, load_policies  # noqa: E402
 from pramaan_recall.engine import DEFAULT_PROFILE, ENGINE_VERSIONS  # noqa: E402
@@ -183,7 +185,7 @@ def build():
 
 
 def dumps(snap):
-    return json.dumps(snap, indent=1, sort_keys=True, default=str) + "\n"
+    return json.dumps(sanitize(snap), indent=1, sort_keys=True, default=str) + "\n"
 
 
 def main():
