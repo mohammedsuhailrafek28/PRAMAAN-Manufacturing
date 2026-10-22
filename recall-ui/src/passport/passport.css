@@ -1,0 +1,50 @@
+/* Passport-only styles. Reuses the tokens defined in ../styles.css; changes nothing there. */
+.pp-header h2 { margin-bottom: 0.1rem; }
+.pp-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0.75rem 0 0; padding: 0; border-bottom: 2px solid var(--border); }
+.pp-nav a { display: inline-block; padding: 0.55rem 0.9rem; min-height: 44px; text-decoration: none; color: var(--text); border: 2px solid transparent; border-bottom: none; }
+.pp-nav a[aria-current="page"] { background: var(--surface); border-color: var(--border); font-weight: 700; margin-bottom: -2px; box-shadow: inset 0 3px 0 var(--accent); }
+.pp-panel { border-top: none; }
+.pp-facts { display: grid; grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr); gap: 0.25rem 1rem; margin: 0.4rem 0 0.8rem; }
+.pp-facts dt { color: var(--muted); font-weight: 600; }
+.pp-facts dd { margin: 0; }
+.pp-claim { border: 1px solid var(--border); border-left: 5px solid var(--exc-bd); padding: 0.6rem 0.9rem; margin: 0.6rem 0; background: var(--bg); }
+.pp-claim-removed, .pp-claim-superseded { border-left-color: var(--unr-bd); opacity: 0.95; }
+.pp-claim header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.4rem; align-items: baseline; }
+.pp-claim h4 { margin: 0; }
+.pp-status.pp-current { background: var(--exc-bg); color: var(--exc-text); border-color: var(--exc-bd); }
+.pp-status.pp-removed, .pp-status.pp-superseded { background: var(--unr-bg); color: var(--unr-text); border-color: var(--unr-bd); }
+.pp-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
+.pp-button { display: inline-block; font: inherit; padding: 0.5rem 0.9rem; min-height: 44px; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); border-radius: 3px; cursor: pointer; text-decoration: none; }
+.pp-button[aria-pressed="true"], .pp-button[aria-expanded="true"] { background: var(--accent); color: var(--surface); }
+.pp-filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+.pp-notes { display: grid; gap: 0.5rem; }
+.pp-note { border: 1px solid var(--border); padding: 0.5rem 0.75rem; background: var(--bg); }
+.pp-note-gap { border-left: 5px solid var(--unr-bd); }
+.pp-note-unverified { border-left: 5px solid var(--syn-text); }
+.pp-timeline { list-style: none; margin: 0.5rem 0; padding: 0 0 0 1rem; border-left: 3px solid var(--border); display: grid; gap: 0.75rem; }
+.pp-timeline li { position: relative; padding-left: 0.5rem; }
+.pp-timeline li::before { content: ""; position: absolute; left: -1.45rem; top: 0.45rem; width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--accent); border: 2px solid var(--surface); }
+.pp-t-observation::before { background: var(--unr-bd) !important; }
+.pp-t-head { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: baseline; }
+.pp-evidence { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 1.2rem; }
+.pp-evidence-list ol { max-height: 70vh; overflow: auto; padding: 0 0.5rem 0 0; }
+.pp-evidence-list li { margin-bottom: 0.5rem; }
+.pp-evidence-list a[aria-current="true"] { font-weight: 700; }
+.pp-summary { padding-left: 1.1rem; }
+.qr-label { margin: 0.5rem 0; padding: 12px; width: min(100%, 22rem); border: 2px solid var(--text); background: #fff; color: #000; text-align: center; }
+.qr-label svg { width: 100%; height: auto; display: block; background: #fff; }
+.qr-label figcaption { margin-top: 0.4rem; font-size: 0.85rem; }
+.qr-url code { font-size: 0.72rem; }
+.qr-note { font-size: 0.75rem; margin-top: 0.3rem; }
+@media (max-width: 720px) {
+  .pp-facts { grid-template-columns: minmax(0, 1fr); }
+  .pp-facts dt { margin-top: 0.4rem; }
+  .pp-evidence { grid-template-columns: minmax(0, 1fr); }
+  .pp-evidence-list ol { max-height: 14rem; }
+  .pp-nav a { padding: 0.55rem 0.6rem; }
+}
+@media print {
+  body * { visibility: hidden; }
+  .qr-label, .qr-label * { visibility: visible; }
+  .qr-label { position: absolute; left: 0; top: 0; width: 8cm; border: 1px solid #000; }
+}
