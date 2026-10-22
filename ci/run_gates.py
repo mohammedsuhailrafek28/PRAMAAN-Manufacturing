@@ -18,6 +18,15 @@ FROZEN=json.loads((ROOT/'ci/frozen-source.json').read_text())
 PORTS=(4173,4182,4183,4184)
 
 
+def terminal_text(output):
+    """Normalize CSI terminal formatting for assertions; preserve raw evidence.
+
+    Hosted Vitest emits SGR between 'Tests' and its count despite FORCE_COLOR=0.
+    This changes presentation only, never command exit or expected test counts.
+    """
+    return re.sub(r'\x1b\[[0-?]*[ -/]*[@-~]','',output)
+
+
 def frozen(root=ROOT,files=None):
     files=FROZEN['files'] if files is None else files
     for name,sha in files.items():
@@ -43,7 +52,7 @@ def command(name,args,cwd=ROOT,pattern=None):
     output=proc.stdout+proc.stderr
     (OUT/f'{name}.txt').write_text(output,encoding='utf-8')
     if proc.returncode!=0:raise RuntimeError(f'{name} exit {proc.returncode}; see {name}.txt')
-    if pattern and not re.search(pattern,output):raise RuntimeError(f'{name}: expected test count missing')
+    if pattern and not re.search(pattern,terminal_text(output)):raise RuntimeError(f'{name}: expected test count missing')
     return dict(exitCode=proc.returncode,seconds=round(time.perf_counter()-start,3),command=args)
 
 
@@ -71,7 +80,7 @@ def main():
         lock=json.loads((ROOT/'recall-ui/package-lock.json').read_text())
         if any(not p.get('integrity','').startswith('sha512-') for name,p in lock['packages'].items() if name):
             raise RuntimeError('npm dependency without locked SHA512 integrity')
-        result['gates']['infra']=command('infra',[py,'-m','unittest','discover','-s','ci','-p','test_*.py','-v'],pattern=r'Ran 4 tests')
+        result['gates']['infra']=command('infra',[py,'-m','unittest','discover','-s','ci','-p','test_*.py','-v'],pattern=r'Ran 5 tests')
         result['gates']['A']=command('engine',[py,'-m','unittest','discover','-s','tests','-t','.','-v'],ROOT/'recall-engine',r'Ran 127 tests')
         result['gates']['B']=command('foundation',[py,'experiments/foundation/interop.py','--gs1-checkout',str(gs1),'--output',str(OUT/'foundation.json')])
         checks=json.loads((OUT/'foundation.json').read_text())['checks']

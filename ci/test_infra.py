@@ -30,6 +30,17 @@ class InfrastructureTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp,patch.object(gates,'OUT',Path(temp)):
             with self.assertRaises(RuntimeError):gates.command('failing',[sys.executable,'-c','raise SystemExit(9)'])
 
+    def test_hosted_ansi_count_is_checked_without_relaxing_count_or_exit(self):
+        line='\x1b[2m      Tests \x1b[22m \x1b[1m\x1b[32m33 passed\x1b[39m\x1b[22m'
+        self.assertIsNone(re.search(r'Tests\s+33 passed',line))
+        self.assertRegex(gates.terminal_text(line),r'Tests\s+33 passed')
+        with tempfile.TemporaryDirectory() as temp,patch.object(gates,'OUT',Path(temp)):
+            command=[sys.executable,'-c',f'print({line!r})']
+            self.assertEqual(gates.command('colored',command,pattern=r'Tests\s+33 passed')['exitCode'],0)
+            self.assertEqual((Path(temp)/'colored.txt').read_text().strip(),line)
+            with self.assertRaises(RuntimeError):gates.command('wrong-count',command,pattern=r'Tests\s+34 passed')
+            with self.assertRaises(RuntimeError):gates.command('failed',command[:-1]+[command[-1]+';raise SystemExit(3)'],pattern=r'Tests\s+33 passed')
+
     def test_workflow_is_read_only_pinned_and_does_not_skip_drafts(self):
         path=gates.ROOT/'.github/workflows/phase31-release-gates.yml'
         workflow=yaml.load(path.read_text(),Loader=yaml.BaseLoader)
