@@ -1,6 +1,8 @@
 import { act, cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { isGated, isPreview } from "../../src/contract/gated";
+import { gatedForTest, historicalForTest } from "../../src/contract/testing";
 import { PassportApp } from "../../src/passport/PassportApp";
 import { LivePassportSource, PreviewPassportSource, type PassportLoad, type PassportSource } from "../../src/passport/passportSource";
 import { FORBIDDEN, freshSnapshot, previewSnapshot } from "./passportHelpers";
@@ -19,8 +21,8 @@ function scripted(loads: Array<PassportLoad | Error>, live = true): PassportSour
   };
   return src;
 }
-const verified = (): PassportLoad => ({ snap: freshSnapshot(), verified: true, reason: "", leaseMs: 4000 });
-const unverified = (reason = "Current verification unavailable: trusted external anchor required."): PassportLoad => ({ snap: previewSnapshot(), verified: false, reason, leaseMs: 0 });
+const verified = (): PassportLoad => ({ view: gatedForTest(freshSnapshot()), reason: "", leaseMs: 4000 });
+const unverified = (reason = "Current verification unavailable: trusted external anchor required."): PassportLoad => ({ view: historicalForTest(previewSnapshot(), "UNANCHORED", reason), reason, leaseMs: 0 });
 const go = (hash: string) => { window.location.hash = hash; };
 
 beforeEach(() => { go("#/passport/MTR-26004"); });
@@ -212,12 +214,12 @@ describe("read-only adapters", () => {
     vi.stubGlobal("fetch", fetchMock);
     const src = new LivePassportSource(500);
     const first = await src.load();
-    expect(first.verified).toBe(true);
+    expect(isGated(first.view)).toBe(true);
     for (const [url, init] of fetchMock.mock.calls) { expect(url).toBe("/api/snapshot"); expect(init.method).toBe("GET"); expect(init.body).toBeUndefined(); }
     // an unanchored snapshot is accepted as records but not as current recall status
     fetchMock.mockResolvedValue({ ok: true, status: 200, json: async () => structuredClone(previewSnapshot()) });
     const second = await src.load();
-    expect(second.verified).toBe(false);
+    expect(isGated(second.view)).toBe(false);
     expect(second.reason).toMatch(/anchor|expired|unavailable/i);
     vi.unstubAllGlobals();
   });
@@ -245,7 +247,8 @@ describe("read-only adapters", () => {
     const src = new PreviewPassportSource();
     expect(src.live).toBe(false);
     const load = await src.load();
-    expect(load.verified).toBe(false);
+    expect(isGated(load.view)).toBe(false);
+    expect(isPreview(load.view)).toBe(true);
     expect(load.reason).toMatch(/not a verified live ledger/);
     vi.unstubAllGlobals();
   });

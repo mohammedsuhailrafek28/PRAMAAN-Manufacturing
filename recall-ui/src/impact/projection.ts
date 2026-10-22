@@ -10,6 +10,7 @@
 //   bearing lot         -> observation   SLOT_STATE_VERIFIED.payload.observedLot (rejected evidence, shown dashed)
 // Nothing is inferred from similar identifiers. A link that is absent is never drawn; it becomes an issue.
 // The projection never evaluates anything: findings and actions are copied from the engine's decisions.
+import { claimFor, type ClearanceOptions, type MotorClearance } from "../contract/clearance";
 import type { Decision, EventRecord, RecallSnapshot, Unit } from "../domain/types";
 
 export type SelectionKind = "BEARING_LOT" | "RAW_LOT";
@@ -25,7 +26,7 @@ export type Severity = "INFO" | "UNCERTAIN" | "CONFLICT";
 export interface EvidenceRef { unitId: string; eventId: string; role: string }
 
 export interface MotorStatus {
-  finding: string; action: string; reviewRequired: boolean; decisionId: string; version: number | null;
+  finding: string; hold: boolean; clearance: MotorClearance; recordedAction?: string; reviewRequired: boolean; decisionId: string; version: number | null;
   withdrawnExclusion: boolean; reasonCodes: string[];
 }
 
@@ -92,7 +93,7 @@ export interface ImpactGraph {
   watermark: Watermark;
 }
 
-export interface BuildOptions { policyId?: string; recallStatusCurrent: boolean }
+export interface BuildOptions extends ClearanceOptions { policyId?: string; recallStatusCurrent: boolean }
 
 const cmp = (a: string, b: string): number => (a < b ? -1 : a > b ? 1 : 0);
 const str = (v: unknown): string | null => (typeof v === "string" && v !== "" ? v : null);
@@ -328,7 +329,7 @@ export function buildImpactGraph(snap: RecallSnapshot, selection: Selection, opt
     const { unit, byId } = index.get(m.unitId!)!;
     const d = decisionOf(unit.unitId);
     if (current && d) {
-      m.status = { finding: d.evidenceFinding, action: d.operationalAction, reviewRequired: d.reviewRequired, decisionId: d.decisionId, version: typeof d.version === "number" ? d.version : null, withdrawnExclusion: d.reasonCodes.includes("PRIOR_EXCLUSION_WITHDRAWN"), reasonCodes: [...d.reasonCodes] };
+      m.status = { finding: d.evidenceFinding, ...claimFor(d.operationalAction, unit.unitId, opts), reviewRequired: d.reviewRequired, decisionId: d.decisionId, version: typeof d.version === "number" ? d.version : null, withdrawnExclusion: d.reasonCodes.includes("PRIOR_EXCLUSION_WITHDRAWN"), reasonCodes: [...d.reasonCodes] };
       if (m.status.withdrawnExclusion) issue("EXCLUSION_WITHDRAWN", "UNCERTAIN", [m.id], "An earlier release-eligible decision for this motor was withdrawn after later evidence arrived.", []);
       const missing = d.evidenceEventIds.filter((id) => !byId.has(id));
       if (missing.length) issue("DECISION_CITES_MISSING_RECORDS", "UNCERTAIN", [m.id], `The decision cites ${missing.length} record(s) that are not in this motor's records.`, missing.map((eventId) => ({ unitId: unit.unitId, eventId, role: "Cited by the decision" })));

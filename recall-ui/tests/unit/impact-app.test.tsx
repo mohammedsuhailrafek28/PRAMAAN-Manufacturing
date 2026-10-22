@@ -1,6 +1,8 @@
 import { act, cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { isGated, isPreview } from "../../src/contract/gated";
+import { gatedForTest, historicalForTest } from "../../src/contract/testing";
 import { ImpactApp } from "../../src/impact/ImpactApp";
 import { DRAW_CAP, headline } from "../../src/impact/ImpactWorkspace";
 import { LiveImpactSource, PreviewImpactSource, type ImpactLoad, type ImpactSource } from "../../src/impact/impactSource";
@@ -20,8 +22,8 @@ class Scripted implements ImpactSource {
     return step;
   }
 }
-const verified = (leaseMs = 5000, id: "de" | "nde" = "de", sequence = 100): ImpactLoad => ({ snap: freshDataset(id, Date.now(), sequence), verified: true, reason: "", leaseMs });
-const unverified = (): ImpactLoad => ({ snap: dataset("de"), verified: false, reason: "Current verification unavailable: trusted external anchor required. Decisions are historical.", leaseMs: 0 });
+const verified = (leaseMs = 5000, id: "de" | "nde" = "de", sequence = 100): ImpactLoad => ({ view: gatedForTest(freshDataset(id, Date.now(), sequence)), reason: "", leaseMs });
+const unverified = (): ImpactLoad => ({ view: historicalForTest(dataset("de")), reason: "Current verification unavailable: trusted external anchor required. Decisions are historical.", leaseMs: 0 });
 const go = (hash: string) => { window.location.hash = hash; };
 const LIST = lotHref("BEARING_LOT", "BR-204", "list");
 const GRAPH = lotHref("BEARING_LOT", "BR-204", "graph");
@@ -226,7 +228,7 @@ describe("adapters", () => {
     vi.stubGlobal("fetch", fetchMock);
     const src = new LiveImpactSource();
     const load = await src.load();
-    expect(load.verified).toBe(true);
+    expect(isGated(load.view)).toBe(true);
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const [url, init] = fetchMock.mock.calls[0] as unknown as [string, RequestInit];
     expect(url).toBe("/api/snapshot");
@@ -240,10 +242,10 @@ describe("adapters", () => {
     let i = 0;
     vi.stubGlobal("fetch", vi.fn(async () => ({ ok: true, status: 200, json: async () => seq[i++] })));
     const src = new LiveImpactSource();
-    expect((await src.load()).verified).toBe(true);
+    expect(isGated((await src.load()).view)).toBe(true);
     await expect(src.load()).rejects.toThrow(/regression/i);
     vi.stubGlobal("fetch", vi.fn(async () => ({ ok: true, status: 200, json: async () => bad })));
-    expect((await new LiveImpactSource().load()).verified).toBe(false);
+    expect(isGated((await new LiveImpactSource().load()).view)).toBe(false);
   });
 
   it("live adapter turns HTTP failure into an error", async () => {
@@ -254,7 +256,8 @@ describe("adapters", () => {
   it("preview adapter is labelled, never verified, and tags the authored origin", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => ({ ok: true, status: 200, json: async () => demo })));
     const load = await new PreviewImpactSource("de").load();
-    expect(load.verified).toBe(false);
+    expect(isGated(load.view)).toBe(false);
+    expect(isPreview(load.view)).toBe(true);
     expect(load.dataset?.origin["MTR-26031"].kind).toBe(origin("de")["MTR-26031"].kind);
     go(LIST);
     render(<ImpactApp source={new PreviewImpactSource("de")} />);
@@ -273,7 +276,7 @@ describe("adapters", () => {
 describe("large graph", () => {
   it("draws a window of motors and keeps every record in the list", async () => {
     const big = scaleSnapshot(freshDataset(), 1500).snap;
-    const load: ImpactLoad = { snap: big, verified: true, reason: "", leaseMs: 60_000 };
+    const load: ImpactLoad = { view: gatedForTest(big), reason: "", leaseMs: 60_000 };
     go(GRAPH);
     render(<ImpactApp source={new Scripted(true, [load])} />);
     const note = await screen.findByTestId("impact-window");

@@ -1,11 +1,12 @@
 import { useMemo, useState } from "react";
 import { FINDING_TEXT, humanize } from "../domain/glossary";
-import type { RecallSnapshot } from "../domain/types";
+import { factsOf, type PageView } from "../contract/gated";
+import { lotChoicesOf, projectImpact } from "../contract/views";
 import { ImpactGraphView } from "./ImpactGraphView";
 import { ImpactList } from "./ImpactList";
 import { motorOrder } from "./layout";
 import { IssueList, NodeDetails } from "./NodeDetails";
-import { buildImpactGraph, filterByFinding, lotChoices, trace, type ImpactGraph, type TraceDirection } from "./projection";
+import { filterByFinding, trace, type ImpactGraph, type TraceDirection } from "./projection";
 import { lotHref, type Route, type ViewMode } from "./route";
 
 export interface Banner { kind: "preview" | "noncurrent"; text: string }
@@ -33,12 +34,13 @@ export function headline(g: ImpactGraph): string {
   return `${what} is ${named}${scope}. ${motors}${by ? ` (${by})` : ""}. ${ship}. ${gaps}.`;
 }
 
-export function ImpactWorkspace({ snap, route, mode, banner, datasetNote }: { snap: RecallSnapshot; route: Route; mode: Mode; banner: Banner | null; datasetNote?: React.ReactNode }) {
-  const choices = useMemo(() => lotChoices(snap), [snap]);
+export function ImpactWorkspace({ pageView, route, mode, banner, datasetNote }: { pageView: PageView; route: Route; mode: Mode; banner: Banner | null; datasetNote?: React.ReactNode }) {
+  const choices = useMemo(() => lotChoicesOf(pageView), [pageView]);
+  const snap = factsOf(pageView);
   const recallShown = mode !== "noncurrent";
   const graph = useMemo(
-    () => (route.page === "lot" ? buildImpactGraph(snap, { kind: route.kind, id: route.lotId }, { recallStatusCurrent: recallShown }) : null),
-    [snap, route, recallShown],
+    () => (route.page === "lot" ? projectImpact(pageView, { kind: route.kind, id: route.lotId }, { mode }) : null),
+    [pageView, route, mode],
   );
   const [traceDir, setTraceDir] = useState<TraceDirection | null>(null);
   const [findings, setFindings] = useState<Set<string>>(new Set());

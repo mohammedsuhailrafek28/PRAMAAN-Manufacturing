@@ -3,13 +3,12 @@
 // shared typed checkpoint/eligibility gate (src/contract/gate.ts); it never re-implements backend verification.
 import { GateTracker } from "../contract/gate";
 import { liveLoad } from "../contract/liveLoad";
-import type { RecallSnapshot } from "../domain/types";
+import { makePreview, type PageView } from "../contract/gated";
 import { validateSnapshot } from "../domain/validate";
 
 export interface PassportLoad {
-  snap: RecallSnapshot;
-  /** True only when the shared gate returned CURRENT for this snapshot just now. */
-  verified: boolean;
+  /** GatedSnapshot (live CURRENT), HistoricalView (live SEGREGATED) or PreviewView (explicit preview). */
+  view: PageView;
   reason: string;
   /** Remaining server lease in ms when verified, otherwise 0. */
   leaseMs: number;
@@ -48,7 +47,7 @@ export class LivePassportSource implements PassportSource {
   async load(signal?: AbortSignal): Promise<PassportLoad> {
     // Classification lives in the shared typed gate; this adapter never inspects error text.
     const r = await liveLoad(this.tracker, "/api/snapshot", this.timeoutMs, signal);
-    return { snap: r.snap, verified: r.verified, reason: r.reason, leaseMs: r.leaseMs };
+    return { view: r.view, reason: r.reason, leaseMs: r.leaseMs };
   }
 }
 
@@ -61,6 +60,6 @@ export class PreviewPassportSource implements PassportSource {
   async load(signal?: AbortSignal): Promise<PassportLoad> {
     const res = await getJson(this.url, 4000, signal);
     if (!res.ok) throw new Error(`Could not load preview data: HTTP ${res.status}`);
-    return { snap: validateSnapshot(res.body), verified: false, reason: "Preview data is a captured synthetic snapshot, not a verified live ledger.", leaseMs: 0 };
+    return { view: makePreview(validateSnapshot(res.body), this.label), reason: "Preview data is a captured synthetic snapshot, not a verified live ledger.", leaseMs: 0 };
   }
 }

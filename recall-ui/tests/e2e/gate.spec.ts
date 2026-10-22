@@ -11,7 +11,7 @@ const FIX = resolve("tests/fixtures/h1h2");
 const fixture = (n: string): { status: number; body: any } => JSON.parse(readFileSync(join(FIX, `${n}.json`), "utf8"));
 const TYPES: Record<string, string> = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".svg": "image/svg+xml", ".map": "application/json" };
 
-type Mode = "current" | "prefix_only" | "unanchored" | "anchor_invalid" | "verifying" | "invalid_request" | "legacy" | "unknown_state" | "network" | "regress_current";
+type Mode = "current" | "prefix_only" | "unanchored" | "anchor_invalid" | "verifying" | "invalid_request" | "legacy" | "unknown_state" | "network" | "regress_current" | "not_cleared" | "forged_preview";
 let mode: Mode = "current";
 let requests: string[] = [];
 let server: Server;
@@ -29,7 +29,9 @@ function envelope(m: Mode): { status: number; body: any } | null {
     case "legacy": { const e = f("current"); delete e.body.checkpoint; delete e.body.eligibility; return e; }
     case "unknown_state": { const e = f("current"); e.body.checkpoint.state = "ANCHORED_CURRENT "; return e; }
     case "regress_current": { const e = f("current"); e.body.freshness.sequence -= 1; e.body.checkpoint.anchoredSequence -= 1; return e; }
+    case "not_cleared": { const e = f("current"); e.body.eligibility["MTR-26003"].currentReleaseEligible = false; return e; }
     case "network": return null;
+    default: return null;
   }
 }
 
@@ -45,6 +47,13 @@ test.beforeAll(async () => {
       res.writeHead(e.status, { "content-type": "application/json", "cache-control": "no-store" }); res.end(JSON.stringify(e.body)); return;
     }
     if (url.pathname.startsWith("/api/")) { res.writeHead(404); res.end("{}"); return; }
+    if (mode === "forged_preview" && /^\/data\/.*\.json$/.test(url.pathname) && existsSync(join(DIST, url.pathname))) {
+      // A preview dataset that LIES: it claims a current anchored checkpoint and eligibility for every motor.
+      const raw = JSON.parse(readFileSync(join(DIST, url.pathname), "utf8"));
+      const forge = (snap: any) => { if (!snap || typeof snap !== "object") return; snap.checkpoint = { state: "ANCHORED_CURRENT", h2: "VERIFIED", checkpointRequired: false, anchoredSequence: 1 }; snap.eligibility = Object.fromEntries((snap.units ?? []).map((u: any) => [u.unitId, { currentReleaseEligible: true }])); };
+      forge(raw); (raw.stages ?? raw.datasets ?? []).forEach((x: any) => forge(x.snapshot));
+      res.writeHead(200, { "content-type": "application/json" }); res.end(JSON.stringify(raw)); return;
+    }
     const file = join(DIST, url.pathname === "/" ? "index.html" : url.pathname);
     if (!file.startsWith(DIST) || !existsSync(file)) { res.writeHead(404); res.end("nf"); return; }
     res.writeHead(200, { "content-type": TYPES[extname(file)] ?? "application/octet-stream" }); res.end(readFileSync(file));
@@ -151,3 +160,40 @@ for (const [name, path] of [["investigation", "/investigation.html#/"], ["impact
     expect(await body(page, 3000)).toMatch(/MTR-\d|BR-\d/);
   });
 }
+
+test.describe("branded views in the browser (per-motor clearance and previews)", () => {
+  const WITHHELD_CLEARANCE = /No recall hold recorded|Release eligible|shipment authorization|Eligible under this recall/i;
+
+  test("T7 passport: eligibility withheld for MTR-26003 keeps the finding, shows no clearance, and stays CURRENT", async ({ page }) => {
+    await setMode(page, "not_cleared"); await page.goto(`${BASE}/passport.html#/passport/MTR-26003/recall`);
+    const card = page.getByTestId("recall-current");
+    await expect(card).toBeVisible({ timeout: 8000 });
+    await expect(card).toContainText("Current clearance withheld for this motor");
+    await expect(card).toContainText(/Excluded with evidence/i);                // the recorded finding is preserved
+    expect(await page.locator("body").innerText()).not.toMatch(WITHHELD_CLEARANCE);
+  });
+  test("T7 passport: another motor's recall card is unaffected by MTR-26003's withheld eligibility", async ({ page }) => {
+    await setMode(page, "not_cleared"); await page.goto(`${BASE}/passport.html#/passport/MTR-26001/recall`);
+    await expect(page.getByTestId("recall-current")).toContainText("Held under the recall policy", { timeout: 8000 });
+  });
+  for (const [name, path] of [["investigation", "/investigation.html#/"], ["impact list", "/impact.html#/"]] as Array<[string, string]>) {
+    test(`T7 ${name}: gate stays CURRENT (content shown), with no clearance chip for the motor whose eligibility is withheld`, async ({ page }) => {
+      await setMode(page, "not_cleared"); await page.goto(BASE + path);
+      const t = await body(page, 3000);
+      expect(t).toMatch(/MTR-\d|BR-\d/);
+      expect(t).not.toMatch(/withheld \(|Current status unavailable/i);
+      expect(await page.getByTestId("clearance-chip").count()).toBeLessThanOrEqual(0);
+    });
+  }
+  for (const [name, path] of [["passport", "/passport.html?mode=preview#/passport/MTR-26003/recall"], ["investigation", "/investigation.html?mode=preview#/"], ["impact", "/impact.html?mode=preview#/"]] as Array<[string, string]>) {
+    test(`T8 ${name}: a preview dataset that forges a current checkpoint and eligibility is still a labelled preview with no clearance`, async ({ page }) => {
+      await setMode(page, "forged_preview"); await expect.poll(async () => (await page.request.get(`${BASE}/data/passport-preview.json`)).text()).toContain("ANCHORED_CURRENT");   // positive control: the forgery is really served
+      await page.goto(BASE + path);
+      const t = await body(page, 2500);
+      expect(t).toMatch(/Preview|not a live ledger|not currently verified/i);
+      expect(t).not.toMatch(WITHHELD_CLEARANCE);
+      expect(await page.getByTestId("clearance-chip").count()).toBe(0);
+      expect(requests.filter((r) => r.includes("/api/"))).toEqual([]);          // preview never calls the live API
+    });
+  }
+});

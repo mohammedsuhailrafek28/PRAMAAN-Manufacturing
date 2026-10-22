@@ -295,14 +295,15 @@ describe("privacy, purity and independence", () => {
     expect(JSON.stringify(snap)).toBe(before);
     for (const t of a.tasks) {
       const d = snap.decisions[t.unitId][t.policyId].current;
-      expect(t.decision).toMatchObject({ decisionId: d.decisionId, finding: d.evidenceFinding, action: d.operationalAction, reasonCodes: d.reasonCodes });
+      expect(t.decision).toMatchObject({ decisionId: d.decisionId, finding: d.evidenceFinding, hold: d.operationalAction !== "RELEASE_ELIGIBLE", clearance: d.operationalAction === "RELEASE_ELIGIBLE" ? "NOT_CLEARED" : "HOLD", reasonCodes: d.reasonCodes });
+      expect(t.decision).not.toHaveProperty("action");      // BRANDED-VIEWS migration
     }
   });
   it("imports only the snapshot types and the reviewed taxonomy, and does no I/O", () => {
     for (const file of ["projection.ts", "taxonomy.ts"]) {
       const src = readFileSync(join(process.cwd(), "src/investigation", file), "utf8").split(/\r?\n/).filter((l) => !l.trim().startsWith("//")).join("\n");
       const imports = [...src.matchAll(/from\s+"([^"]+)"/g)].map((m) => m[1]).sort();
-      expect(imports).toEqual(file === "projection.ts" ? ["../domain/types", "./taxonomy"] : []);
+      expect(imports).toEqual(file === "projection.ts" ? ["../contract/clearance", "../domain/types", "./taxonomy"] : []);
       expect(src).not.toMatch(/fetch\(|localStorage|sessionStorage|indexedDB|Date\.now|new Date|Math\.random|evaluate\(|domain\/derive/);
     }
   });

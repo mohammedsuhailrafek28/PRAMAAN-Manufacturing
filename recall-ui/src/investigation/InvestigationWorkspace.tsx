@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
-import { ACTION_TEXT, explain, FINDING_TEXT, humanize, REASONS } from "../domain/glossary";
-import type { EventRecord, RecallSnapshot } from "../domain/types";
+import { ClaimText } from "../contract/ClearanceChip";
+import { explain, FINDING_TEXT, humanize, REASONS } from "../domain/glossary";
+import type { Facts as ViewFacts } from "../contract/gated";
+import type { EventRecord } from "../domain/types";
 import type { ViewChanges } from "./diff";
 import { hasChanges } from "./diff";
 import type { Cluster, DecisionRef, GroundedValue, InvestigationView, MotorRef, Task } from "./projection";
@@ -31,12 +33,12 @@ function Tag({ children, tone }: { children: React.ReactNode; tone?: "serious" |
   return <span className={`tag${tone === "synthetic" ? " synthetic" : ""}${tone === "serious" ? " iw-serious" : ""}`}>{children}</span>;
 }
 
-function EventLink({ snap, unitId, eventId }: { snap: RecallSnapshot; unitId: string; eventId: string }) {
+function EventLink({ snap, unitId, eventId }: { snap: ViewFacts; unitId: string; eventId: string }) {
   const exists = snap.units.find((u) => u.unitId === unitId)?.events.some((e) => e.eventId === eventId);
   return exists ? <a href={evidenceHref(unitId, eventId)}><code>{eventId}</code></a> : <span><code>{eventId}</code> <span className="muted">(not in this snapshot)</span></span>;
 }
 
-function Value({ k, v, snap, unitId }: { k: string; v: GroundedValue; snap: RecallSnapshot; unitId: string }) {
+function Value({ k, v, snap, unitId }: { k: string; v: GroundedValue; snap: ViewFacts; unitId: string }) {
   if (v === null || (Array.isArray(v) && v.length === 0)) return <span className="muted">Not recorded</span>;
   if (Array.isArray(v)) {
     return (
@@ -53,7 +55,7 @@ function Value({ k, v, snap, unitId }: { k: string; v: GroundedValue; snap: Reca
   return <code>{v}</code>;
 }
 
-function Facts({ task, snap }: { task: Task; snap: RecallSnapshot }) {
+function Facts({ task, snap }: { task: Task; snap: ViewFacts }) {
   const rows = Object.entries(task.grounded).filter(([k]) => !k.startsWith("conflict."));
   const extra = Object.entries(task.grounded).filter(([k]) => k.startsWith("conflict."));
   return (
@@ -69,11 +71,11 @@ function Facts({ task, snap }: { task: Task; snap: RecallSnapshot }) {
 }
 
 function DecisionSays({ d }: { d: DecisionRef }) {
-  const f = FINDING_TEXT[d.finding], a = ACTION_TEXT[d.action];
+  const f = FINDING_TEXT[d.finding];
   return (
     <div>
       <p>
-        <strong>{f?.label ?? humanize(d.finding)}.</strong> {f?.explain} <strong>{a?.label ?? humanize(d.action)}:</strong> {a?.explain}
+        <strong>{f?.label ?? humanize(d.finding)}.</strong> {f?.explain} <ClaimText claim={d} />
         {d.reviewRequired ? " Review is required." : ""} <span className="muted">Computed by the recall engine and copied here unchanged; this workspace does not decide or change it.</span>
       </p>
       <p className="muted">Decision <code>{d.decisionId}</code> (version {d.version ?? "unknown"}), policy {d.policyId}.</p>
@@ -88,7 +90,7 @@ function DecisionSays({ d }: { d: DecisionRef }) {
   );
 }
 
-function TaskBlock({ task, snap, headingLevel = 4 }: { task: Task; snap: RecallSnapshot; headingLevel?: 3 | 4 }) {
+function TaskBlock({ task, snap, headingLevel = 4 }: { task: Task; snap: ViewFacts; headingLevel?: 3 | 4 }) {
   const info = CLASSES[task.cls];
   const H = `h${headingLevel}` as "h3" | "h4";
   return (
@@ -210,7 +212,7 @@ function Overview({ view, changes, mode }: { view: InvestigationView; changes: V
           <p className="muted">Having no item here is not a clearance. Findings below are the recall engine's own, copied unchanged.</p>
           <ul className="plain">
             {view.untasked.map((u) => (
-              <li key={u.unitId}><a href={consoleUnitHref(u.unitId)}>{u.unitId}</a> <span className="muted">{u.title}</span> · {FINDING_TEXT[u.finding]?.label ?? humanize(u.finding)} · {ACTION_TEXT[u.action]?.label ?? humanize(u.action)}</li>
+              <li key={u.unitId}><a href={consoleUnitHref(u.unitId)}>{u.unitId}</a> <span className="muted">{u.title}</span> · {FINDING_TEXT[u.finding]?.label ?? humanize(u.finding)} · <ClaimText claim={u} /></li>
             ))}
           </ul>
         </details>
@@ -236,7 +238,7 @@ function Obligations({ view }: { view: InvestigationView }) {
   );
 }
 
-function ClusterPage({ view, snap, clusterId }: { view: InvestigationView; snap: RecallSnapshot; clusterId: string }) {
+function ClusterPage({ view, snap, clusterId }: { view: InvestigationView; snap: ViewFacts; clusterId: string }) {
   const c = view.clusters.find((x) => x.clusterId === clusterId);
   if (!c) return <p className="warn" role="alert" data-testid="unknown-cluster">This group is not in the current projection; its decision may have changed. <a href="#/">Back to all groups</a></p>;
   const info = CLASSES[c.cls];
@@ -263,7 +265,7 @@ function ClusterPage({ view, snap, clusterId }: { view: InvestigationView; snap:
   );
 }
 
-function EvidencePage({ view, snap, unitId, eventId }: { view: InvestigationView; snap: RecallSnapshot; unitId: string; eventId: string }) {
+function EvidencePage({ view, snap, unitId, eventId }: { view: InvestigationView; snap: ViewFacts; unitId: string; eventId: string }) {
   const unit = snap.units.find((u) => u.unitId === unitId);
   const event: EventRecord | undefined = unit?.events.find((e) => e.eventId === eventId);
   if (!unit || !event) return <p className="warn" role="alert" data-testid="unknown-evidence">No record <code>{eventId}</code> for {unitId} is in this snapshot. <a href="#/">Back to all groups</a></p>;
@@ -317,7 +319,7 @@ export function WatermarkPanel({ view, mode }: { view: InvestigationView; mode: 
 }
 
 export function InvestigationWorkspace({ view, snap, route, banner, changes, mode, stageNote }: {
-  view: InvestigationView; snap: RecallSnapshot; route: Route; banner: Banner | null; changes: ViewChanges | null; mode: "current" | "preview"; stageNote?: React.ReactNode;
+  view: InvestigationView; snap: ViewFacts; route: Route; banner: Banner | null; changes: ViewChanges | null; mode: "current" | "preview"; stageNote?: React.ReactNode;
 }) {
   return (
     <div className="iw">

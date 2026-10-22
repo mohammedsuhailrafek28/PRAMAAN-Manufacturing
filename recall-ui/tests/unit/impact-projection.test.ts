@@ -117,7 +117,8 @@ describe("lot BR-204, recall scope DE (actual engine decisions plus labelled aut
   it("carries the evaluator's finding unchanged for every motor and counts motors by it", () => {
     for (const m of g.nodes.filter((n) => n.kind === "MOTOR" && n.status)) {
       const d = snap.decisions[m.unitId!][g.scope.policyId].current;
-      expect(m.status).toMatchObject({ finding: d.evidenceFinding, action: d.operationalAction, decisionId: d.decisionId });
+      expect(m.status).toMatchObject({ finding: d.evidenceFinding, hold: d.operationalAction !== "RELEASE_ELIGIBLE", clearance: d.operationalAction === "RELEASE_ELIGIBLE" ? "NOT_CLEARED" : "HOLD", decisionId: d.decisionId });
+      expect(m.status).not.toHaveProperty("action");      // BRANDED-VIEWS migration: a projection no longer copies the raw action
     }
     expect(g.summary.byFinding).toEqual({ AFFECTED: 7, UNRESOLVED: 2, EXCLUDED_WITH_EVIDENCE: 1 });
   });
@@ -246,7 +247,7 @@ describe("purity and independence", () => {
   });
   it("imports only snapshot types and does no I/O", () => {
     const src = readFileSync(join(process.cwd(), "src/impact/projection.ts"), "utf8").split(/\r?\n/).filter((l) => !l.trim().startsWith("//")).join("\n");
-    expect([...src.matchAll(/from\s+"([^"]+)"/g)].map((m) => m[1])).toEqual(["../domain/types"]);
+    expect([...src.matchAll(/from\s+"([^"]+)"/g)].map((m) => m[1])).toEqual(["../contract/clearance", "../domain/types"]);
     expect(src).not.toMatch(/fetch\(|localStorage|sessionStorage|indexedDB|Date\.now|new Date|Math\.random|evaluate\(|domain\/derive/);
   });
 });

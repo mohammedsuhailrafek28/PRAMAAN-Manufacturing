@@ -10,6 +10,7 @@
 //  * Nothing is invented: absent inspection, certification, specification, manufacturer
 //    identity and trusted time are reported as "not recorded".
 import { humanize } from "../domain/glossary";
+import { claimFor, type ClearanceOptions, type MotorClearance } from "../contract/clearance";
 import type { Component, Decision, EventRecord, RecallSnapshot, Unit } from "../domain/types";
 
 export const UNIT_ID_PATTERN = /^MTR-[A-Z0-9-]{3,30}$/;
@@ -104,7 +105,12 @@ export type RecallContext =
       decisionId: string;
       version: number | null;
       finding: Decision["evidenceFinding"];
-      action: Decision["operationalAction"];
+      /** A recall hold is in effect. Kept apart from finding and clearance. */
+      hold: boolean;
+      /** Per-motor current clearance; never inferred from `finding`. */
+      clearance: MotorClearance;
+      /** Explicit preview only: synthetic evaluator output, not an authorization. */
+      recordedAction?: string;
       reviewRequired: boolean;
       precautionaryHold: boolean;
       notificationPending: boolean;
@@ -253,7 +259,7 @@ function notesFor(unit: Unit, snap: RecallSnapshot, lifecycle: Passport["lifecyc
   return notes;
 }
 
-function recallContext(snap: RecallSnapshot, unitId: string, verified: boolean, reason: string): RecallContext {
+function recallContext(snap: RecallSnapshot, unitId: string, verified: boolean, reason: string, claim?: ClearanceOptions): RecallContext {
   if (!verified) return { state: "UNAVAILABLE", reason };
   const policy = snap.policies[0];
   if (!snap.recallAnnounced || !policy) return { state: "NO_RECALL" };
@@ -261,13 +267,13 @@ function recallContext(snap: RecallSnapshot, unitId: string, verified: boolean, 
   if (!d) return { state: "UNAVAILABLE", reason: "No decision is available for this motor under the recall policy." };
   return {
     state: "CURRENT", policyId: d.policyId, recallId: d.recallId, decisionId: d.decisionId, version: typeof d.version === "number" ? d.version : null,
-    finding: d.evidenceFinding, action: d.operationalAction, reviewRequired: d.reviewRequired, precautionaryHold: d.precautionaryHold === true,
+    finding: d.evidenceFinding, ...claimFor(d.operationalAction, unitId, claim), reviewRequired: d.reviewRequired, precautionaryHold: d.precautionaryHold === true,
     notificationPending: Boolean(d.notificationObligation) || (snap.notifications ?? []).some((n) => n.unitId === unitId),
     reasonCodes: [...d.reasonCodes],
   };
 }
 
-export interface BuildOptions {
+export interface BuildOptions extends ClearanceOptions {
   /** True only when the snapshot has just passed the application's verified-freshness check. */
   recallVerified: boolean;
   /** Shown when recallVerified is false. */
@@ -327,6 +333,6 @@ export function buildPassport(snap: RecallSnapshot, unitId: string, opts: BuildO
     found: true, unitId, title: unit.title, family: unit.family, eventCount: unit.events.length,
     firstOccurredAt: ordered[0]?.occurredAt ?? null, lastOccurredAt: ordered[ordered.length - 1]?.occurredAt ?? null, lifecycle, slots,
     timeline: ordered.map(timelineEntry), evidence, notes: notesFor(unit, snap, lifecycle),
-    recall: recallContext(snap, unitId, opts.recallVerified, opts.unavailableReason ?? "Current recall status unavailable."),
+    recall: recallContext(snap, unitId, opts.recallVerified, opts.unavailableReason ?? "Current recall status unavailable.", opts),
   };
 }

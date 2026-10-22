@@ -4,6 +4,7 @@
 // evaluates, never creates a decision or outcome, keeps no state, and has no network, storage or
 // clock access. Everything it emits is a view: a task exists only while the evaluator's own decision
 // lists the reason, and disappears when a re-evaluated snapshot no longer lists it.
+import { claimFor, type ClearanceOptions, type MotorClearance } from "../contract/clearance";
 import type { Decision, EventRecord, Gap, RecallSnapshot, SlotView, Unit } from "../domain/types";
 import { CLASSES, FLAG_HANDLING, REASON_HANDLING, type EvidenceClass, type EvidenceKind } from "./taxonomy";
 
@@ -15,7 +16,11 @@ export interface DecisionRef {
   version: number | null;
   policyId: string;
   finding: string;
-  action: string;
+  /** Recall hold in effect; kept apart from the finding and from clearance. */
+  hold: boolean;
+  clearance: MotorClearance;
+  /** Explicit preview only: synthetic evaluator output, not an authorization. */
+  recordedAction?: string;
   reviewRequired: boolean;
   reasonCodes: string[];
   flags: string[];
@@ -111,7 +116,9 @@ export interface UntaskedMotor {
   unitId: string;
   title: string;
   finding: string;
-  action: string;
+  hold: boolean;
+  clearance: MotorClearance;
+  recordedAction?: string;
 }
 
 export interface InvestigationView {
@@ -403,10 +410,10 @@ function draftsFor(d: Decision, unit: Unit): Draft[] {
   return drafts;
 }
 
-function decisionRef(d: Decision): DecisionRef {
+function decisionRef(d: Decision, unitId: string, claim?: ClearanceOptions): DecisionRef {
   return {
     decisionId: d.decisionId, version: typeof d.version === "number" ? d.version : null, policyId: d.policyId, finding: d.evidenceFinding,
-    action: d.operationalAction, reviewRequired: d.reviewRequired, reasonCodes: [...d.reasonCodes], flags: [...d.flags],
+    ...claimFor(d.operationalAction, unitId, claim), reviewRequired: d.reviewRequired, reasonCodes: [...d.reasonCodes], flags: [...d.flags],
     precautionaryHold: d.precautionaryHold === true, withdrawnExclusion: d.reasonCodes.includes(WITHDRAWN),
     watermarkEvents: Object.values(d.watermark ?? {}).reduce((a, n) => a + (Number.isFinite(n) ? n : 0), 0),
   };
@@ -414,7 +421,7 @@ function decisionRef(d: Decision): DecisionRef {
 
 const cmp = (a: string, b: string): number => (a < b ? -1 : a > b ? 1 : 0);
 
-export function buildInvestigation(snap: RecallSnapshot): InvestigationView {
+export function buildInvestigation(snap: RecallSnapshot, claim?: ClearanceOptions): InvestigationView {
   const recallAnnounced = snap.recallAnnounced !== false;
   const units = [...snap.units].sort((a, b) => cmp(a.unitId, b.unitId));
   const tasks: Task[] = [];
@@ -427,7 +434,7 @@ export function buildInvestigation(snap: RecallSnapshot): InvestigationView {
     let firstRef: DecisionRef | null = null;
     for (const policyId of Object.keys(bundles).sort()) {
       const d = bundles[policyId].current;
-      const ref = decisionRef(d);
+      const ref = decisionRef(d, unit.unitId, claim);
       decisionsSeen.push(ref);
       firstRef ??= ref;
       if (!recallAnnounced) continue;
@@ -443,7 +450,7 @@ export function buildInvestigation(snap: RecallSnapshot): InvestigationView {
         });
       }
     }
-    if (!unitHadTask && firstRef) untasked.push({ unitId: unit.unitId, title: unit.title, finding: firstRef.finding, action: firstRef.action });
+    if (!unitHadTask && firstRef) untasked.push({ unitId: unit.unitId, title: unit.title, finding: firstRef.finding, hold: firstRef.hold, clearance: firstRef.clearance, ...(firstRef.recordedAction ? { recordedAction: firstRef.recordedAction } : {}) });
   }
 
   // Primary grouping: exact equality of the key text.
@@ -491,7 +498,7 @@ export function buildInvestigation(snap: RecallSnapshot): InvestigationView {
   for (const unit of units) {
     const mine = tasks.filter((t) => t.unitId === unit.unitId);
     if (!mine.length) continue;
-    const decisions = Object.keys(snap.decisions[unit.unitId] ?? {}).sort().map((p) => decisionRef(snap.decisions[unit.unitId][p].current));
+    const decisions = Object.keys(snap.decisions[unit.unitId] ?? {}).sort().map((p) => decisionRef(snap.decisions[unit.unitId][p].current, unit.unitId, claim));
     motors[unit.unitId] = {
       unitId: unit.unitId, title: unit.title, taskIds: mine.map((t) => t.taskId).sort(), decisions,
       components: snap.components.filter((c) => c.unitId === unit.unitId).sort((a, b) => cmp(a.slot, b.slot) || cmp(a.installedAt, b.installedAt) || cmp(a.componentId, b.componentId))

@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { factsOf, isGated, isHistorical } from "../contract/gated";
+import { projectInvestigation } from "../contract/views";
 import { diffViews, hasChanges, type ViewChanges } from "./diff";
 import { InvestigationWorkspace, type Banner } from "./InvestigationWorkspace";
 import type { InvestigationLoad, InvestigationSource } from "./investigationSource";
-import { buildInvestigation, type InvestigationView } from "./projection";
+import type { InvestigationView } from "./projection";
 import { parseRoute } from "./route";
 
 type State = { status: "loading" } | { status: "error"; message: string } | { status: "ready" };
@@ -42,7 +44,7 @@ export function InvestigationApp({ source, pollMs = 2000, stageLinks }: { source
         if (ctl.signal.aborted || gen !== generation.current) return;
         setState({ status: "ready" }); setLast(load); setLastError("");
         clearTimeout(lease.current);
-        if (source.live && load.verified && !document.hidden) {
+        if (source.live && isGated(load.view) && !document.hidden) {
           setLeaseOk(true);
           lease.current = setTimeout(() => setLeaseOk(false), Math.max(0, load.leaseMs));
         } else setLeaseOk(false);
@@ -61,10 +63,11 @@ export function InvestigationApp({ source, pollMs = 2000, stageLinks }: { source
     return () => { ctl.abort(); clearInterval(timer); clearTimeout(lease.current); document.removeEventListener("visibilitychange", onVisibility); };
   }, [source, pollMs]);
 
-  const view = useMemo(() => (last ? buildInvestigation(last.snap) : null), [last]);
-  const previewBase = useMemo(() => (last?.previous ? buildInvestigation(last.previous) : null), [last]);
+  // A HistoricalView never builds tasks: they are claims about the current decision.
+  const view = useMemo(() => (last && !isHistorical(last.view) ? projectInvestigation(last.view) : null), [last]);
+  const previewBase = useMemo(() => (last?.previous ? projectInvestigation(last.previous) : null), [last]);
   const live = source.live;
-  const showCurrent = live && leaseOk && last?.verified === true && !lastError && view !== null;
+  const showCurrent = live && leaseOk && last !== null && isGated(last.view) && !lastError && view !== null;
   const showPreview = !live && view !== null && !lastError;
 
   // Record what changed between verified projections; only a verified, shown view counts.
@@ -85,7 +88,7 @@ export function InvestigationApp({ source, pollMs = 2000, stageLinks }: { source
   const route = parseRoute(hash);
   const reason = lastError
     ? `The backend could not be reached or verified (${lastError}).`
-    : last && !last.verified ? last.reason || "Current verification unavailable." : "The verification lease expired; waiting for a new verified snapshot.";
+    : last && !isGated(last.view) ? last.reason || "Current verification unavailable." : "The verification lease expired; waiting for a new verified snapshot.";
   const w = lastVerified.current?.watermark;
 
   let banner: Banner | null = null;
@@ -109,7 +112,7 @@ export function InvestigationApp({ source, pollMs = 2000, stageLinks }: { source
         {state.status === "ready" && last && view && route.page === "invalid" && <p className="warn" role="alert" data-testid="invalid-route">“{route.raw}” is not a valid investigation address. <a href="#/">Back to all groups</a></p>}
         {state.status === "ready" && last && view && route.page !== "invalid" && (showCurrent || showPreview) && (
           <InvestigationWorkspace
-            view={view} snap={last.snap} route={route} banner={banner} changes={changes} mode={showCurrent ? "current" : "preview"}
+            view={view} snap={factsOf(last.view)} route={route} banner={banner} changes={changes} mode={showCurrent ? "current" : "preview"}
             stageNote={!live && last.stage ? (
               <div className="callout" data-testid="stage-note">
                 <strong>Preview stage:</strong>{" "}

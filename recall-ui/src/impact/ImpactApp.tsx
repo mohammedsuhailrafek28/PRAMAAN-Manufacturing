@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { isGated } from "../contract/gated";
 import { ImpactWorkspace, type Banner, type Mode } from "./ImpactWorkspace";
 import type { ImpactLoad, ImpactSource } from "./impactSource";
 import { parseRoute } from "./route";
@@ -38,7 +39,7 @@ export function ImpactApp({ source, pollMs = 2000, datasetLinks }: { source: Imp
         if (ctl.signal.aborted || gen !== generation.current) return;
         setState({ status: "ready" }); setLast(load); setLastError("");
         clearTimeout(lease.current);
-        if (source.live && load.verified && !document.hidden) {
+        if (source.live && isGated(load.view) && !document.hidden) {
           setLeaseOk(true);
           lease.current = setTimeout(() => setLeaseOk(false), Math.max(0, load.leaseMs));
         } else setLeaseOk(false);
@@ -59,14 +60,14 @@ export function ImpactApp({ source, pollMs = 2000, datasetLinks }: { source: Imp
 
   const live = source.live;
   const route = parseRoute(hash);
-  const verifiedNow = live && leaseOk && last?.verified === true && !lastError;
+  const verifiedNow = live && leaseOk && last !== null && isGated(last.view) && !lastError;
   const mode: Mode = !live ? "preview" : verifiedNow ? "current" : "noncurrent";
   // After a failed refresh nothing from the earlier snapshot is shown: its genealogy is not re-presented as a result.
   const showData = last !== null && !lastError;
 
   const why = lastError
     ? `The backend could not be reached or verified (${lastError}).`
-    : last && !last.verified ? last.reason || "Current verification is unavailable." : "The verification lease expired; waiting for a new verified snapshot.";
+    : last && !isGated(last.view) ? last.reason || "Current verification is unavailable." : "The verification lease expired; waiting for a new verified snapshot.";
   let banner: Banner | null = null;
   if (!live && last) banner = { kind: "preview", text: `${last.dataset?.note ?? ""} This is not a live ledger and nothing here is current.`.trim() };
   else if (mode === "noncurrent") banner = { kind: "noncurrent", text: `${why} Recall status is withheld.` };
@@ -97,7 +98,7 @@ export function ImpactApp({ source, pollMs = 2000, datasetLinks }: { source: Imp
         )}
         {state.status === "ready" && showData && last && route.page !== "invalid" && (
           <ImpactWorkspace
-            key={`${mode}`} snap={last.snap} route={route} mode={mode} banner={banner}
+            key={`${mode}`} pageView={last.view} route={route} mode={mode} banner={banner}
             datasetNote={!live && last.dataset ? (
               <div className="callout" data-testid="dataset-note">
                 <strong>Preview dataset:</strong>{" "}

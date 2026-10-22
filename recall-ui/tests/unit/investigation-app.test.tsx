@@ -1,6 +1,8 @@
 import { act, cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { isGated } from "../../src/contract/gated";
+import { gatedForTest, historicalForTest } from "../../src/contract/testing";
 import { InvestigationApp } from "../../src/investigation/InvestigationApp";
 import { LiveInvestigationSource, PreviewInvestigationSource, type InvestigationLoad, type InvestigationSource } from "../../src/investigation/investigationSource";
 import { buildInvestigation } from "../../src/investigation/projection";
@@ -17,8 +19,8 @@ class Scripted implements InvestigationSource {
     return step;
   }
 }
-const verified = (id: "before" | "after" = "before", sequence = 100, leaseMs = 5000): InvestigationLoad => ({ snap: freshStage(id, Date.now(), sequence), verified: true, reason: "", leaseMs });
-const unverified = (): InvestigationLoad => ({ snap: stage("before"), verified: false, reason: "Current verification unavailable: trusted external anchor required. Decisions are historical.", leaseMs: 0 });
+const verified = (id: "before" | "after" = "before", sequence = 100, leaseMs = 5000): InvestigationLoad => ({ view: gatedForTest(freshStage(id, Date.now(), sequence)), reason: "", leaseMs });
+const unverified = (): InvestigationLoad => ({ view: historicalForTest(stage("before")), reason: "Current verification unavailable: trusted external anchor required. Decisions are historical.", leaseMs: 0 });
 
 const go = (hash: string) => { window.location.hash = hash; };
 beforeEach(() => { go("#/"); });
@@ -201,14 +203,14 @@ describe("live adapter is GET-only and reuses the unchanged freshness boundary",
     const fetch = vi.fn().mockResolvedValue({ ok: true, status: 200, json: async () => freshStage("before", Date.now(), 7) });
     vi.stubGlobal("fetch", fetch);
     const load = await new LiveInvestigationSource().load();
-    expect(load.verified).toBe(true);
+    expect(isGated(load.view)).toBe(true);
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch.mock.calls[0][0]).toBe("/api/snapshot");
     expect(fetch.mock.calls[0][1].method).toBe("GET");
   });
   it("marks an unanchored snapshot unverified and throws on regression", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, status: 200, json: async () => stage("before") }));
-    expect((await new LiveInvestigationSource().load()).verified).toBe(false);
+    expect(isGated((await new LiveInvestigationSource().load()).view)).toBe(false);
     const source = new LiveInvestigationSource();
     vi.stubGlobal("fetch", vi.fn().mockResolvedValueOnce({ ok: true, status: 200, json: async () => freshStage("before", Date.now(), 9) }).mockResolvedValueOnce({ ok: true, status: 200, json: async () => freshStage("before", Date.now(), 8) }));
     await source.load();

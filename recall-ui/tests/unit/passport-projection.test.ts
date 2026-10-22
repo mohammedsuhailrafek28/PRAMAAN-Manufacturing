@@ -121,7 +121,8 @@ describe("recall context is separate and gated", () => {
     for (const id of ["MTR-26001", "MTR-26003", "MTR-26005"]) {
       const d = snap.decisions[id][snap.policies[0].policyId].current;
       const r = buildPassport(snap, id, verified);
-      expect(r.found && r.recall).toMatchObject({ state: "CURRENT", finding: d.evidenceFinding, action: d.operationalAction, decisionId: d.decisionId, reasonCodes: d.reasonCodes });
+      expect(r.found && r.recall).toMatchObject({ state: "CURRENT", finding: d.evidenceFinding, hold: d.operationalAction !== "RELEASE_ELIGIBLE", clearance: d.operationalAction === "RELEASE_ELIGIBLE" ? "NOT_CLEARED" : "HOLD", decisionId: d.decisionId, reasonCodes: d.reasonCodes });
+      expect(r.found && r.recall).not.toHaveProperty("action");      // BRANDED-VIEWS migration
     }
   });
   it("reports no recall when none is announced", () => {
@@ -145,7 +146,7 @@ describe("read-only and deterministic", () => {
     const src = readFileSync(join(process.cwd(), "src/passport/projection.ts"), "utf8")
       .split(/\r?\n/).filter((l) => !l.trim().startsWith("//")).join("\n");
     const imports = [...src.matchAll(/from\s+"([^"]+)"/g)].map((m) => m[1]);
-    expect(imports.sort()).toEqual(["../domain/glossary", "../domain/types"]);
+    expect(imports.sort()).toEqual(["../contract/clearance", "../domain/glossary", "../domain/types"]);
     expect(src).not.toMatch(/fetch\(|localStorage|sessionStorage|evaluate\(|domain\/derive/);
   });
 });

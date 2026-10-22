@@ -2,19 +2,17 @@
 // adapter classifies every response with the shared typed gate (src/contract/gate.ts); unrecognised input is WITHHELD.
 import { GateTracker } from "../contract/gate";
 import { liveLoad } from "../contract/liveLoad";
-import type { RecallSnapshot } from "../domain/types";
+import { makePreview, type PageView, type PreviewView } from "../contract/gated";
 import { validateSnapshot } from "../domain/validate";
 
 export interface InvestigationLoad {
-  snap: RecallSnapshot;
-  /** True only when the shared gate returned CURRENT for this snapshot just now. */
-  verified: boolean;
+  view: PageView;
   reason: string;
   /** Remaining server lease in ms when verified, otherwise 0. */
   leaseMs: number;
   /** Preview only: which authored stage this is, and the stage before it. */
   stage?: { id: string; label: string; origin: Record<string, string>; authoredNote: string };
-  previous?: RecallSnapshot;
+  previous?: PreviewView;
 }
 
 export interface InvestigationSource {
@@ -50,7 +48,7 @@ export class LiveInvestigationSource implements InvestigationSource {
   async load(signal?: AbortSignal): Promise<InvestigationLoad> {
     // Classification lives in the shared typed gate; this adapter never inspects error text.
     const r = await liveLoad(this.tracker, "/api/snapshot", this.timeoutMs, signal);
-    return { snap: r.snap, verified: r.verified, reason: r.reason, leaseMs: r.leaseMs };
+    return { view: r.view, reason: r.reason, leaseMs: r.leaseMs };
   }
 }
 
@@ -75,9 +73,8 @@ export class PreviewInvestigationSource implements InvestigationSource {
     const index = doc.stages.findIndex((s) => s.id === this.stageId);
     if (index < 0) throw new Error(`Unknown preview stage “${this.stageId}”.`);
     return {
-      snap: validateSnapshot(doc.stages[index].snapshot),
-      previous: index > 0 ? validateSnapshot(doc.stages[index - 1].snapshot) : undefined,
-      verified: false,
+      view: makePreview(validateSnapshot(doc.stages[index].snapshot), this.label),
+      previous: index > 0 ? makePreview(validateSnapshot(doc.stages[index - 1].snapshot), this.label) : undefined,
       reason: "Preview data is a captured synthetic scenario, not a verified live ledger.",
       leaseMs: 0,
       stage: { id: doc.stages[index].id, label: doc.stages[index].label, origin: doc.origin, authoredNote: doc.label },

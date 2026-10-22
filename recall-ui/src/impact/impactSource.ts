@@ -2,14 +2,12 @@
 // shared typed checkpoint/eligibility gate (src/contract/gate.ts). No adapter falls back to fixture data.
 import { GateTracker } from "../contract/gate";
 import { liveLoad } from "../contract/liveLoad";
-import type { RecallSnapshot } from "../domain/types";
+import { makePreview, type PageView } from "../contract/gated";
 import { validateSnapshot } from "../domain/validate";
 import { scaleSnapshot } from "./syntheticScale";
 
 export interface ImpactLoad {
-  snap: RecallSnapshot;
-  /** True only when the shared gate returned CURRENT for this snapshot just now. */
-  verified: boolean;
+  view: PageView;
   reason: string;
   /** Remaining server lease in ms when verified, otherwise 0. */
   leaseMs: number;
@@ -50,7 +48,7 @@ export class LiveImpactSource implements ImpactSource {
   async load(signal?: AbortSignal): Promise<ImpactLoad> {
     // Classification lives in the shared typed gate; this adapter never inspects error text.
     const r = await liveLoad(this.tracker, "/api/snapshot", this.timeoutMs, signal);
-    return { snap: r.snap, verified: r.verified, reason: r.reason, leaseMs: r.leaseMs };
+    return { view: r.view, reason: r.reason, leaseMs: r.leaseMs };
   }
 }
 
@@ -79,7 +77,7 @@ export class PreviewImpactSource implements ImpactSource {
     let snap = validateSnapshot(d.snapshot);
     if (large) snap = scaleSnapshot(snap, this.largeMotors).snap;
     return {
-      snap, verified: false, leaseMs: 0,
+      view: makePreview(snap, this.label), leaseMs: 0,
       reason: "Preview data is a captured synthetic dataset, not a verified live ledger.",
       dataset: {
         id: this.datasetId, label: d.label ?? d.id, authoredScale: large, origin: d.origin,

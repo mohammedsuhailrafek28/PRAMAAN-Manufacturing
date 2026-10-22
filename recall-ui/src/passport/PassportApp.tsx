@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { factsOf, isGated } from "../contract/gated";
+import { projectPassport } from "../contract/views";
 import { PassportExplorer, type PassportBanner } from "./PassportExplorer";
 import type { PassportLoad, PassportSource } from "./passportSource";
-import { buildPassport } from "./projection";
 import { passportUrl } from "./qr";
 import { parsePassportRoute } from "./route";
 
@@ -42,7 +43,7 @@ export function PassportApp({ source, pageUrl = window.location.href, pollMs = 2
         if (ctl.signal.aborted || gen !== generation.current) return;
         setState({ status: "ready" }); setLast(load); setLastError("");
         clearTimeout(lease.current);
-        if (source.live && load.verified && !document.hidden) {
+        if (source.live && isGated(load.view) && !document.hidden) {
           setRecallOk(true);
           lease.current = setTimeout(() => setRecallOk(false), Math.max(0, load.leaseMs));
         } else setRecallOk(false);
@@ -66,18 +67,18 @@ export function PassportApp({ source, pageUrl = window.location.href, pollMs = 2
 
   const route = parsePassportRoute(hash);
   const unitId = route.page === "passport" ? route.unitId : "";
-  const verifiedNow = recallOk && last?.verified === true && !lastError;
+  const verifiedNow = recallOk && last !== null && isGated(last.view) && !lastError;
   const reason = lastError
     ? `The backend could not be reached or verified (${lastError}). Current recall status is withheld.`
-    : last && !last.verified ? last.reason || "Current verification unavailable." : "Verification lease expired; waiting for a new verified snapshot.";
+    : last && !isGated(last.view) ? last.reason || "Current verification unavailable." : "Verification lease expired; waiting for a new verified snapshot.";
   const passport = useMemo(
-    () => (last && unitId ? buildPassport(last.snap, unitId, { recallVerified: verifiedNow, unavailableReason: `Current recall status unavailable. ${reason}` }) : null),
+    () => (last && unitId ? projectPassport(last.view, unitId, { leaseOk: verifiedNow, unavailableReason: `Current recall status unavailable. ${reason}` }) : null),
     [last, unitId, verifiedNow, reason],
   );
 
   let banner: PassportBanner | null = null;
   if (lastError && last) banner = { kind: "stale", text: `Last loaded from the backend; refresh failed (${lastError}). Nothing shown here is current.` };
-  else if (last && !last.verified) banner = { kind: "unverified", text: last.reason };
+  else if (last && !isGated(last.view)) banner = { kind: "unverified", text: last.reason };
 
   return (
     <>
@@ -98,7 +99,7 @@ export function PassportApp({ source, pageUrl = window.location.href, pollMs = 2
           <div>
             {banner && <div className="callout callout-warn" role="status" data-testid="passport-banner">{banner.text}</div>}
             <h2>Motor passports</h2>
-            <ul className="plain">{last.snap.units.map((u) => <li key={u.unitId}><a href={`#/passport/${encodeURIComponent(u.unitId)}`}>{u.unitId}</a> <span className="muted">{u.title}</span></li>)}</ul>
+            <ul className="plain">{factsOf(last.view).units.map((u: { unitId: string; title: string }) => <li key={u.unitId}><a href={`#/passport/${encodeURIComponent(u.unitId)}`}>{u.unitId}</a> <span className="muted">{u.title}</span></li>)}</ul>
           </div>
         )}
         {route.page === "invalid" && <p className="warn" role="alert" data-testid="invalid-id">“{route.raw}” is not a valid motor identifier. No passport or QR code is generated. <a href="#/">All passports</a></p>}

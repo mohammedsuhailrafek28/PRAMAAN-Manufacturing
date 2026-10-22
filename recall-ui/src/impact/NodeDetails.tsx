@@ -1,5 +1,7 @@
-import { ACTION_TEXT, FINDING_TEXT, humanize } from "../domain/glossary";
-import type { EventRecord, RecallSnapshot } from "../domain/types";
+import { ClaimChip } from "../contract/ClearanceChip";
+import { FINDING_TEXT, humanize } from "../domain/glossary";
+import type { Facts } from "../contract/gated";
+import type { EventRecord } from "../domain/types";
 import { KIND_LABEL } from "./ImpactGraphView";
 import type { EvidenceRef, GNode, ImpactGraph, Issue, TraceDirection } from "./projection";
 import { consoleUnitHref } from "./route";
@@ -14,11 +16,11 @@ const ATTR_LABEL: Record<string, string> = {
   installedAt: "Install time", removedAt: "Removal time", componentType: "Component type",
 };
 
-function eventFor(snap: RecallSnapshot, r: EvidenceRef): EventRecord | undefined {
+function eventFor(snap: Facts, r: EvidenceRef): EventRecord | undefined {
   return snap.units.find((u) => u.unitId === r.unitId)?.events.find((e) => e.eventId === r.eventId);
 }
 
-export function EvidenceTable({ snap, refs }: { snap: RecallSnapshot; refs: EvidenceRef[] }) {
+export function EvidenceTable({ snap, refs }: { snap: Facts; refs: EvidenceRef[] }) {
   if (refs.length === 0) return <p className="muted">No ledger record is cited by this item.</p>;
   return (
     <table className="grid compact responsive" aria-label="Ledger records cited">
@@ -43,7 +45,7 @@ export function EvidenceTable({ snap, refs }: { snap: RecallSnapshot; refs: Evid
   );
 }
 
-export function IssueList({ issues, snap }: { issues: Issue[]; snap: RecallSnapshot }) {
+export function IssueList({ issues, snap }: { issues: Issue[]; snap: Facts }) {
   if (issues.length === 0) return null;
   return (
     <ul className="ig-issues">
@@ -60,7 +62,7 @@ export function IssueList({ issues, snap }: { issues: Issue[]; snap: RecallSnaps
 export interface DetailProps {
   node: GNode;
   graph: ImpactGraph;
-  snap: RecallSnapshot;
+  snap: Facts;
   traceDir: TraceDirection | null;
   onTrace: (d: TraceDirection | null) => void;
   onSelect: (id: string) => void;
@@ -91,7 +93,7 @@ export function NodeDetails({ node, graph, snap, traceDir, onTrace, onSelect }: 
         <div className="ig-decision" data-testid="impact-decision">
           <p>
             <span className={`chip finding-${decision.finding}`}><span className="chip-cap">Engine finding</span><span className="chip-body">{FINDING_TEXT[decision.finding]?.label ?? humanize(decision.finding)}</span></span>{" "}
-            <span className={`chip action-${decision.action}`}><span className="chip-cap">Action</span><span className="chip-body">{ACTION_TEXT[decision.action]?.label ?? humanize(decision.action)}</span></span>
+            <ClaimChip claim={decision} />
             {decision.reviewRequired && <> <span className="tag">Review required</span></>}
             {decision.withdrawnExclusion && <> <span className="tag iw-serious">Exclusion withdrawn</span></>}
           </p>

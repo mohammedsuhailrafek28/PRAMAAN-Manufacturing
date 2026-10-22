@@ -1,4 +1,6 @@
 import { Fragment, useMemo, useState } from "react";
+import { clearanceNote, PreviewRecordedAction } from "../contract/ClearanceChip";
+import { isCurrentClearance } from "../contract/clearance";
 import { fmtTime } from "../domain/derive";
 import { FINDING_TEXT, NO_DESCRIPTION, REASONS, humanize } from "../domain/glossary";
 import type { ComponentClaim, EvidenceItem, Passport, PassportNote, RecallContext, SlotPassport, TimelineEntry } from "./projection";
@@ -94,12 +96,15 @@ export function RecallPanel({ recall, unitId }: { recall: RecallContext; unitId:
   if (recall.state === "NO_RECALL") {
     return <div className="callout" data-testid="recall-none"><h3>No recall announced</h3><p>No recall policy exists in the verified ledger, so there is no recall finding for this motor.</p></div>;
   }
-  const held = recall.action === "RECALL_HOLD";
+  const held = recall.hold;
+  const cleared = isCurrentClearance(recall.clearance);
   return (
-    <div className={`callout ${held ? "callout-warn" : ""}`} data-testid="recall-current">
-      <h3>{held ? "Held under the recall policy" : "No recall hold recorded under this policy"}</h3>
+    <div className={`callout ${held || !cleared ? "callout-warn" : ""}`} data-testid="recall-current">
+      <h3>{held ? "Held under the recall policy" : cleared ? "No recall hold recorded under this policy" : "Current clearance withheld for this motor"}</h3>
+      {recall.recordedAction !== undefined && <p><PreviewRecordedAction action={recall.recordedAction} /></p>}
+      {!held && !cleared && <p data-testid="clearance-withheld">{clearanceNote(recall.clearance)} The recorded finding below stands as evidence; it is not clearance.</p>}
       <p><b>{FINDING_TEXT[recall.finding]?.label ?? humanize(recall.finding)}.</b> {FINDING_TEXT[recall.finding]?.explain}</p>
-      {!held && <p>This is a statement about recall evidence only. It is not shipment authorization, a quality release or a certificate.</p>}
+      {cleared && <p>This is a statement about recall evidence only. It is not shipment authorization, a quality release or a certificate.</p>}
       {recall.reviewRequired && <p><b>Review is required.</b> A person must look at this motor.</p>}
       {recall.precautionaryHold && <p><b>Precautionary hold.</b> Held because an earlier exclusion no longer stands.</p>}
       {recall.notificationPending && <p><b>A notification obligation is pending.</b> This application does not send notifications.</p>}

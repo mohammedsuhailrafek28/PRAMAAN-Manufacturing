@@ -4,7 +4,8 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { GateTracker, evaluateEnvelope, isCurrentRelease, type Gate } from "../../src/contract/gate";
+import { clearanceOf } from "../../src/contract/gated";
+import { GateTracker, evaluateDetailed, evaluateEnvelope, isCurrentRelease, type Gate } from "../../src/contract/gate";
 
 type Env = { status: number; body: any };
 const load = (name: string): Env => JSON.parse(readFileSync(join(__dirname, "../fixtures/h1h2", `${name}.json`), "utf8"));
@@ -110,9 +111,17 @@ describe("gate: strict metadata (FE-07..FE-16)", () => {
     }
   });
   it("PREFIX_ONLY whose H2 proof is not VERIFIED is WITHHELD (evidence must pass the available checks)", () => {
-    for (const h2 of ["HISTORICAL_UNVERIFIABLE", "UNVERIFIED", "", "verified"]) {
+    for (const h2 of ["HISTORICAL_UNVERIFIABLE", "UNVERIFIED"]) {
       const e = mutate(load("prefix_only"), (b) => { b.checkpoint.h2 = h2; });
       expect(withheld(evaluateEnvelope(e, null, at(e))), h2).toBe("INTEGRITY");
+    }
+    for (const h2 of ["", "verified", "OK"]) {                    // not a defined H2 value at all
+      const e = mutate(load("prefix_only"), (b) => { b.checkpoint.h2 = h2; });
+      expect(withheld(evaluateEnvelope(e, null, at(e))), h2).toBe("UNKNOWN_STATE");
+    }
+    for (const h2 of [undefined, null, 1]) {
+      const e = mutate(load("prefix_only"), (b) => { b.checkpoint.h2 = h2; });
+      expect(withheld(evaluateEnvelope(e, null, at(e))), String(h2)).toBe("MISSING_METADATA");
     }
   });
   it("FE-17/18 decision invariants and unknown actions are WITHHELD (INTEGRITY)", () => {
@@ -127,12 +136,15 @@ describe("gate: strict metadata (FE-07..FE-16)", () => {
     const e = mutate(cur(), (b) => { b.extraField = { a: 1 }; });
     expect(evaluateEnvelope(e, null, at(e)).kind).toBe("CURRENT");
   });
-  it("ELIGIBILITY_WITHHELD: CURRENT snapshot with a RELEASE_ELIGIBLE decision that is not eligible is segregated, not cleared", () => {
+  it("a CURRENT motor whose own eligibility is withheld stays CURRENT: findings kept, only that motor's clearance is NOT_CLEARED", () => {
     const e = mutate(cur(), (b) => { b.eligibility["MTR-26003"].currentReleaseEligible = false; });
     const g = evaluateEnvelope(e, null, at(e));
-    expect(g.kind).toBe("SEGREGATED");
-    if (g.kind === "SEGREGATED") expect(g.cause).toBe("ELIGIBILITY_WITHHELD");
-    for (const id of Object.keys(e.body.eligibility)) expect(isCurrentRelease(g, id)).toBe(false);
+    expect(g.kind).toBe("CURRENT");                                // never a gate cause, never downgrades other motors
+    if (g.kind !== "CURRENT") return;
+    expect(clearanceOf(g.view, "MTR-26003")).toBe("NOT_CLEARED");
+    expect(isCurrentRelease(g, "MTR-26003")).toBe(false);
+    const others = Object.keys(e.body.eligibility).filter((id) => id !== "MTR-26003" && e.body.eligibility[id].currentReleaseEligible);
+    for (const id of others) expect(isCurrentRelease(g, id), id).toBe(true);
   });
 });
 
@@ -151,7 +163,7 @@ describe("gate: lease (FE-23)", () => {
 });
 
 describe("gate: regression and ordering, by structure not message text (FE-22/FE-32)", () => {
-  const accepted = (name: string) => { const e = load(name); const g = evaluateEnvelope(e, null, at(e)); if (g.kind === "WITHHELD") throw new Error("setup"); return g.snap; };
+  const accepted = (name: string) => { const e = load(name); const g = evaluateEnvelope(e, null, at(e)); if (g.kind === "WITHHELD") throw new Error("setup"); return evaluateDetailed(e, null, at(e)).snap!; };
   it("lower sequence, same sequence with a different head, other archive, older verifiedAt are REGRESSION", () => {
     const e = cur(); const prev = accepted("current"); const t = at(e);
     expect(withheld(evaluateEnvelope(mutate(e, (b) => { b.freshness.sequence -= 1; b.checkpoint.anchoredSequence -= 1; }), prev, t))).toBe("REGRESSION");
