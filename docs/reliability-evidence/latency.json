@@ -1,0 +1,84 @@
+{
+  "kind": "NON_SAFETY_RELIABILITY_TIMINGS",
+  "api": [
+    {
+      "httpMs": 513.4638,
+      "jsonParseMs": 9.562799999999697,
+      "validationMs": 0.5103000000003703
+    },
+    {
+      "httpMs": 315.99119999999994,
+      "jsonParseMs": 3.034299999999803,
+      "validationMs": 0.10159999999996217
+    },
+    {
+      "httpMs": 340.0149000000001,
+      "jsonParseMs": 4.433899999999994,
+      "validationMs": 0.05779999999958818
+    },
+    {
+      "httpMs": 401.3689000000004,
+      "jsonParseMs": 3.5670000000000073,
+      "validationMs": 0.057999999999992724
+    },
+    {
+      "httpMs": 414.7430000000004,
+      "jsonParseMs": 1.9229999999997744,
+      "validationMs": 0.026700000000346336
+    },
+    {
+      "httpMs": 463.0532999999996,
+      "jsonParseMs": 2.3060000000004948,
+      "validationMs": 0.040500000000065484
+    },
+    {
+      "httpMs": 416.52199999999993,
+      "jsonParseMs": 3.3245000000006257,
+      "validationMs": 0.09860000000026048
+    },
+    {
+      "httpMs": 379.2327000000005,
+      "jsonParseMs": 3.089299999999639,
+      "validationMs": 0.0771999999997206
+    },
+    {
+      "httpMs": 429.4930000000004,
+      "jsonParseMs": 4.306400000000394,
+      "validationMs": 0.08259999999972933
+    },
+    {
+      "httpMs": 386.92019999999957,
+      "jsonParseMs": 3.071600000000217,
+      "validationMs": 0.036199999999553256
+    }
+  ],
+  "large": [
+    {
+      "firstVisibleMs": 1540.2387999999992,
+      "drawn": 156,
+      "nextPageMs": 822.2421999999988,
+      "listMs": 1082.3045000000002
+    },
+    {
+      "firstVisibleMs": 1366.1414000000004,
+      "drawn": 156,
+      "nextPageMs": 620.9089999999997,
+      "listMs": 1068.4892
+    },
+    {
+      "firstVisibleMs": 1372.0146999999997,
+      "drawn": 156,
+      "nextPageMs": 792.8485000000001,
+      "listMs": 1156.0956000000006
+    }
+  ],
+  "startupMs": 1873.9625,
+  "liveFirstVisibleMs": 1129.479699999999,
+  "snapshotResources": [
+    {
+      "start": 210.89999997615814,
+      "duration": 428.7000000476837
+    }
+  ],
+  "ownedDirectoryRemoved": true
+}

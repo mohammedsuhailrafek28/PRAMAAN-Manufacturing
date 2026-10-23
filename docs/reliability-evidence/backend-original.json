@@ -1,0 +1,151 @@
+{
+  "mode": "original",
+  "runs": 20,
+  "failures": 9,
+  "failureRate": 0.45,
+  "medianMs": 3073.7405,
+  "samples": [
+    {
+      "run": 0,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 1749.69,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 1,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 3048.72,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 2,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 1823.835,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 3,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 3231.39,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 4,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 1839.363,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 5,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 3551.169,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 6,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 3319.839,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 7,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 3098.761,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 8,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 1977.077,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 9,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4050.344,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 10,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4021.635,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 11,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4082.214,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 12,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 3998.198,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 13,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 1860.282,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 14,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2042.485,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 15,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 3979.616,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 16,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2040.562,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 17,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 1954.084,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 18,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2068.141,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 19,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 3997.801,
+      "comparisonDifferences": null
+    }
+  ],
+  "originalTestUnchanged": true,
+  "clockScope": "none"
+}

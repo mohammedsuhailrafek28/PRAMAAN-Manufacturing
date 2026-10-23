@@ -1,0 +1,75 @@
+{
+  "base": "73f3bdbd78ee8bdf4b323457ba2f036f16fb82d9",
+  "browserBefore": {
+    "startTime": "2026-10-22T07:48:23.357Z",
+    "duration": 159448.661,
+    "expected": 64,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "browserAfter": {
+    "startTime": "2026-10-23T11:16:00.964Z",
+    "duration": 141197.96300000002,
+    "expected": 64,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "temporaryDirectoriesBefore": {
+    "total": 17,
+    "byPrefix": {
+      "pramaan-browser-": 4,
+      "pramaan-impact-": 2,
+      "pramaan-offline-": 1,
+      "pramaan-passport-": 3,
+      "pramaan-scope-": 1,
+      "pramaan-workspace-": 5,
+      "pramaan-writer-": 1
+    }
+  },
+  "temporaryDirectoriesAfter": {
+    "total": 6,
+    "byPrefix": {
+      "pramaan-browser-": 3,
+      "pramaan-offline-": 1,
+      "pramaan-scope-": 1,
+      "pramaan-writer-": 1
+    }
+  },
+  "vitestPassed": 186,
+  "build": "PASS",
+  "typecheck": "PASS",
+  "diagnosticCasesPassed": 3,
+  "sourceProvenanceVerifiedFiles": 126,
+  "h1Reproduction": {
+    "commit": "f9dcf56ae52b095a3af05b8fc45a2568cd5642fe",
+    "originalHardening": {
+      "passed": 12,
+      "errors": 1
+    },
+    "originalBackendSourceVitest": {
+      "passed": 4,
+      "failed": 3
+    },
+    "originalSelectedBrowser": {
+      "startTime": "2026-10-22T07:51:31.161Z",
+      "duration": 39812.291999999994,
+      "expected": 0,
+      "skipped": 0,
+      "unexpected": 4,
+      "flaky": 0
+    }
+  },
+  "limitation": "Local shared developer machine, finite samples; no hosted CI or independent safety conclusion.",
+  "largeCaseBefore": {
+    "wholeCaseMs": 37355,
+    "firstGraphMs": 4472,
+    "drawnNodes": 156
+  },
+  "largeCaseAfter": {
+    "wholeCaseMs": 29071,
+    "firstGraphMs": 4640,
+    "drawnNodes": 156
+  }
+}

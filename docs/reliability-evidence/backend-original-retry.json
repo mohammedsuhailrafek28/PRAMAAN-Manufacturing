@@ -1,0 +1,91 @@
+{
+  "mode": "original",
+  "runs": 10,
+  "failures": 2,
+  "failureRate": 0.2,
+  "medianMs": 3041.348,
+  "samples": [
+    {
+      "run": 0,
+      "passed": true,
+      "errors": 0,
+      "comparisonAssertionFailures": 0,
+      "milliseconds": 3396.255,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 1,
+      "passed": true,
+      "errors": 0,
+      "comparisonAssertionFailures": 0,
+      "milliseconds": 3199.005,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 2,
+      "passed": true,
+      "errors": 0,
+      "comparisonAssertionFailures": 0,
+      "milliseconds": 3239.344,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 3,
+      "passed": false,
+      "errors": 0,
+      "comparisonAssertionFailures": 1,
+      "milliseconds": 1924.668,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 4,
+      "passed": true,
+      "errors": 0,
+      "comparisonAssertionFailures": 0,
+      "milliseconds": 3200.336,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 5,
+      "passed": false,
+      "errors": 0,
+      "comparisonAssertionFailures": 1,
+      "milliseconds": 1765.478,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 6,
+      "passed": true,
+      "errors": 0,
+      "comparisonAssertionFailures": 0,
+      "milliseconds": 2789.224,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 7,
+      "passed": true,
+      "errors": 0,
+      "comparisonAssertionFailures": 0,
+      "milliseconds": 3065.078,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 8,
+      "passed": true,
+      "errors": 0,
+      "comparisonAssertionFailures": 0,
+      "milliseconds": 3017.618,
+      "comparisonDifferences": null
+    },
+    {
+      "run": 9,
+      "passed": true,
+      "errors": 0,
+      "comparisonAssertionFailures": 0,
+      "milliseconds": 2936.888,
+      "comparisonDifferences": null
+    }
+  ],
+  "originalTestUnchanged": true,
+  "clockScope": "none"
+}

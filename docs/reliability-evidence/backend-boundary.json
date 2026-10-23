@@ -1,0 +1,56 @@
+{
+  "mode": "boundary",
+  "runs": 5,
+  "failures": 5,
+  "failureRate": 1.0,
+  "medianMs": 2555.757,
+  "samples": [
+    {
+      "run": 0,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2524.656,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 1,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2679.186,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 2,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2559.563,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 3,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2555.757,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 4,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2552.599,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    }
+  ],
+  "originalTestUnchanged": true,
+  "clockScope": "snapshot calls in this disposable test process only"
+}

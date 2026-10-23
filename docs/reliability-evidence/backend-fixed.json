@@ -1,0 +1,81 @@
+{
+  "mode": "fixed",
+  "runs": 10,
+  "failures": 0,
+  "failureRate": 0.0,
+  "medianMs": 4508.74,
+  "samples": [
+    {
+      "run": 0,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4451.491,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 1,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4537.773,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 2,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4473.846,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 3,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4221.381,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 4,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4531.576,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 5,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4784.772,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 6,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 6048.088,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 7,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4750.644,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 8,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4485.904,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 9,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4282.976,
+      "comparisonDifferences": []
+    }
+  ],
+  "originalTestUnchanged": true,
+  "clockScope": "snapshot calls in this disposable test process only"
+}

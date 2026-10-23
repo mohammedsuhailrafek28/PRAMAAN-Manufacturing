@@ -1,9 +1,9 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
-import { spawn, spawnSync, type ChildProcess } from "node:child_process";
-import { mkdirSync, mkdtempSync, readFileSync } from "node:fs";
-import { tmpdir } from "node:os";
-import { join, resolve } from "node:path";
+import { spawnSync } from "node:child_process";
+import { mkdirSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { OwnedServer } from '../support/ownedServer';
 
 const shots = "../docs/impact-screenshots";
 const overflow = (page: Page) => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -199,12 +199,11 @@ test("a hidden tab withholds status until a fresh verification arrives", async (
   await expect(page.getByTestId("impact-decision")).toHaveCount(0);
 });
 
-let child: ChildProcess | undefined;
-test.afterEach(() => { child?.kill(); child = undefined; });
+let owned: OwnedServer | undefined;
+test.afterEach(async () => { await owned?.dispose(); owned = undefined; });
 
 test("an unanchored ledger shows its genealogy labelled not current and no recall status", async ({ page }) => {
-  const database = join(mkdtempSync(join(tmpdir(), "pramaan-impact-unanchored-")), "db.sqlite");
-  child = spawn(python, ["-c", "import sys;from application.service import Manufacturing;from application.server import make_server;a=Manufacturing(sys.argv[1]);a.seed_demo();a.close();s=make_server(sys.argv[1],int(sys.argv[2]));s.serve_forever()", database, "4196"], { cwd: resolve(".."), stdio: "ignore", windowsHide: true });
+  owned=new OwnedServer(4196,true);await owned.start();
   await expect(async () => { expect((await page.request.get("http://127.0.0.1:4196/api/session")).ok()).toBeTruthy(); }).toPass({ timeout: 20_000 });
   await page.goto("http://127.0.0.1:4196/impact.html#/lot/bearing/BR-204/list");
   await expect(page.getByTestId("noncurrent-label")).toBeVisible();
@@ -215,8 +214,7 @@ test("an unanchored ledger shows its genealogy labelled not current and no recal
 });
 
 test("browsing the graph leaves the journal, decisions, notifications and anchor untouched", async ({ page }) => {
-  const database = join(mkdtempSync(join(tmpdir(), "pramaan-impact-readonly-")), "db.sqlite");
-  child = spawn(python, ["recall-ui/tests/browser_server.py", database, "--port", "4197"], { cwd: resolve(".."), stdio: "ignore", windowsHide: true });
+  owned=new OwnedServer(4197);const database=owned.database;await owned.start();
   await expect(async () => { expect((await page.request.get("http://127.0.0.1:4197/api/session")).ok()).toBeTruthy(); }).toPass({ timeout: 20_000 });
   const anchor = database.replace(/\.sqlite$/, ".test-owner-anchor.json");
   const dump = () => {

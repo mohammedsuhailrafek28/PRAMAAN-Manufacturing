@@ -1,9 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { spawn, type ChildProcess } from "node:child_process";
-import { mkdirSync, mkdtempSync, readFileSync } from "node:fs";
-import { tmpdir } from "node:os";
-import { join, resolve } from "node:path";
+import { mkdirSync, readFileSync } from "node:fs";
+import { OwnedServer } from '../support/ownedServer';
 
 const screenshots = "../docs/investigation-screenshots";
 const overflow = (page: Page) => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -111,24 +109,17 @@ test("invalid, unknown and malformed addresses are handled in the page", async (
 
 // ---- live, isolated, anchored servers --------------------------------------------------------------
 
-const python = resolve(process.platform === "win32" ? "../.venv/Scripts/python.exe" : "../.venv/bin/python");
-interface Ctx { base: string; database: string; kill: () => void; restart: () => Promise<void>; post: (path: string, body: object) => Promise<void> }
+interface Ctx { base: string; database: string; kill: () => Promise<void>; restart: () => Promise<void>; post: (path: string, body: object) => Promise<void> }
 async function isolated(page: Page, port: number, body: (ctx: Ctx) => Promise<void>) {
-  const database = join(mkdtempSync(join(tmpdir(), "pramaan-workspace-")), "db.sqlite");
-  let server: ChildProcess | undefined;
-  const base = `http://127.0.0.1:${port}`;
-  const start = async () => {
-    server = spawn(python, ["recall-ui/tests/browser_server.py", database, "--port", String(port)], { cwd: resolve(".."), stdio: "ignore", windowsHide: true });
-    for (let i = 0; i < 80; i++) { try { if ((await fetch(`${base}/api/session`)).ok) return; } catch { /* starting */ } await new Promise((r) => setTimeout(r, 250)); }
-    throw new Error("server did not start");
-  };
+  const server=new OwnedServer(port);
+  const {base,database}=server;
   const post = async (path: string, data: object) => {
     const session = await (await page.request.get(`${base}/api/session`)).json();
     const res = await page.request.post(`${base}/api/${path}`, { headers: { "X-Pramaan-Token": session.token }, data });
     expect(res.ok(), await res.text()).toBeTruthy();
   };
-  await start();
-  try { await body({ base, database, kill: () => server?.kill(), restart: start, post }); } finally { server?.kill(); }
+  try { await server.start(); await body({ base, database, kill: () => server.stop(), restart: () => server.start(), post }); }
+  finally { await server.dispose(); }
 }
 
 test("live seeded ledger: three actual single-motor groups, untrusted observation first, verified watermark", async ({ page }) => {
@@ -172,7 +163,7 @@ test("live: a backend outage withdraws every task, uses no fixture, and recovers
     page.on("request", (r) => fetched.push(r.url()));
     await page.goto(`${base}/investigation.html#/`);
     await expect(cards(page)).toHaveCount(3, { timeout: 15000 });
-    kill();
+    await kill();
     await expect(page.getByTestId("withdrawn")).toBeVisible({ timeout: 15000 });
     await expect(cards(page)).toHaveCount(0);
     await expect(page.locator("body")).not.toContainText("MTR-26005");

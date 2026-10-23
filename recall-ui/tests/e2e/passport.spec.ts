@@ -1,10 +1,10 @@
 import { test, expect, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import jsQR from "jsqr";
-import { spawn, spawnSync, type ChildProcess } from "node:child_process";
-import { mkdirSync, mkdtempSync } from "node:fs";
-import { tmpdir } from "node:os";
-import { join, resolve } from "node:path";
+import { spawnSync } from "node:child_process";
+import { mkdirSync } from "node:fs";
+import { resolve } from "node:path";
+import { OwnedServer } from '../support/ownedServer';
 
 const screenshots = "../docs/dpp-screenshots";
 const TABS = ["overview", "components", "evidence", "timeline", "recall", "qr"];
@@ -132,17 +132,10 @@ test("explicit preview mode is labelled and never shows recall status", async ({
 // ---- isolated server: external writer, outage, and read-only invariance -----------------------
 
 const python = resolve(process.platform === "win32" ? "../.venv/Scripts/python.exe" : "../.venv/bin/python");
-async function isolated(port: number, body: (ctx: { base: string; database: string; kill: () => void; restart: () => Promise<void> }) => Promise<void>) {
-  const database = join(mkdtempSync(join(tmpdir(), "pramaan-passport-")), "db.sqlite");
-  let server: ChildProcess | undefined;
-  const base = `http://127.0.0.1:${port}`;
-  const start = async () => {
-    server = spawn(python, ["recall-ui/tests/browser_server.py", database, "--port", String(port)], { cwd: resolve(".."), stdio: "ignore", windowsHide: true });
-    for (let i = 0; i < 80; i++) { try { if ((await fetch(`${base}/api/session`)).ok) return; } catch { /* starting */ } await new Promise((r) => setTimeout(r, 250)); }
-    throw new Error("server did not start");
-  };
-  await start();
-  try { await body({ base, database, kill: () => server?.kill(), restart: start }); } finally { server?.kill(); }
+async function isolated(port: number, body: (ctx: { base: string; database: string; kill: () => Promise<void>; restart: () => Promise<void> }) => Promise<void>) {
+  const server=new OwnedServer(port);
+  try { await server.start(); await body({ base:server.base,database:server.database,kill:()=>server.stop(),restart:()=>server.start() }); }
+  finally { await server.dispose(); }
 }
 const writeHold = (database: string, motor: string) => {
   const w = spawnSync(python, ["-c", `import sys;from application.service import Manufacturing;a=Manufacturing(sys.argv[1]);a.observe(sys.argv[2],'BR-204');a.close()`, database, motor], { cwd: resolve(".."), encoding: "utf8", windowsHide: true });
@@ -164,7 +157,7 @@ test("backend outage withdraws recall status, labels records stale and never sub
     page.on("request", (r) => fetched.push(r.url()));
     await page.goto(`${base}/passport.html#/passport/MTR-26003/recall`);
     await expect(page.getByTestId("recall-current")).toBeVisible({ timeout: 15000 });
-    kill();
+    await kill();
     await expect(page.getByTestId("recall-unavailable")).toBeVisible({ timeout: 15000 });
     await expect(page.getByTestId("passport-banner")).toContainText(/may be outdated/i);
     await expect(page.locator("body")).not.toContainText("No recall hold recorded");

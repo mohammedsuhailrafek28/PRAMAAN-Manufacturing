@@ -1,0 +1,243 @@
+{
+  "mode": "natural",
+  "runs": 30,
+  "failures": 11,
+  "failureRate": 0.36666666666666664,
+  "medianMs": 4467.8745,
+  "samples": [
+    {
+      "run": 0,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 3633.961,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 1,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 5403.753,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 2,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2457.24,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 3,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4392.777,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 4,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2324.396,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 5,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4441.734,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 6,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4142.485,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 7,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4549.968,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 8,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4494.015,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 9,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2407.96,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 10,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4052.244,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 11,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4055.684,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 12,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4950.944,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 13,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4327.519,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 14,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 6989.159,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 15,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 8721.45,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 16,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 6354.961,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 17,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 11619.152,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 18,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 5578.72,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 19,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2345.697,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 20,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4878.387,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 21,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4497.868,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 22,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2554.734,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 23,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4719.895,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 24,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2337.31,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 25,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 5258.327,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 26,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2723.774,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 27,
+      "passed": false,
+      "errors": 0,
+      "milliseconds": 2918.951,
+      "comparisonDifferences": [
+        "/freshness/verifiedAt"
+      ]
+    },
+    {
+      "run": 28,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4945.817,
+      "comparisonDifferences": []
+    },
+    {
+      "run": 29,
+      "passed": true,
+      "errors": 0,
+      "milliseconds": 4497.96,
+      "comparisonDifferences": []
+    }
+  ],
+  "originalTestUnchanged": true,
+  "clockScope": "snapshot calls in this disposable test process only"
+}
