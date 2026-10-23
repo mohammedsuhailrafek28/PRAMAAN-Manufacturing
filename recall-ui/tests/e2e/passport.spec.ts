@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { OwnedStack } from "../support/ownedStack";
 import AxeBuilder from "@axe-core/playwright";
 import jsQR from "jsqr";
 import { spawn, spawnSync, type ChildProcess } from "node:child_process";
@@ -149,15 +150,30 @@ const writeHold = (database: string, motor: string) => {
   expect(w.status, w.stderr).toBe(0);
 };
 
+// MIGRATED (M13, R5 amendment + owner O3). Original: an external capture changed the passport straight to "Held under the recall
+// policy". A capture now moves the ledger past the checkpoint, so the passport must stop showing any recall statement until a
+// successor checkpoint is activated. Replacement: PREFIX_ONLY shows "Current recall status unavailable" and neither the old
+// "No recall hold recorded" nor "Held under the recall policy"; after the explicit test-only checkpoint cycle the ORIGINAL
+// expectation ("Held under the recall policy") is asserted unchanged.
 test("external writer: recall context changes on the passport without any API command", async ({ page }) => {
-  await isolated(4185, async ({ base, database }) => {
-    await page.goto(`${base}/passport.html#/passport/MTR-26003/recall`);
+  const stack = await OwnedStack.start(4204);
+  try {
+    await page.goto(`${stack.base}/passport.html#/passport/MTR-26003/recall`);
     await expect(page.getByTestId("recall-current")).toContainText("No recall hold recorded under this policy", { timeout: 15000 });
-    writeHold(database, "MTR-26003");
-    await expect(page.getByTestId("recall-current")).toContainText("Held under the recall policy", { timeout: 12000 });
-  });
+    writeHold(stack.database, "MTR-26003");
+    await expect(page.getByTestId("recall-unavailable")).toBeVisible({ timeout: 12000 });
+    await expect(page.getByTestId("recall-current")).toHaveCount(0);
+    await expect(page.getByTestId("passport-banner")).toContainText(/Historical evidence only/);
+    expect(await page.evaluate(() => document.body.innerText)).not.toMatch(/No recall hold recorded|Held under the recall policy/);   // negative
+    await stack.cycle();
+    await page.reload();
+    await expect(page.getByTestId("recall-current")).toContainText("Held under the recall policy", { timeout: 15000 });
+  } finally { await stack.stop(); }
 });
 
+// MIGRATED (M4/M14, owner O3). Original: after the backend died the page kept the motor's passport under a "may be outdated"
+// banner with recall status unavailable. Approved contract: a WITHHELD page shows nothing motor-specific. Replacement: a load
+// error with no passport content; no fixture substitution; recovery restores the verified view.
 test("backend outage withdraws recall status, labels records stale and never substitutes fixtures", async ({ page }) => {
   await isolated(4186, async ({ base, kill, restart }) => {
     const fetched: string[] = [];
@@ -165,9 +181,10 @@ test("backend outage withdraws recall status, labels records stale and never sub
     await page.goto(`${base}/passport.html#/passport/MTR-26003/recall`);
     await expect(page.getByTestId("recall-current")).toBeVisible({ timeout: 15000 });
     kill();
-    await expect(page.getByTestId("recall-unavailable")).toBeVisible({ timeout: 15000 });
-    await expect(page.getByTestId("passport-banner")).toContainText(/may be outdated/i);
+    await expect(page.getByTestId("load-error")).toBeVisible({ timeout: 15000 });
+    await expect(page.getByTestId("recall-current")).toHaveCount(0);
     await expect(page.locator("body")).not.toContainText("No recall hold recorded");
+    await expect(page.locator("body")).not.toContainText("MTR-26003 ·");        // no stale motor-specific record remains
     await page.screenshot({ path: `${screenshots}/07-backend-offline.png`, fullPage: true });
     expect(fetched.some((u) => u.includes("preview") || u.includes("snapshot.json"))).toBe(false);
     await restart();
@@ -175,16 +192,26 @@ test("backend outage withdraws recall status, labels records stale and never sub
   });
 });
 
+// MIGRATED (M3/M15). Original faked an unanchored envelope at the network boundary on the anchored shared server. That envelope
+// (status UNANCHORED but checkpoint CURRENT) is now contradictory and is withheld, so the scenario is exercised for real: a server
+// started WITHOUT a trusted anchor yields explicitly unverified records and no recall status.
 test("an unanchored backend yields records labelled unverified and no recall status", async ({ page }) => {
-  // The shared server is anchored; simulate an unanchored envelope at the network boundary only.
+  const stack = await OwnedStack.start(4205, { unanchored: true });
+  try {
+    await page.goto(`${stack.base}/passport.html#/passport/MTR-26003`);
+    await expect(page.getByTestId("passport-banner")).toContainText(/anchor|unavailable|not currently verified/i);
+    await expect(page.getByText("Current recall status unavailable").first()).toBeVisible();
+    await expect(page.getByTestId("recall-current")).toHaveCount(0);
+    expect(await page.evaluate(() => document.body.innerText)).not.toMatch(/No recall hold recorded|Held under the recall policy|Excluded with evidence/);
+  } finally { await stack.stop(); }
+  // negative: the old fake (UNANCHORED status on a CURRENT checkpoint) is contradictory and withheld, never accepted as "unverified records"
   await page.route("**/api/snapshot", async (route) => {
     const res = await route.fetch(); const j = await res.json();
     j.freshness.status = "HISTORICAL_UNANCHORED"; j.freshness.maxAgeSeconds = 0;
     await route.fulfill({ json: j });
   });
   await page.goto("/passport.html#/passport/MTR-26003");
-  await expect(page.getByTestId("passport-banner")).toContainText(/anchor|unavailable/i);
-  await expect(page.getByText("Current recall status unavailable").first()).toBeVisible();
+  await expect(page.getByTestId("load-error")).toBeVisible();
   await expect(page.getByTestId("recall-current")).toHaveCount(0);
 });
 

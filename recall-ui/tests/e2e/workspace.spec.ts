@@ -4,6 +4,7 @@ import { spawn, type ChildProcess } from "node:child_process";
 import { mkdirSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
+import { OwnedStack } from "../support/ownedStack";
 
 const screenshots = "../docs/investigation-screenshots";
 const overflow = (page: Page) => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -38,7 +39,9 @@ test("authored scenario walkthrough: shared clusters, evidence drill-down, befor
   await cards(page).first().getByRole("link", { name: "Untrusted affected-lot observation" }).click();
   const task = page.getByTestId("task-MTR-26005");
   await expect(task).toContainText("ACTOR_NOT_AUTHORIZED");
-  await expect(task).toContainText("OP-OBSERVATION-21");
+  // MIGRATED (M2, owner O2): preview data is pseudonymised; the raw operator id must not appear.
+  await expect(task).toContainText("ACTOR-04");
+  await expect(task).not.toContainText("OP-OBSERVATION-21");
   await expect(task).toContainText("HANDHELD_LABEL_READ");
   await page.screenshot({ path: `${screenshots}/03-untrusted-cluster.png`, fullPage: true });
   await task.getByRole("link", { name: "urn:pramaan:MTR-26005:HANDHELD:1" }).first().click();
@@ -66,7 +69,7 @@ for (const [name, size] of [["desktop", { width: 1280, height: 900 }], ["mobile"
     if (name === "mobile") await page.screenshot({ path: `${screenshots}/mobile-overview.png`, fullPage: true });
     for (const [label, href] of [["cluster", "Untrusted affected-lot observation"], ["gap", "Capture gap"]] as const) {
       await page.goto("/investigation.html?mode=preview&stage=before#/");
-      await cards(page).filter({ hasText: label === "gap" ? "ASSY:SHARED-DEMO-STATION" : "OP-OBSERVATION-21" }).first().getByRole("link", { name: href }).click();
+      await cards(page).filter({ hasText: label === "gap" ? "ASSY:SHARED-DEMO-STATION" : "ACTOR-04" }).first().getByRole("link", { name: href }).click();
       await expect(page.getByTestId("task-MTR-26005").or(page.getByTestId("task-MTR-26015"))).toBeVisible();
       expect(await overflow(page), `${name} ${label} overflow`).toBeLessThanOrEqual(0);
       expect(await axe(page), `${name} ${label} axe`).toEqual([]);
@@ -146,24 +149,35 @@ test("live seeded ledger: three actual single-motor groups, untrusted observatio
   });
 });
 
+// MIGRATED (M17, R5 amendment). Original: each write changed the listing within one poll. A write now moves the ledger past the
+// checkpoint, so the listing must disappear (nothing is shown as current) until the successor checkpoint is activated; the original
+// listing expectations are then asserted unchanged. The page is not reloaded: it keeps polling across the restart and stays read-only.
 test("live: an evidence update changes the listing with no manual closure, and the page only reads", async ({ page }) => {
-  await isolated(page, 4192, async ({ base, post }) => {
+  const stack = await OwnedStack.start(4192);
+  try {
     const requests: Array<{ method: string; url: string }> = [];
     page.on("request", (r) => { if (r.url().includes("/api/") || r.url().includes("investigation-demo")) requests.push({ method: r.method(), url: r.url() }); });
-    await page.goto(`${base}/investigation.html#/`);
+    await page.goto(`${stack.base}/investigation.html#/`);
     await expect(cards(page)).toHaveCount(3, { timeout: 15000 });
-    await post("units", { serial: "MTR-26021", title: "Identity only" });
-    await expect(cards(page)).toHaveCount(4, { timeout: 15000 });
+    const postFromOutside = async (path: string, data: object) => { const r = await stack.post(path, data); expect(r.status, JSON.stringify(r.body)).toBe(200); };
+    const mustBeWithheld = async () => {
+      await expect(cards(page)).toHaveCount(0, { timeout: 15000 });         // negative: no listing is presented as current in PREFIX_ONLY
+      expect(await page.evaluate(() => document.body.innerText)).not.toMatch(/Untrusted affected-lot observation|No trusted baseline/);
+    };
+    await postFromOutside("units", { serial: "MTR-26021", title: "Identity only" });
+    await mustBeWithheld();
+    await stack.cycle();
+    await expect(cards(page)).toHaveCount(4, { timeout: 20000 });
     await expect(cards(page).filter({ hasText: "MTR-26021" })).toContainText("No trusted baseline");
-    await expect(page.getByTestId("changes")).toContainText(/MTR-26021.*newly listed/);
-    await post("units/MTR-26021/assemble", { deLot: "BR-310", ndeLot: "BR-312", identity: "SERIAL" });
-    await expect(cards(page)).toHaveCount(3, { timeout: 15000 });
-    await expect(page.getByTestId("changes")).toContainText(/MTR-26021.*no longer listed/);
+    await postFromOutside("units/MTR-26021/assemble", { deLot: "BR-310", ndeLot: "BR-312", identity: "SERIAL" });
+    await mustBeWithheld();
+    await stack.cycle();
+    await expect(cards(page)).toHaveCount(3, { timeout: 20000 });
     await expect(page.getByRole("button")).toHaveCount(0);
     await page.screenshot({ path: `${screenshots}/07-live-update.png`, fullPage: true });
     expect(requests.length).toBeGreaterThan(0);
     expect(requests.every((r) => r.method === "GET" && /\/api\/snapshot$/.test(r.url))).toBe(true);
-  });
+  } finally { await stack.stop(); }
 });
 
 test("live: a backend outage withdraws every task, uses no fixture, and recovers when verified again", async ({ page }) => {
@@ -184,15 +198,25 @@ test("live: a backend outage withdraws every task, uses no fixture, and recovers
   });
 });
 
+// MIGRATED (M3/M18). Original faked UNANCHORED at the network boundary on an anchored server; that envelope (UNANCHORED status on a
+// CURRENT checkpoint) is contradictory and is withheld. The real scenario is a server started without a trusted anchor: it must show
+// no tasks or clusters as current. The old fake is kept as a negative.
 test("an unanchored envelope is withheld rather than shown as current", async ({ page }) => {
-  await isolated(page, 4195, async ({ base }) => {
+  const stack = await OwnedStack.start(4195, { unanchored: true });
+  try {
+    await page.goto(`${stack.base}/investigation.html#/`);
+    await expect(page.locator("body")).toContainText(/anchor|unavailable|not current|unverified/i, { timeout: 15000 });
+    await expect(cards(page)).toHaveCount(0);
+    expect(await page.evaluate(() => document.body.innerText)).not.toMatch(/Verified ledger journal sequence/);
+  } finally { await stack.stop(); }
+  await isolated(page, 4206, async ({ base }) => {
     await page.route("**/api/snapshot", async (route) => {
       const res = await route.fetch(); const j = await res.json();
       j.freshness.status = "HISTORICAL_UNANCHORED"; j.freshness.maxAgeSeconds = 0;
       await route.fulfill({ json: j });
     });
     await page.goto(`${base}/investigation.html#/`);
-    await expect(page.getByTestId("withdrawn")).toContainText(/anchor|unavailable/i);
+    await expect(page.getByTestId("load-error")).toBeVisible({ timeout: 15000 });   // contradictory on first load: never reaches a ready view
     await expect(cards(page)).toHaveCount(0);
   });
 });

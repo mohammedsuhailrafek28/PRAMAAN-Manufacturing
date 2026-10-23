@@ -12,9 +12,12 @@ test('old successful proxy snapshot cannot renew operational clearance; recovery
  await page.route('**/api/snapshot',r=>r.fulfill({json:old}));
  await expect(page.getByTestId('load-error')).toBeVisible({timeout:8000});
  await expect(page.getByTestId('chip-action')).toHaveCount(0);
- await page.getByText('Manufacturing capture workspace',{exact:true}).click();
- await expect(page.getByRole('button',{name:'Create unit',exact:true})).toBeDisabled();
- await expect(page.getByText(/historical, not operational clearance/)).toBeVisible();
+ // MIGRATED (M9): original = the workbench stayed on screen with 'Create unit' disabled and a 'historical, not operational
+ // clearance' note. Conflicting approved contract (owner O3): a WITHHELD console shows nothing motor-specific and offers no command
+ // surface. Replacement is stronger: the workbench and every command button are absent while the lease is invalid.
+ await expect(page.getByText('Manufacturing capture workspace',{exact:true})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'Create unit',exact:true})).toHaveCount(0);
+ await expect(page.getByTestId('load-error')).toContainText(/withheld/);
  await page.unroute('**/api/snapshot');
  await expect(page.getByTestId('chip-action').first()).toContainText('Release eligible',{timeout:8000});
  expect(page.url()).not.toContain('fixtures');
@@ -30,8 +33,16 @@ test('external capture writer withdraws displayed exclusion without an API comma
   await expect(page.getByTestId('chip-action').first()).toContainText('Release eligible');
   const writer=spawnSync(python,['-c',"import sys;from application.service import Manufacturing;a=Manufacturing(sys.argv[1]);a.observe('MTR-26003','BR-204');a.close()",database],{cwd:resolve('..'),encoding:'utf8',windowsHide:true});
   expect(writer.status,writer.stderr).toBe(0);
-  await expect(page.getByTestId('chip-action').first()).toContainText('Recall hold',{timeout:8000});
-  await expect(page.getByText(/PRIOR_EXCLUSION_WITHDRAWN/).first()).toBeVisible();
+  // MIGRATED (M10, R5 amendment): original = the withdrawn exclusion was shown as a 'Recall hold' chip with reason
+  // PRIOR_EXCLUSION_WITHDRAWN. Under the approved amendment a PREFIX_ONLY console shows no per-motor decision/hold chip; the
+  // displayed exclusion is withdrawn (no release label remains) and the backend still carries the hold and the reason code.
+  await expect(page.getByRole('heading',{name:'Checkpoint required'})).toBeVisible({timeout:8000});
+  await expect(page.getByTestId('chip-action')).toHaveCount(0);
+  expect(await page.evaluate(()=>document.body.innerText)).not.toMatch(/Release eligible|Excluded with evidence/);
+  const snap=await(await page.request.get('http://127.0.0.1:4184/api/snapshot')).json();
+  expect(snap.checkpoint.state).toBe('ANCHORED_PREFIX_ONLY');
+  const cur=JSON.stringify(snap.decisions['MTR-26003']);
+  expect(cur).toContain('RECALL_HOLD'); expect(cur).toContain('PRIOR_EXCLUSION_WITHDRAWN');
  }finally{server.kill();}
 });
 

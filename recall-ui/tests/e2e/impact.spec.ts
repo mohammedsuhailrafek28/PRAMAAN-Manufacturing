@@ -157,14 +157,31 @@ test("live anchored ledger: verified status is shown, then withheld on outage an
 
   // a stale verification timestamp: genealogy stays, labelled not current; status is withheld
   const good = await (await page.request.get("/api/snapshot")).json();
+  // MIGRATED FIXTURE (M11): original rewrote verifiedAt to a time EARLIER than the page's last snapshot. The gate (correctly)
+  // classifies that as a clock/ledger regression and withdraws the page. The scenario this test names, an old successful response
+  // replayed by a proxy, is the same snapshot with its original timestamp: it expires instead of regressing. The regression case
+  // is asserted separately below (negative: backdated timestamp withdraws everything).
   const stale = structuredClone(good);
-  stale.freshness.verifiedAt = new Date(Date.now() - 60_000).toISOString();
   await page.route("**/api/snapshot", (r) => r.fulfill({ json: stale }));
-  await expect(page.getByTestId("noncurrent-label")).toBeVisible({ timeout: 10_000 });
-  await expect(page.getByTestId("impact-headline")).toContainText("Current recall status is withheld");
+  // MIGRATED (M11): original = on an expired lease the recorded genealogy stayed on screen under a 'Not current' label with
+  // recall status withheld. Conflicting approved contract (owner O3 / display policy): when trust metadata is not valid the page is
+  // fully WITHHELD and shows nothing motor- or lot-specific. Replacement is stricter: the page is withdrawn, naming the lease cause.
+  await expect(page.getByTestId("withdrawn")).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByTestId("withdrawn")).toContainText(/lease expired/);
+  await expect(page.getByTestId("noncurrent-label")).toHaveCount(0);
+  await expect(page.getByTestId("impact-svg")).toHaveCount(0);       // negative: the old 'genealogy under a Not-current label' view
+  await expect(page.getByTestId("impact-headline")).toHaveCount(0);
   await expect(page.getByTestId("impact-decision")).toHaveCount(0);
   await expect(page.locator(".chip-cap", { hasText: "Engine finding" })).toHaveCount(0);
   await page.screenshot({ path: `${shots}/12-live-not-current.png`, fullPage: true });
+
+  // negative (M11): a backdated verification time is a regression and withdraws the page entirely
+  const backdated = structuredClone(good);
+  backdated.freshness.verifiedAt = new Date(Date.now() - 60_000).toISOString();
+  await page.unroute("**/api/snapshot");
+  await page.route("**/api/snapshot", (r) => r.fulfill({ json: backdated }));
+  await expect(page.getByTestId("withdrawn")).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByTestId("impact-svg")).toHaveCount(0);
 
   // outage: nothing from the earlier snapshot remains on the page
   await page.unroute("**/api/snapshot");

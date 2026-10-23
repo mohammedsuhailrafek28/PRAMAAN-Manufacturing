@@ -4,6 +4,7 @@ import { spawn } from "node:child_process";
 import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { resolve, join } from "node:path";
+import { OwnedStack } from "../support/ownedStack";
 
 test("actual backend shutdown revokes live release presentation", async ({ page }) => {
   const python=resolve(process.platform==='win32'?'../.venv/Scripts/python.exe':'../.venv/bin/python');
@@ -38,24 +39,26 @@ test("live long identifiers: decision, history and keyboard-scrollable genealogy
   }
 });
 
+// MIGRATED (M16, R5 amendment): the scenario and its assertions are unchanged, but they are checked once the capture is under an
+// ACTIVE checkpoint. Original read the console immediately after four writes; those writes put the ledger past the checkpoint, where
+// the console correctly shows no per-motor decision. Negative added: before activation no finding or hold is shown for the motor.
 test("NDE-only affected motor is held by unspecified recall scope through real API", async({page})=>{
-  // The shared seed has an explicitly restricted DE policy; prove NDE capture
-  // and explicit scope using a separate empty local backend instead of mutating it.
-  const python=resolve(process.platform==='win32'?'../.venv/Scripts/python.exe':'../.venv/bin/python');
-  const server=spawn(python,['recall-ui/tests/browser_server.py',join(mkdtempSync(join(tmpdir(),'pramaan-scope-')),'db.sqlite'),'--empty','--port','4183'],{cwd:resolve('..'),stdio:'ignore',windowsHide:true});
+  // The shared seed has an explicitly restricted DE policy; prove NDE capture and explicit scope on a separate empty owned backend.
+  const stack = await OwnedStack.start(4183, { empty: true });
   try{
-    await expect(async()=>{expect((await page.request.get('http://127.0.0.1:4183/api/session')).ok()).toBeTruthy();}).toPass({timeout:15000});
-    const session=await(await page.request.get('http://127.0.0.1:4183/api/session')).json();
-    const command=async(path:string,body:object)=>{
-      const res=await page.request.post(`http://127.0.0.1:4183/api/${path}`,{headers:{'X-Pramaan-Token':session.token},data:body});expect(res.ok()).toBeTruthy();return res.json();
-    };
+    const command=async(path:string,body:object)=>{const r=await stack.post(path,body);expect(r.status).toBe(200);return r.body;};
     await command('units',{serial:'MTR-NDE-REGRESSION'});
     await command('units/MTR-NDE-REGRESSION/assemble',{deLot:'BR-310',ndeLot:'BR-204'});
     await command('units/MTR-NDE-REGRESSION/ship',{});
     const result=await command('recalls',{lot:'BR-204'});
     expect(result.snapshot.recall.affectedSlots).toEqual(['DE','NDE']);
-    await page.goto('http://127.0.0.1:4183/#/unit/MTR-NDE-REGRESSION/decision');
+    await page.goto(`${stack.base}/#/unit/MTR-NDE-REGRESSION/decision`);
+    await expect(page.getByRole('heading',{name:'Checkpoint required'})).toBeVisible();
+    await expect(page.getByTestId('chip-finding')).toHaveCount(0);
+    await expect(page.getByTestId('chip-action')).toHaveCount(0);
+    await stack.cycle();
+    await page.reload();
     await expect(page.getByTestId('chip-finding').first()).toContainText('Affected');
     await expect(page.getByTestId('chip-action').first()).toContainText('Recall hold');
-  }finally{server.kill();}
+  }finally{await stack.stop();}
 });
