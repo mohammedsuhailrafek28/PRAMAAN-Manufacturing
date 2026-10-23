@@ -37,8 +37,9 @@ describe("actual seeded cases (no shared gap exists in seeded data)", () => {
     const t = tasksOf(v, "MTR-26005")[0];
     expect(t.grounded).toMatchObject({
       slot: "DE", observedLot: "BR-204", rejectedReasons: ["ACTOR_NOT_AUTHORIZED", "METHOD_NOT_APPROVED", "SOURCE_NOT_TRUSTED"],
-      actorClaim: "OP-OBSERVATION-21", method: "HANDHELD_LABEL_READ", observedEventId: "urn:pramaan:MTR-26005:HANDHELD:1",
+      actorClaim: "ACTOR-04", method: "HANDHELD_LABEL_READ", observedEventId: "urn:pramaan:MTR-26005:HANDHELD:1",
     });
+    expect(JSON.stringify(t.grounded)).not.toContain("OP-OBSERVATION-21");   // negative (M2): no operator identifier in preview data
     expect(t.evidenceEventIds).toEqual(["urn:pramaan:MTR-26005:HANDHELD:1"]);
   });
   it("grounds the ambiguity in the removal, candidate slots and assurance level", () => {
@@ -55,7 +56,8 @@ describe("authored demonstration: shared exact keys form shared clusters", () =>
   it("clusters the three untrusted observations on identical rejection, actor, method and lot", () => {
     const c = clusterOf(v, "MTR-26005", "UNTRUSTED_AFFECTED_OBSERVATION");
     expect(c.unitIds).toEqual(["MTR-26005", "MTR-26011", "MTR-26012"]);
-    expect(c.key).toContain("actorClaim=OP-OBSERVATION-21");
+    expect(c.key).toContain("actorClaim=ACTOR-04");   // MIGRATED M2 (O2)
+    expect(c.key).not.toContain("OP-OBSERVATION-21");   // negative: the operator identifier must not survive in preview data
     expect(c.key).toContain("rejectedReasons=ACTOR_NOT_AUTHORIZED,METHOD_NOT_APPROVED,SOURCE_NOT_TRUSTED");
   });
   it("clusters the lot-level ambiguities (one seeded, two demo extras)", () => {

@@ -62,11 +62,16 @@ describe("passport page", () => {
 
   it("withdraws recall status and marks records stale when the backend fails after a good load", async () => {
     const src = scripted([verified(), new Error("Failed to fetch")]);
-    render(<PassportApp source={src} pageUrl={PAGE} pollMs={30} />);
+    render(<PassportApp source={src} pageUrl={PAGE} pollMs={250} />);   // M4: wide enough that the good state is observable before the failing poll
     expect(await screen.findByTestId("recall-current")).toBeInTheDocument();
     await waitFor(() => expect(screen.queryByTestId("recall-current")).toBeNull());
-    expect(screen.getByTestId("passport-banner")).toHaveTextContent(/may be outdated/i);
-    expect(screen.getAllByText("Current recall status unavailable").length).toBeGreaterThan(0);
+    // MIGRATED (M4, owner decision O3): the original expected stale motor records under a "may be outdated" banner.
+    // A WITHHELD page now keeps no motor-specific record at all, only the neutral reason.
+    const err = await screen.findByTestId("load-error");
+    expect(err).toHaveTextContent(/could not be loaded.*No passport content is shown/is);
+    expect(screen.queryByTestId("passport-banner")).toBeNull();
+    expect(screen.queryByRole("heading", { name: /MTR-26004/ })).toBeNull();   // negative: the old stale-record behavior is rejected
+    expect(document.body.textContent).not.toMatch(/may be outdated|No recall hold recorded|RECALL_HOLD/);
   });
 
   it("shows an error and no content (no fixture substitution) when the first load fails", async () => {
@@ -216,11 +221,10 @@ describe("read-only adapters", () => {
     const first = await src.load();
     expect(isGated(first.view)).toBe(true);
     for (const [url, init] of fetchMock.mock.calls) { expect(url).toBe("/api/snapshot"); expect(init.method).toBe("GET"); expect(init.body).toBeUndefined(); }
-    // an unanchored snapshot is accepted as records but not as current recall status
+    // MIGRATED (M3): a legacy envelope with no checkpoint/eligibility used to be accepted as labelled records.
+    // The unified gate WITHHOLDS it entirely (MISSING_METADATA); it is never a gated view.
     fetchMock.mockResolvedValue({ ok: true, status: 200, json: async () => structuredClone(previewSnapshot()) });
-    const second = await src.load();
-    expect(isGated(second.view)).toBe(false);
-    expect(second.reason).toMatch(/anchor|expired|unavailable/i);
+    await expect(src.load()).rejects.toThrow(/checkpoint or eligibility metadata is missing/);
     vi.unstubAllGlobals();
   });
   it("live adapter withholds everything on regression and on HTTP failure", async () => {

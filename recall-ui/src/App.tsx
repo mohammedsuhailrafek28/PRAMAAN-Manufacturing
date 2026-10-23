@@ -153,7 +153,7 @@ export function App({ source }: { source: RecallDataSource }) {
         )}
         {state.status === "ready" && (
           <ConsoleClaimsProvider view={state.gate?.kind === "CURRENT" && leaseValid ? state.gate.view : null} preview={!source.command}>
-            {state.gate?.kind === "SEGREGATED" && <HistoricalFacts view={state.gate.view} />}
+            {state.gate?.kind === "SEGREGATED" && <HistoricalFacts view={state.gate.view} captureStatus={captureStatus} />}
             {(!source.command || (state.gate?.kind === "CURRENT" && leaseValid)) && <>
             <ProvenanceBar snap={state.snap} policyId={policyId} onPolicy={setPolicyId} sourceLabel={source.label} />
             {source.command && <ManufacturingWorkbench snap={state.snap} run={run} busy={busy || !leaseValid} />}
@@ -175,12 +175,20 @@ export function App({ source }: { source: RecallDataSource }) {
   );
 }
 
-/** No decisions, task obligations or clearance can enter this facts-only component. */
-function HistoricalFacts({view}:{view:HistoricalView}) {
+/** No decisions, task obligations or clearance can enter this facts-only component.
+ *  Owner-proposed PREFIX policy: historical facts, no decision-level hold or release chips, and a prominent global
+ *  no-shipment-or-release warning. Backend recall holds and obligations remain enforced by the backend. */
+function HistoricalFacts({view,captureStatus}:{view:HistoricalView;captureStatus:string}) {
+ const prefix = view.cause === "PREFIX_ONLY";
  return <section aria-label="Historical evidence only" data-testid="console-historical">
-  <h2>{view.cause === "PREFIX_ONLY" ? "Checkpoint required" : "Unanchored historical records"}</h2>
+  <h2>{prefix ? "Checkpoint required" : "Unanchored historical records"}</h2>
+  <p role="alert" data-testid="no-shipment-warning"><b>Do not ship or release any motor while this state persists.</b> No current decision, recall hold or release clearance is shown here, and none may be inferred from this screen.</p>
   <p>{view.reason}</p>
-  <p>Historical watermark: journal sequence {view.watermark.sequence}. No current decision or clearance is shown.</p>
+  <p>{prefix
+    ? "To restore current decisions the owner must export a successor checkpoint, establish its custody independently of this host, and restart the application with it (--trusted-anchor <successor> --previous-anchor <previous>). Exporting a local candidate does not establish trust, and this page cannot promote one."
+    : "Start the application with an owner-custodied checkpoint (--trusted-anchor)."}</p>
+  {captureStatus && <p role="status" data-testid="capture-status">{captureStatus} The ledger is now newer than the protected checkpoint, so current decisions are withheld until a successor checkpoint is activated.</p>}
+  <p>Historical watermark: journal sequence {view.watermark.sequence}. These are recorded events only.</p>
   <ul>{view.facts.units.map(u=><li key={u.unitId}>{u.unitId}: {u.events.length} recorded events. <a href={`./passport.html#/passport/${encodeURIComponent(u.unitId)}/components`}>Inspect historical genealogy</a></li>)}</ul>
  </section>;
 }

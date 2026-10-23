@@ -244,8 +244,9 @@ describe("adapters", () => {
     const src = new LiveImpactSource();
     expect(isGated((await src.load()).view)).toBe(true);
     await expect(src.load()).rejects.toThrow(/regression/i);
+    // MIGRATED (M3): a snapshot with no checkpoint/eligibility is WITHHELD (MISSING_METADATA), never a labelled view.
     vi.stubGlobal("fetch", vi.fn(async () => ({ ok: true, status: 200, json: async () => bad })));
-    expect(isGated((await new LiveImpactSource().load()).view)).toBe(false);
+    await expect(new LiveImpactSource().load()).rejects.toThrow(/checkpoint or eligibility metadata is missing/);
   });
 
   it("live adapter turns HTTP failure into an error", async () => {

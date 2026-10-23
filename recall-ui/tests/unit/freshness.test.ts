@@ -1,9 +1,12 @@
 import { expect,it } from 'vitest';
 import { verifyFreshness } from '../../src/data/freshness';
-import {realSnapshot} from './helpers';
+import {realSnapshot, withStrictCurrent} from './helpers';
+
+const causeOf=(fn:()=>unknown)=>{try{fn();return 'NO_THROW';}catch(e:any){return e.gate?.cause ?? e.message;}};
 
 const now=Date.parse('2026-10-21T16:00:00Z');
-function fresh(){return {...realSnapshot(),freshness:{verifiedAt:new Date(now).toISOString(),maxAgeSeconds:5,status:'VERIFIED_ANCHORED_SYNTHETIC',archiveId:'archive',sequence:10,headHash:'hash'}};}
+// MIGRATED FIXTURE (M1): honest strict-current checkpoint/eligibility metadata added; assertions unchanged.
+function fresh():any{return withStrictCurrent({...realSnapshot(),freshness:{verifiedAt:new Date(now).toISOString(),maxAgeSeconds:5,status:'VERIFIED_ANCHORED_SYNTHETIC',archiveId:'archive',sequence:10,headHash:"hash"}} as any,10);}
 it('accepts current timestamp and budgets only remaining server lease',()=>{
  expect(verifyFreshness(fresh(),null,now+3000)).toBe(2000);
 });
@@ -22,9 +25,9 @@ it('rejects journal rollback, same sequence rewrite, and replaced archive',()=>{
 });
 it('rejects evidence watermark and decision version regression',()=>{
  const previous=fresh();const s=fresh();s.freshness.sequence++;
- s.units[0].events.pop();expect(()=>verifyFreshness(s,previous,now)).toThrow(/watermark/);
+ s.units[0].events.pop();expect(causeOf(()=>verifyFreshness(s,previous,now))).toBe('REGRESSION');   // MIGRATED (M7): typed category replaces the 'watermark' wording
  const d=fresh();d.freshness.sequence++;
  const motor=Object.keys(d.decisions)[0],policy=Object.keys(d.decisions[motor])[0];
  d.decisions[motor][policy].current.version=(d.decisions[motor][policy].current.version ?? 1)-1;
- expect(()=>verifyFreshness(d,previous,now)).toThrow(/version/);
+ expect(causeOf(()=>verifyFreshness(d,previous,now))).toBe('REGRESSION');   // MIGRATED (M7): typed category replaces the 'version' wording
 });

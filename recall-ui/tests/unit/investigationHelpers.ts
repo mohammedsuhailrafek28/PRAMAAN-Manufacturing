@@ -1,6 +1,7 @@
 import demo from "../../public/data/investigation-demo.json";
 import type { RecallSnapshot } from "../../src/domain/types";
 import { validateSnapshot } from "../../src/domain/validate";
+import { withStrictCurrent } from "./helpers";
 
 export type StageId = "before" | "after";
 interface DemoDoc { origin: Record<string, string>; sharedAuthoredSource: string; stages: Array<{ id: string; snapshot: unknown }> }
@@ -35,7 +36,7 @@ export const POLICY = "RC-026-014/P1";
 export function freshStage(id: StageId = "before", now = Date.now(), sequence = 100): RecallSnapshot {
   const s = stage(id);
   s.freshness = { verifiedAt: new Date(now).toISOString(), maxAgeSeconds: 5, status: "VERIFIED_ANCHORED_SYNTHETIC", archiveId: "test-archive", sequence, headHash: `head-${sequence}` };
-  return s;
+  return withStrictCurrent(s, sequence);
 }
 
 export function deepFreeze<T>(o: T): T {
