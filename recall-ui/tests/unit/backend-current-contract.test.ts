@@ -30,4 +30,6 @@ it("body read timeout fails closed rather than displaying the prior complete sna
 it("a non-200 successful HTTP status cannot be promoted into a CURRENT envelope",async()=>{
  const snap=current();vi.stubGlobal("fetch",vi.fn().mockResolvedValue({ok:true,status:201,json:async()=>snap}));
  await expect(new BackendRecallDataSource().load()).rejects.toMatchObject({gate:{kind:"WITHHELD",cause:"TRANSPORT"}});
+ vi.stubGlobal("fetch",vi.fn().mockResolvedValueOnce(reply({token:"synthetic-test-token"})).mockResolvedValueOnce({ok:true,status:201,json:async()=>({snapshot:snap,captureToDecisionMs:1})}));
+ await expect(new BackendRecallDataSource().command("units",{serial:"MTR-AUDIT-001"})).rejects.toMatchObject({gate:{kind:"WITHHELD",cause:"TRANSPORT"}});
 });
