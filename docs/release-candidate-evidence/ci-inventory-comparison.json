@@ -1,0 +1,173 @@
+{
+  "referenceCi": "04d974fd6307fca1f129be6b5683f4468b5fcad7",
+  "frozenBaseline": "f9282101159b6b6806974848d7c351999098d792",
+  "referenceInventoryFiles": 196,
+  "referenceBaselineHashMismatches": [],
+  "changedFrozenFiles": [
+    {
+      "path": "application/anchors.py",
+      "kind": "changed"
+    },
+    {
+      "path": "application/audit.py",
+      "kind": "changed"
+    },
+    {
+      "path": "application/server.py",
+      "kind": "changed"
+    },
+    {
+      "path": "application/service.py",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/package-lock.json",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/package.json",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/public/data/snapshot.json",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/src/App.tsx",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/src/components/StatusChips.tsx",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/src/data/RecallDataSource.ts",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/src/data/freshness.ts",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/src/domain/types.ts",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/src/views/Case06Comparison.tsx",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/src/views/DecisionExplanation.tsx",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/src/views/DecisionHistory.tsx",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/src/views/FleetBoard.tsx",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/tools/export_snapshot.py",
+      "kind": "changed"
+    },
+    {
+      "path": "recall-ui/vite.config.ts",
+      "kind": "changed"
+    }
+  ],
+  "unapprovedAdditionalNonDocumentPaths": [
+    "application/checkpoint_benchmark.py",
+    "application/test_checkpoints.py",
+    "recall-ui/docs/FRONTEND_BRANDED_VIEWS_IMPLEMENTATION.md",
+    "recall-ui/impact.html",
+    "recall-ui/investigation.html",
+    "recall-ui/passport.html",
+    "recall-ui/playwright.audit.config.ts",
+    "recall-ui/playwright.gate.config.ts",
+    "recall-ui/playwright.h1h2.config.ts",
+    "recall-ui/playwright.rc.config.ts",
+    "recall-ui/public/data/impact-demo.json",
+    "recall-ui/public/data/investigation-demo.json",
+    "recall-ui/public/data/passport-preview.json",
+    "recall-ui/src/contract/ClearanceChip.tsx",
+    "recall-ui/src/contract/ConsoleClaims.tsx",
+    "recall-ui/src/contract/clearance.ts",
+    "recall-ui/src/contract/envelope.ts",
+    "recall-ui/src/contract/gate.ts",
+    "recall-ui/src/contract/gated.ts",
+    "recall-ui/src/contract/liveLoad.ts",
+    "recall-ui/src/contract/testing.ts",
+    "recall-ui/src/contract/views.ts",
+    "recall-ui/src/impact/ImpactApp.tsx",
+    "recall-ui/src/impact/ImpactGraphView.tsx",
+    "recall-ui/src/impact/ImpactList.tsx",
+    "recall-ui/src/impact/ImpactWorkspace.tsx",
+    "recall-ui/src/impact/NodeDetails.tsx",
+    "recall-ui/src/impact/impact.css",
+    "recall-ui/src/impact/impactSource.ts",
+    "recall-ui/src/impact/layout.ts",
+    "recall-ui/src/impact/main.tsx",
+    "recall-ui/src/impact/projection.ts",
+    "recall-ui/src/impact/route.ts",
+    "recall-ui/src/impact/syntheticScale.ts",
+    "recall-ui/src/investigation/InvestigationApp.tsx",
+    "recall-ui/src/investigation/InvestigationWorkspace.tsx",
+    "recall-ui/src/investigation/diff.ts",
+    "recall-ui/src/investigation/investigation.css",
+    "recall-ui/src/investigation/investigationSource.ts",
+    "recall-ui/src/investigation/main.tsx",
+    "recall-ui/src/investigation/projection.ts",
+    "recall-ui/src/investigation/route.ts",
+    "recall-ui/src/investigation/taxonomy.ts",
+    "recall-ui/src/passport/PassportApp.tsx",
+    "recall-ui/src/passport/PassportExplorer.tsx",
+    "recall-ui/src/passport/main.tsx",
+    "recall-ui/src/passport/passport.css",
+    "recall-ui/src/passport/passportSource.ts",
+    "recall-ui/src/passport/projection.ts",
+    "recall-ui/src/passport/qr.ts",
+    "recall-ui/src/passport/route.ts",
+    "recall-ui/tests/copy-dist.mjs",
+    "recall-ui/tests/e2e/checkpoint.spec.ts",
+    "recall-ui/tests/e2e/gate.spec.ts",
+    "recall-ui/tests/e2e/impact.spec.ts",
+    "recall-ui/tests/e2e/independent-audit.spec.ts",
+    "recall-ui/tests/e2e/passport.spec.ts",
+    "recall-ui/tests/e2e/workspace.spec.ts",
+    "recall-ui/tests/fixtures/h1h2/anchor_invalid.json",
+    "recall-ui/tests/fixtures/h1h2/current.json",
+    "recall-ui/tests/fixtures/h1h2/invalid_request.json",
+    "recall-ui/tests/fixtures/h1h2/prefix_only.json",
+    "recall-ui/tests/fixtures/h1h2/unanchored.json",
+    "recall-ui/tests/fixtures/h1h2/verifying.json",
+    "recall-ui/tests/unit/arch-guards.test.ts",
+    "recall-ui/tests/unit/backend-current-contract.test.ts",
+    "recall-ui/tests/unit/branded-pages.test.tsx",
+    "recall-ui/tests/unit/branding.test.tsx",
+    "recall-ui/tests/unit/checkpoint.test.ts",
+    "recall-ui/tests/unit/gate-fuzz.test.ts",
+    "recall-ui/tests/unit/gate.test.ts",
+    "recall-ui/tests/unit/impact-app.test.tsx",
+    "recall-ui/tests/unit/impact-projection.test.ts",
+    "recall-ui/tests/unit/impactHelpers.ts",
+    "recall-ui/tests/unit/independent-audit.test.tsx",
+    "recall-ui/tests/unit/investigation-app.test.tsx",
+    "recall-ui/tests/unit/investigation-projection.test.ts",
+    "recall-ui/tests/unit/investigationHelpers.ts",
+    "recall-ui/tests/unit/passport-app.test.tsx",
+    "recall-ui/tests/unit/passport-projection.test.ts",
+    "recall-ui/tests/unit/passport-qr.test.ts",
+    "recall-ui/tests/unit/passportHelpers.ts",
+    "recall-ui/tests/unit/preview-privacy.test.ts",
+    "recall-ui/tests/unit/standalone-gate.test.tsx",
+    "recall-ui/tools/capture_h1h2_envelopes.py",
+    "recall-ui/tools/generate_impact_demo.py",
+    "recall-ui/tools/generate_investigation_demo.py",
+    "recall-ui/tools/preview_sanitize.py"
+  ],
+  "mode": "READ_ONLY_COMPARISON_NOT_REGENERATED_MANIFEST",
+  "comparedProductionCommit": "75c3d778e31ea4cfbd6ee0059af5424cb1fca9d9",
+  "noHashesRegenerated": true
+}

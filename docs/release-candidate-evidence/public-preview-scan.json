@@ -1,0 +1,25 @@
+{
+  "scope": "Four synthetic public JSON bundles; deny-list matches are a bounded check, not proof of anonymization",
+  "results": [
+    {
+      "file": "impact-demo.json",
+      "bytes": 324901,
+      "unsafeIdentifierMatches": 0
+    },
+    {
+      "file": "investigation-demo.json",
+      "bytes": 630225,
+      "unsafeIdentifierMatches": 0
+    },
+    {
+      "file": "passport-preview.json",
+      "bytes": 185536,
+      "unsafeIdentifierMatches": 0
+    },
+    {
+      "file": "snapshot.json",
+      "bytes": 702908,
+      "unsafeIdentifierMatches": 0
+    }
+  ]
+}

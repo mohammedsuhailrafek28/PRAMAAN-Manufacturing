@@ -1,0 +1,43 @@
+{
+  "kind": "Synthetic local actual f9 backend; five serial HTTP samples, not production p95 or browser-visible latency",
+  "motors": 5,
+  "eventsBeforeCapture": 58,
+  "activationMs": 169.09879999002442,
+  "snapshotSamples": [
+    {
+      "ms": 413.3189999847673,
+      "status": 200,
+      "state": "ANCHORED_CURRENT"
+    },
+    {
+      "ms": 351.97039996273816,
+      "status": 200,
+      "state": "ANCHORED_CURRENT"
+    },
+    {
+      "ms": 351.7656000331044,
+      "status": 200,
+      "state": "ANCHORED_CURRENT"
+    },
+    {
+      "ms": 226.59649996785447,
+      "status": 200,
+      "state": "ANCHORED_CURRENT"
+    },
+    {
+      "ms": 236.2686999840662,
+      "status": 200,
+      "state": "ANCHORED_CURRENT"
+    }
+  ],
+  "captureMs": 21.368900022935122,
+  "postCaptureSnapshot": {
+    "ms": 503.0051000067033,
+    "status": 200,
+    "state": "ANCHORED_PREFIX_ONLY"
+  },
+  "postCaptureCurrentEligibility": {
+    "currentReleaseEligible": false
+  },
+  "journalEntries": 12
+}

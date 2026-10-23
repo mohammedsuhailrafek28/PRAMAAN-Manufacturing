@@ -1,0 +1,22 @@
+.venv/Scripts/python.exe : test_case06_original_vs_current
+(test_export_snapshot.ExportSnapshot.test_case06_original_vs_current) ... ok
+At line:2 char:211
++ ... ation.exit; .venv/Scripts/python.exe -m unittest discover -s recall-u ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_case06_ori...current) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+test_committed_snapshot_is_current (test_export_snapshot.ExportSnapshot.test_committed_snapshot_is_current) ... ok
+test_decisions_are_verbatim_engine_output
+(test_export_snapshot.ExportSnapshot.test_decisions_are_verbatim_engine_output) ... ok
+test_deterministic (test_export_snapshot.ExportSnapshot.test_deterministic) ... ok
+test_every_decision_is_internally_consistent
+(test_export_snapshot.ExportSnapshot.test_every_decision_is_internally_consistent) ... ok
+test_never_reads_oracle_files (test_export_snapshot.ExportSnapshot.test_never_reads_oracle_files) ... ok
+test_overlay_is_labelled_synthetic_and_outside_the_engine
+(test_export_snapshot.ExportSnapshot.test_overlay_is_labelled_synthetic_and_outside_the_engine) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.553s
+
+OK

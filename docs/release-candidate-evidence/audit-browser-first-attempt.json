@@ -1,0 +1,673 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.audit.config.ts",
+      "--reporter=json"
+    ],
+    "configFile": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\playwright.audit.config.ts",
+    "rootDir": "C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-release-candidate/recall-ui/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-release-candidate/recall-ui/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-release-candidate/recall-ui/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/independent-audit\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 30000,
+        "use": {
+          "channel": "chrome",
+          "headless": true,
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "independent-audit.spec.ts",
+      "file": "independent-audit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "invalid checkpoint cannot be bypassed by /#/unit/MTR-26003/decision",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 463,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:38.235Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-deedbf9adcff2d1ada67",
+          "file": "independent-audit.spec.ts",
+          "line": 30,
+          "column": 27
+        },
+        {
+          "title": "invalid checkpoint cannot be bypassed by /passport.html#/passport/MTR-26003/components",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 383,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:39.163Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-a838816bb9aa96c10c24",
+          "file": "independent-audit.spec.ts",
+          "line": 30,
+          "column": 27
+        },
+        {
+          "title": "invalid checkpoint cannot be bypassed by /passport.html#/passport/MTR-26003/records",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 402,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:39.578Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-c1794d6d3f87f5ab6ab5",
+          "file": "independent-audit.spec.ts",
+          "line": 30,
+          "column": 27
+        },
+        {
+          "title": "invalid checkpoint cannot be bypassed by /investigation.html#/evidence/MTR-26001/urn%3Apramaan%3AMTR-26001%3AASSY%3A1",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 392,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:40.003Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-de6db19604d91f0aa7d0",
+          "file": "independent-audit.spec.ts",
+          "line": 30,
+          "column": 27
+        },
+        {
+          "title": "invalid checkpoint cannot be bypassed by /impact.html#/lot/bearing/BR-310/graph/motor%3AMTR-26003",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 382,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:40.420Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-32526e42b8295b764d7e",
+          "file": "independent-audit.spec.ts",
+          "line": 30,
+          "column": 27
+        },
+        {
+          "title": "main CURRENT keeps excluded finding with clearance withheld; other motor hold remains accessible",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 645,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('chip-finding')\nExpected substring: \u001b[32m\"Excluded with evidence\"\u001b[39m\nError: strict mode violation: getByTestId('chip-finding') resolved to 2 elements:\n    1) <span data-testid=\"chip-finding\" class=\"chip finding-EXCLUDED_WITH_EVIDENCE\" title=\"Evidence shows the motor is not affected.\">\u2026</span> aka getByTestId('chip-finding').first()\n    2) <span data-testid=\"chip-finding\" class=\"chip finding-EXCLUDED_WITH_EVIDENCE\" title=\"Evidence shows the motor is not affected.\">\u2026</span> aka getByRole('tabpanel', { name: 'Decision explanation' }).getByTestId('chip-finding')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('chip-finding') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('chip-finding')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('chip-finding')\nExpected substring: \u001b[32m\"Excluded with evidence\"\u001b[39m\nError: strict mode violation: getByTestId('chip-finding') resolved to 2 elements:\n    1) <span data-testid=\"chip-finding\" class=\"chip finding-EXCLUDED_WITH_EVIDENCE\" title=\"Evidence shows the motor is not affected.\">\u2026</span> aka getByTestId('chip-finding').first()\n    2) <span data-testid=\"chip-finding\" class=\"chip finding-EXCLUDED_WITH_EVIDENCE\" title=\"Evidence shows the motor is not affected.\">\u2026</span> aka getByRole('tabpanel', { name: 'Decision explanation' }).getByTestId('chip-finding')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('chip-finding') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('chip-finding')\u001b[22m\n\n    at C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts:36:49",
+                    "location": {
+                      "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                      "column": 49,
+                      "line": 36
+                    },
+                    "snippet": "  34 | test(\"main CURRENT keeps excluded finding with clearance withheld; other motor hold remains accessible\",async({page})=>{\n  35 |  mode=\"not_cleared\";await page.goto(base+routes[0]);\n> 36 |  await expect(page.getByTestId(\"chip-finding\")).toContainText(\"Excluded with evidence\");\n     |                                                 ^\n  37 |  await expect(page.getByTestId(\"clearance-withheld\")).toBeVisible();\n  38 |  await expect(page.getByTestId(\"clearance-chip\")).toHaveCount(0);\n  39 |  await page.goto(base+\"/#/unit/MTR-26001/decision\");await expect(page.getByTestId(\"chip-action\")).toContainText(\"Recall hold\");"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                        "column": 49,
+                        "line": 36
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('chip-finding')\nExpected substring: \u001b[32m\"Excluded with evidence\"\u001b[39m\nError: strict mode violation: getByTestId('chip-finding') resolved to 2 elements:\n    1) <span data-testid=\"chip-finding\" class=\"chip finding-EXCLUDED_WITH_EVIDENCE\" title=\"Evidence shows the motor is not affected.\">\u2026</span> aka getByTestId('chip-finding').first()\n    2) <span data-testid=\"chip-finding\" class=\"chip finding-EXCLUDED_WITH_EVIDENCE\" title=\"Evidence shows the motor is not affected.\">\u2026</span> aka getByRole('tabpanel', { name: 'Decision explanation' }).getByTestId('chip-finding')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('chip-finding') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('chip-finding')\u001b[22m\n\n\n  34 | test(\"main CURRENT keeps excluded finding with clearance withheld; other motor hold remains accessible\",async({page})=>{\n  35 |  mode=\"not_cleared\";await page.goto(base+routes[0]);\n> 36 |  await expect(page.getByTestId(\"chip-finding\")).toContainText(\"Excluded with evidence\");\n     |                                                 ^\n  37 |  await expect(page.getByTestId(\"clearance-withheld\")).toBeVisible();\n  38 |  await expect(page.getByTestId(\"clearance-chip\")).toHaveCount(0);\n  39 |  await page.goto(base+\"/#/unit/MTR-26001/decision\");await expect(page.getByTestId(\"chip-action\")).toContainText(\"Recall hold\");\n    at C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts:36:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:40.823Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\test-results\\independent-audit-main-CUR-597f4-tor-hold-remains-accessible\\error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\test-results\\independent-audit-main-CUR-597f4-tor-hold-remains-accessible\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\test-results\\independent-audit-main-CUR-597f4-tor-hold-remains-accessible\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "column": 49,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-85eeb2521d8f7fd1106f",
+          "file": "independent-audit.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "main positive control then PREFIX facts then invalid removes all motor records",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:41.830Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-58329cdf288670456733",
+          "file": "independent-audit.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "CURRENT mobile accessibility and first-render timing /#/unit/MTR-26003/decision",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:41.830Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-3ef05203d1cc4c540d96",
+          "file": "independent-audit.spec.ts",
+          "line": 50,
+          "column": 2
+        },
+        {
+          "title": "CURRENT mobile accessibility and first-render timing /passport.html#/passport/MTR-26003/recall",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:41.830Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-56d7873dec6eda625028",
+          "file": "independent-audit.spec.ts",
+          "line": 50,
+          "column": 2
+        },
+        {
+          "title": "CURRENT mobile accessibility and first-render timing /investigation.html#/",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:41.831Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-c4585f349e2a2cace01a",
+          "file": "independent-audit.spec.ts",
+          "line": 50,
+          "column": 2
+        },
+        {
+          "title": "CURRENT mobile accessibility and first-render timing /impact.html#/lot/bearing/BR-310/list",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\HAIL\\Documents\\PRAMAAN-Manufacturing\\manufacturing-release-candidate\\recall-ui\\tests\\e2e\\independent-audit.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:49:41.831Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-556704c20fa28cedd51e",
+          "file": "independent-audit.spec.ts",
+          "line": 50,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-23T11:49:37.303Z",
+    "duration": 4597.814,
+    "expected": 5,
+    "skipped": 5,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
