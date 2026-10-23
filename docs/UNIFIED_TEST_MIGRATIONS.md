@@ -21,7 +21,32 @@ New tests: `console-consolidated.test.tsx` (47: console states with real H1/H2 e
 
 ## Python
 
-`application.test_hardening.AnchorTests.test_historical_resolution_entries_are_not_rewritten` still errors with `RESOLUTION_FORBIDDEN`. This is the owner-clarified behavior (archives holding a historical `OBLIGATION_RESOLVED` stay historical-only; export is blocked pending an approved migration). The test is kept unmodified and unmasked and counted as a known failure.
+### M20: `test_historical_resolution_entries_are_not_rewritten` (owner-approved, narrowly scoped test-contract migration; production D9 behavior NOT changed)
+* **Original behavior asserted** (kept here and in git history at `1ba1c70`): after appending a historical `OBLIGATION_RESOLVED` row, `export_anchor()` succeeded and `verify_anchor(...)['status'] == 'VERIFIED_TRUSTED_PREFIX'`:
+```python
+        self.app.audit.append('OBLIGATION_RESOLVED',dict(obligationId=oid,principal='legacy-unauthenticated-claim'))
+        self.app.db.commit(); anchor=export_anchor(self.app)
+        self.assertEqual(len(self.app.audit.outstanding()),1)  # legacy claim cannot clear pending follow-up
+        self.assertEqual(self.app.audit.replay(entry),entry['decision'])
+        self.assertEqual(verify_anchor(self.app,anchor)['status'],'VERIFIED_TRUSTED_PREFIX')
+```
+* **Conflicting approved contract:** owner clarification that archives holding a historical resolution are historical-only; export/activation is blocked with `RESOLUTION_FORBIDDEN`.
+* **Replacement (same name, no skip/xfail/suppression):** (1) earlier journal rows byte-identical after the append; (2) `export_anchor` raises `IntegrityFailure('RESOLUTION_FORBIDDEN')`; (3) the obligation stays outstanding and `resolve()` raises `PermissionError` for every principal; (4) an unanchored snapshot is `UNANCHORED` with every `currentReleaseEligible` false and the notification still reported, and a snapshot with a previously valid trusted checkpoint raises `RESOLUTION_FORBIDDEN` (no CURRENT); historical `replay(entry)` still equals the issued decision; (5) `test_R9_resolution_forbidden`, `test_forged_resolution_extension_rejected` and `test_public_resolution_callback_cannot_authorize_and_obligation_persists` are unchanged and pass; (6) all journal rows are identical after every attempt (nothing rewritten, deleted or rehabilitated).
+* **Negative:** the old expectation (export succeeds) is now asserted to raise.
+
+## Owner review of M9-M19 (conditional approval; recorded after re-verification)
+| Required property | Evidence it survives |
+|---|---|
+| No CURRENT lease from PREFIX_ONLY | `m8-prefix-no-lease.test.tsx` (5), `checkpoint.spec` (2 incl. reload/navigation/visibility/back-forward), `console-consolidated` |
+| No stale motor data in WITHHELD | M9 (no workbench/commands), M11 (withdrawn: no svg/headline/decision), M14 (`load-error`, no motor record), M18 negatives |
+| Current findings and holds visible when verified | M12 re-asserts the ORIGINAL row expectations (Recall hold, Affected, Excluded with evidence, Unresolved, SHP id) after each activation; M13 asserts "Held under the recall policy" after activation; M16, M17 likewise |
+| Checkpoint cycles use explicit test-only custodian steps | `OwnedStack.cycle()`: `checkpoint_ops propose` -> `accept` with named custodian and typed sha256 -> restart with `--trusted-anchor/--previous-anchor`; never an HTTP promotion |
+| DE/NDE recall behavior | M16 (NDE-only through the real API) and `test_consolidated_safety.RecallScopePermanentRegressionTests` |
+| Privacy pseudonymization enforced | M2/M2b assert `ACTOR-04` and `not OP-OBSERVATION-21` in unit and browser |
+| Keyboard, mobile, accessibility still execute | `workspace` keyboard + desktop/mobile axe, `live` responsive axe, `remediation` 390px axe all in the 138; a search found no `skip`, `fixme`, `xfail`, `.only` or `expectedFailure` in any migrated file (one pre-existing `skipIf` in pinned engine tests, untouched) |
+| Shared-server isolation does not hide regressions | Only tests that WRITE moved to owned stacks; every read-only test still runs on the shared seeded server; the serial RC config and the hosted serial run also pass 138/138 |
+| Replacement negatives remain active | Each registry row names its negative; all run in the 138 |
+
 
 ## Playwright (original suite, `playwright.config.ts`)
 

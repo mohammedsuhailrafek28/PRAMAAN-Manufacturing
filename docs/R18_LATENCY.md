@@ -15,3 +15,5 @@ Measured on Windows, Python 3.12, one run each, `python -m application.checkpoin
 * Proposed optimization (not applied): memoize `_verified_rows` per consistent cut inside `Manufacturing.snapshot()` (one write transaction, nothing can change), returning copies. Expected about 3x on the dominant term, still above 1.5 s at this size. It stays in the application layer (the integration ledger is untouched) but sits on an integrity-verification path, so it should be a separately reviewed change with a test proving a tampered row is still detected inside one cut.
 
 Demo scale (seeded demo, 6 motors, deadline 1.25 s as in the server): 12 consecutive snapshots 165-352 ms, p95 about 320 ms, all `ANCHORED_CURRENT`. The demo is far below the limit.
+
+Status (owner decision): memoization of integrity verification is DEFERRED; the 100-motor/1000-entry safe 503 is a documented availability limitation; the 4 s UI timeout is not raised to hide verification latency. The roughly 320 ms demo-scale p95 is a measurement on one machine, not a production performance guarantee.

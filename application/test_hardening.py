@@ -7,6 +7,7 @@ import tempfile
 import unittest
 
 from .service import Manufacturing, LedgerBlocked
+from .audit import IntegrityFailure
 from .anchors import export_anchor, verify_anchor, TrustedAnchor
 from pramaan_integration.profile import digest
 
@@ -107,15 +108,41 @@ class AnchorTests(unittest.TestCase):
         self.assertEqual(self.app.snapshot()['notifications'],before)
 
     def test_historical_resolution_entries_are_not_rewritten(self):
+        # MIGRATED (owner decision D9, narrowly scoped test-contract migration; production behavior unchanged). Original body is kept in
+        # docs/UNIFIED_TEST_MIGRATIONS.md (M20) and git history. The original expected export_anchor() to succeed over a historical
+        # OBLIGATION_RESOLVED row; the approved contract is that such rows stay historical-only and export is FORBIDDEN. No xfail/skip.
         self.app.observe(self.motor,'BR-204'); self.app.snapshot()
         records=self.app.audit.verify(); entry=next(p for k,p in records if k=='EVALUATION')
         oid=self.app.audit.outstanding()[0]['obligationId']
+        rows=lambda:[tuple(r) for r in self.app.db.execute('SELECT * FROM app_audit ORDER BY seq')]
+        before=rows()
         # Simulate an old, independently reviewed archive; never a callable resolution workflow.
         self.app.audit.append('OBLIGATION_RESOLVED',dict(obligationId=oid,principal='legacy-unauthenticated-claim'))
-        self.app.db.commit(); anchor=export_anchor(self.app)
-        self.assertEqual(len(self.app.audit.outstanding()),1)  # legacy claim cannot clear pending follow-up
+        self.app.db.commit()
+        archived=rows()
+        self.assertEqual(archived[:len(before)],before)                 # 1/6: earlier rows byte-for-byte unchanged
+        historical=archived[len(before):]
+        self.assertEqual([r[1] for r in historical],['OBLIGATION_RESOLVED'])
+        # 2: checkpoint export is rejected (the OLD test asserted export succeeded)
+        with self.assertRaises(IntegrityFailure) as e:export_anchor(self.app)
+        self.assertEqual(e.exception.code,'RESOLUTION_FORBIDDEN')
+        # 3: never an authenticated current resolution: the follow-up stays outstanding and no resolve path authorizes it
+        self.assertEqual([o['obligationId'] for o in self.app.audit.outstanding()],[oid])
+        for principal in ('legacy-unauthenticated-claim','owner'):
+            with self.assertRaises(PermissionError):self.app.audit.resolve(oid,principal=principal,authorize=lambda p:True,evidence_refs=[],reason='claimed')
+        # 4: no operational clearance can be minted: unanchored => every motor ineligible and the obligation is still reported;
+        #    with a previously valid trusted checkpoint the snapshot fails closed instead of reaching CURRENT
+        snap=self.app.snapshot()
+        self.assertEqual(snap['checkpoint']['state'],'UNANCHORED')
+        self.assertTrue(all(not p['currentReleaseEligible'] for p in snap['eligibility'].values()))
+        self.assertEqual([n['unitId'] for n in snap['notifications']],[self.motor])
+        trusted_file=Path(self.temp.name)/'trusted.json'; trusted_file.write_text(json.dumps(self.anchor))
+        with self.assertRaises(IntegrityFailure) as e:self.app.snapshot(trusted_anchor=TrustedAnchor(trusted_file))
+        self.assertEqual(e.exception.code,'RESOLUTION_FORBIDDEN')
+        # historical decision replay stays available (inspection only)
         self.assertEqual(self.app.audit.replay(entry),entry['decision'])
-        self.assertEqual(verify_anchor(self.app,anchor)['status'],'VERIFIED_TRUSTED_PREFIX')
+        # 6: nothing was rewritten, deleted or rehabilitated by any of the above
+        self.assertEqual(rows(),archived)
 
 
 class HttpHardeningTests(unittest.TestCase):
