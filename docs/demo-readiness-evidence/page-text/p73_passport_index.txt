@@ -1,0 +1,11 @@
+Skip to content
+Digital product passport
+Recall investigation console
+All passports
+Motor passports
+MTR-27001 Synthetic IE3 motor MTR-27001
+MTR-27002 Synthetic IE3 motor MTR-27002
+MTR-27003 Synthetic IE3 motor MTR-27003
+MTR-27004 Synthetic IE3 motor MTR-27004
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

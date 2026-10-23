@@ -1,0 +1,9 @@
+Skip to content
+Evidence-guided investigation
+Recall investigation console
+Investigation workspace
+Investigation tasks are unavailable
+
+Current status unavailable (withheld): required checkpoint or eligibility metadata is missing.. No tasks are shown, and no fixture data is substituted.
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

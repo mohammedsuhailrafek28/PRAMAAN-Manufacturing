@@ -1,0 +1,82 @@
+Skip to content
+Recall impact graph
+Recall investigation console
+Impact graph
+Recall impact graph: lot BR-901
+Bearing lot
+Choose a lot…
+BR-310
+BR-312
+BR-901 (named by the recall)
+Raw-material lot (supplier claim)
+Choose a raw lot…
+STEEL-26-518
+
+Lot BR-901 is named by recall RC-026-014 for slot DE. 3 motors have a ledger-recorded link to it (2 affected, 1 excluded with evidence). 3 motors have a recorded shipment record. 2 recorded links are uncertain, conflicting or missing.
+
+These are ledger records, not a physical verification of any motor. Excluded with evidence does not mean safe; removal of a part does not mean the lot is eliminated; a shipment record does not mean delivery.
+
+3 motors linked
+2 Affected
+0 Unresolved
+1 Excluded with evidence
+3 recorded shipments
+0 without a shipment record
+1 named only by a rejected claim
+2 uncertain or conflicting links
+Scope and ledger watermark
+Recall
+RC-026-014 announced 2026-10-20T08:00:30Z
+Affected part
+BR-6205
+Lots named by the recall
+BR-901
+Slots named by the recall
+DE
+Exposure basis
+CURRENT_INSTALLATION
+Scope declaration
+EXPLICIT_POSITIONS
+Freshness status
+VERIFIED_ANCHORED_SYNTHETIC
+Journal sequence
+8
+Head hash
+cd2b4f04fe0197b4…
+Verified at
+2026-10-23T12:00:09Z
+Ledger records in this snapshot
+43
+Incomplete or uncertain evidence: 0 conflicting, 2 uncertain, 4 notes (open for the list)
+Show motors by engine finding
+Affected
+Unresolved
+Excluded with evidence
+Find a record
+Graph
+List
+Every record in the trace, grouped by kind, with the recorded links to neighbouring records
+Kind	Record	Detail	Engine finding	Recorded links	Issues
+Raw-material claim	STEEL-26-518	raw-material claim	—	→ BRG-MTR-27001-DE-01; → lot-level manufacture; → lot-level manufacture; → BRG-MTR-27004-DE-01	—
+Bearing lot	Lot BR-901	named by the recall	—	→ BRG-MTR-27001-DE-01; → lot-level manufacture; → lot-level manufacture; → BRG-MTR-27004-DE-01; → Rejected observation · DE	—
+Manufacture record	BRG-MTR-27001-DE-01	lot BR-901 · MTR-27001	—	← STEEL-26-518; ← Lot BR-901; → DE · BRG-MTR-27001-DE-01	—
+Manufacture record	lot-level manufacture	lot BR-901 · MTR-27002	—	← STEEL-26-518; ← Lot BR-901; → DE · lot identity only	—
+Manufacture record	lot-level manufacture	lot BR-901 · MTR-27002	—	← STEEL-26-518; ← Lot BR-901; → NDE · lot identity only	—
+Manufacture record	BRG-MTR-27004-DE-01	lot BR-901 · MTR-27004	—	← STEEL-26-518; ← Lot BR-901; → DE · BRG-MTR-27004-DE-01	—
+Installed component	DE · BRG-MTR-27001-DE-01	lot BR-901 · removed (historical) · historical	—	→ MTR-27001; ← BRG-MTR-27001-DE-01	1
+Installed component	DE · lot identity only	lot BR-901 · currently recorded	—	→ MTR-27002; ← lot-level manufacture	1
+Installed component	NDE · lot identity only	lot BR-901 · currently recorded	—	→ MTR-27002; ← lot-level manufacture	2
+Installed component	DE · BRG-MTR-27004-DE-01	lot BR-901 · currently recorded	—	→ MTR-27004; ← BRG-MTR-27004-DE-01	—
+Rejected observation	Rejected observation · DE	claims lot BR-901 · blocking	—	→ MTR-27003; ← Lot BR-901	1
+Motor	MTR-27001	Synthetic IE3 motor MTR-27001	Excluded with evidence	← DE · BRG-MTR-27001-DE-01; → SHP-26-27001	—
+Motor	MTR-27002	Synthetic IE3 motor MTR-27002	Affected	← DE · lot identity only; ← NDE · lot identity only; → SHP-26-27002	—
+Motor	MTR-27003	Synthetic IE3 motor MTR-27003	Unresolved	→ SHP-26-27003; ← Rejected observation · DE	2
+Motor	MTR-27004	Synthetic IE3 motor MTR-27004	Affected	← DE · BRG-MTR-27004-DE-01; → SHP-26-27004	—
+Recorded shipment	SHP-26-27001	shipment recorded 2026-10-10T08:16:30Z	—	← MTR-27001	—
+Recorded shipment	SHP-26-27002	shipment recorded 2026-10-10T08:17:00Z	—	← MTR-27002	—
+Recorded shipment	SHP-26-27003	shipment recorded 2026-10-10T08:17:30Z	—	← MTR-27003	—
+Recorded shipment	SHP-26-27004	shipment recorded 2026-10-10T08:18:00Z	—	← MTR-27004	—
+
+Select a record in the list to see the ledger records behind it.
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

@@ -1,0 +1,37 @@
+Skip to content
+Digital product passport
+Recall investigation console
+All passports
+
+← All motors
+
+Digital product passport · MTR-27003
+
+Synthetic IE3 motor MTR-27003
+
+Synthetic demonstration data Source: Live SQLite ledger (synthetic manufacturing demo) Not a certified DPP
+
+Overview
+Components
+Evidence
+Timeline
+Recall context
+QR label
+Held under the recall policy
+
+Unresolved. Evidence cannot show the motor is clear. It stays held.
+
+Review is required. A person must look at this motor.
+
+Precautionary hold. Held because an earlier exclusion no longer stands.
+
+A notification obligation is pending. This application does not send notifications.
+
+Untrusted affected observation: An unreliable record shows an affected lot in this slot and nothing later answers it. It is held for review, never auto-confirmed.
+Prior exclusion withdrawn: An earlier release-eligible decision no longer holds because new evidence arrived.
+
+Decision A31-MTR-27003-0e065c7e67f564256663385fe3121afab9d78addfcb5381afce5381d73241ad7-b18f271713194b51a45e085e180f76a0-v2 (version 2), policy RC-026-014/P1. Computed by the recall engine and copied here unchanged.
+
+Open the full recall explanation
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

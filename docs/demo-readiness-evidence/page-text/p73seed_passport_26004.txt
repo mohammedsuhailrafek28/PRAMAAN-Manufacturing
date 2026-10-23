@@ -1,0 +1,32 @@
+Skip to content
+Digital product passport
+Recall investigation console
+All passports
+
+← All motors
+
+Digital product passport · MTR-26004
+
+Capture coverage gap
+
+Synthetic demonstration data Source: Live SQLite ledger (synthetic manufacturing demo) Not a certified DPP
+
+Overview
+Components
+Evidence
+Timeline
+Recall context
+QR label
+Held under the recall policy
+
+Unresolved. Evidence cannot show the motor is clear. It stays held.
+
+Review is required. A person must look at this motor.
+
+Material capture gap: Data capture was down for a period that could have hidden a relevant change.
+
+Decision A31-MTR-26004-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-09a70edd57fc4826abef6e76e9af0b91-v2 (version 2), policy RC-026-014/P1. Computed by the recall engine and copied here unchanged.
+
+Open the full recall explanation
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

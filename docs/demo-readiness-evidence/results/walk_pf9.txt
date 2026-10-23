@@ -1,0 +1,174 @@
+calls=27 refused_non_probe=0
+200     69.4ms GET  /api/session                               0 session
+200     24.5ms GET  /api/snapshot                              0 initial snapshot
+200     34.2ms POST /api/units                                 1 register motor
+200     28.3ms POST /api/units                                 1 register motor
+200     33.1ms POST /api/units                                 1 register motor
+200     38.5ms POST /api/units                                 1 register motor
+200     91.4ms POST /api/units/MTR-27001/assemble              2-4 allocate+manufacture+install DE/NDE
+200    114.2ms POST /api/units/MTR-27002/assemble              2-4 allocate+manufacture+install DE/NDE
+200    152.0ms POST /api/units/MTR-27003/assemble              2-4 allocate+manufacture+install DE/NDE
+200    144.4ms POST /api/units/MTR-27004/assemble              2-4 allocate+manufacture+install DE/NDE
+200    101.5ms POST /api/units/MTR-27001/ship                  5 shipment capture
+200    113.9ms POST /api/units/MTR-27002/ship                  5 shipment capture
+200    114.3ms POST /api/units/MTR-27003/ship                  5 shipment capture
+200    104.1ms POST /api/units/MTR-27004/ship                  5 shipment capture
+200    187.6ms POST /api/recalls                               6 announce defective lot (DE only)
+200    136.2ms GET  /api/snapshot                              6b snapshot after recall
+200    543.2ms POST /api/units/MTR-27001/replace               7 replace DE bearing on MTR-27001
+200    185.6ms GET  /api/snapshot                              7b snapshot after replacement
+200    309.5ms POST /api/units/MTR-27003/observe               8 late untrusted observation on MTR-27003 (BR-901)
+200    189.9ms GET  /api/snapshot                              8b snapshot after observation
+200    192.0ms GET  /api/motors/MTR-27001/genealogy            9 genealogy read
+200    192.4ms GET  /api/motors/MTR-27001/provenance           9 provenance read
+200    153.5ms GET  /api/lots/BR-901/investigation             9 lot investigation read
+404     30.2ms POST /api/capture                               probe: EPCIS capture over HTTP  !! Unknown command
+404     30.4ms POST /api/materials                             probe: material receipt command  !! Unknown command
+400     30.0ms POST /api/recalls                               probe: second recall (immutable-scope limit)  !! INVALID_REQUEST
+404    155.4ms GET  /api/motors/MTR-NOPE/genealogy             probe: unknown motor  !! Unknown motor
+{
+ "initialEnvelope": {
+  "freshness": "VERIFIED_ANCHORED_SYNTHETIC",
+  "checkpointState": "ANCHORED_CURRENT",
+  "h2": "VERIFIED",
+  "eligibility": null
+ },
+ "afterRecall": {
+  "envelope": {
+   "freshness": "VERIFIED_PREFIX_SYNTHETIC",
+   "checkpointState": "ANCHORED_PREFIX_ONLY",
+   "h2": "VERIFIED",
+   "eligibility": {
+    "MTR-27001": false,
+    "MTR-27002": false,
+    "MTR-27003": false,
+    "MTR-27004": false
+   }
+  },
+  "decisions": {
+   "MTR-27001": {
+    "finding": "AFFECTED",
+    "action": "RECALL_HOLD",
+    "reasons": [
+     "AFFECTED_LOT_INSTALLED"
+    ],
+    "review": false
+   },
+   "MTR-27002": {
+    "finding": "AFFECTED",
+    "action": "RECALL_HOLD",
+    "reasons": [
+     "AFFECTED_LOT_INSTALLED"
+    ],
+    "review": false
+   },
+   "MTR-27003": {
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "action": "RELEASE_ELIGIBLE",
+    "reasons": [
+     "AS_BUILT_UNAFFECTED_LOT"
+    ],
+    "review": false
+   },
+   "MTR-27004": {
+    "finding": "AFFECTED",
+    "action": "RECALL_HOLD",
+    "reasons": [
+     "AFFECTED_LOT_INSTALLED"
+    ],
+    "review": false
+   }
+  }
+ },
+ "afterReplace": {
+  "envelope": {
+   "freshness": "VERIFIED_PREFIX_SYNTHETIC",
+   "checkpointState": "ANCHORED_PREFIX_ONLY",
+   "h2": "VERIFIED",
+   "eligibility": {
+    "MTR-27001": false,
+    "MTR-27002": false,
+    "MTR-27003": false,
+    "MTR-27004": false
+   }
+  },
+  "decisions": {
+   "MTR-27001": {
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "action": "RELEASE_ELIGIBLE",
+    "reasons": [
+     "REPLACED_WITH_UNAFFECTED_LOT"
+    ],
+    "review": false
+   },
+   "MTR-27002": {
+    "finding": "AFFECTED",
+    "action": "RECALL_HOLD",
+    "reasons": [
+     "AFFECTED_LOT_INSTALLED"
+    ],
+    "review": false
+   },
+   "MTR-27003": {
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "action": "RELEASE_ELIGIBLE",
+    "reasons": [
+     "AS_BUILT_UNAFFECTED_LOT"
+    ],
+    "review": false
+   },
+   "MTR-27004": {
+    "finding": "AFFECTED",
+    "action": "RECALL_HOLD",
+    "reasons": [
+     "AFFECTED_LOT_INSTALLED"
+    ],
+    "review": false
+   }
+  }
+ },
+ "afterObservation": {
+  "envelope": {
+   "freshness": "VERIFIED_PREFIX_SYNTHETIC",
+   "checkpointState": "ANCHORED_PREFIX_ONLY",
+   "h2": "VERIFIED",
+   "eligibility": {
+    "MTR-27001": false,
+    "MTR-27002": false,
+    "MTR-27003": false,
+    "MTR-27004": false
+   }
+  },
+  "decisions": {
+   "MTR-27001": {
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "action": "RELEASE_ELIGIBLE",
+    "reasons": [
+     "REPLACED_WITH_UNAFFECTED_LOT"
+    ],
+    "review": false
+   },
+   "MTR-27002": {
+    "finding": "AFFECTED",
+    "action": "RECALL_HOLD",
+    "reasons": [
+     "AFFECTED_LOT_INSTALLED"
+    ],
+    "review": false
+   },
+   "MTR-27003": {
+    "finding": "UNRESOLVED",
+    "action": "RECALL_HOLD",
+    "reasons": [
+     "UNTRUSTED_AFFECTED_OBSERVATION",
+     "PRIOR_EXCLUSION_WITHDRAWN"
+    ],
+    "review": true
+   },
+   "MTR-27004": {
+    "finding": "AFFECTED",
+    "action": "RECALL_HOLD",
+    "reasons": [
+     "AFFECTED_LOT_INSTALLED"
+    ],
+    

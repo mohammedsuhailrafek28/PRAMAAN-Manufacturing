@@ -1,0 +1,22 @@
+Skip to content
+Recall impact graph
+Recall investigation console
+Impact graph
+Recall impact graph
+
+Choose a bearing lot, or a raw-material lot, to see every motor the ledger records as linked to it, and every recorded link in between. This page reads the ledger; it does not evaluate or change anything.
+
+Bearing lot
+Choose a lot…
+BR-310
+BR-312
+BR-901 (named by the recall)
+Raw-material lot (supplier claim)
+Choose a raw lot…
+STEEL-26-518
+Lot BR-310
+Lot BR-312
+Lot BR-901 named by the recall
+Raw-material lot STEEL-26-518 supplier claim
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

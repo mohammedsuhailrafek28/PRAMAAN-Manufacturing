@@ -1,0 +1,27 @@
+Skip to content
+Digital product passport
+Recall investigation console
+All passports
+
+← All motors
+
+Digital product passport · MTR-27001
+
+Synthetic IE3 motor MTR-27001
+
+Synthetic demonstration data Source: Live SQLite ledger (synthetic manufacturing demo) Not a certified DPP
+
+Records are not currently verified. Historical evidence only. A new independently protected checkpoint is required; current release eligibility is withheld for every motor.
+Overview
+Components
+Evidence
+Timeline
+Recall context
+QR label
+Current recall status unavailable
+
+Current recall status unavailable. Historical evidence only. A new independently protected checkpoint is required; current release eligibility is withheld for every motor.
+
+No recall decision is shown here because it could not be verified as current. Earlier decisions elsewhere in the investigation console are historical evidence, not current clearance.
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

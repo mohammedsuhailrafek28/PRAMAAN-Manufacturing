@@ -1,0 +1,9 @@
+Skip to content
+Recall impact graph
+Recall investigation console
+Impact graph
+The impact graph is unavailable
+
+Current status unavailable (withheld): required checkpoint or eligibility metadata is missing.. Nothing is drawn, and no fixture data is substituted.
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

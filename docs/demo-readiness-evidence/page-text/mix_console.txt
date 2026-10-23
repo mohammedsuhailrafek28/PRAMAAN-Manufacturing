@@ -1,0 +1,102 @@
+Skip to content
+Recall Investigation
+Motors
+Lot investigation
+Case comparison
+Fixture demo mode
+Manufacturing capture workspace
+Live ledger. Synthetic manufacturing data; not production.
+Decisions by recall engine phase1.2-untrusted-observation (UNTRUSTED_OBSERVATION_V3). Source: Live SQLite ledger (synthetic manufacturing demo).
+Recall RC-026-014 v1, announced 2026-10-20 08:00:30 UTC. Affected part BR-6205, lots BR-901, slots DE.
+Recall policy
+RC-026-014/P1 · CURRENT_INSTALLATION
+Supplier and shipment links require ledger events. Physical truth is not independently certified.
+
+Verified with local synthetic backend at 2026-10-23T12:04:01Z; lease 5 seconds, refresh every 2 seconds.
+
+Notification obligations
+
+PENDING. Resolution is disabled until an authenticated workflow is approved. Displaying a decision does not mark it communicated; no notifications are sent by this application.
+
+MTR-27003: PRIOR_EXCLUSION_WITHDRAWN; if A31-MTR-27003-0e065c7e67f564256663385fe3121afab9d78addfcb5381afce5381d73241ad7-aaf524ad22054c7d93a5f03908be370c-v1 was communicated. Delivery: NOT_SENT. Acknowledgment: unknown.
+Motor decisions
+4 motors
+2 ▲ affected
+1 ? unresolved
+1 ✓ excluded with evidence
+3 on recall hold
+1 release eligible
+1 review required
+Evidence finding
+All
+Affected
+Unresolved
+Excluded with evidence
+Scenario family
+All
+Electric motors · IE3
+Search
+
+Showing 4 of 4 motors.
+
+Motor decisions under RC-026-014/P1
+Unit	Scenario	Decision	Versions	Shipment Synthetic
+MTR-27001
+MTR-27001
+	Synthetic IE3 motor MTR-27001
+Electric motors · IE3
+	
+EVIDENCE FINDING
+✓ Excluded with evidence
+OPERATIONAL ACTION
+▶ Release eligible
+REVIEW
+◇ No review flag
+	2	SHP-26-27001
+2026-10-10 08:16:30 UTC
+
+MTR-27002
+MTR-27002
+	Synthetic IE3 motor MTR-27002
+Electric motors · IE3
+	
+EVIDENCE FINDING
+▲ Affected
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◇ No review flag
+	1	SHP-26-27002
+2026-10-10 08:17 UTC
+
+MTR-27003
+MTR-27003
+	Synthetic IE3 motor MTR-27003
+Electric motors · IE3
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+PRECAUTION
+⚑ Precautionary hold
+	2	SHP-26-27003
+2026-10-10 08:17:30 UTC
+
+MTR-27004
+MTR-27004
+	Synthetic IE3 motor MTR-27004
+Electric motors · IE3
+	
+EVIDENCE FINDING
+▲ Affected
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◇ No review flag
+	1	SHP-26-27004
+2026-10-10 08:18 UTC
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

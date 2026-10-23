@@ -1,0 +1,61 @@
+Skip to content
+Digital product passport
+Recall investigation console
+All passports
+
+← All motors
+
+Digital product passport · MTR-26004
+
+Capture coverage gap
+
+Synthetic demonstration data Source: Preview: captured synthetic snapshot (not a live ledger) Not a certified DPP
+
+Records are not currently verified. Preview data is a captured synthetic snapshot, not a verified live ledger.
+Overview
+Components
+Evidence
+Timeline
+Recall context
+QR label
+Identity (as recorded)
+Motor serial
+MTR-26004
+Description
+Capture coverage gap (free text; no structured specification recorded)
+Product family label
+Electric motors · IE3
+Recorded events
+15, from 2026-10-10 08:14 UTC to 2026-10-20 08:06:30 UTC
+Recorded lifecycle
+Assembly completed · Shipment recorded (not an authorization) · 1 rework order
+Currently recorded components
+DE: lot BR-312, serial BRG-MTR-26004-DE-R9 Currently recorded claim · 1 earlier
+NDE: lot BR-310, serial BRG-MTR-26004-NDE-01 Currently recorded claim
+
+Open component history
+
+Recall context
+Current recall status unavailable
+
+Current recall status unavailable. Preview data is a captured synthetic snapshot, not a verified live ledger.
+
+No recall decision is shown here because it could not be verified as current. Earlier decisions elsewhere in the investigation console are historical evidence, not current clearance.
+
+Not recorded and unverified
+Not recorded No inspection recorded
+The ledger holds no inspection record for this motor.
+Not recorded No structured product specification recorded
+Only a free-text title is recorded; ratings, efficiency class and configuration are not captured as data.
+Not recorded No certification recorded
+No certificate, conformity declaration or test report is held in the ledger.
+Not recorded No manufacturer or facility identity recorded
+Source streams are named by role (for example the assembly station); they are not authenticated identities of a factory.
+Unverified No trusted time source
+Every timestamp comes from a simulated clock. Ordering is as recorded; times are claims, not measurements.
+Unverified Supplier and raw-material origin are unverified claims
+They are ledger-backed records of what a source stream stated. They are not independently verified, and quantities and physical origin are not certified.
+Capture gap No capture session recorded for the Assembly station between 2026-10-02T00:00:00Z and 2026-10-09T00:00:00Z
+Events from that source during this window, if any occurred, are not in the ledger. Absence of a record is not evidence that nothing happened.
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

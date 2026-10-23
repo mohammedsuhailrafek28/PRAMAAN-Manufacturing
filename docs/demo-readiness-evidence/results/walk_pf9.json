@@ -1,0 +1,472 @@
+{
+ "base": "http://127.0.0.1:4173",
+ "results": {
+  "initialEnvelope": {
+   "freshness": "VERIFIED_ANCHORED_SYNTHETIC",
+   "checkpointState": "ANCHORED_CURRENT",
+   "h2": "VERIFIED",
+   "eligibility": null
+  },
+  "afterRecall": {
+   "envelope": {
+    "freshness": "VERIFIED_PREFIX_SYNTHETIC",
+    "checkpointState": "ANCHORED_PREFIX_ONLY",
+    "h2": "VERIFIED",
+    "eligibility": {
+     "MTR-27001": false,
+     "MTR-27002": false,
+     "MTR-27003": false,
+     "MTR-27004": false
+    }
+   },
+   "decisions": {
+    "MTR-27001": {
+     "finding": "AFFECTED",
+     "action": "RECALL_HOLD",
+     "reasons": [
+      "AFFECTED_LOT_INSTALLED"
+     ],
+     "review": false
+    },
+    "MTR-27002": {
+     "finding": "AFFECTED",
+     "action": "RECALL_HOLD",
+     "reasons": [
+      "AFFECTED_LOT_INSTALLED"
+     ],
+     "review": false
+    },
+    "MTR-27003": {
+     "finding": "EXCLUDED_WITH_EVIDENCE",
+     "action": "RELEASE_ELIGIBLE",
+     "reasons": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ],
+     "review": false
+    },
+    "MTR-27004": {
+     "finding": "AFFECTED",
+     "action": "RECALL_HOLD",
+     "reasons": [
+      "AFFECTED_LOT_INSTALLED"
+     ],
+     "review": false
+    }
+   }
+  },
+  "afterReplace": {
+   "envelope": {
+    "freshness": "VERIFIED_PREFIX_SYNTHETIC",
+    "checkpointState": "ANCHORED_PREFIX_ONLY",
+    "h2": "VERIFIED",
+    "eligibility": {
+     "MTR-27001": false,
+     "MTR-27002": false,
+     "MTR-27003": false,
+     "MTR-27004": false
+    }
+   },
+   "decisions": {
+    "MTR-27001": {
+     "finding": "EXCLUDED_WITH_EVIDENCE",
+     "action": "RELEASE_ELIGIBLE",
+     "reasons": [
+      "REPLACED_WITH_UNAFFECTED_LOT"
+     ],
+     "review": false
+    },
+    "MTR-27002": {
+     "finding": "AFFECTED",
+     "action": "RECALL_HOLD",
+     "reasons": [
+      "AFFECTED_LOT_INSTALLED"
+     ],
+     "review": false
+    },
+    "MTR-27003": {
+     "finding": "EXCLUDED_WITH_EVIDENCE",
+     "action": "RELEASE_ELIGIBLE",
+     "reasons": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ],
+     "review": false
+    },
+    "MTR-27004": {
+     "finding": "AFFECTED",
+     "action": "RECALL_HOLD",
+     "reasons": [
+      "AFFECTED_LOT_INSTALLED"
+     ],
+     "review": false
+    }
+   }
+  },
+  "afterObservation": {
+   "envelope": {
+    "freshness": "VERIFIED_PREFIX_SYNTHETIC",
+    "checkpointState": "ANCHORED_PREFIX_ONLY",
+    "h2": "VERIFIED",
+    "eligibility": {
+     "MTR-27001": false,
+     "MTR-27002": false,
+     "MTR-27003": false,
+     "MTR-27004": false
+    }
+   },
+   "decisions": {
+    "MTR-27001": {
+     "finding": "EXCLUDED_WITH_EVIDENCE",
+     "action": "RELEASE_ELIGIBLE",
+     "reasons": [
+      "REPLACED_WITH_UNAFFECTED_LOT"
+     ],
+     "review": false
+    },
+    "MTR-27002": {
+     "finding": "AFFECTED",
+     "action": "RECALL_HOLD",
+     "reasons": [
+      "AFFECTED_LOT_INSTALLED"
+     ],
+     "review": false
+    },
+    "MTR-27003": {
+     "finding": "UNRESOLVED",
+     "action": "RECALL_HOLD",
+     "reasons": [
+      "UNTRUSTED_AFFECTED_OBSERVATION",
+      "PRIOR_EXCLUSION_WITHDRAWN"
+     ],
+     "review": true
+    },
+    "MTR-27004": {
+     "finding": "AFFECTED",
+     "action": "RECALL_HOLD",
+     "reasons": [
+      "AFFECTED_LOT_INSTALLED"
+     ],
+     "review": false
+    }
+   },
+   "notifications": 1
+  }
+ },
+ "calls": [
+  {
+   "step": "0 session",
+   "method": "GET",
+   "path": "/api/session",
+   "body": null,
+   "status": 200,
+   "ms": 69.4,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "0 initial snapshot",
+   "method": "GET",
+   "path": "/api/snapshot",
+   "body": null,
+   "status": 200,
+   "ms": 24.5,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "1 register motor",
+   "method": "POST",
+   "path": "/api/units",
+   "body": {
+    "serial": "MTR-27001",
+    "title": "Synthetic IE3 motor MTR-27001"
+   },
+   "status": 200,
+   "ms": 34.2,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "1 register motor",
+   "method": "POST",
+   "path": "/api/units",
+   "body": {
+    "serial": "MTR-27002",
+    "title": "Synthetic IE3 motor MTR-27002"
+   },
+   "status": 200,
+   "ms": 28.3,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "1 register motor",
+   "method": "POST",
+   "path": "/api/units",
+   "body": {
+    "serial": "MTR-27003",
+    "title": "Synthetic IE3 motor MTR-27003"
+   },
+   "status": 200,
+   "ms": 33.1,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "1 register motor",
+   "method": "POST",
+   "path": "/api/units",
+   "body": {
+    "serial": "MTR-27004",
+    "title": "Synthetic IE3 motor MTR-27004"
+   },
+   "status": 200,
+   "ms": 38.5,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "2-4 allocate+manufacture+install DE/NDE",
+   "method": "POST",
+   "path": "/api/units/MTR-27001/assemble",
+   "body": {
+    "deLot": "BR-901",
+    "ndeLot": "BR-310",
+    "identity": "SERIAL"
+   },
+   "status": 200,
+   "ms": 91.4,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "2-4 allocate+manufacture+install DE/NDE",
+   "method": "POST",
+   "path": "/api/units/MTR-27002/assemble",
+   "body": {
+    "deLot": "BR-901",
+    "ndeLot": "BR-901",
+    "identity": "LOT"
+   },
+   "status": 200,
+   "ms": 114.2,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "2-4 allocate+manufacture+install DE/NDE",
+   "method": "POST",
+   "path": "/api/units/MTR-27003/assemble",
+   "body": {
+    "deLot": "BR-310",
+    "ndeLot": "BR-312",
+    "identity": "SERIAL"
+   },
+   "status": 200,
+   "ms": 152.0,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "2-4 allocate+manufacture+install DE/NDE",
+   "method": "POST",
+   "path": "/api/units/MTR-27004/assemble",
+   "body": {
+    "deLot": "BR-901",
+    "ndeLot": "BR-312",
+    "identity": "SERIAL"
+   },
+   "status": 200,
+   "ms": 144.4,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "5 shipment capture",
+   "method": "POST",
+   "path": "/api/units/MTR-27001/ship",
+   "body": {},
+   "status": 200,
+   "ms": 101.5,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "5 shipment capture",
+   "method": "POST",
+   "path": "/api/units/MTR-27002/ship",
+   "body": {},
+   "status": 200,
+   "ms": 113.9,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "5 shipment capture",
+   "method": "POST",
+   "path": "/api/units/MTR-27003/ship",
+   "body": {},
+   "status": 200,
+   "ms": 114.3,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "5 shipment capture",
+   "method": "POST",
+   "path": "/api/units/MTR-27004/ship",
+   "body": {},
+   "status": 200,
+   "ms": 104.1,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "6 announce defective lot (DE only)",
+   "method": "POST",
+   "path": "/api/recalls",
+   "body": {
+    "lot": "BR-901",
+    "affectedSlots": [
+     "DE"
+    ]
+   },
+   "status": 200,
+   "ms": 187.6,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "6b snapshot after recall",
+   "method": "GET",
+   "path": "/api/snapshot",
+   "body": null,
+   "status": 200,
+   "ms": 136.2,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "7 replace DE bearing on MTR-27001",
+   "method": "POST",
+   "path": "/api/units/MTR-27001/replace",
+   "body": {
+    "lot": "BR-312"
+   },
+   "status": 200,
+   "ms": 543.2,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "7b snapshot after replacement",
+   "method": "GET",
+   "path": "/api/snapshot",
+   "body": null,
+   "status": 200,
+   "ms": 185.6,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "8 late untrusted observation on MTR-27003 (BR-901)",
+   "method": "POST",
+   "path": "/api/units/MTR-27003/observe",
+   "body": {
+    "lot": "BR-901"
+   },
+   "status": 200,
+   "ms": 309.5,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "8b snapshot after observation",
+   "method": "GET",
+   "path": "/api/snapshot",
+   "body": null,
+   "status": 200,
+   "ms": 189.9,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "9 genealogy read",
+   "method": "GET",
+   "path": "/api/motors/MTR-27001/genealogy",
+   "body": null,
+   "status": 200,
+   "ms": 192.0,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "9 provenance read",
+   "method": "GET",
+   "path": "/api/motors/MTR-27001/provenance",
+   "body": null,
+   "status": 200,
+   "ms": 192.4,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "9 lot investigation read",
+   "method": "GET",
+   "path": "/api/lots/BR-901/investigation",
+   "body": null,
+   "status": 200,
+   "ms": 153.5,
+   "note": "",
+   "error": null
+  },
+  {
+   "step": "probe: EPCIS capture over HTTP",
+   "method": "POST",
+   "path": "/api/capture",
+   "body": {
+    "type": "EPCISDocument"
+   },
+   "status": 404,
+   "ms": 30.2,
+   "note": "",
+   "error": "Unknown command"
+  },
+  {
+   "step": "probe: material receipt command",
+   "method": "POST",
+   "path": "/api/materials",
+   "body": {
+    "lot": "STEEL-1"
+   },
+   "status": 404,
+   "ms": 30.4,
+   "note": "",
+   "error": "Unknown command"
+  },
+  {
+   "step": "probe: second recall (immutable-scope limit)",
+   "method": "POST",
+   "path": "/api/recalls",
+   "body": {
+    "lot": "BR-310",
+    "affectedSlots": [
+     "DE"
+    ]
+   },
+   "status": 400,
+   "ms": 30.0,
+   "note": "",
+   "error": "INVALID_REQUEST"
+  },
+  {
+   "step": "probe: unknown motor",
+   "method": "GET",
+   "path": "/api/motors/MTR-NOPE/genealogy",
+   "body": null,
+   "status": 404,
+   "ms": 155.4,
+   "note": "",
+   "error": "Unknown motor"
+  }
+ ]
+}

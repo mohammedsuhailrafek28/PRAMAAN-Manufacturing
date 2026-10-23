@@ -1,0 +1,9 @@
+Skip to content
+Digital product passport
+Recall investigation console
+All passports
+Passport data could not be loaded
+
+Current status unavailable (withheld): required checkpoint or eligibility metadata is missing.. No passport content is shown, and no fixture data is substituted.
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)
