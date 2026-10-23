@@ -26,3 +26,8 @@ it("body read timeout fails closed rather than displaying the prior complete sna
  vi.stubGlobal("fetch",vi.fn().mockResolvedValue({ok:true,status:200,json:()=>new Promise(()=>{})}));
  await expect(new BackendRecallDataSource(25).load()).rejects.toThrow("timed out");
 });
+
+it("a non-200 successful HTTP status cannot be promoted into a CURRENT envelope",async()=>{
+ const snap=current();vi.stubGlobal("fetch",vi.fn().mockResolvedValue({ok:true,status:201,json:async()=>snap}));
+ await expect(new BackendRecallDataSource().load()).rejects.toMatchObject({gate:{kind:"WITHHELD",cause:"TRANSPORT"}});
+});
