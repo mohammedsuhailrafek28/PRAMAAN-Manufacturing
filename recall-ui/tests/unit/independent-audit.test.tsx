@@ -3,7 +3,7 @@ import {join} from 'node:path';
 import {describe,it,expect} from 'vitest';
 import {evaluateEnvelope,isCurrentRelease} from '../../src/contract/gate';
 import {makePreview,isPreview,isGated} from '../../src/contract/gated';
-import {projectImpact,projectInvestigation} from '../../src/contract/views';
+import {projectImpact,projectInvestigation,consoleClaims} from '../../src/contract/views';
 import {passportUrl} from '../../src/passport/qr';
 
 function fixture(name='current'):any {
@@ -38,9 +38,16 @@ describe('independent frontend audit challenges',()=>{
   expect(evaluateEnvelope(e,null).kind).toBe('WITHHELD');
  });
  it('one non-cleared motor does not downgrade a different eligible motor',()=>{
-  const e=fixture();e.body.eligibility['MTR-26001'].currentReleaseEligible=false;
+  const e=fixture();
+  // Synthetic contract-only clone, not new evaluator output or a factory record.
+  const clone=(value:any)=>JSON.parse(JSON.stringify(value).split('MTR-26003').join('MTR-AUDIT-006'));
+  e.body.units.push(clone(e.body.units.find((u:any)=>u.unitId==='MTR-26003')));
+  e.body.decisions['MTR-AUDIT-006']=clone(e.body.decisions['MTR-26003']);
+  e.body.eligibility['MTR-AUDIT-006']={currentReleaseEligible:false};
   const g=evaluateEnvelope(e,null);expect(g.kind).toBe('CURRENT');
   expect(isCurrentRelease(g,'MTR-26003')).toBe(true);
+  expect(isCurrentRelease(g,'MTR-AUDIT-006')).toBe(false);
+  if(g.kind==='CURRENT')expect(consoleClaims(g.view).byMotor.get('MTR-AUDIT-006')).toBe('NOT_CLEARED');
  });
  it('prefix-only cannot become a current or task-bearing view',()=>{
   const g=evaluateEnvelope(fixture('prefix_only'),null);expect(g.kind).toBe('SEGREGATED');
