@@ -4,7 +4,19 @@ import type { RecallSnapshot } from '../domain/types';
  * agree within 1s; ambiguous skew fails closed. The lease is never >5s. */
 export function verifyFreshness(snap: RecallSnapshot, previous?: RecallSnapshot | null, now = Date.now()): number {
   const f = snap.freshness;
-  if (!f || f.status !== 'VERIFIED_ANCHORED_SYNTHETIC') throw new Error('Current verification unavailable: trusted external anchor required. Decisions are historical.');
+  if (!f || !['VERIFIED_ANCHORED_SYNTHETIC','VERIFIED_PREFIX_SYNTHETIC'].includes(f.status)) throw new Error('Current verification unavailable: trusted external anchor required. Decisions are historical.');
+  if (snap.checkpoint) {
+    const c=snap.checkpoint;
+    if (c.state !== 'ANCHORED_CURRENT' && c.state !== 'ANCHORED_PREFIX_ONLY') throw new Error('Checkpoint invalid or unavailable');
+    if ((c.state === 'ANCHORED_CURRENT') !== (f.status === 'VERIFIED_ANCHORED_SYNTHETIC') || c.checkpointRequired !== (c.state !== 'ANCHORED_CURRENT')) throw new Error('Contradictory checkpoint state');
+    if (c.state === 'ANCHORED_CURRENT' && c.h2 !== 'VERIFIED') throw new Error('H2 replay proof unavailable');
+    if (!snap.eligibility) throw new Error('Current eligibility projection unavailable');
+    for (const unit of snap.units) {
+      const eligible=snap.eligibility[unit.unitId]?.currentReleaseEligible;
+      if (typeof eligible !== 'boolean') throw new Error('Missing motor eligibility');
+      if (eligible && (c.state !== 'ANCHORED_CURRENT' || snap.notifications?.some(n=>n.unitId===unit.unitId) || !Object.values(snap.decisions[unit.unitId] ?? {}).length || Object.values(snap.decisions[unit.unitId] ?? {}).some(b=>b.current.operationalAction!=='RELEASE_ELIGIBLE'))) throw new Error('Unsafe eligibility projection');
+    }
+  }
   const at = Date.parse(f.verifiedAt);
   const age = now - at;
   if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{1,3})?Z$/.test(f.verifiedAt) || !Number.isFinite(at) || !Number.isFinite(f.maxAgeSeconds) || f.maxAgeSeconds <= 0 || f.maxAgeSeconds > 5 || age < -1000 || age >= f.maxAgeSeconds * 1000)

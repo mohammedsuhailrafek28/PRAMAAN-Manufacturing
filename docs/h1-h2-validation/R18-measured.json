@@ -1,0 +1,70 @@
+{
+  "motors": 100,
+  "journalEntries": 1000,
+  "activationVerificationMs": 25039.617,
+  "samples": [
+    {
+      "request": 0,
+      "status": 503,
+      "milliseconds": 1959.966
+    },
+    {
+      "request": 1,
+      "status": 503,
+      "milliseconds": 2121.908
+    },
+    {
+      "request": 2,
+      "status": 503,
+      "milliseconds": 1879.945
+    },
+    {
+      "request": 3,
+      "status": 503,
+      "milliseconds": 1902.827
+    },
+    {
+      "request": 4,
+      "status": 503,
+      "milliseconds": 2925.392
+    },
+    {
+      "request": 5,
+      "status": 503,
+      "milliseconds": 1760.15
+    },
+    {
+      "request": 6,
+      "status": 503,
+      "milliseconds": 2137.277
+    },
+    {
+      "request": 7,
+      "status": 503,
+      "milliseconds": 1835.847
+    },
+    {
+      "request": 8,
+      "status": 503,
+      "milliseconds": 2543.972
+    },
+    {
+      "request": 9,
+      "status": 503,
+      "milliseconds": 1854.603
+    },
+    {
+      "request": 10,
+      "status": 503,
+      "milliseconds": 2111.894
+    },
+    {
+      "request": 11,
+      "status": 503,
+      "milliseconds": 1694.596
+    }
+  ],
+  "successfulP95Ms": null,
+  "acceptance": "PASS",
+  "caveat": "503 is VERIFYING with eligibility withheld; absence of successful snapshots is an availability limitation."
+}

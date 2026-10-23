@@ -112,6 +112,9 @@ export function App({ source }: { source: RecallDataSource }) {
   const nav = (page: Route["page"], label: string, href: string) => (
     <a href={href} aria-current={route.page === page ? "page" : undefined}>{label}</a>
   );
+  const withheld = !!source.command && state.status === 'ready' &&
+    (state.snap.checkpoint?.state === 'ANCHORED_PREFIX_ONLY' || Object.entries(state.snap.decisions).some(([motor,policies])=>
+      Object.values(policies).some(b=>b.current.operationalAction==='RELEASE_ELIGIBLE') && state.snap.eligibility?.[motor]?.currentReleaseEligible !== true));
 
   return (
     <>
@@ -144,14 +147,15 @@ export function App({ source }: { source: RecallDataSource }) {
             )}
           </div>
         )}
-        {source.command && lastSnap && <ManufacturingWorkbench snap={lastSnap} run={run} busy={busy || state.status !== 'ready' || !leaseValid} />}
+        {source.command && lastSnap && <ManufacturingWorkbench snap={lastSnap} run={run} busy={busy || state.status !== 'ready' || !leaseValid || lastSnap.checkpoint?.state !== 'ANCHORED_CURRENT'} />}
         {state.status === "ready" && (
           <>
             <ProvenanceBar snap={state.snap} policyId={policyId} onPolicy={setPolicyId} sourceLabel={source.label} />
             {source.command && <p role="status">{leaseValid ? `Verified with local synthetic backend at ${verifiedAt}; lease 5 seconds, refresh every 2 seconds.` : "Current decisions unavailable while evidence is being refreshed or captured."}</p>}
             {captureStatus && <p role="status" data-testid="capture-status">{captureStatus}</p>}
             {state.snap.notifications && state.snap.notifications.length > 0 && <section className="callout" aria-label="Notification obligations"><h2>Notification obligations</h2><p>PENDING. Resolution is disabled until an authenticated workflow is approved. Displaying a decision does not mark it communicated; no notifications are sent by this application.</p><ul>{state.snap.notifications.map(n => <li key={n.decisionId}><a href={`#/unit/${n.unitId}/history`}>{n.unitId}</a>: {n.reason}; if {n.appliesIfDecisionCommunicated} was communicated. Delivery: {n.deliveryStatus}. Acknowledgment: unknown.</li>)}</ul></section>}
-            {(!source.command || leaseValid) && <>
+            {withheld && <section role="alert" aria-label="Current eligibility withheld"><h2>{state.snap.checkpoint?.state === 'ANCHORED_PREFIX_ONLY' ? 'Checkpoint required' : 'Notification obligation prevents clearance'}</h2><p>{state.snap.checkpoint?.state === 'ANCHORED_PREFIX_ONLY' ? 'ANCHORED_PREFIX_ONLY: current release eligibility is withheld for every motor. The independently protected checkpoint does not cover current evidence and publication state. Exporting a local candidate does not establish trust.' : 'Recorded exclusions do not resolve outstanding notification obligations. Current eligibility must be checked separately.'}</p><ul>{Object.entries(state.snap.decisions).flatMap(([motor,policies])=>Object.entries(policies).map(([policy,b])=><li key={`${motor}:${policy}`}>{motor}: {b.current.operationalAction==='RECALL_HOLD' ? 'Recall hold remains in effect' : state.snap.eligibility?.[motor]?.currentReleaseEligible ? 'Current eligibility verified; detailed views withheld while another motor requires review' : 'Recorded exclusion is historical; current eligibility withheld'}. Evidence: {b.current.reasonCodes.join(', ')}.</li>))}</ul></section>}
+            {(!source.command || (leaseValid && !withheld)) && <>
               {route.page === "fleet" && <FleetBoard snap={state.snap} policyId={policyId} />}
               {route.page === "unit" && <UnitDetail snap={state.snap} unitId={route.unitId} policyId={policyId} tab={route.tab} />}
               {route.page === "lot" && <LotInvestigationView snap={state.snap} policyId={policyId} lotId={route.lotId} />}
