@@ -1,0 +1,116 @@
+Skip to content
+Recall Investigation
+Motors
+Lot investigation
+Case comparison
+Fixture demo mode
+Manufacturing capture workspace
+Live ledger. Synthetic manufacturing data; not production.
+Decisions by recall engine phase1.2-untrusted-observation (UNTRUSTED_OBSERVATION_V3). Source: Live SQLite ledger (synthetic manufacturing demo).
+Recall RC-026-014 v1, announced 2026-10-20 08:00:30 UTC. Affected part BR-6205, lots BR-204, slots DE.
+Recall policy
+RC-026-014/P1 · CURRENT_INSTALLATION
+Supplier and shipment links require ledger events. Physical truth is not independently certified.
+
+Verified with local synthetic backend at 2026-10-23T12:08:02Z; lease 5 seconds, refresh every 2 seconds.
+
+Notification obligations
+
+PENDING. Resolution is disabled until an authenticated workflow is approved. Displaying a decision does not mark it communicated; no notifications are sent by this application.
+
+MTR-26005: PRIOR_EXCLUSION_WITHDRAWN; if A31-MTR-26005-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-09a70edd57fc4826abef6e76e9af0b91-v1 was communicated. Delivery: NOT_SENT. Acknowledgment: unknown.
+Motor decisions
+5 motors
+1 ▲ affected
+3 ? unresolved
+1 ✓ excluded with evidence
+4 on recall hold
+1 release eligible
+3 review required
+Evidence finding
+All
+Affected
+Unresolved
+Excluded with evidence
+Scenario family
+All
+Electric motors · IE3
+Search
+
+Showing 5 of 5 motors.
+
+Motor decisions under RC-026-014/P1
+Unit	Scenario	Decision	Versions	Shipment Synthetic
+MTR-26001
+MTR-26001
+	Serial-tracked assembly
+Electric motors · IE3
+	
+EVIDENCE FINDING
+▲ Affected
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◇ No review flag
+	1	SHP-26-26001
+2026-10-10 08:04:30 UTC
+
+MTR-26002
+MTR-26002
+	Lot-level ambiguity
+Electric motors · IE3
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	2	SHP-26-26002
+2026-10-10 08:09 UTC
+
+MTR-26003
+MTR-26003
+	Unaffected supplier lot
+Electric motors · IE3
+	
+EVIDENCE FINDING
+✓ Excluded with evidence
+OPERATIONAL ACTION
+▶ Release eligible
+REVIEW
+◇ No review flag
+	1	SHP-26-26003
+2026-10-10 08:13:30 UTC
+
+MTR-26004
+MTR-26004
+	Capture coverage gap
+Electric motors · IE3
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	2	SHP-26-26004
+2026-10-10 08:18 UTC
+
+MTR-26005
+MTR-26005
+	Untrusted affected-bearing observation
+Electric motors · IE3
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+PRECAUTION
+⚑ Precautionary hold
+	2	SHP-26-26005
+2026-10-10 08:22:30 UTC
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

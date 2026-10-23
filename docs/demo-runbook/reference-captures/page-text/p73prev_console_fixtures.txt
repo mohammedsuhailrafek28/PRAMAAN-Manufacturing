@@ -1,0 +1,374 @@
+Skip to content
+Recall Investigation
+Motors
+Lot investigation
+Case 06 before / after
+Live ledger mode
+Synthetic fixtures. Not real production data.
+Decisions by recall engine phase1.2-untrusted-observation (UNTRUSTED_OBSERVATION_V3). Source: Fixture-backed snapshot.
+Recall RC-009 v1, announced 2026-10-01 00:00 UTC. Affected part BR-6205, lots BR-204, BR-207, slots DE.
+Recall policy
+RC-009/P1 · P1 current installation
+RC-009/P2 · P2 operating history + damage inspection
+Shipments and suppliers are a synthetic overlay, not engine output.
+Motor decisions
+24 motors
+2 ▲ affected
+14 ? unresolved
+8 ✓ excluded with evidence
+16 on recall hold
+8 release eligible
+16 review required
+Evidence finding
+All
+Affected
+Unresolved
+Excluded with evidence
+Scenario family
+All
+Capture outage
+Install conflict
+Late correction
+Missing baseline
+Replacement
+Untrusted observation
+Wrong-slot scan
+Search
+
+Showing 24 of 24 motors.
+
+Motor decisions under RC-009/P1
+Unit	Scenario	Decision	Versions	Shipment Synthetic
+case-01
+M-042
+	Complete DE replacement, unrelated NDE gap
+Replacement
+	
+EVIDENCE FINDING
+✓ Excluded with evidence
+OPERATIONAL ACTION
+▶ Release eligible
+REVIEW
+◇ No review flag
+	1	SHP-2600
+2026-09-12 09:00 UTC
+
+case-02
+M-042
+	Missing DE baseline
+Missing baseline
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	Not shipped
+case-03
+M-042
+	Install into occupied slot
+Install conflict
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	Not shipped
+case-04
+M-042
+	DE outage bounded by independent verification
+Capture outage
+	
+EVIDENCE FINDING
+✓ Excluded with evidence
+OPERATIONAL ACTION
+▶ Release eligible
+REVIEW
+◇ No review flag
+	1	SHP-2603
+2026-09-15 09:00 UTC
+
+case-04b
+M-042
+	DE outage, no verification, no inspection
+Capture outage
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	Not shipped
+case-04c
+M-042
+	DE outage, inspection passed, no verification
+Capture outage
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	SHP-2605
+2026-09-17 09:00 UTC
+
+case-05
+M-042
+	Late risk-increasing correction
+Late correction
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+PRECAUTION
+⚑ Precautionary hold
+	2	SHP-2606
+2026-09-18 09:00 UTC
+
+case-05b
+M-042
+	Late correction, then corroborated
+Late correction
+	
+EVIDENCE FINDING
+▲ Affected
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◇ No review flag
+	3	SHP-2607
+2026-09-19 09:00 UTC
+
+case-06
+M-042
+	Wrong-slot scan, lot-level identity (undetected)
+Wrong-slot scan
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	SHP-2608
+2026-09-20 09:00 UTC
+
+case-06b
+M-042
+	Wrong-slot scan, caught by verification
+Wrong-slot scan
+	
+EVIDENCE FINDING
+▲ Affected
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◇ No review flag
+	1	SHP-2609
+2026-09-21 09:00 UTC
+
+case-06c
+M-042
+	Wrong-slot scan, valid slot-label scan, no independent verification
+Wrong-slot scan
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	SHP-2610
+2026-09-12 09:00 UTC
+
+case-06d
+M-042
+	Serialized removal conflicts with the recorded slot
+Wrong-slot scan
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	SHP-2611
+2026-09-13 09:00 UTC
+
+case-06e
+M-042
+	Correct replacement, indistinguishable from case-06c
+Wrong-slot scan
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	SHP-2612
+2026-09-14 09:00 UTC
+
+case-06f
+M-042
+	Valid label scan plus independent QA verification of DE
+Wrong-slot scan
+	
+EVIDENCE FINDING
+✓ Excluded with evidence
+OPERATIONAL ACTION
+▶ Release eligible
+REVIEW
+◇ No review flag
+	1	SHP-2613
+2026-09-15 09:00 UTC
+
+case-07
+M-042
+	Distinct lots, no attribution ambiguity
+Replacement
+	
+EVIDENCE FINDING
+✓ Excluded with evidence
+OPERATIONAL ACTION
+▶ Release eligible
+REVIEW
+◇ No review flag
+	1	SHP-2614
+2026-09-16 09:00 UTC
+
+case-08
+M-042
+	Untrusted observation of an affected lot in DE
+Untrusted observation
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	SHP-2615
+2026-09-17 09:00 UTC
+
+case-08e
+M-042
+	Same events, handheld misread
+Untrusted observation
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	SHP-2616
+2026-09-18 09:00 UTC
+
+case-08f
+M-042
+	Untrusted observation answered by a later independent check
+Untrusted observation
+	
+EVIDENCE FINDING
+✓ Excluded with evidence
+OPERATIONAL ACTION
+▶ Release eligible
+REVIEW
+◇ No review flag
+	1	SHP-2617
+2026-09-19 09:00 UTC
+
+case-08g
+M-042
+	Untrusted observation predating the replacement
+Untrusted observation
+	
+EVIDENCE FINDING
+✓ Excluded with evidence
+OPERATIONAL ACTION
+▶ Release eligible
+REVIEW
+◇ No review flag
+	1	SHP-2618
+2026-09-20 09:00 UTC
+
+case-08h
+M-042
+	Untrusted affected-lot observation outside the policy scope
+Untrusted observation
+	
+EVIDENCE FINDING
+✓ Excluded with evidence
+OPERATIONAL ACTION
+▶ Release eligible
+REVIEW
+◆ Review required
+	1	SHP-2619
+2026-09-21 09:00 UTC
+
+case-08i
+M-042
+	Untrusted unaffected-lot observation cannot release
+Untrusted observation
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	SHP-2620
+2026-09-12 09:00 UTC
+
+case-08j
+M-042
+	Untrusted observation with an unreliable clock
+Untrusted observation
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	SHP-2621
+2026-09-13 09:00 UTC
+
+case-08k
+M-042
+	Untrusted observation that arrives late
+Untrusted observation
+	
+EVIDENCE FINDING
+? Unresolved
+OPERATIONAL ACTION
+■ Recall hold
+REVIEW
+◆ Review required
+	1	SHP-2622
+2026-09-14 09:00 UTC
+
+case-08l
+M-042
+	Observation attributed to another motor
+Untrusted observation
+	
+EVIDENCE FINDING
+✓ Excluded with evidence
+OPERATIONAL ACTION
+▶ Release eligible
+REVIEW
+◆ Review required
+	1	SHP-2623
+2026-09-15 09:00 UTC
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

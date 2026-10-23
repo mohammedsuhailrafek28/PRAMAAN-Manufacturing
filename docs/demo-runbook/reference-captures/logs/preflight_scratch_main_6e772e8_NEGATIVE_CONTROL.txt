@@ -1,0 +1,9 @@
+FAIL  [scope omitted] policy affectedSlots == ['DE', 'NDE'] (got ['DE'])
+PASS  [scope omitted] MTR-91001 DE=BR-901 NDE=BR-310 -> AFFECTED/RECALL_HOLD (got AFFECTED/RECALL_HOLD)
+FAIL  [scope omitted] MTR-91002 DE=BR-310 NDE=BR-901 -> AFFECTED/RECALL_HOLD (got EXCLUDED_WITH_EVIDENCE/RELEASE_ELIGIBLE)
+PASS  [scope omitted] MTR-91003 DE=BR-310 NDE=BR-312 -> EXCLUDED_WITH_EVIDENCE/RELEASE_ELIGIBLE (got EXCLUDED_WITH_EVIDENCE/RELEASE_ELIGIBLE)
+FAIL  [scope ['DE']] announce raised TypeError: Manufacturing.announce() takes 2 positional arguments but 3 were given
+FAIL  [scope ['NDE']] announce raised TypeError: Manufacturing.announce() takes 2 positional arguments but 3 were given
+
+PREFLIGHT FAILED: [scope omitted] policy affectedSlots == ['DE', 'NDE'] (got ['DE']); [scope omitted] MTR-91002 DE=BR-310 NDE=BR-901 -> AFFECTED/RECALL_HOLD (got EXCLUDED_WITH_EVIDENCE/RELEASE_ELIGIBLE); [scope ['DE']] announce raised TypeError: Manufacturing.announce() takes 2 positional arguments but 3 were given; [scope ['NDE']] announce raised TypeError: Manufacturing.announce() takes 2 positional arguments but 3 were given
+exit=1

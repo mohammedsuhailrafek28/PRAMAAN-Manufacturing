@@ -1,0 +1,33 @@
+Skip to content
+Digital product passport
+Recall investigation console
+All passports
+
+← All motors
+
+Digital product passport · MTR-301
+
+IE3 11 kW electric motor
+
+Synthetic demonstration data Source: Live SQLite ledger (synthetic manufacturing demo) Not a certified DPP
+
+Overview
+Components
+Evidence
+Timeline
+Recall context
+QR label
+No recall hold recorded under this policy
+
+Excluded with evidence. Evidence shows the motor is not affected.
+
+This is a statement about recall evidence only. It is not shipment authorization, a quality release or a certificate.
+
+Replaced with unaffected lot: The slot now holds a verified, unaffected lot.
+As built unaffected lot: No description available for this code.
+
+Decision A31-MTR-301-57769c926770a5fd7af3e7a70cf822a6e2960827237bee6d8e24eb5480f49dc9-c19fbdd88c834420854f7ac89cef2ebb-v2 (version 2), policy RC-026-014/P1. Computed by the recall engine and copied here unchanged.
+
+Open the full recall explanation
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

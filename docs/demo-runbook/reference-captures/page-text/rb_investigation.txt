@@ -1,0 +1,38 @@
+Skip to content
+Evidence-guided investigation
+Recall investigation console
+Investigation workspace
+Evidence-guided investigation
+Synthetic demonstration data
+Read-only
+Not a release authorization
+Evidence watermark
+
+Verified ledger journal sequence 7, head ca82243191d1…, verified 2026-10-23 12:19 UTC (valid for 5 s). Covers 34 ledger records and 3 current decisions.
+
+Verification limits
+
+1 evidence item across 1 motor, in 1 evidence-gap group.
+
+How the groups are ordered
+Show
+All groups
+Untrusted affected-lot observation
+#1 Untrusted affected-lot observation · 1 motor
+Untrusted affected-lot observation
+Withdrawn earlier release-eligible decision
+1 item
+
+A record shows a lot named in the recall in this slot, but the ledger rejected it as evidence and no later trusted record answers it. A rejected record is not shown to be false; it is not accepted as proof either way.
+
+Motors: MTR-303
+
+Exact group key
+Motors with no listed evidence item (2)
+Notification obligations (separate from evidence items)
+
+Notification obligations are managed in the recall console. They are not evidence-gathering tasks and nothing here marks one as communicated.
+
+MTR-303: PRIOR_EXCLUSION_WITHDRAWN, status PENDING, delivery NOT_SENT. Acknowledgment: unknown.
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)

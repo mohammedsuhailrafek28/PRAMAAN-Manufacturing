@@ -1,0 +1,32 @@
+Skip to content
+Digital product passport
+Recall investigation console
+All passports
+
+← All motors
+
+Digital product passport · MTR-26003
+
+Unaffected supplier lot
+
+Synthetic demonstration data Source: Live SQLite ledger (synthetic manufacturing demo) Not a certified DPP
+
+Overview
+Components
+Evidence
+Timeline
+Recall context
+QR label
+No recall hold recorded under this policy
+
+Excluded with evidence. Evidence shows the motor is not affected.
+
+This is a statement about recall evidence only. It is not shipment authorization, a quality release or a certificate.
+
+As built unaffected lot: No description available for this code.
+
+Decision A31-MTR-26003-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-09a70edd57fc4826abef6e76e9af0b91-v1 (version 1), policy RC-026-014/P1. Computed by the recall engine and copied here unchanged.
+
+Open the full recall explanation
+--- console errors ---
+Failed to load resource: the server responded with a status of 404 (Not Found)
