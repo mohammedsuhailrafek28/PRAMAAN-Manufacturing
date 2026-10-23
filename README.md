@@ -1,5 +1,15 @@
 # Manufacturing PRAMAAN
 
+> **Demo baseline notice: `main` is not an approved demo baseline.**
+>
+> The current `main` (`6e772e8`) must not be used to demonstrate or evaluate this project. An independent audit reproduced a recall-policy defect on `main`: when the recalled bearing lot is installed in the **non-drive-end (NDE)** position and the recall scope is not stated, the evaluator reports the motor as `EXCLUDED_WITH_EVIDENCE / RELEASE_ELIGIBLE` instead of holding it. The seeded demo does not show this because it always declares a drive-end-only scope. `main` will be corrected through the reviewed integration process.
+>
+> **Two distinct things exist; do not confuse them.**
+> 1. *Existing pinned demo baseline (conditional):* branch `integration/three-features-prep`, commit `73f3bdbd78ee8bdf4b323457ba2f036f16fb82d9`. **CONDITIONAL GO**: it refuses to show decisions unless a trusted checkpoint (anchor) is prepared and supplied at start-up, and the preflight in `docs/demo-runbook/HACKATHON_DEMO_RUNBOOK.md` (branch `plan/hackathon-demo-runbook`) must pass first.
+> 2. *Future integrated candidate (this branch, `integration/claude-unified-candidate`):* work in progress, not yet independently reviewed, not merged, not a demo baseline until its own checkpoints in `docs/UNIFIED_CANDIDATE_RESUME.md` are met and recorded.
+>
+> **Scope and limits.** Synthetic data only, local loopback use only. No authentication; no production, certification, shipment-authorization or physical-verification claim. The checkpoint file is an operator-held local stand-in, not independent custody. H1/H2 checkpoint behaviour is shown from recorded captures only until the integrated backend has been independently reviewed and a full rehearsal has passed. Evidence: `review/hackathon-demo-readiness` (`1f8671e`).
+
 **Phase 3.1 safety remediation:** see [root causes, before/after evidence and regression gates](docs/PHASE31_SAFETY_REMEDIATION.md). Start a **new** local demo database with `app.py --seed-demo --database .local/phase31.sqlite`; preserve old Phase 3 databases for historical replay. Their hardcoded scope is not silently reinterpreted as verified current clearance. The v3 evaluator and original engine/foundation/integration source trees remain unchanged.
 
 One local application: EPCIS-compatible capture → append-only SQLite evidence → motor/component genealogy → actual recall assurance engine v3 → Recall Investigation UI.
