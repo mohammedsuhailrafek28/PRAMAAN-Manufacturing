@@ -1,4 +1,5 @@
 import { DecisionChips } from "../components/StatusChips";
+import { useClearance } from "../components/ClearanceContext";
 import { missingEvidence } from "../domain/derive";
 import {
   ASSURANCE, CONFLICT_KINDS, FINDING_TEXT, FLAGS, GAP_KINDS, OBSERVATION_STATUS, RECONCILIATIONS, REASONS,
@@ -53,6 +54,7 @@ function Attribution({ a }: { a: SlotAttribution }) {
 }
 
 export function DecisionExplanation({ d, unit }: { d: Decision; unit: Unit }) {
+  const clearance = useClearance();
   const missing = missingEvidence(d, unit);
   const cited = new Set(d.evidenceEventIds);
   const events = unit.events.filter((e) => cited.has(e.eventId));
@@ -61,7 +63,7 @@ export function DecisionExplanation({ d, unit }: { d: Decision; unit: Unit }) {
     <div>
       <DecisionChips d={d} />
       {typeof d.publicationProfile === 'string' && <p className="muted">Publication lifecycle: {d.publicationProfile}. Exposure evaluation uses the recorded engine semantics; lifecycle history is stored separately.</p>}
-      <p className="lead">{finding?.explain} {d.operationalAction === "RECALL_HOLD" ? "The motor stays on recall hold." : "Eligible under this recall policy; this is not shipment authorization."}</p>
+      <p className="lead">{finding?.explain} {d.operationalAction === "RECALL_HOLD" ? "The motor stays on recall hold." : clearance && !clearance(d.caseId ?? d.motorSerial) ? "The evaluator recorded release eligibility, but current clearance is withheld for this motor (for example an outstanding notification obligation). Do not treat it as released." : "Eligible under this recall policy; this is not shipment authorization."}</p>
       {d.reviewRequired && <p><b>Review is required.</b> A person must look at this motor, separately from the hold.</p>}
       {d.precautionaryHold && <p><b>Precautionary hold.</b> Held because an earlier release no longer stands.</p>}
 

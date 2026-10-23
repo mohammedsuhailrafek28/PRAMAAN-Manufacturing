@@ -1,6 +1,7 @@
 import preview from "../../public/data/passport-preview.json";
 import type { RecallSnapshot } from "../../src/domain/types";
 import { validateSnapshot } from "../../src/domain/validate";
+import { withStrictCurrent } from "./helpers";
 
 /** Captured, seeded synthetic backend snapshot (unanchored), deep-cloned per call. */
 export const previewSnapshot = (): RecallSnapshot => validateSnapshot(structuredClone(preview));
@@ -9,7 +10,7 @@ export const previewSnapshot = (): RecallSnapshot => validateSnapshot(structured
 export function freshSnapshot(now = Date.now(), sequence = 100): RecallSnapshot {
   const s = previewSnapshot();
   s.freshness = { verifiedAt: new Date(now).toISOString(), maxAgeSeconds: 5, status: "VERIFIED_ANCHORED_SYNTHETIC", archiveId: "test-archive", sequence, headHash: `head-${sequence}` };
-  return s;
+  return withStrictCurrent(s, sequence);
 }
 
 export function deepFreeze<T>(o: T): T {

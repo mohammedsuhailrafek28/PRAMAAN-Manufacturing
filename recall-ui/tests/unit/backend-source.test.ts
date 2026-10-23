@@ -1,6 +1,10 @@
 import { afterEach, expect, it, vi } from "vitest";
 import { BackendRecallDataSource } from "../../src/data/RecallDataSource";
-import { realSnapshot } from "./helpers";
+import { realSnapshot, withStrictCurrent } from "./helpers";
+
+// MIGRATED FIXTURES (M1): the three envelopes below add honest strict-current checkpoint/eligibility metadata so the
+// original assertions still exercise freshness, stale replay and supersession through the unified gate.
+const strictFresh = (verifiedAt: string) => withStrictCurrent({ ...realSnapshot(), freshness: { status: "VERIFIED_ANCHORED_SYNTHETIC", verifiedAt, maxAgeSeconds: 5, archiveId: "test", sequence: 1, headHash: "hash" } }, 1);
 
 afterEach(() => vi.unstubAllGlobals());
 it("rejects an unavailable backend without requesting fixtures", async () => {
@@ -18,7 +22,7 @@ it("refuses contradictory backend decisions", async () => {
 });
 it("passes the local token and validates the returned mutation snapshot", async () => {
   const fetch = vi.fn().mockResolvedValueOnce({ json: async () => ({ token: "test-local-token" }) })
-    .mockResolvedValueOnce({ ok: true, json: async () => ({ snapshot: {...realSnapshot(),freshness:{status:'VERIFIED_ANCHORED_SYNTHETIC',verifiedAt:new Date().toISOString(),maxAgeSeconds:5,archiveId:'test',sequence:1,headHash:'hash'}}, captureToDecisionMs: 123 }) });
+    .mockResolvedValueOnce({ ok: true, json: async () => ({ snapshot: strictFresh(new Date().toISOString()), captureToDecisionMs: 123 }) });
   vi.stubGlobal("fetch", fetch);
   const result = await new BackendRecallDataSource().command("units", { serial: "MTR-TEST" });
   expect(result.captureToDecisionMs).toBe(123);
@@ -36,13 +40,13 @@ it("also bounds a response whose JSON body never completes", async () => {
 });
 
 it('rejects a successful stale replay instead of treating arrival as verification',async()=>{
- const snap={...realSnapshot(),freshness:{status:'VERIFIED_ANCHORED_SYNTHETIC',verifiedAt:new Date(Date.now()-60000).toISOString(),maxAgeSeconds:5,archiveId:'test',sequence:1,headHash:'hash'}};
+ const snap=strictFresh(new Date(Date.now()-60000).toISOString());
  vi.stubGlobal('fetch',vi.fn().mockResolvedValue({ok:true,json:async()=>snap}));
  await expect(new BackendRecallDataSource().load()).rejects.toThrow(/expired/);
 });
 
 it('late older concurrent request cannot overwrite the latest accepted response',async()=>{
- const snap={...realSnapshot(),freshness:{status:'VERIFIED_ANCHORED_SYNTHETIC',verifiedAt:new Date().toISOString(),maxAgeSeconds:5,archiveId:'test',sequence:1,headHash:'hash'}};
+ const snap=strictFresh(new Date().toISOString());
  let release!:(v:unknown)=>void;
  vi.stubGlobal('fetch',vi.fn().mockImplementationOnce(()=>new Promise(r=>{release=r;})).mockResolvedValueOnce({ok:true,json:async()=>snap}));
  const source=new BackendRecallDataSource();const old=source.load();

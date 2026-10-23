@@ -14,18 +14,21 @@ export interface Counts {
   byFinding: Record<Finding, number>;
   hold: number;
   release: number;
+  /** Recorded release eligibility whose current clearance is withheld (live ledger only). */
+  releaseWithheld: number;
   review: number;
 }
 
 /** Tallies of engine outputs. No classification: it only counts what the engine said. */
-export function countDecisions(s: RecallSnapshot, policyId: string): Counts {
-  const c: Counts = { total: 0, byFinding: { AFFECTED: 0, UNRESOLVED: 0, EXCLUDED_WITH_EVIDENCE: 0 }, hold: 0, release: 0, review: 0 };
+export function countDecisions(s: RecallSnapshot, policyId: string, cleared?: ((unitId: string) => boolean) | null): Counts {
+  const c: Counts = { total: 0, byFinding: { AFFECTED: 0, UNRESOLVED: 0, EXCLUDED_WITH_EVIDENCE: 0 }, hold: 0, release: 0, review: 0, releaseWithheld: 0 };
   for (const u of s.units) {
     const d = unitDecision(s, u.unitId, policyId)?.current;
     if (!d) continue;
     c.total++;
     c.byFinding[d.evidenceFinding]++;
     if (d.operationalAction === "RECALL_HOLD") c.hold++;
+    else if (cleared && !cleared(u.unitId)) c.releaseWithheld++;   // live ledger: recorded release without current clearance
     else c.release++;
     if (d.reviewRequired) c.review++;
   }

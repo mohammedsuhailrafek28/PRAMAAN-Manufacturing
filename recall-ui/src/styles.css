@@ -71,6 +71,7 @@ label { display: grid; gap: 0.15rem; font-size: 0.9rem; font-weight: 600; }
 .finding-UNRESOLVED { background: var(--unr-bg); color: var(--unr-text); border-color: var(--unr-bd); }
 .finding-EXCLUDED_WITH_EVIDENCE { background: var(--exc-bg); color: var(--exc-text); border-color: var(--exc-bd); }
 .action-RECALL_HOLD { background: var(--hold-bg); color: var(--hold-text); border-color: var(--hold-bg); }
+.action-WITHHELD { background: var(--hold-bg); color: var(--hold-text); border-color: var(--hold-bg); border-style: dotted; }
 .action-RELEASE_ELIGIBLE { background: var(--rel-bg); color: var(--rel-text); border-color: var(--exc-bd); border-style: dashed; }
 .review-yes { background: var(--surface); color: var(--text); border-color: var(--accent); border-style: double; border-width: 4px; padding: 0 0.4rem 0.1rem; }
 .review-no { background: var(--surface); color: var(--muted); }

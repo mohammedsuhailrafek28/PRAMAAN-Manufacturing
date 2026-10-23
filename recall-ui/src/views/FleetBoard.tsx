@@ -2,12 +2,14 @@ import { useMemo, useState } from "react";
 import { DecisionChips, SyntheticTag } from "../components/StatusChips";
 import { countDecisions, fmtTime, unitDecision } from "../domain/derive";
 import type { Finding, RecallSnapshot } from "../domain/types";
+import { useClearance } from "../components/ClearanceContext";
 
 export function FleetBoard({ snap, policyId }: { snap: RecallSnapshot; policyId: string }) {
   const [finding, setFinding] = useState<"ALL" | Finding>("ALL");
   const [family, setFamily] = useState("ALL");
   const [q, setQ] = useState("");
-  const counts = useMemo(() => countDecisions(snap, policyId), [snap, policyId]);
+  const lookup = useClearance();
+  const counts = useMemo(() => countDecisions(snap, policyId, lookup), [snap, policyId, lookup]);
   const families = useMemo(() => [...new Set(snap.units.map((u) => u.family))].sort(), [snap]);
 
   const rows = snap.units.filter((u) => {
@@ -28,6 +30,7 @@ export function FleetBoard({ snap, policyId }: { snap: RecallSnapshot; policyId:
         <li className="finding-EXCLUDED_WITH_EVIDENCE"><b>{counts.byFinding.EXCLUDED_WITH_EVIDENCE}</b> <span aria-hidden="true">✓</span> excluded with evidence</li>
         <li><b>{counts.hold}</b> on recall hold</li>
         <li><b>{counts.release}</b> release eligible</li>
+        {lookup && counts.releaseWithheld > 0 && <li><b>{counts.releaseWithheld}</b> release clearance withheld</li>}
         <li><b>{counts.review}</b> review required</li>
       </ul>
 

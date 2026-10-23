@@ -31,7 +31,7 @@ export const WITHHELD_LABEL: Record<WithheldCause, string> = {
   UNKNOWN_STATE: "the checkpoint state is not recognised",
   CONTRADICTORY: "the checkpoint, freshness and eligibility metadata contradict each other",
   LEASE_EXPIRED: "the verification lease expired or the clocks disagree",
-  REGRESSION: "the ledger moved backwards; owner review is required before reloading",
+  REGRESSION: "the ledger moved backwards (snapshot regression); owner review is required before reloading",
   INTEGRITY: "the response failed integrity validation",
   TRANSPORT: "the backend could not be reached or answered unexpectedly",
 };

@@ -1,5 +1,6 @@
 import { ACTION_TEXT, FINDING_TEXT } from "../domain/glossary";
 import type { Decision } from "../domain/types";
+import { useClearance } from "./ClearanceContext";
 
 // Evidence finding, operational action and review flag are three separate facts.
 // Each chip carries a glyph AND a text label; color is only reinforcement.
@@ -19,7 +20,17 @@ export function FindingChip({ finding }: { finding: Decision["evidenceFinding"] 
   );
 }
 
-export function ActionChip({ action }: { action: Decision["operationalAction"] }) {
+export function ActionChip({ action, unitId }: { action: Decision["operationalAction"]; unitId?: string }) {
+  const lookup = useClearance();
+  // Live ledger: a recorded release is shown as clearance only when the backend's per-motor eligibility says so.
+  if (action === "RELEASE_ELIGIBLE" && lookup && !lookup(unitId)) {
+    return (
+      <span className="chip action-WITHHELD" title="The evaluator recorded release eligibility, but current clearance is withheld for this motor." data-testid="chip-action">
+        <span className="chip-cap">Operational action</span>
+        <span className="chip-body"><span aria-hidden="true">■</span> Release clearance withheld</span>
+      </span>
+    );
+  }
   const t = ACTION_TEXT[action];
   return (
     <span className={`chip action-${action}`} title={t?.explain} data-testid="chip-action">
@@ -55,7 +66,7 @@ export function DecisionChips({ d }: { d: Decision }) {
   return (
     <div className="chip-row">
       <FindingChip finding={d.evidenceFinding} />
-      <ActionChip action={d.operationalAction} />
+      <ActionChip action={d.operationalAction} unitId={d.caseId ?? d.motorSerial} />
       <ReviewChip required={d.reviewRequired} />
       {d.precautionaryHold ? <PrecautionChip /> : null}
     </div>

@@ -1,6 +1,8 @@
 import type { RecallSnapshot } from "../domain/types";
 import { validateSnapshot } from "../domain/validate";
 import { verifyFreshness } from './freshness';
+import { GateTracker, GateWithheldError } from '../contract/gate';
+import type { HistoricalView } from '../contract/gated';
 
 /**
  * The only seam between the UI and wherever recall decisions come from.
@@ -13,15 +15,26 @@ export interface RecallDataSource {
   command?(path: string, body: Record<string, unknown>): Promise<{ snapshot: RecallSnapshot; captureToDecisionMs: number }>;
 }
 
-/** No automatic fixture fallback: a failed backend never supplies stale release decisions. */
+/** The shared gate classified a well-formed non-current envelope (ANCHORED_PREFIX_ONLY / UNANCHORED).
+ *  The console shows only the segregated historical facts it carries: never a decision, hold or clearance. */
+export class SegregatedSnapshotError extends Error {
+  constructor(readonly view: HistoricalView, readonly cause: "PREFIX_ONLY" | "UNANCHORED", reason: string) { super(reason); this.name = "SegregatedSnapshotError"; }
+}
+
+/** No automatic fixture fallback: a failed backend never supplies stale release decisions.
+ *  Every live response passes the same typed gate as the standalone pages before anything is shown. */
 export class BackendRecallDataSource implements RecallDataSource {
   private previous: RecallSnapshot | null = null;
   private generation = 0;
+  private readonly tracker = new GateTracker();
   private accept(body: unknown, generation: number) {
-    const snap = validateSnapshot(body);
-    if (!snap.checkpoint || !snap.eligibility) throw new Error('Strict checkpoint state and eligibility projection required');
+    validateSnapshot(body);                                   // structural invariants first: "Invalid recall snapshot"
     if (generation !== this.generation) throw new Error('Superseded backend response');
-    verifyFreshness(snap, this.previous);
+    const gate = this.tracker.evaluate({ status: 200, body });
+    if (gate.kind === "WITHHELD") throw new GateWithheldError(gate);
+    if (gate.kind === "SEGREGATED") throw new SegregatedSnapshotError(gate.view, gate.cause, gate.reason);
+    const snap = validateSnapshot(body);
+    verifyFreshness(snap, this.previous);                     // lease length + regression bookkeeping for CURRENT only
     this.previous = snap;
     return snap;
   }
@@ -46,7 +59,10 @@ export class BackendRecallDataSource implements RecallDataSource {
   async load(signal?: AbortSignal): Promise<RecallSnapshot> {
     const generation = ++this.generation;
     const res = await this.request("/api/snapshot", { signal, cache: "no-store" });
-    if (!res.ok) throw new Error(`Ledger unavailable: HTTP ${res.status}`);
+    if (!res.ok) {
+      const gate = this.tracker.evaluate({ status: res.status, body: res.body });
+      throw new Error(`Ledger unavailable: HTTP ${res.status}${gate.kind === "WITHHELD" ? `. ${gate.reason}` : ""}`);
+    }
     return this.accept(res.body, generation);
   }
   async command(path: string, body: Record<string, unknown>) {

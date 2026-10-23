@@ -89,7 +89,9 @@ describe("a cluster page explains the four required parts for each motor", () =>
     go(evidenceHref(task.unitId, task.evidenceEventIds[0]));
     render(<InvestigationApp source={new Scripted(true, [verified()])} />);
     const page = await screen.findByTestId("evidence-page");
-    expect(page).toHaveTextContent("OP-OBSERVATION-21");
+    // MIGRATED (M2, owner decision O2): the preview now carries a per-file pseudonym, never the operator identifier.
+    expect(page).toHaveTextContent("ACTOR-04");
+    expect(page).not.toHaveTextContent("OP-OBSERVATION-21");
     expect(page).toHaveTextContent(/HANDHELD_LABEL_READ/i);
     expect(page).toHaveTextContent(/[0-9a-f]{64}/);
     expect(page).toHaveTextContent(/do not show that what the record says is true/);
@@ -209,8 +211,9 @@ describe("live adapter is GET-only and reuses the unchanged freshness boundary",
     expect(fetch.mock.calls[0][1].method).toBe("GET");
   });
   it("marks an unanchored snapshot unverified and throws on regression", async () => {
+    // MIGRATED (M3): an envelope without checkpoint/eligibility is WITHHELD (MISSING_METADATA), not labelled records.
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, status: 200, json: async () => stage("before") }));
-    expect(isGated((await new LiveInvestigationSource().load()).view)).toBe(false);
+    await expect(new LiveInvestigationSource().load()).rejects.toThrow(/checkpoint or eligibility metadata is missing/);
     const source = new LiveInvestigationSource();
     vi.stubGlobal("fetch", vi.fn().mockResolvedValueOnce({ ok: true, status: 200, json: async () => freshStage("before", Date.now(), 9) }).mockResolvedValueOnce({ ok: true, status: 200, json: async () => freshStage("before", Date.now(), 8) }));
     await source.load();

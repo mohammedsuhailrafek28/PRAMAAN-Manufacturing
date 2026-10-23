@@ -24,7 +24,8 @@ it('rejects contradictory state and missing replay proof',()=>{
 it('never accepts a backend snapshot omitting strict checkpoint metadata',async()=>{
  const s=strict();delete s.checkpoint;
  vi.stubGlobal('fetch',vi.fn().mockResolvedValue({ok:true,json:async()=>s}));
- await expect(new BackendRecallDataSource().load()).rejects.toThrow(/Strict checkpoint/);
+ // MIGRATED (M5): the message now comes from the shared gate (MISSING_METADATA); a snapshot without it is still never accepted.
+ await expect(new BackendRecallDataSource().load()).rejects.toThrow(/checkpoint or eligibility metadata is missing/);
 });
 it('an outstanding obligation cannot be advertised as current release eligibility',()=>{
  const s=strict();const unit=s.units[0].unitId;
