@@ -67,7 +67,7 @@ class ReplayCache:
     """Process-local progress tied to full evidence/journal bytes, never just a head."""
     def __init__(self):self.key=None;self.source_checked=False
     def reset(self,key):
-        self.key=key;self.index=0;self.priors={};self.obligations=[];self.pair=None;self.legacy=False;self.verified=set()
+        self.key=key;self.index=0;self.priors={};self.obligations=[];self.pair=None;self.legacy=False;self.verified=set();self.motor_wm={}
 
 
 class Audit:
@@ -217,6 +217,13 @@ class Audit:
             cache=cache if cache is not None else ReplayCache()
             if cache.key!=key:cache.reset(key)
             archive=self.db.execute('SELECT archive_id FROM app_audit_head WHERE id=1').fetchone()[0]
+            # D5: the only authority for a policy is an immutable recall_announcements row whose stored hash matches its content.
+            announced=set()
+            for row in self.db.execute('SELECT policy,hash FROM recall_announcements'):
+                policy_row=json.loads(row[0])
+                if digest(policy_row)!=row[1]:raise IntegrityFailure('POLICY_NOT_ANNOUNCED')
+                announced.add(row[1])
+            ledger_wm={}
             while cache.index<len(records):
                 if deadline is not None and time.monotonic()>=deadline:raise Verifying()
                 kind,p=records[cache.index]
@@ -234,6 +241,15 @@ class Audit:
                         motor=p['context']['motor']
                         case,manifest=self.ledger.snapshot(motor,p['manifest']['watermark'])
                         if manifest!=p['manifest']:raise IntegrityFailure()
+                        if digest(p['policy']) not in announced:raise IntegrityFailure('POLICY_NOT_ANNOUNCED')
+                        # D5: a publication is evaluated at the ledger's receipt position at that time. Positions only grow, so it can
+                        # neither precede the motor's earlier publication nor exceed what the ledger holds now.
+                        wm=manifest['watermark']
+                        earlier=cache.motor_wm.get(motor)
+                        if earlier is not None and any(wm.get(src,0)<seq for src,seq in earlier.items()):raise IntegrityFailure('WATERMARK_REGRESSION')
+                        if motor not in ledger_wm:ledger_wm[motor]=self.ledger.watermark(motor)
+                        if any(seq>ledger_wm[motor].get(src,0) for src,seq in wm.items()):raise IntegrityFailure('WATERMARK_BEYOND_LEDGER')
+                        cache.motor_wm[motor]=copy.deepcopy(wm)
                         config=self.ledger._config(motor)
                         raw=engine_bridge.pramaan_recall.evaluate(case,copy.deepcopy(p['policy']),config['coverage'],manifest['watermark'],engine_bridge.Config.v3())
                         context=dict(motor=motor,policyDigest=digest(p['policy']),configurationDigest=digest(config),profile=PROFILE)
