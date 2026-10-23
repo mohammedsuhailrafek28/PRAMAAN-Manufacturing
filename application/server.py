@@ -7,6 +7,7 @@ from pathlib import Path
 import secrets
 import threading
 import time
+import sys
 from urllib.parse import urlsplit, unquote
 
 from .service import Manufacturing, ValidationFailure, LedgerBlocked, ROOT
@@ -19,15 +20,20 @@ class LocalServer(ThreadingHTTPServer):
     daemon_threads = True
 
 
-def make_server(database, port=4173, seed=False, *, trusted_anchor=None):
+def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previous_anchor=None):
     database = Path(database).resolve()
     from .anchors import TrustedAnchor
-    anchor = TrustedAnchor(trusted_anchor) if trusted_anchor else None
+    anchor = TrustedAnchor(trusted_anchor,previous_anchor) if trusted_anchor else None
     database.parent.mkdir(parents=True, exist_ok=True)
     service = Manufacturing(database)
     try:
         if seed:
             service.seed_demo()
+        service.audit.verify(copy_records=False)
+        journal_cache=dict(key=service.audit.journal_bytes_key())
+        # Explicit activation verifies the protected reference before serving.
+        # Warm proofs remain tied to actual bytes on every subsequent request.
+        if anchor:anchor.verify(service,deadline=float('inf'))
     finally:
         service.close()
     lock = threading.RLock()
@@ -74,7 +80,7 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None):
             with lock:
                 app = None
                 try:
-                    app = Manufacturing(database)
+                    app = Manufacturing(database,journal_cache=journal_cache,verification_deadline=time.monotonic()+1.25)
                     if mutate:
                         if anchor is None:
                             raise LedgerBlocked('Trusted external anchor required for operational commands')
@@ -133,9 +139,10 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None):
                         return self.send(200, {"components": [c for c in snap["components"] if c["lot"] == parts[2]], "decisions": snap["decisions"]})
                     return self.send(404, {"error": "Unknown resource"})
                 except LedgerBlocked as exc:
-                    return self.send(409, {"error": str(exc), "decisionsUnavailable": True})
+                    code=getattr(exc,'code','INTEGRITY_UNAVAILABLE')
+                    return self.send(503 if code=='VERIFYING' else 409, {"error": code, "state": 'VERIFYING' if code=='VERIFYING' else 'ANCHOR_INVALID', "decisionsUnavailable": True})
                 except (ValidationFailure, ValueError, KeyError, TypeError) as exc:
-                    return self.send(400, {"error": str(exc)})
+                    return self.send(400, {"error": 'INVALID_REQUEST'})
                 except Exception:
                     return self.send(500, {"error": "Application operation failed; no decision fallback supplied"})
                 finally:
@@ -150,8 +157,13 @@ def main():
     parser.add_argument("--port", type=int, default=4173)
     parser.add_argument("--seed-demo", action="store_true")
     parser.add_argument("--trusted-anchor", type=Path, help="Owner-custodied external anchor; mandatory for current operational decisions")
+    parser.add_argument('--previous-anchor',type=Path,help='Previous owner-custodied checkpoint for successor activation')
     args = parser.parse_args()
-    server = make_server(args.database, args.port, args.seed_demo, trusted_anchor=args.trusted_anchor)
+    try:
+        server = make_server(args.database, args.port, args.seed_demo, trusted_anchor=args.trusted_anchor,previous_anchor=args.previous_anchor)
+    except Exception:
+        print(json.dumps(dict(error='STARTUP_UNAVAILABLE',decisionsUnavailable=True)),file=sys.stderr)
+        raise SystemExit(1)
     print(f"Manufacturing PRAMAAN: http://127.0.0.1:{server.server_port} (local synthetic demo)", flush=True)
     try:
         server.serve_forever()

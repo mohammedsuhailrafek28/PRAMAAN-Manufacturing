@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import re
 import sys
+import time
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "integration"))
@@ -33,7 +34,7 @@ ROLES = {
 
 
 class Manufacturing:
-    def __init__(self, path):
+    def __init__(self, path, *, journal_cache=None, verification_deadline=None):
         self.ledger = Ledger(path)
         self.db = self.ledger.db
         self.db.executescript("""
@@ -46,7 +47,7 @@ class Manufacturing:
             self.db.execute(f"CREATE TRIGGER IF NOT EXISTS announcements_no_{action.lower()} BEFORE {action} ON recall_announcements BEGIN SELECT RAISE(ABORT,'immutable recall policy'); END")
         self.db.commit()
         try:
-            self.audit = Audit(self.ledger)
+            self.audit = Audit(self.ledger,journal_cache=journal_cache,deadline=verification_deadline)
         except Exception:
             self.ledger.close()
             raise
@@ -237,12 +238,51 @@ class Manufacturing:
         self.snapshot()
 
     def snapshot(self, *, trusted_anchor=None):
+        deadline=time.monotonic()+1.25 if trusted_anchor else None
+        self.db.execute('BEGIN IMMEDIATE')
+        self.audit._verified_token=None
+        try:
+            # Issuance, H2 verification and projection share one consistent cut.
+            anchor=trusted_anchor.verify(self,deadline=deadline) if trusted_anchor else None
+            verified_changes=self.db.total_changes
+            result=self._snapshot(deadline)
+            if deadline is not None and time.monotonic()>=deadline:
+                from .audit import Verifying
+                raise Verifying()
+            # Read-only polls reuse this request's proof under the same write
+            # transaction. New publications require verification of the new cut.
+            if trusted_anchor and self.db.total_changes!=verified_changes:
+                anchor=trusted_anchor.verify(self,deadline=deadline)
+            state=anchor['state'] if anchor else 'UNANCHORED'
+            current=state=='ANCHORED_CURRENT'
+            result['checkpoint']=dict(state=state,anchoredSequence=anchor['anchoredSequence'] if anchor else None,
+                                      checkpointRequired=not current,h2=anchor['h2']['status'] if anchor else 'UNVERIFIED')
+            pending={n['unitId'] for n in result['notifications']}
+            # Never rewrite the immutable historical publication to fake clearance.
+            result['eligibility']={u['unitId']:dict(currentReleaseEligible=current and u['unitId'] not in pending and
+                bool(result['decisions'][u['unitId']]) and all(b['current']['operationalAction']=='RELEASE_ELIGIBLE'
+                for b in result['decisions'][u['unitId']].values())) for u in result['units']}
+            result['freshness'].update(status='VERIFIED_ANCHORED_SYNTHETIC' if current else 'VERIFIED_PREFIX_SYNTHETIC' if anchor else 'HISTORICAL_'+state,
+                                       maxAgeSeconds=5 if anchor else 0)
+            if not anchor:result['freshness']['verifiedAt']=''
+            self.db.commit()
+            return result
+        except Exception:
+            self.db.rollback()
+            raise
+        finally:
+            self.audit._verified_token=None
+
+    def _snapshot(self,deadline=None):
         # Raw publications remain historical without a trusted external prefix.
-        anchor_status = trusted_anchor.verify(self) if trusted_anchor else None
-        self.audit.verify()
+        anchor_status = None
+        self.audit.verify(copy_records=False)
         policy = self.policy()
         units, components, lots, decisions, comparison, lineage, notifications = [], [], {}, {}, [], [], []
         for unit in self.db.execute("SELECT serial,title FROM app_units ORDER BY serial").fetchall():
+            if deadline is not None and time.monotonic()>=deadline:
+                from .audit import Verifying
+                raise Verifying()
             motor = unit["serial"]; wm = self.ledger.watermark(motor)
             case, manifest = self.ledger.snapshot(motor, wm)  # rejection/integrity failures propagate; never stale fallback
             events = case["events"]; by_id = {e["eventId"]:e for e in events}

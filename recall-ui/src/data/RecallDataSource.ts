@@ -19,6 +19,7 @@ export class BackendRecallDataSource implements RecallDataSource {
   private generation = 0;
   private accept(body: unknown, generation: number) {
     const snap = validateSnapshot(body);
+    if (!snap.checkpoint || !snap.eligibility) throw new Error('Strict checkpoint state and eligibility projection required');
     if (generation !== this.generation) throw new Error('Superseded backend response');
     verifyFreshness(snap, this.previous);
     this.previous = snap;
