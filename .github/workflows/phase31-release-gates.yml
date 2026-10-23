@@ -1,0 +1,87 @@
+name: Phase 3.1 release gates
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [infra/phase31-ci-gates, integration/phase3-reviewed, integration/manufacturing-consolidated-candidate, main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: phase31-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUTF8: '1'
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+  FORCE_COLOR: '0'
+  CI: 'true'
+
+jobs:
+  verify:
+    name: Phase 3.1 verification (Windows)
+    runs-on: windows-2025
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Fresh shallow checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - name: CPython 3.12.10
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12.10'
+          architecture: x64
+      - name: Node 24.17.0
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.17.0'
+          check-latest: false
+      - name: Fresh hash-locked Python and integrity-locked npm dependencies
+        run: |
+          New-Item -ItemType Directory -Force .tmp-ci-results | Out-Null
+          python -m venv .venv
+          if ($LASTEXITCODE -ne 0) { throw 'venv creation failed' }
+          .venv/Scripts/python.exe -m pip install --index-url https://pypi.org/simple --only-binary=:all: --require-hashes -r ci/requirements-windows.lock
+          if ($LASTEXITCODE -ne 0) { throw 'Python prerequisites failed' }
+          npm.cmd ci --ignore-scripts --no-audit --no-fund --prefix recall-ui
+          if ($LASTEXITCODE -ne 0) { throw 'npm prerequisites failed' }
+      - name: Pinned Chrome and GS1 prerequisites
+        run: |
+          .venv/Scripts/python.exe ci/prepare.py
+          if ($LASTEXITCODE -ne 0) { throw 'Pinned prerequisites failed' }
+      - name: Required gates A through K
+        run: |
+          .venv/Scripts/python.exe ci/run_gates.py
+          if ($LASTEXITCODE -ne 0) { throw 'Required verification failed' }
+      - name: Preserve evidence on success or failure
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: phase31-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .tmp-ci-results/
+            ci/pins.json
+            ci/frozen-source.json
+            ci/requirements-windows.lock
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+  required:
+    name: Phase 3.1 required gates
+    if: always()
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Fail if verification failed, was cancelled or skipped
+        env:
+          VERIFICATION_RESULT: ${{ needs.verify.result }}
+        run: test "$VERIFICATION_RESULT" = success

@@ -4,14 +4,25 @@
 // predecessor. Local test custody: this is NOT independent custody and the helper never activates a checkpoint on a running server.
 import { ChildProcess, spawn, spawnSync } from "node:child_process";
 import { mkdirSync, mkdtempSync, rmSync } from "node:fs";
+import { createServer } from "node:net";
 import { tmpdir } from "node:os";
-import { join, resolve } from "node:path";
+import { basename, dirname, join, resolve } from "node:path";
 
 const ROOT = resolve("..");
+// Hardening adopted from research/phase31-reliability-audit@6d177e8 (OwnedServer): never attach to or kill a listener this helper did not
+// start, await real process exit before restart or removal, keep bounded child diagnostics, and delete only its own generated directory.
+const PREFIX = "pramaan-owned-";
+async function portFree(port: number) {
+  await new Promise<void>((ok, fail) => {
+    const s = createServer();
+    s.once("error", () => fail(new Error(`Test port ${port} already occupied; no process reused`)));
+    s.listen(port, "127.0.0.1", () => s.close((e) => (e ? fail(e) : ok())));
+  });
+}
 const PY = resolve(process.platform === "win32" ? "../.venv/Scripts/python.exe" : "../.venv/bin/python");
 
 export class OwnedStack {
-  readonly dir = mkdtempSync(join(tmpdir(), "pramaan-owned-"));
+  readonly dir = mkdtempSync(join(tmpdir(), PREFIX));
   readonly database = join(this.dir, "ledger.sqlite");
   readonly custody = join(this.dir, "custody");
   current = join(this.dir, "custody", "root.json");
@@ -19,6 +30,7 @@ export class OwnedStack {
   generations = 0;
   unanchored = false;   // real server started WITHOUT --trusted-anchor (UNANCHORED historical records only)
   private server?: ChildProcess;
+  private diagnostics = "";
   constructor(readonly port: number) {}
   get base() { return `http://127.0.0.1:${this.port}`; }
 
@@ -35,18 +47,27 @@ export class OwnedStack {
     const args = ["app.py", "--database", this.database, "--port", String(this.port)];
     if (!this.unanchored) args.push("--trusted-anchor", this.current);
     if (this.previous) args.push("--previous-anchor", this.previous);
-    this.server = spawn(PY, args, { cwd: ROOT, stdio: "ignore", windowsHide: true });
+    await portFree(this.port);
+    const child = this.server = spawn(PY, args, { cwd: ROOT, stdio: ["ignore", "pipe", "pipe"], windowsHide: true });
+    const keep = (d: unknown) => { this.diagnostics = (this.diagnostics + String(d)).slice(-8000); };
+    child.stdout?.on("data", keep); child.stderr?.on("data", keep);
+    let spawnError: Error | undefined; child.once("error", (e) => { spawnError = e; });
     for (let i = 0; i < 100; i++) {
-      try { if ((await fetch(`${this.base}/api/session`)).ok) return; } catch { /* not up yet */ }
+      if (spawnError || child.exitCode !== null || child.signalCode !== null) throw new Error(`owned server exited: ${spawnError?.message ?? child.exitCode}; ${this.diagnostics}`);
+      try { if ((await fetch(`${this.base}/api/session`, { signal: AbortSignal.timeout(750) })).ok) return; } catch { /* not up yet */ }
       await new Promise((r) => setTimeout(r, 150));
     }
-    throw new Error(`owned server on ${this.port} did not start`);
+    throw new Error(`owned server on ${this.port} did not start; ${this.diagnostics}`);
   }
 
   private async halt() {
     const s = this.server; this.server = undefined;
-    if (!s) return;
-    await new Promise<void>((done) => { s.once("exit", () => done()); s.kill(); setTimeout(done, 3000); });
+    if (!s || s.exitCode !== null || s.signalCode !== null) return;
+    await new Promise<void>((ok, fail) => {
+      const timer = setTimeout(() => fail(new Error(`owned server on ${this.port} did not exit`)), 5000);
+      s.once("close", () => { clearTimeout(timer); ok(); });
+      s.kill();
+    });
   }
 
   private ops(op: string, extra: string[] = []) {
@@ -74,5 +95,10 @@ export class OwnedStack {
     return { status: r.status, body: await r.json().catch(() => null) };
   }
 
-  async stop() { await this.halt(); try { rmSync(this.dir, { recursive: true, force: true }); } catch { /* best effort */ } }
+  async stop() {
+    await this.halt();
+    const root = resolve(this.dir);
+    if (dirname(root) !== resolve(tmpdir()) || !basename(root).startsWith(PREFIX)) throw new Error("Refusing cleanup outside the owned temp directory");
+    rmSync(root, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 });
+  }
 }

@@ -8,6 +8,7 @@ import copy
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from .service import Manufacturing
 from pramaan_integration import engine_bridge
@@ -73,12 +74,16 @@ class D5BindingTests(unittest.TestCase):
         self.assertEqual(self.code(self.app.audit.verify_publications), 'WATERMARK_REGRESSION')
 
     def test_watermark_beyond_the_ledger_is_rejected(self):
-        ahead = {src: seq + 50 for src, seq in self.app.ledger.watermark(MOTOR).items()}
-        try:
-            forge_entry(self.app, self.app.policy(), ahead)
-        except Exception:
-            self.skipTest('ledger refuses to build an inflated-watermark manifest; the forge is impossible to construct')
-        self.assertEqual(self.code(self.app.audit.verify_publications), 'WATERMARK_BEYOND_LEDGER')
+        """The ledger will not build a manifest above what it holds, so the forge is not constructible through it. The bound is
+        therefore exercised directly: a publication that claims positions the ledger no longer holds (e.g. events removed or rolled
+        back under an intact journal) must fail closed."""
+        self.assertEqual(self.app.audit.verify_publications()['status'], 'VERIFIED')
+        held = self.app.ledger.watermark(MOTOR)
+        lower = {src: max(0, seq - 1) for src, seq in held.items()}
+        self.assertNotEqual(held, lower)
+        with patch.object(self.app.ledger, 'watermark', return_value=lower):
+            self.assertEqual(self.code(self.app.audit.verify_publications), 'WATERMARK_BEYOND_LEDGER')
+        self.assertEqual(self.app.audit.verify_publications()['status'], 'VERIFIED')      # negative control: unpatched ledger verifies
 
     def test_legacy_rows_keep_their_historical_verdict(self):
         entry = copy.deepcopy(next(p for k, p in self.app.audit.verify() if k == 'EVALUATION')); entry.pop('manifest')

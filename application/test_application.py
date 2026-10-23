@@ -11,7 +11,8 @@ from urllib.request import Request, urlopen
 
 from application.service import Manufacturing, ValidationFailure, LedgerBlocked, RECALL_ID
 from application.server import make_server
-from pramaan_integration import encode_document
+from unittest.mock import patch
+from pramaan_integration import encode_document, Ledger
 
 PID = RECALL_ID + "/P1"
 
@@ -61,9 +62,15 @@ class ApplicationTests(unittest.TestCase):
 
     def test_seed_safety_cases_and_idempotence(self):
         self.app.seed_demo()
-        initial = self.app.snapshot()
-        self.app.seed_demo()
-        self.assertEqual(initial, self.app.snapshot())
+        # RELIABILITY FIX (from research/phase31-reliability-audit@6d177e8, scoped): `freshness.verifiedAt` is the wall clock to whole
+        # seconds, so two identical snapshots straddling a second boundary differed ONLY at /freshness/verifiedAt (observed in ~20-45% of
+        # natural runs). The clock is fixed for these two snapshot calls only; capture timestamps and every assertion are unchanged, and
+        # production clock semantics are not touched. Lease expiry/skew tests keep their own controlled clocks.
+        with patch.object(Ledger, '_now', staticmethod(lambda: '2026-10-22T00:00:00Z')):
+            initial = self.app.snapshot()
+            self.app.seed_demo()
+            repeated = self.app.snapshot()
+        self.assertEqual(initial, repeated)
         expected = {"MTR-26001": "AFFECTED", "MTR-26002": "UNRESOLVED", "MTR-26003": "EXCLUDED_WITH_EVIDENCE", "MTR-26004": "UNRESOLVED", "MTR-26005": "UNRESOLVED"}
         for m, finding in expected.items():
             self.assertEqual(self.current(m)["evidenceFinding"], finding)

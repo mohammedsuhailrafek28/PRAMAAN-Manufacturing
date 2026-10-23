@@ -61,7 +61,10 @@ test("the QR on the page decodes to the route-only address", async ({ page }) =>
     }
   }
   const decoded = jsQR(rgba, px, px)?.data;
-  expect(decoded).toBe("http://127.0.0.1:4173/passport.html#/passport/MTR-26004");
+  // FIXTURE-ONLY (M19): the expected origin was hard-coded to the default port 4173, so any isolated run on another port failed
+  // for an environment reason. The expectation is now the page's own origin; the route-only shape and no-extra-data checks are unchanged.
+  expect(decoded).toBe(`${new URL(page.url()).origin}/passport.html#/passport/MTR-26004`);
+  expect(decoded).toMatch(/^http:\/\/127\.0\.0\.1:\d+\/passport\.html#\/passport\/MTR-26004$/);
   await expect(page.getByTestId("qr-url")).toHaveText(decoded!);
   await expect(page.getByText(/will not work while this application is restricted to 127\.0\.0\.1/)).toBeVisible();
   await page.getByTestId("qr-svg").screenshot({ path: `${screenshots}/05-qr-label.png` });
