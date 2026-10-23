@@ -173,7 +173,7 @@ Timing budget: 2:15 + 0:10 switch + 0:25 capture steps (rehearse; type serials i
 - It is not a bug and not a crash; the screen says: `Checkpoint required ... ANCHORED_PREFIX_ONLY: current release eligibility is withheld for every motor ... Exporting a local candidate does not establish trust.`
 - Measured there, for a 4-motor, ~43-record ledger: export 1.0 s, restart to first answer about 1.1 s. At 100 motors / 1,000 journal rows the audit measured only `503 VERIFYING` responses and 25 s activation: **do not claim scale**.
 
-Optional live version (**not run on stage in rehearsal; the equivalent API run is in the audit**): separate checkout of `f9dcf56`, root checkpoint on an empty ledger, serve, make one capture, observe the warning, `application.anchors export ... --previous-anchor <root>`, restart with `--trusted-anchor <new> --previous-anchor <root>`. Allow 3 minutes; it adds nothing the captures do not show.
+**Recorded captures only (owner decision, 2026-10-23).** The H1/H2 checkpoint segment is shown during judging from the recorded captures only. Do not run live H1/H2 transitions until the integrated backend has been independently safety-reviewed and the full demo has passed a complete rehearsal. This runbook makes no claim that H1/H2 has passed independent safety certification; the audit verdict on `f9dcf56` is REVISE.
 
 On-screen states on the demo SHA, what they mean, what to say:
 
@@ -248,10 +248,10 @@ Some reason codes render as `No description available for this code.` (for examp
 
 ## 14. What was and was not run for this runbook
 
-Run: clone, install and build of the demo SHA; seeding, anchor export and verify in PowerShell; refusal to overwrite; preflight P2 (pass on the demo SHA and `f928210`, fail on `main`); P3 against the seeded server; the 12-step live capture through the real UI on a fresh ledger with a default both-position recall; page captures for every URL above; backend kill and recovery with a page held open; missing and mismatched anchor; a 200-second three-page soak (in the audit). **Not run:** a second machine or a cold network; the optional live H1/H2 segment; any browser other than Chrome; mobile; screen readers; a projector at lower resolution; the helpers under macOS or Linux. The helpers `prepare_db.py` and `preflight.py` are new review tooling, not application source.
+Run: clone, install and build of the demo SHA; seeding, anchor export and verify in PowerShell; refusal to overwrite; preflight P2 (pass on the demo SHA and `f928210`, fail on `main`); P3 against the seeded server; the 12-step live capture through the real UI on a fresh ledger with a default both-position recall; page captures for every URL above; backend kill and recovery with a page held open; missing and mismatched anchor; a 200-second three-page soak (in the audit). **Not run:** a second machine or a cold network; a live H1/H2 segment (now excluded from judging by owner decision); any browser other than Chrome; mobile; screen readers; a projector at lower resolution; the helpers under macOS or Linux. The helpers `prepare_db.py` and `preflight.py` are new review tooling, not application source.
 
 ## 15. Open items for the owner
 
 1. Approve pushing `plan/hackathon-demo-runbook` (not pushed).
 2. Decide whether to correct `main` or to name the demo SHA in the repository description (audit item 9.1).
-3. Decide whether to show the H1/H2 checkpoint behaviour live or only from captures.
+3. ~~Decide whether to show the H1/H2 checkpoint behaviour live~~ Decided 2026-10-23: recorded captures only (see section 8).
