@@ -53,9 +53,9 @@ def ports_free():
             if sock.connect_ex(('127.0.0.1',port))==0:raise RuntimeError(f'Expected isolated test port busy: {port}')
 
 
-def command(name,args,cwd=ROOT,pattern=None):
+def command(name,args,cwd=ROOT,pattern=None,timeout=300):
     start=time.perf_counter()
-    proc=subprocess.run(args,cwd=cwd,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=300)
+    proc=subprocess.run(args,cwd=cwd,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=timeout)
     output=proc.stdout+proc.stderr
     (OUT/f'{name}.txt').write_text(output,encoding='utf-8')
     if proc.returncode!=0:raise RuntimeError(f'{name} exit {proc.returncode}; see {name}.txt')
@@ -124,7 +124,7 @@ def main():
         if not chrome.is_file():raise RuntimeError('Pinned Chrome missing')
         os.environ['PRAMAAN_CI_CHROME']=str(chrome)
         command('browser-version',['node',str(ROOT/'ci/browser_version.cjs'),str(chrome)],pattern=re.escape(PINS['chrome']['version']))
-        gate(result,'I',lambda:command('playwright',[npm,'run','test:e2e','--','--config',str(ROOT/'ci/playwright.config.ts')],ui,f"{E['playwright']} passed"))
+        gate(result,'I',lambda:command('playwright',[npm,'run','test:e2e','--','--config',str(ROOT/'ci/playwright.config.ts')],ui,f"{E['playwright']} passed",timeout=1500))   # 138 browser tests exceed the 300 s default on hosted runners; exit code and exact count still decide
         ports_free();frozen();verify(ROOT)
         missing=[g for g in 'ABCDEFGHIJK' if g not in result['gates'] and g not in result.get('failures',{})]
         if missing:raise RuntimeError(f'Required gate omitted: {missing}')
