@@ -17,9 +17,9 @@ export interface RecallDataSource {
 export class BackendRecallDataSource implements RecallDataSource {
   private previous: RecallSnapshot | null = null;
   private generation = 0;
-  private accept(body: unknown, generation: number) {
+  private accept(body: unknown, generation: number, status: number) {
     if (generation !== this.generation) throw new Error('Superseded backend response');
-    const gate = evaluateEnvelope({status:200,body}, this.previous);
+    const gate = evaluateEnvelope({status,body}, this.previous);
     if (gate.kind === 'WITHHELD') throw new GateWithheldError(gate);
     const snap = body as RecallSnapshot;
     this.previous = snap;
@@ -51,7 +51,7 @@ export class BackendRecallDataSource implements RecallDataSource {
       if(gate.kind === 'WITHHELD') throw new GateWithheldError(gate);
       throw new Error('Ledger unavailable');
     }
-    return this.accept(res.body, generation);
+    return this.accept(res.body, generation, res.status);
   }
   async command(path: string, body: Record<string, unknown>) {
     const generation = ++this.generation;
@@ -65,7 +65,7 @@ export class BackendRecallDataSource implements RecallDataSource {
       if(gate.kind === 'WITHHELD') throw new GateWithheldError(gate);
       throw new Error('Capture unavailable');
     }
-    return { snapshot: this.accept(result.snapshot, generation), captureToDecisionMs: Number(result.captureToDecisionMs) };
+    return { snapshot: this.accept(result.snapshot, generation, res.status), captureToDecisionMs: Number(result.captureToDecisionMs) };
   }
 }
 
