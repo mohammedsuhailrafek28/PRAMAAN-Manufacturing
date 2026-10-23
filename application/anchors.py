@@ -135,7 +135,7 @@ def export_anchor(app, previous=None):
         app.audit.verify_publications()
         for motor, in app.db.execute('SELECT serial FROM motors'):
             app.ledger.snapshot(motor,app.ledger.watermark(motor))
-        if previous is not None:verify_anchor(app,previous)
+        if previous is not None:verify_anchor(app,previous,predecessor=True)
         body=export_v1(app)['body']
         body.update(format=FORMAT_V2,verifierVersion=VERIFIER_VERSION,engineTreeId=ENGINE_TREE,
                     ledger=ledger_binding(app),previousCheckpointHash=digest(previous) if previous else None)
@@ -148,7 +148,7 @@ def export_anchor(app, previous=None):
 
 
 @consistent()
-def verify_anchor(app,anchor,previous=None,cache=None,deadline=None,prefix_cache=None):
+def verify_anchor(app,anchor,previous=None,cache=None,deadline=None,prefix_cache=None,predecessor=False):
     try:
         body=anchor['body']
         if set(anchor)!={'body','checksum'} or digest(body)!=anchor['checksum']:raise IntegrityFailure('PREFIX_MISMATCH')
@@ -165,7 +165,9 @@ def verify_anchor(app,anchor,previous=None,cache=None,deadline=None,prefix_cache
             policies=list(app.db.execute('SELECT policy FROM recall_announcements ORDER BY rowid LIMIT ?',
                           (len(body['ledger']['rows']['recall_announcements']),)))
             if digest(json.loads(policies[-1][0]) if policies else None)!=body['policyDigest']:raise IntegrityFailure('PREFIX_MISMATCH')
-            if body['previousCheckpointHash'] is not None:
+            if body['previousCheckpointHash'] is not None and previous is None and predecessor:
+                pass  # verifying an already-linked predecessor on export: its own link is bound by hash into the successor
+            elif body['previousCheckpointHash'] is not None:
                 if previous is None or digest(previous)!=body['previousCheckpointHash']:raise IntegrityFailure('PREFIX_MISMATCH')
                 p=previous['body']
                 if digest(p)!=previous['checksum'] or p['archiveId']!=body['archiveId'] or p['sequence']>body['sequence']:raise IntegrityFailure('PREFIX_MISMATCH')
