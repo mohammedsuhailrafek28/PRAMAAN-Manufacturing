@@ -126,8 +126,40 @@ function evaluate(res: { status: number; body: unknown }, previous: RecallSnapsh
   const state = cp.state;
   if (typeof state !== "string" || !(STATES as readonly string[]).includes(state)) return out(withheld("UNKNOWN_STATE", previous));
   if (state === "ANCHOR_INVALID") return out(withheld("ANCHOR_INVALID", previous));
-  // 4. Structural validity of the snapshot itself (finding/action invariants etc.).
   const snap = validateSnapshot(body);
+  // Also reject ambiguous identity/scope that the declared-policy validator cannot see.
+  // An undeclared decision must not escape finding/action validation; an unidentified
+  // obligation must not be treated as irrelevant to every motor.
+  if (!Array.isArray(body.units) || !Array.isArray(body.policies) || !isObj(body.decisions)) return out(withheld("INTEGRITY", previous));
+  const ids = body.units.map((u) => isObj(u) ? u.unitId : undefined);
+  const pids = body.policies.map((p) => isObj(p) ? p.policyId : undefined);
+  const uniqueIds = (xs: unknown[]) => xs.every((x) => typeof x === "string" && x.length > 0) && new Set(xs).size === xs.length;
+  const sameKeys = (obj: Record<string, unknown>, keys: unknown[]) => Object.keys(obj).length === keys.length && keys.every((key) => typeof key === "string" && Object.hasOwn(obj, key));
+  if (!uniqueIds(ids) || !uniqueIds(pids) || !sameKeys(el, ids) || !sameKeys(body.decisions, ids)) return out(withheld("CONTRADICTORY", previous));
+  const decisionIds = new Set<string>();
+  for (const id of ids as string[]) {
+    const byPolicy = body.decisions[id];
+    if (!isObj(byPolicy) || !sameKeys(byPolicy, pids)) return out(withheld("CONTRADICTORY", previous));
+    // An empty policy list may describe a pre-recall fleet, but cannot conceal decisions.
+    for (const pid of pids as string[]) {
+      const bundle = byPolicy[pid];
+      if (!isObj(bundle) || !isObj(bundle.current) || bundle.current.policyId !== pid) return out(withheld("CONTRADICTORY", previous));
+      const decisionId = bundle.current.decisionId;
+      if (typeof decisionId !== "string" || !decisionId || decisionIds.has(decisionId)) return out(withheld("CONTRADICTORY", previous));
+      decisionIds.add(decisionId);
+    }
+  }
+  if (body.notifications !== undefined) {
+    if (!Array.isArray(body.notifications)) return out(withheld("INTEGRITY", previous));
+    for (const n of body.notifications) {
+      if (!isObj(n) || typeof n.unitId !== "string" || !ids.includes(n.unitId)
+        || n.required !== true || typeof n.reason !== "string" || !n.reason
+        || typeof n.decisionId !== "string" || !n.decisionId
+        || typeof n.appliesIfDecisionCommunicated !== "string" || !n.appliesIfDecisionCommunicated
+        || typeof n.deliveryStatus !== "string" || !n.deliveryStatus) return out(withheld("CONTRADICTORY", previous));
+    }
+  }
+  // 4. Structural validity and exact scope have both passed.
   const f = snap.freshness!; const c = snap.checkpoint!;
   if (typeof f.archiveId !== "string" || !f.archiveId || typeof f.headHash !== "string" || !f.headHash || !Number.isSafeInteger(f.sequence) || f.sequence < 1
     || typeof c.checkpointRequired !== "boolean" || typeof c.h2 !== "string") return out(withheld("MISSING_METADATA", previous));

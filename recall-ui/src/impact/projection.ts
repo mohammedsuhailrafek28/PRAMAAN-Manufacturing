@@ -356,7 +356,8 @@ export function buildImpactGraph(snap: RecallSnapshot, selection: Selection, opt
     const sh = unit.shipment;
     if (sh) {
       const shipEvent = typeof sh.evidenceEventId === "string" ? byId.get(sh.evidenceEventId) : undefined;
-      if (sh.backedByLedger === true && shipEvent?.eventType === "MOTOR_SHIPPED") {
+      if (sh.backedByLedger === true && shipEvent?.eventType === "MOTOR_SHIPPED"
+          && shipEvent.payload.shipmentId === sh.shipmentId && shipEvent.occurredAt === sh.shippedAt) {
         const sid = `ship:${unit.unitId}:${sh.shipmentId}`;
         node({ id: sid, kind: "SHIPMENT", label: sh.shipmentId, sublabel: `shipment recorded ${sh.shippedAt}`, unitId: unit.unitId, evidence: [ref(unit.unitId, shipEvent, "Shipment record")], attrs: { shippedAt: sh.shippedAt, timeSource: shipEvent.timeSource } });
         edge({ from: m.id, to: sid, kind: "MOTOR_SHIPMENT", style: "RECORDED", basis: "MOTOR_SHIPPED event named by the unit's shipment record", evidence: [ref(unit.unitId, shipEvent, "Shipment record")], historical: false });

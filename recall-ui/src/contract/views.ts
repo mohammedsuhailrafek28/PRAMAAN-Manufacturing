@@ -44,3 +44,20 @@ export function lotChoicesOf(view: PageView): ReturnType<typeof lotChoices> {
 }
 
 export type { GatedSnapshot, HistoricalView, PageView, PreviewView };
+
+/** Current console claims: legacy evidence views may inspect validated records, but cannot
+ * derive current clearance from those records. Only this branded projection supplies it. */
+export function consoleClaims(view: GatedSnapshot) {
+  assertGated(view);
+  const snap = rawSnapshotOf(view);
+  const byDecision = new Map<string, import("./clearance").RecordedClaim>();
+  const byMotor = new Map<string, import("./clearance").MotorClearance>();
+  for (const unit of snap.units) {
+    const clearance = clearanceOf(view, unit.unitId);
+    byMotor.set(unit.unitId, clearance);
+    for (const bundle of Object.values(snap.decisions[unit.unitId] ?? {})) {
+      byDecision.set(bundle.current.decisionId, { hold: bundle.current.operationalAction !== "RELEASE_ELIGIBLE", clearance });
+    }
+  }
+  return { byDecision, byMotor };
+}

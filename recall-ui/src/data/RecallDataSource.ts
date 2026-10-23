@@ -1,6 +1,6 @@
 import type { RecallSnapshot } from "../domain/types";
 import { validateSnapshot } from "../domain/validate";
-import { verifyFreshness } from './freshness';
+import { evaluateEnvelope, GateWithheldError } from "../contract/gate";
 
 /**
  * The only seam between the UI and wherever recall decisions come from.
@@ -18,10 +18,10 @@ export class BackendRecallDataSource implements RecallDataSource {
   private previous: RecallSnapshot | null = null;
   private generation = 0;
   private accept(body: unknown, generation: number) {
-    const snap = validateSnapshot(body);
-    if (!snap.checkpoint || !snap.eligibility) throw new Error('Strict checkpoint state and eligibility projection required');
     if (generation !== this.generation) throw new Error('Superseded backend response');
-    verifyFreshness(snap, this.previous);
+    const gate = evaluateEnvelope({status:200,body}, this.previous);
+    if (gate.kind === 'WITHHELD') throw new GateWithheldError(gate);
+    const snap = body as RecallSnapshot;
     this.previous = snap;
     return snap;
   }
@@ -46,7 +46,11 @@ export class BackendRecallDataSource implements RecallDataSource {
   async load(signal?: AbortSignal): Promise<RecallSnapshot> {
     const generation = ++this.generation;
     const res = await this.request("/api/snapshot", { signal, cache: "no-store" });
-    if (!res.ok) throw new Error(`Ledger unavailable: HTTP ${res.status}`);
+    if (!res.ok) {
+      const gate=evaluateEnvelope({status:res.status,body:res.body},this.previous);
+      if(gate.kind === 'WITHHELD') throw new GateWithheldError(gate);
+      throw new Error('Ledger unavailable');
+    }
     return this.accept(res.body, generation);
   }
   async command(path: string, body: Record<string, unknown>) {
@@ -56,7 +60,11 @@ export class BackendRecallDataSource implements RecallDataSource {
       "Content-Type": "application/json", "X-Pramaan-Token": session.token,
     }, body: JSON.stringify(body) });
     const result = res.body as {error?:string;snapshot:unknown;captureToDecisionMs:number};
-    if (!res.ok) throw new Error(result.error ?? `Capture failed: HTTP ${res.status}`);
+    if (!res.ok) {
+      const gate=evaluateEnvelope({status:res.status,body:res.body},this.previous);
+      if(gate.kind === 'WITHHELD') throw new GateWithheldError(gate);
+      throw new Error('Capture unavailable');
+    }
     return { snapshot: this.accept(result.snapshot, generation), captureToDecisionMs: Number(result.captureToDecisionMs) };
   }
 }

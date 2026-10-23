@@ -28,9 +28,9 @@ export function DecisionHistory({ history }: { history: Decision[] }) {
             <li key={d.decisionId} className={superseded ? "superseded" : "latest"}>
               <h3>
                 Version {d.version ?? i + 1} · <code>{d.decisionId}</code>{" "}
-                <span className="tag">{superseded ? `Superseded by v${history[i + 1].version ?? i + 2}` : "Current"}</span>
+                <span className="tag">{superseded ? `Superseded by v${history[i + 1].version ?? i + 2}` : "Latest recorded"}</span>
               </h3>
-              <DecisionChips d={d} />
+              <DecisionChips d={d} historical />
               <p>{changeNote(history[i - 1], d)}</p>
               <dl className="meta">
                 <div><dt>Triggered by event</dt><dd>{d.triggerEventId ? <code>{d.triggerEventId}</code> : "recall announcement state"}</dd></div>

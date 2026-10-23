@@ -11,7 +11,7 @@ function Side({ title, sub, d, truth }: { title: string; sub: string; d: Decisio
     <section className="side" aria-label={title}>
       <h3>{title}</h3>
       <p className="muted">{sub}</p>
-      <DecisionChips d={d} />
+      <DecisionChips d={d} historical />
       <ul className="plain">
         {d.reasonCodes.length === 0 && <li className="muted">No reason codes</li>}
         {d.reasonCodes.map((c) => <li key={c}><b>{humanize(c)}</b><div className="muted">{explain(REASONS, c)}</div></li>)}
@@ -40,7 +40,7 @@ export function Case06Comparison({ snap, policyId, unitId }: { snap: RecallSnaps
       <h2>{live ? "Live case comparison: slot attribution safety" : "Case 06 before and after: slot attribution safety"}</h2>
       <p>
         Left is the original engine semantics ({snap.provenance.comparisonEngine.version}); right is the current engine ({snap.provenance.engine.version}).
-        Both ran over the same synthetic events. Wrong-slot scans are the case: a removal that matches two slots must not clear the wrong one.
+        Recorded comparison only; neither column is current clearance. Both ran over the same synthetic events. Wrong-slot scans are the case: a removal that matches two slots must not clear the wrong one.
       </p>
       {rows.length === 0 && <p className="warn" role="alert">No comparison data in the snapshot.</p>}
       {!p1 && !live && <p className="callout">Synthetic ground truth is defined for {POLICY_LABEL[P1]} only, so safety labels are shown for P1. Switch policy to see them.</p>}
@@ -55,8 +55,8 @@ export function Case06Comparison({ snap, policyId, unitId }: { snap: RecallSnaps
               {rows.map((r) => (
                 <tr key={r.unitId} aria-current={r.unitId === sel?.unitId ? "true" : undefined}>
                   <td data-label="Variant"><a href={`#/case06/${r.unitId}`}>{r.unitId}</a></td>
-                  <td data-label="Original">{humanize(r.legacy.evidenceFinding)} · {humanize(r.legacy.operationalAction)}{p1 && isFalseRelease(r, "legacy") ? " ✖ false release" : ""}</td>
-                  <td data-label="Current">{humanize(r.current.evidenceFinding)} · {humanize(r.current.operationalAction)}{p1 && isFalseRelease(r, "current") ? " ✖ false release" : ""}</td>
+                  <td data-label="Original">Recorded output: {humanize(r.legacy.evidenceFinding)} · {humanize(r.legacy.operationalAction)}{p1 && isFalseRelease(r, "legacy") ? " ✖ false release" : ""}</td>
+                  <td data-label="Current">Recorded output: {humanize(r.current.evidenceFinding)} · {humanize(r.current.operationalAction)}{p1 && isFalseRelease(r, "current") ? " ✖ false release" : ""}</td>
                   <td data-label="Truth">{r.syntheticGroundTruth ? humanize(r.syntheticGroundTruth.trueP1Finding) : "none"}</td>
                 </tr>
               ))}

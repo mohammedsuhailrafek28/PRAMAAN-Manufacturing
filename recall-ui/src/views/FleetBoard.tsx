@@ -1,9 +1,13 @@
+import {useConsoleClaims} from "../contract/ConsoleClaims";
+import {isCurrentClearance} from "../contract/clearance";
 import { useMemo, useState } from "react";
 import { DecisionChips, SyntheticTag } from "../components/StatusChips";
 import { countDecisions, fmtTime, unitDecision } from "../domain/derive";
 import type { Finding, RecallSnapshot } from "../domain/types";
 
 export function FleetBoard({ snap, policyId }: { snap: RecallSnapshot; policyId: string }) {
+  const {claims,preview}=useConsoleClaims();
+  const cleared=claims ? [...claims.byMotor.values()].filter(isCurrentClearance).length : 0;
   const [finding, setFinding] = useState<"ALL" | Finding>("ALL");
   const [family, setFamily] = useState("ALL");
   const [q, setQ] = useState("");
@@ -27,7 +31,7 @@ export function FleetBoard({ snap, policyId }: { snap: RecallSnapshot; policyId:
         <li className="finding-UNRESOLVED"><b>{counts.byFinding.UNRESOLVED}</b> <span aria-hidden="true">?</span> unresolved</li>
         <li className="finding-EXCLUDED_WITH_EVIDENCE"><b>{counts.byFinding.EXCLUDED_WITH_EVIDENCE}</b> <span aria-hidden="true">✓</span> excluded with evidence</li>
         <li><b>{counts.hold}</b> on recall hold</li>
-        <li><b>{counts.release}</b> release eligible</li>
+        <li><b>{cleared}</b> current clearance{preview ? ` (synthetic recorded releases: ${counts.release}; not authorization)` : ""}</li>
         <li><b>{counts.review}</b> review required</li>
       </ul>
 

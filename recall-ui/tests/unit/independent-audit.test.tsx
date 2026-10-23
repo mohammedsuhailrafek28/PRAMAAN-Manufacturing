@@ -31,6 +31,12 @@ describe('independent frontend audit challenges',()=>{
   const e=fixture();e.body.notifications=[{required:true,reason:'PRIOR_EXCLUSION_WITHDRAWN',obligationId:'AUDIT-OB'}];
   expect(evaluateEnvelope(e,null).kind).toBe('WITHHELD');
  });
+ it('duplicate current decision identities cannot share a console clearance claim',()=>{
+  const e=fixture();const first=Object.values(e.body.decisions['MTR-26003'])[0] as any;
+  const held=Object.values(e.body.decisions['MTR-26001'])[0] as any;
+  held.current.decisionId=first.current.decisionId;
+  expect(evaluateEnvelope(e,null).kind).toBe('WITHHELD');
+ });
  it('one non-cleared motor does not downgrade a different eligible motor',()=>{
   const e=fixture();e.body.eligibility['MTR-26001'].currentReleaseEligible=false;
   const g=evaluateEnvelope(e,null);expect(g.kind).toBe('CURRENT');
@@ -62,6 +68,7 @@ describe('independent frontend audit challenges',()=>{
   if(g.kind==='CURRENT'){
    const graph=projectImpact(g.view,{kind:'BEARING_LOT',id:'BR-310'},{mode:'current'});
    expect(graph.nodes.some(n=>n.kind==='SHIPMENT' && n.label==='AUDIT-FORGED-SHIPMENT')).toBe(false);
+   expect(graph.issues.some(i=>i.kind==='SHIPMENT_NOT_LEDGER_BACKED')).toBe(true);
   }
  });
 });

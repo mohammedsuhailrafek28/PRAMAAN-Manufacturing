@@ -16,6 +16,8 @@ export function passportRoute(unitId: string): string {
 /** `pageUrl` is the address the passport page is served from; its query and fragment are discarded. */
 export function passportUrl(unitId: string, pageUrl: string): string {
   const u = new URL(pageUrl);
+  u.username = "";
+  u.password = "";
   u.search = "";
   u.hash = "";
   return `${u.toString()}${passportRoute(unitId)}`;

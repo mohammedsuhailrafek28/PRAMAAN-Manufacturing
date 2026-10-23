@@ -8,12 +8,14 @@ import { FleetBoard } from "./views/FleetBoard";
 import { LotInvestigationView } from "./views/LotInvestigation";
 import { UnitDetail, type UnitTab } from "./views/UnitDetail";
 import { ManufacturingWorkbench } from "./views/ManufacturingWorkbench";
-import { verifyFreshness } from './data/freshness';
+import { evaluateDetailed, GateWithheldError, type Gate } from "./contract/gate";
+import { ConsoleClaimsProvider } from "./contract/ConsoleClaims";
+import type { HistoricalView } from "./contract/gated";
 
 type State =
   | { status: "loading" }
   | { status: "error"; message: string; issues?: ValidationIssue[] }
-  | { status: "ready"; snap: RecallSnapshot };
+  | { status: "ready"; snap: RecallSnapshot; gate: Gate | null };
 
 type Route =
   | { page: "fleet" }
@@ -45,14 +47,18 @@ export function App({ source }: { source: RecallDataSource }) {
   const busyRef = useRef(false);
   const generation = useRef(0);
   const leaseTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const [lastSnap, setLastSnap] = useState<RecallSnapshot | null>(null);
   const previous = useRef<RecallSnapshot | null>(null);
   const renewLease = (snap: RecallSnapshot) => {
-    const remaining = source.command ? verifyFreshness(snap, previous.current) : 5000;
-    previous.current = snap;
+    const result = source.command ? evaluateDetailed({status:200, body:snap},previous.current) : null;
+    const gate = result?.gate ?? null;
+    if(gate?.kind === "WITHHELD") throw new GateWithheldError(gate);
+    if(source.command) previous.current = snap;
     clearTimeout(leaseTimer.current);
-    setLeaseValid(true); setVerifiedAt(snap.freshness?.verifiedAt ?? new Date().toISOString());
-    if (source.command) leaseTimer.current=setTimeout(()=>{generation.current++;setLeaseValid(false);setState({status:'error',message:'Verification lease expired; historical release decisions are not currently verified'});},remaining);
+    const current=gate?.kind === "CURRENT";
+    setLeaseValid(current || !source.command);
+    setVerifiedAt(current ? snap.freshness!.verifiedAt : "");
+    if(current) leaseTimer.current=setTimeout(()=>{generation.current++;setLeaseValid(false);setState({status:'error',message:'Verification lease expired; current status withheld'});},gate.leaseMs);
+    return gate;
   };
 
   useEffect(() => {
@@ -72,9 +78,9 @@ export function App({ source }: { source: RecallDataSource }) {
       .load(ctl.signal)
       .then((snap) => {
         if (ctl.signal.aborted || gen !== generation.current) return;
-        renewLease(snap);
+        const gate = renewLease(snap);
         setPolicyId(p => snap.policies.some(s => s.policyId === p) ? p : snap.policies[0]?.policyId ?? "");
-        setState({ status: "ready", snap }); setLastSnap(snap);
+        setState({ status: "ready", snap, gate });
       })
       .catch((e: unknown) => {
         if (ctl.signal.aborted || gen !== generation.current) return;
@@ -83,7 +89,7 @@ export function App({ source }: { source: RecallDataSource }) {
         else setState({ status: "error", message: e instanceof Error ? e.message : String(e) });
       }).finally(() => { inFlight=false; });
     };
-    const resume = () => { generation.current++; setLeaseValid(false); if (!document.hidden) refresh(); };
+    const resume = () => { generation.current++; setLeaseValid(false); setState({status:'error',message:'Current status withheld while tab visibility changes'}); if (!document.hidden) refresh(); };
     refresh();
     const interval = source.command ? setInterval(refresh, 2000) : undefined;
     if (source.command) document.addEventListener('visibilitychange', resume);
@@ -99,10 +105,9 @@ export function App({ source }: { source: RecallDataSource }) {
     try {
       const result = await source.command(path, body);
       if (gen !== generation.current) throw new Error('Capture response superseded; verify current evidence again');
-      renewLease(result.snapshot);
+      const gate = renewLease(result.snapshot);
       setPolicyId(result.snapshot.policies[0]?.policyId ?? "");
-      setState({ status: "ready", snap: result.snapshot });
-      setLastSnap(result.snapshot);
+      setState({ status: "ready", snap: result.snapshot, gate });
       requestAnimationFrame(() => setCaptureStatus(`Evidence captured. Backend capture-to-decision ${result.captureToDecisionMs.toFixed(1)} ms; browser request-to-render scheduled ${(performance.now()-started).toFixed(1)} ms.`));
     } catch (e) {
       // An interrupted capture can have durable partial evidence. Remove stale decisions.
@@ -112,9 +117,6 @@ export function App({ source }: { source: RecallDataSource }) {
   const nav = (page: Route["page"], label: string, href: string) => (
     <a href={href} aria-current={route.page === page ? "page" : undefined}>{label}</a>
   );
-  const withheld = !!source.command && state.status === 'ready' &&
-    (state.snap.checkpoint?.state === 'ANCHORED_PREFIX_ONLY' || Object.entries(state.snap.decisions).some(([motor,policies])=>
-      Object.values(policies).some(b=>b.current.operationalAction==='RELEASE_ELIGIBLE') && state.snap.eligibility?.[motor]?.currentReleaseEligible !== true));
 
   return (
     <>
@@ -123,6 +125,9 @@ export function App({ source }: { source: RecallDataSource }) {
         <h1>Recall Investigation</h1>
         <nav aria-label="Primary">
           {nav("fleet", "Motors", "#/")}
+          <a href="./passport.html">Product passports</a>
+          <a href="./investigation.html">Evidence investigation</a>
+          <a href="./impact.html">Recall impact graph</a>
           {nav("lot", "Lot investigation", "#/lot/BR-204")}
           {nav("case06", source.command ? "Case comparison" : "Case 06 before / after", "#/case06/case-06")}
           <a href={source.command ? "/?mode=fixtures" : "/"}>{source.command ? "Fixture demo mode" : "Live ledger mode"}</a>
@@ -140,30 +145,42 @@ export function App({ source }: { source: RecallDataSource }) {
             <h2>{state.issues ? "The recall data failed validation" : "Recall data could not be loaded"}</h2>
             <p>{state.message}. No decisions are shown, because unvalidated data could mislead a release decision.</p>
             {source.command && verifiedAt && <p>Last successful local verification: {verifiedAt}. Earlier decisions are historical evidence, not currently verified operational clearance.</p>}
-            {source.command && lastSnap && <details><summary>Last recorded decisions — historical, not operational clearance</summary><ul>{Object.entries(lastSnap.decisions).flatMap(([motor,policies])=>Object.entries(policies).map(([policy,bundle])=><li key={`${motor}:${policy}`}>{motor}: recorded {bundle.current.evidenceFinding} / {bundle.current.operationalAction}. Historical only; current eligibility unavailable.</li>))}</ul></details>}
             <p><a href="/">Reload verified ledger</a></p>
             {state.issues && (
               <ul>{state.issues.slice(0, 20).map((i, k) => <li key={k}><code>{i.path}</code>: {i.message}</li>)}</ul>
             )}
           </div>
         )}
-        {source.command && lastSnap && <ManufacturingWorkbench snap={lastSnap} run={run} busy={busy || state.status !== 'ready' || !leaseValid || lastSnap.checkpoint?.state !== 'ANCHORED_CURRENT'} />}
         {state.status === "ready" && (
-          <>
+          <ConsoleClaimsProvider view={state.gate?.kind === "CURRENT" && leaseValid ? state.gate.view : null} preview={!source.command}>
+            {state.gate?.kind === "SEGREGATED" && <HistoricalFacts view={state.gate.view} />}
+            {(!source.command || (state.gate?.kind === "CURRENT" && leaseValid)) && <>
             <ProvenanceBar snap={state.snap} policyId={policyId} onPolicy={setPolicyId} sourceLabel={source.label} />
+            {source.command && <ManufacturingWorkbench snap={state.snap} run={run} busy={busy || !leaseValid} />}
+            {!source.command && <p role="note">Explicit synthetic fixture demo. All recorded evaluator output is illustrative, never current clearance.</p>}
             {source.command && <p role="status">{leaseValid ? `Verified with local synthetic backend at ${verifiedAt}; lease 5 seconds, refresh every 2 seconds.` : "Current decisions unavailable while evidence is being refreshed or captured."}</p>}
             {captureStatus && <p role="status" data-testid="capture-status">{captureStatus}</p>}
             {state.snap.notifications && state.snap.notifications.length > 0 && <section className="callout" aria-label="Notification obligations"><h2>Notification obligations</h2><p>PENDING. Resolution is disabled until an authenticated workflow is approved. Displaying a decision does not mark it communicated; no notifications are sent by this application.</p><ul>{state.snap.notifications.map(n => <li key={n.decisionId}><a href={`#/unit/${n.unitId}/history`}>{n.unitId}</a>: {n.reason}; if {n.appliesIfDecisionCommunicated} was communicated. Delivery: {n.deliveryStatus}. Acknowledgment: unknown.</li>)}</ul></section>}
-            {withheld && <section role="alert" aria-label="Current eligibility withheld"><h2>{state.snap.checkpoint?.state === 'ANCHORED_PREFIX_ONLY' ? 'Checkpoint required' : 'Notification obligation prevents clearance'}</h2><p>{state.snap.checkpoint?.state === 'ANCHORED_PREFIX_ONLY' ? 'ANCHORED_PREFIX_ONLY: current release eligibility is withheld for every motor. The independently protected checkpoint does not cover current evidence and publication state. Exporting a local candidate does not establish trust.' : 'Recorded exclusions do not resolve outstanding notification obligations. Current eligibility must be checked separately.'}</p><ul>{Object.entries(state.snap.decisions).flatMap(([motor,policies])=>Object.entries(policies).map(([policy,b])=><li key={`${motor}:${policy}`}>{motor}: {b.current.operationalAction==='RECALL_HOLD' ? 'Recall hold remains in effect' : state.snap.eligibility?.[motor]?.currentReleaseEligible ? 'Current eligibility verified; detailed views withheld while another motor requires review' : 'Recorded exclusion is historical; current eligibility withheld'}. Evidence: {b.current.reasonCodes.join(', ')}.</li>))}</ul></section>}
-            {(!source.command || (leaseValid && !withheld)) && <>
+            <>
               {route.page === "fleet" && <FleetBoard snap={state.snap} policyId={policyId} />}
               {route.page === "unit" && <UnitDetail snap={state.snap} unitId={route.unitId} policyId={policyId} tab={route.tab} />}
               {route.page === "lot" && <LotInvestigationView snap={state.snap} policyId={policyId} lotId={route.lotId} />}
               {route.page === "case06" && <Case06Comparison snap={state.snap} policyId={policyId} unitId={route.unitId} />}
+            </>
             </>}
-          </>
+          </ConsoleClaimsProvider>
         )}
       </main>
     </>
   );
+}
+
+/** No decisions, task obligations or clearance can enter this facts-only component. */
+function HistoricalFacts({view}:{view:HistoricalView}) {
+ return <section aria-label="Historical evidence only" data-testid="console-historical">
+  <h2>{view.cause === "PREFIX_ONLY" ? "Checkpoint required" : "Unanchored historical records"}</h2>
+  <p>{view.reason}</p>
+  <p>Historical watermark: journal sequence {view.watermark.sequence}. No current decision or clearance is shown.</p>
+  <ul>{view.facts.units.map(u=><li key={u.unitId}>{u.unitId}: {u.events.length} recorded events. <a href={`./passport.html#/passport/${encodeURIComponent(u.unitId)}/components`}>Inspect historical genealogy</a></li>)}</ul>
+ </section>;
 }

@@ -1,3 +1,5 @@
+import {ClaimText} from "../contract/ClearanceChip";
+import {useConsoleClaim} from "../contract/ConsoleClaims";
 import { DecisionChips } from "../components/StatusChips";
 import { missingEvidence } from "../domain/derive";
 import {
@@ -53,6 +55,7 @@ function Attribution({ a }: { a: SlotAttribution }) {
 }
 
 export function DecisionExplanation({ d, unit }: { d: Decision; unit: Unit }) {
+  const claim = useConsoleClaim(d.decisionId);
   const missing = missingEvidence(d, unit);
   const cited = new Set(d.evidenceEventIds);
   const events = unit.events.filter((e) => cited.has(e.eventId));
@@ -61,7 +64,7 @@ export function DecisionExplanation({ d, unit }: { d: Decision; unit: Unit }) {
     <div>
       <DecisionChips d={d} />
       {typeof d.publicationProfile === 'string' && <p className="muted">Publication lifecycle: {d.publicationProfile}. Exposure evaluation uses the recorded engine semantics; lifecycle history is stored separately.</p>}
-      <p className="lead">{finding?.explain} {d.operationalAction === "RECALL_HOLD" ? "The motor stays on recall hold." : "Eligible under this recall policy; this is not shipment authorization."}</p>
+      <p className="lead">{finding?.explain} {claim ? <ClaimText claim={claim}/> : "Recorded evaluator output only; this is not current clearance."}</p>
       {d.reviewRequired && <p><b>Review is required.</b> A person must look at this motor, separately from the hold.</p>}
       {d.precautionaryHold && <p><b>Precautionary hold.</b> Held because an earlier release no longer stands.</p>}
 

@@ -1,3 +1,5 @@
+import {ClaimChip} from "../contract/ClearanceChip";
+import {useConsoleClaims} from "../contract/ConsoleClaims";
 import { ACTION_TEXT, FINDING_TEXT } from "../domain/glossary";
 import type { Decision } from "../domain/types";
 
@@ -5,7 +7,6 @@ import type { Decision } from "../domain/types";
 // Each chip carries a glyph AND a text label; color is only reinforcement.
 
 const FINDING_GLYPH: Record<string, string> = { AFFECTED: "▲", UNRESOLVED: "?", EXCLUDED_WITH_EVIDENCE: "✓" };
-const ACTION_GLYPH: Record<string, string> = { RECALL_HOLD: "■", RELEASE_ELIGIBLE: "▶" };
 
 export function FindingChip({ finding }: { finding: Decision["evidenceFinding"] }) {
   const t = FINDING_TEXT[finding];
@@ -19,16 +20,9 @@ export function FindingChip({ finding }: { finding: Decision["evidenceFinding"] 
   );
 }
 
+/** Legacy callers can show recorded actions only; current clearance needs ClaimChip. */
 export function ActionChip({ action }: { action: Decision["operationalAction"] }) {
-  const t = ACTION_TEXT[action];
-  return (
-    <span className={`chip action-${action}`} title={t?.explain} data-testid="chip-action">
-      <span className="chip-cap">Operational action</span>
-      <span className="chip-body">
-        <span aria-hidden="true">{ACTION_GLYPH[action] ?? "•"}</span> {t?.label ?? action}
-      </span>
-    </span>
-  );
+ return <span className="chip" data-testid="chip-action">Recorded action: {ACTION_TEXT[action]?.label ?? action} (not current clearance)</span>;
 }
 
 export function ReviewChip({ required }: { required: boolean }) {
@@ -51,11 +45,13 @@ export function PrecautionChip() {
   );
 }
 
-export function DecisionChips({ d }: { d: Decision }) {
+export function DecisionChips({ d, historical = false }: { d: Decision; historical?: boolean }) {
+  const {claims,preview}=useConsoleClaims();
+  const claim=historical ? undefined : claims?.byDecision.get(d.decisionId);
   return (
     <div className="chip-row">
       <FindingChip finding={d.evidenceFinding} />
-      <ActionChip action={d.operationalAction} />
+      {claim ? <span data-testid="chip-action"><ClaimChip claim={claim} /></span> : <span><span className="sr-only">{preview ? "Synthetic evaluator output" : "Historical recorded action"}</span><ActionChip action={d.operationalAction}/></span>}
       <ReviewChip required={d.reviewRequired} />
       {d.precautionaryHold ? <PrecautionChip /> : null}
     </div>
