@@ -161,6 +161,46 @@ class SubResourceTests(unittest.TestCase):
             self.assertNotIn('RELEASE_ELIGIBLE', json.dumps(body))  # the unsafe old behavior: a bare release label
             self.assertNotIn('decisions', body)
 
+    def raw(self, path, headers, method='GET', body=None):
+        import http.client
+        conn = http.client.HTTPConnection('127.0.0.1', self.server.server_port)
+        try:
+            conn.putrequest(method, path, skip_host=True, skip_accept_encoding=True)
+            for k, v in headers.items():
+                conn.putheader(k, v)
+            if body is not None:
+                conn.putheader('Content-Length', str(len(body)))
+            conn.endheaders(body)
+            r = conn.getresponse()
+            return r.status, json.loads(r.read() or b'{}')
+        finally:
+            conn.close()
+
+    def test_foreign_host_and_cross_site_requests_are_refused(self):
+        """P2: any Host was accepted (DNS rebinding) and /api/session handed its write token to cross-site requests."""
+        own = f'127.0.0.1:{self.server.server_port}'
+        self.assertEqual(self.raw('/api/session', {'Host': own})[0], 200)
+        self.assertEqual(self.raw('/api/session', {'Host': f'localhost:{self.server.server_port}'})[0], 200)
+        for evil in ('evil.example', f'evil.example:{self.server.server_port}', '127.0.0.1', own + '.evil.example'):
+            status, body = self.raw('/api/session', {'Host': evil})
+            self.assertEqual((status, body.get('error')), (403, 'HOST_NOT_ALLOWED'), evil)
+            self.assertNotIn('token', body)
+        status, body = self.raw('/api/session', {'Host': own, 'Sec-Fetch-Site': 'cross-site'})
+        self.assertEqual((status, body.get('error')), (403, 'CROSS_SITE_REQUEST_REFUSED'))
+        self.assertNotIn('token', body)
+        self.assertEqual(self.raw('/api/session', {'Host': own, 'Sec-Fetch-Site': 'same-origin'})[0], 200)
+
+    def test_cross_site_command_is_refused_even_with_a_valid_token(self):
+        own = f'127.0.0.1:{self.server.server_port}'
+        token = self.raw('/api/session', {'Host': own})[1]['token']
+        payload = json.dumps({'serial': 'MTR-CSRF'}).encode()
+        for extra in ({'Sec-Fetch-Site': 'cross-site'}, {'Origin': 'http://evil.example'}, {'Host': 'evil.example'}):
+            headers = {'Host': own, 'X-Pramaan-Token': token, 'Content-Type': 'application/json'}
+            headers.update(extra)
+            status, _ = self.raw('/api/units', headers, 'POST', payload)
+            self.assertEqual(status, 403, extra)
+        self.assertEqual(len(self.get('/api/motors')[1]), 1)       # nothing was created
+
     def test_internal_read_fault_is_not_a_client_error(self):
         from unittest.mock import patch
         with patch('application.service.Manufacturing._snapshot', side_effect=KeyError('manifest')):
