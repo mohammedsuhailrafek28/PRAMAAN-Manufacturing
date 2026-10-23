@@ -1,0 +1,180 @@
+{
+  "numTotalTestSuites": 2,
+  "numPassedTestSuites": 0,
+  "numFailedTestSuites": 2,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 10,
+  "numPassedTests": 5,
+  "numFailedTests": 5,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1792755393219,
+  "success": false,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "independent frontend audit challenges"
+          ],
+          "fullName": "independent frontend audit challenges control: actual captured current metadata clears only the eligible motor",
+          "status": "passed",
+          "title": "control: actual captured current metadata clears only the eligible motor",
+          "duration": 7.5434999999999945,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent frontend audit challenges"
+          ],
+          "fullName": "independent frontend audit challenges duplicate unit identities cannot satisfy an eligibility-map cardinality check",
+          "status": "failed",
+          "title": "duplicate unit identities cannot satisfy an eligibility-map cardinality check",
+          "duration": 10.716699999999946,
+          "failureMessages": [
+            "AssertionError: expected 'CURRENT' to be 'WITHHELD' // Object.is equality\n    at C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/tests/unit/independent-audit.test.tsx:23:41\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:1632:35\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:26\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3338:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3333:10)\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3318:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3276:10)\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3904:64"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent frontend audit challenges"
+          ],
+          "fullName": "independent frontend audit challenges a hidden contradictory decision cannot evade validation through an empty policy list",
+          "status": "failed",
+          "title": "a hidden contradictory decision cannot evade validation through an empty policy list",
+          "duration": 3.846900000000005,
+          "failureMessages": [
+            "AssertionError: expected 'CURRENT' to be 'WITHHELD' // Object.is equality\n    at C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/tests/unit/independent-audit.test.tsx:28:41\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:1632:35\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:26\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3338:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3333:10)\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3318:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3276:10)\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3904:64"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent frontend audit challenges"
+          ],
+          "fullName": "independent frontend audit challenges a malformed obligation with no motor identity cannot be treated as irrelevant",
+          "status": "failed",
+          "title": "a malformed obligation with no motor identity cannot be treated as irrelevant",
+          "duration": 3.1637000000000626,
+          "failureMessages": [
+            "AssertionError: expected 'CURRENT' to be 'WITHHELD' // Object.is equality\n    at C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/tests/unit/independent-audit.test.tsx:32:41\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:1632:35\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:26\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3338:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3333:10)\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3318:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3276:10)\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3904:64"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent frontend audit challenges"
+          ],
+          "fullName": "independent frontend audit challenges one non-cleared motor does not downgrade a different eligible motor",
+          "status": "passed",
+          "title": "one non-cleared motor does not downgrade a different eligible motor",
+          "duration": 2.616899999999987,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent frontend audit challenges"
+          ],
+          "fullName": "independent frontend audit challenges prefix-only cannot become a current or task-bearing view",
+          "status": "passed",
+          "title": "prefix-only cannot become a current or task-bearing view",
+          "duration": 3.5615000000000236,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent frontend audit challenges"
+          ],
+          "fullName": "independent frontend audit challenges unknown checkpoint state is withheld regardless of otherwise valid metadata",
+          "status": "passed",
+          "title": "unknown checkpoint state is withheld regardless of otherwise valid metadata",
+          "duration": 2.0439000000001215,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent frontend audit challenges"
+          ],
+          "fullName": "independent frontend audit challenges a preview strips forged trust metadata and cannot be cast into a current graph",
+          "status": "passed",
+          "title": "a preview strips forged trust metadata and cannot be cast into a current graph",
+          "duration": 3.374599999999873,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent frontend audit challenges"
+          ],
+          "fullName": "independent frontend audit challenges QR removes URL userinfo in addition to query and fragment credentials",
+          "status": "failed",
+          "title": "QR removes URL userinfo in addition to query and fragment credentials",
+          "duration": 1.7601999999999407,
+          "failureMessages": [
+            "AssertionError: expected 'https://operator:private-password@exa\u2026' to be 'https://example.invalid/passport.html\u2026' // Object.is equality\n    at C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/tests/unit/independent-audit.test.tsx:56:15\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:1632:35\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:26\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3338:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3333:10)\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3318:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3276:10)\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3904:64"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent frontend audit challenges"
+          ],
+          "fullName": "independent frontend audit challenges a recorded shipment edge cannot name a different shipment than its cited event",
+          "status": "failed",
+          "title": "a recorded shipment edge cannot name a different shipment than its cited event",
+          "duration": 8.407100000000128,
+          "failureMessages": [
+            "AssertionError: expected true to be false // Object.is equality\n    at C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/tests/unit/independent-audit.test.tsx:64:90\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:1632:35\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:26\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3338:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3333:10)\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3318:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3276:10)\n    at file:///C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3904:64"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755395016,
+      "endTime": 1792755395063.407,
+      "status": "failed",
+      "message": "",
+      "name": "C:/Users/HAIL/Documents/PRAMAAN-Manufacturing/manufacturing-frontend-audit/recall-ui/tests/unit/independent-audit.test.tsx"
+    }
+  ]
+}

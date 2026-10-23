@@ -1,0 +1,57 @@
+{
+  "baseline": {
+    "sha": "f9282101159b6b6806974848d7c351999098d792",
+    "type": "commit",
+    "ancestorOfBranded": true
+  },
+  "dpp": {
+    "sha": "caf651f60ef9a6444239401cee4609ad9eaf188f",
+    "type": "commit",
+    "ancestorOfBranded": true
+  },
+  "investigation": {
+    "sha": "899456252c74f76cd30527baaa7dc778686ff62d",
+    "type": "commit",
+    "ancestorOfBranded": true
+  },
+  "impact": {
+    "sha": "68cdef8a507378bc291493c3bb0ce5ee6d22d45b",
+    "type": "commit",
+    "ancestorOfBranded": true
+  },
+  "integration": {
+    "sha": "73f3bdbd78ee8bdf4b323457ba2f036f16fb82d9",
+    "type": "commit",
+    "ancestorOfBranded": true
+  },
+  "phaseA": {
+    "sha": "cf97c1d4998f45c5060bd8d33a7b00a8fa545ed9",
+    "type": "commit",
+    "ancestorOfBranded": true
+  },
+  "branded": {
+    "sha": "7482fc1fab759bfd7c3a3eedd7946eae62895a18",
+    "type": "commit",
+    "ancestorOfBranded": true
+  },
+  "independentAudit": {
+    "sha": "e63bf90919b1765ef9d7d00f60a69c713323c82c",
+    "type": "commit",
+    "ancestorOfBranded": false
+  },
+  "backend": {
+    "sha": "f9dcf56ae52b095a3af05b8fc45a2568cd5642fe",
+    "type": "commit",
+    "ancestorOfBranded": false
+  },
+  "ci": {
+    "sha": "04d974fd6307fca1f129be6b5683f4468b5fcad7",
+    "type": "commit",
+    "ancestorOfBranded": false
+  },
+  "reliability": {
+    "sha": "6d177e8113b73212d7d39faf3208868c119d50f4",
+    "type": "commit",
+    "ancestorOfBranded": false
+  }
+}
