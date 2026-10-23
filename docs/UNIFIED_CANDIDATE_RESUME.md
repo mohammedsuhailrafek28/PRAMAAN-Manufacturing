@@ -37,3 +37,22 @@ D. Full regression, reliability (`6d177e8`) and CI (`04d974f`) merges; hosted CI
 E. End-to-end browser demo journey; setup and demo instructions; GO / CONDITIONAL GO / NO-GO.
 
 Known conflict to report when reached: owner display policy (PREFIX_ONLY shows no current holds) versus spec R5 wording ("holds visible"). Resolve by showing holds only as labelled historical facts unless the owner says otherwise; ask before changing backend semantics.
+
+## Progress at owner pause (2026-10-23)
+
+Owner paused this line because Codex pushed `integration/manufacturing-release-candidate@75a65c2` (verdict REVISE). Nothing here was reset or merged to `main`; this branch is preserved for transfer of its unique fixes.
+
+Commits on this branch after Checkpoint A (`90f08e5`/`f371334`):
+
+| Commit | Content |
+|---|---|
+| `31cf2b0` | Backend D2 (decisions/investigation 409 `CHECKPOINT_REQUIRED` outside CURRENT; checkpoint+eligibility on payloads), D3 (manifest-less rows no longer seed derivation or crash), D4 (arbitrary-depth chain export via `predecessor` verification; skip-link and missing-previous still `PREFIX_MISMATCH`), D7 (internal read faults 500 `SNAPSHOT_UNAVAILABLE`). `application/test_unified.py`, 8 tests that fail on the old code. |
+| `81c79fc` | Console on the shared gate (`BackendRecallDataSource` uses `GateTracker`; `SegregatedSnapshotError`; `CheckpointRequired` view; `ClearanceContext` per-motor clearance; stale decision list removed). 12 assertions migrated, 10 new `console-gate` tests. |
+| `7968b3e` | Host/Fetch-Metadata request hygiene (`HOST_NOT_ALLOWED`, `CROSS_SITE_REQUEST_REFUSED`); `application/checkpoint_ops.py` (propose/accept successor checkpoint, never activates); `test_checkpoint_ops.py`; `docs/UNIFIED_TEST_MIGRATIONS.md`. |
+
+Test status at `7968b3e`: Vitest 307/307. Python 67 + 2 new test files (`test_unified` 10, `test_checkpoint_ops` 4); the only failing Python test is the owner-clarified `test_historical_resolution_entries_are_not_rewritten` (kept unmodified). `tsc` clean.
+Playwright (full original suite, run before the last commit): 109 pass, 17 fail. Not yet migrated; classes: (a) live specs that write to the shared seeded server and then expect current decisions (the audit's class A: `hardening` x2, `live` x2, `remediation` x2, `passport` live x4, `impact` live, `workspace` live x2); (b) `checkpoint.spec` expects holds shown under PREFIX_ONLY, which conflicts with the approved display policy; (c) `workspace` x3 still expect the live operator id `OP-OBSERVATION-21` from preview data (owner decision O2). Planned fix: an owned per-test stack (own DB, custody dir, root checkpoint, `checkpoint_ops` cycle + restart between captures) in `recall-ui/tests/support`.
+
+Unique value to carry onto Codex's candidate: the D2/D3/D4/D7 fixes and tests, Host/Fetch-Metadata hygiene, `checkpoint_ops`, the console-on-shared-gate change with per-motor clearance and `console-gate` tests, the migration registry, and this analysis. Open conflict for the owner: spec R5 says "holds visible" under PREFIX_ONLY; the approved display policy says no holds. The UI follows the display policy; the API still carries decisions.
+
+Not done: R18 latency work, CI merge (`04d974f`), reliability merge (`6d177e8`), end-to-end demo journey, Playwright migrations.
