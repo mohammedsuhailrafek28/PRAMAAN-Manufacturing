@@ -57,7 +57,19 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
             except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
                 pass  # Browser navigated away; evidence writes remain durable.
 
+        def guard(self):
+            """Loopback-only request hygiene (not authentication): reject foreign Host headers (DNS rebinding)
+            and browser-declared cross-site requests. Any local process can still call this API."""
+            port = self.server.server_port
+            if self.headers.get("Host") not in (f"127.0.0.1:{port}", f"localhost:{port}"):
+                self.send(403, {"error": "HOST_NOT_ALLOWED"}); return False
+            if self.headers.get("Sec-Fetch-Site") not in (None, "same-origin", "none"):
+                self.send(403, {"error": "CROSS_SITE_REQUEST_REFUSED"}); return False
+            return True
+
         def do_GET(self):
+            if not self.guard():
+                return
             path = unquote(urlsplit(self.path).path)
             if path == "/api/session":
                 return self.send(200, {"token": token, "mode": "LOCAL_SYNTHETIC_DEMO"})
@@ -69,9 +81,11 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
             return self.send(200, target.read_bytes(), mimetypes.guess_type(target)[0] or "application/octet-stream")
 
         def do_POST(self):
+            if not self.guard():
+                return
             origin = self.headers.get("Origin")
-            expected = f"http://127.0.0.1:{self.server.server_port}"
-            if self.headers.get("X-Pramaan-Token") != token or (origin and origin != expected):
+            port = self.server.server_port
+            if self.headers.get("X-Pramaan-Token") != token or (origin and origin not in (f"http://127.0.0.1:{port}", f"http://localhost:{port}")):
                 return self.send(403, {"error": "Local session token and same origin required"})
             return self.api(unquote(urlsplit(self.path).path), mutate=True)
 
