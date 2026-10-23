@@ -178,7 +178,8 @@ class Audit:
             coverage = self.ledger._config(motor)['coverage']
             raw = engine_bridge.pramaan_recall.evaluate(case, copy.deepcopy(policy), coverage, wm, engine_bridge.Config.v3())
             context = dict(motor=motor, policyDigest=digest(policy), configurationDigest=manifest['configurationDigest'], profile=PROFILE)
-            prior = [p for k,p in records if k == 'EVALUATION' and p['context'] == context]
+            # Legacy manifest-less rows remain historical journal evidence; they cannot seed derivation (H2 skips them identically).
+            prior = [p for k,p in records if k == 'EVALUATION' and 'manifest' in p and p['context'] == context]
             archive = self.db.execute("SELECT archive_id FROM app_audit_head WHERE id=1").fetchone()[0]
             entry, created, reused = derive_publication(case, manifest, policy, raw, prior,
                                                        self.outstanding(records), archive)

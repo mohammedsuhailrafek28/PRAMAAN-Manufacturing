@@ -75,6 +75,10 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
                 return self.send(403, {"error": "Local session token and same origin required"})
             return self.api(unquote(urlsplit(self.path).path), mutate=True)
 
+        def checkpoint_required(self, snap):
+            """Decision sub-resources carry no current claims outside ANCHORED_CURRENT."""
+            return self.send(409, {"error": "CHECKPOINT_REQUIRED", "state": snap["checkpoint"]["state"], "checkpoint": snap["checkpoint"], "decisionsUnavailable": True})
+
         def api(self, path, mutate=False):
             started = time.perf_counter()
             with lock:
@@ -128,21 +132,32 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
                         motor, resource = parts[2:]
                         if not any(u["unitId"] == motor for u in snap["units"]):
                             return self.send(404, {"error": "Unknown motor"})
+                        if resource in ("decisions",) and snap["checkpoint"]["state"] != "ANCHORED_CURRENT":
+                            return self.checkpoint_required(snap)
                         if resource == "genealogy":
-                            return self.send(200, {"relationships": [c for c in snap["components"] if c["unitId"] == motor], "lineage": [l for l in snap["lineage"] if l["unitId"] == motor], "unit": next(u for u in snap["units"] if u["unitId"] == motor)})
+                            return self.send(200, {"checkpoint": snap["checkpoint"], "relationships": [c for c in snap["components"] if c["unitId"] == motor], "lineage": [l for l in snap["lineage"] if l["unitId"] == motor], "unit": next(u for u in snap["units"] if u["unitId"] == motor)})
                         if resource == "decisions":
-                            return self.send(200, snap["decisions"][motor])
+                            # Policy ids remain top-level keys; trust state travels with every decision payload.
+                            return self.send(200, dict(snap["decisions"][motor], checkpoint=snap["checkpoint"], eligibility=snap["eligibility"][motor]))
                         if resource == "provenance":
                             rows = app.db.execute("SELECT c.hash,c.raw,c.received,e.id,e.source,e.seq,e.hash AS event_chain_hash,e.epcis FROM captures c JOIN events e ON e.capture=c.hash WHERE e.motor=? ORDER BY e.ordinal", (motor,)).fetchall()
                             return self.send(200, [{k: r[k] for k in r.keys() if not isinstance(r[k], bytes)} for r in rows])
                     if len(parts) == 4 and parts[:2] == ["api", "lots"] and parts[3] == "investigation":
-                        return self.send(200, {"components": [c for c in snap["components"] if c["lot"] == parts[2]], "decisions": snap["decisions"]})
+                        if snap["checkpoint"]["state"] != "ANCHORED_CURRENT":
+                            return self.checkpoint_required(snap)
+                        return self.send(200, {"components": [c for c in snap["components"] if c["lot"] == parts[2]], "decisions": snap["decisions"],
+                                               "checkpoint": snap["checkpoint"], "eligibility": snap["eligibility"]})
                     return self.send(404, {"error": "Unknown resource"})
                 except LedgerBlocked as exc:
                     code=getattr(exc,'code','INTEGRITY_UNAVAILABLE')
                     return self.send(503 if code=='VERIFYING' else 409, {"error": code, "state": 'VERIFYING' if code=='VERIFYING' else 'ANCHOR_INVALID', "decisionsUnavailable": True})
-                except (ValidationFailure, ValueError, KeyError, TypeError) as exc:
+                except ValidationFailure:
                     return self.send(400, {"error": 'INVALID_REQUEST'})
+                except (ValueError, KeyError, TypeError):
+                    # Client-input faults are 400 only on commands; a read that fails internally is a server integrity/availability fault.
+                    if mutate:
+                        return self.send(400, {"error": 'INVALID_REQUEST'})
+                    return self.send(500, {"error": 'SNAPSHOT_UNAVAILABLE', "decisionsUnavailable": True})
                 except Exception:
                     return self.send(500, {"error": "Application operation failed; no decision fallback supplied"})
                 finally:
