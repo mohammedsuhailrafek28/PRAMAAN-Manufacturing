@@ -1,0 +1,83 @@
+{
+  "totalMs": 15809,
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "steps": [
+    {
+      "step": "1 start server on exact SHA with owner checkpoint 001 (CURRENT)",
+      "ok": true,
+      "ms": 1041,
+      "detail": "{\"MTR-26001\":false,\"MTR-26002\":false,\"MTR-26003\":true,\"MTR-26004\":false,\"MTR-26005\":false}"
+    },
+    {
+      "step": "2a page 1 console: CURRENT findings, holds, per-motor clearance",
+      "ok": true,
+      "ms": 718,
+      "detail": "clearance chips=1, hold chips=4"
+    },
+    {
+      "step": "2b page 2 passport MTR-26003 recall context (CURRENT)",
+      "ok": true,
+      "ms": 463,
+      "detail": "No recall hold recorded under this policy"
+    },
+    {
+      "step": "2c page 3 evidence investigation (CURRENT)",
+      "ok": true,
+      "ms": 518,
+      "detail": "cards=3; Evidence watermark\n\nVerified ledger journal sequence 10, head 8b76c48add82…, ver"
+    },
+    {
+      "step": "2d page 4 impact graph lot BR-204 (CURRENT)",
+      "ok": true,
+      "ms": 780,
+      "detail": "Lot BR-204 is named by recall RC-026-014 for slot DE. 3 motors have a ledger-recorded link to it (1 affected, 2 unresolved). 3 motors have a"
+    },
+    {
+      "step": "3 live capture in the UI (late untrusted affected-lot observation on MTR-26003)",
+      "ok": true,
+      "ms": 1215,
+      "detail": "Evidence captured. Backend capture-to-decision 477.8 ms; browser request-to-render scheduled 495.9 ms. The ledger is now newer than the protected checkpoint, so"
+    },
+    {
+      "step": "4 PREFIX_ONLY: checkpoint-required warning, no clearance, other pages withheld",
+      "ok": true,
+      "ms": 3751,
+      "detail": "warning=\"Do not ship or release any motor while this state persists. \"; chips=0; decisions API=409; state=ANCHORED_PREFIX_ONLY; eligible=0; impact page shows release text=false"
+    },
+    {
+      "step": "5a operator: stop server, propose successor checkpoint (candidate is inert)",
+      "ok": true,
+      "ms": 1461,
+      "detail": "CANDIDATE_PROPOSED_NOT_ACTIVATED; new journal entries=2; sha256=b3f144c310b1fc3b..."
+    },
+    {
+      "step": "5b operator: accept candidate with named custodian and typed digest (local custody, NOT independent)",
+      "ok": true,
+      "ms": 619,
+      "detail": "LOCAL_CUSTODY_ACCEPTANCE_OPERATOR_ASSERTED_NOT_INDEPENDENT -> accepted-000012-0ca84b41a0e3.json"
+    },
+    {
+      "step": "5c operator: restart with --trusted-anchor <successor> --previous-anchor <old>; return to CURRENT",
+      "ok": true,
+      "ms": 1563,
+      "detail": "MTR-26003: ACTION\nRecall hold; eligible motors=0"
+    },
+    {
+      "step": "5d passport shows the hold after activation",
+      "ok": true,
+      "ms": 273,
+      "detail": "Held under the recall policy"
+    },
+    {
+      "step": "6 DE/NDE: unspecified scope holds an NDE-only affected motor (separate ledger, port 4174)",
+      "ok": true,
+      "ms": 2269,
+      "detail": "EVIDENCE FINDING\n▲ Affected / ACTION\nRecall hold"
+    }
+  ]
+}
