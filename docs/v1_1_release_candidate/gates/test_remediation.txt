@@ -1,0 +1,21 @@
+test_authorized_resolution_is_explicit_and_audited_not_delivery (application.test_remediation.RemediationTests.test_authorized_resolution_is_explicit_and_audited_not_delivery) ... ok
+test_delete_all_history_detected_and_not_reset (application.test_remediation.RemediationTests.test_delete_all_history_detected_and_not_reset) ... ok
+test_history_tamper_truncation_and_identity (application.test_remediation.RemediationTests.test_history_tamper_truncation_and_identity) ... ok
+test_irrelevant_capture_is_receipt_not_material_version (application.test_remediation.RemediationTests.test_irrelevant_capture_is_receipt_not_material_version) ... ok
+test_legacy_bundle_replays_without_rewriting_rows_or_reinterpreting_scope (application.test_remediation.RemediationTests.test_legacy_bundle_replays_without_rewriting_rows_or_reinterpreting_scope) ... ok
+test_legacy_history_seal_detects_legacy_table_changes (application.test_remediation.RemediationTests.test_legacy_history_seal_detects_legacy_table_changes) ... ok
+test_material_observation_revision_and_replay (application.test_remediation.RemediationTests.test_material_observation_revision_and_replay) ... ok
+test_obligation_survives_unrelated_observation_and_reopen (application.test_remediation.RemediationTests.test_obligation_survives_unrelated_observation_and_reopen) ... ok
+test_pinned_provenance_no_git_dependency (application.test_remediation.RemediationTests.test_pinned_provenance_no_git_dependency) ... ok
+test_rejected_motor_blocks_fleet_explicitly_not_stale_release (application.test_remediation.RemediationTests.test_rejected_motor_blocks_fleet_explicitly_not_stale_release) ... ok
+test_removing_journal_and_head_still_cannot_reset_history (application.test_remediation.RemediationTests.test_removing_journal_and_head_still_cannot_reset_history) ... ok
+test_scope_cartesian_regression (application.test_remediation.RemediationTests.test_scope_cartesian_regression) ... ok
+test_scope_invalid_and_immutable (application.test_remediation.RemediationTests.test_scope_invalid_and_immutable) ... ok
+test_synthetic_clock_has_no_trust_attestation (application.test_remediation.RemediationTests.test_synthetic_clock_has_no_trust_attestation) ... ok
+test_notifications_endpoint_keeps_outstanding_obligation (application.test_remediation.ScopeHttpTests.test_notifications_endpoint_keeps_outstanding_obligation) ... ok
+test_scope_contradictions_rejected_by_http (application.test_remediation.ScopeHttpTests.test_scope_contradictions_rejected_by_http) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 18.687s
+
+OK

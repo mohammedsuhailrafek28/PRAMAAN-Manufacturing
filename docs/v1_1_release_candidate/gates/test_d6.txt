@@ -1,0 +1,8 @@
+test_a_failed_read_rolls_back_its_publication (application.test_d6.ReadPathWriteTests.test_a_failed_read_rolls_back_its_publication) ... ok
+test_only_new_evidence_causes_a_publication_and_it_happens_once (application.test_d6.ReadPathWriteTests.test_only_new_evidence_causes_a_publication_and_it_happens_once) ... ok
+test_reads_with_unchanged_evidence_leave_the_journal_byte_identical (application.test_d6.ReadPathWriteTests.test_reads_with_unchanged_evidence_leave_the_journal_byte_identical) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.009s
+
+OK

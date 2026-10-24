@@ -25,13 +25,13 @@ Open `http://127.0.0.1:4173/`. Use the repository's pinned Python 3.12 environme
 | 4:50 | Close | State the limits above. |
 
 ## What not to do on stage
-- Do **not** click "Record synthetic shipment" in the workbench: on refusal the app currently shows its generic error view (known, no UI redesign in scope). Show shipment through `curl`/the rehearsal script.
+- Do **not** click "Record synthetic shipment" in the workbench: on refusal the app is expected to show its generic error view (read from the code, not exercised in a browser; no UI redesign in scope). Show shipment through `curl`/the rehearsal script.
 - Use `ZZ-9`-style sightings. A look-alike of the recalled lot (for example `BR-2O4`) deliberately blocks renewal for **all** motors (conservative global refusal).
 - Do not describe anything as production-ready, independently certified or independently validated. Do not say "safe to ship"; say "release eligible under the current checkpoint".
 - Do not run the hosted-CI or benchmark claims: no hosted CI run exists unless the report says so, and nothing has been independently scored.
 
 ## Offline fallback (no browser, or the server will not start)
 1. `python -B docs/v1_1_release_candidate/demo_rehearsal.py` needs no browser and no pre-built UI; it starts the real server on port 4290 and prints PASS/FAIL per step. Walk the audience through its 10 lines of output.
-2. If even that fails, show the recorded run in `docs/v1_1_release_candidate/rehearsal/` (transcript JSON from the exact SHA) and the screenshots in `docs/v1_1_release_candidate/rehearsal/*.png` if present.
+2. If even that fails, show the recorded run in `docs/v1_1_release_candidate/rehearsal/` (transcript from the exact SHA; no screenshots were recorded for this candidate).
 3. If Python itself is unavailable, show `docs/v1_1_release_candidate/OWNER_REPORT.md` and the gate summary under `docs/v1_1_release_candidate/gates/`.
 Never switch to a hand-edited database or a pre-seeded "already eligible" ledger without saying so: that would be a fixture, not a demonstration.

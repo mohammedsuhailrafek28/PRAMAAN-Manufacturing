@@ -1,0 +1,48 @@
+{
+ "concurrentLedgerChange": {
+  "refused": true,
+  "rejectionRowsAdded": 0,
+  "shipmentRecorded": false
+ },
+ "currentEligibleShipment": {
+  "checkpointAfter": "ANCHORED_PREFIX_ONLY",
+  "recorded": true
+ },
+ "directApiEligible": {
+  "status": 200
+ },
+ "directApiRecallHold": {
+  "status": 409
+ },
+ "prefixOnly": {
+  "refused": true,
+  "rejectionRowsAdded": 0,
+  "shipmentRecorded": false
+ },
+ "recallHold": {
+  "refused": true,
+  "rejectionRowsAdded": 0,
+  "shipmentRecorded": false
+ },
+ "registryDiscrepancy": {
+  "refused": true,
+  "rejectionRowsAdded": 0,
+  "shipmentRecorded": false
+ },
+ "serverNeverReferencesFixturePath": true,
+ "unanchored": {
+  "refused": true,
+  "rejectionRowsAdded": 0,
+  "shipmentRecorded": false
+ },
+ "unresolvedLotIdentity": {
+  "refused": true,
+  "rejectionRowsAdded": 0,
+  "shipmentRecorded": false
+ },
+ "unverifiedSighting": {
+  "refused": true,
+  "rejectionRowsAdded": 0,
+  "shipmentRecorded": false
+ }
+}

@@ -23,7 +23,7 @@ The decisive comparison happens in the same SQLite write lock as the insert, aga
 ## Behaviour changes the owner should know about
 - Because eligibility needs a recall policy **and** a current checkpoint, ordinary shipment is refused before any recall is announced, and a motor assembled after the last checkpoint cannot ship until an operator checkpoint cycle covers it.
 - A successful shipment is itself a ledger write, so the checkpoint is stale afterwards and the console withholds every current decision until the next cycle (this is existing behaviour for every capture).
-- The workbench "Record synthetic shipment" button still exists; on refusal the app shows its existing generic error view (no UI redesign was in scope). During a demonstration show the refusal through the API or avoid the button; see the runbook.
+- The workbench "Record synthetic shipment" button still exists; on refusal the app is expected to show its existing generic error view (read from `App.tsx`, not exercised in a browser; no UI redesign was in scope). During a demonstration show the refusal through the API or avoid the button; see the runbook.
 - Two e2e specs and the former known-gap test changed from "shipment recorded" to "shipment refused". The assertions were not loosened: they now assert refusal, no ledger movement, and the remaining shipment-display checks run against a seeded fixture shipment.
 
 ## What this does not claim

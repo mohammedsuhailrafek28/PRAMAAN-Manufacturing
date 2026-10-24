@@ -1,0 +1,17 @@
+
+> recall-investigation-ui@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 C:/Users/HAIL/AppData/Local/Temp/claude/C--Users-HAIL-Documents-PRAMAAN-Manufacturing/c62f2fee-8f85-4474-86ce-f8aea199b730/scratchpad/cc6/recall-ui
+
+
+ Test Files  27 passed (27)
+      Tests  378 passed (378)
+   Start at  17:30:31
+   Duration  28.21s (environment 48%, tests 29%, setup 10%, transform 9%, import 3%)
+
+Environment  jsdom was created 27 times · 107.07s total, 48% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+

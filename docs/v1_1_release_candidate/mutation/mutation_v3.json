@@ -1,0 +1,68 @@
+{
+ "binding_block_validation_off": {
+  "failed": [
+   "test_malformed_binding_blocks_are_integrity_failures_even_when_resealed"
+  ],
+  "ran": 26
+ },
+ "identity_findings_dropped": {
+  "failed": [
+   "test_historical_basis_keeps_every_sighting",
+   "test_registered_sighting_is_not_held_and_later_install_supersedes_an_unverified_one",
+   "test_replace_and_observe_accept_slot_over_http_and_ignore_forged_fields",
+   "test_sighting_preserved_raw_never_clears_and_does_not_touch_the_evaluator",
+   "test_unknown_legacy_lot_registered_retroactively",
+   "test_unknown_nde_is_quarantined_then_recovered_by_controlled_replacement",
+   "test_unknown_nde_still_blocks_when_replacement_is_in_the_wrong_slot",
+   "test_v2_to_v3_migration_cannot_launder_an_unsafe_motor",
+   "test_v3_root_renewal_and_forged_v3_conversion_cannot_launder_an_unsafe_motor",
+   "test_valid_update_review_and_new_checkpoint"
+  ],
+  "ran": 26
+ },
+ "legacy_format_grants_eligibility": {
+  "failed": [
+   "test_legacy_v2_checkpoint_cannot_grant_eligibility_and_migrates_with_acknowledgement",
+   "test_v2_history_is_unchanged_and_v2_never_grants_current_eligibility",
+   "test_v2_to_v3_migration_cannot_launder_an_unsafe_motor"
+  ],
+  "ran": 26
+ },
+ "legacy_prior_needs_no_acknowledgement": {
+  "failed": [
+   "test_legacy_v2_checkpoint_cannot_grant_eligibility_and_migrates_with_acknowledgement"
+  ],
+  "ran": 26
+ },
+ "registry_binding_ignored": {
+  "failed": [
+   "test_alias_redirect_supplier_change_and_effective_dates",
+   "test_legacy_v2_checkpoint_cannot_grant_eligibility_and_migrates_with_acknowledgement",
+   "test_registry_modified_after_acceptance",
+   "test_registry_only_update_with_no_new_ledger_events",
+   "test_registry_rolled_back",
+   "test_replay_rollback_and_substitution_matrix",
+   "test_sidecar_is_advisory_only_under_v3",
+   "test_unknown_legacy_lot_registered_retroactively",
+   "test_v2_history_is_unchanged_and_v2_never_grants_current_eligibility",
+   "test_v2_to_v3_migration_cannot_launder_an_unsafe_motor",
+   "test_valid_update_review_and_new_checkpoint"
+  ],
+  "ran": 26
+ },
+ "registry_diff_blind": {
+  "failed": [
+   "test_alias_redirect_supplier_change_and_effective_dates",
+   "test_registry_modified_after_acceptance",
+   "test_registry_rolled_back",
+   "test_sidecar_is_advisory_only_under_v3",
+   "test_unknown_legacy_lot_registered_retroactively",
+   "test_valid_update_review_and_new_checkpoint"
+  ],
+  "ran": 26
+ },
+ "unmutated": {
+  "failed": [],
+  "ran": 26
+ }
+}
