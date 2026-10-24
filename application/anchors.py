@@ -5,6 +5,7 @@ trusted reference is outside this mechanism's trust model. No signing key or
 authenticated identity is invented here.
 """
 import argparse
+import copy
 import hashlib
 import json
 from pathlib import Path
@@ -128,6 +129,11 @@ def extends(current,old):
     return all(current['rows'].get(t,[])[:len(rows)]==rows for t,rows in old['rows'].items())
 
 
+class BoundAnchor(dict):
+    """The exported checkpoint (format unchanged) carrying, out of band, the registry document in force at export. Serialises exactly like a dict."""
+    registry_document = None
+
+
 def export_anchor(app, previous=None):
     owns=not app.db.in_transaction
     if owns:app.db.execute('BEGIN IMMEDIATE')
@@ -139,7 +145,8 @@ def export_anchor(app, previous=None):
         body=export_v1(app)['body']
         body.update(format=FORMAT_V2,verifierVersion=VERIFIER_VERSION,engineTreeId=ENGINE_TREE,
                     ledger=ledger_binding(app),previousCheckpointHash=digest(previous) if previous else None)
-        result=dict(body=body,checksum=digest(body))
+        result=BoundAnchor(body=body,checksum=digest(body))
+        result.registry_document=copy.deepcopy(app.registry.document)
         if owns:app.db.commit()
         return result
     except Exception:
@@ -205,6 +212,9 @@ def publish_candidate(path,anchor):
             if f.write(data)!=len(data):raise OSError('CHECKPOINT_UNAVAILABLE')
             f.flush();os.fsync(f.fileno())
         os.link(staging,path)
+        if getattr(anchor,'registry_document',None) is not None:
+            from .registry_binding import write_binding
+            write_binding(path,data,anchor.registry_document)   # sidecar; the checkpoint bytes themselves are unchanged
     finally:
         if staging is not None:os.unlink(staging)
 

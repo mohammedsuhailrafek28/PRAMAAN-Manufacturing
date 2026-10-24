@@ -20,6 +20,7 @@ from pramaan_integration.profile import digest
 from pramaan_integration import engine_bridge
 from .audit import Audit
 from . import lot_identity as lots
+from . import registry_binding
 
 DEFAULT_LOT_REGISTRY = None   # set by the server entry point (--lot-registry); None = bundled synthetic registry
 
@@ -209,7 +210,9 @@ class Manufacturing:
             raise LedgerBlocked('Legacy recall scope is not attested; historical replay remains available, current clearance requires an explicitly scoped new database')
         return policy
 
-    def replace(self, motor, lot):
+    def replace(self, motor, lot, slot="DE"):
+        if slot not in ("DE", "NDE"):
+            raise ValidationFailure("Slot must be DE or NDE")
         lot = self.lot(lot, "Replacement lot")
         events = self.events(motor)
         pending = lots.interrupted_operations(events)
@@ -217,30 +220,43 @@ class Manufacturing:
             raise ValidationFailure("Interrupted operation " + pending[0]["workOrderId"] + " requires manual reconciliation; no further capture is accepted for this unit")
         ended = {e["payload"].get("endsInstallEventId") for e in events if e["eventType"] == "COMPONENT_REMOVED"}
         corrected = {e["supersedesEventId"] for e in events if e["supersedesEventId"]}
-        installs = [e for e in events if e["eventType"] == "COMPONENT_INSTALLED" and e["payload"]["slot"] == "DE" and e["eventId"] not in ended|corrected]
+        installs = [e for e in events if e["eventType"] == "COMPONENT_INSTALLED" and e["payload"]["slot"] == slot and e["eventId"] not in ended|corrected]
         if len(installs) != 1:
-            raise ValidationFailure("No unique recorded DE occupant; investigate evidence first")
+            raise ValidationFailure(f"No unique recorded {slot} occupant; investigate evidence first")
         old = installs[0]; p = old["payload"]
         wo = f"RW-{motor}-{self.ledger.watermark(motor)[self.source('REWORK',motor)]+1}"
-        self.event(motor, "WORK_ORDER_OPENED", "MES", dict(orderType="REWORK", expectedChanges=[dict(slot="DE", action="REPLACE")]), work_order=wo)
-        observed = dict(componentType="BEARING", slot="DE", observedPart=p["part"], observedLot=p["lot"], identityGranularity=p["identityGranularity"], endsInstallEventId=old["eventId"])
+        self.event(motor, "WORK_ORDER_OPENED", "MES", dict(orderType="REWORK", expectedChanges=[dict(slot=slot, action="REPLACE")]), work_order=wo)
+        observed = dict(componentType="BEARING", slot=slot, observedPart=p["part"], observedLot=p["lot"], identityGranularity=p["identityGranularity"], endsInstallEventId=old["eventId"])
         if p.get("serial"):
             observed["observedSerial"] = p["serial"]
         self.event(motor, "COMPONENT_REMOVED", "REWORK", observed, work_order=wo)
-        serial = f"BRG-{motor}-DE-R{len(events)}" if p["identityGranularity"] == "SERIAL" else None
+        serial = f"BRG-{motor}-{slot}-R{len(events)}" if p["identityGranularity"] == "SERIAL" else None
         made = self.manufacture(motor, lot, serial)
-        payload = dict(componentType="BEARING", slot="DE", part=PART, lot=lot, identityGranularity=p["identityGranularity"], manufacturingEventId=made["eventId"])
+        payload = dict(componentType="BEARING", slot=slot, part=PART, lot=lot, identityGranularity=p["identityGranularity"], manufacturingEventId=made["eventId"])
         if serial:
             payload["serial"] = serial
         self.event(motor, "COMPONENT_INSTALLED", "REWORK", payload, work_order=wo)
         return self.event(motor, "WORK_ORDER_CLOSED", "MES", dict(disposition="COMPLETED"), work_order=wo)
 
-    def observe(self, motor, lot):
-        lot = self.lot(lot, "Observed lot")
+    def observe(self, motor, lot, slot="DE"):
+        """An operator sighting. ALWAYS an unverified, provisional claim: it never creates a component, lot, registry entry or exclusion.
+        A registered lot is recorded canonical. A string the registry cannot establish is preserved raw (identity, source, time) as an UNVERIFIED sighting
+        that holds the motor for investigation; it is never evidence of installation or of exclusion."""
+        if slot not in ("DE", "NDE"):
+            raise ValidationFailure("Slot must be DE or NDE")
+        if self.integrity_interrupted(motor):
+            raise ValidationFailure("Interrupted operation requires manual reconciliation; no further capture is accepted for this unit")
+        if not isinstance(lot, str) or not lot.strip() or len(lot) > 80 or any(ord(c) < 32 for c in lot):
+            raise ValidationFailure("Observed lot: a non-blank printable label of at most 80 characters is required")
+        res = self.registry.resolve(lot, at=self.clock(), part=PART)
+        recorded = res.canonical if res.ok else lot
         # A demo operator claim, explicitly untrusted. No trusted verifier is authored.
         return self.event(motor, "SLOT_STATE_VERIFIED", "HANDHELD", dict(
-            componentType="BEARING", slot="DE", observedPart=PART, observedLot=lot,
+            componentType="BEARING", slot=slot, observedPart=PART, observedLot=recorded,
             identityGranularity="LOT", method="HANDHELD_LABEL_READ", provisional=True))
+
+    def integrity_interrupted(self, motor):
+        return bool(lots.interrupted_operations(self.events(motor)))
 
     def seed_demo(self):
         if self.db.execute("SELECT 1 FROM app_units LIMIT 1").fetchone():
@@ -266,8 +282,9 @@ class Manufacturing:
         try:
             # Issuance, H2 verification and projection share one consistent cut.
             anchor=trusted_anchor.verify(self,deadline=deadline) if trusted_anchor else None
+            binding=registry_binding.check(trusted_anchor.path,trusted_anchor.bytes,self.registry) if trusted_anchor else None
             verified_changes=self.db.total_changes
-            result=self._snapshot(deadline)
+            result=self._snapshot(deadline,binding)
             if deadline is not None and time.monotonic()>=deadline:
                 from .audit import Verifying
                 raise Verifying()
@@ -295,14 +312,17 @@ class Manufacturing:
         finally:
             self.audit._verified_token=None
 
-    def _snapshot(self,deadline=None):
+    def _snapshot(self,deadline=None,binding=None):
         # Raw publications remain historical without a trusted external prefix.
         anchor_status = None
         self.audit.verify(copy_records=False)
         policy = self.policy()
         units, components, lots_by_id, decisions, comparison, lineage, notifications = [], [], {}, {}, [], [], []
         recall_findings = lots.policy_findings(self.registry, policy, PART) if policy else []
-        identity_motors = {}
+        identity_motors, integrity_motors = {}, {}
+        binding_findings = []
+        if binding and binding["status"] != "OK":
+            binding_findings = [dict(eventId=None, slot=None, lot=None, source="REGISTRY_BINDING", reason="REGISTRY_BINDING_" + binding["status"], detail=binding["detail"], resembles=[])]
         for unit in self.db.execute("SELECT serial,title FROM app_units ORDER BY serial").fetchall():
             if deadline is not None and time.monotonic()>=deadline:
                 from .audit import Verifying
@@ -339,9 +359,11 @@ class Manufacturing:
             decisions[motor] = {}
             if policy:
                 entry, history = self.audit.decide(motor, policy)
-                found = recall_findings + lots.motor_findings(self.registry, events, policy, PART)
+                found = binding_findings + recall_findings + lots.motor_findings(self.registry, events, policy, PART)
+                broken = lots.integrity_findings(events)
                 identity_motors[motor] = found
-                decisions[motor][policy["policyId"]] = dict(current=lots.guard_decision(copy.deepcopy(entry["decision"]), found), history=history)
+                integrity_motors[motor] = broken
+                decisions[motor][policy["policyId"]] = dict(current=lots.guard_decision(copy.deepcopy(entry["decision"]), found, broken), history=history)
                 legacy = engine_bridge.pramaan_recall.evaluate_series(case, policy, self.ledger._config(motor)["coverage"], [wm], engine_bridge.Config.legacy())[-1]
                 if any(d["reasonCodes"] and "AMBIGUOUS_SLOT_ATTRIBUTION" in d["reasonCodes"] for d in history):
                     comparison.append(dict(unitId=motor, policyId=policy["policyId"], legacy=legacy, current=entry["decision"]))
@@ -352,7 +374,8 @@ class Manufacturing:
                     recall=policy or dict(recallId=RECALL_ID, version=0, announcedAt=None, affectedPart=PART, affectedLots=[], affectedSlots=["DE"]),
                     policies=[dict(policyId=policy["policyId"], exposureBasis=policy["exposureBasis"], damageInspection=None)] if policy else [],
                     units=units, decisions=decisions, comparison=comparison, components=components, lots=[dict(l, registry=self.registry.resolve(l["lotId"], part=PART).public()) for l in lots_by_id.values()],
-                    lineage=lineage, notifications=[dict(n,status='PENDING') for n in self.audit.outstanding()], recallAnnounced=bool(policy), lotIdentity=dict(registry=self.registry.meta(), motors=identity_motors, recallPolicyFindings=recall_findings),
+                    lineage=lineage, notifications=[dict(n,status='PENDING') for n in self.audit.outstanding()], recallAnnounced=bool(policy), lotIdentity=dict(registry=self.registry.meta(), motors=identity_motors, recallPolicyFindings=recall_findings, registryBinding=binding),
+                    operationalIntegrity=dict(motors=integrity_motors),
                     freshness=dict(verifiedAt=self.ledger._now(), status="VERIFIED_ANCHORED_SYNTHETIC" if anchor_status else "HISTORICAL_UNANCHORED",
                                    maxAgeSeconds=5 if anchor_status else 0,
                                    archiveId=self.db.execute('SELECT archive_id FROM app_audit_head WHERE id=1').fetchone()[0],

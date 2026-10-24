@@ -197,15 +197,24 @@ def motor_findings(registry, events, policy, part):
         elif kind == "SLOT_STATE_VERIFIED":
             r = registry.resolve(p.get("observedLot"), at=e["occurredAt"], part=part)
             if not r.ok or p.get("observedLot") != r.canonical:
-                add(e, p.get("observedLot"), "OBSERVATION", r if not r.ok else "ALIAS_NOT_CANONICALISED")
+                # An unverified sighting concerns the bearing in that slot at the time. If the slot was physically re-installed afterwards, the sighting
+                # concerned a previous bearing and no longer holds the motor (historical basis keeps every sighting).
+                later = [i for i in events if i["eventType"] == "COMPONENT_INSTALLED" and i["payload"].get("slot") == p.get("slot")
+                         and i["eventId"] not in ended and i["eventId"] not in corrected and i["occurredAt"] > e["occurredAt"]]
+                if historical or not later:
+                    add(e, p.get("observedLot"), "OBSERVATION", r if not r.ok else "ALIAS_NOT_CANONICALISED")
         elif kind == "COMPONENT_REMOVED" and historical:
             r = registry.resolve(p.get("observedLot"), at=e["occurredAt"], part=part)
             if not r.ok or p.get("observedLot") != r.canonical:
                 add(e, p.get("observedLot"), "REMOVAL", r if not r.ok else "ALIAS_NOT_CANONICALISED")
-    for op in interrupted_operations(events):
-        out.append(dict(eventId=op["openedEventId"], slot=None, lot=None, source="OPERATION", reason="OPERATION_INTERRUPTED",
-                        detail=f"work order {op['workOrderId']} was opened and never closed; manual reconciliation required", resembles=[]))
     return out
+
+
+def integrity_findings(events):
+    """Operational-integrity findings (separate from lot identity): an operation that was opened and never closed."""
+    return [dict(eventId=op["openedEventId"], workOrderId=op["workOrderId"], orderType=op["orderType"], source="OPERATION", reason="OPERATION_INTERRUPTED",
+                 detail=f"work order {op['workOrderId']} was opened and never closed; manual reconciliation required; further capture for this unit is refused")
+            for op in interrupted_operations(events)]
 
 
 def policy_findings(registry, policy, part):
@@ -218,17 +227,40 @@ def policy_findings(registry, policy, part):
     return out
 
 
-def guard_decision(current, findings):
-    """Return (guarded copy of one decision, guard block). The evaluator's own fields stay untouched under their own names."""
+REMEDIATION = {
+    "INSTALL": ("CONTROLLED_REPLACEMENT", "Replace the bearing in this slot (DE or NDE) with a registered lot through the replacement command. New eligibility needs the registered identity, a closed work order, and a newly proposed, reviewed and accepted checkpoint."),
+    "OBSERVATION": ("INVESTIGATE_SIGHTING", "Identify the bearing the worker reported. The sighting stays unverified; it holds the motor until the slot is physically re-installed (a later installation supersedes it)."),
+    "REMOVAL": ("HISTORICAL_BASIS_REVIEW", "Historical-exposure basis keeps every unresolved removal record; owner review of the basis is required."),
+    "RECALL_POLICY": ("CORRECT_REGISTRY_OR_RECALL", "The recall names a lot the registry cannot establish. The manufacturer must correct the registry or the recall through review."),
+    "REGISTRY_BINDING": ("REVIEW_REGISTRY_AND_ACCEPT_CHECKPOINT", "The live registry differs from the registry accepted with the current checkpoint (or the binding is missing/invalid). Review the registry change and accept a new checkpoint."),
+}
+
+
+def quarantine(identity, integrity):
+    if not identity and not integrity:
+        return None
+    steps = []
+    for f in identity:
+        key, text = REMEDIATION.get(f["source"], ("OWNER_REVIEW", "Owner review required."))
+        steps.append(dict(slot=f.get("slot"), reason=f["reason"], option=key, instruction=text))
+    for f in integrity:
+        steps.append(dict(slot=None, reason=f["reason"], option="MANUAL_RECONCILIATION", instruction="No in-application command exists to close or cancel an interrupted operation; the unit stays held until a reviewed reconciliation procedure exists."))
+    return dict(status="QUARANTINED_NOT_CLEARED", clearance="NEVER_IMPLIED", steps=steps,
+                blockedPaths="Evidence-backed investigation records (trusted verification, corrections) do not clear a motor under the current evaluator semantics; that path is not available without an approved change.",
+                note="Derived from recorded events; writes nothing. Quarantine never implies clearance.")
+
+
+def guard_decision(current, identity, integrity=()):
+    """Guarded copy of one decision. The evaluator's own fields stay untouched under their own names; identity and operational-integrity guards are separate blocks."""
     guarded = dict(current)
-    established = not findings
-    block = dict(status="IDENTITY_ESTABLISHED_LOCAL_REGISTRY" if established else "IDENTITY_NOT_ESTABLISHED", findings=findings,
-                 evaluatorOperationalAction=current.get("operationalAction"), evaluatorEvidenceFinding=current.get("evidenceFinding"))
-    guarded["evaluatorOperationalAction"] = current.get("operationalAction")
-    if not established and current.get("operationalAction") == "RELEASE_ELIGIBLE":
+    ev = current.get("operationalAction")
+    guarded["evaluatorOperationalAction"] = ev
+    released = ev == "RELEASE_ELIGIBLE"
+    guarded["identityGuard"] = dict(status="IDENTITY_NOT_ESTABLISHED" if identity else "IDENTITY_ESTABLISHED_LOCAL_REGISTRY", findings=list(identity),
+                                    evaluatorOperationalAction=ev, evaluatorEvidenceFinding=current.get("evidenceFinding"), guardChangedAction=bool(identity) and released)
+    guarded["integrityGuard"] = dict(status="OPERATION_INTERRUPTED" if integrity else "OPERATIONALLY_CONSISTENT", findings=list(integrity),
+                                     evaluatorOperationalAction=ev, guardChangedAction=bool(integrity) and released)
+    guarded["quarantine"] = quarantine(list(identity), list(integrity))
+    if (identity or integrity) and released:
         guarded["operationalAction"] = "RECALL_HOLD"
-        block["guardChangedAction"] = True
-    else:
-        block["guardChangedAction"] = False
-    guarded["identityGuard"] = block
     return guarded

@@ -126,9 +126,9 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
                             elif action == "ship":
                                 app.ship(motor)
                             elif action == "replace":
-                                app.replace(motor, body.get("lot"))
+                                app.replace(motor, body.get("lot"), body.get("slot", "DE"))
                             elif action == "observe":
-                                app.observe(motor, body.get("lot"))
+                                app.observe(motor, body.get("lot"), body.get("slot", "DE"))
                             else:
                                 return self.send(404, {"error": "Unknown command"})
                         else:
