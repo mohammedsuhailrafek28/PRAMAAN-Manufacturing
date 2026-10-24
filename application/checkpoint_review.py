@@ -23,19 +23,27 @@ def _published(records, upto):
 
 
 def registry_change(app, prior_path):
-    """Registry review against the registry that was accepted with the CURRENT checkpoint. A missing/invalid prior binding means nothing was ever accepted."""
+    """Registry review against the registry accepted with the CURRENT checkpoint. Only a V3 checkpoint's in-body digest is a verified basis;
+    a legacy (V2/V1) checkpoint never verified any registry, so the whole live registry is unreviewed and acknowledgement is always required."""
     if prior_path is None:
         return dict(priorBinding="NOT_SUPPLIED", changes=[], requiresAcknowledgement=True, priorRegistry=None)
-    doc = registry_binding.bound_document(prior_path)
-    if doc is None:
+    doc, digest, basis = registry_binding.prior_registry(prior_path)
+    if basis == "NONE":
         return dict(priorBinding="MISSING_OR_UNREADABLE", changes=[], requiresAcknowledgement=True, priorRegistry=None,
                     note="No registry was ever bound to the current checkpoint; the whole live registry is unreviewed.")
-    changes = registry_binding.diff(doc, app.registry.document)
-    return dict(priorBinding="PRESENT", changes=changes, requiresAcknowledgement=bool(changes), priorRegistry=dict(digest=lots.LotRegistry(doc).digest, **registry_binding._meta(doc)))
+    changes = registry_binding.diff(doc, app.registry.document) if doc is not None else []
+    legacy = basis == "LEGACY_SIDECAR_UNVERIFIED"
+    out = dict(priorBinding=basis, changes=changes, requiresAcknowledgement=legacy or digest != app.registry.digest,
+               priorRegistry=dict(digest=digest, **registry_binding._meta(doc)) if doc is not None else dict(digest=digest))
+    if legacy:
+        out["note"] = "The current checkpoint is a legacy format; its sidecar was never inside a verified boundary, so this difference is advisory and acknowledgement is required."
+    elif doc is None:
+        out["note"] = "Only the registry digest is verified for the current checkpoint; no document is available to show a field-level difference."
+    return out
 
 
 def build_review(app, prior_body, candidate_body, prior_path=None):
-    prior_doc = registry_binding.bound_document(prior_path) if prior_path is not None else None
+    prior_doc = registry_binding.prior_registry(prior_path)[0] if prior_path is not None else None
     prior_registry = lots.LotRegistry(prior_doc) if prior_doc is not None else None
     regchg = registry_change(app, prior_path)
     records = app.audit.verify(copy_records=False)
@@ -53,6 +61,8 @@ def build_review(app, prior_body, candidate_body, prior_path=None):
         if prior_registry is not None and policy:
             under_prior = lots.policy_findings(prior_registry, policy, PART) + lots.motor_findings(prior_registry, events, policy, PART)
         resolved_by_registry = bool(under_prior) and not found        # a registry change (e.g. retroactive registration) made the identity findings disappear
+        if prior_registry is None and regchg["requiresAcknowledgement"] and not found and d["operationalAction"] == RELEASE:
+            resolved_by_registry = True                                # prior registry unknown: cannot prove the registry did not create this eligibility, so it is acknowledged individually
         old = before.get(motor)
         effective = "RECALL_HOLD" if ((found or broken) and d["operationalAction"] == RELEASE) else d["operationalAction"]
         row = dict(motor=motor, evaluatorFinding=d["evidenceFinding"], evaluatorAction=d["operationalAction"], guardedAction=effective,

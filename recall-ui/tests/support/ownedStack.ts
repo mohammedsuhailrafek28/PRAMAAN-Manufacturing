@@ -92,6 +92,20 @@ export class OwnedStack {
     return accepted.status;
   }
 
+  /** TEST-ONLY: propose, then try to accept with every requested acknowledgement; returns the refusal text ("" if it was accepted unexpectedly). The server is restarted on the UNCHANGED checkpoint. */
+  async cycleExpectRefusal(custodian = "Test Custodian (test-only)") {
+    await this.halt();
+    const proposed = this.ops("propose");
+    const acks = (proposed.review?.requiresAcknowledgement ?? []).flatMap((m: string) => ["--acknowledge", m]);
+    let refusal = "";
+    try {
+      const accepted = this.ops("accept", ["--candidate", proposed.candidate, "--custodian", custodian, "--confirm-sha256", proposed.candidateSha256, "--registry-digest", proposed.review.registry.digest, ...acks]);
+      this.previous = this.current; this.current = accepted.accepted; this.generations++;
+    } catch (e) { refusal = String(e); }
+    await this.launch();
+    return refusal;
+  }
+
   /** Move the ledger past the active checkpoint without any HTTP command (an external writer). */
   async post(path: string, body: unknown) {
     const r = await fetch(`${this.base}/api/${path}`, { method: "POST", headers: { "content-type": "application/json", origin: this.base, "x-pramaan-token": (await (await fetch(`${this.base}/api/session`)).json()).token }, body: JSON.stringify(body) });

@@ -120,23 +120,36 @@ class RegistryCustody(unittest.TestCase):
             self.check_blocked(d, db, c0, mutated(lambda x: next(e for e in x["entries"] if e["canonical"] == "BR-310").update(effectiveFrom="2030-01-01T00:00:00Z")), {("FIELD_CHANGED", "effectiveFrom")}, "effective date moved")
             self.check_blocked(d, db, c0, mutated(lambda x: next(e for e in x["entries"] if e["canonical"] == "BR-310").update(status="WITHDRAWN")), {("FIELD_CHANGED", "status")}, "withdrawn")
 
-    def test_missing_invalid_and_foreign_bindings_fail_closed(self):
+    def test_sidecar_is_advisory_only_under_v3(self):
+        """FORMAT_V3: the digest inside the checkpoint decides. Deleting, corrupting or forging the sidecar neither grants nor removes eligibility."""
         with tempfile.TemporaryDirectory() as d:
             db, c0, _ = world(d)
             side = rb.binding_path(c0); good = side.read_bytes()
-            for label, writer, want in (("missing", lambda: side.unlink(), "MISSING"), ("garbage", lambda: side.write_bytes(b"{not json"), "INVALID"),
-                                        ("digest-mismatch", lambda: side.write_text(json.dumps(dict(json.loads(good), registryDigest="0" * 64))), "INVALID"),
-                                        ("other-checkpoint", lambda: side.write_text(json.dumps(dict(json.loads(good), checkpointSha256="1" * 64))), "INVALID"),
-                                        ("provenance-forged", lambda: side.write_text(json.dumps(dict(json.loads(good), registryDocument=dict(json.loads(good)["registryDocument"], provenance="REAL_SUPPLIER_ATTESTED")))), "INVALID")):
-                side.write_bytes(good) if label != "missing" else None
-                if label == "missing" and not side.exists():
+            variants = (("missing", None), ("garbage", b"{not json"),
+                        ("digest-mismatch", json.dumps(dict(json.loads(good), registryDigest="0" * 64)).encode()),
+                        ("other-checkpoint", json.dumps(dict(json.loads(good), checkpointSha256="1" * 64)).encode()),
+                        ("forged-document", json.dumps(dict(json.loads(good), registryDocument=mutated(lambda x: x["entries"].pop()))).encode()))
+            doc_b = mutated(lambda x: x["entries"][0].update(supplierName="Someone Else"))
+            for label, content in variants:
+                if content is None:
+                    side.unlink()
+                else:
+                    side.write_bytes(content)
+                s = read_snapshot(db, c0)                                   # live registry unchanged
+                self.assertEqual(s["lotIdentity"]["registryBinding"]["status"], "OK", label)
+                self.assertTrue(s["eligibility"][M]["currentReleaseEligible"], label)
+                s = read_snapshot(db, c0, doc_b)                            # live registry changed AND sidecar tampered: still held, diff unavailable
+                rbk = s["lotIdentity"]["registryBinding"]
+                self.assertEqual(rbk["status"], "DISCREPANCY", label); self.assertFalse(s["eligibility"][M]["currentReleaseEligible"], label)
+                if label == "digest-mismatch":                              # only a redundant sidecar field was altered; the document still hashes to the authenticated digest
+                    self.assertEqual(rbk["sidecar"], "VALID"); self.assertTrue(rbk["changes"], label)
+                else:
+                    self.assertNotEqual(rbk["sidecar"], "VALID", label); self.assertEqual(rbk["changes"], [], label)
+                EVIDENCE.setdefault("sidecarAdvisory", []).append(dict(label=label, sidecar=rbk["sidecar"], status=rbk["status"]))
+                if content is not None:
                     side.write_bytes(good)
-                writer()
-                s = read_snapshot(db, c0)
-                st = s["lotIdentity"]["registryBinding"]["status"]
-                EVIDENCE.setdefault("bindingTamper", []).append(dict(label=label, status=st, eligible=s["eligibility"][M]["currentReleaseEligible"]))
-                self.assertEqual(st, want, label); self.assertFalse(s["eligibility"][M]["currentReleaseEligible"], label)
-                side.write_bytes(good)
+                else:
+                    side.write_bytes(good)
 
     def test_valid_update_review_and_new_checkpoint(self):
         with tempfile.TemporaryDirectory() as d:
@@ -182,18 +195,24 @@ class RegistryCustody(unittest.TestCase):
             finally:
                 S.DEFAULT_LOT_REGISTRY = None
 
-    def test_checkpoint_without_prior_binding_requires_registry_acknowledgement(self):
+    def test_legacy_v2_checkpoint_cannot_grant_eligibility_and_migrates_with_acknowledgement(self):
         with tempfile.TemporaryDirectory() as d:
-            db, c0, custody = world(d)
-            rb.binding_path(c0).unlink()                                                             # a checkpoint from before this feature
-            self.assertEqual(read_snapshot(db, c0)["lotIdentity"]["registryBinding"]["status"], "MISSING")
-            app = Manufacturing(db); app.create_unit("MTR-90009"); app.assemble("MTR-90009", SAFE, "BR-312"); app.ship("MTR-90009"); app.close()   # ledger advances
+            db, c0, custody = Path(d) / "w.sqlite", Path(d) / "c0.json", Path(d) / "custody"
+            app = Manufacturing(db); app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.ship(M); app.announce(RECALLED, ["DE"]); app.snapshot()
+            publish_candidate(c0, export_anchor(app, version=2)); app.close()
+            s = read_snapshot(db, c0)
+            self.assertEqual(s["checkpoint"]["state"], "ANCHORED_CURRENT")                          # history verifies exactly as before
+            self.assertEqual(s["lotIdentity"]["registryBinding"]["status"], "UNBOUND_LEGACY_FORMAT")
+            self.assertFalse(s["eligibility"][M]["currentReleaseEligible"])                          # even though a matching sidecar exists
             prop = checkpoint_ops.propose(db, c0, custody)
-            self.assertEqual(prop["review"]["registryChange"]["priorBinding"], "MISSING_OR_UNREADABLE")
+            self.assertEqual(prop["status"], checkpoint_ops.STATUS_PROPOSED)                         # proposed although the ledger did not move
+            self.assertEqual(prop["review"]["registryChange"]["priorBinding"], "LEGACY_SIDECAR_UNVERIFIED")
+            self.assertTrue(prop["review"]["registryChange"]["requiresAcknowledgement"])
             with self.assertRaises(SystemExit):
-                checkpoint_ops.accept(db, c0, custody, Path(prop["candidate"]), "synthetic", prop["candidateSha256"], ["MTR-90009"])
-            rec = checkpoint_ops.accept(db, c0, custody, Path(prop["candidate"]), "synthetic", prop["candidateSha256"], ["MTR-90009"], acknowledge_registry=prop["review"]["registry"]["digest"])
-            self.assertTrue(rb.binding_path(Path(rec["accepted"])).exists())
+                checkpoint_ops.accept(db, c0, custody, Path(prop["candidate"]), "synthetic", prop["candidateSha256"], [])
+            rec = checkpoint_ops.accept(db, c0, custody, Path(prop["candidate"]), "synthetic", prop["candidateSha256"], [], acknowledge_registry=prop["review"]["registry"]["digest"])
+            s = read_snapshot(db, Path(rec["accepted"]), None, c0)
+            self.assertEqual(s["lotIdentity"]["registryBinding"]["status"], "OK"); self.assertTrue(s["eligibility"][M]["currentReleaseEligible"])
 
 
 class UnverifiedSightings(unittest.TestCase):

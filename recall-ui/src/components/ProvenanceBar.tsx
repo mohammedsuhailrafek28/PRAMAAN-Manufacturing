@@ -35,7 +35,7 @@ export function ProvenanceBar({ snap, policyId, onPolicy, sourceLabel }: {
       {snap.lotIdentity?.registryBinding && snap.lotIdentity.registryBinding.status !== "OK" && (
         <div className="prov-row" data-testid="registry-binding-warning" role="alert">
           <span>
-            <b>Registry not bound to the accepted checkpoint ({snap.lotIdentity.registryBinding.status.toLowerCase()}).</b> {snap.lotIdentity.registryBinding.detail}. No motor is release eligible until the registry change is
+            <b>Registry not bound to the accepted checkpoint ({snap.lotIdentity.registryBinding.status.replaceAll("_", " ").toLowerCase()}).</b> {snap.lotIdentity.registryBinding.detail}. No motor is release eligible until the registry change is
             reviewed and a new checkpoint is accepted ({snap.lotIdentity.registryBinding.changes.length} change(s) detected). This is a same-host check, not independent verification.
           </span>
         </div>

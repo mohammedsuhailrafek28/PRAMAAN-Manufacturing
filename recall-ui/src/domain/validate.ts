@@ -44,7 +44,11 @@ export function validateSnapshot(raw: unknown): RecallSnapshot {
     // Engine invariants: release iff excluded; an unresolved finding always needs review.
     if (okFinding && okAction) {
       const release = d.evidenceFinding === "EXCLUDED_WITH_EVIDENCE";
-      if (release !== (d.operationalAction === "RELEASE_ELIGIBLE")) bad(path, "finding and operational action contradict each other");
+      // A v1.1 guard may hold a motor the evaluator would release (EXCLUDED_WITH_EVIDENCE + RECALL_HOLD). That is accepted ONLY when a guard says it
+      // changed the action AND the evaluator's own action, kept beside it, was RELEASE_ELIGIBLE. A guard can never produce a release.
+      const guardHeld = release && d.operationalAction !== "RELEASE_ELIGIBLE" && d.evaluatorOperationalAction === "RELEASE_ELIGIBLE" &&
+        [d.identityGuard, d.integrityGuard].some((g) => isObj(g) && g.guardChangedAction === true);
+      if (release !== (d.operationalAction === "RELEASE_ELIGIBLE") && !guardHeld) bad(path, "finding and operational action contradict each other");
       if (d.evidenceFinding === "UNRESOLVED" && d.reviewRequired !== true) bad(path, "UNRESOLVED without review required");
     }
   };

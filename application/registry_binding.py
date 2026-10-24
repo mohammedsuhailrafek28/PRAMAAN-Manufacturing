@@ -1,25 +1,34 @@
-"""Checkpoint-bound lot-registry snapshots (candidate; no change to the anchor/checkpoint format).
+"""Registry binding for checkpoints (FORMAT_V3 research candidate).
 
-A checkpoint file is exported and published with a sidecar `<checkpoint>.registry-binding.json` holding the exact registry document that was in force when the
-checkpoint candidate was exported, the registry digest, and the sha256 of the checkpoint bytes it belongs to. At read time current release eligibility requires
-that (a) the sidecar exists, (b) it matches the checkpoint bytes, (c) its registry document matches its own digest and declared provenance, and (d) the LIVE
-registry has the same digest. Any other state is a discrepancy and prevents current release eligibility (fail closed). Decisions and the evaluator's reports are
-unchanged; the discrepancy is reported with a field-level difference so a person can review it and, if valid, propose and accept a new checkpoint.
+FORMAT_V3 carries `registryBinding` (the registry digest) INSIDE the checkpoint body, so it is covered by the checkpoint checksum, chained by
+`previousCheckpointHash`, pinned by TrustedAnchor and rolled back/substituted exactly like the ledger prefix. Current release eligibility requires that the
+digest authenticated by the verified checkpoint equals the digest of the registry the application is running with.
 
-CUSTODY LIMIT. The checkpoint, the sidecar and the live registry are files on the same host. This detects silent, accidental or unreviewed drift between what a
-person accepted and what the application now reads. It is NOT independent verification: someone who controls the host controls all three files. Not
-authentication, not proof of physical lot identity.
+  OK                    V3 checkpoint, live registry digest equals the authenticated digest
+  DISCREPANCY           V3 checkpoint, live registry differs: every motor is held (checkpoint state stays truthful)
+  UNBOUND_LEGACY_FORMAT V1/V2 checkpoint: the registry was never inside the verified boundary, so it cannot grant current eligibility (history still verifies)
+  INVALID               checkpoint unreadable or its registryBinding block malformed
+
+The optional sidecar `<checkpoint>.registry-binding.json` holds the registry DOCUMENT so a reviewer can see a field-level difference. It is ADVISORY: it never
+creates, preserves or removes eligibility. Under V3 it is used only if its document hashes to the authenticated digest.
+
+CUSTODY LIMIT. This puts the registry at the same trust level as the ledger prefix: as strong as the custody of the accepted checkpoint file. It is NOT
+independent verification; whoever controls the host controls the checkpoint, the database and the registry. Not authentication, not proof of physical lot identity.
 """
 import hashlib
 import json
 import os
+import re
 import tempfile
 from pathlib import Path
 
 from . import lot_identity as lots
 
 SUFFIX = ".registry-binding.json"
-FORMAT = "PRAMAAN_REGISTRY_BINDING_RESEARCH_V1"
+FORMAT = "PRAMAAN_REGISTRY_BINDING_RESEARCH_V1"          # sidecar
+BLOCK_FORMAT = "PRAMAAN_REGISTRY_DIGEST_V1"              # inside the V3 checkpoint body
+CHECKPOINT_V3 = "PRAMAAN_A31_ANCHOR_V3"
+_HEX = re.compile(r"[0-9a-f]{64}\Z")
 CUSTODY_NOTE = "Same-host binding. Detects unreviewed drift; not independent verification, not authentication, not proof of physical lot identity."
 
 
@@ -60,34 +69,76 @@ def _meta(doc):
     return dict(registryId=doc.get("registryId"), version=doc.get("version"), entryCount=len(doc.get("entries", [])))
 
 
-def check(checkpoint_path, checkpoint_bytes, live_registry):
-    """Status of the registry binding for the checkpoint the process is pinned to."""
-    live = dict(digest=live_registry.digest, **_meta(live_registry.document))
+def binding_block(registry):
+    d = registry.document
+    return dict(format=BLOCK_FORMAT, registryDigest=registry.digest, registryId=d.get("registryId"), version=d.get("version"),
+                entryCount=len(d.get("entries", [])), provenance=d.get("provenance"))
+
+
+def valid_block(b):
+    return (isinstance(b, dict) and set(b) == {"format", "registryDigest", "registryId", "version", "entryCount", "provenance"} and b["format"] == BLOCK_FORMAT
+            and isinstance(b["registryDigest"], str) and bool(_HEX.match(b["registryDigest"])) and isinstance(b["registryId"], str) and type(b["version"]) is int
+            and type(b["entryCount"]) is int and b["provenance"] == lots.PROVENANCE)
+
+
+def _sidecar(checkpoint_path, checkpoint_bytes, authenticated_digest):
+    """(state, document). The document is trusted for display only when it hashes to the digest the verified checkpoint carries."""
     path = binding_path(checkpoint_path)
-    base = dict(status="MISSING", live=live, bound=None, changes=[], custodyNote=CUSTODY_NOTE)
     if not path.exists():
-        return dict(base, detail="no registry binding exists for this checkpoint; current eligibility cannot be proven")
+        return "ABSENT", None
     try:
         b = json.loads(path.read_text(encoding="utf-8"))
         doc = b["registryDocument"]
-        bound = dict(digest=b["registryDigest"], **_meta(doc))
-        if b.get("format") != FORMAT or b.get("checkpointSha256") != hashlib.sha256(checkpoint_bytes).hexdigest():
-            return dict(base, status="INVALID", bound=bound, detail="binding does not belong to these checkpoint bytes")
-        if _digest_of(doc) != b["registryDigest"] or doc.get("provenance") != lots.PROVENANCE:
-            return dict(base, status="INVALID", bound=bound, detail="bound registry snapshot does not match its digest or provenance")
-    except Exception as exc:                                     # unreadable, malformed, or an invalid registry document
-        return dict(base, status="INVALID", detail=f"binding unreadable: {type(exc).__name__}")
-    if b["registryDigest"] != live_registry.digest:
-        return dict(base, status="DISCREPANCY", bound=bound, changes=diff(doc, live_registry.document),
-                    detail="the live registry differs from the registry accepted with this checkpoint")
-    return dict(base, status="OK", bound=bound, detail="")
-
-
-def bound_document(checkpoint_path):
-    try:
-        return json.loads(binding_path(checkpoint_path).read_text(encoding="utf-8"))["registryDocument"]
+        ok = (b.get("format") == FORMAT and b.get("checkpointSha256") == hashlib.sha256(checkpoint_bytes).hexdigest()
+              and doc.get("provenance") == lots.PROVENANCE and _digest_of(doc) == authenticated_digest)
+        return ("VALID", doc) if ok else ("INVALID", None)
     except Exception:
-        return None
+        return "INVALID", None
+
+
+def check(checkpoint_path, checkpoint_bytes, live_registry):
+    """Status of the registry binding for the checkpoint the process is pinned to (decided by the digest INSIDE the checkpoint, never by the sidecar)."""
+    live = dict(digest=live_registry.digest, **_meta(live_registry.document))
+    base = dict(status="INVALID", live=live, bound=None, changes=[], sidecar="ABSENT", checkpointFormat=None, custodyNote=CUSTODY_NOTE, detail="")
+    try:
+        body = json.loads(checkpoint_bytes)["body"]
+        fmt = body["format"]
+    except Exception:
+        return dict(base, detail="checkpoint unreadable; registry binding cannot be established")
+    base["checkpointFormat"] = fmt
+    if fmt != CHECKPOINT_V3:
+        return dict(base, status="UNBOUND_LEGACY_FORMAT",
+                    detail="this checkpoint format does not carry a registry digest inside its verified boundary; it can establish history but not current eligibility")
+    block = body.get("registryBinding")
+    if not valid_block(block):
+        return dict(base, detail="registryBinding block malformed")
+    bound = dict(digest=block["registryDigest"], registryId=block["registryId"], version=block["version"], entryCount=block["entryCount"])
+    state, doc = _sidecar(checkpoint_path, checkpoint_bytes, block["registryDigest"])
+    base.update(bound=bound, sidecar=state)
+    if block["registryDigest"] == live_registry.digest:
+        return dict(base, status="OK")
+    return dict(base, status="DISCREPANCY", changes=diff(doc, live_registry.document) if doc is not None else [],
+                detail="the live registry differs from the registry digest in the accepted checkpoint" + ("" if doc is not None else " (no verifiable registry document is available, so no field-level difference can be shown)"))
+
+
+def prior_registry(checkpoint_path):
+    """(document|None, digest|None, basis) for the registry accepted with a checkpoint, for REVIEW display only."""
+    try:
+        data = Path(checkpoint_path).read_bytes()
+        body = json.loads(data)["body"]
+    except Exception:
+        return None, None, "NONE"
+    if body.get("format") == CHECKPOINT_V3 and valid_block(body.get("registryBinding")):
+        dg = body["registryBinding"]["registryDigest"]
+        state, doc = _sidecar(checkpoint_path, data, dg)
+        return doc, dg, "V3_VERIFIED_DOCUMENT" if state == "VALID" else "V3_DIGEST_ONLY"
+    try:                                                                        # legacy checkpoint: the sidecar was never inside any verified boundary
+        b = json.loads(binding_path(checkpoint_path).read_text(encoding="utf-8"))
+        if b.get("checkpointSha256") == hashlib.sha256(data).hexdigest() and b["registryDocument"].get("provenance") == lots.PROVENANCE:
+            return b["registryDocument"], _digest_of(b["registryDocument"]), "LEGACY_SIDECAR_UNVERIFIED"
+    except Exception:
+        pass
+    return None, None, "NONE"
 
 
 _FIELDS = ("part", "supplierId", "supplierName", "issuer", "effectiveFrom", "effectiveTo", "status", "rawMaterialLot")

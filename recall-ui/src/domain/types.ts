@@ -119,7 +119,7 @@ export interface Quarantine {
   steps: { slot: string | null; reason: string; option: string; instruction: string }[];
 }
 export interface RegistryBindingState {
-  status: "OK" | "MISSING" | "INVALID" | "DISCREPANCY"; detail: string; custodyNote: string;
+  status: "OK" | "UNBOUND_LEGACY_FORMAT" | "INVALID" | "DISCREPANCY"; detail: string; custodyNote: string; sidecar?: "ABSENT" | "VALID" | "INVALID"; checkpointFormat?: string | null;
   live: { digest: string; registryId: string; version: number; entryCount: number };
   bound: { digest: string; registryId: string; version: number; entryCount: number } | null;
   changes: { change: string; lot?: string; field?: string; alias?: string }[];

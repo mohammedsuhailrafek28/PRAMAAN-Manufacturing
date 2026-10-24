@@ -19,6 +19,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'integration'))
 import rfc8785
 from pramaan_integration import LedgerBlocked
 from pramaan_integration.profile import digest
+from . import registry_binding
 from .audit import PROFILE, VERIFIER_VERSION, ENGINE_TREE, IntegrityFailure, ReplayCache
 
 FORMAT = 'PRAMAAN_A31_ANCHOR_V1'
@@ -82,6 +83,7 @@ def verify_v1(app, anchor, *, replay_inputs=True, prefix_cache=None):
 
 
 FORMAT_V2='PRAMAAN_A31_ANCHOR_V2'
+FORMAT_V3='PRAMAAN_A31_ANCHOR_V3'   # V2 plus registryBinding (registry digest inside the checksum-covered, hash-chained body)
 TABLES=('motors','captures','events','rejections','decision_runs','app_units','recall_announcements')
 
 
@@ -130,11 +132,12 @@ def extends(current,old):
 
 
 class BoundAnchor(dict):
-    """The exported checkpoint (format unchanged) carrying, out of band, the registry document in force at export. Serialises exactly like a dict."""
+    """The exported checkpoint carrying, out of band, the registry document in force at export (advisory sidecar content). Serialises exactly like a dict."""
     registry_document = None
 
 
-def export_anchor(app, previous=None):
+def export_anchor(app, previous=None, version=3):
+    if version not in (2,3):raise ValueError('checkpoint version')
     owns=not app.db.in_transaction
     if owns:app.db.execute('BEGIN IMMEDIATE')
     try:
@@ -142,9 +145,11 @@ def export_anchor(app, previous=None):
         for motor, in app.db.execute('SELECT serial FROM motors'):
             app.ledger.snapshot(motor,app.ledger.watermark(motor))
         if previous is not None:verify_anchor(app,previous,predecessor=True)
+        if previous is not None and previous['body']['format']==FORMAT_V3 and version!=3:raise IntegrityFailure('PREFIX_MISMATCH')   # no downgrade
         body=export_v1(app)['body']
-        body.update(format=FORMAT_V2,verifierVersion=VERIFIER_VERSION,engineTreeId=ENGINE_TREE,
+        body.update(format=FORMAT_V3 if version==3 else FORMAT_V2,verifierVersion=VERIFIER_VERSION,engineTreeId=ENGINE_TREE,
                     ledger=ledger_binding(app),previousCheckpointHash=digest(previous) if previous else None)
+        if version==3:body['registryBinding']=registry_binding.binding_block(app.registry)
         result=BoundAnchor(body=body,checksum=digest(body))
         result.registry_document=copy.deepcopy(app.registry.document)
         if owns:app.db.commit()
@@ -159,9 +164,11 @@ def verify_anchor(app,anchor,previous=None,cache=None,deadline=None,prefix_cache
     try:
         body=anchor['body']
         if set(anchor)!={'body','checksum'} or digest(body)!=anchor['checksum']:raise IntegrityFailure('PREFIX_MISMATCH')
-        v2=body['format']==FORMAT_V2
+        v3=body['format']==FORMAT_V3
+        v2=body['format'] in (FORMAT_V2,FORMAT_V3)
         if v2:
             fields={'format','publicationProfile','hardeningProfile','archiveId','sequence','headHash','legacyDigest','policyDigest','state','verifierVersion','engineTreeId','ledger','previousCheckpointHash'}
+            if v3:fields=fields|{'registryBinding'}
             if set(body)!=fields or body['verifierVersion']!=VERIFIER_VERSION or body['engineTreeId']!=ENGINE_TREE:raise IntegrityFailure('PREFIX_MISMATCH')
             if set(body['ledger'])!={'rows','sourceHeads'} or set(body['ledger']['rows'])!=set(TABLES):raise IntegrityFailure('PREFIX_MISMATCH')
             heads={}
@@ -178,13 +185,15 @@ def verify_anchor(app,anchor,previous=None,cache=None,deadline=None,prefix_cache
                 if previous is None or digest(previous)!=body['previousCheckpointHash']:raise IntegrityFailure('PREFIX_MISMATCH')
                 p=previous['body']
                 if digest(p)!=previous['checksum'] or p['archiveId']!=body['archiveId'] or p['sequence']>body['sequence']:raise IntegrityFailure('PREFIX_MISMATCH')
-                if p['format'] not in (FORMAT,FORMAT_V2) or p['publicationProfile']!=PROFILE or p['hardeningProfile']!=HARDENING_PROFILE:raise IntegrityFailure('PREFIX_MISMATCH')
-                if p['format']==FORMAT_V2 and (p['engineTreeId']!=ENGINE_TREE or p['verifierVersion']!=VERIFIER_VERSION):raise IntegrityFailure('PREFIX_MISMATCH')
+                if p['format'] not in (FORMAT,FORMAT_V2,FORMAT_V3) or p['publicationProfile']!=PROFILE or p['hardeningProfile']!=HARDENING_PROFILE:raise IntegrityFailure('PREFIX_MISMATCH')
+                if p['format']==FORMAT_V3 and not v3:raise IntegrityFailure('PREFIX_MISMATCH')
+                if p['format'] in (FORMAT_V2,FORMAT_V3) and (p['engineTreeId']!=ENGINE_TREE or p['verifierVersion']!=VERIFIER_VERSION):raise IntegrityFailure('PREFIX_MISMATCH')
                 row=app.db.execute('SELECT hash FROM app_audit WHERE seq=?',(p['sequence'],)).fetchone()
                 if row is None or row[0]!=p['headHash']:raise IntegrityFailure('PREFIX_MISMATCH')
-                if p['format']==FORMAT_V2 and not extends(body['ledger'],p['ledger']):raise IntegrityFailure('PREFIX_MISMATCH')
+                if p['format'] in (FORMAT_V2,FORMAT_V3) and not extends(body['ledger'],p['ledger']):raise IntegrityFailure('PREFIX_MISMATCH')
             elif previous is not None:raise IntegrityFailure('PREFIX_MISMATCH')
-            old=dict(body);old['format']=FORMAT
+            if v3 and not registry_binding.valid_block(body['registryBinding']):raise IntegrityFailure('PREFIX_MISMATCH')
+            old=dict(body);old['format']=FORMAT;old.pop('registryBinding',None)
             for key in ('verifierVersion','engineTreeId','ledger','previousCheckpointHash'):old.pop(key)
             old['policyDigest']=digest(None)
             # V1 validates identity and the journal prefix; v2 separately binds policy
@@ -213,8 +222,7 @@ def publish_candidate(path,anchor):
             f.flush();os.fsync(f.fileno())
         os.link(staging,path)
         if getattr(anchor,'registry_document',None) is not None:
-            from .registry_binding import write_binding
-            write_binding(path,data,anchor.registry_document)   # sidecar; the checkpoint bytes themselves are unchanged
+            registry_binding.write_binding(path,data,anchor.registry_document)   # advisory sidecar (field-level diff for the reviewer); never decides eligibility
     finally:
         if staging is not None:os.unlink(staging)
 
