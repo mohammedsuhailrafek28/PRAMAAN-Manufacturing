@@ -1,37 +1,48 @@
-# 5-minute live demo runbook (and offline fallback)
+# 5-minute live demo runbook (and offline fallback) — corrected after the browser acceptance audit
 
-Loopback only (127.0.0.1), disposable synthetic data, no network, no notification delivery. Research prototype: say so first. Same-host custody, operator-asserted: say it is **not** independent verification, **not** production-ready, and the benchmark is **not** independently scored.
+Loopback only (127.0.0.1), disposable synthetic data, no network, no notification delivery. Research prototype: say so first. Same-host custody, operator-asserted: **not** independent verification, **not** production-ready, benchmark **not** independently scored.
 
-## Before going on stage (once, ~3 min, not part of the 5)
-Run from the repository root of the exact release-candidate checkout (record `git rev-parse HEAD`):
+This version replaces the first runbook, which was wrong for the UI: while the checkpoint is stale the console hides the capture workbench (it shows only the recovery workspace), so captures cannot be chained in the UI without a checkpoint cycle between them. The flow below was executed in Chrome end to end (`acceptance/`).
+
+## Before going on stage (not part of the 5 minutes)
+From the repository root of the exact checkout (record `git rev-parse HEAD`), with the pinned Python 3.12 environment first on `PATH`:
 ```
-python -B docs/v1_1_release_candidate/demo_rehearsal.py rehearsal.json      # API-level rehearsal; must print REHEARSAL PASSED
-cd recall-ui && npm run build && cd ..                                         # the server serves recall-ui/dist
-python -B recall-ui/tests/owned_bootstrap.py demo/ledger.sqlite demo/custody/root.json   # throw-away seeded ledger + root checkpoint (test-style bootstrap)
+python -B docs/v1_1_release_candidate/demo_rehearsal.py rehearsal.json          # must print REHEARSAL PASSED (offline fallback #1)
+(cd recall-ui && npm run build)                                                  # the server serves recall-ui/dist
+python -B docs/v1_1_release_candidate/demo_prestage.py demo/ledger.sqlite demo/custody/root.json   # refuses to overwrite; delete demo/ to restart
 python -B app.py --database demo/ledger.sqlite --port 4173 --custody-dir demo/custody --trusted-anchor demo/custody/root.json
 ```
-Open `http://127.0.0.1:4173/`. Use the repository's pinned Python 3.12 environment. Keep a second terminal for `checkpoint_ops` and `curl`.
+Open `http://127.0.0.1:4173/`. Keep a second terminal in the repo root. To reset the demo: stop the server, delete `demo/`, run the prestage line again.
 
-## The five minutes
+Cycle commands for the second terminal (the audit script `acceptance/demo_browser_acceptance.cjs` shows the exact arguments; stop the server first, restart it afterwards with `--trusted-anchor <new> --previous-anchor <old>`):
+```
+python -B -m application.checkpoint_ops propose --database demo/ledger.sqlite --current demo/custody/root.json --custody-dir demo/custody
+python -B -m application.checkpoint_ops accept  --database demo/ledger.sqlite --current demo/custody/root.json --custody-dir demo/custody --candidate <candidate> --custodian "Demo operator" --confirm-sha256 <candidateSha256> --registry-digest <review.registry.digest> [--acknowledge <motor> ...]
+```
+(For later cycles add `--current-previous <the checkpoint before current>`.) The propose output lists `review.requiresAcknowledgement`: pass each as `--acknowledge`.
+
+## The five minutes (staged state: DEMO-1 clean and eligible, DEMO-2 on the recalled lot BR-204, checkpoint current)
 | t | Show | Say |
 |---|---|---|
-| 0:00 | Motor decisions console, all motors with a checkpoint chip "current" | "Synthetic motors, a bearing-lot recall (BR-204, drive end). Decisions are shown only while a trusted checkpoint covers the ledger exactly." |
-| 0:45 | Capture workspace: create `MTR-DEMO-1`, assemble with clean lots BR-310/BR-312; create `MTR-DEMO-2` with BR-204 | "Any capture moves the ledger past the checkpoint. The console now withholds every decision: 'Checkpoint required'." |
-| 1:30 | Terminal: `curl -s -X POST -H "X-Pramaan-Token: <token>" -H "Content-Type: application/json" -d "{}" http://127.0.0.1:4173/api/units/MTR-DEMO-1/ship` (token from `/api/session`) | "Even a clean motor cannot be shipped through the API while the checkpoint is stale: 409 SHIPMENT_REFUSED, nothing written. That was the gap we closed." |
-| 2:15 | Terminal: `checkpoint_ops propose`, then `accept` with the typed digest and per-motor acknowledgements (the rehearsal script's `cycle()` shows the exact arguments); restart the server with `--previous-anchor` | "A human operator reviews the proposed successor and accepts it. Same-host custody, operator asserted." |
-| 3:00 | Console: DEMO-1 release eligible, DEMO-2 recall hold | "Eligibility is a read model computed from the evidence, never from a client claim." |
-| 3:30 | `curl` ship `MTR-DEMO-2` with body `{"currentReleaseEligible":true,"force":true}` → 409; ship `MTR-DEMO-1` → 200 | "Recall-held: refused even with forged claims. Eligible and current: recorded. The shipment itself is a ledger write, so the next checkpoint cycle is required." |
-| 4:15 | Record a sighting `ZZ-9` on `MTR-26003`, show stale + recovery workspace, one cycle, that motor stays held while others renew | "Unverified evidence is contained per motor, and only when nine proof obligations hold; anything uncertain widens the hold." |
-| 4:50 | Close | State the limits above. |
+| 0:00 | Motors console: current, DEMO-1 "Release eligible", DEMO-2 and the seeded motors "Recall hold" | "Synthetic motors, a bearing-lot recall (BR-204, drive end). Decisions are shown only while a trusted checkpoint covers the ledger exactly." |
+| 0:30 | Product passports (`passport.html`, MTR-26003 / MTR-DEMO-2), genealogy of MTR-26001, Evidence investigation, Recall impact graph (BR-204) | "Same ledger, four views: passport, genealogy, investigation, impact." |
+| 1:00 | Open "Manufacturing capture workspace", create unit `MTR-DEMO-3` | "Any capture moves the ledger past the checkpoint. The console now says 'Checkpoint required' and shows no decision." |
+| 1:30 | Terminal: `curl` POST `/api/units/MTR-DEMO-1/ship` with header `X-Pramaan-Token` (from `/api/session`) and `Origin: http://127.0.0.1:4173` → `409 SHIPMENT_REFUSED` | "Even the clean motor cannot be shipped while stale. Nothing is written." |
+| 2:00 | Recovery workspace on the stale console | "Recovery can record evidence and propose a successor. It cannot ship, release or activate anything." |
+| 2:15 | Run propose + accept, restart the server | "A human operator accepts the successor. Same-host, operator asserted." |
+| 3:00 | Console: DEMO-1 eligible, DEMO-2 hold; DEMO-2 passport "Held under the recall policy" | "Eligibility is computed from evidence, never from a client claim." |
+| 3:30 | `curl` ship `MTR-DEMO-2` with body `{"currentReleaseEligible":true,"force":true}` → 409. Then workbench → select MTR-DEMO-1 → "Record synthetic shipment" → recorded; console returns to "Checkpoint required" | "Recall-held: refused even with forged claims. Eligible and current: recorded; the shipment itself needs the next checkpoint cycle." |
+| 4:15 | Workbench is only available while current: select MTR-26003, "Record unverified sighting" `ZZ-9`, cycle, open MTR-26003 decision | "Unverified evidence is contained per motor: that motor stays held while others renew." |
+| 4:50 | Close | State the limits below. |
+Real-time budget: the two operator cycles take about 4 s each when scripted but a typed manual cycle takes a minute or more. To keep to five minutes, run the first cycle live and show the sighting step from the recorded screenshots, or run the cycle commands from shell history.
 
-## What not to do on stage
-- Do **not** click "Record synthetic shipment" in the workbench: on refusal the app is expected to show its generic error view (read from the code, not exercised in a browser; no UI redesign in scope). Show shipment through `curl`/the rehearsal script.
-- Use `ZZ-9`-style sightings. A look-alike of the recalled lot (for example `BR-2O4`) deliberately blocks renewal for **all** motors (conservative global refusal).
-- Do not describe anything as production-ready, independently certified or independently validated. Do not say "safe to ship"; say "release eligible under the current checkpoint".
-- Do not run the hosted-CI or benchmark claims: no hosted CI run exists unless the report says so, and nothing has been independently scored.
+## Do not
+- Click "Record synthetic shipment" on a motor you expect to be refused unless you want to show it: **measured** behaviour is a full-page red "Recall data could not be loaded … HTTP 409 … the backend could not be reached or answered unexpectedly" screen for about 1–2 s, after which the 2 s refresh restores the console (nothing was written). It is a generic error, not a purpose-built refusal message. Show refusals with `curl`.
+- Use a look-alike of the recalled lot (for example `BR-2O4`): it deliberately blocks renewal for **all** motors. Use `ZZ-9`.
+- Say "production-ready", "independently certified/validated" or "safe to ship"; say "release eligible under the current checkpoint".
 
-## Offline fallback (no browser, or the server will not start)
-1. `python -B docs/v1_1_release_candidate/demo_rehearsal.py` needs no browser and no pre-built UI; it starts the real server on port 4290 and prints PASS/FAIL per step. Walk the audience through its 10 lines of output.
-2. If even that fails, show the recorded run in `docs/v1_1_release_candidate/rehearsal/` (transcript from the exact SHA; no screenshots were recorded for this candidate).
-3. If Python itself is unavailable, show `docs/v1_1_release_candidate/OWNER_REPORT.md` and the gate summary under `docs/v1_1_release_candidate/gates/`.
-Never switch to a hand-edited database or a pre-seeded "already eligible" ledger without saying so: that would be a fixture, not a demonstration.
+## Offline fallback
+1. **No network is needed at any point**: the built UI loads no external resource (the only URLs in `recall-ui/dist` are XML namespace strings), and the server binds 127.0.0.1. Not tested with the network physically disabled.
+2. **No browser or UI build**: `python -B docs/v1_1_release_candidate/demo_rehearsal.py` starts the real server on port 4290 and prints PASS/FAIL for 10 steps; narrate its output.
+3. **Server will not start or the demo ledger is corrupted**: stop everything, delete `demo/`, re-run the prestage line and the server line (about 10 s). Do not hand-edit a database.
+4. **Nothing runs**: show `acceptance/*.png` (18 screenshots captured from the exact checkout) and `OWNER_REPORT.md`. Say they are recordings, not a live run. No screen recording exists (video capture needs an ffmpeg download that was not approved).
