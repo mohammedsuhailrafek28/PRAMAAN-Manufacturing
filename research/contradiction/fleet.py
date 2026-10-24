@@ -177,7 +177,8 @@ def make_all():
     # B15 supplier missing on one claim: cannot tell duplicate from collision
     F.append(fleet("B15", "Supplier missing on one claim", "insufficient evidence to classify",
                    build("B15", "M101", "08-12", (AFF, "SN-1015", X)) + build("B15", "M102", "08-13", (OK, "SN-1015", None)),
-                   [C("B15-C1", "INSUFFICIENT", "EXCLUSIVE_OCCUPANCY", ["B15-M101-DE", "B15-M102-DE"], ["M101", "M102"])],
+                   [C("B15-C1", "INSUFFICIENT", "EXCLUSIVE_OCCUPANCY", ["B15-M101-DE", "B15-M102-DE"], ["M101", "M102"]),
+                    C("B15-C2", "INSUFFICIENT", "LOT_IDENTITY", ["B15-M101-DE", "B15-M102-DE"], ["M101", "M102"])],
                    ["M101", "M102"], ["M101", "M102"]))
     # B16 serial transposition across two motors
     ev16 = build("B16", "M101", "08-12", (OK, "SN-1016A", X)) + build("B16", "M102", "08-13", (AFF, "SN-1016B", X))

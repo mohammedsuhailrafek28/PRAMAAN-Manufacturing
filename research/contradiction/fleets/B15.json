@@ -189,6 +189,19 @@
      "M101",
      "M102"
     ]
+   },
+   {
+    "cls": "INSUFFICIENT",
+    "eventIds": [
+     "B15-M101-DE",
+     "B15-M102-DE"
+    ],
+    "id": "B15-C2",
+    "kind": "LOT_IDENTITY",
+    "motors": [
+     "M101",
+     "M102"
+    ]
    }
   ],
   "note": "",
