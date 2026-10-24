@@ -332,6 +332,7 @@
     "research/federated_recall/mutation_check.py": "12223ec559f73f96c190be25ffc65553c94ba4e70143cb3d9f28f8acd1f256a1",
     "research/federated_recall/verify_node.mjs": "714521277e622405e12e07ccab74d6d9e571985c34fbb4a155a5961d852df967",
     "research/federated_recall/verify_pynacl.py": "cd2a75cf5ee5dfcaf43d63c5e7f23e0d8b2fbf826fb3ad675e74ac93e4dd1949",
+    "research/hackathon_integration/demo_combined.py": "d1c9d8e1cd166f1a6b8465dac933b0d65ba1f1d6ef6809582ee2655658818295",
     "research/lot_identity_ab/AB_CANDIDATE_REPORT.md": "7d98acb5ef647b79f4884b18204b4a122374b71bc625914fbd9b2aa5113316b0",
     "research/lot_identity_ab/CRASH_SAFETY_STRATEGY.md": "d6c6d11da65f62bfdcbb6986d96ae318622ae44fec60c4bae4a2a6c0e13b3852",
     "research/lot_identity_ab/INDEPENDENT_REVIEW_HANDOFF.md": "2827fa7c0b3af29178bacf513efadad6008b6b3b2c8ef4ed7f9cbfb988c370db",
