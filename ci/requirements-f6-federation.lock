@@ -1,0 +1,7 @@
+# Feature-isolated, hash-pinned dependencies for the F6 federated recall messages (feature/hackathon-federated-recall); same pins as the F5 lock.
+# Installed IN ADDITION to ci/requirements-windows.lock; the frozen release lock is not modified. Windows x64, CPython 3.12.
+# Install: python -m pip install --require-hashes -r ci/requirements-windows.lock -r ci/requirements-f6-federation.lock
+
+cffi==2.1.1 --hash=sha256:f53e442b08449d42821fa4a4fba000095af9f62742a500f978a9f557ec44339a
+cryptography==50.0.1 --hash=sha256:aed8db4f6d71c51efb89530e12d9464e7bf2923d46c3205dc794a2a93f8c0648
+pycparser==3.12 --hash=sha256:a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e
