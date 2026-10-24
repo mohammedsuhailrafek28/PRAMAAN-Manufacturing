@@ -1,0 +1,339 @@
+{
+ "events": [
+  {
+   "actorId": "SYS-MES",
+   "eventId": "B11-M101-WO",
+   "eventType": "WORK_ORDER_OPENED",
+   "evidenceRefs": [],
+   "motorSerial": "M101",
+   "occurredAt": "2026-08-12T09:30:00Z",
+   "payload": {
+    "expectedChanges": [
+     {
+      "action": "INSTALL",
+      "slot": "DE"
+     }
+    ],
+    "orderType": "BUILD"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-12T09:30:04Z",
+   "schemaVersion": 1,
+   "sourceId": "MES",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M101"
+  },
+  {
+   "actorId": "EMP-009",
+   "eventId": "B11-M101-DE",
+   "eventType": "COMPONENT_INSTALLED",
+   "evidenceRefs": [],
+   "motorSerial": "M101",
+   "occurredAt": "2026-08-12T10:00:00Z",
+   "payload": {
+    "componentType": "BEARING",
+    "identityGranularity": "SERIAL",
+    "lot": "BR-204",
+    "part": "BR-6205",
+    "serial": "SN-1011",
+    "slot": "DE",
+    "supplier": "SUP-X"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-12T10:00:04Z",
+   "schemaVersion": 1,
+   "sourceId": "ASSY-01",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M101"
+  },
+  {
+   "actorId": "SYS-MES",
+   "eventId": "B11-M101-CL",
+   "eventType": "WORK_ORDER_CLOSED",
+   "evidenceRefs": [],
+   "motorSerial": "M101",
+   "occurredAt": "2026-08-12T11:00:00Z",
+   "payload": {
+    "disposition": "COMPLETED"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-12T11:00:04Z",
+   "schemaVersion": 1,
+   "sourceId": "MES",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M101"
+  },
+  {
+   "actorId": "SYS-MES",
+   "eventId": "B11-M102-WO",
+   "eventType": "WORK_ORDER_OPENED",
+   "evidenceRefs": [],
+   "motorSerial": "M102",
+   "occurredAt": "2026-08-13T09:30:00Z",
+   "payload": {
+    "expectedChanges": [
+     {
+      "action": "INSTALL",
+      "slot": "DE"
+     }
+    ],
+    "orderType": "BUILD"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-13T09:30:04Z",
+   "schemaVersion": 1,
+   "sourceId": "MES",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M102"
+  },
+  {
+   "actorId": "EMP-009",
+   "eventId": "B11-M102-DE",
+   "eventType": "COMPONENT_INSTALLED",
+   "evidenceRefs": [],
+   "motorSerial": "M102",
+   "occurredAt": "2026-08-13T10:00:00Z",
+   "payload": {
+    "componentType": "BEARING",
+    "identityGranularity": "SERIAL",
+    "lot": "BR-204",
+    "part": "BR-6205",
+    "serial": "SN-1011",
+    "slot": "DE",
+    "supplier": "SUP-X"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-13T10:00:04Z",
+   "schemaVersion": 1,
+   "sourceId": "ASSY-01",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M102"
+  },
+  {
+   "actorId": "SYS-MES",
+   "eventId": "B11-M102-CL",
+   "eventType": "WORK_ORDER_CLOSED",
+   "evidenceRefs": [],
+   "motorSerial": "M102",
+   "occurredAt": "2026-08-13T11:00:00Z",
+   "payload": {
+    "disposition": "COMPLETED"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-13T11:00:04Z",
+   "schemaVersion": 1,
+   "sourceId": "MES",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M102"
+  },
+  {
+   "actorId": "SYS-MES",
+   "eventId": "B11-M103-WO",
+   "eventType": "WORK_ORDER_OPENED",
+   "evidenceRefs": [],
+   "motorSerial": "M103",
+   "occurredAt": "2026-08-14T09:30:00Z",
+   "payload": {
+    "expectedChanges": [
+     {
+      "action": "INSTALL",
+      "slot": "DE"
+     }
+    ],
+    "orderType": "BUILD"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-14T09:30:04Z",
+   "schemaVersion": 1,
+   "sourceId": "MES",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M103"
+  },
+  {
+   "actorId": "EMP-009",
+   "eventId": "B11-M103-DE",
+   "eventType": "COMPONENT_INSTALLED",
+   "evidenceRefs": [],
+   "motorSerial": "M103",
+   "occurredAt": "2026-08-14T10:00:00Z",
+   "payload": {
+    "componentType": "BEARING",
+    "identityGranularity": "SERIAL",
+    "lot": "BR-204",
+    "part": "BR-6205",
+    "serial": "SN-1111",
+    "slot": "DE",
+    "supplier": "SUP-X"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-14T10:00:04Z",
+   "schemaVersion": 1,
+   "sourceId": "ASSY-01",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M103"
+  },
+  {
+   "actorId": "SYS-MES",
+   "eventId": "B11-M103-CL",
+   "eventType": "WORK_ORDER_CLOSED",
+   "evidenceRefs": [],
+   "motorSerial": "M103",
+   "occurredAt": "2026-08-14T11:00:00Z",
+   "payload": {
+    "disposition": "COMPLETED"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-14T11:00:04Z",
+   "schemaVersion": 1,
+   "sourceId": "MES",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M103"
+  },
+  {
+   "actorId": "SYS-MES",
+   "eventId": "B11-M104-WO",
+   "eventType": "WORK_ORDER_OPENED",
+   "evidenceRefs": [],
+   "motorSerial": "M104",
+   "occurredAt": "2026-08-15T09:30:00Z",
+   "payload": {
+    "expectedChanges": [
+     {
+      "action": "INSTALL",
+      "slot": "DE"
+     }
+    ],
+    "orderType": "BUILD"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-15T09:30:04Z",
+   "schemaVersion": 1,
+   "sourceId": "MES",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M104"
+  },
+  {
+   "actorId": "EMP-009",
+   "eventId": "B11-M104-DE",
+   "eventType": "COMPONENT_INSTALLED",
+   "evidenceRefs": [],
+   "motorSerial": "M104",
+   "occurredAt": "2026-08-15T10:00:00Z",
+   "payload": {
+    "componentType": "BEARING",
+    "identityGranularity": "SERIAL",
+    "lot": "BR-310",
+    "part": "BR-6205",
+    "serial": "SN-1211",
+    "slot": "DE",
+    "supplier": "SUP-X"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-15T10:00:04Z",
+   "schemaVersion": 1,
+   "sourceId": "ASSY-01",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M104"
+  },
+  {
+   "actorId": "SYS-MES",
+   "eventId": "B11-M104-CL",
+   "eventType": "WORK_ORDER_CLOSED",
+   "evidenceRefs": [],
+   "motorSerial": "M104",
+   "occurredAt": "2026-08-15T11:00:00Z",
+   "payload": {
+    "disposition": "COMPLETED"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-15T11:00:04Z",
+   "schemaVersion": 1,
+   "sourceId": "MES",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M104"
+  }
+ ],
+ "id": "B11",
+ "intent": "conflict confined to two motors",
+ "policy": {
+  "affectedLots": [
+   "BR-204",
+   "BR-207"
+  ],
+  "affectedPart": "BR-6205",
+  "affectedSlots": [
+   "DE"
+  ],
+  "announcedAt": "2026-10-01T00:00:00Z",
+  "damageInspection": null,
+  "exposureBasis": "CURRENT_INSTALLATION",
+  "policyId": "RC-009/P1",
+  "recallId": "RC-009",
+  "version": 1
+ },
+ "sessions": [
+  {
+   "from": "2026-08-01T00:00:00Z",
+   "sourceId": "MES",
+   "to": "2026-10-31T00:00:00Z"
+  },
+  {
+   "from": "2026-08-01T00:00:00Z",
+   "sourceId": "ASSY-01",
+   "to": "2026-09-30T23:59:59Z"
+  },
+  {
+   "from": "2026-08-01T00:00:00Z",
+   "sourceId": "REWORK-03",
+   "to": "2026-09-30T23:59:59Z"
+  }
+ ],
+ "title": "Unrelated conflict must not propagate",
+ "truth": {
+  "contradictions": [
+   {
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B11-M101-DE",
+     "B11-M102-DE"
+    ],
+    "id": "B11-C1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ]
+   }
+  ],
+  "note": "",
+  "releaseSensitiveMotors": [],
+  "sensitiveMotors": [
+   "M101",
+   "M102"
+  ]
+ }
+}

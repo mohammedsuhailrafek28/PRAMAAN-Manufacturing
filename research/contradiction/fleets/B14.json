@@ -1,0 +1,161 @@
+{
+ "events": [
+  {
+   "actorId": "SYS-MES",
+   "eventId": "B14-M101-WO",
+   "eventType": "WORK_ORDER_OPENED",
+   "evidenceRefs": [],
+   "motorSerial": "M101",
+   "occurredAt": "2026-08-12T09:30:00Z",
+   "payload": {
+    "expectedChanges": [
+     {
+      "action": "INSTALL",
+      "slot": "DE"
+     },
+     {
+      "action": "INSTALL",
+      "slot": "NDE"
+     }
+    ],
+    "orderType": "BUILD"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-12T09:30:04Z",
+   "schemaVersion": 1,
+   "sourceId": "MES",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M101"
+  },
+  {
+   "actorId": "EMP-009",
+   "eventId": "B14-M101-DE",
+   "eventType": "COMPONENT_INSTALLED",
+   "evidenceRefs": [],
+   "motorSerial": "M101",
+   "occurredAt": "2026-08-12T10:00:00Z",
+   "payload": {
+    "componentType": "BEARING",
+    "identityGranularity": "SERIAL",
+    "lot": "BR-310",
+    "part": "BR-6205",
+    "serial": "SN-1014",
+    "slot": "DE",
+    "supplier": "SUP-X"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-12T10:00:04Z",
+   "schemaVersion": 1,
+   "sourceId": "ASSY-01",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M101"
+  },
+  {
+   "actorId": "EMP-009",
+   "eventId": "B14-M101-NDE",
+   "eventType": "COMPONENT_INSTALLED",
+   "evidenceRefs": [],
+   "motorSerial": "M101",
+   "occurredAt": "2026-08-12T10:05:00Z",
+   "payload": {
+    "componentType": "BEARING",
+    "identityGranularity": "SERIAL",
+    "lot": "BR-310",
+    "part": "BR-6205",
+    "serial": "SN-1014",
+    "slot": "NDE",
+    "supplier": "SUP-X"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-12T10:05:04Z",
+   "schemaVersion": 1,
+   "sourceId": "ASSY-01",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M101"
+  },
+  {
+   "actorId": "SYS-MES",
+   "eventId": "B14-M101-CL",
+   "eventType": "WORK_ORDER_CLOSED",
+   "evidenceRefs": [],
+   "motorSerial": "M101",
+   "occurredAt": "2026-08-12T11:00:00Z",
+   "payload": {
+    "disposition": "COMPLETED"
+   },
+   "recallId": null,
+   "recordedAt": "2026-08-12T11:00:04Z",
+   "schemaVersion": 1,
+   "sourceId": "MES",
+   "sourceSeq": null,
+   "supersedesEventId": null,
+   "timeSource": "DEVICE_SYNCED",
+   "workOrderId": "MO-M101"
+  }
+ ],
+ "id": "B14",
+ "intent": "definite conflict within a motor, only DE is in recall scope",
+ "policy": {
+  "affectedLots": [
+   "BR-204",
+   "BR-207"
+  ],
+  "affectedPart": "BR-6205",
+  "affectedSlots": [
+   "DE"
+  ],
+  "announcedAt": "2026-10-01T00:00:00Z",
+  "damageInspection": null,
+  "exposureBasis": "CURRENT_INSTALLATION",
+  "policyId": "RC-009/P1",
+  "recallId": "RC-009",
+  "version": 1
+ },
+ "sessions": [
+  {
+   "from": "2026-08-01T00:00:00Z",
+   "sourceId": "MES",
+   "to": "2026-10-31T00:00:00Z"
+  },
+  {
+   "from": "2026-08-01T00:00:00Z",
+   "sourceId": "ASSY-01",
+   "to": "2026-09-30T23:59:59Z"
+  },
+  {
+   "from": "2026-08-01T00:00:00Z",
+   "sourceId": "REWORK-03",
+   "to": "2026-09-30T23:59:59Z"
+  }
+ ],
+ "title": "Same serial in both slots of one motor",
+ "truth": {
+  "contradictions": [
+   {
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B14-M101-DE",
+     "B14-M101-NDE"
+    ],
+    "id": "B14-C1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101"
+    ]
+   }
+  ],
+  "note": "",
+  "releaseSensitiveMotors": [
+   "M101"
+  ],
+  "sensitiveMotors": [
+   "M101"
+  ]
+ }
+}
