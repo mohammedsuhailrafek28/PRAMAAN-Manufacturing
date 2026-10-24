@@ -1,0 +1,552 @@
+{
+ "api_injection": {
+  "A": {
+   "assembleUnknown": 400,
+   "checkpoint": "ANCHORED_PREFIX_ONLY",
+   "eligible": false,
+   "recall": 200,
+   "recallSentinelAfterPolicy": 400
+  },
+  "B": {
+   "assembleUnknown": 400,
+   "checkpoint": "ANCHORED_PREFIX_ONLY",
+   "eligible": false,
+   "recall": 200,
+   "recallSentinelAfterPolicy": 400
+  },
+  "BASELINE_V1_0": {
+   "assembleUnknown": 200,
+   "checkpoint": "ANCHORED_PREFIX_ONLY",
+   "eligible": false,
+   "recall": 200,
+   "recallSentinelAfterPolicy": 400
+  }
+ },
+ "checkpoint_renewal_after_ambiguity": {
+  "B": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "guard": [
+    {
+     "eventId": "urn:pramaan:MTR-90001:ASSY:1",
+     "lot": "UNKNOWN",
+     "reason": "SENTINEL",
+     "slot": "DE",
+     "source": "INSTALL"
+    }
+   ]
+  },
+  "BASELINE_V1_0": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "guard": null
+  }
+ },
+ "crash_injection_baseline": [
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "AFFECTED",
+    "guard": null,
+    "reasonCodes": [
+     "AFFECTED_LOT_INSTALLED"
+    ]
+   },
+   "crashAfterEvents": 0,
+   "crashed": true,
+   "eventsWritten": 0,
+   "lots": [
+    "BR-204",
+    "BR-310"
+   ],
+   "op": "assemble",
+   "retry": "ACCEPTED"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "WORK_ORDER_UNRECONCILED"
+    ]
+   },
+   "crashAfterEvents": 1,
+   "crashed": true,
+   "eventsWritten": 1,
+   "lots": [
+    "BR-204",
+    "BR-310"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "WORK_ORDER_UNRECONCILED"
+    ]
+   },
+   "crashAfterEvents": 2,
+   "crashed": true,
+   "eventsWritten": 2,
+   "lots": [
+    "BR-204",
+    "BR-310"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "WORK_ORDER_UNRECONCILED"
+    ]
+   },
+   "crashAfterEvents": 3,
+   "crashed": true,
+   "eventsWritten": 3,
+   "lots": [
+    "BR-204",
+    "BR-310"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "NO_TRUSTED_BASELINE",
+     "CURRENT_STATE_UNVERIFIED"
+    ]
+   },
+   "crashAfterEvents": 4,
+   "crashed": true,
+   "eventsWritten": 4,
+   "lots": [
+    "BR-204",
+    "BR-310"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "NO_TRUSTED_BASELINE",
+     "CURRENT_STATE_UNVERIFIED"
+    ]
+   },
+   "crashAfterEvents": 5,
+   "crashed": true,
+   "eventsWritten": 5,
+   "lots": [
+    "BR-204",
+    "BR-310"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "NO_TRUSTED_BASELINE",
+     "CURRENT_STATE_UNVERIFIED"
+    ]
+   },
+   "crashAfterEvents": 6,
+   "crashed": true,
+   "eventsWritten": 6,
+   "lots": [
+    "BR-204",
+    "BR-310"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "NO_TRUSTED_BASELINE",
+     "CURRENT_STATE_UNVERIFIED"
+    ]
+   },
+   "crashAfterEvents": 7,
+   "crashed": true,
+   "eventsWritten": 7,
+   "lots": [
+    "BR-204",
+    "BR-310"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RELEASE_ELIGIBLE",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": true,
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "guard": null,
+    "reasonCodes": [
+     "AS_BUILT_UNAFFECTED_LOT"
+    ]
+   },
+   "crashAfterEvents": 0,
+   "crashed": true,
+   "eventsWritten": 0,
+   "lots": [
+    "BR-310",
+    "BR-312"
+   ],
+   "op": "assemble",
+   "retry": "ACCEPTED"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "WORK_ORDER_UNRECONCILED"
+    ]
+   },
+   "crashAfterEvents": 1,
+   "crashed": true,
+   "eventsWritten": 1,
+   "lots": [
+    "BR-310",
+    "BR-312"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "WORK_ORDER_UNRECONCILED"
+    ]
+   },
+   "crashAfterEvents": 2,
+   "crashed": true,
+   "eventsWritten": 2,
+   "lots": [
+    "BR-310",
+    "BR-312"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "WORK_ORDER_UNRECONCILED"
+    ]
+   },
+   "crashAfterEvents": 3,
+   "crashed": true,
+   "eventsWritten": 3,
+   "lots": [
+    "BR-310",
+    "BR-312"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "NO_TRUSTED_BASELINE",
+     "CURRENT_STATE_UNVERIFIED"
+    ]
+   },
+   "crashAfterEvents": 4,
+   "crashed": true,
+   "eventsWritten": 4,
+   "lots": [
+    "BR-310",
+    "BR-312"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "NO_TRUSTED_BASELINE",
+     "CURRENT_STATE_UNVERIFIED"
+    ]
+   },
+   "crashAfterEvents": 5,
+   "crashed": true,
+   "eventsWritten": 5,
+   "lots": [
+    "BR-310",
+    "BR-312"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "NO_TRUSTED_BASELINE",
+     "CURRENT_STATE_UNVERIFIED"
+    ]
+   },
+   "crashAfterEvents": 6,
+   "crashed": true,
+   "eventsWritten": 6,
+   "lots": [
+    "BR-310",
+    "BR-312"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "NO_TRUSTED_BASELINE",
+     "CURRENT_STATE_UNVERIFIED"
+    ]
+   },
+   "crashAfterEvents": 7,
+   "crashed": true,
+   "eventsWritten": 7,
+   "lots": [
+    "BR-310",
+    "BR-312"
+   ],
+   "op": "assemble",
+   "retry": "ValidationFailure: This unit already has assembly evidence; use replacement",
+   "shipAfterPartial": "ValidationFailure: Completed assembly evidence is required"
+  },
+  {
+   "afterRetry": {
+    "action": "RELEASE_ELIGIBLE",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": true,
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "guard": null,
+    "reasonCodes": [
+     "REPLACED_WITH_UNAFFECTED_LOT"
+    ]
+   },
+   "crashAfterEvents": 0,
+   "crashed": true,
+   "eventsWritten": 0,
+   "lots": [
+    "BR-310"
+   ],
+   "op": "replace",
+   "retry": "ACCEPTED"
+  },
+  {
+   "afterRetry": "SNAPSHOT_BLOCKED LedgerBlocked: Rejected evidence exists; manual reconciliation required before evaluation",
+   "crashAfterEvents": 1,
+   "crashed": true,
+   "eventsWritten": 1,
+   "lots": [
+    "BR-310"
+   ],
+   "op": "replace",
+   "retry": "LedgerBlocked: Work order reopened under a new event ID"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "WORK_ORDER_UNRECONCILED"
+    ]
+   },
+   "crashAfterEvents": 2,
+   "crashed": true,
+   "eventsWritten": 2,
+   "lots": [
+    "BR-310"
+   ],
+   "op": "replace",
+   "retry": "ValidationFailure: No unique recorded DE occupant; investigate evidence first"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "WORK_ORDER_UNRECONCILED"
+    ]
+   },
+   "crashAfterEvents": 3,
+   "crashed": true,
+   "eventsWritten": 3,
+   "lots": [
+    "BR-310"
+   ],
+   "op": "replace",
+   "retry": "ValidationFailure: No unique recorded DE occupant; investigate evidence first"
+  },
+  {
+   "afterRetry": {
+    "action": "RECALL_HOLD",
+    "checkpoint": "ANCHORED_CURRENT",
+    "eligible": false,
+    "finding": "UNRESOLVED",
+    "guard": null,
+    "reasonCodes": [
+     "WORK_ORDER_UNRECONCILED"
+    ]
+   },
+   "crashAfterEvents": 4,
+   "crashed": true,
+   "eventsWritten": 4,
+   "lots": [
+    "BR-310"
+   ],
+   "op": "replace",
+   "retry": "ValidationFailure: No unique recorded DE occupant; investigate evidence first"
+  }
+ ],
+ "legacy_database_unknown_lot": {
+  "A": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "B": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "SENTINEL"
+   ],
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "BASELINE_V1_0": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  }
+ },
+ "supplier_attribution": {
+  "A": {
+   "BR-310": "SUP-KAV-02",
+   "BR-401": "SUP-NSB-01"
+  },
+  "BASELINE_V1_0": {
+   "BR-310": "SUP-KAV-02",
+   "BR-401": "SUP-KAV-02"
+  }
+ },
+ "whitespace_residue_A": {
+  "eventsLeft": 0,
+  "retryAfterFailure": "ACCEPTED"
+ },
+ "whitespace_residue_B": {
+  "eventsLeft": 0,
+  "retryAfterFailure": "ACCEPTED"
+ },
+ "whitespace_residue_BASELINE_V1_0": {
+  "eventsLeft": 2,
+  "retryAfterFailure": "ValidationFailure: This unit already has assembly evidence; use replacement"
+ }
+}

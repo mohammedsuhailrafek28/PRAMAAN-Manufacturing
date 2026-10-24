@@ -1,0 +1,4711 @@
+[
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_A_STRING)",
+  "eventsAfterCapture": 0,
+  "lot": "None",
+  "lotCase": "missing",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_A_STRING)",
+  "eventsAfterCapture": 0,
+  "lot": "None",
+  "lotCase": "missing",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'-'",
+  "lotCase": "sentinel-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'-'",
+  "lotCase": "sentinel-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'0'",
+  "lotCase": "sentinel-0",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'0'",
+  "lotCase": "sentinel-0",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'br-204'",
+  "lotCase": "recalled-lowercase",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'br-204'",
+  "lotCase": "recalled-lowercase",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204 '",
+  "lotCase": "recalled-trailing-space",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204 '",
+  "lotCase": "recalled-trailing-space",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-2O4'",
+  "lotCase": "recalled-letterO",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-2O4'",
+  "lotCase": "recalled-letterO",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR\u2013204'",
+  "lotCase": "recalled-en-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR\u2013204'",
+  "lotCase": "recalled-en-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "recalled-zero-width",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "recalled-zero-width",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR204'",
+  "lotCase": "recalled-no-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR204'",
+  "lotCase": "recalled-no-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-240'",
+  "lotCase": "recalled-transposed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "NEAR_MISS_OF_RECALLED_LOT"
+   ],
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-240'",
+  "lotCase": "recalled-transposed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "NEAR_MISS_OF_RECALLED_LOT"
+   ],
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'\uff22\uff32-204'",
+  "lotCase": "recalled-fullwidth",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'\uff22\uff32-204'",
+  "lotCase": "recalled-fullwidth",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-999'",
+  "lotCase": "different-wellformed-unregistered",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-999'",
+  "lotCase": "different-wellformed-unregistered",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'foo bar'",
+  "lotCase": "different-malformed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'foo bar'",
+  "lotCase": "different-malformed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-555'",
+  "lotCase": "registered-future-effective",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-555'",
+  "lotCase": "registered-future-effective",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-666'",
+  "lotCase": "registered-withdrawn",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-666'",
+  "lotCase": "registered-withdrawn",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'NSB-204'",
+  "lotCase": "registered-alias-of-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'NSB-204'",
+  "lotCase": "registered-alias-of-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-310'",
+  "lotCase": "registered-unaffected",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-310'",
+  "lotCase": "registered-unaffected",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-401'",
+  "lotCase": "registered-unaffected-2",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-401'",
+  "lotCase": "registered-unaffected-2",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204'",
+  "lotCase": "registered-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204'",
+  "lotCase": "registered-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_A_STRING)",
+  "eventsAfterCapture": 0,
+  "lot": "None",
+  "lotCase": "missing",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_A_STRING)",
+  "eventsAfterCapture": 0,
+  "lot": "None",
+  "lotCase": "missing",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'-'",
+  "lotCase": "sentinel-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'-'",
+  "lotCase": "sentinel-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'0'",
+  "lotCase": "sentinel-0",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'0'",
+  "lotCase": "sentinel-0",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'br-204'",
+  "lotCase": "recalled-lowercase",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'br-204'",
+  "lotCase": "recalled-lowercase",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204 '",
+  "lotCase": "recalled-trailing-space",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204 '",
+  "lotCase": "recalled-trailing-space",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-2O4'",
+  "lotCase": "recalled-letterO",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-2O4'",
+  "lotCase": "recalled-letterO",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR\u2013204'",
+  "lotCase": "recalled-en-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR\u2013204'",
+  "lotCase": "recalled-en-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "recalled-zero-width",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "recalled-zero-width",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR204'",
+  "lotCase": "recalled-no-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR204'",
+  "lotCase": "recalled-no-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-240'",
+  "lotCase": "recalled-transposed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "NEAR_MISS_OF_RECALLED_LOT"
+   ],
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-240'",
+  "lotCase": "recalled-transposed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "NEAR_MISS_OF_RECALLED_LOT"
+   ],
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'\uff22\uff32-204'",
+  "lotCase": "recalled-fullwidth",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'\uff22\uff32-204'",
+  "lotCase": "recalled-fullwidth",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-999'",
+  "lotCase": "different-wellformed-unregistered",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-999'",
+  "lotCase": "different-wellformed-unregistered",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'foo bar'",
+  "lotCase": "different-malformed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'foo bar'",
+  "lotCase": "different-malformed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-555'",
+  "lotCase": "registered-future-effective",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-555'",
+  "lotCase": "registered-future-effective",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-666'",
+  "lotCase": "registered-withdrawn",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-666'",
+  "lotCase": "registered-withdrawn",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'NSB-204'",
+  "lotCase": "registered-alias-of-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'NSB-204'",
+  "lotCase": "registered-alias-of-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-310'",
+  "lotCase": "registered-unaffected",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-310'",
+  "lotCase": "registered-unaffected",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-401'",
+  "lotCase": "registered-unaffected-2",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-401'",
+  "lotCase": "registered-unaffected-2",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204'",
+  "lotCase": "registered-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204'",
+  "lotCase": "registered-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_A_STRING)",
+  "eventsAfterCapture": 0,
+  "lot": "None",
+  "lotCase": "missing",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_A_STRING)",
+  "eventsAfterCapture": 0,
+  "lot": "None",
+  "lotCase": "missing",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 0,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'-'",
+  "lotCase": "sentinel-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'-'",
+  "lotCase": "sentinel-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'0'",
+  "lotCase": "sentinel-0",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 0,
+  "lot": "'0'",
+  "lotCase": "sentinel-0",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'br-204'",
+  "lotCase": "recalled-lowercase",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'br-204'",
+  "lotCase": "recalled-lowercase",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204 '",
+  "lotCase": "recalled-trailing-space",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204 '",
+  "lotCase": "recalled-trailing-space",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-2O4'",
+  "lotCase": "recalled-letterO",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-2O4'",
+  "lotCase": "recalled-letterO",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR\u2013204'",
+  "lotCase": "recalled-en-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR\u2013204'",
+  "lotCase": "recalled-en-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "recalled-zero-width",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "recalled-zero-width",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR204'",
+  "lotCase": "recalled-no-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'BR204'",
+  "lotCase": "recalled-no-dash",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-240'",
+  "lotCase": "recalled-transposed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "NEAR_MISS_OF_RECALLED_LOT"
+   ],
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-240'",
+  "lotCase": "recalled-transposed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "NEAR_MISS_OF_RECALLED_LOT"
+   ],
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'\uff22\uff32-204'",
+  "lotCase": "recalled-fullwidth",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'\uff22\uff32-204'",
+  "lotCase": "recalled-fullwidth",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-999'",
+  "lotCase": "different-wellformed-unregistered",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-999'",
+  "lotCase": "different-wellformed-unregistered",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'foo bar'",
+  "lotCase": "different-malformed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'foo bar'",
+  "lotCase": "different-malformed",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-555'",
+  "lotCase": "registered-future-effective",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-555'",
+  "lotCase": "registered-future-effective",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-666'",
+  "lotCase": "registered-withdrawn",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-666'",
+  "lotCase": "registered-withdrawn",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: DE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'NSB-204'",
+  "lotCase": "registered-alias-of-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: NDE lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 0,
+  "lot": "'NSB-204'",
+  "lotCase": "registered-alias-of-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-310'",
+  "lotCase": "registered-unaffected",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-310'",
+  "lotCase": "registered-unaffected",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-401'",
+  "lotCase": "registered-unaffected-2",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-401'",
+  "lotCase": "registered-unaffected-2",
+  "path": "assemble",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204'",
+  "lotCase": "registered-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204'",
+  "lotCase": "registered-recalled",
+  "path": "assemble",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT",
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_A_STRING)",
+  "eventsAfterCapture": 8,
+  "lot": "None",
+  "lotCase": "missing",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_A_STRING)",
+  "eventsAfterCapture": 8,
+  "lot": "None",
+  "lotCase": "missing",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 8,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 8,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 8,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 8,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'-'",
+  "lotCase": "sentinel-dash",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'-'",
+  "lotCase": "sentinel-dash",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'0'",
+  "lotCase": "sentinel-0",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'0'",
+  "lotCase": "sentinel-0",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'br-204'",
+  "lotCase": "recalled-lowercase",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'br-204'",
+  "lotCase": "recalled-lowercase",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204 '",
+  "lotCase": "recalled-trailing-space",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204 '",
+  "lotCase": "recalled-trailing-space",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-2O4'",
+  "lotCase": "recalled-letterO",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-2O4'",
+  "lotCase": "recalled-letterO",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR\u2013204'",
+  "lotCase": "recalled-en-dash",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR\u2013204'",
+  "lotCase": "recalled-en-dash",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "recalled-zero-width",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "recalled-zero-width",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR204'",
+  "lotCase": "recalled-no-dash",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR204'",
+  "lotCase": "recalled-no-dash",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-240'",
+  "lotCase": "recalled-transposed",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "NEAR_MISS_OF_RECALLED_LOT"
+   ],
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-240'",
+  "lotCase": "recalled-transposed",
+  "path": "observe",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "NEAR_MISS_OF_RECALLED_LOT"
+   ],
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'\uff22\uff32-204'",
+  "lotCase": "recalled-fullwidth",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'\uff22\uff32-204'",
+  "lotCase": "recalled-fullwidth",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-999'",
+  "lotCase": "different-wellformed-unregistered",
+  "path": "replace",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-999'",
+  "lotCase": "different-wellformed-unregistered",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'foo bar'",
+  "lotCase": "different-malformed",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'foo bar'",
+  "lotCase": "different-malformed",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-555'",
+  "lotCase": "registered-future-effective",
+  "path": "replace",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-555'",
+  "lotCase": "registered-future-effective",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-666'",
+  "lotCase": "registered-withdrawn",
+  "path": "replace",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-666'",
+  "lotCase": "registered-withdrawn",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'NSB-204'",
+  "lotCase": "registered-alias-of-recalled",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'NSB-204'",
+  "lotCase": "registered-alias-of-recalled",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-310'",
+  "lotCase": "registered-unaffected",
+  "path": "replace",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-310'",
+  "lotCase": "registered-unaffected",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-401'",
+  "lotCase": "registered-unaffected-2",
+  "path": "replace",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-401'",
+  "lotCase": "registered-unaffected-2",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-204'",
+  "lotCase": "registered-recalled",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-204'",
+  "lotCase": "registered-recalled",
+  "path": "observe",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "UNTRUSTED_AFFECTED_OBSERVATION"
+   ]
+  },
+  "scope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_A_STRING)",
+  "eventsAfterCapture": 8,
+  "lot": "None",
+  "lotCase": "missing",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_A_STRING)",
+  "eventsAfterCapture": 8,
+  "lot": "None",
+  "lotCase": "missing",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 8,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 8,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 8,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (EMPTY_OR_WHITESPACE)",
+  "eventsAfterCapture": 8,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'-'",
+  "lotCase": "sentinel-dash",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'-'",
+  "lotCase": "sentinel-dash",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'0'",
+  "lotCase": "sentinel-0",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (SENTINEL)",
+  "eventsAfterCapture": 8,
+  "lot": "'0'",
+  "lotCase": "sentinel-0",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'br-204'",
+  "lotCase": "recalled-lowercase",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'br-204'",
+  "lotCase": "recalled-lowercase",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204 '",
+  "lotCase": "recalled-trailing-space",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204 '",
+  "lotCase": "recalled-trailing-space",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-2O4'",
+  "lotCase": "recalled-letterO",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-2O4'",
+  "lotCase": "recalled-letterO",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR\u2013204'",
+  "lotCase": "recalled-en-dash",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR\u2013204'",
+  "lotCase": "recalled-en-dash",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "recalled-zero-width",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "recalled-zero-width",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR204'",
+  "lotCase": "recalled-no-dash",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'BR204'",
+  "lotCase": "recalled-no-dash",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-240'",
+  "lotCase": "recalled-transposed",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "NEAR_MISS_OF_RECALLED_LOT"
+   ],
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-240'",
+  "lotCase": "recalled-transposed",
+  "path": "observe",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": [
+    "NEAR_MISS_OF_RECALLED_LOT"
+   ],
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'\uff22\uff32-204'",
+  "lotCase": "recalled-fullwidth",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'\uff22\uff32-204'",
+  "lotCase": "recalled-fullwidth",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-999'",
+  "lotCase": "different-wellformed-unregistered",
+  "path": "replace",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-999'",
+  "lotCase": "different-wellformed-unregistered",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'foo bar'",
+  "lotCase": "different-malformed",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'foo bar'",
+  "lotCase": "different-malformed",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-555'",
+  "lotCase": "registered-future-effective",
+  "path": "replace",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-555'",
+  "lotCase": "registered-future-effective",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-666'",
+  "lotCase": "registered-withdrawn",
+  "path": "replace",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-666'",
+  "lotCase": "registered-withdrawn",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: replacement lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'NSB-204'",
+  "lotCase": "registered-alias-of-recalled",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: observed lot: lot identity not established (NOT_CANONICAL_FORM)",
+  "eventsAfterCapture": 8,
+  "lot": "'NSB-204'",
+  "lotCase": "registered-alias-of-recalled",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-310'",
+  "lotCase": "registered-unaffected",
+  "path": "replace",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-310'",
+  "lotCase": "registered-unaffected",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-401'",
+  "lotCase": "registered-unaffected-2",
+  "path": "replace",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "REPLACED_WITH_UNAFFECTED_LOT",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-401'",
+  "lotCase": "registered-unaffected-2",
+  "path": "observe",
+  "result": {
+   "action": "RELEASE_ELIGIBLE",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "guard": null,
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 14,
+  "lot": "'BR-204'",
+  "lotCase": "registered-recalled",
+  "path": "replace",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "guard": null,
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "eventsAfterCapture": 9,
+  "lot": "'BR-204'",
+  "lotCase": "registered-recalled",
+  "path": "observe",
+  "result": {
+   "action": "RECALL_HOLD",
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "finding": "UNRESOLVED",
+   "guard": null,
+   "reasonCodes": [
+    "UNTRUSTED_AFFECTED_OBSERVATION",
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  "scope": "unspecified",
+  "slot": "DE"
+ }
+]

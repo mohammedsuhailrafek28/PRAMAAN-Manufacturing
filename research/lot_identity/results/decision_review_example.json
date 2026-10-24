@@ -1,0 +1,120 @@
+{
+ "blockedByIdentity": [
+  "MTR-90001"
+ ],
+ "requiresAcknowledgement": [
+  "MTR-90001",
+  "MTR-90002",
+  "MTR-90003"
+ ],
+ "rows": [
+  {
+   "after": [
+    "EXCLUDED_WITH_EVIDENCE",
+    "RELEASE_ELIGIBLE"
+   ],
+   "before": null,
+   "change": "NEWLY_EXCLUDED",
+   "evidenceEventIds": [
+    "urn:pramaan:MTR-90001:MES:1",
+    "urn:pramaan:MTR-90001:ASSY:1",
+    "urn:pramaan:MTR-90001:ASSY:2",
+    "urn:pramaan:MTR-90001:MES:2"
+   ],
+   "identityNotEstablished": [
+    {
+     "eventId": "urn:pramaan:MTR-90001:ASSY:1",
+     "lot": "UNKNOWN",
+     "reason": "SENTINEL",
+     "slot": "DE",
+     "source": "INSTALL"
+    }
+   ],
+   "installedLots": [
+    {
+     "identity": "NOT_ESTABLISHED",
+     "installEventId": "urn:pramaan:MTR-90001:ASSY:1",
+     "lot": "UNKNOWN",
+     "slot": "DE"
+    },
+    {
+     "identity": "ESTABLISHED_LOCAL_RULES",
+     "installEventId": "urn:pramaan:MTR-90001:ASSY:2",
+     "lot": "BR-310",
+     "slot": "NDE"
+    }
+   ],
+   "motor": "MTR-90001",
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  },
+  {
+   "after": [
+    "AFFECTED",
+    "RECALL_HOLD"
+   ],
+   "before": null,
+   "change": "NEWLY_HELD",
+   "evidenceEventIds": [
+    "urn:pramaan:MTR-90002:MES:1",
+    "urn:pramaan:MTR-90002:ASSY:1",
+    "urn:pramaan:MTR-90002:ASSY:2",
+    "urn:pramaan:MTR-90002:MES:2"
+   ],
+   "identityNotEstablished": [],
+   "installedLots": [
+    {
+     "identity": "ESTABLISHED_LOCAL_RULES",
+     "installEventId": "urn:pramaan:MTR-90002:ASSY:1",
+     "lot": "BR-204",
+     "slot": "DE"
+    },
+    {
+     "identity": "ESTABLISHED_LOCAL_RULES",
+     "installEventId": "urn:pramaan:MTR-90002:ASSY:2",
+     "lot": "BR-310",
+     "slot": "NDE"
+    }
+   ],
+   "motor": "MTR-90002",
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ]
+  },
+  {
+   "after": [
+    "EXCLUDED_WITH_EVIDENCE",
+    "RELEASE_ELIGIBLE"
+   ],
+   "before": null,
+   "change": "NEWLY_EXCLUDED",
+   "evidenceEventIds": [
+    "urn:pramaan:MTR-90003:MES:1",
+    "urn:pramaan:MTR-90003:ASSY:1",
+    "urn:pramaan:MTR-90003:ASSY:2",
+    "urn:pramaan:MTR-90003:MES:2"
+   ],
+   "identityNotEstablished": [],
+   "installedLots": [
+    {
+     "identity": "ESTABLISHED_LOCAL_RULES",
+     "installEventId": "urn:pramaan:MTR-90003:ASSY:1",
+     "lot": "BR-310",
+     "slot": "DE"
+    },
+    {
+     "identity": "ESTABLISHED_LOCAL_RULES",
+     "installEventId": "urn:pramaan:MTR-90003:ASSY:2",
+     "lot": "BR-312",
+     "slot": "NDE"
+    }
+   ],
+   "motor": "MTR-90003",
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ]
+  }
+ ],
+ "trust": "ACKNOWLEDGEMENT_IS_NOT_AUTHENTICATION_AND_NOT_PROOF_OF_PHYSICAL_LOT_IDENTITY"
+}
