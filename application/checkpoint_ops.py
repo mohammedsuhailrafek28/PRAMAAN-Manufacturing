@@ -24,6 +24,7 @@ from pathlib import Path
 from .anchors import TrustedAnchor, export_anchor, publish_candidate
 from .audit import IntegrityFailure
 from .service import Manufacturing
+from .checkpoint_review import build_review
 
 STATUS_PROPOSED = "CANDIDATE_PROPOSED_NOT_ACTIVATED"
 STATUS_ACCEPTED = "LOCAL_CUSTODY_ACCEPTANCE_OPERATOR_ASSERTED_NOT_INDEPENDENT"
@@ -61,12 +62,13 @@ def propose(database, current_path, custody_dir, current_previous=None):
         publish_candidate(path, candidate)      # staged, fsynced, no overwrite
         return dict(status=STATUS_PROPOSED, candidate=str(path), candidateSha256=sha256_file(path),
                     covers=summarize(app, previous["body"], candidate["body"]),
+                    review=build_review(app, previous["body"], candidate["body"]),
                     next="Review the candidate, then run 'accept' with the custodian name and the sha256 above. Nothing is active yet.")
     finally:
         app.close()
 
 
-def accept(database, current_path, custody_dir, candidate_path, custodian, confirm_sha256):
+def accept(database, current_path, custody_dir, candidate_path, custodian, confirm_sha256, acknowledged=None):
     if not custodian.strip():
         raise SystemExit("A named custodian is required.")
     candidate_path = Path(candidate_path); digest = sha256_file(candidate_path)
@@ -79,8 +81,14 @@ def accept(database, current_path, custody_dir, candidate_path, custodian, confi
     try:
         # The candidate must verify as a chained successor of the current checkpoint, in a fresh trust object.
         proof = TrustedAnchor(candidate_path, current_path).verify(app)
+        review = build_review(app, json.loads(Path(current_path).read_bytes())["body"], json.loads(candidate_path.read_bytes())["body"])
     finally:
         app.close()
+    if review["refusedForIdentity"]:
+        raise SystemExit(f"REFUSED: an exclusion rests on lot identity that is not established for {review['refusedForIdentity']}; acknowledgement cannot override this. Nothing was accepted.")
+    missing = sorted(set(review["requiresAcknowledgement"]) - set(acknowledged or []))
+    if missing:
+        raise SystemExit(f"REFUSED: every newly excluded or newly release-eligible motor must be acknowledged individually; missing {missing}. Nothing was accepted.")
     if proof["state"] != "ANCHORED_CURRENT":
         raise SystemExit("REFUSED: the ledger changed after the candidate was proposed; propose again.")
     accepted_dir = custody / "accepted"; accepted_dir.mkdir(parents=True, exist_ok=True)
@@ -89,7 +97,9 @@ def accept(database, current_path, custody_dir, candidate_path, custodian, confi
     os.chmod(target, 0o444)
     record = dict(status=STATUS_ACCEPTED, custodian=custodian, acceptedAtUtc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
                   candidateSha256=digest, accepted=str(target), previous=str(Path(current_path)),
-                  anchoredSequence=proof["anchoredSequence"], note="Operator-asserted on this host; not independent custody.")
+                  anchoredSequence=proof["anchoredSequence"], note="Operator-asserted on this host; not independent custody.",
+                  acknowledgedMotors=sorted(acknowledged or []), registryDigest=review["registry"]["digest"], registryProvenance=review["registry"]["provenance"],
+                  acknowledgementNote="Acknowledgement is an operator assertion; not authentication and not proof of physical lot identity.")
     log = accepted_dir / (target.name + ".acceptance.json")
     log.write_text(json.dumps(record, indent=2), encoding="utf-8"); os.chmod(log, 0o444)
     record["restart"] = f'python app.py --database "{database}" --trusted-anchor "{target}" --previous-anchor "{current_path}"'
@@ -106,6 +116,7 @@ def main(argv=None):
     p.add_argument("--candidate", type=Path)
     p.add_argument("--custodian")
     p.add_argument("--confirm-sha256")
+    p.add_argument("--acknowledge", action="append", default=[], metavar="MOTOR", help="Acknowledge a newly excluded or newly release-eligible motor (repeatable)")
     a = p.parse_args(argv)
     if not a.database.is_file():
         p.error("Existing database required")
@@ -115,7 +126,7 @@ def main(argv=None):
         else:
             if not (a.candidate and a.custodian and a.confirm_sha256):
                 p.error("accept requires --candidate, --custodian and --confirm-sha256")
-            out = accept(a.database, a.current, a.custody_dir, a.candidate, a.custodian, a.confirm_sha256)
+            out = accept(a.database, a.current, a.custody_dir, a.candidate, a.custodian, a.confirm_sha256, a.acknowledge)
     except IntegrityFailure as exc:
         print(exc.code, file=sys.stderr); raise SystemExit(1)
     print(json.dumps(out, indent=2))

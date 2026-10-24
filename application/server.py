@@ -20,8 +20,11 @@ class LocalServer(ThreadingHTTPServer):
     daemon_threads = True
 
 
-def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previous_anchor=None):
+def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previous_anchor=None, lot_registry=None):
     database = Path(database).resolve()
+    if lot_registry is not None:
+        from . import service as _service
+        _service.DEFAULT_LOT_REGISTRY = Path(lot_registry)   # synthetic, locally authored registry used by capture and by every read model
     from .anchors import TrustedAnchor
     anchor = TrustedAnchor(trusted_anchor,previous_anchor) if trusted_anchor else None
     database.parent.mkdir(parents=True, exist_ok=True)
@@ -187,9 +190,10 @@ def main():
     parser.add_argument("--seed-demo", action="store_true")
     parser.add_argument("--trusted-anchor", type=Path, help="Owner-custodied external anchor; mandatory for current operational decisions")
     parser.add_argument('--previous-anchor',type=Path,help='Previous owner-custodied checkpoint for successor activation')
+    parser.add_argument('--lot-registry', type=Path, help='Locally authored synthetic lot registry (default: bundled application/lot_registry.synthetic.json)')
     args = parser.parse_args()
     try:
-        server = make_server(args.database, args.port, args.seed_demo, trusted_anchor=args.trusted_anchor,previous_anchor=args.previous_anchor)
+        server = make_server(args.database, args.port, args.seed_demo, trusted_anchor=args.trusted_anchor,previous_anchor=args.previous_anchor, lot_registry=args.lot_registry)
     except Exception:
         print(json.dumps(dict(error='STARTUP_UNAVAILABLE',decisionsUnavailable=True)),file=sys.stderr)
         raise SystemExit(1)
