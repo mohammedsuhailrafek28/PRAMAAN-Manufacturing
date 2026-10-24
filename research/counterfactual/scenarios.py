@@ -91,7 +91,7 @@ def mk(sid, title, intent, events, policy="RC-009/P1", sessions=None, lost_recor
     if policy_edit:
         pol.update(policy_edit)
     f = dict(slots=list(pol["affectedSlots"]), slotAccessible=dict(DE=True, NDE=True), lostRecords=lost_records or [], lostRecoverable=True,
-             inspectionPossible=False, correctionPossible=False, accessEvidenceRecoverable=False, exceptionIds=[])
+             inspectionPossible=False, correctionPossible=False, accessEvidenceArchive=False, exceptionIds=[])
     f.update(facts or {})
     return dict(id=sid, title=title, intent=intent, policy=pol, case=case, watermark=wm, facts=f)
 
@@ -117,11 +117,8 @@ def make_all():
                 build(de_lot="BR-310") + rework(removed_lot=A)))
     # A04 DE/NDE ambiguity: both ends BR-204, removal claimed DE, observed BR-204
     S.append(mk("A04", "DE/NDE ambiguity: both ends BR-204, removal claimed DE",
-                "UNRESOLVED (ambiguous slot attribution); a verification or recovered access evidence clears it",
-                build(de_lot=A, nde_lot=A) + rework(removed_lot=A), sessions=[QA_2026_09_10],
-                facts=dict(accessEvidenceRecoverable=True),
-                lost_records=[lost("S-ACC", "SLOT_ACCESS_EVIDENCE", "QA-02", 1, t("09:50:00", "2026-09-10"), t("09:50:04", "2026-09-10"),
-                                   "EMP-031", "RW-192", dict(method="STATION_FIXTURE_RECORD", accessibleSlots=["DE"]))]))
+                "UNRESOLVED (ambiguous slot attribution); a verification or archive-retrieved access evidence clears it",
+                build(de_lot=A, nde_lot=A) + rework(removed_lot=A), facts=dict(accessEvidenceArchive=True)))
     # A05 P2: exposure confirmed, damage inspection missing
     S.append(mk("A05", "Historical exposure confirmed, damage inspection missing (P2)", "AFFECTED; clearable by a qualified passing inspection",
                 build(de_lot=A) + rework(removed_lot=A), policy="RC-009/P2", facts=dict(inspectionPossible=True)))
@@ -208,7 +205,7 @@ def write_all(directory=None):
 
 def load_all(directory=None):
     d = directory or os.path.join(HERE, "scenarios")
-    return [json.load(open(os.path.join(d, n), encoding="utf-8")) for n in sorted(os.listdir(d)) if n.endswith(".json")]
+    return [json.load(open(os.path.join(d, n), encoding="utf-8")) for n in sorted(os.listdir(d)) if n.startswith("A") and n.endswith(".json")]
 
 
 if __name__ == "__main__":

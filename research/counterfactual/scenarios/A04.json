@@ -17,11 +17,6 @@
      "from": "2026-09-10T08:00:00Z",
      "sourceId": "REWORK-03",
      "to": "2026-09-10T18:00:00Z"
-    },
-    {
-     "from": "2026-09-10T09:00:00Z",
-     "sourceId": "QA-02",
-     "to": "2026-09-10T12:00:00Z"
     }
    ]
   },
@@ -216,28 +211,11 @@
   ]
  },
  "facts": {
-  "accessEvidenceRecoverable": true,
+  "accessEvidenceArchive": true,
   "correctionPossible": false,
   "exceptionIds": [],
   "inspectionPossible": false,
-  "lostRecords": [
-   {
-    "actorId": "EMP-031",
-    "eventId": "S-ACC",
-    "eventType": "SLOT_ACCESS_EVIDENCE",
-    "occurredAt": "2026-09-10T09:50:00Z",
-    "payload": {
-     "accessibleSlots": [
-      "DE"
-     ],
-     "method": "STATION_FIXTURE_RECORD"
-    },
-    "recordedAt": "2026-09-10T09:50:04Z",
-    "sourceId": "QA-02",
-    "sourceSeq": 1,
-    "workOrderId": "RW-192"
-   }
-  ],
+  "lostRecords": [],
   "lostRecoverable": true,
   "slotAccessible": {
    "DE": true,
@@ -248,7 +226,7 @@
   ]
  },
  "id": "A04",
- "intent": "UNRESOLVED (ambiguous slot attribution); a verification or recovered access evidence clears it",
+ "intent": "UNRESOLVED (ambiguous slot attribution); a verification or archive-retrieved access evidence clears it",
  "policy": {
   "affectedLots": [
    "BR-204",
@@ -269,7 +247,6 @@
  "watermark": {
   "ASSY-01": 2,
   "MES": 4,
-  "QA-02": 1,
   "REWORK-03": 2
  }
 }

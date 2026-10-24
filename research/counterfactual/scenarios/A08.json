@@ -119,7 +119,7 @@
   ]
  },
  "facts": {
-  "accessEvidenceRecoverable": false,
+  "accessEvidenceArchive": false,
   "correctionPossible": false,
   "exceptionIds": [],
   "inspectionPossible": false,
