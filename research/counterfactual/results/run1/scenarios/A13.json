@@ -1,0 +1,173 @@
+{
+ "a0": {
+  "kind": "false_promise",
+  "opIds": [
+   "QA:DE:U"
+  ],
+  "reachedPrimary": false,
+  "requestsNecessary": 0,
+  "resultFinding": "UNRESOLVED",
+  "size": 1,
+  "unobtainableRequests": 1
+ },
+ "a0Requests": {
+  "noRequestReasons": [],
+  "opIds": [
+   "QA:DE:U"
+  ],
+  "requests": [
+   {
+    "class": "QA_VERIFY",
+    "opId": "QA:DE:U",
+    "reason": "WORK_ORDER_UNRECONCILED",
+    "text": "Independent QA disassembly verification of the DE bearing (hypothesised lot BR-310)"
+   }
+  ],
+  "uninstantiable": [
+   {
+    "class": "RECOVER_RECORD",
+    "reason": "SOURCE_SEQUENCE_GAP"
+   }
+  ]
+ },
+ "a1": {
+  "complete": true,
+  "evals": 9,
+  "largerSubsetMinimal": {
+   "AFFECTED": 0,
+   "EXCLUDED_WITH_EVIDENCE": 0
+  },
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": []
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": null
+  },
+  "seconds": 0.0071,
+  "skippedByDominance": 0
+ },
+ "a1MatchesOracle": true,
+ "a1pruned": {
+  "catalogSize": 4,
+  "evals": 9,
+  "matchesOracle": true,
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": null
+  }
+ },
+ "baseline": {
+  "action": "RECALL_HOLD",
+  "finding": "UNRESOLVED",
+  "flags": [],
+  "gaps": [
+   "SOURCE_SEQUENCE_GAP:MATERIAL",
+   "WORK_ORDER_OBLIGATION_UNMET:MATERIAL"
+  ],
+  "reasons": [
+   "SOURCE_SEQUENCE_GAP",
+   "WORK_ORDER_UNRECONCILED"
+  ],
+  "review": true
+ },
+ "catalogSize": 4,
+ "explainA0": {
+  "requests": [
+   {
+    "because": "WORK_ORDER_UNRECONCILED",
+    "class_": "QA_VERIFY",
+    "request": "Independent QA disassembly verification of the DE bearing (hypothesised lot BR-310)"
+   }
+  ]
+ },
+ "explainA1": {
+  "disclaimer": "HYPOTHETICAL. This is not evidence. No clearance or release eligibility exists unless the listed evidence is actually obtained, recorded through the authoritative channels and evaluated by the production evaluator.",
+  "equallyMinimalAlternatives": 0,
+  "minimumSize": null,
+  "question": "minimum admissible additional evidence to move this motor from UNRESOLVED to EXCLUDED_WITH_EVIDENCE",
+  "searchScope": {
+   "admissibleOperations": 4,
+   "complete": true,
+   "evaluatorRuns": 9,
+   "maxSetSize": 3,
+   "note": "minimality is claimed only within this declared operation set and size bound"
+  },
+  "solutions": [],
+  "status": "NO_SOLUTION_IN_SEARCH_SPACE"
+ },
+ "id": "A13",
+ "inadmissibleOnlyOps": [],
+ "independentReplay": [
+  {
+   "ids": [
+    "QA:DE:A"
+   ],
+   "independent": "AFFECTED",
+   "predicted": "AFFECTED",
+   "same": true,
+   "target": "AFFECTED"
+  }
+ ],
+ "intent": "UNRESOLVED; nothing obtainable clears it",
+ "oracle": {
+  "evals": 8,
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": []
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": null
+  },
+  "seconds": 0.0084
+ },
+ "oracleEvaluatorOnly": {
+  "inadmissibleAlternatives": {
+   "AFFECTED": [],
+   "EXCLUDED_WITH_EVIDENCE": []
+  },
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": []
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": null
+  }
+ },
+ "rubricA0": {
+  "alternatives": false,
+  "evidence_type_and_slot": true,
+  "issuer_named": false,
+  "non_evidence_disclaimer": false,
+  "outcome_dependence": false,
+  "preconditions": false,
+  "reason_diff": false,
+  "scope_and_completeness": false
+ },
+ "rubricA1": {
+  "alternatives": true,
+  "evidence_type_and_slot": false,
+  "issuer_named": false,
+  "non_evidence_disclaimer": true,
+  "outcome_dependence": false,
+  "preconditions": false,
+  "reason_diff": false,
+  "scope_and_completeness": true
+ },
+ "title": "Lost DE install record, device storage destroyed"
+}

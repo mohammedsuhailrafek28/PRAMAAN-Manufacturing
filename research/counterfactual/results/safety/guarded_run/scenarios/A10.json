@@ -1,0 +1,130 @@
+{
+ "a0": {
+  "kind": "correct_none",
+  "opIds": [],
+  "reachedPrimary": false,
+  "requestsNecessary": 0,
+  "resultFinding": "AFFECTED",
+  "size": 0,
+  "unobtainableRequests": 0
+ },
+ "a0Requests": {
+  "noRequestReasons": [
+   "VERIFIED_AFFECTED_LOT_PRESENT"
+  ],
+  "opIds": [],
+  "requests": [],
+  "uninstantiable": []
+ },
+ "a1": {
+  "complete": true,
+  "evals": 3,
+  "largerSubsetMinimal": {
+   "EXCLUDED_WITH_EVIDENCE": 0,
+   "UNRESOLVED": 0
+  },
+  "minimal": {
+   "EXCLUDED_WITH_EVIDENCE": [],
+   "UNRESOLVED": []
+  },
+  "minimum": {
+   "EXCLUDED_WITH_EVIDENCE": null,
+   "UNRESOLVED": null
+  },
+  "seconds": 0.0046,
+  "skippedByDominance": 0
+ },
+ "a1MatchesOracle": true,
+ "a1pruned": {
+  "catalogSize": 0,
+  "evals": 1,
+  "matchesOracle": true,
+  "minimum": {
+   "EXCLUDED_WITH_EVIDENCE": null,
+   "UNRESOLVED": null
+  }
+ },
+ "baseline": {
+  "action": "RECALL_HOLD",
+  "finding": "AFFECTED",
+  "flags": [],
+  "gaps": [],
+  "reasons": [
+   "VERIFIED_AFFECTED_LOT_PRESENT"
+  ],
+  "review": false
+ },
+ "catalogSize": 2,
+ "explainA0": {
+  "requests": []
+ },
+ "explainA1": {
+  "disclaimer": "HYPOTHETICAL. This is not evidence. No clearance or release eligibility exists unless the listed evidence is actually obtained, recorded through the authoritative channels and evaluated by the production evaluator.",
+  "equallyMinimalAlternatives": 0,
+  "minimumSize": null,
+  "question": "minimum admissible additional evidence to move this motor from AFFECTED to EXCLUDED_WITH_EVIDENCE",
+  "searchScope": {
+   "admissibleOperations": 2,
+   "complete": true,
+   "evaluatorRuns": 3,
+   "maxSetSize": 3,
+   "note": "minimality is claimed only within this declared operation set and size bound"
+  },
+  "solutions": [],
+  "status": "NO_SOLUTION_IN_SEARCH_SPACE"
+ },
+ "id": "A10",
+ "inadmissibleOnlyOps": [
+  "QA:DE:A",
+  "QA:DE:U"
+ ],
+ "independentReplay": [],
+ "intent": "AFFECTED; no evidence can legitimately clear it",
+ "oracle": {
+  "evals": 2,
+  "minimal": {
+   "EXCLUDED_WITH_EVIDENCE": [],
+   "UNRESOLVED": []
+  },
+  "minimum": {
+   "EXCLUDED_WITH_EVIDENCE": null,
+   "UNRESOLVED": null
+  },
+  "seconds": 0.004
+ },
+ "oracleEvaluatorOnly": {
+  "inadmissibleAlternatives": {
+   "EXCLUDED_WITH_EVIDENCE": [],
+   "UNRESOLVED": []
+  },
+  "minimal": {
+   "EXCLUDED_WITH_EVIDENCE": [],
+   "UNRESOLVED": []
+  },
+  "minimum": {
+   "EXCLUDED_WITH_EVIDENCE": null,
+   "UNRESOLVED": null
+  }
+ },
+ "rubricA0": {
+  "alternatives": false,
+  "evidence_type_and_slot": false,
+  "issuer_named": false,
+  "non_evidence_disclaimer": false,
+  "outcome_dependence": false,
+  "preconditions": false,
+  "reason_diff": false,
+  "scope_and_completeness": false
+ },
+ "rubricA1": {
+  "alternatives": true,
+  "evidence_type_and_slot": false,
+  "issuer_named": false,
+  "non_evidence_disclaimer": true,
+  "outcome_dependence": false,
+  "preconditions": false,
+  "reason_diff": false,
+  "scope_and_completeness": true
+ },
+ "title": "Independent verification confirms BR-204 installed in DE"
+}

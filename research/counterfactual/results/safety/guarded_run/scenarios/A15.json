@@ -1,0 +1,282 @@
+{
+ "a0": {
+  "kind": "correct_nonminimal",
+  "opIds": [
+   "INS:DE:PASS",
+   "QA:DE:U",
+   "REC:S-07:U"
+  ],
+  "reachedPrimary": true,
+  "requestsNecessary": 2,
+  "resultFinding": "EXCLUDED_WITH_EVIDENCE",
+  "size": 3,
+  "unobtainableRequests": 0
+ },
+ "a0Requests": {
+  "noRequestReasons": [
+   "HISTORICAL_EXPOSURE_CONFIRMED"
+  ],
+  "opIds": [
+   "INS:DE:PASS",
+   "QA:DE:U",
+   "REC:S-07:U"
+  ],
+  "requests": [
+   {
+    "class": "INSPECT",
+    "opId": "INS:DE:PASS",
+    "reason": "DAMAGE_INSPECTION_MISSING",
+    "text": "Qualified post-recall damage inspection of DE (hypothesised result PASS)"
+   },
+   {
+    "class": "RECOVER_RECORD",
+    "opId": "REC:S-07:U",
+    "reason": "SOURCE_SEQUENCE_GAP",
+    "text": "Recover lost COMPONENT_INSTALLED record S-07 (REWORK-03 seq 2) from original device storage"
+   },
+   {
+    "class": "QA_VERIFY",
+    "opId": "QA:DE:U",
+    "reason": "WORK_ORDER_UNRECONCILED",
+    "text": "Independent QA disassembly verification of the DE bearing (hypothesised lot BR-310)"
+   }
+  ],
+  "uninstantiable": []
+ },
+ "a1": {
+  "complete": true,
+  "evals": 125,
+  "largerSubsetMinimal": {
+   "EXCLUDED_WITH_EVIDENCE": 0,
+   "UNRESOLVED": 0
+  },
+  "minimal": {
+   "EXCLUDED_WITH_EVIDENCE": [
+    [
+     "INS:DE:PASS",
+     "REC:S-07:U"
+    ]
+   ],
+   "UNRESOLVED": [
+    [
+     "INS:DE:PASS"
+    ]
+   ]
+  },
+  "minimum": {
+   "EXCLUDED_WITH_EVIDENCE": 2,
+   "UNRESOLVED": 1
+  },
+  "seconds": 0.2177,
+  "skippedByDominance": 6
+ },
+ "a1MatchesOracle": true,
+ "a1pruned": {
+  "catalogSize": 10,
+  "evals": 125,
+  "matchesOracle": true,
+  "minimum": {
+   "EXCLUDED_WITH_EVIDENCE": 2,
+   "UNRESOLVED": 1
+  }
+ },
+ "baseline": {
+  "action": "RECALL_HOLD",
+  "finding": "AFFECTED",
+  "flags": [],
+  "gaps": [
+   "SOURCE_SEQUENCE_GAP:MATERIAL",
+   "WORK_ORDER_OBLIGATION_UNMET:MATERIAL"
+  ],
+  "reasons": [
+   "HISTORICAL_EXPOSURE_CONFIRMED",
+   "DAMAGE_INSPECTION_MISSING",
+   "SOURCE_SEQUENCE_GAP",
+   "WORK_ORDER_UNRECONCILED"
+  ],
+  "review": false
+ },
+ "catalogSize": 10,
+ "explainA0": {
+  "requests": [
+   {
+    "because": "DAMAGE_INSPECTION_MISSING",
+    "class_": "INSPECT",
+    "request": "Qualified post-recall damage inspection of DE (hypothesised result PASS)"
+   },
+   {
+    "because": "SOURCE_SEQUENCE_GAP",
+    "class_": "RECOVER_RECORD",
+    "request": "Recover lost COMPONENT_INSTALLED record S-07 (REWORK-03 seq 2) from original device storage"
+   },
+   {
+    "because": "WORK_ORDER_UNRECONCILED",
+    "class_": "QA_VERIFY",
+    "request": "Independent QA disassembly verification of the DE bearing (hypothesised lot BR-310)"
+   }
+  ]
+ },
+ "explainA1": {
+  "disclaimer": "HYPOTHETICAL. This is not evidence. No clearance or release eligibility exists unless the listed evidence is actually obtained, recorded through the authoritative channels and evaluated by the production evaluator.",
+  "equallyMinimalAlternatives": 1,
+  "minimumSize": 2,
+  "question": "minimum admissible additional evidence to move this motor from AFFECTED to EXCLUDED_WITH_EVIDENCE",
+  "searchScope": {
+   "admissibleOperations": 10,
+   "complete": true,
+   "evaluatorRuns": 125,
+   "maxSetSize": 3,
+   "note": "minimality is claimed only within this declared operation set and size bound"
+  },
+  "solutions": [
+   {
+    "hypotheticalFinding": "EXCLUDED_WITH_EVIDENCE",
+    "items": [
+     {
+      "actor": [
+       "EMP-031"
+      ],
+      "evidenceClass": "INSPECT",
+      "hypothesis": "PASS",
+      "issuer": [
+       "QA-02"
+      ],
+      "mustBeActuallyObtained": true,
+      "opId": "INS:DE:PASS",
+      "precondition": "needs physical access and an inspector qualified for the recall protocol",
+      "slots": [
+       "DE"
+      ],
+      "what": "Qualified post-recall damage inspection of DE (hypothesised result PASS)"
+     },
+     {
+      "actor": [
+       "EMP-017"
+      ],
+      "evidenceClass": "RECOVER_RECORD",
+      "hypothesis": "U",
+      "issuer": [
+       "REWORK-03"
+      ],
+      "mustBeActuallyObtained": true,
+      "opId": "REC:S-07:U",
+      "precondition": "needs the original device storage; content is hypothesised, the envelope is the known one",
+      "slots": [
+       "DE"
+      ],
+      "what": "Recover lost COMPONENT_INSTALLED record S-07 (REWORK-03 seq 2) from original device storage"
+     }
+    ],
+    "leaveOneOut": {
+     "INS:DE:PASS": "AFFECTED",
+     "REC:S-07:U": "UNRESOLVED"
+    },
+    "outcomeDependence": "Holds only if the evidence, once actually obtained, shows the hypothesised content (for example the inspected bearing is not from an affected lot). Obtaining different content can change the finding differently.",
+    "reasonsAdded": [
+     "DAMAGE_INSPECTION_PASSED",
+     "EXPOSURE_REMEDIATED"
+    ],
+    "reasonsAfter": [
+     "HISTORICAL_EXPOSURE_CONFIRMED",
+     "DAMAGE_INSPECTION_PASSED",
+     "EXPOSURE_REMEDIATED"
+    ],
+    "reasonsRemoved": [
+     "DAMAGE_INSPECTION_MISSING",
+     "SOURCE_SEQUENCE_GAP",
+     "WORK_ORDER_UNRECONCILED"
+    ]
+   }
+  ],
+  "status": "MINIMAL_WITHIN_SEARCH_SPACE"
+ },
+ "id": "A15",
+ "inadmissibleOnlyOps": [],
+ "independentReplay": [
+  {
+   "ids": [
+    "INS:DE:PASS",
+    "REC:S-07:U"
+   ],
+   "independent": "EXCLUDED_WITH_EVIDENCE",
+   "predicted": "EXCLUDED_WITH_EVIDENCE",
+   "same": true,
+   "target": "EXCLUDED_WITH_EVIDENCE"
+  },
+  {
+   "ids": [
+    "INS:DE:PASS"
+   ],
+   "independent": "UNRESOLVED",
+   "predicted": "UNRESOLVED",
+   "same": true,
+   "target": "UNRESOLVED"
+  }
+ ],
+ "intent": "AFFECTED; needs inspection and the record",
+ "oracle": {
+  "evals": 130,
+  "minimal": {
+   "EXCLUDED_WITH_EVIDENCE": [
+    [
+     "INS:DE:PASS",
+     "REC:S-07:U"
+    ]
+   ],
+   "UNRESOLVED": [
+    [
+     "INS:DE:PASS"
+    ]
+   ]
+  },
+  "minimum": {
+   "EXCLUDED_WITH_EVIDENCE": 2,
+   "UNRESOLVED": 1
+  },
+  "seconds": 0.1972
+ },
+ "oracleEvaluatorOnly": {
+  "inadmissibleAlternatives": {
+   "EXCLUDED_WITH_EVIDENCE": [],
+   "UNRESOLVED": []
+  },
+  "minimal": {
+   "EXCLUDED_WITH_EVIDENCE": [
+    [
+     "INS:DE:PASS",
+     "REC:S-07:U"
+    ]
+   ],
+   "UNRESOLVED": [
+    [
+     "INS:DE:PASS"
+    ]
+   ]
+  },
+  "minimum": {
+   "EXCLUDED_WITH_EVIDENCE": 2,
+   "UNRESOLVED": 1
+  }
+ },
+ "rubricA0": {
+  "alternatives": false,
+  "evidence_type_and_slot": true,
+  "issuer_named": false,
+  "non_evidence_disclaimer": false,
+  "outcome_dependence": false,
+  "preconditions": false,
+  "reason_diff": false,
+  "scope_and_completeness": false
+ },
+ "rubricA1": {
+  "alternatives": true,
+  "evidence_type_and_slot": true,
+  "issuer_named": true,
+  "non_evidence_disclaimer": true,
+  "outcome_dependence": true,
+  "preconditions": true,
+  "reason_diff": true,
+  "scope_and_completeness": true
+ },
+ "title": "Historical exposure, inspection missing and a lost rework install record"
+}

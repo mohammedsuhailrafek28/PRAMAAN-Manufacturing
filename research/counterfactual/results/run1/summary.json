@@ -1,0 +1,95 @@
+{
+ "a0": {
+  "correct_minimal": 9,
+  "correct_none": 1,
+  "correct_nonminimal": 3,
+  "excessRequests": 2,
+  "false_promise": 5,
+  "insufficient": 0,
+  "missed": 0
+ },
+ "a1MatchesOracle": 18,
+ "a1PrunedMatchesOracle": 17,
+ "ablation": {
+  "a1DisagreesWithOracle": 0,
+  "catalogs": 360,
+  "details": [],
+  "seed": 20261024
+ },
+ "evalsA1": 551,
+ "evalsOracle": 548,
+ "fuzz": {
+  "applicableMutants": 756,
+  "cleanOps": 96,
+  "flagged": 400,
+  "missed": [],
+  "mutantsTheEvaluatorAloneWouldAcceptAsClearing": 18,
+  "rejectedCatalogOps": [
+   "A09:EXC:S-11:CLERICAL_EXCEPTION_CLOSURE_REQUIRES_REVERIFICATION",
+   "A10:QA:DE:A:ACTOR_NOT_INDEPENDENT",
+   "A10:QA:DE:U:ACTOR_NOT_INDEPENDENT"
+  ],
+  "seed": 20261024,
+  "tested": 400
+ },
+ "fuzzPerMutation": {
+  "backdated": [
+   40,
+   40
+  ],
+  "lot_outside_domain": [
+   44,
+   44
+  ],
+  "no_evidence_reference": [
+   46,
+   46
+  ],
+  "non_independent_actor": [
+   38,
+   38
+  ],
+  "recorded_before_occurred": [
+   46,
+   46
+  ],
+  "tampered_envelope": [
+   4,
+   4
+  ],
+  "unapproved_method": [
+   40,
+   40
+  ],
+  "unauthorized_actor": [
+   46,
+   46
+  ],
+  "wrong_motor": [
+   54,
+   54
+  ],
+  "wrong_protocol": [
+   6,
+   6
+  ],
+  "wrong_source": [
+   36,
+   36
+  ]
+ },
+ "guardViolations": [],
+ "independentReplay": {
+  "mismatches": 0,
+  "total": 30
+ },
+ "resolvable": 12,
+ "rubricMax": 8,
+ "rubricMeanA0": 0.83,
+ "rubricMeanA1": 6.33,
+ "scenarios": 18,
+ "secondsA1": 0.7,
+ "secondsOracle": 0.752,
+ "sourceSha": "be32d25c2681e314806adcc2c26a7d509788cf66",
+ "unresolvable": 6
+}

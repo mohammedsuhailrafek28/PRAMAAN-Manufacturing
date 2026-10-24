@@ -1,0 +1,271 @@
+{
+ "a0": {
+  "kind": "correct_minimal",
+  "opIds": [
+   "QA:DE:U"
+  ],
+  "reachedPrimary": true,
+  "requestsNecessary": 1,
+  "resultFinding": "EXCLUDED_WITH_EVIDENCE",
+  "size": 1,
+  "unobtainableRequests": 0
+ },
+ "a0Requests": {
+  "noRequestReasons": [],
+  "opIds": [
+   "QA:DE:U"
+  ],
+  "requests": [
+   {
+    "class": "QA_VERIFY",
+    "opId": "QA:DE:U",
+    "reason": "AMBIGUOUS_SLOT_ATTRIBUTION",
+    "text": "Independent QA disassembly verification of the DE bearing (hypothesised lot BR-310)"
+   }
+  ],
+  "uninstantiable": []
+ },
+ "a1": {
+  "complete": true,
+  "evals": 24,
+  "largerSubsetMinimal": {
+   "AFFECTED": 0,
+   "EXCLUDED_WITH_EVIDENCE": 0
+  },
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": [
+    [
+     "QA:DE:U"
+    ],
+    [
+     "ARC:OUT"
+    ]
+   ]
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": 1
+  },
+  "seconds": 0.0355,
+  "skippedByDominance": 3
+ },
+ "a1MatchesOracle": true,
+ "a1pruned": {
+  "catalogSize": 6,
+  "evals": 24,
+  "matchesOracle": true,
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": 1
+  }
+ },
+ "baseline": {
+  "action": "RECALL_HOLD",
+  "finding": "UNRESOLVED",
+  "flags": [],
+  "gaps": [],
+  "reasons": [
+   "AMBIGUOUS_SLOT_ATTRIBUTION"
+  ],
+  "review": true
+ },
+ "catalogSize": 6,
+ "explainA0": {
+  "requests": [
+   {
+    "because": "AMBIGUOUS_SLOT_ATTRIBUTION",
+    "class_": "QA_VERIFY",
+    "request": "Independent QA disassembly verification of the DE bearing (hypothesised lot BR-310)"
+   }
+  ]
+ },
+ "explainA1": {
+  "disclaimer": "HYPOTHETICAL. This is not evidence. No clearance or release eligibility exists unless the listed evidence is actually obtained, recorded through the authoritative channels and evaluated by the production evaluator.",
+  "equallyMinimalAlternatives": 2,
+  "minimumSize": 1,
+  "question": "minimum admissible additional evidence to move this motor from UNRESOLVED to EXCLUDED_WITH_EVIDENCE",
+  "searchScope": {
+   "admissibleOperations": 6,
+   "complete": true,
+   "evaluatorRuns": 24,
+   "maxSetSize": 3,
+   "note": "minimality is claimed only within this declared operation set and size bound"
+  },
+  "solutions": [
+   {
+    "hypotheticalFinding": "EXCLUDED_WITH_EVIDENCE",
+    "items": [
+     {
+      "actor": [
+       "EMP-031"
+      ],
+      "evidenceClass": "QA_VERIFY",
+      "hypothesis": "U",
+      "issuer": [
+       "QA-02"
+      ],
+      "mustBeActuallyObtained": true,
+      "opId": "QA:DE:U",
+      "precondition": "needs physical access to the slot and an authorised verifier independent of the record-makers",
+      "slots": [
+       "DE"
+      ],
+      "what": "Independent QA disassembly verification of the DE bearing (hypothesised lot BR-310)"
+     }
+    ],
+    "leaveOneOut": {},
+    "outcomeDependence": "Holds only if the evidence, once actually obtained, shows the hypothesised content (for example the inspected bearing is not from an affected lot). Obtaining different content can change the finding differently.",
+    "reasonsAdded": [
+     "REPLACED_WITH_UNAFFECTED_LOT"
+    ],
+    "reasonsAfter": [
+     "REPLACED_WITH_UNAFFECTED_LOT"
+    ],
+    "reasonsRemoved": [
+     "AMBIGUOUS_SLOT_ATTRIBUTION"
+    ]
+   },
+   {
+    "hypotheticalFinding": "EXCLUDED_WITH_EVIDENCE",
+    "items": [
+     {
+      "actor": [
+       "EMP-031"
+      ],
+      "evidenceClass": "ARCHIVE_ACCESS",
+      "hypothesis": "OUT",
+      "issuer": [
+       "QA-02"
+      ],
+      "mustBeActuallyObtained": true,
+      "opId": "ARC:OUT",
+      "precondition": "needs the fixture archive; occurredAt precedes now but stays inside the work-order window",
+      "slots": [
+       "DE",
+       "NDE"
+      ],
+      "what": "Retrieve the station fixture archive record of which slots were accessible during the removal"
+     }
+    ],
+    "leaveOneOut": {},
+    "outcomeDependence": "Holds only if the evidence, once actually obtained, shows the hypothesised content (for example the inspected bearing is not from an affected lot). Obtaining different content can change the finding differently.",
+    "reasonsAdded": [
+     "REPLACED_WITH_UNAFFECTED_LOT"
+    ],
+    "reasonsAfter": [
+     "REPLACED_WITH_UNAFFECTED_LOT"
+    ],
+    "reasonsRemoved": [
+     "AMBIGUOUS_SLOT_ATTRIBUTION"
+    ]
+   }
+  ],
+  "status": "MINIMAL_WITHIN_SEARCH_SPACE"
+ },
+ "id": "A04",
+ "inadmissibleOnlyOps": [],
+ "independentReplay": [
+  {
+   "ids": [
+    "QA:DE:U"
+   ],
+   "independent": "EXCLUDED_WITH_EVIDENCE",
+   "predicted": "EXCLUDED_WITH_EVIDENCE",
+   "same": true,
+   "target": "EXCLUDED_WITH_EVIDENCE"
+  },
+  {
+   "ids": [
+    "ARC:OUT"
+   ],
+   "independent": "EXCLUDED_WITH_EVIDENCE",
+   "predicted": "EXCLUDED_WITH_EVIDENCE",
+   "same": true,
+   "target": "EXCLUDED_WITH_EVIDENCE"
+  },
+  {
+   "ids": [
+    "QA:DE:A"
+   ],
+   "independent": "AFFECTED",
+   "predicted": "AFFECTED",
+   "same": true,
+   "target": "AFFECTED"
+  }
+ ],
+ "intent": "UNRESOLVED (ambiguous slot attribution); a verification or archive-retrieved access evidence clears it",
+ "oracle": {
+  "evals": 26,
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": [
+    [
+     "QA:DE:U"
+    ],
+    [
+     "ARC:OUT"
+    ]
+   ]
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": 1
+  },
+  "seconds": 0.042
+ },
+ "oracleEvaluatorOnly": {
+  "inadmissibleAlternatives": {
+   "AFFECTED": [],
+   "EXCLUDED_WITH_EVIDENCE": []
+  },
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": [
+    [
+     "QA:DE:U"
+    ],
+    [
+     "ARC:OUT"
+    ]
+   ]
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": 1
+  }
+ },
+ "rubricA0": {
+  "alternatives": false,
+  "evidence_type_and_slot": true,
+  "issuer_named": false,
+  "non_evidence_disclaimer": false,
+  "outcome_dependence": false,
+  "preconditions": false,
+  "reason_diff": false,
+  "scope_and_completeness": false
+ },
+ "rubricA1": {
+  "alternatives": true,
+  "evidence_type_and_slot": true,
+  "issuer_named": true,
+  "non_evidence_disclaimer": true,
+  "outcome_dependence": true,
+  "preconditions": true,
+  "reason_diff": true,
+  "scope_and_completeness": true
+ },
+ "title": "DE/NDE ambiguity: both ends BR-204, removal claimed DE"
+}

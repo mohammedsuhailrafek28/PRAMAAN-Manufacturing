@@ -1,0 +1,232 @@
+{
+ "a0": {
+  "kind": "correct_minimal",
+  "opIds": [
+   "QA:DE:U"
+  ],
+  "reachedPrimary": true,
+  "requestsNecessary": 1,
+  "resultFinding": "EXCLUDED_WITH_EVIDENCE",
+  "size": 1,
+  "unobtainableRequests": 0
+ },
+ "a0Requests": {
+  "noRequestReasons": [],
+  "opIds": [
+   "QA:DE:U"
+  ],
+  "requests": [
+   {
+    "class": "QA_VERIFY",
+    "opId": "QA:DE:U",
+    "reason": "MATERIAL_CAPTURE_GAP",
+    "text": "Independent QA disassembly verification of the DE bearing (hypothesised lot BR-310)"
+   }
+  ],
+  "uninstantiable": []
+ },
+ "a1": {
+  "complete": true,
+  "evals": 9,
+  "largerSubsetMinimal": {
+   "AFFECTED": 0,
+   "EXCLUDED_WITH_EVIDENCE": 0
+  },
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": [
+    [
+     "QA:DE:U"
+    ]
+   ]
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": 1
+  },
+  "seconds": 0.0149,
+  "skippedByDominance": 0
+ },
+ "a1MatchesOracle": true,
+ "a1pruned": {
+  "catalogSize": 4,
+  "evals": 9,
+  "matchesOracle": true,
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": 1
+  }
+ },
+ "baseline": {
+  "action": "RECALL_HOLD",
+  "finding": "UNRESOLVED",
+  "flags": [],
+  "gaps": [
+   "UNRESOLVED_EXCEPTION:MATERIAL"
+  ],
+  "reasons": [
+   "MATERIAL_CAPTURE_GAP"
+  ],
+  "review": true
+ },
+ "catalogSize": 4,
+ "explainA0": {
+  "requests": [
+   {
+    "because": "MATERIAL_CAPTURE_GAP",
+    "class_": "QA_VERIFY",
+    "request": "Independent QA disassembly verification of the DE bearing (hypothesised lot BR-310)"
+   }
+  ]
+ },
+ "explainA1": {
+  "disclaimer": "HYPOTHETICAL. This is not evidence. No clearance or release eligibility exists unless the listed evidence is actually obtained, recorded through the authoritative channels and evaluated by the production evaluator.",
+  "equallyMinimalAlternatives": 1,
+  "minimumSize": 1,
+  "question": "minimum admissible additional evidence to move this motor from UNRESOLVED to EXCLUDED_WITH_EVIDENCE",
+  "searchScope": {
+   "admissibleOperations": 4,
+   "complete": true,
+   "evaluatorRuns": 9,
+   "maxSetSize": 3,
+   "note": "minimality is claimed only within this declared operation set and size bound"
+  },
+  "solutions": [
+   {
+    "hypotheticalFinding": "EXCLUDED_WITH_EVIDENCE",
+    "items": [
+     {
+      "actor": [
+       "EMP-031"
+      ],
+      "evidenceClass": "QA_VERIFY",
+      "hypothesis": "U",
+      "issuer": [
+       "QA-02"
+      ],
+      "mustBeActuallyObtained": true,
+      "opId": "QA:DE:U",
+      "precondition": "needs physical access to the slot and an authorised verifier independent of the record-makers",
+      "slots": [
+       "DE"
+      ],
+      "what": "Independent QA disassembly verification of the DE bearing (hypothesised lot BR-310)"
+     }
+    ],
+    "leaveOneOut": {},
+    "outcomeDependence": "Holds only if the evidence, once actually obtained, shows the hypothesised content (for example the inspected bearing is not from an affected lot). Obtaining different content can change the finding differently.",
+    "reasonsAdded": [
+     "AS_BUILT_UNAFFECTED_LOT",
+     "GAP_BOUNDED_BY_VERIFICATION"
+    ],
+    "reasonsAfter": [
+     "AS_BUILT_UNAFFECTED_LOT",
+     "GAP_BOUNDED_BY_VERIFICATION"
+    ],
+    "reasonsRemoved": [
+     "MATERIAL_CAPTURE_GAP"
+    ]
+   }
+  ],
+  "status": "MINIMAL_WITHIN_SEARCH_SPACE"
+ },
+ "id": "A09",
+ "inadmissibleOnlyOps": [
+  "EXC:S-11"
+ ],
+ "independentReplay": [
+  {
+   "ids": [
+    "QA:DE:U"
+   ],
+   "independent": "EXCLUDED_WITH_EVIDENCE",
+   "predicted": "EXCLUDED_WITH_EVIDENCE",
+   "same": true,
+   "target": "EXCLUDED_WITH_EVIDENCE"
+  },
+  {
+   "ids": [
+    "QA:DE:A"
+   ],
+   "independent": "AFFECTED",
+   "predicted": "AFFECTED",
+   "same": true,
+   "target": "AFFECTED"
+  }
+ ],
+ "intent": "UNRESOLVED; verification bounds it; a clerical resolve is evaluator-accepted but inadmissible",
+ "oracle": {
+  "evals": 8,
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": [
+    [
+     "QA:DE:U"
+    ]
+   ]
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": 1
+  },
+  "seconds": 0.0171
+ },
+ "oracleEvaluatorOnly": {
+  "inadmissibleAlternatives": {
+   "AFFECTED": [],
+   "EXCLUDED_WITH_EVIDENCE": [
+    [
+     "EXC:S-11"
+    ]
+   ]
+  },
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": [
+    [
+     "QA:DE:U"
+    ],
+    [
+     "EXC:S-11"
+    ]
+   ]
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": 1
+  }
+ },
+ "rubricA0": {
+  "alternatives": false,
+  "evidence_type_and_slot": true,
+  "issuer_named": false,
+  "non_evidence_disclaimer": false,
+  "outcome_dependence": false,
+  "preconditions": false,
+  "reason_diff": false,
+  "scope_and_completeness": false
+ },
+ "rubricA1": {
+  "alternatives": true,
+  "evidence_type_and_slot": true,
+  "issuer_named": true,
+  "non_evidence_disclaimer": true,
+  "outcome_dependence": true,
+  "preconditions": true,
+  "reason_diff": true,
+  "scope_and_completeness": true
+ },
+ "title": "Unresolved capture exception on DE"
+}

@@ -1,0 +1,22 @@
+{
+ "changedAfterExperiment": [],
+ "changedAfterNegativeControls": [],
+ "experimentExit": 0,
+ "fixtureFiles": [
+  "fixture/checkpoint-001.json",
+  "fixture/ledger.sqlite"
+ ],
+ "forbiddenImports": [],
+ "guardViolationsDuringExperiment": [],
+ "hashedFiles": 481,
+ "negativeControls": {
+  "append_to_ledger_file": "blocked: PermissionError",
+  "delete_checkpoint": "blocked: PermissionError",
+  "evaluator_given_a_database_path": "blocked: TypeError",
+  "network_connect": "blocked: PermissionError",
+  "overwrite_checkpoint": "blocked: PermissionError",
+  "sqlite_connect_ledger": "blocked: PermissionError",
+  "write_into_frozen_source": "blocked: PermissionError"
+ },
+ "passed": true
+}

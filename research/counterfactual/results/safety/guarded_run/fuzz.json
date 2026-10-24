@@ -1,0 +1,60 @@
+{
+ "applicableMutants": 756,
+ "cleanOps": 96,
+ "flagged": 400,
+ "missed": [],
+ "mutantsTheEvaluatorAloneWouldAcceptAsClearing": 18,
+ "perMutation": {
+  "backdated": [
+   40,
+   40
+  ],
+  "lot_outside_domain": [
+   44,
+   44
+  ],
+  "no_evidence_reference": [
+   46,
+   46
+  ],
+  "non_independent_actor": [
+   38,
+   38
+  ],
+  "recorded_before_occurred": [
+   46,
+   46
+  ],
+  "tampered_envelope": [
+   4,
+   4
+  ],
+  "unapproved_method": [
+   40,
+   40
+  ],
+  "unauthorized_actor": [
+   46,
+   46
+  ],
+  "wrong_motor": [
+   54,
+   54
+  ],
+  "wrong_protocol": [
+   6,
+   6
+  ],
+  "wrong_source": [
+   36,
+   36
+  ]
+ },
+ "rejectedCatalogOps": [
+  "A09:EXC:S-11:CLERICAL_EXCEPTION_CLOSURE_REQUIRES_REVERIFICATION",
+  "A10:QA:DE:A:ACTOR_NOT_INDEPENDENT",
+  "A10:QA:DE:U:ACTOR_NOT_INDEPENDENT"
+ ],
+ "seed": 20261024,
+ "tested": 400
+}

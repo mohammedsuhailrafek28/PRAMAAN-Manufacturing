@@ -1,0 +1,154 @@
+{
+ "a0": {
+  "kind": "false_promise",
+  "opIds": [],
+  "reachedPrimary": false,
+  "requestsNecessary": 0,
+  "resultFinding": "UNRESOLVED",
+  "size": 0,
+  "unobtainableRequests": 1
+ },
+ "a0Requests": {
+  "noRequestReasons": [],
+  "opIds": [],
+  "requests": [],
+  "uninstantiable": [
+   {
+    "class": "CORRECTION",
+    "reason": "EVENT_ORDER_INTEGRITY"
+   }
+  ]
+ },
+ "a1": {
+  "complete": true,
+  "evals": 9,
+  "largerSubsetMinimal": {
+   "AFFECTED": 0,
+   "EXCLUDED_WITH_EVIDENCE": 0
+  },
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": []
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": null
+  },
+  "seconds": 0.0084,
+  "skippedByDominance": 0
+ },
+ "a1MatchesOracle": true,
+ "a1pruned": {
+  "catalogSize": 0,
+  "evals": 1,
+  "matchesOracle": false,
+  "minimum": {
+   "AFFECTED": null,
+   "EXCLUDED_WITH_EVIDENCE": null
+  }
+ },
+ "baseline": {
+  "action": "RECALL_HOLD",
+  "finding": "UNRESOLVED",
+  "flags": [],
+  "gaps": [
+   "EVENT_ORDER:MATERIAL"
+  ],
+  "reasons": [
+   "EVENT_ORDER_INTEGRITY"
+  ],
+  "review": true
+ },
+ "catalogSize": 4,
+ "explainA0": {
+  "requests": []
+ },
+ "explainA1": {
+  "disclaimer": "HYPOTHETICAL. This is not evidence. No clearance or release eligibility exists unless the listed evidence is actually obtained, recorded through the authoritative channels and evaluated by the production evaluator.",
+  "equallyMinimalAlternatives": 0,
+  "minimumSize": null,
+  "question": "minimum admissible additional evidence to move this motor from UNRESOLVED to EXCLUDED_WITH_EVIDENCE",
+  "searchScope": {
+   "admissibleOperations": 4,
+   "complete": true,
+   "evaluatorRuns": 9,
+   "maxSetSize": 3,
+   "note": "minimality is claimed only within this declared operation set and size bound"
+  },
+  "solutions": [],
+  "status": "NO_SOLUTION_IN_SEARCH_SPACE"
+ },
+ "id": "A08",
+ "inadmissibleOnlyOps": [],
+ "independentReplay": [
+  {
+   "ids": [
+    "QA:DE:A"
+   ],
+   "independent": "AFFECTED",
+   "predicted": "AFFECTED",
+   "same": true,
+   "target": "AFFECTED"
+  }
+ ],
+ "intent": "UNRESOLVED; no additional evidence can repair it",
+ "oracle": {
+  "evals": 8,
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": []
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": null
+  },
+  "seconds": 0.0073
+ },
+ "oracleEvaluatorOnly": {
+  "inadmissibleAlternatives": {
+   "AFFECTED": [],
+   "EXCLUDED_WITH_EVIDENCE": []
+  },
+  "minimal": {
+   "AFFECTED": [
+    [
+     "QA:DE:A"
+    ]
+   ],
+   "EXCLUDED_WITH_EVIDENCE": []
+  },
+  "minimum": {
+   "AFFECTED": 1,
+   "EXCLUDED_WITH_EVIDENCE": null
+  }
+ },
+ "rubricA0": {
+  "alternatives": false,
+  "evidence_type_and_slot": false,
+  "issuer_named": false,
+  "non_evidence_disclaimer": false,
+  "outcome_dependence": false,
+  "preconditions": false,
+  "reason_diff": false,
+  "scope_and_completeness": false
+ },
+ "rubricA1": {
+  "alternatives": true,
+  "evidence_type_and_slot": false,
+  "issuer_named": false,
+  "non_evidence_disclaimer": true,
+  "outcome_dependence": false,
+  "preconditions": false,
+  "reason_diff": false,
+  "scope_and_completeness": true
+ },
+ "title": "DE install recorded before it occurred (invalid chronology)"
+}
