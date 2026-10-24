@@ -1,0 +1,79 @@
+{
+ "checkpointBindingNegatives": "wrong/modified checkpoint, altered row, shifted/out-of-range index, lot/slot/serial/policy/head/sequence mismatch, partial row: all rejected",
+ "clearanceMotorRefused": true,
+ "disclosureMatrix": {
+  "auditor": {
+   "bytes": 6648,
+   "checkpointBinding": "CLAIMS_BOUND_TO_CHECKPOINT_ROW (opened event row re-hashes to the checkpoint's row digest; the checkpoint itself is same-host custody)",
+   "digestsCommitted": 24,
+   "disclosed": [
+    "decisionId",
+    "eventRow",
+    "eventRowIndex",
+    "evidenceFinding",
+    "headHash",
+    "installEventId",
+    "lot",
+    "motorSerial",
+    "operationalAction",
+    "part",
+    "policyDigest",
+    "recallId",
+    "registryDigest",
+    "sequence",
+    "slot",
+    "supplierId"
+   ]
+  },
+  "customer": {
+   "bytes": 2532,
+   "checkpointBinding": "ISSUER_ASSERTED_ONLY",
+   "digestsCommitted": 24,
+   "disclosed": [
+    "evidenceFinding",
+    "motorSerial",
+    "operationalAction",
+    "recallId"
+   ]
+  },
+  "supplier": {
+   "bytes": 2702,
+   "checkpointBinding": "ISSUER_ASSERTED_ONLY",
+   "digestsCommitted": 24,
+   "disclosed": [
+    "evidenceFinding",
+    "lot",
+    "operationalAction",
+    "part",
+    "recallId",
+    "slot",
+    "supplierId"
+   ]
+  }
+ },
+ "hostileInputs": "32 hostile inputs rejected without an exception",
+ "readOnly": "ledger_binding (every table's row digests + source heads) and the checkpoint file bytes are identical before and after issuing and verifying",
+ "rfc8032Vectors": "TEST 1 and TEST 2 (RFC 8032 section 7.1): public key and signature reproduced exactly",
+ "rfc9901Vectors": "3 published Disclosure strings decode to the published arrays and hash to the published digests (RFC 9901 sections 4.2.1, 4.2.3, 5.1)",
+ "saltReuse": "no Disclosure string and no digest repeated across 6 further issuances",
+ "schema": {
+  "actions": [
+   "RECALL_HOLD",
+   "RELEASE_ELIGIBLE"
+  ],
+  "findings": [
+   "AFFECTED",
+   "EXCLUDED_WITH_EVIDENCE",
+   "UNRESOLVED"
+  ],
+  "issuable": [
+   "RECALL_HOLD"
+  ]
+ },
+ "staleCheckpointRefused": true,
+ "tamperDisclosure": "changed value, changed salt, renamed claim, duplicate, uncommitted and empty disclosures are all rejected",
+ "tamperPayload": "aud, exp, iat, profile, jti, iss, _sd removal and _sd addition each fail with BAD_SIGNATURE",
+ "unexpectedClaims": "profile violation, unknown claim, currentReleaseEligible, reserved names, plain-claim collision, extra payload field, duplicate name/digest/disclosure, weak salt: all rejected",
+ "unresolvedAndLookalikeNoLotClaim": true,
+ "wrongKey": "attacker key, attacker key under the victim kid, corrupted and truncated signatures: all rejected"
+}

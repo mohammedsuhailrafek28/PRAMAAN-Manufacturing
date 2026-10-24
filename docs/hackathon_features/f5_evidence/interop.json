@@ -1,0 +1,128 @@
+{
+ "cases": 17,
+ "allAgree": true,
+ "disagreements": [],
+ "rows": [
+  {
+   "case": "valid-customer",
+   "reference": true,
+   "node": true,
+   "pynacl": true,
+   "claimsAgree": true
+  },
+  {
+   "case": "valid-supplier",
+   "reference": true,
+   "node": true,
+   "pynacl": true,
+   "claimsAgree": true
+  },
+  {
+   "case": "valid-auditor",
+   "reference": true,
+   "node": true,
+   "pynacl": true,
+   "claimsAgree": true
+  },
+  {
+   "case": "aud-mismatch",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "expired",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "not-yet-valid",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "payload-aud-changed",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "payload-sd-entry-dropped",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "disclosure-value-changed",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "disclosure-duplicated",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "signature-bit-flipped",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "attacker-key-signed",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "forged-by-real-key-valid",
+   "reference": true,
+   "node": true,
+   "pynacl": true,
+   "claimsAgree": true
+  },
+  {
+   "case": "forged-release-eligible",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "forged-extra-claim",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "forged-overlong-expiry",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  },
+  {
+   "case": "forged-alg-none",
+   "reference": false,
+   "node": false,
+   "pynacl": false,
+   "claimsAgree": true
+  }
+ ],
+ "accepted": 4,
+ "note": "Verdicts and accepted claims compared; failure codes differ by implementation by design. Ed25519 primitives: cryptography (reference), OpenSSL via Node crypto, libsodium via PyNaCl."
+}
