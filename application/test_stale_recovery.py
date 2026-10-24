@@ -178,6 +178,22 @@ class Recovery(unittest.TestCase):
                 self.assertEqual(decision(snap, S)["operationalAction"], "RECALL_HOLD")
                 self.assertEqual(c.call(f"/api/motors/{S}/decisions")[1]["eligibility"]["currentReleaseEligible"], False)
 
+    def test_known_gap_the_ordinary_ship_route_is_not_gated_by_checkpoint_state(self):
+        """DOCUMENTS A GAP REPORTED TO THE OWNER, not a desired behaviour. The ordinary POST /api/units/<m>/ship route records a shipment FACT whether or not the
+        checkpoint is current: it authorizes nothing (eligibility is a separate read model, false for every motor while stale) but it is not refused either.
+        The recovery surface offers no shipment route. Gating the ordinary route needs an owner-approved behaviour change; if that is made, this test must flip."""
+        with tempfile.TemporaryDirectory() as d:
+            db, c0, custody = world(d)
+            app = Manufacturing(db); app.create_unit("MTR-92009"); app.assemble("MTR-92009", SAFE, "BR-312"); app.close()
+            with serving(db, c0, custody=custody) as c:
+                snap = c.call("/api/snapshot")[1]
+                self.assertEqual(snap["checkpoint"]["state"], "ANCHORED_PREFIX_ONLY")
+                self.assertFalse(snap["eligibility"]["MTR-92009"]["currentReleaseEligible"])
+                s, body = c.call("/api/units/MTR-92009/ship", {})
+                self.assertEqual(s, 200)                                                               # the gap: a shipment fact is recorded while stale
+                self.assertTrue(all(not v["currentReleaseEligible"] for v in body["snapshot"]["eligibility"].values()))   # ...but it grants no eligibility
+                EVIDENCE["knownGapShipRouteStale"] = dict(status=s, eligibilityGranted=False)
+
 
 def tearDownModule():
     out = os.environ.get("RECOVERY_EVIDENCE")

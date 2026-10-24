@@ -105,12 +105,18 @@ def _execute(case, app, db, custody, regfile, chain, log, refused):
                 if prop["status"] != checkpoint_ops.STATUS_PROPOSED:
                     log.append(dict(step=i, do=do, result=prop["status"]))
                 else:
+                    every = bool(st.get("acknowledgeAll"))       # the operator acknowledges everything the review asks for; identity-unsafe rows are still refused
+                    acks = prop["review"]["requiresAcknowledgement"] if every else st.get("acknowledgeMotors", [])
                     try:
-                        regack = prop["review"]["registry"]["digest"] if st.get("acknowledgeRegistryChange") else None
-                        rec = checkpoint_ops.accept(db, chain[-1], custody, Path(prop["candidate"]), "benchmark-runner", prop["candidateSha256"], st.get("acknowledgeMotors", []), acknowledge_registry=regack)
-                        chain.append(Path(rec["accepted"])); log.append(dict(step=i, do=do, result="ACCEPTED"))
+                        regack = prop["review"]["registry"]["digest"] if (st.get("acknowledgeRegistryChange") or every) else None
+                        rec = checkpoint_ops.accept(db, chain[-1], custody, Path(prop["candidate"]), "benchmark-runner", prop["candidateSha256"], acks, acknowledge_registry=regack)
+                        chain.append(Path(rec["accepted"])); result = "ACCEPTED"
                     except SystemExit as exc:
-                        refused[i] = str(exc)[:160]; log.append(dict(step=i, do=do, result="REFUSED"))
+                        refused[i] = str(exc)[:160]; result = "REFUSED"
+                    entry = dict(step=i, do=do, result=result)
+                    if st.get("expectAccepted") is not None:
+                        entry["expectAccepted"] = bool(st["expectAccepted"]); entry["acceptAgrees"] = (result == "ACCEPTED") == bool(st["expectAccepted"])
+                    log.append(entry)
                 app = Manufacturing(db)
         except (ValidationFailure, LedgerBlocked) as exc:
             refused[i] = type(exc).__name__ + ": " + str(exc)[:160]; log.append(dict(step=i, do=do, result="CAPTURE_REFUSED"))
@@ -147,7 +153,8 @@ def main():
             results.append(run_case(case, t))
     agree = sum(1 for r in results for m in r["motors"].values() if m["agrees"]); total = sum(len(r["motors"]) for r in results)
     unsafe = [r["caseId"] + ":" + k for r in results for k, m in r["motors"].items() if m["expectedMustHold"] and m["eligible"]]
-    payload = dict(sampleSelfCheckOnly=sample, independentEvidence=False if sample else "per pre-registration only", cases=len(results), motors=total, agree=agree,
+    accept_disagree = [r["caseId"] + f"@{s['step']}" for r in results for s in r["steps"] if s.get("acceptAgrees") is False]
+    payload = dict(sampleSelfCheckOnly=sample, acceptDisagreements=accept_disagree, independentEvidence=False if sample else "per pre-registration only", cases=len(results), motors=total, agree=agree,
                    expectedHoldButEligible=unsafe, results=results)
     out_path.write_text(json.dumps(payload, indent=1, sort_keys=True), encoding="utf-8")
     print(json.dumps({k: v for k, v in payload.items() if k != "results"}, indent=1))

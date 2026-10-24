@@ -1,0 +1,180 @@
+{
+ "caseId": "SAMPLE-04-isolated-sighting-others-renewed",
+ "split": "development",
+ "story": "SAMPLE (candidate-authored harness self-check, not evidence). One worker reads an unreadable label on one motor; nothing links it to the other motor. The sighted motor stays held; the other motor may be released after renewal.",
+ "authorship": {
+  "author": "CANDIDATE_ENGINEER_SAMPLE_NOT_INDEPENDENT",
+  "grounding": "INVENTED",
+  "reviewVerdict": "PENDING"
+ },
+ "registry": {
+  "registryId": "PRAMAAN-SYNTHETIC-LOT-REGISTRY",
+  "version": 1,
+  "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+  "administeredBy": "Manufacturer (synthetic demonstration; not a real supplier or authority)",
+  "note": "Fixture convention BR-###; locally authored; membership does not prove physical bearing identity.",
+  "entries": [
+   {
+    "canonical": "BR-204",
+    "part": "BR-6205",
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "aliases": [
+     "NSB-204"
+    ],
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "status": "ACTIVE",
+    "supplierId": "SUP-NSB-01",
+    "supplierName": "Northstar Bearings \u2014 synthetic supplier",
+    "rawMaterialLot": "STEEL-26-410"
+   },
+   {
+    "canonical": "BR-310",
+    "part": "BR-6205",
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "aliases": [],
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "status": "ACTIVE",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+    "rawMaterialLot": "STEEL-26-518"
+   },
+   {
+    "canonical": "BR-312",
+    "part": "BR-6205",
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "aliases": [],
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "status": "ACTIVE",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+    "rawMaterialLot": "STEEL-26-518"
+   },
+   {
+    "canonical": "BR-901",
+    "part": "BR-6205",
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "aliases": [],
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "status": "ACTIVE",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+    "rawMaterialLot": "STEEL-26-518"
+   },
+   {
+    "canonical": "BR-205",
+    "part": "BR-6205",
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "aliases": [],
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "status": "ACTIVE",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+    "rawMaterialLot": "STEEL-26-518"
+   },
+   {
+    "canonical": "BR-311",
+    "part": "BR-6205",
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "aliases": [],
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "status": "ACTIVE",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+    "rawMaterialLot": "STEEL-26-518"
+   },
+   {
+    "canonical": "BR-420",
+    "part": "BR-6205",
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "aliases": [],
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "status": "WITHDRAWN",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier",
+    "rawMaterialLot": "STEEL-26-518"
+   }
+  ]
+ },
+ "recall": {
+  "lot": "BR-204",
+  "affectedSlots": [
+   "DE"
+  ]
+ },
+ "steps": [
+  {
+   "do": "assemble",
+   "motor": "MTR-91021",
+   "route": "service",
+   "lots": {
+    "DE": "BR-310",
+    "NDE": "BR-312"
+   }
+  },
+  {
+   "do": "ship",
+   "motor": "MTR-91021"
+  },
+  {
+   "do": "assemble",
+   "motor": "MTR-91022",
+   "route": "service",
+   "lots": {
+    "DE": "BR-310",
+    "NDE": "BR-312"
+   }
+  },
+  {
+   "do": "ship",
+   "motor": "MTR-91022"
+  },
+  {
+   "do": "announce_recall"
+  },
+  {
+   "do": "accept_checkpoint",
+   "acknowledgeAll": true
+  },
+  {
+   "do": "sighting",
+   "motor": "MTR-91021",
+   "slot": "NDE",
+   "label": "QX-77"
+  },
+  {
+   "do": "accept_checkpoint",
+   "acknowledgeAll": true,
+   "expectAccepted": true
+  }
+ ],
+ "motors": [
+  {
+   "motor": "MTR-91021",
+   "expected": {
+    "mustHold": true,
+    "reasonClass": "UNVERIFIED_SIGHTING"
+   }
+  },
+  {
+   "motor": "MTR-91022",
+   "expected": {
+    "mustHold": false,
+    "reasonClass": "NONE"
+   }
+  }
+ ]
+}

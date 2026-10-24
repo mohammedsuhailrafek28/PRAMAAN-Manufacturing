@@ -30,8 +30,14 @@ def m_binding_ignored():
     RB.check = lambda p, b, r: dict(orig["check"](p, b, r), status="OK", changes=[], detail="")
 
 
-def m_missing_binding_tolerated():
-    RB.check = lambda p, b, r: (lambda x: dict(x, status="OK") if x["status"] == "MISSING" else x)(orig["check"](p, b, r))
+def m_registry_binding_substituted():
+    """FORMAT_V3 threat: a checkpoint authenticating a DIFFERENT registry digest is accepted as if it matched the live registry."""
+    RB.check = lambda p, b, r: (lambda x: dict(x, status="OK") if x["status"] == "DISCREPANCY" else x)(orig["check"](p, b, r))
+
+
+def m_legacy_compatibility_altered():
+    """FORMAT_V3 threat: a legacy (V1/V2) checkpoint, which never bound a registry, is allowed to grant current eligibility."""
+    RB.check = lambda p, b, r: (lambda x: dict(x, status="OK") if x["status"] == "UNBOUND_LEGACY_FORMAT" else x)(orig["check"](p, b, r))
 
 
 def m_diff_blind():
@@ -55,7 +61,7 @@ def m_replace_always_de():
 
 
 results = dict(unmutated=run())
-for name, fn in (("registry_binding_ignored", m_binding_ignored), ("missing_binding_tolerated", m_missing_binding_tolerated), ("registry_diff_blind", m_diff_blind),
+for name, fn in (("registry_binding_ignored", m_binding_ignored), ("registry_binding_substituted", m_registry_binding_substituted), ("legacy_compatibility_altered", m_legacy_compatibility_altered), ("registry_diff_blind", m_diff_blind),
                  ("review_needs_no_registry_ack", m_review_needs_no_registry_ack), ("integrity_guard_off", m_integrity_guard_off),
                  ("sighting_ignored_by_guard", m_sighting_ignored_by_guard), ("replace_always_de", m_replace_always_de)):
     fn(); results[name] = run(); restore()

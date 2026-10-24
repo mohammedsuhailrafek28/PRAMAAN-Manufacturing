@@ -114,6 +114,25 @@ class SafeIsolation(unittest.TestCase):
                 self.assertFalse(s["eligibility"][S]["currentReleaseEligible"], str(path))
             self.assertTrue(read_snapshot(db, rec2["accepted"], None, c1)["eligibility"][T]["currentReleaseEligible"])
 
+    def test_format_migration_does_not_release_a_contained_motor(self):
+        with tempfile.TemporaryDirectory() as d:
+            db, v2, custody = Path(d) / "w.sqlite", Path(d) / "v2.json", Path(d) / "custody"
+            app = Manufacturing(db)
+            for m in (A, B, S):
+                app.create_unit(m); app.assemble(m, SAFE, "BR-312"); app.ship(m)
+            app.announce(RECALLED, ["DE"]); app.snapshot()
+            publish_candidate(v2, export_anchor(app, version=2)); app.close()                                  # legacy V2 root: never grants current eligibility
+            edit(db, lambda a: a.observe(S, "ZZ-9"))
+            held = read_snapshot(db, v2)
+            self.assertTrue(all(not v["currentReleaseEligible"] for v in held["eligibility"].values()))
+            prop = checkpoint_ops.propose(db, v2, custody)
+            self.assertEqual(prop["review"]["containedMotors"], [S]); self.assertEqual(prop["review"]["refusedForIdentity"], [])
+            rec = accept(db, v2, custody, prop)
+            s = read_snapshot(db, rec["accepted"], None, v2)
+            self.assertEqual(load(rec["accepted"])["body"]["format"], "PRAMAAN_A31_ANCHOR_V3")
+            self.assertEqual({m: v["currentReleaseEligible"] for m, v in s["eligibility"].items()}, {A: True, B: True, S: False})
+            EVIDENCE["formatMigrationContained"] = dict(v2="all held", v3={m: v["currentReleaseEligible"] for m, v in s["eligibility"].items()})
+
     def test_sighting_on_an_affected_motor_needs_no_containment(self):
         with tempfile.TemporaryDirectory() as d:
             db, c0, custody = world(d)
