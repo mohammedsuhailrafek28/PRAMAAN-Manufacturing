@@ -1,0 +1,20 @@
+test_api_cannot_inject_eligibility_or_bad_lots (research.lot_identity.test_lot_identity.Api.test_api_cannot_inject_eligibility_or_bad_lots) ... ok
+test_static_previews_carry_no_eligibility (research.lot_identity.test_lot_identity.Api.test_static_previews_carry_no_eligibility) ... ok
+test_malformed_lot_leaves_no_residue_in_candidates (research.lot_identity.test_lot_identity.Atomicity.test_malformed_lot_leaves_no_residue_in_candidates) ... ok
+test_partial_writes_never_clear_a_recalled_lot (research.lot_identity.test_lot_identity.Atomicity.test_partial_writes_never_clear_a_recalled_lot) ... ok
+test_bad_lots_never_clear_candidates (research.lot_identity.test_lot_identity.Candidates.test_bad_lots_never_clear_candidates) ... ok
+test_known_limit_of_A_events_not_through_the_service (research.lot_identity.test_lot_identity.Candidates.test_known_limit_of_A_events_not_through_the_service)
+A validates only at capture. A database created by v1.0 (or any capture that bypasses the service) keeps its UNKNOWN lot. ... ok
+test_known_limit_of_B_unregistered_wellformed_lot (research.lot_identity.test_lot_identity.Candidates.test_known_limit_of_B_unregistered_wellformed_lot)
+B has no registry: a well-formed different string is still treated as unaffected. Asserted so the limit stays visible. ... ok
+test_registered_controls (research.lot_identity.test_lot_identity.Candidates.test_registered_controls) ... ok
+test_renewal_does_not_launder_ambiguity (research.lot_identity.test_lot_identity.CheckpointRenewal.test_renewal_does_not_launder_ambiguity) ... ok
+test_v1_0_clears_unknown_and_near_miss_lots (research.lot_identity.test_lot_identity.Negative.test_v1_0_clears_unknown_and_near_miss_lots) ... ok
+test_conflicting_alias_and_scope (research.lot_identity.test_lot_identity.Provenance.test_conflicting_alias_and_scope) ... ok
+test_supplier_scope (research.lot_identity.test_lot_identity.Provenance.test_supplier_scope) ... ok
+test_review_lists_changes_and_blocks_unestablished_identity (research.lot_identity.test_decision_review.Review.test_review_lists_changes_and_blocks_unestablished_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 22.076s
+
+OK
