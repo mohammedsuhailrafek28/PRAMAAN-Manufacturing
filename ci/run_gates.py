@@ -23,7 +23,7 @@ PORTS=(4173,4182,4183,4184,4185,4186,4187,4191,4192,4193,4194,4195,4196,4197,420
 EXPECTED=dict(infra=7,engine=127,integration=44,foundation_checks=21,exporter=7,vitest=378,playwright=143,
               application=dict(test_application=7,test_remediation=16,test_hardening=13,test_checkpoints=23,test_unified=10,
                                test_checkpoint_ops=4,test_consolidated_safety=12,test_d5=5,test_d6=3,
-                               test_lot_identity_ab=19,test_v11_hardening=17,test_format_v3=9,test_scoped_containment=14,test_stale_recovery=7,test_ship_gate=13))
+                               test_lot_identity_ab=19,test_v11_hardening=17,test_format_v3=9,test_scoped_containment=14,test_stale_recovery=7,test_ship_gate=13,test_evidence_package=36))
 
 
 def terminal_text(output):
