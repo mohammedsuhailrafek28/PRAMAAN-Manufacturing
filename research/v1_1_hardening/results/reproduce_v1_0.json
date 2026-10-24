@@ -1,0 +1,113 @@
+{
+ "candidate_reading_same_database": {
+  "acceptWithEveryMotorAcknowledged": "REFUSED: an exclusion rests on lot identity that is not established for ['MTR-91001', 'MTR-91002', 'MTR-91005', 'MTR-91006']; acknowledgement cannot override th",
+  "motors": {
+   "MTR-91001": {
+    "eligible": false,
+    "evaluatorAction": "RELEASE_ELIGIBLE",
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "guardedAction": "RECALL_HOLD",
+    "reasons": [
+     "REGISTRY_BINDING_MISSING",
+     "SENTINEL"
+    ]
+   },
+   "MTR-91002": {
+    "eligible": false,
+    "evaluatorAction": "RELEASE_ELIGIBLE",
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "guardedAction": "RECALL_HOLD",
+    "reasons": [
+     "REGISTRY_BINDING_MISSING",
+     "UNREGISTERED"
+    ]
+   },
+   "MTR-91003": {
+    "eligible": false,
+    "evaluatorAction": "RELEASE_ELIGIBLE",
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "guardedAction": "RECALL_HOLD",
+    "reasons": [
+     "REGISTRY_BINDING_MISSING"
+    ]
+   },
+   "MTR-91004": {
+    "eligible": false,
+    "evaluatorAction": "RECALL_HOLD",
+    "finding": "AFFECTED",
+    "guardedAction": "RECALL_HOLD",
+    "reasons": [
+     "REGISTRY_BINDING_MISSING"
+    ]
+   },
+   "MTR-91005": {
+    "eligible": false,
+    "evaluatorAction": "RELEASE_ELIGIBLE",
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "guardedAction": "RECALL_HOLD",
+    "reasons": [
+     "REGISTRY_BINDING_MISSING",
+     "UNREGISTERED"
+    ]
+   },
+   "MTR-91006": {
+    "eligible": false,
+    "evaluatorAction": "RELEASE_ELIGIBLE",
+    "finding": "EXCLUDED_WITH_EVIDENCE",
+    "guardedAction": "RECALL_HOLD",
+    "reasons": [
+     "REGISTRY_BINDING_MISSING",
+     "UNREGISTERED"
+    ]
+   }
+  },
+  "review": {
+   "refusedForIdentity": [
+    "MTR-91001",
+    "MTR-91002",
+    "MTR-91005",
+    "MTR-91006"
+   ],
+   "requiresAcknowledgement": [
+    "MTR-91003"
+   ]
+  },
+  "state": "ANCHORED_CURRENT"
+ },
+ "frozenCommit": "c25466c56e5724158d534ff7b59f01ac48643101",
+ "v1_0_with_its_own_checkpoint": {
+  "motors": {
+   "MTR-91001": {
+    "action": "RELEASE_ELIGIBLE",
+    "eligible": true,
+    "finding": "EXCLUDED_WITH_EVIDENCE"
+   },
+   "MTR-91002": {
+    "action": "RELEASE_ELIGIBLE",
+    "eligible": true,
+    "finding": "EXCLUDED_WITH_EVIDENCE"
+   },
+   "MTR-91003": {
+    "action": "RELEASE_ELIGIBLE",
+    "eligible": true,
+    "finding": "EXCLUDED_WITH_EVIDENCE"
+   },
+   "MTR-91004": {
+    "action": "RECALL_HOLD",
+    "eligible": false,
+    "finding": "AFFECTED"
+   },
+   "MTR-91005": {
+    "action": "RELEASE_ELIGIBLE",
+    "eligible": true,
+    "finding": "EXCLUDED_WITH_EVIDENCE"
+   },
+   "MTR-91006": {
+    "action": "RELEASE_ELIGIBLE",
+    "eligible": true,
+    "finding": "EXCLUDED_WITH_EVIDENCE"
+   }
+  },
+  "state": "ANCHORED_CURRENT"
+ }
+}

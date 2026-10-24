@@ -1,0 +1,55 @@
+== application.test_application
+Ran 7 tests in 8.627s
+OK
+== application.test_checkpoint_ops
+Ran 4 tests in 3.549s
+OK
+== application.test_checkpoints
+Ran 23 tests in 6.328s
+OK
+== application.test_consolidated_safety
+Ran 12 tests in 10.343s
+OK
+== application.test_d5
+Ran 5 tests in 1.389s
+OK
+== application.test_d6
+Ran 3 tests in 1.027s
+OK
+== application.test_hardening
+Ran 13 tests in 9.866s
+OK
+== application.test_remediation
+Ran 16 tests in 18.329s
+OK
+== application.test_unified
+Ran 10 tests in 7.068s
+OK
+== application.test_lot_identity_ab
+Ran 19 tests in 121.045s
+OK
+== application.test_v11_hardening
+Ran 16 tests in 8.740s
+OK
+== integration
+Ran 44 tests in 1.455s
+OK
+== engine
+Ran 127 tests in 29.489s
+OK
+== exporter
+Ran 7 tests in 0.501s
+OK
+== ci infra
+FAIL: test_expected_counts_are_exact_and_cover_every_application_module (test_infra.InfrastructureTests.test_expected_counts_are_exact_and_cover_every_application_module)
+Ran 7 tests in 0.365s
+FAILED (failures=1)
+== mutation (v1.1)
+unmutated 16 tests; failing: 0 []
+registry_binding_ignored 16 tests; failing: 7 ['test_alias_redirect_supplier_change_and_effective_dates', 'test_checkpoint_without_prior_binding_requires_registry_acknowledgement', 'test_missing_inval
+missing_binding_tolerated 16 tests; failing: 2 ['test_checkpoint_without_prior_binding_requires_registry_acknowledgement', 'test_missing_invalid_and_foreign_bindings_fail_closed']
+registry_diff_blind 16 tests; failing: 5 ['test_alias_redirect_supplier_change_and_effective_dates', 'test_registry_modified_after_acceptance', 'test_registry_rolled_back', 'test_unknown_legacy_lot_re
+review_needs_no_registry_ack 16 tests; failing: 2 ['test_checkpoint_without_prior_binding_requires_registry_acknowledgement', 'test_valid_update_review_and_new_checkpoint']
+integrity_guard_off 16 tests; failing: 1 ['test_interrupted_operation_has_its_own_guard_reason_and_api_surface']
+sighting_ignored_by_guard 16 tests; failing: 3 ['test_historical_basis_keeps_every_sighting', 'test_registered_sighting_is_not_held_and_later_install_supersedes_an_unverified_one', 'test_sighting_pres
+replace_always_de 16 tests; failing: 2 ['test_registered_sighting_is_not_held_and_later_install_supersedes_an_unverified_one', 'test_unknown_nde_is_quarantined_then_recovered_by_controlled_replacement
