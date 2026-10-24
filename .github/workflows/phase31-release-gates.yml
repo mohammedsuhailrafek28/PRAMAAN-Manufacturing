@@ -5,7 +5,7 @@ on:
     branches: [main]
     types: [opened, synchronize, reopened, ready_for_review]
   push:
-    branches: [infra/phase31-ci-gates, integration/phase3-reviewed, integration/manufacturing-consolidated-candidate, release/v1-1-demo-candidate, main]
+    branches: [infra/phase31-ci-gates, integration/phase3-reviewed, integration/manufacturing-consolidated-candidate, release/v1-1-demo-candidate, release/hackathon-enhanced-candidate, main]
 
 permissions:
   contents: read
@@ -49,7 +49,7 @@ jobs:
           New-Item -ItemType Directory -Force .tmp-ci-results | Out-Null
           python -m venv .venv
           if ($LASTEXITCODE -ne 0) { throw 'venv creation failed' }
-          .venv/Scripts/python.exe -m pip install --index-url https://pypi.org/simple --only-binary=:all: --require-hashes -r ci/requirements-windows.lock
+          .venv/Scripts/python.exe -m pip install --index-url https://pypi.org/simple --only-binary=:all: --require-hashes -r ci/requirements-windows.lock -r ci/requirements-hackathon-crypto.lock
           if ($LASTEXITCODE -ne 0) { throw 'Python prerequisites failed' }
           npm.cmd ci --ignore-scripts --no-audit --no-fund --prefix recall-ui
           if ($LASTEXITCODE -ne 0) { throw 'npm prerequisites failed' }
@@ -71,6 +71,7 @@ jobs:
             ci/pins.json
             ci/frozen-source.json
             ci/requirements-windows.lock
+            ci/requirements-hackathon-crypto.lock
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 14
