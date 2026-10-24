@@ -10,6 +10,9 @@ export function ManufacturingWorkbench({ snap, run, busy }: {
   const [nde, setNde] = useState("BR-310");
   const [lot, setLot] = useState("BR-312");
   const [affected, setAffected] = useState("BR-204");
+  const [slot, setSlot] = useState("DE");
+  const [sighting, setSighting] = useState("");
+  const [sightSlot, setSightSlot] = useState("DE");
   const [identity, setIdentity] = useState("SERIAL");
   const [scope, setScope] = useState(snap.recall.affectedSlots.length ? snap.recall.affectedSlots.join(",") : "DE,NDE");
   return <details className="workbench" open={snap.units.length === 0}>
@@ -32,12 +35,19 @@ export function ManufacturingWorkbench({ snap, run, busy }: {
         <button>Capture bearing assembly</button>
       </form>
       <button type="button" onClick={() => void run(`units/${encodeURIComponent(motor)}/ship`, {})}>Record synthetic shipment</button>
-      <form onSubmit={e => { e.preventDefault(); void run(`units/${encodeURIComponent(motor)}/replace`, { lot }); }}>
-        <label>Replacement DE lot<input required maxLength={80} value={lot} onChange={e => setLot(e.target.value)} /></label>
-        <button>Capture authorized DE replacement</button>
+      <form onSubmit={e => { e.preventDefault(); void run(`units/${encodeURIComponent(motor)}/replace`, { lot, slot }); }}>
+        <label>Replacement slot<select value={slot} onChange={e => setSlot(e.target.value)}><option value="DE">DE</option><option value="NDE">NDE</option></select></label>
+        <label>Replacement {slot} lot<input required maxLength={80} value={lot} onChange={e => setLot(e.target.value)} /></label>
+        <button>{`Capture authorized ${slot} replacement`}</button>
       </form>
       <p className="muted">Authorized means the configured synthetic REWORK operator is allowed to capture this operation; it does not independently verify physical slot identity.</p>
       <button type="button" onClick={() => void run(`units/${encodeURIComponent(motor)}/observe`, { lot: affected })}>Inject late untrusted affected-lot observation</button>
+      <form onSubmit={e => { e.preventDefault(); void run(`units/${encodeURIComponent(motor)}/observe`, { lot: sighting, slot: sightSlot }); setSighting(""); }}>
+        <label>Sighted label (as read; may be wrong)<input required maxLength={80} value={sighting} onChange={e => setSighting(e.target.value)} /></label>
+        <label>Sighting slot<select value={sightSlot} onChange={e => setSightSlot(e.target.value)}><option value="DE">DE</option><option value="NDE">NDE</option></select></label>
+        <button>Record unverified sighting</button>
+      </form>
+      <p className="muted">An unverified sighting is kept exactly as reported. It never installs, registers or excludes a bearing, and it holds the motor for investigation if the label is not a registered lot.</p>
       <p><a href={`#/unit/${encodeURIComponent(motor)}/genealogy`}>Inspect selected motor genealogy and evidence</a></p>
     </fieldset>
     <fieldset disabled={busy}>

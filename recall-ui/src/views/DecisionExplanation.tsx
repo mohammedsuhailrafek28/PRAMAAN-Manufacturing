@@ -80,6 +80,31 @@ export function DecisionExplanation({ d, unit }: { d: Decision; unit: Unit }) {
           </ul>
         </div>
       )}
+      {d.integrityGuard && d.integrityGuard.status === "OPERATION_INTERRUPTED" && (
+        <div className="callout callout-warn" data-testid="integrity-guard">
+          <h4>Operation interrupted: held</h4>
+          <p>
+            This is an operational-integrity hold, not a lot-identity problem. A work order was opened and never closed, so the recorded history of this unit is incomplete.
+            {d.integrityGuard.guardChangedAction ? " The integrity guard changed the operational action to Recall hold." : " The operational action was already a hold."} Further capture for this unit is refused, and retrying is refused on purpose
+            (a retry could duplicate or contradict the partial record). No in-application command reconciles an interrupted operation yet; this needs a reviewed manual procedure.
+          </p>
+          <ul className="plain">
+            {d.integrityGuard.findings.map((f, i) => (
+              <li key={i}><b>{humanize(f.reason)}</b> <code>{f.reason}</code> work order <code>{f.workOrderId}</code> ({humanize(f.orderType)})</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {d.quarantine && (
+        <div className="callout" data-testid="quarantine">
+          <h4>Quarantined, not cleared</h4>
+          <p>{d.quarantine.note} Quarantine never implies clearance.</p>
+          <ul className="plain">
+            {d.quarantine.steps.map((s, i) => (<li key={i}><b>{humanize(s.option)}</b>{s.slot ? <> ({s.slot})</> : null}: {s.instruction}</li>))}
+          </ul>
+          <p className="muted">{d.quarantine.blockedPaths}</p>
+        </div>
+      )}
       {d.reviewRequired && <p><b>Review is required.</b> A person must look at this motor, separately from the hold.</p>}
       {d.precautionaryHold && <p><b>Precautionary hold.</b> Held because an earlier release no longer stands.</p>}
 

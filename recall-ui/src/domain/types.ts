@@ -98,10 +98,31 @@ export interface Decision {
   /** Lot-identity guard (candidate A+B). `operationalAction` is the guarded action; the evaluator's own is kept separately. */
   evaluatorOperationalAction?: OperationalAction;
   identityGuard?: IdentityGuard;
+  /** Operational-integrity guard (v1.1), separate from lot identity. */
+  integrityGuard?: IntegrityGuard;
+  /** Derived read-model block; quarantine never implies clearance. */
+  quarantine?: Quarantine | null;
   [k: string]: unknown;
 }
 export interface IdentityGuardFinding {
   eventId: string | null; slot: string | null; lot: string | null; source: string; reason: string; detail: string; resembles: string[];
+}
+export interface IntegrityGuardFinding { eventId: string; workOrderId: string; orderType: string; source: string; reason: string; detail: string }
+export interface IntegrityGuard {
+  status: "OPERATIONALLY_CONSISTENT" | "OPERATION_INTERRUPTED";
+  findings: IntegrityGuardFinding[];
+  evaluatorOperationalAction: OperationalAction;
+  guardChangedAction: boolean;
+}
+export interface Quarantine {
+  status: "QUARANTINED_NOT_CLEARED"; clearance: "NEVER_IMPLIED"; note: string; blockedPaths: string;
+  steps: { slot: string | null; reason: string; option: string; instruction: string }[];
+}
+export interface RegistryBindingState {
+  status: "OK" | "MISSING" | "INVALID" | "DISCREPANCY"; detail: string; custodyNote: string;
+  live: { digest: string; registryId: string; version: number; entryCount: number };
+  bound: { digest: string; registryId: string; version: number; entryCount: number } | null;
+  changes: { change: string; lot?: string; field?: string; alias?: string }[];
 }
 export interface IdentityGuard {
   status: "IDENTITY_ESTABLISHED_LOCAL_REGISTRY" | "IDENTITY_NOT_ESTABLISHED";
@@ -219,5 +240,6 @@ export interface RecallSnapshot {
   notifications?: Array<NotificationObligation & { unitId: string; decisionId: string; deliveryStatus: string }>;
   recallAnnounced?: boolean;
   lotIdentity?: { registry: { registryId: string; version: number; digest: string; provenance: string; administeredBy: string; trustStatement: string; entryCount: number };
-                  motors: Record<string, IdentityGuardFinding[]>; recallPolicyFindings: IdentityGuardFinding[] };
+                  motors: Record<string, IdentityGuardFinding[]>; recallPolicyFindings: IdentityGuardFinding[]; registryBinding?: RegistryBindingState | null };
+  operationalIntegrity?: { motors: Record<string, IntegrityGuardFinding[]> };
 }
