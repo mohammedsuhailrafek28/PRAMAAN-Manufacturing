@@ -24,6 +24,14 @@ export function ProvenanceBar({ snap, policyId, onPolicy, sourceLabel }: {
           <b>{snap.recall.affectedPart}</b>, lots {snap.recall.affectedLots.join(", ")}, slots {snap.recall.affectedSlots.join(", ")}.
         </span>
       </div>
+      {snap.lotIdentity && (
+        <div className="prov-row" data-testid="lot-registry-note">
+          <span>
+            Lot identity registry <b>{snap.lotIdentity.registry.registryId}</b> v{snap.lotIdentity.registry.version} ({snap.lotIdentity.registry.provenance.replaceAll("_", " ").toLowerCase()}).{" "}
+            Registry membership does not prove a bearing's physical identity and is not supplier authentication.
+          </span>
+        </div>
+      )}
       <div className="prov-row">
         <label htmlFor="policy-select">Recall policy</label>
         <select id="policy-select" value={policyId} onChange={(e) => onPolicy(e.target.value)}>

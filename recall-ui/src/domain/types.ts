@@ -95,7 +95,20 @@ export interface Decision {
   slotAttribution?: SlotAttribution[];
   untrustedObservations?: UntrustedObservation[];
   assuranceWarnings?: string[];
+  /** Lot-identity guard (candidate A+B). `operationalAction` is the guarded action; the evaluator's own is kept separately. */
+  evaluatorOperationalAction?: OperationalAction;
+  identityGuard?: IdentityGuard;
   [k: string]: unknown;
+}
+export interface IdentityGuardFinding {
+  eventId: string | null; slot: string | null; lot: string | null; source: string; reason: string; detail: string; resembles: string[];
+}
+export interface IdentityGuard {
+  status: "IDENTITY_ESTABLISHED_LOCAL_REGISTRY" | "IDENTITY_NOT_ESTABLISHED";
+  findings: IdentityGuardFinding[];
+  evaluatorOperationalAction: OperationalAction;
+  evaluatorEvidenceFinding: Finding;
+  guardChangedAction: boolean;
 }
 export interface PolicyDecisions {
   current: Decision;
@@ -205,4 +218,6 @@ export interface RecallSnapshot {
   lineage?: Array<{ unitId: string; rawMaterialLot: string; supplierName: string; lot: string; serial?: string; materialEventId: string; manufacturingEventId: string }>;
   notifications?: Array<NotificationObligation & { unitId: string; decisionId: string; deliveryStatus: string }>;
   recallAnnounced?: boolean;
+  lotIdentity?: { registry: { registryId: string; version: number; digest: string; provenance: string; administeredBy: string; trustStatement: string; entryCount: number };
+                  motors: Record<string, IdentityGuardFinding[]>; recallPolicyFindings: IdentityGuardFinding[] };
 }

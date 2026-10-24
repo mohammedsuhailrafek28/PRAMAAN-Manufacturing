@@ -65,6 +65,21 @@ export function DecisionExplanation({ d, unit }: { d: Decision; unit: Unit }) {
       <DecisionChips d={d} />
       {typeof d.publicationProfile === 'string' && <p className="muted">Publication lifecycle: {d.publicationProfile}. Exposure evaluation uses the recorded engine semantics; lifecycle history is stored separately.</p>}
       <p className="lead">{finding?.explain} {claim ? <ClaimText claim={claim}/> : "Recorded evaluator output only; this is not current clearance."}</p>
+      {d.identityGuard && d.identityGuard.status === "IDENTITY_NOT_ESTABLISHED" && (
+        <div className="callout callout-warn" data-testid="identity-guard">
+          <h4>Lot identity not established: held</h4>
+          <p>
+            The evaluator reported <b>{humanize(String(d.identityGuard.evaluatorEvidenceFinding))}</b> / <b>{humanize(String(d.identityGuard.evaluatorOperationalAction))}</b>.
+            {d.identityGuard.guardChangedAction ? " The identity guard changed the operational action to Recall hold." : " The operational action was already a hold."} Unverified lot identity never establishes release eligibility.
+          </p>
+          <ul className="plain">
+            {d.identityGuard.findings.map((f, i) => (
+              <li key={i}><b>{humanize(f.reason)}</b> <code>{f.reason}</code>{f.lot !== null ? <> lot <code>{JSON.stringify(f.lot)}</code></> : null}{f.slot ? <> in {f.slot}</> : null} ({humanize(f.source)}){f.detail ? `: ${f.detail}` : ""}
+                {f.resembles.length > 0 && <span className="muted"> Investigate: resembles registered lot {f.resembles.join(", ")}.</span>}</li>
+            ))}
+          </ul>
+        </div>
+      )}
       {d.reviewRequired && <p><b>Review is required.</b> A person must look at this motor, separately from the hold.</p>}
       {d.precautionaryHold && <p><b>Precautionary hold.</b> Held because an earlier release no longer stands.</p>}
 
