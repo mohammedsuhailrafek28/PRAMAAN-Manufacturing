@@ -319,7 +319,7 @@
     "research/lot_identity_ab/case.schema.json": "a16b983cec1e0deef222160059b61570e99903dde12e8017885f5b018fc0bdf5",
     "research/lot_identity_ab/clean_checkout.py": "5744dd37b53dd0f7456c12894a0f7e03ee591ef861ea2dd18c548e13f893d0b3",
     "research/lot_identity_ab/mutation_check.py": "874910f08b490fcd95e95c748fc7fe55dbaa684ecb919e3cf538502d4fdc56c7",
-    "research/lot_identity_ab/reproduce_v1_0.py": "bb015d290a30f542b52204c9462a563d21d4c3a440dc079501eadf2effd218b4",
+    "research/lot_identity_ab/reproduce_v1_0.py": "851b66e3c175f6eea0eba51071a34d9862470fd452b332d9bef148f877742003",
     "research/lot_identity_ab/results/ab_evidence.json": "733f48979e539bb74316507d6e91621dd75d01af9ff99f19309867c7906ec094",
     "research/lot_identity_ab/results/ab_tests_run1.txt": "a8a90bb4e44340d812562de5ca5b98e754e83105a5d546787f7314ea2921f4cb",
     "research/lot_identity_ab/results/app_suites_run1.txt": "13f39c7ed026f430170046ff1cce23061e1f5a6145338b189cdf69b172442c68",
