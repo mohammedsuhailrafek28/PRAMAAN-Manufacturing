@@ -1,0 +1,219 @@
+{
+ "authorityPreserved": true,
+ "b0": {
+  "groups": [
+   {
+    "check": "DUPLICATE_SERIAL",
+    "eventIds": [
+     "B15-M101-DE",
+     "B15-M102-DE"
+    ]
+   }
+  ],
+  "impactedMotors": [
+   "M101",
+   "M102"
+  ],
+  "seconds": 2e-05
+ },
+ "b1": {
+  "contradictions": [
+   {
+    "assumptions": [
+     "A1",
+     "A2",
+     "A4",
+     "A5"
+    ],
+    "cls": "INSUFFICIENT",
+    "eventIds": [
+     "B15-M101-DE",
+     "B15-M102-DE"
+    ],
+    "id": "B15-D1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ],
+    "reason": "SUPPLIER_SCOPE_UNKNOWN"
+   },
+   {
+    "assumptions": [
+     "A1",
+     "A3"
+    ],
+    "cls": "INSUFFICIENT",
+    "eventIds": [
+     "B15-M101-DE",
+     "B15-M102-DE"
+    ],
+    "id": "B15-D2",
+    "kind": "LOT_IDENTITY",
+    "motors": [
+     "M101",
+     "M102"
+    ],
+    "reason": "SUPPLIER_SCOPE_UNKNOWN"
+   }
+  ],
+  "dependencySeconds": 0.0117,
+  "seconds": 0.00021
+ },
+ "dependency": {
+  "b0Impacted": [
+   "M101",
+   "M102"
+  ],
+  "b1Release": [
+   "M101",
+   "M102"
+  ],
+  "b1Sensitive": [
+   "M101",
+   "M102"
+  ],
+  "b1Static": [
+   "M101",
+   "M102"
+  ],
+  "perMotor": {
+   "M101": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B15-D1",
+     "B15-D2"
+    ],
+    "decisionDependsOnContestedEvidence": true,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": true,
+    "findingsAcrossReadings": [
+     "AFFECTED",
+     "EXCLUDED_WITH_EVIDENCE",
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": true,
+    "joint": {
+     "replayed": 5,
+     "sampled": false,
+     "space": 6
+    },
+    "readingsThatChangeHoldStatus": [
+     {
+      "findingIfTrue": "EXCLUDED_WITH_EVIDENCE",
+      "reading": [
+       "NOT_EDITED:B15-D1",
+       "ADOPT_LOT:BR-310"
+      ]
+     }
+    ],
+    "recordedFinding": "AFFECTED"
+   },
+   "M102": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B15-D1",
+     "B15-D2"
+    ],
+    "decisionDependsOnContestedEvidence": true,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "AFFECTED",
+     "EXCLUDED_WITH_EVIDENCE",
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": true,
+    "joint": {
+     "replayed": 5,
+     "sampled": false,
+     "space": 6
+    },
+    "readingsThatChangeHoldStatus": [
+     {
+      "findingIfTrue": "AFFECTED",
+      "reading": [
+       "NOT_EDITED:B15-D1",
+       "ADOPT_LOT:BR-204"
+      ]
+     },
+     {
+      "findingIfTrue": "UNRESOLVED",
+      "reading": [
+       "DROP:B15-M102-DE",
+       "NOT_EDITED:B15-D2"
+      ]
+     },
+     {
+      "findingIfTrue": "UNRESOLVED",
+      "reading": [
+       "DROP:B15-M102-DE",
+       "ADOPT_LOT:BR-204"
+      ]
+     }
+    ],
+    "recordedFinding": "EXCLUDED_WITH_EVIDENCE"
+   }
+  },
+  "truthRelease": [
+   "M101",
+   "M102"
+  ],
+  "truthSensitive": [
+   "M101",
+   "M102"
+  ]
+ },
+ "detection": {
+  "b0FN": [],
+  "b0FP": [],
+  "classCorrect": 2,
+  "strictFN": [],
+  "strictFP": [],
+  "strictTP": 2
+ },
+ "id": "B15",
+ "interpretationReplays": 10,
+ "title": "Supplier missing on one claim",
+ "truth": {
+  "contradictions": [
+   {
+    "cls": "INSUFFICIENT",
+    "eventIds": [
+     "B15-M101-DE",
+     "B15-M102-DE"
+    ],
+    "id": "B15-C1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ]
+   },
+   {
+    "cls": "INSUFFICIENT",
+    "eventIds": [
+     "B15-M101-DE",
+     "B15-M102-DE"
+    ],
+    "id": "B15-C2",
+    "kind": "LOT_IDENTITY",
+    "motors": [
+     "M101",
+     "M102"
+    ]
+   }
+  ],
+  "note": "",
+  "releaseSensitiveMotors": [
+   "M101",
+   "M102"
+  ],
+  "sensitiveMotors": [
+   "M101",
+   "M102"
+  ]
+ }
+}

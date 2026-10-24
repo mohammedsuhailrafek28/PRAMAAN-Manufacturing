@@ -1,0 +1,124 @@
+[
+ {
+  "b0Groups": 1,
+  "b0Pass": true,
+  "b1": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "DEFINITE"
+   ]
+  ],
+  "b1Pass": true,
+  "expected": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "DEFINITE"
+   ]
+  ],
+  "name": "MR1 valid reuse minus the recorded removal -> definite overlap"
+ },
+ {
+  "b0Groups": 1,
+  "b0Pass": true,
+  "b1": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "POSSIBLE"
+   ]
+  ],
+  "b1Pass": true,
+  "expected": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "POSSIBLE"
+   ]
+  ],
+  "name": "MR2 definite overlap + removal-capture gap between the installs -> possible"
+ },
+ {
+  "b0Groups": 1,
+  "b0Pass": true,
+  "b1": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "INSUFFICIENT"
+   ]
+  ],
+  "b1Pass": true,
+  "expected": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "INSUFFICIENT"
+   ]
+  ],
+  "name": "MR3 definite overlap + supplier erased on one claim -> insufficient"
+ },
+ {
+  "b0Groups": 1,
+  "b0Pass": false,
+  "b1": [],
+  "b1Pass": true,
+  "expected": [],
+  "name": "MR4 definite overlap + different supplier -> collision, nothing"
+ },
+ {
+  "b0Groups": 1,
+  "b0Pass": false,
+  "b1": [],
+  "b1Pass": true,
+  "expected": [],
+  "name": "MR5 definite overlap + superseding correction to another serial -> nothing"
+ },
+ {
+  "b0Groups": 1,
+  "b0Pass": false,
+  "b1": [],
+  "b1Pass": true,
+  "expected": [],
+  "name": "MR6 approximate removal made exact and earlier than the next install -> nothing"
+ },
+ {
+  "b0Groups": 1,
+  "b0Pass": true,
+  "b1": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "DEFINITE"
+   ]
+  ],
+  "b1Pass": true,
+  "expected": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "DEFINITE"
+   ]
+  ],
+  "name": "MR7 exact removal later than the next install -> definite overlap"
+ },
+ {
+  "b0Groups": 1,
+  "b0Pass": true,
+  "b1": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "DEFINITE"
+   ],
+   [
+    "LOT_IDENTITY",
+    "DEFINITE"
+   ]
+  ],
+  "b1Pass": true,
+  "expected": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "DEFINITE"
+   ],
+   [
+    "LOT_IDENTITY",
+    "DEFINITE"
+   ]
+  ],
+  "name": "MR8 supplier collision made same-supplier -> definite overlap and lot conflict"
+ }
+]

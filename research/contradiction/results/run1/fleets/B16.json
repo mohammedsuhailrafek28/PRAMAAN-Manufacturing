@@ -1,0 +1,182 @@
+{
+ "authorityPreserved": true,
+ "b0": {
+  "groups": [
+   {
+    "check": "GENEALOGY_SERIAL",
+    "eventIds": [
+     "B16-M101-DE",
+     "B16-M101-RM-DE"
+    ]
+   },
+   {
+    "check": "GENEALOGY_SERIAL",
+    "eventIds": [
+     "B16-M102-DE",
+     "B16-M102-RM-DE"
+    ]
+   }
+  ],
+  "impactedMotors": [
+   "M101",
+   "M102"
+  ],
+  "seconds": 5e-05
+ },
+ "b1": {
+  "contradictions": [
+   {
+    "assumptions": [
+     "A1",
+     "A2",
+     "A4",
+     "A5"
+    ],
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B16-M101-DE",
+     "B16-M102-RM-DE"
+    ],
+    "id": "B16-D1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ],
+    "reason": null
+   },
+   {
+    "assumptions": [
+     "A1",
+     "A2",
+     "A4",
+     "A5"
+    ],
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B16-M101-RM-DE",
+     "B16-M102-DE"
+    ],
+    "id": "B16-D2",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ],
+    "reason": null
+   }
+  ],
+  "dependencySeconds": 0.0132,
+  "seconds": 0.00022
+ },
+ "dependency": {
+  "b0Impacted": [
+   "M101",
+   "M102"
+  ],
+  "b1Release": [],
+  "b1Sensitive": [],
+  "b1Static": [
+   "M101",
+   "M102"
+  ],
+  "perMotor": {
+   "M101": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B16-D1",
+     "B16-D2"
+    ],
+    "decisionDependsOnContestedEvidence": false,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 3,
+     "sampled": false,
+     "space": 4
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "UNRESOLVED"
+   },
+   "M102": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B16-D1",
+     "B16-D2"
+    ],
+    "decisionDependsOnContestedEvidence": false,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 3,
+     "sampled": false,
+     "space": 4
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "UNRESOLVED"
+   }
+  },
+  "truthRelease": [],
+  "truthSensitive": []
+ },
+ "detection": {
+  "b0FN": [
+   "('B16-M101-DE', 'B16-M102-RM-DE')",
+   "('B16-M101-RM-DE', 'B16-M102-DE')"
+  ],
+  "b0FP": [
+   "('B16-M101-DE', 'B16-M101-RM-DE')",
+   "('B16-M102-DE', 'B16-M102-RM-DE')"
+  ],
+  "classCorrect": 2,
+  "strictFN": [],
+  "strictFP": [],
+  "strictTP": 2
+ },
+ "id": "B16",
+ "interpretationReplays": 6,
+ "title": "Serial transposition between two motors",
+ "truth": {
+  "contradictions": [
+   {
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B16-M101-RM-DE",
+     "B16-M102-DE"
+    ],
+    "id": "B16-C1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ]
+   },
+   {
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B16-M101-DE",
+     "B16-M102-RM-DE"
+    ],
+    "id": "B16-C2",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ]
+   }
+  ],
+  "note": "both motors are already UNRESOLVED from intra-motor removal mismatches",
+  "releaseSensitiveMotors": [],
+  "sensitiveMotors": []
+ }
+}

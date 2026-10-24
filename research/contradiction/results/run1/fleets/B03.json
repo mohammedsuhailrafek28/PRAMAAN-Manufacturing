@@ -1,0 +1,94 @@
+{
+ "authorityPreserved": true,
+ "b0": {
+  "groups": [
+   {
+    "check": "DUPLICATE_SERIAL",
+    "eventIds": [
+     "B03-M101-DE",
+     "B03-M102-DE"
+    ]
+   }
+  ],
+  "impactedMotors": [
+   "M101",
+   "M102"
+  ],
+  "seconds": 2e-05
+ },
+ "b1": {
+  "contradictions": [],
+  "dependencySeconds": 0.0012,
+  "seconds": 0.0001
+ },
+ "dependency": {
+  "b0Impacted": [
+   "M101",
+   "M102"
+  ],
+  "b1Release": [],
+  "b1Sensitive": [],
+  "b1Static": [],
+  "perMotor": {
+   "M101": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": false,
+    "contradictions": [],
+    "decisionDependsOnContestedEvidence": false,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "AFFECTED"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 0,
+     "sampled": false,
+     "space": 1
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "AFFECTED"
+   },
+   "M102": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": false,
+    "contradictions": [],
+    "decisionDependsOnContestedEvidence": false,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "EXCLUDED_WITH_EVIDENCE"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 0,
+     "sampled": false,
+     "space": 1
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "EXCLUDED_WITH_EVIDENCE"
+   }
+  },
+  "truthRelease": [],
+  "truthSensitive": []
+ },
+ "detection": {
+  "b0FN": [],
+  "b0FP": [
+   "('B03-M101-DE', 'B03-M102-DE')"
+  ],
+  "classCorrect": 0,
+  "strictFN": [],
+  "strictFP": [],
+  "strictTP": 0
+ },
+ "id": "B03",
+ "interpretationReplays": 0,
+ "title": "Supplier-scoped serial collision",
+ "truth": {
+  "contradictions": [],
+  "note": "",
+  "releaseSensitiveMotors": [],
+  "sensitiveMotors": []
+ }
+}

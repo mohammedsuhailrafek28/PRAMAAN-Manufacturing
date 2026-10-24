@@ -1,0 +1,145 @@
+{
+ "authorityPreserved": true,
+ "b0": {
+  "groups": [
+   {
+    "check": "DUPLICATE_SERIAL",
+    "eventIds": [
+     "B01-M101-DE",
+     "B01-M102-DE"
+    ]
+   }
+  ],
+  "impactedMotors": [
+   "M101",
+   "M102"
+  ],
+  "seconds": 2e-05
+ },
+ "b1": {
+  "contradictions": [
+   {
+    "assumptions": [
+     "A1",
+     "A2",
+     "A4",
+     "A5"
+    ],
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B01-M101-DE",
+     "B01-M102-DE"
+    ],
+    "id": "B01-D1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ],
+    "reason": null
+   }
+  ],
+  "dependencySeconds": 0.0103,
+  "seconds": 0.00928
+ },
+ "dependency": {
+  "b0Impacted": [
+   "M101",
+   "M102"
+  ],
+  "b1Release": [],
+  "b1Sensitive": [
+   "M101",
+   "M102"
+  ],
+  "b1Static": [
+   "M101",
+   "M102"
+  ],
+  "perMotor": {
+   "M101": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B01-D1"
+    ],
+    "decisionDependsOnContestedEvidence": true,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": true,
+    "findingsAcrossReadings": [
+     "AFFECTED",
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 1,
+     "sampled": false,
+     "space": 2
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "AFFECTED"
+   },
+   "M102": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B01-D1"
+    ],
+    "decisionDependsOnContestedEvidence": true,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": true,
+    "findingsAcrossReadings": [
+     "AFFECTED",
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 1,
+     "sampled": false,
+     "space": 2
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "AFFECTED"
+   }
+  },
+  "truthRelease": [],
+  "truthSensitive": [
+   "M101",
+   "M102"
+  ]
+ },
+ "detection": {
+  "b0FN": [],
+  "b0FP": [],
+  "classCorrect": 1,
+  "strictFN": [],
+  "strictFP": [],
+  "strictTP": 1
+ },
+ "id": "B01",
+ "interpretationReplays": 2,
+ "title": "One serial installed in two motors simultaneously",
+ "truth": {
+  "contradictions": [
+   {
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B01-M101-DE",
+     "B01-M102-DE"
+    ],
+    "id": "B01-C1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ]
+   }
+  ],
+  "note": "",
+  "releaseSensitiveMotors": [],
+  "sensitiveMotors": [
+   "M101",
+   "M102"
+  ]
+ }
+}

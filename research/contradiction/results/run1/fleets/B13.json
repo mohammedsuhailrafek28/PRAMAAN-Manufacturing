@@ -1,0 +1,105 @@
+{
+ "authorityPreserved": true,
+ "b0": {
+  "groups": [
+   {
+    "check": "GENEALOGY_ORDER",
+    "eventIds": [
+     "B13-M101-DE",
+     "B13-M101-RM-DE"
+    ]
+   }
+  ],
+  "impactedMotors": [
+   "M101"
+  ],
+  "seconds": 2e-05
+ },
+ "b1": {
+  "contradictions": [
+   {
+    "assumptions": [
+     "A5"
+    ],
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B13-M101-DE",
+     "B13-M101-RM-DE"
+    ],
+    "id": "B13-D1",
+    "kind": "CHRONOLOGY",
+    "motors": [
+     "M101"
+    ],
+    "reason": null
+   }
+  ],
+  "dependencySeconds": 0.0043,
+  "seconds": 0.00011
+ },
+ "dependency": {
+  "b0Impacted": [
+   "M101"
+  ],
+  "b1Release": [],
+  "b1Sensitive": [],
+  "b1Static": [
+   "M101"
+  ],
+  "perMotor": {
+   "M101": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B13-D1"
+    ],
+    "decisionDependsOnContestedEvidence": false,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 2,
+     "sampled": false,
+     "space": 3
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "UNRESOLVED"
+   }
+  },
+  "truthRelease": [],
+  "truthSensitive": []
+ },
+ "detection": {
+  "b0FN": [],
+  "b0FP": [],
+  "classCorrect": 1,
+  "strictFN": [],
+  "strictFP": [],
+  "strictTP": 1
+ },
+ "id": "B13",
+ "interpretationReplays": 2,
+ "title": "Removal dated before the install it ends",
+ "truth": {
+  "contradictions": [
+   {
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B13-M101-DE",
+     "B13-M101-RM-DE"
+    ],
+    "id": "B13-C1",
+    "kind": "CHRONOLOGY",
+    "motors": [
+     "M101"
+    ]
+   }
+  ],
+  "note": "author expected the hold to persist under every interpretation",
+  "releaseSensitiveMotors": [],
+  "sensitiveMotors": []
+ }
+}

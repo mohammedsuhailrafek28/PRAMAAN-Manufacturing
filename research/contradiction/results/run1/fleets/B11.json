@@ -1,0 +1,183 @@
+{
+ "authorityPreserved": true,
+ "b0": {
+  "groups": [
+   {
+    "check": "DUPLICATE_SERIAL",
+    "eventIds": [
+     "B11-M101-DE",
+     "B11-M102-DE"
+    ]
+   }
+  ],
+  "impactedMotors": [
+   "M101",
+   "M102"
+  ],
+  "seconds": 2e-05
+ },
+ "b1": {
+  "contradictions": [
+   {
+    "assumptions": [
+     "A1",
+     "A2",
+     "A4",
+     "A5"
+    ],
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B11-M101-DE",
+     "B11-M102-DE"
+    ],
+    "id": "B11-D1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ],
+    "reason": null
+   }
+  ],
+  "dependencySeconds": 0.0099,
+  "seconds": 0.00019
+ },
+ "dependency": {
+  "b0Impacted": [
+   "M101",
+   "M102"
+  ],
+  "b1Release": [],
+  "b1Sensitive": [
+   "M101",
+   "M102"
+  ],
+  "b1Static": [
+   "M101",
+   "M102"
+  ],
+  "perMotor": {
+   "M101": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B11-D1"
+    ],
+    "decisionDependsOnContestedEvidence": true,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": true,
+    "findingsAcrossReadings": [
+     "AFFECTED",
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 1,
+     "sampled": false,
+     "space": 2
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "AFFECTED"
+   },
+   "M102": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B11-D1"
+    ],
+    "decisionDependsOnContestedEvidence": true,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": true,
+    "findingsAcrossReadings": [
+     "AFFECTED",
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 1,
+     "sampled": false,
+     "space": 2
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "AFFECTED"
+   },
+   "M103": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": false,
+    "contradictions": [],
+    "decisionDependsOnContestedEvidence": false,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "AFFECTED"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 0,
+     "sampled": false,
+     "space": 1
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "AFFECTED"
+   },
+   "M104": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": false,
+    "contradictions": [],
+    "decisionDependsOnContestedEvidence": false,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "EXCLUDED_WITH_EVIDENCE"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 0,
+     "sampled": false,
+     "space": 1
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "EXCLUDED_WITH_EVIDENCE"
+   }
+  },
+  "truthRelease": [],
+  "truthSensitive": [
+   "M101",
+   "M102"
+  ]
+ },
+ "detection": {
+  "b0FN": [],
+  "b0FP": [],
+  "classCorrect": 1,
+  "strictFN": [],
+  "strictFP": [],
+  "strictTP": 1
+ },
+ "id": "B11",
+ "interpretationReplays": 2,
+ "title": "Unrelated conflict must not propagate",
+ "truth": {
+  "contradictions": [
+   {
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B11-M101-DE",
+     "B11-M102-DE"
+    ],
+    "id": "B11-C1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ]
+   }
+  ],
+  "note": "",
+  "releaseSensitiveMotors": [],
+  "sensitiveMotors": [
+   "M101",
+   "M102"
+  ]
+ }
+}

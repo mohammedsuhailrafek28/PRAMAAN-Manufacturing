@@ -1,0 +1,104 @@
+{
+ "aggregate": {
+  "detect": {
+   "b0_loose": {
+    "f1": 0.588,
+    "fn": 5,
+    "fp": 9,
+    "precision": 0.526,
+    "recall": 0.667,
+    "tp": 10
+   },
+   "b1_loose": {
+    "f1": 1.0,
+    "fn": 0,
+    "fp": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "tp": 15
+   },
+   "b1_strict": {
+    "f1": 1.0,
+    "fn": 0,
+    "fp": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "tp": 17
+   },
+   "classOk": 17,
+   "classTotal": 17
+  },
+  "evaluatorConsistency": {
+   "evaluatorErrors": 0,
+   "independentReplayMismatches": 0,
+   "interpretationReplays": 54,
+   "nonDeterministic": 0
+  },
+  "impact": {
+   "b0": {
+    "f1": 0.755,
+    "fn": 0,
+    "fp": 13,
+    "precision": 0.606,
+    "recall": 1.0,
+    "tp": 20
+   },
+   "b1_dynamic": {
+    "f1": 1.0,
+    "fn": 0,
+    "fp": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "tp": 20
+   },
+   "b1_static": {
+    "f1": 0.889,
+    "fn": 0,
+    "fp": 5,
+    "precision": 0.8,
+    "recall": 1.0,
+    "tp": 20
+   },
+   "release": {
+    "f1": 1.0,
+    "fn": 0,
+    "fp": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "tp": 12
+   }
+  }
+ },
+ "authorityPreservedEverywhere": true,
+ "falsePositivesOnValidFleets": {
+  "b0": 4,
+  "b1": 0
+ },
+ "fleets": 18,
+ "guardViolations": [],
+ "invariance": {
+  "differing": 0,
+  "fleets": [],
+  "seed": 20261024,
+  "trials": 180
+ },
+ "metamorphic": {
+  "b0Pass": 5,
+  "b1Pass": 8,
+  "total": 8
+ },
+ "probes": {
+  "b1FalseNegatives": 1,
+  "b1FalsePositives": 3,
+  "total": 4
+ },
+ "releaseEligibleStringInAdvisoryOutput": false,
+ "sourceSha": "3c16c1bfc778a0f4cf2a0d7cc1760834c4528f73",
+ "validTransitionFleets": [
+  "B02",
+  "B03",
+  "B06",
+  "B17",
+  "B18"
+ ]
+}

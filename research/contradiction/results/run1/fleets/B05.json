@@ -1,0 +1,158 @@
+{
+ "authorityPreserved": true,
+ "b0": {
+  "groups": [
+   {
+    "check": "DUPLICATE_SERIAL",
+    "eventIds": [
+     "B05-M101-DE",
+     "B05-M102-RI-DE"
+    ]
+   }
+  ],
+  "impactedMotors": [
+   "M101",
+   "M102"
+  ],
+  "seconds": 3e-05
+ },
+ "b1": {
+  "contradictions": [
+   {
+    "assumptions": [
+     "A1",
+     "A3"
+    ],
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B05-M101-DE",
+     "B05-M101-RM-DE",
+     "B05-M102-RI-DE"
+    ],
+    "id": "B05-D1",
+    "kind": "LOT_IDENTITY",
+    "motors": [
+     "M101",
+     "M102"
+    ],
+    "reason": null
+   }
+  ],
+  "dependencySeconds": 0.0109,
+  "seconds": 0.00027
+ },
+ "dependency": {
+  "b0Impacted": [
+   "M101",
+   "M102"
+  ],
+  "b1Release": [
+   "M102"
+  ],
+  "b1Sensitive": [
+   "M102"
+  ],
+  "b1Static": [
+   "M101",
+   "M102"
+  ],
+  "perMotor": {
+   "M101": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B05-D1"
+    ],
+    "decisionDependsOnContestedEvidence": false,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "EXCLUDED_WITH_EVIDENCE"
+    ],
+    "holdStatusDependsOnContestedEvidence": false,
+    "joint": {
+     "replayed": 2,
+     "sampled": false,
+     "space": 3
+    },
+    "readingsThatChangeHoldStatus": [],
+    "recordedFinding": "EXCLUDED_WITH_EVIDENCE"
+   },
+   "M102": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B05-D1"
+    ],
+    "decisionDependsOnContestedEvidence": true,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "AFFECTED",
+     "EXCLUDED_WITH_EVIDENCE"
+    ],
+    "holdStatusDependsOnContestedEvidence": true,
+    "joint": {
+     "replayed": 2,
+     "sampled": false,
+     "space": 3
+    },
+    "readingsThatChangeHoldStatus": [
+     {
+      "findingIfTrue": "AFFECTED",
+      "reading": [
+       "ADOPT_LOT:BR-204"
+      ]
+     }
+    ],
+    "recordedFinding": "EXCLUDED_WITH_EVIDENCE"
+   }
+  },
+  "truthRelease": [
+   "M102"
+  ],
+  "truthSensitive": [
+   "M102"
+  ]
+ },
+ "detection": {
+  "b0FN": [
+   "('B05-M101-DE', 'B05-M101-RM-DE', 'B05-M102-RI-DE')"
+  ],
+  "b0FP": [
+   "('B05-M101-DE', 'B05-M102-RI-DE')"
+  ],
+  "classCorrect": 1,
+  "strictFN": [],
+  "strictFP": [],
+  "strictTP": 1
+ },
+ "id": "B05",
+ "interpretationReplays": 4,
+ "title": "One serial recorded with two different lots",
+ "truth": {
+  "contradictions": [
+   {
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B05-M101-DE",
+     "B05-M101-RM-DE",
+     "B05-M102-RI-DE"
+    ],
+    "id": "B05-C1",
+    "kind": "LOT_IDENTITY",
+    "motors": [
+     "M101",
+     "M102"
+    ]
+   }
+  ],
+  "note": "",
+  "releaseSensitiveMotors": [
+   "M102"
+  ],
+  "sensitiveMotors": [
+   "M102"
+  ]
+ }
+}

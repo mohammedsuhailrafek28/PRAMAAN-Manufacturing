@@ -1,0 +1,128 @@
+{
+ "authorityPreserved": true,
+ "b0": {
+  "groups": [
+   {
+    "check": "DUPLICATE_SERIAL",
+    "eventIds": [
+     "B14-M101-DE",
+     "B14-M101-NDE"
+    ]
+   }
+  ],
+  "impactedMotors": [
+   "M101"
+  ],
+  "seconds": 1e-05
+ },
+ "b1": {
+  "contradictions": [
+   {
+    "assumptions": [
+     "A1",
+     "A2",
+     "A4",
+     "A5"
+    ],
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B14-M101-DE",
+     "B14-M101-NDE"
+    ],
+    "id": "B14-D1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101"
+    ],
+    "reason": null
+   }
+  ],
+  "dependencySeconds": 0.0038,
+  "seconds": 0.00016
+ },
+ "dependency": {
+  "b0Impacted": [
+   "M101"
+  ],
+  "b1Release": [
+   "M101"
+  ],
+  "b1Sensitive": [
+   "M101"
+  ],
+  "b1Static": [
+   "M101"
+  ],
+  "perMotor": {
+   "M101": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B14-D1"
+    ],
+    "decisionDependsOnContestedEvidence": true,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "EXCLUDED_WITH_EVIDENCE",
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": true,
+    "joint": {
+     "replayed": 2,
+     "sampled": false,
+     "space": 3
+    },
+    "readingsThatChangeHoldStatus": [
+     {
+      "findingIfTrue": "UNRESOLVED",
+      "reading": [
+       "DROP:B14-M101-DE"
+      ]
+     }
+    ],
+    "recordedFinding": "EXCLUDED_WITH_EVIDENCE"
+   }
+  },
+  "truthRelease": [
+   "M101"
+  ],
+  "truthSensitive": [
+   "M101"
+  ]
+ },
+ "detection": {
+  "b0FN": [],
+  "b0FP": [],
+  "classCorrect": 1,
+  "strictFN": [],
+  "strictFP": [],
+  "strictTP": 1
+ },
+ "id": "B14",
+ "interpretationReplays": 2,
+ "title": "Same serial in both slots of one motor",
+ "truth": {
+  "contradictions": [
+   {
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B14-M101-DE",
+     "B14-M101-NDE"
+    ],
+    "id": "B14-C1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101"
+    ]
+   }
+  ],
+  "note": "",
+  "releaseSensitiveMotors": [
+   "M101"
+  ],
+  "sensitiveMotors": [
+   "M101"
+  ]
+ }
+}

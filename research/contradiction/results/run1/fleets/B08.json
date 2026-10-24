@@ -1,0 +1,168 @@
+{
+ "authorityPreserved": true,
+ "b0": {
+  "groups": [
+   {
+    "check": "DUPLICATE_SERIAL",
+    "eventIds": [
+     "B08-M101-DE",
+     "B08-M102-DE"
+    ]
+   }
+  ],
+  "impactedMotors": [
+   "M101",
+   "M102"
+  ],
+  "seconds": 2e-05
+ },
+ "b1": {
+  "contradictions": [
+   {
+    "assumptions": [
+     "A1",
+     "A2",
+     "A4",
+     "A5"
+    ],
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B08-M101-DE",
+     "B08-M102-DE"
+    ],
+    "id": "B08-D1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ],
+    "reason": null
+   }
+  ],
+  "dependencySeconds": 0.0043,
+  "seconds": 0.00021
+ },
+ "dependency": {
+  "b0Impacted": [
+   "M101",
+   "M102"
+  ],
+  "b1Release": [
+   "M101",
+   "M102"
+  ],
+  "b1Sensitive": [
+   "M101",
+   "M102"
+  ],
+  "b1Static": [
+   "M101",
+   "M102"
+  ],
+  "perMotor": {
+   "M101": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B08-D1"
+    ],
+    "decisionDependsOnContestedEvidence": true,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "EXCLUDED_WITH_EVIDENCE",
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": true,
+    "joint": {
+     "replayed": 1,
+     "sampled": false,
+     "space": 2
+    },
+    "readingsThatChangeHoldStatus": [
+     {
+      "findingIfTrue": "UNRESOLVED",
+      "reading": [
+       "DROP:B08-M101-DE"
+      ]
+     }
+    ],
+    "recordedFinding": "EXCLUDED_WITH_EVIDENCE"
+   },
+   "M102": {
+    "advisoryOnly": true,
+    "authoritativeDecisionUnchanged": true,
+    "citesContestedEvidence": true,
+    "contradictions": [
+     "B08-D1"
+    ],
+    "decisionDependsOnContestedEvidence": true,
+    "diagnosticUnknownIdentityWouldBeReadAsUnaffected": false,
+    "findingsAcrossReadings": [
+     "EXCLUDED_WITH_EVIDENCE",
+     "UNRESOLVED"
+    ],
+    "holdStatusDependsOnContestedEvidence": true,
+    "joint": {
+     "replayed": 1,
+     "sampled": false,
+     "space": 2
+    },
+    "readingsThatChangeHoldStatus": [
+     {
+      "findingIfTrue": "UNRESOLVED",
+      "reading": [
+       "DROP:B08-M102-DE"
+      ]
+     }
+    ],
+    "recordedFinding": "EXCLUDED_WITH_EVIDENCE"
+   }
+  },
+  "truthRelease": [
+   "M101",
+   "M102"
+  ],
+  "truthSensitive": [
+   "M101",
+   "M102"
+  ]
+ },
+ "detection": {
+  "b0FN": [],
+  "b0FP": [],
+  "classCorrect": 1,
+  "strictFN": [],
+  "strictFP": [],
+  "strictTP": 1
+ },
+ "id": "B08",
+ "interpretationReplays": 2,
+ "title": "Excluded motors resting on contested claims",
+ "truth": {
+  "contradictions": [
+   {
+    "cls": "DEFINITE",
+    "eventIds": [
+     "B08-M101-DE",
+     "B08-M102-DE"
+    ],
+    "id": "B08-C1",
+    "kind": "EXCLUSIVE_OCCUPANCY",
+    "motors": [
+     "M101",
+     "M102"
+    ]
+   }
+  ],
+  "note": "",
+  "releaseSensitiveMotors": [
+   "M101",
+   "M102"
+  ],
+  "sensitiveMotors": [
+   "M101",
+   "M102"
+  ]
+ }
+}

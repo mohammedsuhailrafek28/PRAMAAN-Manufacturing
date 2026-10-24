@@ -1,0 +1,67 @@
+[
+ {
+  "b0": [
+   "DUPLICATE_SERIAL"
+  ],
+  "b0Verdict": "FALSE_POSITIVE",
+  "b1": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "DEFINITE"
+   ],
+   [
+    "LOT_IDENTITY",
+    "DEFINITE"
+   ]
+  ],
+  "b1Verdict": "FALSE_POSITIVE",
+  "id": "P1",
+  "physical": "two physically distinct bearings share (supplier, serial); no contradiction exists",
+  "title": "Supplier re-issued a serial number",
+  "violatedAssumption": "A1"
+ },
+ {
+  "b0": [],
+  "b0Verdict": "CORRECT",
+  "b1": [
+   [
+    "LOT_IDENTITY",
+    "DEFINITE"
+   ]
+  ],
+  "b1Verdict": "FALSE_POSITIVE",
+  "id": "P2",
+  "physical": "BR-204 and BR-204A are one lot under an alias table the records do not contain; no contradiction exists",
+  "title": "Lot relabelled by the supplier",
+  "violatedAssumption": "A3"
+ },
+ {
+  "b0": [
+   "DUPLICATE_SERIAL"
+  ],
+  "b0Verdict": "FALSE_POSITIVE",
+  "b1": [
+   [
+    "EXCLUSIVE_OCCUPANCY",
+    "DEFINITE"
+   ]
+  ],
+  "b1Verdict": "FALSE_POSITIVE",
+  "id": "P3",
+  "physical": "the bearing was removed from M101 on a paper form that was never entered; no physical contradiction exists",
+  "title": "Removal done on paper only",
+  "violatedAssumption": "A4"
+ },
+ {
+  "b0": [
+   "DUPLICATE_SERIAL"
+  ],
+  "b0Verdict": "CORRECT",
+  "b1": [],
+  "b1Verdict": "FALSE_NEGATIVE",
+  "id": "P4",
+  "physical": "the M101 removal device ran 40 minutes slow; the removal really happened at 10:40, after the M102 install: a real contradiction",
+  "title": "Device clock wrong by 40 minutes",
+  "violatedAssumption": "A5"
+ }
+]
