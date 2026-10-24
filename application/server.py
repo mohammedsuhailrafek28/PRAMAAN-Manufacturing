@@ -11,6 +11,30 @@ import sys
 from urllib.parse import urlsplit, unquote
 
 from .service import Manufacturing, ValidationFailure, LedgerBlocked, ROOT
+from . import checkpoint_ops
+
+# Restricted stale-checkpoint recovery surface. It is a separate, whitelisted route family: evidence capture, controlled replacement (reconciliation) and the
+# PROPOSAL of a successor checkpoint. It has no route for shipment, release, recall announcement, unit creation, assembly, acceptance or activation, and its
+# responses carry no decision, eligibility or clearance (a stale checkpoint withholds all of those).
+RECOVERY_ACTIONS = ("observe", "replace", "propose")
+RECOVERY_PROHIBITED = ("ship", "announce", "create-unit", "assemble", "accept-checkpoint", "activate-checkpoint", "release")
+
+
+def recovery_status(snap, custody_configured):
+    """Operator view for the stale-checkpoint state. Deliberately omits operationalAction, evidence finding and eligibility."""
+    held = []
+    for unit in snap["units"]:
+        for bundle in snap["decisions"].get(unit["unitId"], {}).values():
+            cur = bundle["current"]
+            ig, itg = cur.get("identityGuard", {}), cur.get("integrityGuard", {})
+            if ig.get("findings") or itg.get("findings"):
+                held.append(dict(motor=unit["unitId"],
+                                 identityFindings=[dict(source=f["source"], reason=f["reason"], slot=f.get("slot"), lot=f.get("lot"), resembles=f.get("resembles", [])) for f in ig.get("findings", [])],
+                                 integrityFindings=[dict(reason=f["reason"], workOrderId=f.get("workOrderId")) for f in itg.get("findings", [])],
+                                 quarantine=cur.get("quarantine")))
+    return dict(mode="STALE_CHECKPOINT_RECOVERY", checkpoint=snap["checkpoint"], allowedActions=list(RECOVERY_ACTIONS), prohibitedActions=list(RECOVERY_PROHIBITED),
+                custodyConfigured=custody_configured, heldMotors=held, releaseEligibility="NONE_FROM_RECOVERY",
+                notice="Recovery captures evidence and proposes a checkpoint. It never authorizes shipment or release; accepting and activating a checkpoint is an operator action outside this server.")
 
 
 class LocalServer(ThreadingHTTPServer):
@@ -20,7 +44,7 @@ class LocalServer(ThreadingHTTPServer):
     daemon_threads = True
 
 
-def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previous_anchor=None, lot_registry=None):
+def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previous_anchor=None, lot_registry=None, custody_dir=None):
     database = Path(database).resolve()
     if lot_registry is not None:
         from . import service as _service
@@ -96,12 +120,51 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
             """Decision sub-resources carry no current claims outside ANCHORED_CURRENT."""
             return self.send(409, {"error": "CHECKPOINT_REQUIRED", "state": snap["checkpoint"]["state"], "checkpoint": snap["checkpoint"], "decisionsUnavailable": True})
 
+        def read_body(self):
+            length = int(self.headers.get("Content-Length", "0"))
+            if length <= 0 or length > 1024*1024:
+                raise ValidationFailure("JSON body must be 1..1048576 bytes")
+            body = json.loads(self.rfile.read(length))
+            if not isinstance(body, dict):
+                raise ValidationFailure("JSON object required")
+            return body
+
+        def recovery(self, app, path, mutate, started):
+            if anchor is None:
+                return self.send(409, {"error": "RECOVERY_REQUIRES_ANCHOR", "decisionsUnavailable": True})
+            parts = path.strip("/").split("/")
+            action = parts[2] if len(parts) == 3 else None
+            if len(parts) > 3 or (mutate and action not in RECOVERY_ACTIONS) or (not mutate and action is not None):
+                return self.send(404, {"error": "Unknown recovery action"})
+            anchor.verify(app)
+            snap = app.snapshot(trusted_anchor=anchor)
+            state = snap["checkpoint"]["state"]
+            if state != "ANCHORED_PREFIX_ONLY":
+                return self.send(409, {"error": "RECOVERY_NOT_APPLICABLE", "state": state, "decisionsUnavailable": True})
+            if not mutate:
+                return self.send(200, {"recovery": recovery_status(snap, custody_dir is not None)})
+            body = self.read_body()
+            proposal = None
+            if action == "propose":
+                if custody_dir is None:
+                    return self.send(409, {"error": "CUSTODY_NOT_CONFIGURED", "decisionsUnavailable": True})
+                proposal = checkpoint_ops.propose(database, anchor.path, custody_dir, anchor.previous_path)
+            else:
+                motor = body.get("motor")
+                if not isinstance(motor, str) or not any(u["unitId"] == motor for u in snap["units"]):
+                    raise ValidationFailure("Known motor required")
+                (app.observe if action == "observe" else app.replace)(motor, body.get("lot"), body.get("slot", "DE"))
+            snap = app.snapshot(trusted_anchor=anchor)
+            return self.send(200, {"recovery": recovery_status(snap, custody_dir is not None), "proposal": proposal, "captureToDecisionMs": (time.perf_counter()-started)*1000})
+
         def api(self, path, mutate=False):
             started = time.perf_counter()
             with lock:
                 app = None
                 try:
                     app = Manufacturing(database,journal_cache=journal_cache,verification_deadline=time.monotonic()+1.25)
+                    if path == "/api/recovery" or path.startswith("/api/recovery/"):
+                        return self.recovery(app, path, mutate, started)
                     if mutate:
                         if anchor is None:
                             raise LedgerBlocked('Trusted external anchor required for operational commands')
@@ -190,10 +253,11 @@ def main():
     parser.add_argument("--seed-demo", action="store_true")
     parser.add_argument("--trusted-anchor", type=Path, help="Owner-custodied external anchor; mandatory for current operational decisions")
     parser.add_argument('--previous-anchor',type=Path,help='Previous owner-custodied checkpoint for successor activation')
+    parser.add_argument('--custody-dir', type=Path, help='Directory in which the recovery workflow may write PROPOSED (never accepted or activated) successor checkpoints')
     parser.add_argument('--lot-registry', type=Path, help='Locally authored synthetic lot registry (default: bundled application/lot_registry.synthetic.json)')
     args = parser.parse_args()
     try:
-        server = make_server(args.database, args.port, args.seed_demo, trusted_anchor=args.trusted_anchor,previous_anchor=args.previous_anchor, lot_registry=args.lot_registry)
+        server = make_server(args.database, args.port, args.seed_demo, trusted_anchor=args.trusted_anchor,previous_anchor=args.previous_anchor, lot_registry=args.lot_registry, custody_dir=args.custody_dir)
     except Exception:
         print(json.dumps(dict(error='STARTUP_UNAVAILABLE',decisionsUnavailable=True)),file=sys.stderr)
         raise SystemExit(1)

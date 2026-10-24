@@ -64,7 +64,7 @@ def propose(database, current_path, custody_dir, current_previous=None):
         publish_candidate(path, candidate)      # staged, fsynced, no overwrite
         return dict(status=STATUS_PROPOSED, candidate=str(path), candidateSha256=sha256_file(path),
                     covers=summarize(app, previous["body"], candidate["body"]),
-                    review=build_review(app, previous["body"], candidate["body"], current_path),
+                    review=build_review(app, previous["body"], candidate["body"], current_path, registry_binding.check(path, path.read_bytes(), app.registry)),
                     next="Review the candidate, then run 'accept' with the custodian name and the sha256 above. Nothing is active yet.")
     finally:
         app.close()
@@ -83,8 +83,8 @@ def accept(database, current_path, custody_dir, candidate_path, custodian, confi
     try:
         # The candidate must verify as a chained successor of the current checkpoint, in a fresh trust object.
         proof = TrustedAnchor(candidate_path, current_path).verify(app)
-        review = build_review(app, json.loads(Path(current_path).read_bytes())["body"], json.loads(candidate_path.read_bytes())["body"], current_path)
         bound = registry_binding.check(candidate_path, candidate_path.read_bytes(), app.registry)
+        review = build_review(app, json.loads(Path(current_path).read_bytes())["body"], json.loads(candidate_path.read_bytes())["body"], current_path, bound)
     finally:
         app.close()
     if expected_registry_digest is not None and expected_registry_digest != review["registry"]["digest"]:
@@ -92,7 +92,7 @@ def accept(database, current_path, custody_dir, candidate_path, custodian, confi
     if bound["status"] != "OK":
         raise SystemExit(f"REFUSED: the candidate's registry binding is {bound['status']} ({bound['detail']}); the registry in force must be the registry bound to the candidate. Nothing was accepted.")
     if review["refusedForIdentity"]:
-        raise SystemExit(f"REFUSED: an exclusion rests on lot identity that is not established for {review['refusedForIdentity']}; acknowledgement cannot override this. Nothing was accepted.")
+        raise SystemExit(f"REFUSED: an exclusion rests on lot identity that is not established for {review['refusedForIdentity']} and isolation to that motor is not established; acknowledgement cannot override this. Nothing was accepted.")
     if review["registryChange"]["requiresAcknowledgement"] and acknowledge_registry != review["registry"]["digest"]:
         raise SystemExit(f"REFUSED: the registry differs from the one accepted with the current checkpoint ({len(review['registryChange']['changes'])} change(s), prior binding {review['registryChange']['priorBinding']}); "
                          "review the changes and pass --acknowledge-registry-change <registry digest>. Nothing was accepted.")
@@ -109,7 +109,7 @@ def accept(database, current_path, custody_dir, candidate_path, custodian, confi
     record = dict(status=STATUS_ACCEPTED, custodian=custodian, acceptedAtUtc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
                   candidateSha256=digest, accepted=str(target), previous=str(Path(current_path)),
                   anchoredSequence=proof["anchoredSequence"], note="Operator-asserted on this host; not independent custody.",
-                  acknowledgedMotors=sorted(acknowledged or []), registryChangeAcknowledged=bool(review["registryChange"]["requiresAcknowledgement"]),
+                  acknowledgedMotors=sorted(acknowledged or []), containedMotors=review["containedMotors"], registryChangeAcknowledged=bool(review["registryChange"]["requiresAcknowledgement"]),
                   registryChanges=review["registryChange"]["changes"], registryBinding=str(registry_binding.binding_path(target)), registryDigest=review["registry"]["digest"], registryProvenance=review["registry"]["provenance"],
                   acknowledgementNote="Acknowledgement is an operator assertion; not authentication and not proof of physical lot identity.")
     log = accepted_dir / (target.name + ".acceptance.json")
