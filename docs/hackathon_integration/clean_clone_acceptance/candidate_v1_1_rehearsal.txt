@@ -1,0 +1,12 @@
+PASS 1 seeded demo starts ANCHORED_CURRENT :: {"state": "ANCHORED_CURRENT", "eligible": {"MTR-26001": false, "MTR-26002": false, "MTR-26003": true, "MTR-26004": false, "MTR-26005": false}}
+PASS 2 capture MTR-DEMO-1 (DE BR-310) :: {"status": 200}
+PASS 2 capture MTR-DEMO-2 (DE BR-204) :: {"status": 200}
+PASS 3 capture moved the ledger past the checkpoint: nothing is current :: {"state": "ANCHORED_PREFIX_ONLY"}
+PASS 4 shipping a clean motor while the checkpoint is stale is REFUSED :: {"status": 409, "body": {"error": "SHIPMENT_REFUSED"}}
+PASS 5 restricted recovery surface has no ship route :: {}
+PASS 6 operator checkpoint cycle renews: DEMO-1 eligible, DEMO-2 (recalled DE lot) held :: {"state": "ANCHORED_CURRENT", "eligible": {"MTR-26001": false, "MTR-26002": false, "MTR-26003": true, "MTR-26004": false, "MTR-26005": false, "MTR-DEMO-1": true, "MTR-DEMO-2": false}, "cycle": {"contained": [], "acknowledged": ["MTR-DEMO-1"], "status": "LOCAL_CUSTODY_ACCEPTANCE_OPERATOR_ASSERTED_NOT
+PASS 7 shipping the recall-held motor is REFUSED even with client-supplied eligibility claims :: {"status": 409}
+PASS 8 shipping the current, eligible motor succeeds :: {"status": 200}
+PASS 9 the shipment itself requires the next checkpoint cycle (nothing is current) :: {"state": "ANCHORED_PREFIX_ONLY"}
+PASS 10 unverified sighting on MTR-26003: that motor stays held, the others renew :: {"state": "ANCHORED_CURRENT", "eligible": {"MTR-26001": false, "MTR-26002": false, "MTR-26003": false, "MTR-26004": false, "MTR-26005": false, "MTR-DEMO-1": true, "MTR-DEMO-2": false}, "cycle": {"contained": ["MTR-26003"], "acknowledged": ["MTR-26003"], "status": "LOCAL_CUSTODY_ACCEPTANCE_OPERATOR_A
+REHEARSAL PASSED
