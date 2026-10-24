@@ -1,0 +1,13 @@
+
+ RUN  v5.0.5 C:/Users/HAIL/AppData/Local/Temp/claude/C--Users-HAIL-Documents-PRAMAAN-Manufacturing/c62f2fee-8f85-4474-86ce-f8aea199b730/scratchpad/cc2/recall-ui
+
+
+ Test Files  26 passed (26)
+      Tests  375 passed (375)
+   Start at  15:03:46
+   Duration  32.27s (environment 47%, tests 30%, setup 10%, transform 9%, import 3%)
+
+Environment  jsdom was created 26 times · 107.69s total, 47% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+
