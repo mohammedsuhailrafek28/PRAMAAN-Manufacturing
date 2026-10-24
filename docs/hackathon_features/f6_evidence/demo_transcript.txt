@@ -1,0 +1,74 @@
+
+==============================================================================================================
+LIMITS (read first): Demo keys were generated locally on one machine. A valid signature shows integrity under a pinned key, NOT independent company authentication. Same-host custody; not production; physical product identity is not verified.
+==============================================================================================================
+Staged: supplier S, factory A, factory B. Each factory has its own ledger, lot registry, checkpoint, federation store and key. Nothing is shared except signed files.
+
+==============================================================================================================
+1. S signs and publishes ONE recall alert for ITS lot label NSB-204 (drive-end bearing)
+==============================================================================================================
+  bulletin file alert-000001.json: alert ALERT-465b6591ddc9 seq 1 lot {'supplierId': 'SUP-NSB-01', 'part': 'BR-6205', 'supplierLot': 'NSB-204'}
+
+==============================================================================================================
+2. Attacks BEFORE delivery of the real alert: forged signature, edited text, wrong key under S's name
+==============================================================================================================
+  A rejects [forged by attacker key]: WRONG_KEY
+  A rejects [text edited after signing]: BAD_SIGNATURE
+  A rejects [attacker signature under S's key id]: BAD_SIGNATURE
+
+==============================================================================================================
+3. Real alert delivered to A and B: recorded as PENDING_OPERATOR; the ledgers are NOT touched
+==============================================================================================================
+  Aster Motors (A): accepted=True status=PENDING_OPERATOR ledger policies=0 (unchanged: True)
+  Kaveri Drives (B): accepted=True status=PENDING_OPERATOR ledger policies=0 (unchanged: True)
+  A, same file delivered again (replay): REPLAY
+  B, an alert whose lifetime ended before delivery: EXPIRED
+  rejections recorded at A: ['WRONG_KEY', 'BAD_SIGNATURE', 'BAD_SIGNATURE', 'REPLAY']
+
+==============================================================================================================
+4. Each factory resolves the SAME supplier label through its OWN registry
+==============================================================================================================
+  Aster Motors (A): supplier label NSB-204 -> local lot BR-204 (this local label is never sent back)
+  Kaveri Drives (B): supplier label NSB-204 -> local lot BR-771 (this local label is never sent back)
+
+==============================================================================================================
+5. Without an operator, nothing happens. Wrong confirmation is refused; then each operator adopts
+==============================================================================================================
+  Aster Motors (A): adopt with wrong confirmation -> CONFIRMATION_MISMATCH
+  Aster Motors (A): adopted=True local policy now announced (policies=1); ledger is newer than its checkpoint
+  Aster Motors (A): response while the checkpoint is stale -> status PENDING_CHECKPOINT, counts None
+  Kaveri Drives (B): adopt with wrong confirmation -> CONFIRMATION_MISMATCH
+  Kaveri Drives (B): adopted=True local policy now announced (policies=1); ledger is newer than its checkpoint
+  Kaveri Drives (B): response while the checkpoint is stale -> status PENDING_CHECKPOINT, counts None
+
+==============================================================================================================
+6. The EXISTING checkpoint cycle (propose + accept, FORMAT_V3, scripted acknowledgements) — only then can a factory answer
+==============================================================================================================
+  Aster Motors (A): accepted checkpoint accepted-000004-0df1ac8b6af9.json (operator-asserted, same-host, NOT independent custody)
+  Aster Motors (A): response status ANSWERED counts {"heldMotors": 2, "heldByEvidenceFinding": {"AFFECTED": 2, "UNRESOLVED": 0, "EXCLUDED_WITH_EVIDENCE": 0}, "heldOnlyByIdentityGuard": 0}
+  Kaveri Drives (B): accepted checkpoint accepted-000004-f4ae7a2fea79.json (operator-asserted, same-host, NOT independent custody)
+  Kaveri Drives (B): response status ANSWERED counts {"heldMotors": 2, "heldByEvidenceFinding": {"AFFECTED": 1, "UNRESOLVED": 0, "EXCLUDED_WITH_EVIDENCE": 1}, "heldOnlyByIdentityGuard": 1}
+
+==============================================================================================================
+7. S's board: separate results, counts only (no serials, lots, customers, histories or ledgers)
+==============================================================================================================
+SUPPLIER BOARD (counts only; factory-asserted)
+Demo keys were generated locally on one machine. A valid signature shows integrity under a pinned key, NOT independent company authentication. Same-host custody; not production; physical product identity is not verified.
+Only a status and held-motor counts by evaluator evidence finding. No serials, lots, customers, event histories or ledgers. A missing or zero count is not a clearance.
+
+  urn:demo:factory:aster-motors            ALERT-465b6591ddc9 ANSWERED             held 2 (AFFECTED 2, UNRESOLVED 0, EXCLUDED_WITH_EVIDENCE 0; held only by identity guard 0); checkpoint 0df1ac8b6af9
+  urn:demo:factory:kaveri-drives           ALERT-465b6591ddc9 ANSWERED             held 2 (AFFECTED 1, UNRESOLVED 0, EXCLUDED_WITH_EVIDENCE 1; held only by identity guard 1); checkpoint f4ae7a2fea79
+  (static page written to supplier/board.html)
+
+==============================================================================================================
+8. A second alert for a lot NEITHER registry can map (NSB-999): refused, never 'not affected'
+==============================================================================================================
+  Aster Motors (A): status LOT_UNMAPPED; adopt -> LOT_UNMAPPED; response counts None
+  Kaveri Drives (B): status LOT_UNMAPPED; adopt -> LOT_UNMAPPED; response counts None
+
+==============================================================================================================
+9. Safety recap
+==============================================================================================================
+  * Imported messages could only be recorded or (after an operator) announce the existing local recall; no message type clears a hold or authorizes shipment.
+  * Only ALERT is accepted by factories; CORRECTION/RESPONSE/anything else is rejected (see tests). No correction, retraction or WIDEN workflow exists in this build.
+  * One immutable recall scope per database is unchanged; a second mapped lot is refused (see tests).

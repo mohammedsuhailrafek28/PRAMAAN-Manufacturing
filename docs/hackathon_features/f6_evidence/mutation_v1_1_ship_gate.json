@@ -1,0 +1,45 @@
+{
+ "anchor_optional": {
+  "failed": [
+   "test_unanchored_is_refused"
+  ],
+  "ran": 20
+ },
+ "eligibility_ignored": {
+  "failed": [
+   "test_direct_api_is_refused_when_the_ui_would_be_blocked_and_client_claims_change_nothing",
+   "test_prefix_only_checkpoint_is_refused",
+   "test_recall_hold_is_refused",
+   "test_registry_discrepancy_is_refused",
+   "test_the_ordinary_ship_route_refuses_while_the_checkpoint_is_stale",
+   "test_unresolved_lot_identity_is_refused",
+   "test_unverified_sighting_is_refused"
+  ],
+  "ran": 20
+ },
+ "gate_disabled": {
+  "failed": [
+   "test_direct_api_is_refused_when_the_ui_would_be_blocked_and_client_claims_change_nothing",
+   "test_ledger_change_between_the_eligibility_check_and_the_write_is_refused",
+   "test_prefix_only_checkpoint_is_refused",
+   "test_recall_hold_is_refused",
+   "test_registry_discrepancy_is_refused",
+   "test_the_ordinary_ship_route_refuses_while_the_checkpoint_is_stale",
+   "test_unanchored_is_refused",
+   "test_unresolved_lot_identity_is_refused",
+   "test_unverified_sighting_is_refused"
+  ],
+  "ran": 20
+ },
+ "ticket_not_bound_to_ledger_state": {
+  "failed": [
+   "test_a_stale_ticket_cannot_authorize_a_later_state",
+   "test_ledger_change_between_the_eligibility_check_and_the_write_is_refused"
+  ],
+  "ran": 20
+ },
+ "unmutated": {
+  "failed": [],
+  "ran": 20
+ }
+}
