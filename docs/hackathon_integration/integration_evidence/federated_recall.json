@@ -1,0 +1,172 @@
+{
+ "adopt_on_receive": {
+  "failed": [
+   "test_a_forged_adoption_row_in_the_unprotected_store_cannot_produce_counts",
+   "test_a_second_scope_in_one_database_is_refused_and_the_first_is_unchanged",
+   "test_a_tampered_stored_alert_cannot_be_adopted",
+   "test_adoption_is_the_only_path_to_the_ledger_and_needs_an_operator",
+   "test_an_alert_that_expired_before_adoption_is_refused",
+   "test_the_authentic_alert_is_accepted_into_the_inbox_only",
+   "test_the_ledger_changes_only_by_the_one_recall_announcement_and_the_checkpoint_cycle",
+   "test_unmapped_lots_are_never_adopted_or_reported_as_unaffected"
+  ],
+  "ran": 34
+ },
+ "alert_field_set_open": {
+  "failed": [
+   "test_unsupported_message_types_and_extra_fields_even_when_signed_by_the_real_key"
+  ],
+  "ran": 34
+ },
+ "board_accepts_unsigned_responses": {
+  "failed": [
+   "test_valid_response_is_accepted_and_each_failure_is_rejected_with_a_reason",
+   "test_wrong_supplier_for_a_registered_lot_is_unmapped"
+  ],
+  "ran": 34
+ },
+ "board_alert_binding_removed": {
+  "failed": [
+   "test_valid_response_is_accepted_and_each_failure_is_rejected_with_a_reason"
+  ],
+  "ran": 34
+ },
+ "board_replay_check_removed": {
+  "failed": [
+   "test_valid_response_is_accepted_and_each_failure_is_rejected_with_a_reason"
+  ],
+  "ran": 34
+ },
+ "confirmation_not_required": {
+  "failed": [
+   "test_adoption_is_the_only_path_to_the_ledger_and_needs_an_operator"
+  ],
+  "ran": 34
+ },
+ "counts_given_while_checkpoint_stale": {
+  "failed": [
+   "test_a_lookalike_of_an_in_use_lot_or_a_bypassed_install_blocks_the_existing_cycle_so_no_counts_are_given",
+   "test_no_counts_while_the_checkpoint_is_stale",
+   "test_valid_response_is_accepted_and_each_failure_is_rejected_with_a_reason"
+  ],
+  "ran": 34
+ },
+ "counts_without_matching_ledger_policy": {
+  "failed": [
+   "test_a_forged_adoption_row_in_the_unprotected_store_cannot_produce_counts"
+  ],
+  "ran": 34
+ },
+ "expiry_not_checked": {
+  "failed": [
+   "test_an_alert_that_expired_before_adoption_is_refused",
+   "test_expiry_and_clock_rules"
+  ],
+  "ran": 34
+ },
+ "kid_not_checked": {
+  "failed": [
+   "test_hostile_inputs_never_raise_or_touch_the_ledger",
+   "test_valid_response_is_accepted_and_each_failure_is_rejected_with_a_reason",
+   "test_wrong_key_and_forged_signatures_fail"
+  ],
+  "ran": 34
+ },
+ "lifetime_cap_removed": {
+  "failed": [
+   "test_expiry_and_clock_rules"
+  ],
+  "ran": 34
+ },
+ "lot_mapped_by_label_not_registry": {
+  "failed": [
+   "test_the_same_supplier_label_maps_to_different_local_lots"
+  ],
+  "ran": 34
+ },
+ "message_type_not_checked": {
+  "failed": [
+   "test_unsupported_message_types_and_extra_fields_even_when_signed_by_the_real_key"
+  ],
+  "ran": 34
+ },
+ "operator_not_required": {
+  "failed": [
+   "test_adoption_is_the_only_path_to_the_ledger_and_needs_an_operator"
+  ],
+  "ran": 34
+ },
+ "prevhash_chain_removed": {
+  "failed": [
+   "test_replay_stale_out_of_order_and_chain_breaks"
+  ],
+  "ran": 34
+ },
+ "recipient_list_ignored": {
+  "failed": [
+   "test_alert_for_other_recipients_is_not_addressed_here"
+  ],
+  "ran": 34
+ },
+ "replay_check_removed": {
+  "failed": [
+   "test_replay_stale_out_of_order_and_chain_breaks"
+  ],
+  "ran": 34
+ },
+ "response_counts_consistency_removed": {
+  "failed": [
+   "test_valid_response_is_accepted_and_each_failure_is_rejected_with_a_reason"
+  ],
+  "ran": 34
+ },
+ "response_leaks_local_lot": {
+  "failed": [
+   "test_responses_are_counts_only_and_leak_nothing",
+   "test_supplier_board_shows_each_factory_separately_counts_only",
+   "test_valid_response_is_accepted_and_each_failure_is_rejected_with_a_reason"
+  ],
+  "ran": 34
+ },
+ "sender_role_not_checked": {
+  "failed": [
+   "test_a_pinned_key_with_the_wrong_role_cannot_send_that_message_type"
+  ],
+  "ran": 34
+ },
+ "sequence_gap_allowed": {
+  "failed": [
+   "test_replay_stale_out_of_order_and_chain_breaks"
+  ],
+  "ran": 34
+ },
+ "signature_not_verified": {
+  "failed": [
+   "test_a_tampered_stored_alert_cannot_be_adopted",
+   "test_tampered_body_fails",
+   "test_valid_response_is_accepted_and_each_failure_is_rejected_with_a_reason",
+   "test_wrong_key_and_forged_signatures_fail"
+  ],
+  "ran": 34
+ },
+ "stored_alert_trusted_without_reverification": {
+  "failed": [
+   "test_a_tampered_stored_alert_cannot_be_adopted",
+   "test_an_alert_that_expired_before_adoption_is_refused"
+  ],
+  "ran": 34
+ },
+ "supplier_scope_ignored": {
+  "failed": [
+   "test_counts_equal_the_unchanged_evaluators_own_snapshot_independently_computed",
+   "test_supplier_board_shows_each_factory_separately_counts_only",
+   "test_unmapped_lots_are_never_adopted_or_reported_as_unaffected",
+   "test_wrong_supplier_for_a_registered_lot_is_unmapped"
+  ],
+  "ran": 34
+ },
+ "unmutated": {
+  "failed": [],
+  "ran": 34
+ }
+}

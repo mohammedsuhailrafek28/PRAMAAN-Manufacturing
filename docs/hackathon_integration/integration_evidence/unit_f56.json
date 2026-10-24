@@ -1,0 +1,34 @@
+{
+ "channelSeparation": "F6 responses/state contain none of the F5-disclosed identifiers; F5 customer/supplier packages contain no alert id, supplier label, counts or alert hash",
+ "crossProtocol": "same key in both roles: F6 envelopes are not F5 packages and F5 signatures are not F6 envelope signatures (domain-separated signing inputs)",
+ "guardHeldMotorInF5": {
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "note": "F5 states the frozen finding; the guard override is visible only in F6's count and in the evaluator's own decision",
+  "operationalAction": "RECALL_HOLD"
+ },
+ "localRecallThenAlert": "A: local recall + checkpoint; alert adopted idempotently; ledger rows identical before/after adoption; counts answered without another cycle",
+ "p2ChannelDifference": "F5 supplier package: local lot BR-771; F6 response: no lot",
+ "sameMotorsF5andF6": {
+  "a": {
+   "auditorBinding": "CLAIMS_BOUND_TO_CHECKPOINT_ROW",
+   "customerClaims": [
+    "evidenceFinding",
+    "motorSerial",
+    "operationalAction",
+    "recallId"
+   ],
+   "supplierLot": "BR-204"
+  },
+  "b": {
+   "auditorBinding": "CLAIMS_BOUND_TO_CHECKPOINT_ROW",
+   "customerClaims": [
+    "evidenceFinding",
+    "motorSerial",
+    "operationalAction",
+    "recallId"
+   ],
+   "supplierLot": "BR-771"
+  }
+ },
+ "staleThenCurrent": "checkpoint is ANCHORED_PREFIX_ONLY, not ANCHORED_CURRENT: no package is issued"
+}

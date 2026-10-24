@@ -1,0 +1,122 @@
+{
+ "audience_ignored": {
+  "failed": [
+   "test_audience_mismatch"
+  ],
+  "ran": 36
+ },
+ "checkpoint_binding_skipped": {
+  "failed": [
+   "test_a_package_bound_to_another_checkpoint_is_rejected",
+   "test_customer_and_supplier_checkpoint_binding_is_issuer_asserted_without_the_checkpoint",
+   "test_opened_row_must_match_the_checkpoint_digest_and_the_claims",
+   "test_wrong_or_modified_checkpoint_is_detected"
+  ],
+  "ran": 36
+ },
+ "checkpoint_checksum_not_recomputed": {
+  "failed": [
+   "test_a_package_bound_to_another_checkpoint_is_rejected",
+   "test_wrong_or_modified_checkpoint_is_detected"
+  ],
+  "ran": 36
+ },
+ "clearance_action_accepted_and_issuable": {
+  "failed": [
+   "test_clearance_can_never_be_accepted_even_from_the_real_issuer_key",
+   "test_issuing_and_verifying_change_neither_ledger_nor_checkpoint",
+   "test_no_package_for_a_clearance_motor",
+   "test_schema_values_equal_the_frozen_evaluator_constants"
+  ],
+  "ran": 36
+ },
+ "closed_claim_set_open_for_customer": {
+  "failed": [
+   "test_an_opened_ledger_row_requires_the_auditor_profile_and_explicit_authorization",
+   "test_customer_package_holds_no_supplier_lot_or_unrelated_motor_detail",
+   "test_duplicate_and_unexpected_claims",
+   "test_three_profiles_verify_and_disclose_exactly_their_claims"
+  ],
+  "ran": 36
+ },
+ "digest_checks_only_a_prefix": {
+  "failed": [
+   "test_disclosure_tampering_fails",
+   "test_rfc_9901_disclosure_and_digest_vectors"
+  ],
+  "ran": 36
+ },
+ "digest_count_leaks_claim_count": {
+  "failed": [
+   "test_every_package_commits_to_the_same_number_of_digests"
+  ],
+  "ran": 36
+ },
+ "event_row_digest_not_compared": {
+  "failed": [
+   "test_opened_row_must_match_the_checkpoint_digest_and_the_claims"
+  ],
+  "ran": 36
+ },
+ "event_row_opened_without_authorization": {
+  "failed": [
+   "test_an_opened_ledger_row_requires_the_auditor_profile_and_explicit_authorization"
+  ],
+  "ran": 36
+ },
+ "expiry_ignored": {
+  "failed": [
+   "test_expiry_and_clock_rules",
+   "test_malformed_and_hostile_inputs_never_crash_or_accept"
+  ],
+  "ran": 36
+ },
+ "issuer_mutates_the_ledger": {
+  "failed": [
+   "setUpModule"
+  ],
+  "ran": 0
+ },
+ "revocation_list_ignored": {
+  "failed": [
+   "test_revocation_is_reported_only_with_a_signed_issuer_list"
+  ],
+  "ran": 36
+ },
+ "salts_reused": {
+  "failed": [
+   "test_hidden_claims_are_committed_with_fresh_random_salts_and_never_reused"
+  ],
+  "ran": 36
+ },
+ "signature_not_verified": {
+  "failed": [
+   "test_signed_payload_tampering_fails",
+   "test_wrong_issuer_key_and_forged_signatures_fail"
+  ],
+  "ran": 36
+ },
+ "stale_checkpoint_accepted": {
+  "failed": [
+   "test_stale_checkpoint_issues_nothing"
+  ],
+  "ran": 36
+ },
+ "supplier_sees_motor_serial": {
+  "failed": [
+   "test_supplier_package_holds_no_motor_or_customer_identity",
+   "test_three_profiles_verify_and_disclose_exactly_their_claims"
+  ],
+  "ran": 36
+ },
+ "unexpected_payload_fields_allowed": {
+  "failed": [
+   "test_duplicate_and_unexpected_claims"
+  ],
+  "ran": 36
+ },
+ "unmutated": {
+  "failed": [],
+  "ran": 36
+ }
+}

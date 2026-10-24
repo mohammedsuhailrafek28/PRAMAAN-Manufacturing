@@ -1,0 +1,354 @@
+{
+  "status": "PASSED",
+  "invocation": "1cce7c51706d4497b5fa3d798475a02d",
+  "commit": "0c8e7b4eec195575a3db0c931cb414f52142f276",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "node": "v24.17.0",
+  "chrome": "155.0.8059.84",
+  "gates": {
+    "K": {
+      "baseline": "4a9e8f2c11e5e12bfd6926bfb9f9a0ee0dd3fa57",
+      "files": 126,
+      "engineTreeUnmodified": true,
+      "foundationTreeUnmodified": true,
+      "integrationTreeUnmodified": true
+    },
+    "infra": {
+      "exitCode": 0,
+      "seconds": 0.909,
+      "command": [
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ci",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    "A": {
+      "exitCode": 0,
+      "seconds": 29.943,
+      "command": [
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-t",
+        ".",
+        "-v"
+      ]
+    },
+    "B": {
+      "exitCode": 0,
+      "seconds": 0.729,
+      "command": [
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+        "experiments/foundation/interop.py",
+        "--gs1-checkout",
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-Documents-PRAMAAN-Manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gtx\\.tmp-ci-tools\\gs1",
+        "--output",
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-Documents-PRAMAAN-Manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gtx\\.tmp-ci-results\\foundation.json"
+      ]
+    },
+    "C": {
+      "exitCode": 0,
+      "seconds": 2.067,
+      "command": [
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "integration_tests",
+        "-t",
+        ".",
+        "-v"
+      ]
+    },
+    "D": {
+      "test_application": {
+        "exitCode": 0,
+        "seconds": 9.357,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_application",
+          "-v"
+        ]
+      },
+      "test_remediation": {
+        "exitCode": 0,
+        "seconds": 18.339,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_remediation",
+          "-v"
+        ]
+      },
+      "test_hardening": {
+        "exitCode": 0,
+        "seconds": 10.444,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_hardening",
+          "-v"
+        ]
+      },
+      "test_checkpoints": {
+        "exitCode": 0,
+        "seconds": 6.632,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_checkpoints",
+          "-v"
+        ]
+      },
+      "test_unified": {
+        "exitCode": 0,
+        "seconds": 7.275,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_unified",
+          "-v"
+        ]
+      },
+      "test_checkpoint_ops": {
+        "exitCode": 0,
+        "seconds": 3.825,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_checkpoint_ops",
+          "-v"
+        ]
+      },
+      "test_consolidated_safety": {
+        "exitCode": 0,
+        "seconds": 10.547,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_consolidated_safety",
+          "-v"
+        ]
+      },
+      "test_d5": {
+        "exitCode": 0,
+        "seconds": 1.998,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_d5",
+          "-v"
+        ]
+      },
+      "test_d6": {
+        "exitCode": 0,
+        "seconds": 1.512,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_d6",
+          "-v"
+        ]
+      },
+      "test_lot_identity_ab": {
+        "exitCode": 0,
+        "seconds": 126.854,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_lot_identity_ab",
+          "-v"
+        ]
+      },
+      "test_v11_hardening": {
+        "exitCode": 0,
+        "seconds": 12.305,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_v11_hardening",
+          "-v"
+        ]
+      },
+      "test_format_v3": {
+        "exitCode": 0,
+        "seconds": 6.937,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_format_v3",
+          "-v"
+        ]
+      },
+      "test_scoped_containment": {
+        "exitCode": 0,
+        "seconds": 24.63,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_scoped_containment",
+          "-v"
+        ]
+      },
+      "test_stale_recovery": {
+        "exitCode": 0,
+        "seconds": 15.07,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_stale_recovery",
+          "-v"
+        ]
+      },
+      "test_ship_gate": {
+        "exitCode": 0,
+        "seconds": 9.545,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_ship_gate",
+          "-v"
+        ]
+      },
+      "test_evidence_package": {
+        "exitCode": 0,
+        "seconds": 20.639,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_evidence_package",
+          "-v"
+        ]
+      },
+      "test_federation": {
+        "exitCode": 0,
+        "seconds": 15.513,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_federation",
+          "-v"
+        ]
+      },
+      "test_f5_f6_integration": {
+        "exitCode": 0,
+        "seconds": 8.956,
+        "command": [
+          "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_f5_f6_integration",
+          "-v"
+        ]
+      }
+    },
+    "E": {
+      "exitCode": 0,
+      "seconds": 8.19,
+      "command": [
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+        "ci/standards.py",
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-Documents-PRAMAAN-Manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gtx\\.tmp-ci-tools\\gs1"
+      ]
+    },
+    "J": {
+      "exitCode": 0,
+      "seconds": 8.19,
+      "command": [
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+        "ci/standards.py",
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-Documents-PRAMAAN-Manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gtx\\.tmp-ci-tools\\gs1"
+      ]
+    },
+    "F": {
+      "exitCode": 0,
+      "seconds": 0.822,
+      "command": [
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "recall-ui/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    "snapshot": {
+      "exitCode": 0,
+      "seconds": 0.382,
+      "command": [
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-documents-pramaan-manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\f5venv\\Scripts\\python.exe",
+        "recall-ui/tools/export_snapshot.py",
+        "--check"
+      ]
+    },
+    "typecheck": {
+      "exitCode": 0,
+      "seconds": 2.262,
+      "command": [
+        "npm.cmd",
+        "run",
+        "typecheck"
+      ]
+    },
+    "G": {
+      "exitCode": 0,
+      "seconds": 3.497,
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ]
+    },
+    "H": {
+      "exitCode": 0,
+      "seconds": 32.534,
+      "command": [
+        "npm.cmd",
+        "test"
+      ]
+    },
+    "I": {
+      "exitCode": 0,
+      "seconds": 570.779,
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:e2e",
+        "--",
+        "--config",
+        "C:\\Users\\HAIL\\AppData\\Local\\Temp\\claude\\C--Users-HAIL-Documents-PRAMAAN-Manufacturing\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gtx\\ci\\playwright.config.ts"
+      ]
+    }
+  }
+}
