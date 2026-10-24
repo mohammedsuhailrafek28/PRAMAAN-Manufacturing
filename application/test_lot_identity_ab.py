@@ -82,7 +82,8 @@ def summarize(snap, motor=M):
     c = decision(snap, motor)
     return dict(checkpoint=snap["checkpoint"]["state"], eligible=snap["eligibility"][motor]["currentReleaseEligible"], finding=c["evidenceFinding"],
                 evaluatorAction=c["evaluatorOperationalAction"], action=c["operationalAction"], guard=c["identityGuard"]["status"],
-                reasons=sorted({f["reason"] for f in c["identityGuard"]["findings"]}))
+                reasons=sorted({f["reason"] for f in c["identityGuard"]["findings"]}),
+                integrity=c["integrityGuard"]["status"], integrityReasons=sorted({f["reason"] for f in c["integrityGuard"]["findings"]}))
 
 
 class Capture(unittest.TestCase):
@@ -126,6 +127,12 @@ class Capture(unittest.TestCase):
                         rows.append(self.run_case(d, path, lot, "DE", scope) | dict(lotCase=name))
         EVIDENCE["badLotMatrix"] = rows
         for r in rows:
+            if r["path"] == "observe" and r["capture"] == "ACCEPTED":
+                # v1.1 owner decision: an operator sighting is preserved as an UNVERIFIED claim instead of being discarded. It must still never clear.
+                self.assertFalse(r["result"]["eligible"], r)
+                self.assertEqual(r["result"]["guard"], "IDENTITY_NOT_ESTABLISHED", r)
+                self.assertEqual(r["result"]["action"], "RECALL_HOLD", r)
+                continue
             self.assertEqual(r["capture"], "REJECTED", r)            # every malformed/unregistered/withdrawn lot is refused at capture
             self.assertEqual(r["eventsWritten"], 0, r)                 # and nothing was written before the refusal
             if r["path"] == "assemble":
@@ -337,7 +344,8 @@ class Interrupted(unittest.TestCase):
             self.assertEqual(r["eventsAfterRetry"], r["eventsWritten"], r)                # the retry wrote nothing: no LedgerBlocked path
             self.assertIsInstance(r["state"], dict, r)
             self.assertFalse(r["state"]["eligible"], r)
-            self.assertIn("OPERATION_INTERRUPTED", r["state"]["reasons"], r)
+            self.assertEqual(r["state"]["integrityReasons"], ["OPERATION_INTERRUPTED"], r)   # own guard, own reason
+            self.assertEqual(r["state"]["reasons"], [], r)                                  # not an identity finding
 
 
 class Api(unittest.TestCase):

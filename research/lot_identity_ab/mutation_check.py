@@ -28,7 +28,7 @@ def restore():
 
 
 def m_no_guard():
-    L.guard_decision = lambda cur, found: dict(cur, evaluatorOperationalAction=cur.get("operationalAction"), identityGuard=dict(status="IDENTITY_ESTABLISHED_LOCAL_REGISTRY", findings=[]))
+    L.guard_decision = lambda cur, found, broken=(): dict(cur, evaluatorOperationalAction=cur.get("operationalAction"), identityGuard=dict(status="IDENTITY_ESTABLISHED_LOCAL_REGISTRY", findings=[]), integrityGuard=dict(status="OPERATIONALLY_CONSISTENT", findings=[]), quarantine=None)
 
 
 def m_permissive_capture():
@@ -36,8 +36,8 @@ def m_permissive_capture():
 
 
 def m_review_ignores_identity():
-    def build(app, a, b):
-        r = orig["build"](app, a, b); r["refusedForIdentity"] = []; return r
+    def build(app, a, b, c=None):
+        r = orig["build"](app, a, b, c); r["refusedForIdentity"] = []; return r
     CR.build_review = OPS.build_review = build
 
 
