@@ -1,0 +1,153 @@
+{
+ "case": {
+  "captureCoverage": {
+   "coveragePolicy": "COV-BEARING-v1",
+   "sessions": [
+    {
+     "from": "2026-08-01T00:00:00Z",
+     "sourceId": "MES",
+     "to": "2026-10-31T00:00:00Z"
+    },
+    {
+     "from": "2026-08-12T08:00:00Z",
+     "sourceId": "ASSY-01",
+     "to": "2026-08-12T18:00:00Z"
+    },
+    {
+     "from": "2026-09-10T08:00:00Z",
+     "sourceId": "REWORK-03",
+     "to": "2026-09-10T18:00:00Z"
+    }
+   ]
+  },
+  "caseId": "A13",
+  "events": [
+   {
+    "actorId": "SYS-MES",
+    "eventId": "S-01",
+    "eventType": "WORK_ORDER_OPENED",
+    "evidenceRefs": [],
+    "motorSerial": "M-042",
+    "occurredAt": "2026-08-12T09:30:00Z",
+    "payload": {
+     "expectedChanges": [
+      {
+       "action": "INSTALL",
+       "slot": "DE"
+      },
+      {
+       "action": "INSTALL",
+       "slot": "NDE"
+      }
+     ],
+     "orderType": "BUILD"
+    },
+    "recallId": null,
+    "recordedAt": "2026-08-12T09:30:04Z",
+    "schemaVersion": 1,
+    "sourceId": "MES",
+    "sourceSeq": 1,
+    "supersedesEventId": null,
+    "timeSource": "DEVICE_SYNCED",
+    "workOrderId": "MO-042"
+   },
+   {
+    "actorId": "EMP-009",
+    "eventId": "S-03",
+    "eventType": "COMPONENT_INSTALLED",
+    "evidenceRefs": [],
+    "motorSerial": "M-042",
+    "occurredAt": "2026-08-12T10:05:00Z",
+    "payload": {
+     "componentType": "BEARING",
+     "identityGranularity": "LOT",
+     "lot": "BR-150",
+     "part": "BR-6205",
+     "slot": "NDE"
+    },
+    "recallId": null,
+    "recordedAt": "2026-08-12T10:05:04Z",
+    "schemaVersion": 1,
+    "sourceId": "ASSY-01",
+    "sourceSeq": 2,
+    "supersedesEventId": null,
+    "timeSource": "DEVICE_SYNCED",
+    "workOrderId": "MO-042"
+   },
+   {
+    "actorId": "SYS-MES",
+    "eventId": "S-04",
+    "eventType": "WORK_ORDER_CLOSED",
+    "evidenceRefs": [],
+    "motorSerial": "M-042",
+    "occurredAt": "2026-08-12T11:00:00Z",
+    "payload": {
+     "disposition": "COMPLETED"
+    },
+    "recallId": null,
+    "recordedAt": "2026-08-12T11:00:04Z",
+    "schemaVersion": 1,
+    "sourceId": "MES",
+    "sourceSeq": 2,
+    "supersedesEventId": null,
+    "timeSource": "DEVICE_SYNCED",
+    "workOrderId": "MO-042"
+   }
+  ]
+ },
+ "facts": {
+  "accessEvidenceRecoverable": false,
+  "correctionPossible": false,
+  "exceptionIds": [],
+  "inspectionPossible": false,
+  "lostRecords": [
+   {
+    "actorId": "EMP-009",
+    "eventId": "S-02",
+    "eventType": "COMPONENT_INSTALLED",
+    "occurredAt": "2026-08-12T10:00:00Z",
+    "payload": {
+     "componentType": "BEARING",
+     "identityGranularity": "LOT",
+     "part": "BR-6205",
+     "slot": "DE"
+    },
+    "recordedAt": "2026-08-12T10:00:04Z",
+    "sourceId": "ASSY-01",
+    "sourceSeq": 1,
+    "workOrderId": "MO-042"
+   }
+  ],
+  "lostRecoverable": false,
+  "slotAccessible": {
+   "DE": true,
+   "NDE": true
+  },
+  "slots": [
+   "DE"
+  ]
+ },
+ "id": "A13",
+ "intent": "UNRESOLVED; nothing obtainable clears it",
+ "policy": {
+  "affectedLots": [
+   "BR-204",
+   "BR-207"
+  ],
+  "affectedPart": "BR-6205",
+  "affectedSlots": [
+   "DE"
+  ],
+  "announcedAt": "2026-10-01T00:00:00Z",
+  "damageInspection": null,
+  "exposureBasis": "CURRENT_INSTALLATION",
+  "policyId": "RC-009/P1",
+  "recallId": "RC-009",
+  "version": 1
+ },
+ "title": "Lost DE install record, device storage destroyed",
+ "watermark": {
+  "ASSY-01": 2,
+  "MES": 2
+ }
+}

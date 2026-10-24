@@ -1,0 +1,114 @@
+{
+ "case": {
+  "captureCoverage": {
+   "coveragePolicy": "COV-BEARING-v1",
+   "sessions": [
+    {
+     "from": "2026-08-01T00:00:00Z",
+     "sourceId": "MES",
+     "to": "2026-10-31T00:00:00Z"
+    },
+    {
+     "from": "2026-08-12T08:00:00Z",
+     "sourceId": "ASSY-01",
+     "to": "2026-08-12T18:00:00Z"
+    },
+    {
+     "from": "2026-09-10T08:00:00Z",
+     "sourceId": "REWORK-03",
+     "to": "2026-09-10T18:00:00Z"
+    }
+   ]
+  },
+  "caseId": "A18",
+  "events": [
+   {
+    "actorId": "SYS-MES",
+    "eventId": "S-01",
+    "eventType": "WORK_ORDER_OPENED",
+    "evidenceRefs": [],
+    "motorSerial": "M-042",
+    "occurredAt": "2026-08-12T09:30:00Z",
+    "payload": {
+     "expectedChanges": [
+      {
+       "action": "INSTALL",
+       "slot": "DE"
+      },
+      {
+       "action": "INSTALL",
+       "slot": "NDE"
+      }
+     ],
+     "orderType": "BUILD"
+    },
+    "recallId": null,
+    "recordedAt": "2026-08-12T09:30:04Z",
+    "schemaVersion": 1,
+    "sourceId": "MES",
+    "sourceSeq": 1,
+    "supersedesEventId": null,
+    "timeSource": "DEVICE_SYNCED",
+    "workOrderId": "MO-042"
+   },
+   {
+    "actorId": "SYS-MES",
+    "eventId": "S-04",
+    "eventType": "WORK_ORDER_CLOSED",
+    "evidenceRefs": [],
+    "motorSerial": "M-042",
+    "occurredAt": "2026-08-12T11:00:00Z",
+    "payload": {
+     "disposition": "COMPLETED"
+    },
+    "recallId": null,
+    "recordedAt": "2026-08-12T11:00:04Z",
+    "schemaVersion": 1,
+    "sourceId": "MES",
+    "sourceSeq": 2,
+    "supersedesEventId": null,
+    "timeSource": "DEVICE_SYNCED",
+    "workOrderId": "MO-042"
+   }
+  ]
+ },
+ "facts": {
+  "accessEvidenceRecoverable": false,
+  "correctionPossible": false,
+  "exceptionIds": [],
+  "inspectionPossible": false,
+  "lostRecords": [],
+  "lostRecoverable": true,
+  "slotAccessible": {
+   "DE": true,
+   "NDE": true
+  },
+  "slots": [
+   "DE",
+   "NDE"
+  ]
+ },
+ "id": "A18",
+ "intent": "UNRESOLVED; one verification per slot",
+ "policy": {
+  "affectedLots": [
+   "BR-204",
+   "BR-207"
+  ],
+  "affectedPart": "BR-6205",
+  "affectedSlots": [
+   "DE",
+   "NDE"
+  ],
+  "announcedAt": "2026-10-01T00:00:00Z",
+  "damageInspection": null,
+  "exposureBasis": "CURRENT_INSTALLATION",
+  "policyId": "RC-009/P1-2SLOT",
+  "recallId": "RC-009",
+  "version": 1
+ },
+ "title": "Two-slot scope (DE+NDE), neither install captured",
+ "watermark": {
+  "MES": 2
+ }
+}
