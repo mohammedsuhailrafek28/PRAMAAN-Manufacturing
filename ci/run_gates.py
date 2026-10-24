@@ -17,13 +17,13 @@ PINS=json.loads((ROOT/'ci/pins.json').read_text())
 FROZEN=json.loads((ROOT/'ci/frozen-source.json').read_text())
 # Every fixed loopback port a browser spec binds (shared server 4173 plus per-test owned servers); a busy port means another process
 # could answer a test's requests.
-PORTS=(4173,4182,4183,4184,4185,4186,4187,4191,4192,4193,4194,4195,4196,4197,4201,4202,4203,4204,4205,4206,4231,4232,4234)
+PORTS=(4173,4182,4183,4184,4185,4186,4187,4191,4192,4193,4194,4195,4196,4197,4201,4202,4203,4204,4205,4206,4231,4232,4234,4235,4236)
 # Expected counts for the consolidated tree. They are exact on purpose: a silently dropped, skipped or added test changes the count and
 # fails the gate. Changing one is an inventory change and must be listed in docs/CI_INVENTORY_CHANGE.md for the exact source SHA.
-EXPECTED=dict(infra=7,engine=127,integration=44,foundation_checks=21,exporter=7,vitest=375,playwright=141,
+EXPECTED=dict(infra=7,engine=127,integration=44,foundation_checks=21,exporter=7,vitest=378,playwright=143,
               application=dict(test_application=7,test_remediation=16,test_hardening=13,test_checkpoints=23,test_unified=10,
                                test_checkpoint_ops=4,test_consolidated_safety=12,test_d5=5,test_d6=3,
-                               test_lot_identity_ab=19,test_v11_hardening=17,test_format_v3=9))
+                               test_lot_identity_ab=19,test_v11_hardening=17,test_format_v3=9,test_scoped_containment=13,test_stale_recovery=6))
 
 
 def terminal_text(output):

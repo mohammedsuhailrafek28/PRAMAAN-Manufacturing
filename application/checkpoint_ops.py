@@ -61,7 +61,11 @@ def propose(database, current_path, custody_dir, current_previous=None):
         candidate = export_anchor(app, previous)
         name = f"candidate-{candidate['body']['sequence']:06d}-{candidate['checksum'][:12]}.json"
         path = custody / "candidates" / name
-        publish_candidate(path, candidate)      # staged, fsynced, no overwrite
+        try:
+            publish_candidate(path, candidate)  # staged, fsynced, no overwrite
+        except FileExistsError:
+            if json.loads(path.read_bytes()) != candidate:     # same name = same sequence and checksum: proposing again is idempotent, never an overwrite
+                raise
         return dict(status=STATUS_PROPOSED, candidate=str(path), candidateSha256=sha256_file(path),
                     covers=summarize(app, previous["body"], candidate["body"]),
                     review=build_review(app, previous["body"], candidate["body"], current_path, registry_binding.check(path, path.read_bytes(), app.registry)),

@@ -44,7 +44,7 @@ export class OwnedStack {
   }
 
   private async launch() {
-    const args = ["app.py", "--database", this.database, "--port", String(this.port)];
+    const args = ["app.py", "--database", this.database, "--port", String(this.port), "--custody-dir", this.custody];
     if (!this.unanchored) args.push("--trusted-anchor", this.current);
     if (this.previous) args.push("--previous-anchor", this.previous);
     await portFree(this.port);

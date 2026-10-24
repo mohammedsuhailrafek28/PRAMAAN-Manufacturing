@@ -8,6 +8,8 @@ import { FleetBoard } from "./views/FleetBoard";
 import { LotInvestigationView } from "./views/LotInvestigation";
 import { UnitDetail, type UnitTab } from "./views/UnitDetail";
 import { ManufacturingWorkbench } from "./views/ManufacturingWorkbench";
+import { RecoveryWorkspace } from "./views/RecoveryWorkspace";
+import type { RecoveryApi } from "./domain/recovery";
 import { evaluateDetailed, GateWithheldError, type Gate } from "./contract/gate";
 import { ConsoleClaimsProvider } from "./contract/ConsoleClaims";
 import type { HistoricalView } from "./contract/gated";
@@ -153,7 +155,7 @@ export function App({ source }: { source: RecallDataSource }) {
         )}
         {state.status === "ready" && (
           <ConsoleClaimsProvider view={state.gate?.kind === "CURRENT" && leaseValid ? state.gate.view : null} preview={!source.command}>
-            {state.gate?.kind === "SEGREGATED" && <HistoricalFacts view={state.gate.view} captureStatus={captureStatus} />}
+            {state.gate?.kind === "SEGREGATED" && <HistoricalFacts view={state.gate.view} captureStatus={captureStatus} recovery={source.command ? source.recovery : undefined} />}
             {(!source.command || (state.gate?.kind === "CURRENT" && leaseValid)) && <>
             <ProvenanceBar snap={state.snap} policyId={policyId} onPolicy={setPolicyId} sourceLabel={source.label} />
             {source.command && <ManufacturingWorkbench snap={state.snap} run={run} busy={busy || !leaseValid} />}
@@ -178,7 +180,7 @@ export function App({ source }: { source: RecallDataSource }) {
 /** No decisions, task obligations or clearance can enter this facts-only component.
  *  Owner-proposed PREFIX policy: historical facts, no decision-level hold or release chips, and a prominent global
  *  no-shipment-or-release warning. Backend recall holds and obligations remain enforced by the backend. */
-function HistoricalFacts({view,captureStatus}:{view:HistoricalView;captureStatus:string}) {
+function HistoricalFacts({view,captureStatus,recovery}:{view:HistoricalView;captureStatus:string;recovery?:RecoveryApi}) {
  const prefix = view.cause === "PREFIX_ONLY";
  return <section aria-label="Historical evidence only" data-testid="console-historical">
   <h2>{prefix ? "Checkpoint required" : "Unanchored historical records"}</h2>
@@ -188,6 +190,7 @@ function HistoricalFacts({view,captureStatus}:{view:HistoricalView;captureStatus
     ? "To restore current decisions the owner must export a successor checkpoint, establish its custody independently of this host, and restart the application with it (--trusted-anchor <successor> --previous-anchor <previous>). Exporting a local candidate does not establish trust, and this page cannot promote one."
     : "Start the application with an owner-custodied checkpoint (--trusted-anchor)."}</p>
   {captureStatus && <p role="status" data-testid="capture-status">{captureStatus} The ledger is now newer than the protected checkpoint, so current decisions are withheld until a successor checkpoint is activated.</p>}
+  {prefix && recovery && <RecoveryWorkspace api={recovery} motors={view.facts.units.map(u=>u.unitId)} />}
   <p>Historical watermark: journal sequence {view.watermark.sequence}. These are recorded events only.</p>
   <ul>{view.facts.units.map(u=><li key={u.unitId}>{u.unitId}: {u.events.length} recorded events. <a href={`./passport.html#/passport/${encodeURIComponent(u.unitId)}/components`}>Inspect historical genealogy</a></li>)}</ul>
  </section>;
