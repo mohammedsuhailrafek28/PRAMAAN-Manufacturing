@@ -75,7 +75,7 @@ Single author for all tests (see `INDEPENDENT_REVIEW_HANDOFF.md`; nothing indepe
 
 ## 6. Clean-checkout reproduction
 
-See `clean_checkout.txt` (a fresh `git clone` of the pushed branch into an empty directory, a fresh virtual environment is **not** created: the existing validated interpreter and its installed packages are reused).
+A fresh `git clone` of the pushed branch (HEAD `f22403b`) into an empty temporary directory, rerun with the same Python 3.12.10 interpreter and installed packages (no new virtual environment): the 9 original application modules (93 tests) and `test_lot_identity_ab` (19 tests) all OK; `reproduce_v1_0.py` reproduced the same outcome (v1.0 eligible for MTR-91001/02/03/05/06, candidate eligible only for the clean MTR-91003, `propose` refuses MTR-91001/02/05/06). `clean_checkout.txt` has the log. UI, browser, integration and engine suites were not rerun in the clean clone (they need `npm ci`); they ran in the working tree (section 2).
 
 ## 7. Proposed minimal v1.1 promotion plan (needs owner approval at each step)
 
