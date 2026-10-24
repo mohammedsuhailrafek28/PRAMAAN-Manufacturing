@@ -1,0 +1,23 @@
+test_replace_and_observe_accept_slot_over_http_and_ignore_forged_fields (application.test_v11_hardening.HttpSlotParameter.test_replace_and_observe_accept_slot_over_http_and_ignore_forged_fields) ... ok
+test_interrupted_operation_has_its_own_guard_reason_and_api_surface (application.test_v11_hardening.IntegrityGuard.test_interrupted_operation_has_its_own_guard_reason_and_api_surface) ... ok
+test_unknown_nde_is_quarantined_then_recovered_by_controlled_replacement (application.test_v11_hardening.NdeRecovery.test_unknown_nde_is_quarantined_then_recovered_by_controlled_replacement) ... ok
+test_unknown_nde_still_blocks_when_replacement_is_in_the_wrong_slot (application.test_v11_hardening.NdeRecovery.test_unknown_nde_still_blocks_when_replacement_is_in_the_wrong_slot) ... ok
+test_alias_redirect_supplier_change_and_effective_dates (application.test_v11_hardening.RegistryCustody.test_alias_redirect_supplier_change_and_effective_dates) ... ok
+test_legacy_v2_checkpoint_cannot_grant_eligibility_and_migrates_with_acknowledgement (application.test_v11_hardening.RegistryCustody.test_legacy_v2_checkpoint_cannot_grant_eligibility_and_migrates_with_acknowledgement) ... ok
+test_registry_modified_after_acceptance (application.test_v11_hardening.RegistryCustody.test_registry_modified_after_acceptance) ... ok
+test_registry_rolled_back (application.test_v11_hardening.RegistryCustody.test_registry_rolled_back) ... ok
+test_sidecar_is_advisory_only_under_v3 (application.test_v11_hardening.RegistryCustody.test_sidecar_is_advisory_only_under_v3)
+FORMAT_V3: the digest inside the checkpoint decides. Deleting, corrupting or forging the sidecar neither grants nor removes eligibility. ... ok
+test_unchanged_registry_is_eligible (application.test_v11_hardening.RegistryCustody.test_unchanged_registry_is_eligible) ... ok
+test_unknown_legacy_lot_registered_retroactively (application.test_v11_hardening.RegistryCustody.test_unknown_legacy_lot_registered_retroactively) ... ok
+test_valid_update_review_and_new_checkpoint (application.test_v11_hardening.RegistryCustody.test_valid_update_review_and_new_checkpoint) ... ok
+test_historical_basis_keeps_every_sighting (application.test_v11_hardening.UnverifiedSightings.test_historical_basis_keeps_every_sighting) ... ok
+test_invalid_sightings_are_refused_without_events (application.test_v11_hardening.UnverifiedSightings.test_invalid_sightings_are_refused_without_events) ... ok
+test_registered_sighting_is_not_held_and_later_install_supersedes_an_unverified_one (application.test_v11_hardening.UnverifiedSightings.test_registered_sighting_is_not_held_and_later_install_supersedes_an_unverified_one) ... ok
+test_sighting_naming_recalled_lot_or_sentinel_cannot_exclude_or_clear (application.test_v11_hardening.UnverifiedSightings.test_sighting_naming_recalled_lot_or_sentinel_cannot_exclude_or_clear) ... ok
+test_sighting_preserved_raw_never_clears_and_does_not_touch_the_evaluator (application.test_v11_hardening.UnverifiedSightings.test_sighting_preserved_raw_never_clears_and_does_not_touch_the_evaluator) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 11.730s
+
+OK

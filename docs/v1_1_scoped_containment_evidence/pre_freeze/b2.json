@@ -1,0 +1,170 @@
+{
+ "installsBeforeCrash=0": {
+  "afterBothSlotsReplaced": "REFUSED: No unique recorded NDE occupant; investigate evidence first",
+  "afterCancelledClose": {
+   "closeDispositions": [
+    "CANCELLED"
+   ],
+   "evaluatorAction": "RECALL_HOLD",
+   "evidenceFinding": "UNRESOLVED",
+   "finalAction": "RECALL_HOLD",
+   "identityGuard": "IDENTITY_ESTABLISHED_LOCAL_REGISTRY",
+   "integrityGuard": "OPERATIONALLY_CONSISTENT",
+   "openOperations": [],
+   "reasonCodes": [
+    "WORK_ORDER_UNRECONCILED"
+   ]
+  },
+  "afterReplace": {
+   "closeDispositions": [
+    "CANCELLED"
+   ],
+   "evaluatorAction": "RECALL_HOLD",
+   "evidenceFinding": "UNRESOLVED",
+   "finalAction": "RECALL_HOLD",
+   "identityGuard": "IDENTITY_ESTABLISHED_LOCAL_REGISTRY",
+   "integrityGuard": "OPERATIONALLY_CONSISTENT",
+   "openOperations": [],
+   "reasonCodes": [
+    "WORK_ORDER_UNRECONCILED"
+   ]
+  },
+  "beforeCancel": {
+   "closeDispositions": [],
+   "evaluatorAction": "RECALL_HOLD",
+   "evidenceFinding": "UNRESOLVED",
+   "finalAction": "RECALL_HOLD",
+   "identityGuard": "IDENTITY_ESTABLISHED_LOCAL_REGISTRY",
+   "integrityGuard": "OPERATION_INTERRUPTED",
+   "openOperations": [
+    "BUILD-MTR-93001"
+   ],
+   "reasonCodes": [
+    "WORK_ORDER_UNRECONCILED"
+   ]
+  },
+  "captureAfterThatRejection": "REFUSED: Rejected evidence exists; manual reconciliation required before evaluation",
+  "replaceAfterCancel": "REFUSED: No unique recorded DE occupant; investigate evidence first",
+  "shipReferencingCancelledClose": "REFUSED: Shipment references incomplete assembly"
+ },
+ "installsBeforeCrash=1": {
+  "afterBothSlotsReplaced": "REFUSED: No unique recorded NDE occupant; investigate evidence first",
+  "afterCancelledClose": {
+   "closeDispositions": [
+    "CANCELLED"
+   ],
+   "evaluatorAction": "RECALL_HOLD",
+   "evidenceFinding": "UNRESOLVED",
+   "finalAction": "RECALL_HOLD",
+   "identityGuard": "IDENTITY_ESTABLISHED_LOCAL_REGISTRY",
+   "integrityGuard": "OPERATIONALLY_CONSISTENT",
+   "openOperations": [],
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "afterReplace": {
+   "closeDispositions": [
+    "CANCELLED",
+    "COMPLETED"
+   ],
+   "evaluatorAction": "RECALL_HOLD",
+   "evidenceFinding": "UNRESOLVED",
+   "finalAction": "RECALL_HOLD",
+   "identityGuard": "IDENTITY_ESTABLISHED_LOCAL_REGISTRY",
+   "integrityGuard": "OPERATIONALLY_CONSISTENT",
+   "openOperations": [],
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "beforeCancel": {
+   "closeDispositions": [],
+   "evaluatorAction": "RECALL_HOLD",
+   "evidenceFinding": "UNRESOLVED",
+   "finalAction": "RECALL_HOLD",
+   "identityGuard": "IDENTITY_ESTABLISHED_LOCAL_REGISTRY",
+   "integrityGuard": "OPERATION_INTERRUPTED",
+   "openOperations": [
+    "BUILD-MTR-93001"
+   ],
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "captureAfterThatRejection": "REFUSED: Rejected evidence exists; manual reconciliation required before evaluation",
+  "replaceAfterCancel": "ACCEPTED",
+  "shipReferencingCancelledClose": "REFUSED: Shipment references incomplete assembly"
+ },
+ "installsBeforeCrash=2": {
+  "afterBothSlotsReplaced": {
+   "closeDispositions": [
+    "CANCELLED",
+    "COMPLETED",
+    "COMPLETED"
+   ],
+   "evaluatorAction": "RECALL_HOLD",
+   "evidenceFinding": "UNRESOLVED",
+   "finalAction": "RECALL_HOLD",
+   "identityGuard": "IDENTITY_ESTABLISHED_LOCAL_REGISTRY",
+   "integrityGuard": "OPERATIONALLY_CONSISTENT",
+   "openOperations": [],
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "afterCancelledClose": {
+   "closeDispositions": [
+    "CANCELLED"
+   ],
+   "evaluatorAction": "RECALL_HOLD",
+   "evidenceFinding": "UNRESOLVED",
+   "finalAction": "RECALL_HOLD",
+   "identityGuard": "IDENTITY_ESTABLISHED_LOCAL_REGISTRY",
+   "integrityGuard": "OPERATIONALLY_CONSISTENT",
+   "openOperations": [],
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "afterReplace": {
+   "closeDispositions": [
+    "CANCELLED",
+    "COMPLETED"
+   ],
+   "evaluatorAction": "RECALL_HOLD",
+   "evidenceFinding": "UNRESOLVED",
+   "finalAction": "RECALL_HOLD",
+   "identityGuard": "IDENTITY_ESTABLISHED_LOCAL_REGISTRY",
+   "integrityGuard": "OPERATIONALLY_CONSISTENT",
+   "openOperations": [],
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "beforeCancel": {
+   "closeDispositions": [],
+   "evaluatorAction": "RECALL_HOLD",
+   "evidenceFinding": "UNRESOLVED",
+   "finalAction": "RECALL_HOLD",
+   "identityGuard": "IDENTITY_ESTABLISHED_LOCAL_REGISTRY",
+   "integrityGuard": "OPERATION_INTERRUPTED",
+   "openOperations": [
+    "BUILD-MTR-93001"
+   ],
+   "reasonCodes": [
+    "NO_TRUSTED_BASELINE",
+    "CURRENT_STATE_UNVERIFIED"
+   ]
+  },
+  "captureAfterThatRejection": "REFUSED: Rejected evidence exists; manual reconciliation required before evaluation",
+  "replaceAfterCancel": "ACCEPTED",
+  "shipReferencingCancelledClose": "REFUSED: Shipment references incomplete assembly"
+ }
+}
