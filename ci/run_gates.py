@@ -17,12 +17,13 @@ PINS=json.loads((ROOT/'ci/pins.json').read_text())
 FROZEN=json.loads((ROOT/'ci/frozen-source.json').read_text())
 # Every fixed loopback port a browser spec binds (shared server 4173 plus per-test owned servers); a busy port means another process
 # could answer a test's requests.
-PORTS=(4173,4182,4183,4184,4185,4186,4187,4191,4192,4193,4194,4195,4196,4197,4201,4202,4203,4204,4205,4206)
+PORTS=(4173,4182,4183,4184,4185,4186,4187,4191,4192,4193,4194,4195,4196,4197,4201,4202,4203,4204,4205,4206,4231,4232,4234)
 # Expected counts for the consolidated tree. They are exact on purpose: a silently dropped, skipped or added test changes the count and
 # fails the gate. Changing one is an inventory change and must be listed in docs/CI_INVENTORY_CHANGE.md for the exact source SHA.
-EXPECTED=dict(infra=7,engine=127,integration=44,foundation_checks=21,exporter=7,vitest=369,playwright=138,
+EXPECTED=dict(infra=7,engine=127,integration=44,foundation_checks=21,exporter=7,vitest=375,playwright=141,
               application=dict(test_application=7,test_remediation=16,test_hardening=13,test_checkpoints=23,test_unified=10,
-                               test_checkpoint_ops=4,test_consolidated_safety=12,test_d5=5,test_d6=3))
+                               test_checkpoint_ops=4,test_consolidated_safety=12,test_d5=5,test_d6=3,
+                               test_lot_identity_ab=19,test_v11_hardening=17,test_format_v3=9))
 
 
 def terminal_text(output):
@@ -124,7 +125,7 @@ def main():
         if not chrome.is_file():raise RuntimeError('Pinned Chrome missing')
         os.environ['PRAMAAN_CI_CHROME']=str(chrome)
         command('browser-version',['node',str(ROOT/'ci/browser_version.cjs'),str(chrome)],pattern=re.escape(PINS['chrome']['version']))
-        gate(result,'I',lambda:command('playwright',[npm,'run','test:e2e','--','--config',str(ROOT/'ci/playwright.config.ts')],ui,f"{E['playwright']} passed",timeout=1500))   # 138 browser tests exceed the 300 s default on hosted runners; exit code and exact count still decide
+        gate(result,'I',lambda:command('playwright',[npm,'run','test:e2e','--','--config',str(ROOT/'ci/playwright.config.ts')],ui,f"{E['playwright']} passed",timeout=1500))   # 141 browser tests exceed the 300 s default on hosted runners; exit code and exact count still decide
         ports_free();frozen();verify(ROOT)
         missing=[g for g in 'ABCDEFGHIJK' if g not in result['gates'] and g not in result.get('failures',{})]
         if missing:raise RuntimeError(f'Required gate omitted: {missing}')
