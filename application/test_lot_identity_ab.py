@@ -261,6 +261,22 @@ class ReadSide(unittest.TestCase):
             s = summarize(current(app, d)); app.close()
             self.assertEqual((s["eligible"], s["reasons"]), (False, ["UNREGISTERED"]))
 
+    def test_repair_path_for_legacy_unknown_lot(self):
+        """Documented limit: an unknown DE occupant can be replaced with a registered lot (then eligible); an unknown NDE occupant cannot be repaired in-app."""
+        with tempfile.TemporaryDirectory() as d:
+            app = new_app(d); app.create_unit(M); raw_assemble(app, M, "UNKNOWN", SAFE); app.ship(M); app.announce(RECALLED, ["DE"])
+            self.assertFalse(summarize(current(app, d))["eligible"])
+            app.replace(M, "BR-312")
+            s = summarize(current(app, d)); app.close()
+            EVIDENCE["repairUnknownDE"] = s
+            self.assertTrue(s["eligible"], s)
+        with tempfile.TemporaryDirectory() as d:
+            app = new_app(d); app.create_unit(M); raw_assemble(app, M, SAFE, "UNKNOWN"); app.ship(M); app.announce(RECALLED, ["DE"])
+            app.replace(M, "BR-312")                                    # replaces the DE bearing only
+            s = summarize(current(app, d)); app.close()
+            EVIDENCE["repairUnknownNDE"] = s
+            self.assertFalse(s["eligible"], s); self.assertIn("SENTINEL", s["reasons"])
+
     def test_registry_unavailable_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             with self.assertRaises(LedgerBlocked):
