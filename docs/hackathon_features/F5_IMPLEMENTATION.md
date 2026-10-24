@@ -26,7 +26,7 @@ An issuer (the factory) turns the existing recall decision for **one held motor*
 | Any `alg` other than EdDSA (`none`, HS*, ES*), `jwk/jku/x5c/crit` headers, JSON serialization, `_sd_alg` other than sha-256 | **not implemented** (rejected) |
 | Issuer key discovery / metadata | **not implemented**: the verifier's operator pins the key out of band |
 
-No Ed25519 is authored here. Signing and verification use `cryptography` 50.0.1 (cffi 2.1.1, pycparser 3.12), pinned with sha256 hashes in the **feature-isolated** `ci/requirements-f5-evidence.lock`. The frozen `ci/requirements-windows.lock` is untouched.
+No Ed25519 is authored here. Signing and verification use `cryptography` 50.0.1 (cffi 2.1.1, pycparser 3.12), pinned with sha256 hashes in the **feature-isolated** `ci/requirements-hackathon-crypto.lock`. The frozen `ci/requirements-windows.lock` is untouched.
 
 ### Closed claim sets (verifier enforced; anything else is rejected)
 * **customer**: `motorSerial, recallId, evidenceFinding, operationalAction`
@@ -52,7 +52,7 @@ No Ed25519 is authored here. Signing and verification use `cryptography` 50.0.1 
 ## 4. Offline verification (any machine with Python 3.12 + the F5 lock)
 
 ```
-python -m venv v && v/Scripts/python -m pip install --require-hashes -r ci/requirements-f5-evidence.lock
+python -m venv v && v/Scripts/python -m pip install --require-hashes -r ci/requirements-hackathon-crypto.lock
 # auditor row digests additionally need rfc8785 (already in ci/requirements-windows.lock)
 v/Scripts/python -B -m application.evidence_verify customer.sdjwt --issuer-key issuer-ed25519.pub.json --recipient urn:demo:customer:pumpco
 v/Scripts/python -B -m application.evidence_verify auditor.sdjwt  --issuer-key issuer-ed25519.pub.json --recipient urn:demo:auditor:regulator --checkpoint checkpoint.json

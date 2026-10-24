@@ -1,6 +1,6 @@
-# Feature-isolated, hash-pinned dependencies for the F5 portable evidence package (feature/hackathon-portable-evidence).
+# Feature-isolated, hash-pinned dependencies shared by the hackathon features F5 (portable evidence) and F6 (federated recall) on integration/hackathon-f5-f6.
 # Installed IN ADDITION to ci/requirements-windows.lock; the frozen release lock is not modified. Windows x64, CPython 3.12.
-# Install: python -m pip install --require-hashes -r ci/requirements-windows.lock -r ci/requirements-f5-evidence.lock
+# Install: python -m pip install --require-hashes -r ci/requirements-windows.lock -r ci/requirements-hackathon-crypto.lock
 
 cffi==2.1.1 --hash=sha256:f53e442b08449d42821fa4a4fba000095af9f62742a500f978a9f557ec44339a
 cryptography==50.0.1 --hash=sha256:aed8db4f6d71c51efb89530e12d9464e7bf2923d46c3205dc794a2a93f8c0648

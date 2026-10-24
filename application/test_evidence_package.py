@@ -1,5 +1,5 @@
 """F5 portable evidence packages: adversarial acceptance tests (synthetic ledgers, loopback-free, disposable). Run: python -B -m unittest application.test_evidence_package -v
-Needs the feature-isolated dependency in ci/requirements-f5-evidence.lock. Set F5_EVIDENCE=<file> to write the measured disclosure matrix and results as JSON.
+Needs the feature-isolated dependency in ci/requirements-hackathon-crypto.lock. Set F5_EVIDENCE=<file> to write the measured disclosure matrix and results as JSON.
 
 These tests prove cryptographic and disclosure properties of the package. They do not (and cannot) prove physical bearing identity, independent custody, freshness or that a
 package was never revoked; the verifier reports those as UNVERIFIED / UNKNOWN and the tests assert that it does.

@@ -1,6 +1,6 @@
 """Offline verifier for PRAMAAN portable evidence packages (feature F5; synthetic, informational only).
 
-STANDALONE ON PURPOSE: this module imports only the standard library, `cryptography` (Ed25519, hash-pinned in ci/requirements-f5-evidence.lock) and, lazily and only when
+STANDALONE ON PURPOSE: this module imports only the standard library, `cryptography` (Ed25519, hash-pinned in ci/requirements-hackathon-crypto.lock) and, lazily and only when
 an opened ledger row must be re-hashed, `rfc8785`. It never opens a ledger, never imports the service, server or anchors code, and writes nothing.
 
 Format: a SUBSET of IETF RFC 9901 (SD-JWT), labelled `PRAMAAN-EVIDENCE/1`, typ `pramaan-evidence+sd-jwt`.
