@@ -19,7 +19,7 @@ class AnchorTests(unittest.TestCase):
         self.app=Manufacturing(self.path)
         self.motor='MTR-ANCHOR-TEST'
         self.app.create_unit(self.motor); self.app.assemble(self.motor,'BR-310','BR-312')
-        self.app.ship(self.motor); self.app.announce('BR-204',['DE']); self.app.snapshot()
+        self.app.record_historical_shipment_fixture(self.motor); self.app.announce('BR-204',['DE']); self.app.snapshot()
         self.anchor=export_anchor(self.app)
 
     def tearDown(self):

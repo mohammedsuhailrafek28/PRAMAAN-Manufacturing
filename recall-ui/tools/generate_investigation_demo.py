@@ -54,7 +54,7 @@ def main():
         for unit, (title, de, nde, identity, gap, _) in EXTRAS.items():
             app.create_unit(unit, title, gap=gap)
             app.assemble(unit, de, nde, identity)
-            app.ship(unit)
+            app.record_historical_shipment_fixture(unit)
         for unit, (title, _) in LATE.items():
             app.create_unit(unit, title)
         app.snapshot()  # issue pre-rework records with the actual evaluator

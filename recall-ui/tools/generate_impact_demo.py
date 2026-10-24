@@ -54,7 +54,7 @@ def run(units, slots, after=None):
             app.create_unit(serial, title, gap=gap)
             app.assemble(serial, de, nde, identity)
             if ship:
-                app.ship(serial)
+                app.record_historical_shipment_fixture(serial)
         app.announce("BR-204", slots)
         app.snapshot()  # issue pre-rework records with the actual evaluator
         if after:

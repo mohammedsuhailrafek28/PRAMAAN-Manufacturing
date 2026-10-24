@@ -94,7 +94,7 @@ def _execute(case, app, db, custody, regfile, chain, log, refused):
             elif do == "sighting":
                 app.observe(st["motor"], st["label"], st["slot"])
             elif do == "ship":
-                app.ship(st["motor"])
+                app.record_historical_shipment_fixture(st["motor"])
             elif do == "announce_recall":
                 app.announce(case["recall"]["lot"], case["recall"].get("affectedSlots"))
             elif do == "edit_registry":

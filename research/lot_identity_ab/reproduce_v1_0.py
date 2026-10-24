@@ -29,7 +29,7 @@ if stage == "init":
 elif stage == "populate":
     a = Manufacturing(db)
     for m, (de, nde) in MOTORS.items():
-        a.assemble(m, de, nde); a.ship(m)
+        a.assemble(m, de, nde); a.record_historical_shipment_fixture(m)
     a.announce("BR-204", ["DE"]); a.snapshot()
     publish_candidate(work / "c1.json", export_anchor(a, json.loads((work / "c0.json").read_bytes())))
     s = a.snapshot(trusted_anchor=TrustedAnchor(work / "c1.json", work / "c0.json")); a.close()

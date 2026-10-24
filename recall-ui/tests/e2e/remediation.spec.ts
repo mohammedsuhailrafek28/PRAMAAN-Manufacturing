@@ -49,7 +49,9 @@ test("NDE-only affected motor is held by unspecified recall scope through real A
     const command=async(path:string,body:object)=>{const r=await stack.post(path,body);expect(r.status).toBe(200);return r.body;};
     await command('units',{serial:'MTR-NDE-REGRESSION'});
     await command('units/MTR-NDE-REGRESSION/assemble',{deLot:'BR-310',ndeLot:'BR-204'});
-    await command('units/MTR-NDE-REGRESSION/ship',{});
+    // CHANGED (owner-approved shipment gate): with no recall policy and no checkpoint covering the motor the ordinary ship operation is refused and writes nothing.
+    const refused=await stack.post('units/MTR-NDE-REGRESSION/ship',{});
+    expect(refused.status).toBe(409);expect(refused.body.error).toBe('SHIPMENT_REFUSED');
     const result=await command('recalls',{lot:'BR-204'});
     expect(result.snapshot.recall.affectedSlots).toEqual(['DE','NDE']);
     await page.goto(`${stack.base}/#/unit/MTR-NDE-REGRESSION/decision`);

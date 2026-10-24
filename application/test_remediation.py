@@ -22,7 +22,7 @@ class RemediationTests(unittest.TestCase):
             with self.subTest(de=de,nde=nde,scope=scope), tempfile.TemporaryDirectory() as t:
                 a=Manufacturing(Path(t)/'db')
                 try:
-                    m=f'MTR-SCOPE-{i}'; a.create_unit(m); a.assemble(m,de,nde); a.ship(m); a.announce('BR-204',scope)
+                    m=f'MTR-SCOPE-{i}'; a.create_unit(m); a.assemble(m,de,nde); a.record_historical_shipment_fixture(m); a.announce('BR-204',scope)
                     slots=scope if scope is not None else ['DE','NDE']
                     unsafe=any(lot=='BR-204' and slot in slots for slot,lot in [('DE',de),('NDE',nde)])
                     decision=a.snapshot()['decisions'][m][PID]['current']

@@ -50,10 +50,15 @@ test("live manufacturing capture, genealogy, recall, replacement and late withdr
     await expect(rowFor()).toContainText("Affected");
     const assemblyToCurrentMs = Date.now() - started;
 
-    await openWorkspace(); await page.getByLabel("Motor to capture").selectOption("MTR-E2E-001");
-    await page.getByRole("button", { name: "Record synthetic shipment", exact: true }).click();
-    await withheldThenActivate();
-    await expect(rowFor()).toContainText("SHP-26-E2E-001");
+    // CHANGED (owner-approved shipment gate): the ordinary ship operation records a shipment only for a motor with a current checkpoint AND current release
+    // eligibility. This motor is under recall hold, so the same request that used to be recorded is now refused and writes nothing (no cycle is needed).
+    const shipped = await stack.post("units/MTR-E2E-001/ship", {});
+    expect(shipped.status).toBe(409);
+    expect(shipped.body.error).toBe("SHIPMENT_REFUSED");
+    const afterRefusal = await (await page.request.get(`${stack.base}/api/snapshot`)).json();
+    expect(afterRefusal.checkpoint.state).toBe("ANCHORED_CURRENT");
+    expect(afterRefusal.units.find((u: { unitId: string }) => u.unitId === "MTR-E2E-001").shipment).toBeNull();
+    await expect(rowFor()).not.toContainText("SHP-26-E2E-001");
 
     await openWorkspace(); await page.getByLabel("Motor to capture").selectOption("MTR-E2E-001");
     const seqBefore = (await (await page.request.get(`${stack.base}/api/snapshot`)).json()).freshness.sequence;
@@ -78,11 +83,15 @@ test("live manufacturing capture, genealogy, recall, replacement and late withdr
     await withheldThenActivate();
     await expect(rowFor()).toContainText("Recall hold");
     await expect(rowFor()).toContainText("Unresolved");
-    expect(stack.generations).toBe(5);                                     // five legitimate successor generations, each accepted explicitly
+    expect(stack.generations).toBe(4);                                     // four legitimate successor generations, each accepted explicitly (the refused shipment needed none)
 
     await page.goto(url("#/unit/MTR-E2E-001/genealogy"));
     await expect(page.getByRole("heading", { name: "Ledger-backed material genealogy" })).toBeVisible();
+    await expect(page.getByText("Shipment capture is not a release authorization.", { exact: false })).toHaveCount(0);   // CHANGED: this motor's shipment was refused, so no shipment note
+    await page.goto(url("#/unit/MTR-26001/genealogy"));                       // a seeded historical-fixture shipment still carries the note
     await expect(page.getByText("Shipment capture is not a release authorization.", { exact: false })).toBeVisible();
+    await page.goto(url("#/unit/MTR-E2E-001/genealogy"));
+    await expect(page.getByRole("heading", { name: "Ledger-backed material genealogy" })).toBeVisible();
     await page.screenshot({ path: `${screenshots}/phase3-genealogy.png`, fullPage: true });
     await page.getByRole("tab", { name: "Decision history" }).click();
     await expect(page.getByText("Prior exclusion withdrawn", { exact: false }).first()).toBeVisible();

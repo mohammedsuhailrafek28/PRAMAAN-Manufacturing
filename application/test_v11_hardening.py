@@ -49,9 +49,9 @@ def world(d, extra_unknown=False):
     """One legitimate motor (eligible under registry A), optionally a legacy motor on an unregistered lot. Checkpoint c0 is current and bound to registry A."""
     db, c0, custody = Path(d) / "w.sqlite", Path(d) / "c0.json", Path(d) / "custody"
     app = Manufacturing(db)
-    app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.ship(M)
+    app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.record_historical_shipment_fixture(M)
     if extra_unknown:
-        app.create_unit("MTR-90002"); raw_assemble(app, "MTR-90002", LEGACY, SAFE); app.ship("MTR-90002")
+        app.create_unit("MTR-90002"); raw_assemble(app, "MTR-90002", LEGACY, SAFE); app.record_historical_shipment_fixture("MTR-90002")
     app.announce(RECALLED, ["DE"]); app.snapshot()
     publish_candidate(c0, export_anchor(app)); app.close()
     return db, c0, custody
@@ -198,7 +198,7 @@ class RegistryCustody(unittest.TestCase):
     def test_legacy_v2_checkpoint_cannot_grant_eligibility_and_migrates_with_acknowledgement(self):
         with tempfile.TemporaryDirectory() as d:
             db, c0, custody = Path(d) / "w.sqlite", Path(d) / "c0.json", Path(d) / "custody"
-            app = Manufacturing(db); app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.ship(M); app.announce(RECALLED, ["DE"]); app.snapshot()
+            app = Manufacturing(db); app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.record_historical_shipment_fixture(M); app.announce(RECALLED, ["DE"]); app.snapshot()
             publish_candidate(c0, export_anchor(app, version=2)); app.close()
             s = read_snapshot(db, c0)
             self.assertEqual(s["checkpoint"]["state"], "ANCHORED_CURRENT")                          # history verifies exactly as before
@@ -218,7 +218,7 @@ class RegistryCustody(unittest.TestCase):
 class UnverifiedSightings(unittest.TestCase):
     def fresh(self, d, recall_slots=("DE",)):
         app = Manufacturing(Path(d) / "s.sqlite")
-        app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.ship(M); app.announce(RECALLED, list(recall_slots))
+        app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.record_historical_shipment_fixture(M); app.announce(RECALLED, list(recall_slots))
         return app
 
     def anchored(self, app, d, tag):
@@ -314,7 +314,7 @@ class NdeRecovery(unittest.TestCase):
             db, c0, custody = Path(d) / "n.sqlite", Path(d) / "c0.json", Path(d) / "custody"
             app = Manufacturing(db); app.create_unit(M); app.close()
             app = Manufacturing(db); publish_candidate(c0, export_anchor(app)); app.close()
-            app = Manufacturing(db); raw_assemble(app, M, SAFE, "UNKNOWN"); app.ship(M); app.announce(RECALLED, ["DE"]); app.close()
+            app = Manufacturing(db); raw_assemble(app, M, SAFE, "UNKNOWN"); app.record_historical_shipment_fixture(M); app.announce(RECALLED, ["DE"]); app.close()
             app = Manufacturing(db)
             try:
                 before_events = copy.deepcopy(app.events(M))
@@ -354,7 +354,7 @@ class NdeRecovery(unittest.TestCase):
 
     def test_unknown_nde_still_blocks_when_replacement_is_in_the_wrong_slot(self):
         with tempfile.TemporaryDirectory() as d:
-            app = Manufacturing(Path(d) / "n.sqlite"); app.create_unit(M); raw_assemble(app, M, SAFE, "UNKNOWN"); app.ship(M); app.announce(RECALLED, ["DE"])
+            app = Manufacturing(Path(d) / "n.sqlite"); app.create_unit(M); raw_assemble(app, M, SAFE, "UNKNOWN"); app.record_historical_shipment_fixture(M); app.announce(RECALLED, ["DE"])
             try:
                 app.replace(M, "BR-312", "DE")
                 a = Path(d) / "a.json"; app.snapshot(); publish_candidate(a, export_anchor(app))
@@ -411,7 +411,7 @@ class HttpSlotParameter(unittest.TestCase):
     def test_replace_and_observe_accept_slot_over_http_and_ignore_forged_fields(self):
         with tempfile.TemporaryDirectory() as d:
             db, anchor = Path(d) / "h.sqlite", Path(d) / "a.json"
-            app = Manufacturing(db); app.create_unit(M); raw_assemble(app, M, SAFE, "UNKNOWN"); app.ship(M); app.announce(RECALLED, ["DE"])
+            app = Manufacturing(db); app.create_unit(M); raw_assemble(app, M, SAFE, "UNKNOWN"); app.record_historical_shipment_fixture(M); app.announce(RECALLED, ["DE"])
             app.snapshot(); publish_candidate(anchor, export_anchor(app)); app.close()
             srv = server_mod.make_server(db, 0, trusted_anchor=anchor)
             threading.Thread(target=srv.serve_forever, daemon=True).start()

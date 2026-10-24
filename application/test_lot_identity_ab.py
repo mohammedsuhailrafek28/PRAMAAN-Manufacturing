@@ -107,7 +107,7 @@ class Capture(unittest.TestCase):
                 r["capture"] = "REJECTED"; r["why"] = str(e)[:100]
                 r["eventsWritten"] = len(app.events(M)) - (before or 0)
             if path != "assemble" or r["capture"] == "ACCEPTED":
-                app.ship(M)
+                app.record_historical_shipment_fixture(M)
             app.announce(RECALLED, SCOPES[scope])
             r["result"] = summarize(current(app, d))
         finally:
@@ -163,7 +163,7 @@ class Capture(unittest.TestCase):
 
     def test_alias_is_stored_canonical_and_judged_as_recalled(self):
         with tempfile.TemporaryDirectory() as d:
-            app = new_app(d); app.create_unit(M); app.assemble(M, "NSB-204", SAFE); app.ship(M); app.announce(RECALLED, ["DE"])
+            app = new_app(d); app.create_unit(M); app.assemble(M, "NSB-204", SAFE); app.record_historical_shipment_fixture(M); app.announce(RECALLED, ["DE"])
             inst = [e for e in app.events(M) if e["eventType"] == "COMPONENT_INSTALLED"]
             self.assertEqual([e["payload"]["lot"] for e in inst], [RECALLED, SAFE])
             s = summarize(current(app, d)); app.close()
@@ -208,7 +208,7 @@ class ReadSide(unittest.TestCase):
     def bypass(self, d, de, nde, scope="scoped DE", registry=None):
         app = new_app(d, registry, f"b{_n[0]}.sqlite"); _n[0] += 1
         try:
-            app.create_unit(M); raw_assemble(app, M, de, nde); app.ship(M); app.announce(RECALLED, SCOPES[scope])
+            app.create_unit(M); raw_assemble(app, M, de, nde); app.record_historical_shipment_fixture(M); app.announce(RECALLED, SCOPES[scope])
             return summarize(current(app, d)), current(app, d)
         finally:
             app.close()
@@ -237,7 +237,7 @@ class ReadSide(unittest.TestCase):
 
     def test_registry_change_after_capture_changes_read_side(self):
         with tempfile.TemporaryDirectory() as d:
-            app = new_app(d); app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.ship(M); app.announce(RECALLED, ["DE"])
+            app = new_app(d); app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.record_historical_shipment_fixture(M); app.announce(RECALLED, ["DE"])
             self.assertTrue(summarize(current(app, d))["eligible"]); app.close()
             def withdraw(doc):
                 next(e for e in doc["entries"] if e["canonical"] == SAFE)["status"] = "WITHDRAWN"
@@ -263,7 +263,7 @@ class ReadSide(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             # a recall announced under a looser registry whose lot the current registry does not know: no exclusion anywhere can be trusted
             loose = registry_with(lambda doc: doc["entries"].append(entry("BR-777")))
-            app = new_app(d, loose); app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.ship(M); app.announce("BR-777", ["DE"]); app.close()
+            app = new_app(d, loose); app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.record_historical_shipment_fixture(M); app.announce("BR-777", ["DE"]); app.close()
             app = Manufacturing(Path(d) / "m.sqlite", lot_registry=registry_with())
             s = summarize(current(app, d)); app.close()
             self.assertEqual((s["eligible"], s["reasons"]), (False, ["UNREGISTERED"]))
@@ -271,14 +271,14 @@ class ReadSide(unittest.TestCase):
     def test_repair_path_for_legacy_unknown_lot(self):
         """Documented limit: an unknown DE occupant can be replaced with a registered lot (then eligible); an unknown NDE occupant cannot be repaired in-app."""
         with tempfile.TemporaryDirectory() as d:
-            app = new_app(d); app.create_unit(M); raw_assemble(app, M, "UNKNOWN", SAFE); app.ship(M); app.announce(RECALLED, ["DE"])
+            app = new_app(d); app.create_unit(M); raw_assemble(app, M, "UNKNOWN", SAFE); app.record_historical_shipment_fixture(M); app.announce(RECALLED, ["DE"])
             self.assertFalse(summarize(current(app, d))["eligible"])
             app.replace(M, "BR-312")
             s = summarize(current(app, d)); app.close()
             EVIDENCE["repairUnknownDE"] = s
             self.assertTrue(s["eligible"], s)
         with tempfile.TemporaryDirectory() as d:
-            app = new_app(d); app.create_unit(M); raw_assemble(app, M, SAFE, "UNKNOWN"); app.ship(M); app.announce(RECALLED, ["DE"])
+            app = new_app(d); app.create_unit(M); raw_assemble(app, M, SAFE, "UNKNOWN"); app.record_historical_shipment_fixture(M); app.announce(RECALLED, ["DE"])
             app.replace(M, "BR-312")                                    # replaces the DE bearing only
             s = summarize(current(app, d)); app.close()
             EVIDENCE["repairUnknownNDE"] = s
@@ -353,7 +353,7 @@ class Api(unittest.TestCase):
         db, anchor = Path(d) / "h.sqlite", Path(d) / "a.json"
         app = Manufacturing(db); app.create_unit(M)
         if bypass:
-            raw_assemble(app, M, *bypass); app.ship(M); app.announce(RECALLED, ["DE"])
+            raw_assemble(app, M, *bypass); app.record_historical_shipment_fixture(M); app.announce(RECALLED, ["DE"])
         app.close()
         app = Manufacturing(db); publish_candidate(anchor, export_anchor(app)); app.close()
         srv = server_mod.make_server(db, 0, trusted_anchor=anchor)
@@ -421,7 +421,7 @@ class CheckpointReview(unittest.TestCase):
         app = Manufacturing(db); publish_candidate(c0, export_anchor(app)); app.close()
         app = Manufacturing(db)
         for m, (de, nde, raw) in specs.items():
-            (raw_assemble if raw else lambda a, mm, x, y: a.assemble(mm, x, y))(app, m, de, nde); app.ship(m)
+            (raw_assemble if raw else lambda a, mm, x, y: a.assemble(mm, x, y))(app, m, de, nde); app.record_historical_shipment_fixture(m)
         app.announce(RECALLED, ["DE"]); app.close()
         return db, c0, custody
 

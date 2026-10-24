@@ -37,6 +37,10 @@ ROLES = {
 }
 
 
+class ShipmentRefused(ValidationFailure):
+    """The ordinary shipment gate refused: no current trusted checkpoint, or no current release eligibility for the motor."""
+
+
 class Manufacturing:
     def __init__(self, path, *, journal_cache=None, verification_deadline=None, lot_registry=None):
         try:
@@ -51,6 +55,7 @@ class Manufacturing:
         CREATE TABLE IF NOT EXISTS app_clock(id INTEGER PRIMARY KEY CHECK(id=1), at TEXT NOT NULL);
         INSERT OR IGNORE INTO app_clock VALUES(1,'2026-10-10T08:00:00Z');
         CREATE TABLE IF NOT EXISTS recall_announcements(version INTEGER PRIMARY KEY, policy TEXT NOT NULL, hash TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS app_ship_tickets(motor TEXT PRIMARY KEY, fingerprint TEXT NOT NULL);
         """)
         for action in ("UPDATE", "DELETE"):
             self.db.execute(f"CREATE TRIGGER IF NOT EXISTS announcements_no_{action.lower()} BEFORE {action} ON recall_announcements BEGIN SELECT RAISE(ABORT,'immutable recall policy'); END")
@@ -166,16 +171,50 @@ class Manufacturing:
             self.event(motor, "COMPONENT_INSTALLED", "ASSY", payload, work_order=build)
         return self.event(motor, "WORK_ORDER_CLOSED", "MES", dict(disposition="COMPLETED"), work_order=build)
 
-    def ship(self, motor):
+    def _shipment(self, motor):
         events = self.events(motor)
         if any(e["eventType"] == "MOTOR_SHIPPED" for e in events):
             raise ValidationFailure("Shipment already recorded")
         closed = next((e for e in events if e["eventType"] == "WORK_ORDER_CLOSED" and e["workOrderId"] == f"BUILD-{motor}"), None)
         if not closed:
             raise ValidationFailure("Completed assembly evidence is required")
-        return self.event(motor, "MOTOR_SHIPPED", "SHIP", dict(
+        return "MOTOR_SHIPPED", "SHIP", dict(
             shipmentId=f"SHP-26-{motor.removeprefix('MTR-')}", customer="Aster Pump Systems — synthetic customer",
-            destination="Coimbatore distribution centre", assemblyEventId=closed["eventId"]))
+            destination="Coimbatore distribution centre", assemblyEventId=closed["eventId"])
+
+    def record_historical_shipment_fixture(self, motor):
+        """Synthetic SETUP only (demo seeding, tests, generators): records a shipment fact with no release check. The ordinary operational API never calls this."""
+        return self.event(motor, *self._shipment(motor))
+
+    # Ledger state a shipment ticket is bound to: row counts, newest rowids and the newest event hash of every table the anchor covers except raw captures.
+    FINGERPRINT_SQL = "SELECT " + " || '|' || ".join(
+        f"(SELECT count(*)||':'||ifnull(max(rowid),0) FROM main.{t})" for t in ("motors", "events", "rejections", "decision_runs", "app_units", "recall_announcements")
+    ) + " || '|' || ifnull((SELECT hash FROM main.events ORDER BY ordinal DESC LIMIT 1),'')"
+
+    def ship(self, motor, *, trusted_anchor=None):
+        """Ordinary shipment: recorded only while this motor holds a CURRENT trusted checkpoint AND current operational release eligibility.
+        The eligibility proof and the single-use ticket are written inside one snapshot transaction; the MOTOR_SHIPPED insert itself is then refused
+        by a connection-local trigger unless the ledger is exactly at the state the ticket was issued for (no time-of-check/time-of-use gap)."""
+        spec = self._shipment(motor)                       # existing preconditions first, so a refusal here never touches the ledger
+        if trusted_anchor is None:
+            raise ShipmentRefused("Shipment refused: a trusted checkpoint is required")
+        snap = self.snapshot(trusted_anchor=trusted_anchor, ship_ticket=motor)
+        if not snap["eligibility"].get(motor, {}).get("currentReleaseEligible"):
+            raise ShipmentRefused("Shipment refused: no current trusted checkpoint and release eligibility for this motor")
+        guard = "ship_ticket_guard"
+        self.db.execute(f"""CREATE TEMP TRIGGER {guard} BEFORE INSERT ON main.events
+            WHEN json_extract(NEW.native,'$.eventType')='MOTOR_SHIPPED' AND NOT EXISTS
+                 (SELECT 1 FROM main.app_ship_tickets t WHERE t.motor=NEW.motor AND t.fingerprint=({self.FINGERPRINT_SQL}))
+            BEGIN SELECT RAISE(IGNORE); END""")
+        try:
+            event = self.event(motor, *spec)
+            if not any(e["eventType"] == "MOTOR_SHIPPED" for e in self.events(motor)):
+                raise ShipmentRefused("Shipment not recorded: ledger or checkpoint state changed after eligibility was established")
+        finally:
+            self.db.execute(f"DROP TRIGGER IF EXISTS temp.{guard}")
+            with self.db:
+                self.db.execute("DELETE FROM app_ship_tickets WHERE motor=?", (motor,))
+        return event
 
     def announce(self, affected_lot, affected_slots=None):
         affected_lot = self.lot(affected_lot, "Affected lot", dated=False)
@@ -267,7 +306,7 @@ class Manufacturing:
                  ("MTR-26004", "Capture coverage gap", "BR-204", "BR-310", "SERIAL", True),
                  ("MTR-26005", "Untrusted affected-bearing observation", "BR-310", "BR-312", "SERIAL", False)]
         for serial, title, de, nde, identity, gap in specs:
-            self.create_unit(serial, title, gap=gap); self.assemble(serial, de, nde, identity); self.ship(serial)
+            self.create_unit(serial, title, gap=gap); self.assemble(serial, de, nde, identity); self.record_historical_shipment_fixture(serial)
         self.announce("BR-204", ["DE"])
         self.snapshot()  # issue pre-rework records using the actual evaluator
         self.replace("MTR-26002", "BR-312")
@@ -275,7 +314,7 @@ class Manufacturing:
         self.observe("MTR-26005", "BR-204")
         self.snapshot()
 
-    def snapshot(self, *, trusted_anchor=None):
+    def snapshot(self, *, trusted_anchor=None, ship_ticket=None):
         deadline=time.monotonic()+1.25 if trusted_anchor else None
         self.db.execute('BEGIN IMMEDIATE')
         self.audit._verified_token=None
@@ -304,6 +343,10 @@ class Manufacturing:
             result['freshness'].update(status='VERIFIED_ANCHORED_SYNTHETIC' if current else 'VERIFIED_PREFIX_SYNTHETIC' if anchor else 'HISTORICAL_'+state,
                                        maxAgeSeconds=5 if anchor else 0)
             if not anchor:result['freshness']['verifiedAt']=''
+            if ship_ticket is not None:
+                self.db.execute("DELETE FROM app_ship_tickets WHERE motor=?", (ship_ticket,))
+                if result['eligibility'].get(ship_ticket, {}).get('currentReleaseEligible'):
+                    self.db.execute("INSERT INTO app_ship_tickets SELECT ?,(" + self.FINGERPRINT_SQL.removeprefix("SELECT ") + ")", (ship_ticket,))
             self.db.commit()
             return result
         except Exception:

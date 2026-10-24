@@ -10,7 +10,7 @@ import time
 import sys
 from urllib.parse import urlsplit, unquote
 
-from .service import Manufacturing, ValidationFailure, LedgerBlocked, ROOT
+from .service import Manufacturing, ValidationFailure, LedgerBlocked, ShipmentRefused, ROOT
 from . import checkpoint_ops
 
 # Restricted stale-checkpoint recovery surface. It is a separate, whitelisted route family: evidence capture, controlled replacement (reconciliation) and the
@@ -187,7 +187,7 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
                             if action == "assemble":
                                 app.assemble(motor, body.get("deLot"), body.get("ndeLot"), body.get("identity", "SERIAL"))
                             elif action == "ship":
-                                app.ship(motor)
+                                app.ship(motor, trusted_anchor=anchor)
                             elif action == "replace":
                                 app.replace(motor, body.get("lot"), body.get("slot", "DE"))
                             elif action == "observe":
@@ -231,6 +231,8 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
                 except LedgerBlocked as exc:
                     code=getattr(exc,'code','INTEGRITY_UNAVAILABLE')
                     return self.send(503 if code=='VERIFYING' else 409, {"error": code, "state": 'VERIFYING' if code=='VERIFYING' else 'ANCHOR_INVALID', "decisionsUnavailable": True})
+                except ShipmentRefused:
+                    return self.send(409, {"error": "SHIPMENT_REFUSED"})
                 except ValidationFailure:
                     return self.send(400, {"error": 'INVALID_REQUEST'})
                 except (ValueError, KeyError, TypeError):

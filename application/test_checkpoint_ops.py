@@ -17,7 +17,7 @@ class OperatorWorkflowTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory(); self.dir = Path(self.tmp.name)
         self.db = self.dir / 'l.sqlite'; self.custody = self.dir / 'custody'; self.custody.mkdir()
         app = Manufacturing(self.db)
-        app.create_unit(MOTOR); app.assemble(MOTOR, 'BR-310', 'BR-312'); app.ship(MOTOR); app.announce('BR-204', ['DE']); app.snapshot()
+        app.create_unit(MOTOR); app.assemble(MOTOR, 'BR-310', 'BR-312'); app.record_historical_shipment_fixture(MOTOR); app.announce('BR-204', ['DE']); app.snapshot()
         self.c0 = self.custody / 'c0.json'; publish_candidate(self.c0, export_anchor(app)); app.close()
 
     def tearDown(self):

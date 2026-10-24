@@ -31,7 +31,7 @@ def world(d):
     db, c0, custody = Path(d) / "w.sqlite", Path(d) / "c0.json", Path(d) / "custody"
     app = Manufacturing(db)
     for m, de in ((A, SAFE), (B, SAFE), (S, SAFE)):
-        app.create_unit(m); app.assemble(m, de, "BR-312"); app.ship(m)
+        app.create_unit(m); app.assemble(m, de, "BR-312"); app.record_historical_shipment_fixture(m)
     app.announce(RECALLED, ["DE"]); app.snapshot()
     publish_candidate(c0, export_anchor(app)); app.close()
     return db, c0, custody
@@ -67,7 +67,7 @@ class SafeIsolation(unittest.TestCase):
             stale = read_snapshot(db, c0)
             self.assertEqual(stale["checkpoint"]["state"], "ANCHORED_PREFIX_ONLY")
             self.assertTrue(all(not v["currentReleaseEligible"] for v in stale["eligibility"].values()))       # stale: nothing is current for anyone
-            edit(db, lambda a: (a.create_unit(T), a.assemble(T, SAFE, "BR-312"), a.ship(T)))                      # unrelated work continues
+            edit(db, lambda a: (a.create_unit(T), a.assemble(T, SAFE, "BR-312"), a.record_historical_shipment_fixture(T)))                      # unrelated work continues
             prop = checkpoint_ops.propose(db, c0, custody)
             self.assertEqual(prop["review"]["refusedForIdentity"], [])
             self.assertEqual(prop["review"]["containedMotors"], [S])
@@ -105,7 +105,7 @@ class SafeIsolation(unittest.TestCase):
             edit(db, lambda a: a.observe(S, "ZZ-9"))
             prop = checkpoint_ops.propose(db, c0, custody); rec = accept(db, c0, custody, prop)
             c1 = Path(rec["accepted"])
-            edit(db, lambda a: (a.create_unit(T), a.assemble(T, SAFE, "BR-312"), a.ship(T)))
+            edit(db, lambda a: (a.create_unit(T), a.assemble(T, SAFE, "BR-312"), a.record_historical_shipment_fixture(T)))
             prop2 = checkpoint_ops.propose(db, c1, custody, c0)                                                    # second cycle: still contained, still held
             self.assertEqual(prop2["review"]["containedMotors"], [S])
             rec2 = accept(db, c1, custody, prop2)
@@ -119,7 +119,7 @@ class SafeIsolation(unittest.TestCase):
             db, v2, custody = Path(d) / "w.sqlite", Path(d) / "v2.json", Path(d) / "custody"
             app = Manufacturing(db)
             for m in (A, B, S):
-                app.create_unit(m); app.assemble(m, SAFE, "BR-312"); app.ship(m)
+                app.create_unit(m); app.assemble(m, SAFE, "BR-312"); app.record_historical_shipment_fixture(m)
             app.announce(RECALLED, ["DE"]); app.snapshot()
             publish_candidate(v2, export_anchor(app, version=2)); app.close()                                  # legacy V2 root: never grants current eligibility
             edit(db, lambda a: a.observe(S, "ZZ-9"))
@@ -137,7 +137,7 @@ class SafeIsolation(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             db, c0, custody = world(d)
             def go(a):
-                a.create_unit(T); a.assemble(T, RECALLED, "BR-312"); a.ship(T); a.observe(T, "ZZ-9")
+                a.create_unit(T); a.assemble(T, RECALLED, "BR-312"); a.record_historical_shipment_fixture(T); a.observe(T, "ZZ-9")
             edit(db, go)
             prop = checkpoint_ops.propose(db, c0, custody)
             self.assertEqual(prop["review"]["refusedForIdentity"], []); self.assertEqual(prop["review"]["containedMotors"], [])
@@ -175,7 +175,7 @@ class MandatoryGlobalRefusal(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             db, c0, custody = world(d)
             def go(a):
-                a.observe(S, "ZZ-9"); a.create_unit(T); raw_assemble(a, T, "UNKNOWN", SAFE); a.ship(T)         # bypassed capture on another motor: INSTALL finding
+                a.observe(S, "ZZ-9"); a.create_unit(T); raw_assemble(a, T, "UNKNOWN", SAFE); a.record_historical_shipment_fixture(T)         # bypassed capture on another motor: INSTALL finding
             edit(db, go)
             prop = self.refused(d, db, c0, custody, {}, [T])
             self.assertEqual(prop["review"]["containedMotors"], [S])          # S itself is still isolable, but the candidate as a whole is refused because T is not
@@ -185,7 +185,7 @@ class MandatoryGlobalRefusal(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             db, c0, custody = world(d)
             def go(a):
-                a.create_unit(T); raw_assemble(a, T, "UNKNOWN", SAFE); a.ship(T); a.observe(T, "ZZ-9")
+                a.create_unit(T); raw_assemble(a, T, "UNKNOWN", SAFE); a.record_historical_shipment_fixture(T); a.observe(T, "ZZ-9")
             edit(db, go)
             self.refused(d, db, c0, custody, {T: ["ONLY_SIGHTING_FINDINGS"]}, [T])
 

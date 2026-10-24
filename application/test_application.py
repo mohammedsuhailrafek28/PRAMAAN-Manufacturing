@@ -36,7 +36,7 @@ class ApplicationTests(unittest.TestCase):
         self.app.announce("BR-204")
         self.assertEqual(self.current(m)["operationalAction"], "RECALL_HOLD")
         self.app.assemble(m, "BR-204", "BR-310")
-        self.app.ship(m)
+        self.app.record_historical_shipment_fixture(m)
         before = self.current(m)
         self.assertEqual(before["evidenceFinding"], "AFFECTED")
         snap = self.app.snapshot()
@@ -85,7 +85,7 @@ class ApplicationTests(unittest.TestCase):
         self.assertEqual(snap["policies"], [])
         self.assertIsNone(snap["units"][0]["shipment"])
         with self.assertRaises(ValidationFailure):
-            self.app.ship("MTR-UNKNOWN")
+            self.app.record_historical_shipment_fixture("MTR-UNKNOWN")
         self.app.announce("BR-204")
         d = self.current("MTR-UNKNOWN")
         self.assertEqual(d["operationalAction"], "RECALL_HOLD")

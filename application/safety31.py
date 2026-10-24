@@ -17,7 +17,7 @@ def run():
         with TemporaryDirectory() as t:
             a=Manufacturing(Path(t)/'db')
             try:
-                m=f'MTR-SAFETY-{i}';a.create_unit(m);a.assemble(m,de,nde);a.ship(m);a.announce('BR-204',scope)
+                m=f'MTR-SAFETY-{i}';a.create_unit(m);a.assemble(m,de,nde);a.record_historical_shipment_fixture(m);a.announce('BR-204',scope)
                 slots=scope if scope is not None else ['DE','NDE']
                 unsafe=any(lot=='BR-204' and slot in slots for slot,lot in [('DE',de),('NDE',nde)])
                 score(f'de={de};nde={nde};scope={scope}',a,m,unsafe,'AFFECTED' if unsafe else 'EXCLUDED_WITH_EVIDENCE')

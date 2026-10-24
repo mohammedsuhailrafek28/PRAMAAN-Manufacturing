@@ -24,7 +24,7 @@ LEAK = ('Traceback', 'sqlite', 'SELECT ', 'KeyError', '.sqlite', 'Users\\', 'App
 
 def build(path, motor=MOTOR):
     app = Manufacturing(path)
-    app.create_unit(motor); app.assemble(motor, 'BR-310', 'BR-312'); app.ship(motor)
+    app.create_unit(motor); app.assemble(motor, 'BR-310', 'BR-312'); app.record_historical_shipment_fixture(motor)
     app.announce('BR-204', ['DE']); app.snapshot()
     return app
 
@@ -235,7 +235,7 @@ class RecallScopePermanentRegressionTests(unittest.TestCase):
                 m = Manufacturing(Path(d) / 'l.sqlite')
                 try:
                     for serial, (de, nde) in self.LOTS.items():
-                        m.create_unit(serial); m.assemble(serial, de, nde, 'SERIAL'); m.ship(serial)
+                        m.create_unit(serial); m.assemble(serial, de, nde, 'SERIAL'); m.record_historical_shipment_fixture(serial)
                     policy = m.announce('BR-901') if scope is None else m.announce('BR-901', scope)
                     self.assertEqual(policy['affectedSlots'], ['DE', 'NDE'] if scope is None else scope)
                     snap = m.snapshot()

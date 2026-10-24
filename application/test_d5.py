@@ -21,7 +21,7 @@ MOTOR = 'MTR-D5-001'
 
 def build(path):
     app = Manufacturing(path)
-    app.create_unit(MOTOR); app.assemble(MOTOR, 'BR-310', 'BR-312'); app.ship(MOTOR); app.announce('BR-204', ['DE']); app.snapshot()
+    app.create_unit(MOTOR); app.assemble(MOTOR, 'BR-310', 'BR-312'); app.record_historical_shipment_fixture(MOTOR); app.announce('BR-204', ['DE']); app.snapshot()
     return app
 
 

@@ -25,7 +25,7 @@ class ReadPathWriteTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(); d = Path(self.tmp.name)
         self.app = Manufacturing(d / 'l.sqlite')
-        self.app.create_unit(MOTOR); self.app.assemble(MOTOR, 'BR-310', 'BR-312'); self.app.ship(MOTOR)
+        self.app.create_unit(MOTOR); self.app.assemble(MOTOR, 'BR-310', 'BR-312'); self.app.record_historical_shipment_fixture(MOTOR)
         self.app.announce('BR-204', ['DE']); self.app.snapshot()
         publish_candidate(d / 'a.json', export_anchor(self.app)); self.trusted = TrustedAnchor(d / 'a.json')
 

@@ -93,9 +93,9 @@ class Format(unittest.TestCase):
     def test_chain_rules_v2_to_v3_v3_to_v3_and_no_downgrade(self):
         with tempfile.TemporaryDirectory() as d:
             db = Path(d) / "c.sqlite"
-            app = Manufacturing(db); app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.ship(M); app.announce(RECALLED, ["DE"]); app.snapshot()
+            app = Manufacturing(db); app.create_unit(M); app.assemble(M, SAFE, "BR-312"); app.record_historical_shipment_fixture(M); app.announce(RECALLED, ["DE"]); app.snapshot()
             r2 = Path(d) / "r2.json"; publish_candidate(r2, export_anchor(app, version=2))
-            app.create_unit("MTR-90004"); app.assemble("MTR-90004", SAFE, "BR-312"); app.ship("MTR-90004"); app.snapshot()
+            app.create_unit("MTR-90004"); app.assemble("MTR-90004", SAFE, "BR-312"); app.record_historical_shipment_fixture("MTR-90004"); app.snapshot()
             c3 = export_anchor(app, load(r2)); self.assertEqual(c3["body"]["format"], FORMAT_V3)                 # V2 -> V3
             p3 = Path(d) / "c3.json"; publish_candidate(p3, c3)
             app.create_unit("MTR-90005"); app.snapshot()
@@ -190,8 +190,8 @@ class NeverCreatesEligibility(unittest.TestCase):
     def build(self, d):
         db, v2, custody = Path(d) / "u.sqlite", Path(d) / "v2.json", Path(d) / "custody"
         app = Manufacturing(db); app.create_unit(M); app.create_unit(self.UNSAFE)
-        app.assemble(M, SAFE, "BR-312"); app.ship(M)
-        raw_assemble(app, self.UNSAFE, "UNKNOWN", SAFE); app.ship(self.UNSAFE)             # bypassed capture: the evaluator alone would exclude and release it
+        app.assemble(M, SAFE, "BR-312"); app.record_historical_shipment_fixture(M)
+        raw_assemble(app, self.UNSAFE, "UNKNOWN", SAFE); app.record_historical_shipment_fixture(self.UNSAFE)             # bypassed capture: the evaluator alone would exclude and release it
         app.announce(RECALLED, ["DE"]); app.snapshot()
         publish_candidate(v2, export_anchor(app, version=2)); app.close()
         return db, v2, custody
