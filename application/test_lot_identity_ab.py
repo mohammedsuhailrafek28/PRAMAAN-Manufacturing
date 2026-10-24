@@ -434,6 +434,16 @@ class CheckpointReview(unittest.TestCase):
             self.assertEqual(snap["checkpoint"]["state"], "ANCHORED_CURRENT")
             self.assertTrue(snap["eligibility"]["MTR-90003"]["currentReleaseEligible"]); self.assertFalse(snap["eligibility"]["MTR-90002"]["currentReleaseEligible"])
 
+    def test_registry_change_between_propose_and_accept_is_refused(self):
+        with tempfile.TemporaryDirectory() as d:
+            db, c0, custody = self.setup(d, {"MTR-90003": (SAFE, "BR-312", False)})
+            prop = checkpoint_ops.propose(db, c0, custody); cand = Path(prop["candidate"])
+            with self.assertRaises(SystemExit) as cm:
+                checkpoint_ops.accept(db, c0, custody, cand, "synthetic", prop["candidateSha256"], ["MTR-90003"], expected_registry_digest="0" * 64)
+            self.assertIn("registry changed", str(cm.exception))
+            rec = checkpoint_ops.accept(db, c0, custody, cand, "synthetic", prop["candidateSha256"], ["MTR-90003"], expected_registry_digest=prop["review"]["registry"]["digest"])
+            self.assertEqual(rec["registryDigest"], prop["review"]["registry"]["digest"])
+
     def test_no_checkpoint_renewal_launders_ambiguity(self):
         with tempfile.TemporaryDirectory() as d:
             db, c0, custody = self.setup(d, {"MTR-90001": ("UNKNOWN", SAFE, True)})

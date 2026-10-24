@@ -83,7 +83,10 @@ export class OwnedStack {
     await this.halt();
     const proposed = this.ops("propose");
     if (proposed.status !== "CANDIDATE_PROPOSED_NOT_ACTIVATED") { await this.launch(); return proposed.status; }
-    const accepted = this.ops("accept", ["--candidate", proposed.candidate, "--custodian", custodian, "--confirm-sha256", proposed.candidateSha256]);
+    // The candidate now requires a per-motor acknowledgement of newly excluded / newly release-eligible motors and the registry digest shown by propose.
+    // TEST-ONLY: this helper acknowledges everything it is asked to; identity-unsafe exclusions are still refused regardless.
+    const acks = (proposed.review?.requiresAcknowledgement ?? []).flatMap((m: string) => ["--acknowledge", m]);
+    const accepted = this.ops("accept", ["--candidate", proposed.candidate, "--custodian", custodian, "--confirm-sha256", proposed.candidateSha256, "--registry-digest", proposed.review.registry.digest, ...acks]);
     this.previous = this.current; this.current = accepted.accepted; this.generations++;
     await this.launch();
     return accepted.status;

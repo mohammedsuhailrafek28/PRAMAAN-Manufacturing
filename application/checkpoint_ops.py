@@ -68,7 +68,7 @@ def propose(database, current_path, custody_dir, current_previous=None):
         app.close()
 
 
-def accept(database, current_path, custody_dir, candidate_path, custodian, confirm_sha256, acknowledged=None):
+def accept(database, current_path, custody_dir, candidate_path, custodian, confirm_sha256, acknowledged=None, expected_registry_digest=None):
     if not custodian.strip():
         raise SystemExit("A named custodian is required.")
     candidate_path = Path(candidate_path); digest = sha256_file(candidate_path)
@@ -84,6 +84,8 @@ def accept(database, current_path, custody_dir, candidate_path, custodian, confi
         review = build_review(app, json.loads(Path(current_path).read_bytes())["body"], json.loads(candidate_path.read_bytes())["body"])
     finally:
         app.close()
+    if expected_registry_digest is not None and expected_registry_digest != review["registry"]["digest"]:
+        raise SystemExit("REFUSED: the lot registry changed since the candidate was proposed (digest mismatch); propose again so the review reflects the registry in force. Nothing was accepted.")
     if review["refusedForIdentity"]:
         raise SystemExit(f"REFUSED: an exclusion rests on lot identity that is not established for {review['refusedForIdentity']}; acknowledgement cannot override this. Nothing was accepted.")
     missing = sorted(set(review["requiresAcknowledgement"]) - set(acknowledged or []))
@@ -116,6 +118,7 @@ def main(argv=None):
     p.add_argument("--candidate", type=Path)
     p.add_argument("--custodian")
     p.add_argument("--confirm-sha256")
+    p.add_argument("--registry-digest", help="Registry digest shown by propose; accept refuses if the registry changed since")
     p.add_argument("--acknowledge", action="append", default=[], metavar="MOTOR", help="Acknowledge a newly excluded or newly release-eligible motor (repeatable)")
     a = p.parse_args(argv)
     if not a.database.is_file():
@@ -126,7 +129,7 @@ def main(argv=None):
         else:
             if not (a.candidate and a.custodian and a.confirm_sha256):
                 p.error("accept requires --candidate, --custodian and --confirm-sha256")
-            out = accept(a.database, a.current, a.custody_dir, a.candidate, a.custodian, a.confirm_sha256, a.acknowledge)
+            out = accept(a.database, a.current, a.custody_dir, a.candidate, a.custodian, a.confirm_sha256, a.acknowledge, a.registry_digest)
     except IntegrityFailure as exc:
         print(exc.code, file=sys.stderr); raise SystemExit(1)
     print(json.dumps(out, indent=2))

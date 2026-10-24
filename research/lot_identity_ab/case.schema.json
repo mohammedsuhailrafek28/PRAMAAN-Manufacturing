@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Independent lot-identity benchmark case (format only; no sealed case exists yet)",
+  "type": "object",
+  "required": ["caseId", "story", "authorship", "registry", "recall", "motors", "split"],
+  "properties": {
+    "caseId": {"type": "string"},
+    "split": {"enum": ["development", "sealed"]},
+    "story": {"type": "string", "description": "What physically happened; written without reference to candidate behaviour."},
+    "authorship": {"type": "object", "required": ["author", "grounding"], "properties": {"author": {"type": "string"}, "grounding": {"enum": ["EXTERNAL_CITED", "INVENTED"]}, "citation": {"type": "string"}, "reviewer": {"type": "string"}, "reviewVerdict": {"enum": ["AGREE", "DISAGREE", "CONTESTED", "PENDING"]}}},
+    "registry": {"type": "object", "description": "Same document shape as application/lot_registry.synthetic.json", "required": ["entries"]},
+    "registryChangeAfterCapture": {"type": "object", "description": "Optional replacement registry document applied after the capture steps."},
+    "recall": {"type": "object", "required": ["lot"], "properties": {"lot": {"type": "string"}, "affectedSlots": {"type": ["array", "null"], "items": {"enum": ["DE", "NDE"]}}}},
+    "motors": {"type": "array", "items": {"type": "object", "required": ["motor", "route", "lots", "expected"], "properties": {
+      "motor": {"type": "string"},
+      "route": {"enum": ["service", "bypass", "replace_after_assembly", "observe_after_assembly", "interrupted_after_event_k"]},
+      "lots": {"type": "object", "properties": {"DE": {"type": ["string", "null"]}, "NDE": {"type": ["string", "null"]}, "replacementDE": {"type": ["string", "null"]}, "observedDE": {"type": ["string", "null"]}}},
+      "interruptAfterEvent": {"type": "integer"},
+      "expected": {"type": "object", "required": ["mustHold"], "properties": {"mustHold": {"type": "boolean"}, "captureRefused": {"type": "boolean"}, "reasonClass": {"type": "string"}, "contested": {"type": "boolean"}, "rationale": {"type": "string"}}}}}}
+  }
+}
