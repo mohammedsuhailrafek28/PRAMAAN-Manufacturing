@@ -1,5 +1,7 @@
 # Manufacturing PRAMAAN: hackathon demo runbook (design only)
 
+> **KNOWN ISSUE (P0): lot-identity clearance defect.** The demo builds named here treat any lot string that is not exactly the recalled lot as unaffected, so unknown or mistyped lots can show `RELEASE_ELIGIBLE`. Do not present eligibility as robust to wrong lot identities. Read `docs/demo-runbook/KNOWN_ISSUE_LOT_IDENTITY.md` before any demo.
+
 Branch `plan/hackathon-demo-runbook`, based on the pushed audit commit `1f8671e`. This is a **design document plus two small preflight helpers**; it changes no application source and no one else's branch. Everything below was executed on 2026-10-23 on one Windows 11 machine (Python 3.12.10, Node 24.17, Chrome headless for captures) unless marked **not run**. Evidence: `docs/demo-runbook/reference-captures/` (logs, screenshots, page text) and the audit's `docs/demo-readiness-evidence/`.
 
 ## 0. Read this first: do not run the demo from `main`
