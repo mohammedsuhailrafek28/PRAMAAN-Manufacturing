@@ -1,0 +1,447 @@
+[
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleError": {
+   "error": "INVALID_REQUEST"
+  },
+  "assembleStatus": 400,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "UNRESOLVED",
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "operationalAction": "RECALL_HOLD",
+  "reasonCodes": [
+   "WORK_ORDER_UNRECONCILED"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 2,
+  "unitEventsAfter": null
+ },
+ {
+  "assembleError": {
+   "error": "INVALID_REQUEST"
+  },
+  "assembleStatus": 400,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "UNRESOLVED",
+  "lot": "''",
+  "lotCase": "empty",
+  "operationalAction": "RECALL_HOLD",
+  "reasonCodes": [
+   "NO_TRUSTED_BASELINE",
+   "CURRENT_STATE_UNVERIFIED"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 0,
+  "unitEventsAfter": null
+ },
+ {
+  "assembleError": {
+   "error": "INVALID_REQUEST"
+  },
+  "assembleStatus": 400,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "UNRESOLVED",
+  "lot": "None",
+  "lotCase": "missing",
+  "operationalAction": "RECALL_HOLD",
+  "reasonCodes": [
+   "NO_TRUSTED_BASELINE",
+   "CURRENT_STATE_UNVERIFIED"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 0,
+  "unitEventsAfter": null
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "AFFECTED",
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "operationalAction": "RECALL_HOLD",
+  "reasonCodes": [
+   "AFFECTED_LOT_INSTALLED"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'br-204'",
+  "lotCase": "lowercase recalled",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'BR-204 '",
+  "lotCase": "trailing space recalled",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'BR-2O4'",
+  "lotCase": "letter-O typo recalled",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'BR\u2013204'",
+  "lotCase": "en-dash recalled",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "zero-width recalled",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": [
+   "DE"
+  ],
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'unknown'",
+  "lotCase": "unknown",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'N/A'",
+  "lotCase": "N/A",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleError": {
+   "error": "INVALID_REQUEST"
+  },
+  "assembleStatus": 400,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "UNRESOLVED",
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "operationalAction": "RECALL_HOLD",
+  "reasonCodes": [
+   "WORK_ORDER_UNRECONCILED"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 2,
+  "unitEventsAfter": null
+ },
+ {
+  "assembleError": {
+   "error": "INVALID_REQUEST"
+  },
+  "assembleStatus": 400,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "UNRESOLVED",
+  "lot": "''",
+  "lotCase": "empty",
+  "operationalAction": "RECALL_HOLD",
+  "reasonCodes": [
+   "NO_TRUSTED_BASELINE",
+   "CURRENT_STATE_UNVERIFIED"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 0,
+  "unitEventsAfter": null
+ },
+ {
+  "assembleError": {
+   "error": "INVALID_REQUEST"
+  },
+  "assembleStatus": 400,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "UNRESOLVED",
+  "lot": "None",
+  "lotCase": "missing",
+  "operationalAction": "RECALL_HOLD",
+  "reasonCodes": [
+   "NO_TRUSTED_BASELINE",
+   "CURRENT_STATE_UNVERIFIED"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 0,
+  "unitEventsAfter": null
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "AFFECTED",
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "operationalAction": "RECALL_HOLD",
+  "reasonCodes": [
+   "AFFECTED_LOT_INSTALLED",
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'br-204'",
+  "lotCase": "lowercase recalled",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'BR-204 '",
+  "lotCase": "trailing space recalled",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'BR-2O4'",
+  "lotCase": "letter-O typo recalled",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'BR\u2013204'",
+  "lotCase": "en-dash recalled",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 9
+ },
+ {
+  "assembleStatus": 200,
+  "checkpoint": "ANCHORED_PREFIX_ONLY",
+  "eligibility": false,
+  "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+  "lot": "'BR-204\\u200b'",
+  "lotCase": "zero-width recalled",
+  "operationalAction": "RELEASE_ELIGIBLE",
+  "reasonCodes": [
+   "AS_BUILT_UNAFFECTED_LOT"
+  ],
+  "recallScope": "unspecified",
+  "recallStatus": 200,
+  "unitEventCount": 9
+ }
+]

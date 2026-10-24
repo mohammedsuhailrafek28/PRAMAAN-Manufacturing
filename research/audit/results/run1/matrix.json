@@ -1,0 +1,4607 @@
+[
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid lot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "WORK_ORDER_UNRECONCILED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 2,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid lot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 5,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "assemble",
+  "recallScope": "scoped DE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid lot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "WORK_ORDER_UNRECONCILED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 2,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid lot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "WORK_ORDER_UNRECONCILED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 5,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "assemble",
+  "recallScope": "scoped NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid lot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "WORK_ORDER_UNRECONCILED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 2,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid lot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED",
+      "WORK_ORDER_UNRECONCILED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 5,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED",
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT",
+      "AFFECTED_LOT_INSTALLED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "assemble",
+  "recallScope": "scoped DE+NDE",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Explicit valid DE/NDE bearing lots and identity required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 0,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid lot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "WORK_ORDER_UNRECONCILED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 2,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid lot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "NO_TRUSTED_BASELINE",
+      "CURRENT_STATE_UNVERIFIED",
+      "WORK_ORDER_UNRECONCILED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 5,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED",
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT",
+      "AFFECTED_LOT_INSTALLED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "assemble",
+  "recallScope": "unspecified",
+  "slot": "NDE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: An explicit replacement lot is required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 8,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "replace",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid observedLot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "eventsAfterReject": 8,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "observe",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: An explicit replacement lot is required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 8,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "replace",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid observedLot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "eventsAfterReject": 8,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "observe",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid lot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "WORK_ORDER_UNRECONCILED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 11,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "replace",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid observedLot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "eventsAfterReject": 8,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "observe",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "REPLACED_WITH_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "replace",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "observe",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "REPLACED_WITH_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "replace",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "observe",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "REPLACED_WITH_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "replace",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "observe",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "replace",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "UNTRUSTED_AFFECTED_OBSERVATION"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "observe",
+  "recallScope": "scoped DE",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: An explicit replacement lot is required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED",
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 8,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "replace",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid observedLot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "eventsAfterReject": 8,
+  "lot": "None",
+  "lotCase": "missing(None)",
+  "path": "observe",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: An explicit replacement lot is required",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED",
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 8,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "replace",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid observedLot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "eventsAfterReject": 8,
+  "lot": "''",
+  "lotCase": "empty",
+  "path": "observe",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid lot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "WORK_ORDER_UNRECONCILED",
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "eventsAfterReject": 11,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "replace",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "REJECTED ValidationFailure: Missing/invalid observedLot",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "eventsAfterReject": 8,
+  "lot": "'   '",
+  "lotCase": "whitespace",
+  "path": "observe",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "REPLACED_WITH_UNAFFECTED_LOT",
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "replace",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'UNKNOWN'",
+  "lotCase": "UNKNOWN",
+  "path": "observe",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "REPLACED_WITH_UNAFFECTED_LOT",
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "replace",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'unknown'",
+  "lotCase": "unknown(lower)",
+  "path": "observe",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "REPLACED_WITH_UNAFFECTED_LOT",
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "replace",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+     "operationalAction": "RELEASE_ELIGIBLE",
+     "reasonCodes": [
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": true
+  },
+  "lot": "'BR-310'",
+  "lotCase": "known-unaffected",
+  "path": "observe",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "AFFECTED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "AFFECTED_LOT_INSTALLED",
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "replace",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ },
+ {
+  "capture": "ACCEPTED",
+  "evaluation": {
+   "checkpoint": "ANCHORED_CURRENT",
+   "decisionKeys": [
+    "assuranceWarnings",
+    "caseId",
+    "coverageDigest",
+    "decisionId",
+    "engineVersion",
+    "evidenceEventIds",
+    "evidenceFinding",
+    "evidenceRefs",
+    "flags",
+    "identityGranularity",
+    "integrityIssues",
+    "motorSerial",
+    "operationalAction",
+    "policyId",
+    "policyVersion",
+    "publicationProfile",
+    "reasonCodes",
+    "recallId",
+    "reviewRequired",
+    "semanticsProfile",
+    "slotAttribution",
+    "slotVerdicts",
+    "slots",
+    "supersededEventIds",
+    "supersedesDecisionId",
+    "triggerEventId",
+    "unchanged",
+    "untrustedObservations",
+    "version",
+    "watermark",
+    "workOrders"
+   ],
+   "decisions": {
+    "RC-026-014/P1": {
+     "evidenceFinding": "UNRESOLVED",
+     "operationalAction": "RECALL_HOLD",
+     "reasonCodes": [
+      "UNTRUSTED_AFFECTED_OBSERVATION",
+      "AS_BUILT_UNAFFECTED_LOT"
+     ]
+    }
+   },
+   "eligibility": false
+  },
+  "lot": "'BR-204'",
+  "lotCase": "known-recalled",
+  "path": "observe",
+  "recallScope": "unspecified",
+  "slot": "DE"
+ }
+]

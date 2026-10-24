@@ -1,0 +1,150 @@
+[
+ {
+  "afterCheckpoint": {
+   "action": "RELEASE_ELIGIBLE",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ],
+   "state": "ANCHORED_CURRENT"
+  },
+  "assemble": 200,
+  "beforeCheckpoint": {
+   "eligible": false,
+   "state": "ANCHORED_PREFIX_ONLY"
+  },
+  "case": "UNKNOWN",
+  "decisionsEndpoint": {
+   "eligibility": {
+    "currentReleaseEligible": true
+   },
+   "status": 200
+  },
+  "lot": "'UNKNOWN'",
+  "proposeShowsToReviewer": {
+   "archiveId": "7853568cc69c4ec19390dbc7883fb7dd",
+   "candidateSequence": 2,
+   "currentAnchoredSequence": 1,
+   "newJournalEntries": 1,
+   "newRowsByTable": {
+    "captures": 9,
+    "events": 9,
+    "recall_announcements": 1
+   },
+   "previousCheckpointHash": "9777fbb874b72d01eb5835f6ec68af42aca0dd650cb8cb024fba304aef82c476"
+  },
+  "proposeStatus": "CANDIDATE_PROPOSED_NOT_ACTIVATED"
+ },
+ {
+  "afterCheckpoint": {
+   "action": "RELEASE_ELIGIBLE",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ],
+   "state": "ANCHORED_CURRENT"
+  },
+  "assemble": 200,
+  "beforeCheckpoint": {
+   "eligible": false,
+   "state": "ANCHORED_PREFIX_ONLY"
+  },
+  "case": "letter-O typo of recalled",
+  "decisionsEndpoint": {
+   "eligibility": {
+    "currentReleaseEligible": true
+   },
+   "status": 200
+  },
+  "lot": "'BR-2O4'",
+  "proposeShowsToReviewer": {
+   "archiveId": "abb9ffeafa3449d2a26e1b034a76f371",
+   "candidateSequence": 2,
+   "currentAnchoredSequence": 1,
+   "newJournalEntries": 1,
+   "newRowsByTable": {
+    "captures": 9,
+    "events": 9,
+    "recall_announcements": 1
+   },
+   "previousCheckpointHash": "1e3e260411cf866caf3e145c162402ccbe50ab0609f6b9234db0e4b1fd64b6a3"
+  },
+  "proposeStatus": "CANDIDATE_PROPOSED_NOT_ACTIVATED"
+ },
+ {
+  "afterCheckpoint": {
+   "action": "RELEASE_ELIGIBLE",
+   "eligible": true,
+   "finding": "EXCLUDED_WITH_EVIDENCE",
+   "reasonCodes": [
+    "AS_BUILT_UNAFFECTED_LOT"
+   ],
+   "state": "ANCHORED_CURRENT"
+  },
+  "assemble": 200,
+  "beforeCheckpoint": {
+   "eligible": false,
+   "state": "ANCHORED_PREFIX_ONLY"
+  },
+  "case": "known-unaffected control",
+  "decisionsEndpoint": {
+   "eligibility": {
+    "currentReleaseEligible": true
+   },
+   "status": 200
+  },
+  "lot": "'BR-310'",
+  "proposeShowsToReviewer": {
+   "archiveId": "93bdfef66af347d0af7d9b268598b889",
+   "candidateSequence": 2,
+   "currentAnchoredSequence": 1,
+   "newJournalEntries": 1,
+   "newRowsByTable": {
+    "captures": 9,
+    "events": 9,
+    "recall_announcements": 1
+   },
+   "previousCheckpointHash": "f9815630ee66f15759638175a7c6a94b6ead73b5bc1762e0972ffccf8a313af0"
+  },
+  "proposeStatus": "CANDIDATE_PROPOSED_NOT_ACTIVATED"
+ },
+ {
+  "afterCheckpoint": {
+   "action": "RECALL_HOLD",
+   "eligible": false,
+   "finding": "AFFECTED",
+   "reasonCodes": [
+    "AFFECTED_LOT_INSTALLED"
+   ],
+   "state": "ANCHORED_CURRENT"
+  },
+  "assemble": 200,
+  "beforeCheckpoint": {
+   "eligible": false,
+   "state": "ANCHORED_PREFIX_ONLY"
+  },
+  "case": "recalled control",
+  "decisionsEndpoint": {
+   "eligibility": {
+    "currentReleaseEligible": false
+   },
+   "status": 200
+  },
+  "lot": "'BR-204'",
+  "proposeShowsToReviewer": {
+   "archiveId": "e4879cc8ca9f433e9ae62904d410af7b",
+   "candidateSequence": 2,
+   "currentAnchoredSequence": 1,
+   "newJournalEntries": 1,
+   "newRowsByTable": {
+    "captures": 9,
+    "events": 9,
+    "recall_announcements": 1
+   },
+   "previousCheckpointHash": "6b2f7aad9c516aa826f411d4ba31a38dcca8cf21af0e3339677c227e60debde5"
+  },
+  "proposeStatus": "CANDIDATE_PROPOSED_NOT_ACTIVATED"
+ }
+]
