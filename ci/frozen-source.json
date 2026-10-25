@@ -1,7 +1,7 @@
 {
   "baseline": "f9282101159b6b6806974848d7c351999098d792",
   "regeneratedFrom": "consolidated tree; see docs/CI_INVENTORY_CHANGE.md",
-  "previousManifestFiles": 379,
+  "previousManifestFiles": 405,
   "files": {
     ".gitattributes": "4eceadabeef194a7aa816bacd4ebe743963937059954f6d5db5ae4c6e78c39de",
     ".gitignore": "7a25a035474f8d905209d28f4a3190c3deb6994f6f9d5c10d18aaccd2f81b64d",
@@ -45,6 +45,7 @@
     "application/test_format_v3.py": "c338d6ddc629de7c975d971defddd8235ac0ab0ee54001bebee015723a73deff",
     "application/test_hardening.py": "6b544a90d6cf99e87b4c9402fe190134bf0cad3a19513115ebf77140b8376c40",
     "application/test_lot_identity_ab.py": "208f53c5fabade70652a722b82edf555c9e0dd4cdca5d7beae7a023d820e8fc8",
+    "application/test_order_firewall.py": "97c82d0959e09d8d8d3cd72f0a9204692d40cbae965f9f25c836bf2fea6522da",
     "application/test_remediation.py": "b8b695732809ff4b7cf0d80b28a267653550ef3a8612b8f02ddace28080e2e39",
     "application/test_scoped_containment.py": "8f78ba262ecd74aac7e30bf5335beaa32bd2612b766a71f34027aeb820ede96e",
     "application/test_ship_gate.py": "c7c3f96ac454ed5cffd1a59b46081ec85cf1bdfa41d1676a1823e1cc93c83610",
@@ -354,6 +355,9 @@
     "research/lot_identity_ab/results/reproduce_v1_0.json": "020ffa87e3cb10a552c1e18616adf7a28ed5f942358a7c99a164958437314d70",
     "research/lot_identity_ab/results/timing.json": "17a5a81361122357bcafffa790861395901da77e70b70252ec44b3189311ac8e",
     "research/lot_identity_ab/timing.py": "80a49f5fb092c84e3eee7e0a3f8439ed7b92a991ec6b4df27cf1196afa5b006d",
+    "research/order_firewall/demo_a7.py": "0dd497a9016df4f60be1b26d8a57a51463a32e4d7bde0f4e1f5bea08c9de6164",
+    "research/order_firewall/firewall.py": "ed8529a625f0b1e6c1ae30068a1ebba42a62c35ddf6bd360f395234f8b95889f",
+    "research/order_firewall/replay_check.py": "8adf552eda828e12ce7bc746304aad49fb43fd66de21f4d0575c99fe0fbe425f",
     "research/portable_evidence/demo_f5.py": "2ee7d2f3058b4d56e41f7ab18b148775a197d0aff1d82b7b47a492ea3fb816af",
     "research/portable_evidence/interop_check.py": "18e70d9118f2f9e3d0fd6ec5cd7bea4c7620197bf3082a8d648ea3b12d7d03ac",
     "research/portable_evidence/make_corpus.py": "a8363c1dc8b72576a5b825e37552386dc75f811e2f1919d6b954b6434ddd33de",
