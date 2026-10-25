@@ -88,6 +88,11 @@ class Counterexample(unittest.TestCase):
         self.assertEqual([x["eventId"] for x in c["changed"]], ["urn:pramaan:MTR-26100:HANDHELD:1"])
         smaller = FW.shift(W["ev"]["MTR-26100"]["case"]["events"], {"HANDHELD:MTR-26100": 149})
         self.assertEqual(FW.decide(W["ev"]["MTR-26100"], smaller)["operationalAction"], "RELEASE_ELIGIBLE")   # 149 s does not flip: 150 is minimal
+        for strict in (151, 300):                                             # not an artefact of the tie convention: strictly later sightings hold too
+            o = {"HANDHELD:MTR-26100": strict}
+            sh = FW.shift(W["ev"]["MTR-26100"]["case"]["events"], o)
+            self.assertEqual(FW.violations(W["ev"]["MTR-26100"], o, sh), [])
+            self.assertEqual(FW.decide(W["ev"]["MTR-26100"], sh)["operationalAction"], "RECALL_HOLD")
         EVIDENCE["counterexample"] = dict(offsets=c["offsets"], changed=c["changed"], original=r["original"]["decision"], alternative=c["decision"])
 
     def test_frozen_capture_accepts_the_witness_and_the_frozen_product_then_holds(self):
@@ -206,11 +211,11 @@ class ReplaySupersessionAndCap(unittest.TestCase):
         self.assertEqual(r["classification"], "NOT_EXHAUSTIVE")
         self.assertTrue(any("cap" in n and "NOT examined" in n for n in r["notes"]))
 
-    def test_no_counterexample_only_when_exhaustive_and_never_as_clearance(self):
+    def test_no_counterexample_is_bounded_and_never_a_clearance(self):
         r = W["report"]["motors"]["MTR-DEMO-1"]
         self.assertEqual(r["classification"], "NO_COUNTEREXAMPLE_FOUND")
         self.assertLess(r["ordersEvaluated"], 20000)
-        self.assertTrue(any("Not a clearance" in n for n in r["notes"]))
+        self.assertTrue(any("Not a clearance" in n and "NOT exhaustive" in n for n in r["notes"]))
         near = with_profile("MTR-DEMO-1")
         near["policy"] = dict(near["policy"], announcedAt=near["case"]["events"][2]["occurredAt"])   # a fixed date the logic compares against, within the skew
         r2 = FW.analyse(near)

@@ -1,7 +1,7 @@
 """A7 event-ordering ambiguity diagnostic (research prototype; read-only; synthetic data only).
 
 Question: is a motor's current decision (frozen evaluator + frozen identity/integrity guard) the same in every timeline that the motor's OWN declared
-clock-trust profile admits? It does not decide anything, never writes, does not block shipment and is not a clearance.
+clock-trust profile admits? It searches a bounded subset of those timelines (below); it does not decide anything, never writes, does not block shipment and is not a clearance.
 
 Model (assumptions, all stated in docs/research/A7_ORDER_FIREWALL.md):
   M1 Each source's clock may be off by one unknown constant offset d_s (whole seconds), applied to both occurredAt and recordedAt of every event of
@@ -13,10 +13,11 @@ Model (assumptions, all stated in docs/research/A7_ORDER_FIREWALL.md):
   M4 A shifted timeline is admissible only if every event still passes the frozen native validator (profile.validate_native) and the frozen capture
      rules that involve time: per-source recordedAt non-decreasing, referenced events recorded no later than the referrer, recordedAt inside the
      event's authenticated capture session (integration/pramaan_integration/ledger.py:151-176).
-  M5 Classification enumerates every cross-source order of occurredAt that some offsets satisfying M2/M3 realize (difference constraints,
-     Bellman-Ford) and evaluates each once strictly (gaps >= 1 s) and once at a boundary realization (gaps may be 0 s); not every pattern of exact
-     ties is enumerated, so NO_COUNTEREXAMPLE_FOUND is "none found in this space", never "none exists". It is exhaustive only if no fixed date the decision logic compares against
-     (policy announcement, registry effective dates) lies within the skew of an event; otherwise the result is NOT_EXHAUSTIVE.
+  M5 Phase 2 enumerates the cross-source orders of occurredAt that some offsets satisfying M2-M4 realize (difference constraints, Bellman-Ford)
+     and evaluates ONE strict (gaps >= 1 s) and ONE tie (gaps may be 0 s) realization of each. Other realizations of the same order (other ties,
+     gap sizes, cross-source recordedAt interleavings, which the evaluator also reads) are not evaluated, so NO_COUNTEREXAMPLE_FOUND is "none
+     found among the evaluated realizations", never "none exists" and never exhaustive coverage. NOT_EXHAUSTIVE is reported when the cap
+     is hit or a fixed date the decision logic compares against (policy announcement, registry effective dates) lies within the skew of an event.
 Decision function: the same calls as application/service.py:404-409 (pramaan_recall.evaluate with Config.v3, lot_identity.policy_findings,
 motor_findings, integrity_findings, guard_decision); registry-binding findings are omitted because they depend on the checkpoint, not on the timeline.
 """
@@ -38,7 +39,7 @@ from pramaan_integration.profile import ValidationFailure, validate_native  # no
 CLASSES = ("ORDER_SENSITIVE", "NO_COUNTEREXAMPLE_FOUND", "NOT_EXHAUSTIVE")
 NOTICE = ("Research diagnostic on copied synthetic evidence. It does NOT block shipment, does NOT provide clearance and changes no decision. "
           "Timestamps are synthetic and untrusted; the clock bound used is the motor's declared skew, not an authenticated clock. "
-          "NO_COUNTEREXAMPLE_FOUND means only that none was found in the modelled space; it is not evidence of safety.")
+          "NO_COUNTEREXAMPLE_FOUND means only that none was found among the evaluated realizations of a bounded search; it is not evidence of safety.")
 F = "%Y-%m-%dT%H:%M:%SZ"
 REFS = ("supersedesEventId", "endsInstallEventId", "exceptionEventId", "materialEventId", "manufacturingEventId", "assemblyEventId")
 
@@ -196,6 +197,23 @@ def _constants(ev):
     return out
 
 
+def _capture_constraints(ev, events):
+    """The time-related M4 capture rules as difference constraints on the offsets, so that the order search only keeps orders that SOME admissible
+    realization satisfies (not just the one Bellman-Ford happens to return). Per-source rules are invariant under a constant offset."""
+    out, by_id = [], {e["eventId"]: e for e in events}
+    secs = lambda s: int(_t(s).timestamp())  # noqa: E731
+    for e in events:
+        rec = secs(e["recordedAt"])
+        sess = [x for x in ev["sessions"] if x["sessionId"] == e["captureSessionId"] and x["sourceId"] == e["sourceId"] and x["authenticated"] is True]
+        if len(sess) == 1:                                                    # from <= rec + d <= to
+            out += [(e["sourceId"], "Z", secs(sess[0]["to"]) - rec), ("Z", e["sourceId"], rec - secs(sess[0]["from"]))]
+        for k in REFS:
+            ref = e.get(k) if k == "supersedesEventId" else e["payload"].get(k)
+            if ref in by_id and by_id[ref]["sourceId"] != e["sourceId"]:     # rec_ref + d_ref <= rec + d
+                out.append((by_id[ref]["sourceId"], e["sourceId"], rec - secs(by_id[ref]["recordedAt"])))
+    return out
+
+
 def _feasible(nodes, cons, skew, movable):
     """Difference constraints d_a - d_b <= w over nodes (+ zero node 'Z'); |d| <= skew; pinned nodes = 0. Returns offsets or None."""
     edges = list(cons)
@@ -244,7 +262,8 @@ def analyse(ev, *, cap=20000):
         report["notes"].append("Witness is minimal among single-source shifts (smallest offset per source, smallest overall). It is a real admissible "
                                "timeline under the model; it does not say which timeline happened.")
         return report
-    # Phase 2: enumerate every strict cross-source order of occurredAt realizable by admissible offsets (bounded by cap).
+    # Phase 2: enumerate the cross-source orders of occurredAt that some offsets satisfying M2-M4 realize; evaluate one strict and one tie
+    # realization of each (bounded by cap). This is NOT exhaustive over all admissible timelines (see the NO_COUNTEREXAMPLE_FOUND note).
     near = [name for name, c in _constants(ev) if any(abs((_t(c) - _t(e["occurredAt"])).total_seconds()) <= skew for e in events)]
     order = sorted(range(len(events)), key=lambda i: (events[i]["sourceId"], events[i]["sourceSeq"]))
     t = {i: int(_t(events[i]["occurredAt"]).timestamp()) for i in range(len(events))}
@@ -297,21 +316,23 @@ def analyse(ev, *, cap=20000):
             used.discard(k)
 
     seen = set()
-    dfs([], [], [], set())
+    base_cons = _capture_constraints(ev, events)
+    dfs([], list(base_cons), list(base_cons), set())
     report["ordersEvaluated"] = min(count[0], cap)
     if report["counterexample"]:
         report["classification"] = "ORDER_SENSITIVE"
         report["notes"].append("Witness found by order enumeration (multi-source); offsets are one feasible realization, not necessarily minimal.")
     elif capped[0]:
         report["classification"] = "NOT_EXHAUSTIVE"
-        report["notes"].append(f"Search stopped at the cap of {cap} admissible orders; the remaining space was NOT examined.")
+        report["notes"].append(f"Search stopped at the cap of {cap} evaluated realizations; the remaining space was NOT examined.")
     elif near:
         report["classification"] = "NOT_EXHAUSTIVE"
         report["notes"].append("A fixed date the decision logic compares against lies within the skew of an event (" + ", ".join(near) + "); orders relative to it were not enumerated.")
     else:
         report["classification"] = "NO_COUNTEREXAMPLE_FOUND"
-        report["notes"].append("Every cross-source order realizable under the model was evaluated once strictly and once at a boundary (tie) realization; "
-                               "not every pattern of exact ties is enumerated. Not a clearance.")
+        report["notes"].append("No counterexample among the evaluated realizations: one strict and one tie realization of each cross-source occurredAt order "
+                               "realizable under the model. NOT exhaustive: other tie patterns, other gap sizes and cross-source recordedAt interleavings "
+                               "within an order, clock drift, and offsets beyond the declared skew were not evaluated. Not a clearance.")
     return report
 
 

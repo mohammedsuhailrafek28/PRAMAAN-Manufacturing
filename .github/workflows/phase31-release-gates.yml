@@ -5,7 +5,7 @@ on:
     branches: [main]
     types: [opened, synchronize, reopened, ready_for_review]
   push:
-    branches: [infra/phase31-ci-gates, integration/phase3-reviewed, integration/manufacturing-consolidated-candidate, release/v1-1-demo-candidate, release/hackathon-enhanced-candidate, main]
+    branches: [infra/phase31-ci-gates, integration/phase3-reviewed, integration/manufacturing-consolidated-candidate, release/v1-1-demo-candidate, release/hackathon-enhanced-candidate, research/a7-order-firewall, main]
 
 permissions:
   contents: read
