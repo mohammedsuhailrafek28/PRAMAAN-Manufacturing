@@ -8,6 +8,7 @@ is outside that protection.
 import copy
 import json
 import uuid
+import os
 import time
 import hashlib
 
@@ -28,6 +29,17 @@ class IntegrityFailure(LedgerBlocked):
 
 class Verifying(IntegrityFailure):
     def __init__(self): super().__init__('VERIFYING')
+
+
+def _verify_budget():
+    """Wall-clock budget of one verification. 1.25 s unless the operator sets PRAMAAN_VERIFY_BUDGET_SECONDS (0.25-30). The budget only bounds how long
+    a verification may run before the request fails closed as VERIFYING; it never skips or shortens a check, and anything unparseable falls back to 1.25."""
+    try:value=float(os.environ.get('PRAMAAN_VERIFY_BUDGET_SECONDS','1.25'))
+    except ValueError:return 1.25
+    return value if 0.25<=value<=30 else 1.25
+
+
+VERIFY_BUDGET_SECONDS=_verify_budget()
 
 
 def derive_publication(case, manifest, policy, raw, prior, obligations, archive):

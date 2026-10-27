@@ -26,7 +26,8 @@ COPY deploy/ deploy/
 COPY --from=web /app/stitch-nextjs /app/stitch-nextjs
 RUN chmod +x deploy/start.sh && chown -R app:app /app /home/app
 USER app
-ENV PORT=3000 PRAMAAN_API_URL=http://127.0.0.1:4420
+# Render Free gives ~0.1 vCPU: one verification takes 1.2-2.7 s there (about 0.2 s on a laptop), so the 1.25 s default budget fails closed (503 VERIFYING) on its own. The budget only bounds how long a verification may run.
+ENV PORT=3000 PRAMAAN_API_URL=http://127.0.0.1:4420 PRAMAAN_VERIFY_BUDGET_SECONDS=8
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=90s --retries=3 CMD ["python", "-c", "import os,urllib.request;urllib.request.urlopen('http://127.0.0.1:%s/api/snapshot' % os.environ.get('PORT','3000'),timeout=8)"]
 CMD ["/app/deploy/start.sh"]

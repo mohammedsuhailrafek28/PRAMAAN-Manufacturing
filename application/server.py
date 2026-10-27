@@ -1,6 +1,7 @@
 """Loopback-only local application. No external notification delivery or deployment."""
 import argparse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+import itertools
 import json
 import mimetypes
 from pathlib import Path
@@ -11,6 +12,7 @@ import sys
 from urllib.parse import urlsplit, unquote
 
 from .service import Manufacturing, ValidationFailure, LedgerBlocked, ShipmentRefused, ROOT
+from .audit import VERIFY_BUDGET_SECONDS
 from . import checkpoint_ops
 
 # Restricted stale-checkpoint recovery surface. It is a separate, whitelisted route family: evidence capture, controlled replacement (reconciliation) and the
@@ -64,6 +66,10 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
     finally:
         service.close()
     lock = threading.RLock()
+    # Read-only requests that queue behind one another share ONE verification: a queued GET reuses the snapshot of a verification that STARTED after
+    # that GET arrived (so it reflects everything committed before the request), never an older one. Any command clears it; failures are never stored.
+    shared = dict(snap=None, started=0)
+    ticket = itertools.count(1)   # exact arrival/start ordering; wall clocks can tie (Windows ticks at ~15 ms)
     token = secrets.token_urlsafe(32)
     dist = (ROOT / "recall-ui" / "dist").resolve()
 
@@ -159,10 +165,13 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
 
         def api(self, path, mutate=False):
             started = time.perf_counter()
+            arrived = next(ticket)
             with lock:
                 app = None
                 try:
-                    app = Manufacturing(database,journal_cache=journal_cache,verification_deadline=time.monotonic()+1.25)
+                    app = Manufacturing(database,journal_cache=journal_cache,verification_deadline=time.monotonic()+VERIFY_BUDGET_SECONDS)
+                    if mutate:
+                        shared.update(snap=None, started=0)   # every command invalidates the shared read snapshot before it can write
                     if path == "/api/recovery" or path.startswith("/api/recovery/"):
                         return self.recovery(app, path, mutate, started)
                     if mutate:
@@ -212,7 +221,12 @@ def make_server(database, port=4173, seed=False, *, trusted_anchor=None, previou
                         return self.send(200, {"snapshot": snap, "captureToDecisionMs": (time.perf_counter()-started)*1000})
                     if anchor is None and path != '/api/snapshot':
                         raise LedgerBlocked('Trusted external anchor required; only historical snapshot envelope available')
-                    snap = app.snapshot(trusted_anchor=anchor)
+                    if shared["snap"] is not None and shared["started"] > arrived:
+                        snap = shared["snap"]
+                    else:
+                        began = next(ticket)
+                        snap = app.snapshot(trusted_anchor=anchor)
+                        shared.update(snap=snap, started=began)
                     if path == "/api/snapshot":
                         return self.send(200, snap)
                     if path == "/api/motors":

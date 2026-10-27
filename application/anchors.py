@@ -20,7 +20,7 @@ import rfc8785
 from pramaan_integration import LedgerBlocked
 from pramaan_integration.profile import digest
 from . import registry_binding
-from .audit import PROFILE, VERIFIER_VERSION, ENGINE_TREE, IntegrityFailure, ReplayCache
+from .audit import PROFILE, VERIFIER_VERSION, ENGINE_TREE, IntegrityFailure, ReplayCache, VERIFY_BUDGET_SECONDS
 
 FORMAT = 'PRAMAAN_A31_ANCHOR_V1'
 HARDENING_PROFILE = 'A31_C1_C3_PENDING_OBLIGATIONS_V1'
@@ -250,7 +250,7 @@ class TrustedAnchor:
     @consistent(1)
     def verify(self,app,deadline=None):
         try:
-            if deadline is None:deadline=time.monotonic()+1.25
+            if deadline is None:deadline=time.monotonic()+VERIFY_BUDGET_SECONDS
             if self.path.read_bytes()!=self.bytes:
                 raise IntegrityFailure('PREFIX_MISMATCH')
             if self.previous_path and self.previous_path.read_bytes()!=self.previous_bytes:raise IntegrityFailure('PREFIX_MISMATCH')

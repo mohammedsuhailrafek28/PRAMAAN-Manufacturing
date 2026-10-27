@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT / "integration"))
 from pramaan_integration import Ledger, LedgerBlocked, ValidationFailure, encode_document
 from pramaan_integration.profile import digest
 from pramaan_integration import engine_bridge
-from .audit import Audit
+from .audit import Audit, VERIFY_BUDGET_SECONDS
 from . import lot_identity as lots
 from . import registry_binding
 
@@ -369,7 +369,7 @@ class Manufacturing:
         self.snapshot()
 
     def snapshot(self, *, trusted_anchor=None, ship_ticket=None):
-        deadline=time.monotonic()+1.25 if trusted_anchor else None
+        deadline=time.monotonic()+VERIFY_BUDGET_SECONDS if trusted_anchor else None
         self.db.execute('BEGIN IMMEDIATE')
         self.audit._verified_token=None
         try:
