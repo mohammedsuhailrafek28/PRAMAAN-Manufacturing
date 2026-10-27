@@ -172,6 +172,35 @@ class SharedReadTests(unittest.TestCase):
         status, body = s.get('/api/snapshot')
         self.assertEqual(body['checkpoint']['state'], 'ANCHORED_PREFIX_ONLY')
 
+    def test_a_real_command_over_http_invalidates_the_shared_snapshot(self):
+        from urllib.request import Request, urlopen
+        s = Served(self)
+        before = s.get('/api/motors')[1]
+        self.assertEqual(s.get('/api/snapshot')[0], 200)         # a shared verification now exists
+        with urlopen(s.base + '/api/session') as r:
+            token = json.load(r)['token']
+        req = Request(s.base + '/api/units', data=json.dumps({'serial': 'MTR-NEW-001'}).encode(), headers={'Content-Type': 'application/json', 'X-Pramaan-Token': token, 'Origin': s.base})
+        with urlopen(req) as r:
+            self.assertEqual(r.status, 200)
+        after = s.get('/api/motors')[1]
+        self.assertEqual(len(after), len(before) + 1, 'a read after a command must never come from a verification that predates it')
+        self.assertIn('MTR-NEW-001', [u['unitId'] for u in after])
+
+    def test_backend_unavailable_after_a_verified_read_serves_nothing(self):
+        from application import server
+        s = Served(self)
+        self.assertEqual(s.get(DECISIONS)[0], 200)               # a shared verification exists
+        def unavailable(*a, **kw):
+            raise service.LedgerBlocked('database unavailable')
+        with patch.object(server, 'Manufacturing', unavailable):
+            for path in (DECISIONS, '/api/snapshot', '/api/motors'):
+                status, body = s.get(path)
+                self.assertNotEqual(status, 200, path)
+                self.assertTrue(body.get('decisionsUnavailable'), path)
+                self.assertNotIn('eligibility', body)
+                self.assertNotIn('decisions', body)
+        self.assertEqual(s.get(DECISIONS)[0], 200)
+
 
 if __name__ == '__main__':
     unittest.main()
