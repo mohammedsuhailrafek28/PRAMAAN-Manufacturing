@@ -17,3 +17,4 @@ compatibility
 docs
 **/__pycache__
 **/*.pyc
+stitch-nextjs/.lease-test-build

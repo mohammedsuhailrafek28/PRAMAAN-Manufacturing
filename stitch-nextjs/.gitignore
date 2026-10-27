@@ -8,3 +8,4 @@ artifacts/
 .ml-test-build/
 .ask-test-build/
 .sim-test-build/
+.lease-test-build/

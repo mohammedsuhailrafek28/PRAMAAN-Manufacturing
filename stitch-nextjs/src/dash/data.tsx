@@ -5,6 +5,7 @@ import { GateTracker, SEGREGATED_REASON } from "@/orig/contract/gate";
 import { isGated, type PageView } from "@/orig/contract/gated";
 import { assess, epochOf, type Consistency } from "./consistency";
 import type { Snapshot } from "./types";
+import { POLL_MS, keepsHeldLease, nextPollDelay } from "./lease";
 
 /** One measured GET. `ms` = browser time until the JSON body was read; `headersMs` = browser time until response headers arrived. Both are client-observed. */
 export type Timing = { id: number; label: string; path: string; status: number | "NETWORK_ERROR"; ok: boolean; ms: number; headersMs: number; bytes: number; serverTiming: string | null; at: string };
@@ -92,29 +93,34 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     let alive = true, inFlight = false, first = true;
-    let lease: ReturnType<typeof setTimeout> | undefined;
-    const expire = () => setRaw((p) => (p.phase === "ready" ? { ...p, leaseOk: false } : p));
+    let lease: ReturnType<typeof setTimeout> | undefined, timer: ReturnType<typeof setTimeout> | undefined;
+    let leaseUntil: number | null = null; // monotonic end of the lease the last ACCEPTED response holds
+    const expire = () => { leaseUntil = null; setRaw((p) => (p.phase === "ready" ? { ...p, leaseOk: false } : p)); };
+    const schedule = (ms: number) => { clearTimeout(timer); if (alive) timer = setTimeout(() => void refresh(), ms); };
     const refresh = async () => {
-      if (inFlight || document.hidden) return;
+      if (inFlight) return;
+      if (document.hidden) { schedule(POLL_MS); return; }
       inFlight = true;
+      const started = performance.now();
       try {
         let res;
         try { res = await getRaw(first ? "Snapshot" : "Snapshot (gate poll)", "/api/snapshot", first); first = false; }
-        catch { if (alive) { clearTimeout(lease); const g = tracker.current.transport() as { reason: string }; setRaw({ phase: "error", status: "NETWORK_ERROR", error: g.reason, state: "TRANSPORT" }); } return; }
+        catch { if (alive) { clearTimeout(lease); leaseUntil = null; const g = tracker.current.transport() as { reason: string }; setRaw({ phase: "error", status: "NETWORK_ERROR", error: g.reason, state: "TRANSPORT" }); } return; }
         if (!alive) return;
         const gate = tracker.current.evaluate(res);
-        clearTimeout(lease);
+        // Freshness-only rejection: not accepted, but an earlier accepted response's lease runs out on its own timer.
+        if (keepsHeldLease(gate, leaseUntil, performance.now())) return;
+        clearTimeout(lease); leaseUntil = null;
         if (gate.kind === "WITHHELD") { setRaw({ phase: "error", status: "WITHHELD", error: gate.reason, state: gate.cause }); return; }
         const current = gate.kind === "CURRENT";
         setRaw({ phase: "ready", view: gate.view, snap: res.body as Snapshot, current, leaseOk: current, reason: gate.kind === "SEGREGATED" ? gate.reason : "", cause: gate.kind === "SEGREGATED" ? gate.cause : "CURRENT" });
-        if (current) lease = setTimeout(expire, Math.max(0, gate.leaseMs));
-      } finally { inFlight = false; }
+        if (current) { lease = setTimeout(expire, Math.max(0, gate.leaseMs)); leaseUntil = performance.now() + Math.max(0, gate.leaseMs); }
+      } finally { inFlight = false; schedule(nextPollDelay(started, performance.now())); }
     };
     const onVisibility = () => { clearTimeout(lease); expire(); if (!document.hidden) void refresh(); };
     void refresh();
-    const timer = setInterval(refresh, 2000);
     document.addEventListener("visibilitychange", onVisibility);
-    return () => { alive = false; clearInterval(timer); clearTimeout(lease); document.removeEventListener("visibilitychange", onVisibility); };
+    return () => { alive = false; clearTimeout(timer); clearTimeout(lease); document.removeEventListener("visibilitychange", onVisibility); };
   }, [getRaw, tick]);
 
   const trusted = raw.phase === "ready" && raw.current && raw.leaseOk && isGated(raw.view);
