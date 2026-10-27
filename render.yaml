@@ -1,0 +1,16 @@
+# Render Blueprint (not applied yet). One Docker web service: Next.js public, Python backend on 127.0.0.1:4420 inside the container.
+# Synthetic demonstration data; no independent custody. Instance type "free" is a proposal pending owner cost approval.
+services:
+  - type: web
+    name: pramaan-manufacturing
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    branch: deploy/ps10-render
+    healthCheckPath: /api/snapshot
+    autoDeploy: false
+    envVars:
+      - key: PRAMAAN_API_URL
+        value: http://127.0.0.1:4420
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"

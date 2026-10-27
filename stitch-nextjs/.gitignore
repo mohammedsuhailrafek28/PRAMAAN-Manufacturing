@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+public/landing/landing.css
+public/landing/three.min.js
+artifacts/
+.ml-test-build/
+.ask-test-build/
+.sim-test-build/

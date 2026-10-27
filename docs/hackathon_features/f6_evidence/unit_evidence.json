@@ -1,0 +1,46 @@
+{
+ "adoption": "no announce on receive; wrong/empty operator or confirmation refused; adoption announces once; A maps NSB-204 -> BR-204, B maps NSB-204 -> BR-771",
+ "boardRejections": "tampered, wrong-key, supplier-key, unknown alert, extra fields (even with a real factory key), inconsistent counts, replay, out-of-order: all rejected",
+ "expiry": "expired, not-yet-valid, zero/overlong/non-integer lifetimes rejected; 60 s skew honoured",
+ "factoryCounts": {
+  "a": {
+   "heldByEvidenceFinding": {
+    "AFFECTED": 2,
+    "EXCLUDED_WITH_EVIDENCE": 0,
+    "UNRESOLVED": 0
+   },
+   "heldMotors": 2,
+   "heldOnlyByIdentityGuard": 0
+  },
+  "b": {
+   "heldByEvidenceFinding": {
+    "AFFECTED": 1,
+    "EXCLUDED_WITH_EVIDENCE": 1,
+    "UNRESOLVED": 0
+   },
+   "heldMotors": 2,
+   "heldOnlyByIdentityGuard": 1
+  }
+ },
+ "forgedAdoptionRow": "an adoption row without a matching ledger policy yields ADOPTION_REFUSED and no counts",
+ "hostileInputs": "13 hostile inputs rejected and recorded, none raised, ledger untouched",
+ "identityBlocksCycle": "look-alike sighting and bypassed look-alike install: existing accept refuses, the factory reports PENDING_CHECKPOINT with no counts",
+ "ledgerDelta": "every pre-existing row digest of every table is unchanged; only appended rows (recall announcement, snapshots/publications of the existing cycle)",
+ "monotone": "after adoption, hostile/valid/withdrawal/response messages leave the held set and every eligibility flag unchanged",
+ "replayOrdering": [
+  "REPLAY",
+  "OUT_OF_ORDER",
+  "PREVHASH_MISMATCH",
+  "REPLAY",
+  "STALE_SEQUENCE",
+  "DUPLICATE_ALERT_ID"
+ ],
+ "responsePrivacy": "no serial, local lot, other-supplier, other-factory, path or event string in any response file (scanned 16 patterns)",
+ "rfc8032Vectors": "RFC 8032 section 7.1 tests 1 and 2 reproduced exactly by the cryptography package used for message signing",
+ "secondScope": "second (mapped) lot refused by the unchanged one-scope-per-database rule; first policy unchanged; no counts",
+ "staticScan": "federation package: no sockets/HTTP, and node.py calls only Manufacturing.announce and Manufacturing.snapshot",
+ "supplierBoard": "SUPPLIER BOARD (counts only; factory-asserted)\nDemo keys were generated locally on one machine. A valid signature shows integrity under a pinned key, NOT independent company authentication. Same-host custody; not production; physical product identity is not verified.\nOnly a status and held-motor counts by evaluator evidence finding. No serials, lots, customers, event histories or ledgers. A missing or zero count is not a clearance.\n\n  urn:demo:factory:aster-motors            ALERT-935e28cac26d ANSWERED             held 2 (AFFECTED 2, UNRESOLVED 0, EXCLUDED_WITH_EVIDENCE 0; held only by identity guard 0); checkpoint 0e8066033476\n  urn:demo:factory:kaveri-drives           ALERT-935e28cac26d ANSWERED             held 2 (AFFECTED 1, UNRESOLVED 0, EXCLUDED_WITH_EVIDENCE 1; held only by identity guard 1); checkpoint 8f5419dfe7e3",
+ "tamper": "humanText, exp, seq, alertId, affectedSlots, lot, issuer edits: all rejected (BAD_SIGNATURE/UNKNOWN_SENDER); ledger untouched",
+ "unmapped": "6 unmapped/look-alike/wrong-part cases x 2 factories: LOT_UNMAPPED, no announce, no counts",
+ "wrongKey": "attacker kid, victim kid with attacker signature, flipped/short signature, factory key claiming to be a sender: all rejected"
+}

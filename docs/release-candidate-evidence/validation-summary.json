@@ -1,0 +1,45 @@
+{
+  "assessment": "REVISE_BLOCKED",
+  "engine": {
+    "passed": 127
+  },
+  "integration": {
+    "passed": 44
+  },
+  "foundation": {
+    "passed": 21
+  },
+  "exporter": {
+    "passed": 7
+  },
+  "application": {
+    "passed": 58,
+    "errors": 1,
+    "total": 59
+  },
+  "vitest": {
+    "passed": 296,
+    "failed": 21,
+    "total": 317
+  },
+  "fullBrowserBeforeHttpStatusDelta": {
+    "startTime": "2026-10-23T11:56:16.255Z",
+    "duration": 709457.919,
+    "expected": 119,
+    "skipped": 0,
+    "unexpected": 18,
+    "flaky": 0
+  },
+  "focusedBrowserAfterHttpStatusDelta": {
+    "startTime": "2026-10-23T16:16:46.573Z",
+    "duration": 24142.156,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "build": "PASS",
+  "hostedReleaseCandidate": "NOT_RUN",
+  "originalTestsEdited": false,
+  "backendChangesBeyondExactF9Import": false
+}

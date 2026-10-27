@@ -1,0 +1,92 @@
+
+==============================================================================================================
+LIMITS (read first): Demo keys were generated locally on one machine. A valid signature shows integrity under a pinned key, NOT independent company authentication. Same-host custody; not production; physical product identity is not verified.  Not production-ready; synthetic data; acknowledgements and confirmations below are scripted.
+==============================================================================================================
+
+==============================================================================================================
+1. RECALL (v1.1 behaviour): factory A announces a recall of its bearing lot BR-204, drive end; existing checkpoint cycle anchors the ledger
+==============================================================================================================
+  checkpoint state: ANCHORED_CURRENT; motors held: ['MTR-A-001', 'MTR-A-003']; clean motors stay unaffected: ['MTR-A-002']
+
+==============================================================================================================
+2. GENEALOGY from the same ledger: why each held motor is held (frozen evaluator output, not recomputed here)
+==============================================================================================================
+  MTR-A-001: evidenceFinding=AFFECTED operationalAction=RECALL_HOLD reasons=['AFFECTED_LOT_INSTALLED']
+      installed DE bearing BRG-MTR-A-001-DE-01 part BR-6205 lot BR-204 (registry REGISTERED) at 2026-10-10T08:02:00Z
+      installed NDE bearing BRG-MTR-A-001-NDE-01 part BR-6205 lot BR-312 (registry REGISTERED) at 2026-10-10T08:03:30Z
+      lineage: supplier SUP-NSB-01 raw material STEEL-26-410 (SYNTHETIC_UNVERIFIED_CLAIM)
+  MTR-A-002: evidenceFinding=EXCLUDED_WITH_EVIDENCE operationalAction=RELEASE_ELIGIBLE reasons=['AS_BUILT_UNAFFECTED_LOT']
+      installed DE bearing BRG-MTR-A-002-DE-01 part BR-6205 lot BR-310 (registry REGISTERED) at 2026-10-10T08:06:00Z
+      installed NDE bearing BRG-MTR-A-002-NDE-01 part BR-6205 lot BR-312 (registry REGISTERED) at 2026-10-10T08:07:30Z
+  MTR-A-003: evidenceFinding=AFFECTED operationalAction=RECALL_HOLD reasons=['AFFECTED_LOT_INSTALLED']
+      installed DE bearing BRG-MTR-A-003-DE-01 part BR-6205 lot BR-204 (registry REGISTERED) at 2026-10-10T08:10:00Z
+      installed NDE bearing BRG-MTR-A-003-NDE-01 part BR-6205 lot BR-312 (registry REGISTERED) at 2026-10-10T08:11:30Z
+      lineage: supplier SUP-NSB-01 raw material STEEL-26-410 (SYNTHETIC_UNVERIFIED_CLAIM)
+
+==============================================================================================================
+3. F5 PORTABLE EVIDENCE: one recalled motor, three recipient-scoped packages; verified OFFLINE with only the issuer's public key (informational, never clearance)
+==============================================================================================================
+  issued customer  for urn:demo:customer:pumpco               2531 bytes
+  issued supplier  for urn:demo:supplier:northstar-bearings   2714 bytes
+  issued auditor   for urn:demo:auditor:regulator             6612 bytes
+ACCEPTED (cryptographic checks only)
+  signature              : VALID_UNDER_PINNED_ISSUER_KEY
+  claim commitments      : VALID (4 disclosed of 24 committed digests incl. decoys)
+  intended recipient     : MATCHES
+  validity window        : WITHIN_WINDOW_BY_VERIFIER_CLOCK (the clock is not signed or attested)
+  checkpoint binding     : ISSUER_ASSERTED_ONLY
+  freshness / revocation : UNKNOWN_WITHOUT_EXTERNAL_EVIDENCE
+  physical product truth : UNVERIFIED
+  profile / audience     : customer / urn:demo:customer:pumpco
+  disclosed claims:
+    recallId = "RC-026-014"
+    evidenceFinding = "AFFECTED"
+    operationalAction = "RECALL_HOLD"
+    motorSerial = "MTR-A-001"
+  not disclosed: 20 committed digests are not opened (hidden claims and decoys are indistinguishable)
+  Informational evidence only. Not a release clearance, shipment permission or finding. Physical product truth is not verified.
+ACCEPTED (cryptographic checks only)
+ACCEPTED (cryptographic checks only)
+  NEGATIVE (wrong audience): REJECTED: AUDIENCE_MISMATCH package is for 'urn:demo:customer:pumpco'
+  NEGATIVE (wrong issuer key): REJECTED: WRONG_ISSUER_KEY kid does not match the pinned key
+  ISSUER REFUSAL for the clean motor MTR-A-002 (packages are never clearance): operational action 'RELEASE_ELIGIBLE': packages describe held motors only and are never issued as clearance
+
+==============================================================================================================
+4. F6 FEDERATED RECALL: supplier S signs ONE alert for ITS label NSB-204; factories A and B authenticate, map with their OWN registries, and operators adopt
+==============================================================================================================
+  Aster Motors (A): accepted=True status=PENDING_OPERATOR; label NSB-204 -> local lot BR-204 (never sent back)
+  Kaveri Drives (B): accepted=True status=PENDING_OPERATOR; label NSB-204 -> local lot BR-771 (never sent back)
+  wrong confirmation refused: CONFIRMATION_MISMATCH
+  A adopts: adopted=True; A already recalled BR-204 on its own, so the ledger is unchanged: True
+  B adopts: adopted=True; B's response while its checkpoint is stale: None
+
+==============================================================================================================
+5. Counts-only responses (no serials, lots, customers) and the supplier's board
+==============================================================================================================
+  Aster Motors (A): ANSWERED {"heldMotors": 2, "heldByEvidenceFinding": {"AFFECTED": 2, "UNRESOLVED": 0, "EXCLUDED_WITH_EVIDENCE": 0}, "heldOnlyByIdentityGuard": 0}
+  Kaveri Drives (B): ANSWERED {"heldMotors": 2, "heldByEvidenceFinding": {"AFFECTED": 1, "UNRESOLVED": 0, "EXCLUDED_WITH_EVIDENCE": 1}, "heldOnlyByIdentityGuard": 1}
+SUPPLIER BOARD (counts only; factory-asserted)
+Demo keys were generated locally on one machine. A valid signature shows integrity under a pinned key, NOT independent company authentication. Same-host custody; not production; physical product identity is not verified.
+Only a status and held-motor counts by evaluator evidence finding. No serials, lots, customers, event histories or ledgers. A missing or zero count is not a clearance.
+
+  urn:demo:factory:aster-motors            ALERT-23adc260da1b ANSWERED             held 2 (AFFECTED 2, UNRESOLVED 0, EXCLUDED_WITH_EVIDENCE 0; held only by identity guard 0); checkpoint 443fe137a147
+  urn:demo:factory:kaveri-drives           ALERT-23adc260da1b ANSWERED             held 2 (AFFECTED 1, UNRESOLVED 0, EXCLUDED_WITH_EVIDENCE 1; held only by identity guard 1); checkpoint 2b9b6e4697be
+
+==============================================================================================================
+6. Same evidence set, other direction: B's recalled motor also gets an F5 package; B's guard-only hold is stated, not hidden
+==============================================================================================================
+  MTR-B-001: evidenceFinding=AFFECTED operationalAction=RECALL_HOLD
+  MTR-B-003: evidenceFinding=EXCLUDED_WITH_EVIDENCE operationalAction=RECALL_HOLD
+
+==============================================================================================================
+7. Unmapped lot: a second alert for NSB-999 is refused by both factories, never reported as 'not affected'
+==============================================================================================================
+  Aster Motors (A): adopt -> LOT_UNMAPPED
+  Kaveri Drives (B): adopt -> LOT_UNMAPPED
+
+==============================================================================================================
+8. Safety recap
+==============================================================================================================
+  * F5 packages are informational: signed, recipient-scoped, never issued for clean motors, no release-eligibility path.
+  * F6 messages only add holds after a named operator; no message clears a hold. Neither feature writes the ledger except F6's operator-gated existing announce.
+  * Same-host custody and local demo keys: NOT independent verification; physical product identity is not verified.

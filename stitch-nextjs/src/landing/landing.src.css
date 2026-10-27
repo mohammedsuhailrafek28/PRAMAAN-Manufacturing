@@ -1,0 +1,84 @@
+/* Custom CSS copied verbatim from the approved Stitch landing page <style>; Tailwind layers follow it, as the CDN build injects its style after it. */
+    /* Technical Blueprint Grid Background */
+    .bg-tech-grid {
+      background-color: #f7fafc;
+      background-image: 
+        radial-gradient(circle at 75% 45%, rgba(2, 132, 199, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 15% 20%, rgba(193, 138, 84, 0.04) 0%, transparent 40%),
+        linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+        linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+    }
+
+    .bg-subtle-grid {
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.65) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.65) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* Telemetry Card Styling */
+    .telemetry-card {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(186, 230, 253, 0.85);
+      box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    }
+
+    .tech-panel {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.04);
+    }
+
+    /* Callout labels transition and styling */
+    .dynamic-tag {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+      will-change: transform, left, top;
+      transition: opacity 0.2s ease-out;
+    }
+
+    /* Scroll motion: blocks are visible by default. Script marks only below-the-fold, noncritical blocks (.mo-rv) and releases them (.mo-in). */
+    .reveal-item.mo-rv {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) var(--mo-d, 0ms), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) var(--mo-d, 0ms);
+    }
+
+    .reveal-item.mo-rv.mo-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* in-page anchors glide (native smooth scroll, no scroll hijacking) and clear the sticky header */
+    html { scroll-padding-top: 72px; }
+    html.scroll-smooth { scroll-behavior: smooth; }
+
+/* ---- Design foundations on the landing page: dashboard type families and a readable minimum size ---- */
+.landing-root h1, .landing-root h2 { font-family: "Sequel Wide", "Unbounded", "Hanken Grotesk", "Manrope", sans-serif; font-weight: 500; letter-spacing: 0; }
+.landing-root h1 { font-size: clamp(30px, 4.2vw, 50px); line-height: 1.16; }
+.landing-root h2 { font-size: clamp(22px, 2.8vw, 32px); line-height: 1.25; }
+.landing-root [class*="text-[9px]"], .landing-root [class*="text-[10px]"] { font-size: 11.5px; }
+.landing-root [class*="text-[11px]"] { font-size: 12px; }
+@media (max-width: 480px) { .landing-root .mb-8 > .flex.items-center.gap-2, .landing-root #trace-mode-toggle { flex-wrap: wrap; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      html.scroll-smooth { scroll-behavior: auto; }
+      .reveal-item, .reveal-item.mo-rv {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .animate-float-slow, .animate-pulse-glow, .animate-spin {
+        animation: none !important;
+      }
+    }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

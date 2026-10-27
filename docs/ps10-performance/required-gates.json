@@ -1,0 +1,10 @@
+{
+  "status": "FAILED",
+  "invocation": "c8dc6af6d47641ca8ae65b547d9c6484",
+  "commit": "dcdbc7b64dc20aede6a010fd0ef8a0a641ded57b",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "node": "v24.17.0",
+  "chrome": "155.0.8059.84",
+  "gates": {},
+  "error": "RuntimeError(\"Unapproved tracked paths: ['performance/__init__.py', 'performance/benchmark.py', 'performance/impact_query.py', 'performance/package.json', 'performance/playwright.config.ts', 'performance/run_validation.py', 'performance/test_impact_query.py']\")"
+}

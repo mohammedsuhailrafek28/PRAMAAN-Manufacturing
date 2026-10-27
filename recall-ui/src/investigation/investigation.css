@@ -1,0 +1,33 @@
+/* Investigation-workspace styles. Reuses the tokens defined in ../styles.css; changes nothing there. */
+main { max-width: 72rem; margin: 0 auto; padding: 1rem 16px 3rem; }
+.iw h2 { margin-bottom: 0.4rem; }
+.iw-serious { background: var(--unr-bg); color: var(--unr-text); border-color: var(--unr-bd); font-weight: 700; }
+.iw-watermark { background: var(--surface); border: 1px solid var(--border); padding: 0.6rem 0.9rem; margin: 0.8rem 0; overflow-wrap: anywhere; }
+.iw-watermark h3 { margin: 0 0 0.3rem; font-size: 1rem; }
+.iw-rules { margin: 0.6rem 0; }
+.iw-cards { list-style: none; padding: 0; margin: 0.5rem 0; display: grid; gap: 0.8rem; }
+.iw-card { background: var(--surface); border: 1px solid var(--border); border-left: 5px solid var(--accent); padding: 0.7rem 1rem; overflow-wrap: anywhere; }
+.iw-card h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+.iw-rank { display: inline-block; min-width: 2.2rem; font-weight: 700; color: var(--muted); }
+.iw-key { padding-left: 1.1rem; margin: 0.3rem 0; }
+.iw-key code { overflow-wrap: anywhere; }
+.iw-facts { display: grid; gap: 0.35rem; margin: 0.4rem 0 0.8rem; }
+.iw-facts > div { display: grid; grid-template-columns: minmax(9rem, 15rem) minmax(0, 1fr); gap: 0.2rem 1rem; }
+.iw-facts dt { color: var(--muted); font-weight: 600; }
+.iw-facts dd { margin: 0; overflow-wrap: anywhere; }
+.iw-values { padding-left: 1.1rem; margin: 0; }
+.iw-reasons { padding-left: 1.1rem; }
+.iw-task { background: var(--bg); border: 1px solid var(--border); padding: 0.7rem 1rem; margin: 0.8rem 0 1.4rem; overflow-wrap: anywhere; }
+.iw-task h4, .iw-task h3 { margin: 0 0 0.3rem; }
+.iw-task h5 { margin: 0.9rem 0 0.2rem; font-size: 0.95rem; }
+.iw-motor-section { border-top: 2px solid var(--border); margin-top: 1.2rem; padding-top: 0.4rem; }
+.iw-motor h4 { margin: 0.4rem 0; }
+.iw-untasked, .iw-rules { margin: 0.8rem 0; }
+.error-panel { border: 2px solid var(--unr-bd); background: var(--warn-bg); color: var(--warn-text); padding: 0.8rem 1rem; }
+select { font: inherit; min-height: 44px; padding: 0 0.5rem; }
+.iw a, .iw summary { min-height: 24px; }
+.iw summary { cursor: pointer; padding: 0.3rem 0; }
+@media (max-width: 720px) {
+  .iw-facts > div { grid-template-columns: minmax(0, 1fr); }
+  .iw-facts dt { margin-top: 0.3rem; }
+}

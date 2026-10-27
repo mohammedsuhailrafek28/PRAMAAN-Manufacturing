@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "module": "commonjs", "moduleResolution": "node", "noEmit": false, "incremental": false, "isolatedModules": false, "plugins": [], "rootDir": ".", "outDir": ".ml-test-build", "types": ["node"] },
+  "include": ["tests/ml.test.ts", "src/ml/*.ts"],
+  "exclude": ["node_modules"]
+}

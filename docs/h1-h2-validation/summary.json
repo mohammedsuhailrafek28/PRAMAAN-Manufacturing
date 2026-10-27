@@ -1,0 +1,64 @@
+{
+  "assessment": "REVISE_NOT_CLOSED",
+  "base": "f9282101159b6b6806974848d7c351999098d792",
+  "specificationCommit": "e9da7c4b164003bc287c3c65c4a3dde45bd7136c",
+  "ci": {
+    "branch": "infra/phase31-ci-gates",
+    "sha": "04d974fd6307fca1f129be6b5683f4468b5fcad7",
+    "failedRun": 39735037203,
+    "verifiedSuccessfulRun": 39736296447,
+    "classification": "CI terminal-output count parser defect; original Vitest run had 33 passing tests and exit zero",
+    "h1h2HostedVerification": "NOT_RUN"
+  },
+  "unchangedSuites": {
+    "engine": {"passed": 127, "failed": 0},
+    "integration": {"passed": 44, "failed": 0},
+    "foundation": {"passed": 21, "failed": 0},
+    "exporter": {"passed": 7, "failed": 0}
+  },
+  "applicationAndCheckpointPython": {
+    "total": 59, "passed": 58, "errors": 1,
+    "newCheckpointTests": 23,
+    "unchangedFailingTest": "test_historical_resolution_entries_are_not_rewritten",
+    "reason": "Old assertion expects checkpoint export over a historical resolution claim; owner now explicitly requires export blocked pending approved migration. Original test preserved."
+  },
+  "vitest": {
+    "total": 37, "passed": 34, "failed": 3,
+    "newCheckpointTests": 4,
+    "unchangedFailingTests": [
+      "passes the local token and validates the returned mutation snapshot",
+      "rejects a successful stale replay instead of treating arrival as verification",
+      "late older concurrent request cannot overwrite the latest accepted response"
+    ],
+    "reason": "Legacy mocked backend envelopes omit mandatory checkpoint/eligibility metadata; stale replay is rejected with a different earlier failure code."
+  },
+  "browser": {
+    "total": 30, "passed": 26, "failed": 4, "skipped": 0,
+    "newStrictCheckpointScenarioPassed": true,
+    "unchangedFailingTests": [
+      "external capture writer withdraws displayed exclusion without an API command",
+      "live manufacturing capture, genealogy, recall, replacement and late withdrawal",
+      "live long identifiers: decision, history and keyboard-scrollable genealogy at 390px",
+      "NDE-only affected motor is held by unspecified recall scope through real API"
+    ],
+    "reason": "Original tests require normal action/finding views and repeated operations after writes without separately activating a covering checkpoint; strict mode withholds current eligibility and shows holds in its dedicated panel."
+  },
+  "build": "PASS",
+  "R18": {
+    "motors": 100,
+    "journalEntries": 1000,
+    "assessment": "SAFE_503_FALLBACK_ONLY_AVAILABILITY_UNACCEPTABLE",
+    "http503Verifying": 12,
+    "successfulSnapshots": 0,
+    "successfulP95Ms": null,
+    "activationVerificationMs": 25039.617,
+    "minimumResponseMs": 1694.596,
+    "maximumResponseMs": 2925.392,
+    "preliminaryRuns": "Four-second client timeouts; failed, not included as successful samples",
+    "rawFinalArtifact": "R18-measured.json",
+    "hardware": "AMD Ryzen 7 250 with Radeon 780M Graphics, 16 logical processors; shared Windows developer machine with concurrent regression jobs",
+    "uiTimeoutMsUnchanged": 4000
+  },
+  "pinnedSourceAndOriginalTestChanges": "NONE",
+  "mergeDeploymentPullRequest": "NONE"
+}

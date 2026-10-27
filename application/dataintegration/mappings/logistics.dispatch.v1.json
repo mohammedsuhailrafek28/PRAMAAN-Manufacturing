@@ -1,0 +1,16 @@
+{
+ "mappingId": "logistics.dispatch", "version": 1,
+ "description": "Logistics dispatch export (JSON, nested shipment object, offset timestamps). Historical shipment records only; importing one never performs or authorises a shipment.",
+ "sourceSystem": "LOGISTICS", "adapter": "logistics_dispatch", "format": "json", "recordsPath": "shipments",
+ "timestamps": {"field": "occurredAt", "timezone": "UTC", "formats": ["iso"]},
+ "capture": {"historicalShipments": false},
+ "fields": {
+  "recordId": {"source": "shipment.id", "required": true, "transforms": ["strip"]},
+  "motorSerial": {"source": "unit.serial", "required": true, "transforms": ["motor_serial"], "pattern": "MTR-[A-Z0-9-]{3,30}"},
+  "occurredAt": {"source": "shipment.dispatchedAt", "required": true},
+  "customer": {"source": "consignee.name", "required": true, "transforms": ["collapse_space"]},
+  "destination": {"source": "consignee.destination", "required": true, "transforms": ["collapse_space"]},
+  "carrier": {"source": "carrier.name", "transforms": ["collapse_space", "null_if_blank"]},
+  "trackingNo": {"source": "carrier.tracking", "transforms": ["strip", "null_if_blank"]}
+ }
+}

@@ -1,0 +1,504 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "<WORKSPACE>\\manufacturing-release-candidate\\recall-ui\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.audit.config.ts",
+      "--reporter=json"
+    ],
+    "configFile": "<WORKSPACE>\\manufacturing-release-candidate\\recall-ui\\playwright.audit.config.ts",
+    "rootDir": "<WORKSPACE>/manufacturing-release-candidate/recall-ui/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "<WORKSPACE>/manufacturing-release-candidate/recall-ui/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "<WORKSPACE>/manufacturing-release-candidate/recall-ui/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/independent-audit\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "<WORKSPACE>\\manufacturing-release-candidate\\recall-ui\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "<WORKSPACE>\\manufacturing-release-candidate\\recall-ui\\tests\\e2e",
+        "snapshotDir": "<WORKSPACE>\\manufacturing-release-candidate\\recall-ui\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 30000,
+        "use": {
+          "channel": "chrome",
+          "headless": true,
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "independent-audit.spec.ts",
+      "file": "independent-audit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "invalid checkpoint cannot be bypassed by /#/unit/MTR-26003/decision",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 438,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:28.467Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-deedbf9adcff2d1ada67",
+          "file": "independent-audit.spec.ts",
+          "line": 30,
+          "column": 27
+        },
+        {
+          "title": "invalid checkpoint cannot be bypassed by /passport.html#/passport/MTR-26003/components",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 404,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:29.369Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-a838816bb9aa96c10c24",
+          "file": "independent-audit.spec.ts",
+          "line": 30,
+          "column": 27
+        },
+        {
+          "title": "invalid checkpoint cannot be bypassed by /passport.html#/passport/MTR-26003/records",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 385,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:29.801Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-c1794d6d3f87f5ab6ab5",
+          "file": "independent-audit.spec.ts",
+          "line": 30,
+          "column": 27
+        },
+        {
+          "title": "invalid checkpoint cannot be bypassed by /investigation.html#/evidence/MTR-26001/urn%3Apramaan%3AMTR-26001%3AASSY%3A1",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 370,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:30.207Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-de6db19604d91f0aa7d0",
+          "file": "independent-audit.spec.ts",
+          "line": 30,
+          "column": 27
+        },
+        {
+          "title": "invalid checkpoint cannot be bypassed by /impact.html#/lot/bearing/BR-310/graph/motor%3AMTR-26003",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 331,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:30.598Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-32526e42b8295b764d7e",
+          "file": "independent-audit.spec.ts",
+          "line": 30,
+          "column": 27
+        },
+        {
+          "title": "main CURRENT keeps excluded finding with clearance withheld; other motor hold remains accessible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 550,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:30.950Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-85eeb2521d8f7fd1106f",
+          "file": "independent-audit.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "main positive control then PREFIX facts then invalid removes all motor records",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4793,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:31.520Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-58329cdf288670456733",
+          "file": "independent-audit.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "CURRENT mobile accessibility and first-render timing /#/unit/MTR-26003/decision",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1686,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:36.344Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "first-render-ms.json",
+                      "contentType": "application/json",
+                      "body": "eyJyb3V0ZSI6Ii8jL3VuaXQvTVRSLTI2MDAzL2RlY2lzaW9uIiwibXMiOjI2My4zMDM2MDAwMDAwMDExLCJraW5kIjoic3ludGhldGljIGVudmVsb3BlLCBsb2NhbCBDaHJvbWUsIG9uZSBjb2xkIG5hdmlnYXRpb247IG5vdCBwcm9kdWN0aW9uIHA5NSJ9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-3ef05203d1cc4c540d96",
+          "file": "independent-audit.spec.ts",
+          "line": 50,
+          "column": 2
+        },
+        {
+          "title": "CURRENT mobile accessibility and first-render timing /passport.html#/passport/MTR-26003/recall",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1191,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:38.064Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "first-render-ms.json",
+                      "contentType": "application/json",
+                      "body": "eyJyb3V0ZSI6Ii9wYXNzcG9ydC5odG1sIy9wYXNzcG9ydC9NVFItMjYwMDMvcmVjYWxsIiwibXMiOjIwMC4zMjk4MDAwMDAwMDEzNCwia2luZCI6InN5bnRoZXRpYyBlbnZlbG9wZSwgbG9jYWwgQ2hyb21lLCBvbmUgY29sZCBuYXZpZ2F0aW9uOyBub3QgcHJvZHVjdGlvbiBwOTUifQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-56d7873dec6eda625028",
+          "file": "independent-audit.spec.ts",
+          "line": 50,
+          "column": 2
+        },
+        {
+          "title": "CURRENT mobile accessibility and first-render timing /investigation.html#/",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1357,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:39.275Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "first-render-ms.json",
+                      "contentType": "application/json",
+                      "body": "eyJyb3V0ZSI6Ii9pbnZlc3RpZ2F0aW9uLmh0bWwjLyIsIm1zIjoyMjguOTUzNzAwMDAwMDAwMDMsImtpbmQiOiJzeW50aGV0aWMgZW52ZWxvcGUsIGxvY2FsIENocm9tZSwgb25lIGNvbGQgbmF2aWdhdGlvbjsgbm90IHByb2R1Y3Rpb24gcDk1In0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-c4585f349e2a2cace01a",
+          "file": "independent-audit.spec.ts",
+          "line": 50,
+          "column": 2
+        },
+        {
+          "title": "CURRENT mobile accessibility and first-render timing /impact.html#/lot/bearing/BR-310/list",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1707,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T11:50:40.652Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "first-render-ms.json",
+                      "contentType": "application/json",
+                      "body": "eyJyb3V0ZSI6Ii9pbXBhY3QuaHRtbCMvbG90L2JlYXJpbmcvQlItMzEwL2xpc3QiLCJtcyI6MjQ5Ljk0NzU5OTk5OTk5OTUsImtpbmQiOiJzeW50aGV0aWMgZW52ZWxvcGUsIGxvY2FsIENocm9tZSwgb25lIGNvbGQgbmF2aWdhdGlvbjsgbm90IHByb2R1Y3Rpb24gcDk1In0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7d838b6d523a4219a7cd-556704c20fa28cedd51e",
+          "file": "independent-audit.spec.ts",
+          "line": 50,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-23T11:50:27.493Z",
+    "duration": 15209.661,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,16 @@
+test_export_with_an_unrelated_previous_is_rejected (application.test_unified.ChainDepthTests.test_export_with_an_unrelated_previous_is_rejected) ... ok
+test_negative_skip_link_and_missing_previous_still_rejected (application.test_unified.ChainDepthTests.test_negative_skip_link_and_missing_previous_still_rejected) ... ok
+test_third_and_fourth_generation_export_and_activate (application.test_unified.ChainDepthTests.test_third_and_fourth_generation_export_and_activate) ... ok
+test_legacy_row_never_yields_current_clearance (application.test_unified.LegacyRowTests.test_legacy_row_never_yields_current_clearance) ... ok
+test_legacy_row_stays_in_journal_and_new_evidence_still_publishes (application.test_unified.LegacyRowTests.test_legacy_row_stays_in_journal_and_new_evidence_still_publishes) ... ok
+test_cross_site_command_is_refused_even_with_a_valid_token (application.test_unified.SubResourceTests.test_cross_site_command_is_refused_even_with_a_valid_token) ... ok
+test_current_state_travels_with_decisions_and_investigation (application.test_unified.SubResourceTests.test_current_state_travels_with_decisions_and_investigation) ... ok
+test_foreign_host_and_cross_site_requests_are_refused (application.test_unified.SubResourceTests.test_foreign_host_and_cross_site_requests_are_refused)
+P2: any Host was accepted (DNS rebinding) and /api/session handed its write token to cross-site requests. ... ok
+test_internal_read_fault_is_not_a_client_error (application.test_unified.SubResourceTests.test_internal_read_fault_is_not_a_client_error) ... ok
+test_prefix_only_withholds_decision_sub_resources (application.test_unified.SubResourceTests.test_prefix_only_withholds_decision_sub_resources) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 8.360s
+
+OK

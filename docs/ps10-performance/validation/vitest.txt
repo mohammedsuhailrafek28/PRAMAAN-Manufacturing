@@ -1,0 +1,16 @@
+
+> recall-investigation-ui@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 <WORKSPACE>/ps10-impact-performance/recall-ui
+
+
+ Test Files  27 passed (27)
+      Tests  378 passed (378)
+   Start at  00:24:36
+   Duration  49.21s (environment 71%, tests 12%, setup 12%, import 3%, transform 2%)
+
+Environment  jsdom was created 27 times · 348.74s total, 71% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments

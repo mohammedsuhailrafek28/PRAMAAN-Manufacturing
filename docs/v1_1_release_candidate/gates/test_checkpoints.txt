@@ -1,0 +1,28 @@
+test_R10_unevaluated_capture (application.test_checkpoints.StrictCheckpointTests.test_R10_unevaluated_capture) ... ok
+test_R11_v1_never_current (application.test_checkpoints.StrictCheckpointTests.test_R11_v1_never_current) ... ok
+test_R12_export_racing_independent_writer (application.test_checkpoints.StrictCheckpointTests.test_R12_export_racing_independent_writer) ... ok
+test_R13_atomic_no_overwrite_and_interrupted_write (application.test_checkpoints.StrictCheckpointTests.test_R13_atomic_no_overwrite_and_interrupted_write) ... ok
+test_R14_candidate_has_no_trust_effect (application.test_checkpoints.StrictCheckpointTests.test_R14_candidate_has_no_trust_effect) ... ok
+test_R15_successor_requires_explicit_previous_link (application.test_checkpoints.StrictCheckpointTests.test_R15_successor_requires_explicit_previous_link) ... ok
+test_R16_legacy_without_manifest_never_current (application.test_checkpoints.StrictCheckpointTests.test_R16_legacy_without_manifest_never_current) ... ok
+test_R17_fixed_error_codes_only (application.test_checkpoints.StrictCheckpointTests.test_R17_fixed_error_codes_only) ... ok
+test_R17_http_integrity_availability_and_unexpected_errors_sanitized (application.test_checkpoints.StrictCheckpointTests.test_R17_http_integrity_availability_and_unexpected_errors_sanitized) ... ok
+test_R19_policy_after_empty_checkpoint (application.test_checkpoints.StrictCheckpointTests.test_R19_policy_after_empty_checkpoint) ... ok
+test_R1_in_process_rollback (application.test_checkpoints.StrictCheckpointTests.test_R1_in_process_rollback) ... ok
+test_R2_restart_latest_checkpoint_rejects_older_database (application.test_checkpoints.StrictCheckpointTests.test_R2_restart_latest_checkpoint_rejects_older_database) ... ok
+test_R3_intermediate_rollback_after_restart_is_prefix_only (application.test_checkpoints.StrictCheckpointTests.test_R3_intermediate_rollback_after_restart_is_prefix_only) ... ok
+test_R4_exact_checkpoint_restart_residual_is_undetectable (application.test_checkpoints.StrictCheckpointTests.test_R4_exact_checkpoint_restart_residual_is_undetectable) ... ok
+test_R5_capture_withholds_globally_holds_remain (application.test_checkpoints.StrictCheckpointTests.test_R5_capture_withholds_globally_holds_remain) ... ok
+test_R6_forged_evaluation_rehashed (application.test_checkpoints.StrictCheckpointTests.test_R6_forged_evaluation_rehashed) ... ok
+test_R7_forged_derived_fields (application.test_checkpoints.StrictCheckpointTests.test_R7_forged_derived_fields) ... ok
+test_R8_orphan_obligation (application.test_checkpoints.StrictCheckpointTests.test_R8_orphan_obligation) ... ok
+test_R9_resolution_forbidden (application.test_checkpoints.StrictCheckpointTests.test_R9_resolution_forbidden) ... ok
+test_current_requires_no_obligation_and_verified_replay (application.test_checkpoints.StrictCheckpointTests.test_current_requires_no_obligation_and_verified_replay) ... ok
+test_owner_clarification_historical_resolution_preserved_export_blocked (application.test_checkpoints.StrictCheckpointTests.test_owner_clarification_historical_resolution_preserved_export_blocked) ... ok
+test_shared_structural_byte_cache_does_not_trust_forged_publication (application.test_checkpoints.StrictCheckpointTests.test_shared_structural_byte_cache_does_not_trust_forged_publication) ... ok
+test_unknown_journal_kind_rejected (application.test_checkpoints.StrictCheckpointTests.test_unknown_journal_kind_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 6.808s
+
+OK

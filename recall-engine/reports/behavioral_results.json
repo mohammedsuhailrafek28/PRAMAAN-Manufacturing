@@ -1,0 +1,1280 @@
+{
+  "summary": {
+    "evaluations": 25,
+    "decisionAgree": 25,
+    "fullAgree": 25,
+    "flagAgree": 25,
+    "byPolicy": {
+      "RC-009/P1": {
+        "n": 13,
+        "decision": 13,
+        "full": 13
+      },
+      "RC-009/P2": {
+        "n": 12,
+        "decision": 12,
+        "full": 12
+      }
+    }
+  },
+  "strictSummary": {
+    "evaluations": 25,
+    "decisionAgree": 24,
+    "fullAgree": 24,
+    "flagAgree": 24,
+    "byPolicy": {
+      "RC-009/P1": {
+        "n": 13,
+        "decision": 12,
+        "full": 12
+      },
+      "RC-009/P2": {
+        "n": 12,
+        "decision": 12,
+        "full": 12
+      }
+    }
+  },
+  "results": [
+    {
+      "caseId": "case-01",
+      "policyId": "RC-009/P1",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-01-P1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT",
+          "IRRELEVANT_SLOT_GAP"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-01-P1-v1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT",
+          "IRRELEVANT_SLOT_GAP"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C01-E001",
+          "C01-E002",
+          "C01-E003",
+          "C01-E004",
+          "C01-E005",
+          "C01-E006",
+          "C01-E008",
+          "C01-E009"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 3
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-01",
+      "policyId": "RC-009/P2",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-01-P2",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING",
+          "IRRELEVANT_SLOT_GAP"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-01-P2-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING",
+          "IRRELEVANT_SLOT_GAP"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C01-E001",
+          "C01-E002",
+          "C01-E003",
+          "C01-E004",
+          "C01-E005",
+          "C01-E006",
+          "C01-E008",
+          "C01-E009"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 3
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-02",
+      "policyId": "RC-009/P1",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-02-P1",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "NO_TRUSTED_BASELINE",
+          "CURRENT_STATE_UNVERIFIED"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-02-P1-v1",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "NO_TRUSTED_BASELINE",
+          "CURRENT_STATE_UNVERIFIED"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C02-E001",
+          "C02-E002",
+          "C02-E003",
+          "C02-E004"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "MES": 2,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-02",
+      "policyId": "RC-009/P2",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-02-P2",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-02-P2-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C02-E001",
+          "C02-E002",
+          "C02-E003",
+          "C02-E004"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "MES": 2,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-03",
+      "policyId": "RC-009/P1",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-03-P1",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "DOUBLE_OCCUPANCY",
+          "CURRENT_STATE_UNVERIFIED"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-03-P1-v1",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "DOUBLE_OCCUPANCY",
+          "CURRENT_STATE_UNVERIFIED"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C03-E001",
+          "C03-E002",
+          "C03-E003",
+          "C03-E004",
+          "C03-E005",
+          "C03-E006",
+          "C03-E007"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 1
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-03",
+      "policyId": "RC-009/P2",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-03-P2",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-03-P2-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ],
+        "flags": [
+          "SLOT_RECORD_CONFLICT"
+        ],
+        "evidenceEventIds": [
+          "C03-E001",
+          "C03-E002",
+          "C03-E003",
+          "C03-E004",
+          "C03-E005",
+          "C03-E006",
+          "C03-E007"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 1
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-04",
+      "policyId": "RC-009/P1",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-04-P1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT",
+          "GAP_BOUNDED_BY_VERIFICATION",
+          "IRRELEVANT_SLOT_GAP"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-04-P1-v1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT",
+          "GAP_BOUNDED_BY_VERIFICATION",
+          "IRRELEVANT_SLOT_GAP"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C04-E001",
+          "C04-E002",
+          "C04-E003",
+          "C04-E004",
+          "C04-E005",
+          "C04-E006",
+          "C04-E007",
+          "C04-E009",
+          "C04-E008",
+          "C04-E010",
+          "C04-E011",
+          "C04-E012"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "INSP-01": 1,
+          "MES": 6,
+          "QA-02": 1,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-04",
+      "policyId": "RC-009/P2",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-04-P2",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_PASSED",
+          "EXPOSURE_REMEDIATED",
+          "GAP_BOUNDED_BY_VERIFICATION",
+          "IRRELEVANT_SLOT_GAP"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-04-P2-v1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_PASSED",
+          "EXPOSURE_REMEDIATED",
+          "GAP_BOUNDED_BY_VERIFICATION",
+          "IRRELEVANT_SLOT_GAP"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C04-E001",
+          "C04-E002",
+          "C04-E003",
+          "C04-E004",
+          "C04-E005",
+          "C04-E006",
+          "C04-E007",
+          "C04-E009",
+          "C04-E008",
+          "C04-E010",
+          "C04-E011",
+          "C04-E012"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "INSP-01": 1,
+          "MES": 6,
+          "QA-02": 1,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-04b",
+      "policyId": "RC-009/P1",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-04b-P1",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "MATERIAL_CAPTURE_GAP"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-04b-P1-v1",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "MATERIAL_CAPTURE_GAP"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C04B-E001",
+          "C04B-E002",
+          "C04B-E003",
+          "C04B-E004",
+          "C04B-E005",
+          "C04B-E006",
+          "C04B-E007",
+          "C04B-E008"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-04b",
+      "policyId": "RC-009/P2",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-04b-P2",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING",
+          "MATERIAL_CAPTURE_GAP"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-04b-P2-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING",
+          "MATERIAL_CAPTURE_GAP"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C04B-E001",
+          "C04B-E002",
+          "C04B-E003",
+          "C04B-E004",
+          "C04B-E005",
+          "C04B-E006",
+          "C04B-E007",
+          "C04B-E008"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-04c",
+      "policyId": "RC-009/P1",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-04c-P1",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "MATERIAL_CAPTURE_GAP"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-04c-P1-v1",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "MATERIAL_CAPTURE_GAP"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C04C-E001",
+          "C04C-E002",
+          "C04C-E003",
+          "C04C-E004",
+          "C04C-E005",
+          "C04C-E006",
+          "C04C-E007",
+          "C04C-E008",
+          "C04C-E009",
+          "C04C-E010",
+          "C04C-E011"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "INSP-01": 1,
+          "MES": 6,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-04c",
+      "policyId": "RC-009/P2",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-04c-P2",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_PASSED",
+          "REMEDIATION_COMPLETENESS_UNCERTAIN",
+          "MATERIAL_CAPTURE_GAP"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-04c-P2-v1",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_PASSED",
+          "REMEDIATION_COMPLETENESS_UNCERTAIN",
+          "MATERIAL_CAPTURE_GAP"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C04C-E001",
+          "C04C-E002",
+          "C04C-E003",
+          "C04C-E004",
+          "C04C-E005",
+          "C04C-E006",
+          "C04C-E007",
+          "C04C-E008",
+          "C04C-E009",
+          "C04C-E010",
+          "C04C-E011"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "INSP-01": 1,
+          "MES": 6,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-05",
+      "policyId": "RC-009/P1",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-05-P1-v1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-05-P1-v1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C05-E001",
+          "C05-E002",
+          "C05-E003",
+          "C05-E004",
+          "C05-E005",
+          "C05-E006",
+          "C05-E007",
+          "C05-E008"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-05",
+      "policyId": "RC-009/P1",
+      "version": 2,
+      "expected": {
+        "decisionId": "D-case-05-P1-v2",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "LATE_CLAIM_RISK_INCREASING",
+          "PRIOR_EXCLUSION_WITHDRAWN"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-05-P1-v2",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "LATE_CLAIM_RISK_INCREASING",
+          "PRIOR_EXCLUSION_WITHDRAWN"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C05-E001",
+          "C05-E002",
+          "C05-E003",
+          "C05-E004",
+          "C05-E005",
+          "C05-E006",
+          "C05-E007",
+          "C05-E008",
+          "C05-E009"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "QUALITY-PORTAL": 1,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": "D-case-05-P1-v1",
+        "triggerEventId": "C05-E009"
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-05",
+      "policyId": "RC-009/P2",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-05-P2-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-05-P2-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C05-E001",
+          "C05-E002",
+          "C05-E003",
+          "C05-E004",
+          "C05-E005",
+          "C05-E006",
+          "C05-E007",
+          "C05-E008"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-05",
+      "policyId": "RC-009/P2",
+      "version": 2,
+      "expected": {
+        "decisionId": "D-case-05-P2-v2",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING",
+          "LATE_CLAIM_RISK_INCREASING"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-05-P2-v2",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING",
+          "LATE_CLAIM_RISK_INCREASING"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C05-E001",
+          "C05-E002",
+          "C05-E003",
+          "C05-E004",
+          "C05-E005",
+          "C05-E006",
+          "C05-E007",
+          "C05-E008",
+          "C05-E009"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "QUALITY-PORTAL": 1,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": "D-case-05-P2-v1",
+        "triggerEventId": "C05-E009"
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-05b",
+      "policyId": "RC-009/P1",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-05b-P1-v1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-05b-P1-v1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C05B-E001",
+          "C05B-E002",
+          "C05B-E003",
+          "C05B-E004",
+          "C05B-E005",
+          "C05B-E006",
+          "C05B-E007",
+          "C05B-E008"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-05b",
+      "policyId": "RC-009/P1",
+      "version": 2,
+      "expected": {
+        "decisionId": "D-case-05b-P1-v2",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "LATE_CLAIM_RISK_INCREASING",
+          "PRIOR_EXCLUSION_WITHDRAWN"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-05b-P1-v2",
+        "evidenceFinding": "UNRESOLVED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": true,
+        "reasonCodes": [
+          "LATE_CLAIM_RISK_INCREASING",
+          "PRIOR_EXCLUSION_WITHDRAWN"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C05B-E001",
+          "C05B-E002",
+          "C05B-E003",
+          "C05B-E004",
+          "C05B-E005",
+          "C05B-E006",
+          "C05B-E007",
+          "C05B-E008",
+          "C05B-E009"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "QUALITY-PORTAL": 1,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": "D-case-05b-P1-v1",
+        "triggerEventId": "C05B-E009"
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-05b",
+      "policyId": "RC-009/P1",
+      "version": 3,
+      "expected": {
+        "decisionId": "D-case-05b-P1-v3",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "VERIFIED_AFFECTED_LOT_PRESENT",
+          "CORROBORATED_BY_VERIFICATION"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-05b-P1-v3",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "VERIFIED_AFFECTED_LOT_PRESENT",
+          "CORROBORATED_BY_VERIFICATION"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C05B-E001",
+          "C05B-E002",
+          "C05B-E003",
+          "C05B-E004",
+          "C05B-E005",
+          "C05B-E006",
+          "C05B-E007",
+          "C05B-E008",
+          "C05B-E009",
+          "C05B-E010"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "QA-02": 1,
+          "QUALITY-PORTAL": 1,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": "D-case-05b-P1-v2",
+        "triggerEventId": "C05B-E010"
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-05b",
+      "policyId": "RC-009/P2",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-05b-P2-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-05b-P2-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C05B-E001",
+          "C05B-E002",
+          "C05B-E003",
+          "C05B-E004",
+          "C05B-E005",
+          "C05B-E006",
+          "C05B-E007",
+          "C05B-E008"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-05b",
+      "policyId": "RC-009/P2",
+      "version": 2,
+      "expected": {
+        "decisionId": "D-case-05b-P2-v2",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING",
+          "LATE_CLAIM_RISK_INCREASING"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-05b-P2-v2",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING",
+          "LATE_CLAIM_RISK_INCREASING"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C05B-E001",
+          "C05B-E002",
+          "C05B-E003",
+          "C05B-E004",
+          "C05B-E005",
+          "C05B-E006",
+          "C05B-E007",
+          "C05B-E008",
+          "C05B-E009"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "QUALITY-PORTAL": 1,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": "D-case-05b-P2-v1",
+        "triggerEventId": "C05B-E009"
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-06",
+      "policyId": "RC-009/P1",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-06-P1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-06-P1-v1",
+        "evidenceFinding": "EXCLUDED_WITH_EVIDENCE",
+        "operationalAction": "RELEASE_ELIGIBLE",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ],
+        "flags": [
+          "KNOWN_LIMITATION_LOT_LEVEL_SLOT_AMBIGUITY"
+        ],
+        "evidenceEventIds": [
+          "C06-E001",
+          "C06-E002",
+          "C06-E003",
+          "C06-E004",
+          "C06-E005",
+          "C06-E006",
+          "C06-E007",
+          "C06-E008"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-06",
+      "policyId": "RC-009/P2",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-06-P2",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-06-P2-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ],
+        "flags": [],
+        "evidenceEventIds": [
+          "C06-E001",
+          "C06-E002",
+          "C06-E003",
+          "C06-E004",
+          "C06-E005",
+          "C06-E006",
+          "C06-E007",
+          "C06-E008"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-06b",
+      "policyId": "RC-009/P1",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-06b-P1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "VERIFIED_AFFECTED_LOT_PRESENT"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-06b-P1-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "VERIFIED_AFFECTED_LOT_PRESENT"
+        ],
+        "flags": [
+          "SLOT_RECORD_CONFLICT"
+        ],
+        "evidenceEventIds": [
+          "C06B-E001",
+          "C06B-E002",
+          "C06B-E003",
+          "C06B-E004",
+          "C06B-E005",
+          "C06B-E006",
+          "C06B-E007",
+          "C06B-E009",
+          "C06B-E008"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "QA-02": 1,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    },
+    {
+      "caseId": "case-06b",
+      "policyId": "RC-009/P2",
+      "version": 1,
+      "expected": {
+        "decisionId": "D-case-06b-P2",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ]
+      },
+      "engine": {
+        "decisionId": "D-case-06b-P2-v1",
+        "evidenceFinding": "AFFECTED",
+        "operationalAction": "RECALL_HOLD",
+        "reviewRequired": false,
+        "reasonCodes": [
+          "HISTORICAL_EXPOSURE_CONFIRMED",
+          "DAMAGE_INSPECTION_MISSING"
+        ],
+        "flags": [
+          "SLOT_RECORD_CONFLICT"
+        ],
+        "evidenceEventIds": [
+          "C06B-E001",
+          "C06B-E002",
+          "C06B-E003",
+          "C06B-E004",
+          "C06B-E005",
+          "C06B-E006",
+          "C06B-E007",
+          "C06B-E009",
+          "C06B-E008"
+        ],
+        "identityGranularity": "LOT",
+        "policyVersion": 1,
+        "watermark": {
+          "ASSY-01": 2,
+          "MES": 4,
+          "QA-02": 1,
+          "REWORK-03": 2
+        },
+        "supersedesDecisionId": null,
+        "triggerEventId": null
+      },
+      "decisionDiffs": [],
+      "detailDiffs": [],
+      "flagDiffs": []
+    }
+  ]
+}

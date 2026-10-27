@@ -1,0 +1,279 @@
+{
+  "transition": "oracle v2 -> oracle v3",
+  "v2": {
+    "evaluations": 35,
+    "sha256": "8f1e0778f80ac4d0acc5e9e6325023674c27ff0242ef6583336c5fd7f913aafd",
+    "note": "Unmodified; v1 is likewise untouched."
+  },
+  "v3": {
+    "evaluations": 54,
+    "carriedUnchanged": 35,
+    "changed": 0,
+    "added": 19
+  },
+  "addedEvaluations": [
+    {
+      "caseId": "case-08",
+      "policyId": "RC-009/P1",
+      "decisionId": "D-case-08-P1-v1",
+      "finding": "EXCLUDED_WITH_EVIDENCE",
+      "reasonCodes": [
+        "REPLACED_WITH_UNAFFECTED_LOT"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08",
+      "policyId": "RC-009/P1",
+      "decisionId": "D-case-08-P1-v2",
+      "finding": "UNRESOLVED",
+      "reasonCodes": [
+        "UNTRUSTED_AFFECTED_OBSERVATION",
+        "PRIOR_EXCLUSION_WITHDRAWN"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08",
+      "policyId": "RC-009/P2",
+      "decisionId": "D-case-08-P2",
+      "finding": "AFFECTED",
+      "reasonCodes": [
+        "HISTORICAL_EXPOSURE_CONFIRMED",
+        "DAMAGE_INSPECTION_MISSING"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08e",
+      "policyId": "RC-009/P1",
+      "decisionId": "D-case-08e-P1",
+      "finding": "UNRESOLVED",
+      "reasonCodes": [
+        "UNTRUSTED_AFFECTED_OBSERVATION"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08e",
+      "policyId": "RC-009/P2",
+      "decisionId": "D-case-08e-P2",
+      "finding": "AFFECTED",
+      "reasonCodes": [
+        "HISTORICAL_EXPOSURE_CONFIRMED",
+        "DAMAGE_INSPECTION_MISSING"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08f",
+      "policyId": "RC-009/P1",
+      "decisionId": "D-case-08f-P1",
+      "finding": "EXCLUDED_WITH_EVIDENCE",
+      "reasonCodes": [
+        "REPLACED_WITH_UNAFFECTED_LOT"
+      ],
+      "flags": [
+        "UNTRUSTED_AFFECTED_OBSERVATION_SUPERSEDED"
+      ]
+    },
+    {
+      "caseId": "case-08f",
+      "policyId": "RC-009/P2",
+      "decisionId": "D-case-08f-P2",
+      "finding": "AFFECTED",
+      "reasonCodes": [
+        "HISTORICAL_EXPOSURE_CONFIRMED",
+        "DAMAGE_INSPECTION_MISSING"
+      ],
+      "flags": [
+        "UNTRUSTED_AFFECTED_OBSERVATION_SUPERSEDED"
+      ]
+    },
+    {
+      "caseId": "case-08g",
+      "policyId": "RC-009/P1",
+      "decisionId": "D-case-08g-P1",
+      "finding": "EXCLUDED_WITH_EVIDENCE",
+      "reasonCodes": [
+        "REPLACED_WITH_UNAFFECTED_LOT"
+      ],
+      "flags": [
+        "UNTRUSTED_AFFECTED_OBSERVATION_SUPERSEDED"
+      ]
+    },
+    {
+      "caseId": "case-08g",
+      "policyId": "RC-009/P2",
+      "decisionId": "D-case-08g-P2",
+      "finding": "AFFECTED",
+      "reasonCodes": [
+        "HISTORICAL_EXPOSURE_CONFIRMED",
+        "DAMAGE_INSPECTION_MISSING"
+      ],
+      "flags": [
+        "UNTRUSTED_AFFECTED_OBSERVATION_SUPERSEDED"
+      ]
+    },
+    {
+      "caseId": "case-08h",
+      "policyId": "RC-009/P1",
+      "decisionId": "D-case-08h-P1",
+      "finding": "EXCLUDED_WITH_EVIDENCE",
+      "reasonCodes": [
+        "REPLACED_WITH_UNAFFECTED_LOT"
+      ],
+      "flags": [
+        "OUT_OF_SCOPE_UNTRUSTED_AFFECTED_OBSERVATION"
+      ]
+    },
+    {
+      "caseId": "case-08h",
+      "policyId": "RC-009/P2",
+      "decisionId": "D-case-08h-P2",
+      "finding": "AFFECTED",
+      "reasonCodes": [
+        "HISTORICAL_EXPOSURE_CONFIRMED",
+        "DAMAGE_INSPECTION_MISSING"
+      ],
+      "flags": [
+        "OUT_OF_SCOPE_UNTRUSTED_AFFECTED_OBSERVATION"
+      ]
+    },
+    {
+      "caseId": "case-08i",
+      "policyId": "RC-009/P1",
+      "decisionId": "D-case-08i-P1",
+      "finding": "UNRESOLVED",
+      "reasonCodes": [
+        "AMBIGUOUS_SLOT_ATTRIBUTION"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08i",
+      "policyId": "RC-009/P2",
+      "decisionId": "D-case-08i-P2",
+      "finding": "AFFECTED",
+      "reasonCodes": [
+        "HISTORICAL_EXPOSURE_CONFIRMED",
+        "DAMAGE_INSPECTION_MISSING"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08j",
+      "policyId": "RC-009/P1",
+      "decisionId": "D-case-08j-P1",
+      "finding": "UNRESOLVED",
+      "reasonCodes": [
+        "UNTRUSTED_AFFECTED_OBSERVATION"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08j",
+      "policyId": "RC-009/P2",
+      "decisionId": "D-case-08j-P2",
+      "finding": "AFFECTED",
+      "reasonCodes": [
+        "HISTORICAL_EXPOSURE_CONFIRMED",
+        "DAMAGE_INSPECTION_MISSING"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08k",
+      "policyId": "RC-009/P1",
+      "decisionId": "D-case-08k-P1",
+      "finding": "UNRESOLVED",
+      "reasonCodes": [
+        "UNTRUSTED_AFFECTED_OBSERVATION"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08k",
+      "policyId": "RC-009/P2",
+      "decisionId": "D-case-08k-P2",
+      "finding": "AFFECTED",
+      "reasonCodes": [
+        "HISTORICAL_EXPOSURE_CONFIRMED",
+        "DAMAGE_INSPECTION_MISSING"
+      ],
+      "flags": []
+    },
+    {
+      "caseId": "case-08l",
+      "policyId": "RC-009/P1",
+      "decisionId": "D-case-08l-P1",
+      "finding": "EXCLUDED_WITH_EVIDENCE",
+      "reasonCodes": [
+        "REPLACED_WITH_UNAFFECTED_LOT"
+      ],
+      "flags": [
+        "UNATTRIBUTABLE_UNTRUSTED_AFFECTED_OBSERVATION"
+      ]
+    },
+    {
+      "caseId": "case-08l",
+      "policyId": "RC-009/P2",
+      "decisionId": "D-case-08l-P2",
+      "finding": "AFFECTED",
+      "reasonCodes": [
+        "HISTORICAL_EXPOSURE_CONFIRMED",
+        "DAMAGE_INSPECTION_MISSING"
+      ],
+      "flags": [
+        "UNATTRIBUTABLE_UNTRUSTED_AFFECTED_OBSERVATION"
+      ]
+    }
+  ],
+  "newCases": [
+    "case-08",
+    "case-08e",
+    "case-08f",
+    "case-08g",
+    "case-08h",
+    "case-08i",
+    "case-08j",
+    "case-08k",
+    "case-08l"
+  ],
+  "vocabularyAdditions": {
+    "reasonCodes": [
+      "UNTRUSTED_AFFECTED_OBSERVATION"
+    ],
+    "flags": [
+      "UNTRUSTED_AFFECTED_OBSERVATION_SUPERSEDED",
+      "OUT_OF_SCOPE_UNTRUSTED_AFFECTED_OBSERVATION",
+      "UNATTRIBUTABLE_UNTRUSTED_AFFECTED_OBSERVATION"
+    ],
+    "semanticsProfiles": [
+      "P1_LEGACY",
+      "SLOT_ATTRIBUTION_V2",
+      "UNTRUSTED_OBSERVATION_V3"
+    ],
+    "decisionFields": [
+      "semanticsProfile",
+      "coverageDigest",
+      "untrustedObservations"
+    ],
+    "coveragePolicy": [
+      "slotAttribution.observationClockSkewSeconds",
+      "slotAttribution.trustedTimeSources"
+    ],
+    "engineConfig": [
+      "Config(untrusted_observation=True) == Config.v3()"
+    ]
+  },
+  "defaultProfileForNewEvaluations": "UNTRUSTED_OBSERVATION_V3",
+  "legacyReplay": "replay(case, policy, coverage, record) uses record.semanticsProfile (absent = P1_LEGACY)",
+  "parameters": {
+    "observationClockSkewSeconds": 300,
+    "trustedTimeSources": [
+      "DEVICE_SYNCED"
+    ],
+    "status": "prototype parameters, not a proven safety standard"
+  }
+}

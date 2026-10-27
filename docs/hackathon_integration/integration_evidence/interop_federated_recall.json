@@ -1,0 +1,105 @@
+{
+ "cases": 16,
+ "accepted": 3,
+ "allAgree": true,
+ "disagreements": [],
+ "rows": [
+  {
+   "case": "valid-alert",
+   "reference": true,
+   "node": true,
+   "pynacl": true
+  },
+  {
+   "case": "valid-response",
+   "reference": true,
+   "node": true,
+   "pynacl": true
+  },
+  {
+   "case": "valid-answered-response",
+   "reference": true,
+   "node": true,
+   "pynacl": true
+  },
+  {
+   "case": "alert-text-changed",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "alert-lot-changed",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "response-status-changed",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "signature-flipped",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "attacker-own-kid",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "attacker-victim-kid",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "factory-key-as-supplier",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "supplier-key-as-responder",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "wrong-type",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "extra-field-signed-by-real-key",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "expired",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "alert-as-response",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  },
+  {
+   "case": "response-extra-counts-field",
+   "reference": false,
+   "node": false,
+   "pynacl": false
+  }
+ ],
+ "note": "Ed25519 primitives: cryptography (reference), OpenSSL via Node crypto, libsodium via PyNaCl; canonical JSON implemented separately in each."
+}

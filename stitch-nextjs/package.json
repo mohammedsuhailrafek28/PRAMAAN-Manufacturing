@@ -1,0 +1,39 @@
+{
+  "name": "pramaan-stitch-nextjs",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "ml:train": "node ml/train.mjs",
+    "test:sim": "tsc -p tsconfig.simtest.json && node --test .sim-test-build/tests/simulate.test.js",
+    "test:ask": "tsc -p tsconfig.asktest.json && node --test .ask-test-build/tests/ask.test.js",
+    "test:ml": "tsc -p tsconfig.mltest.json && node --test .ml-test-build/tests/ml.test.js",
+    "landing:css": "tailwindcss -c tailwind.landing.config.cjs -i src/landing/landing.src.css -o public/landing/landing.css --minify",
+    "landing:vendor": "node -e \"require('fs').copyFileSync('node_modules/three/build/three.min.js','public/landing/three.min.js')\"",
+    "landing": "npm run landing:css && npm run landing:vendor",
+    "predev": "npm run landing",
+    "prebuild": "npm run landing",
+    "prestart": "npm run landing"
+  },
+  "dependencies": {
+    "next": "^15.5.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "three": "^0.125.2",
+    "uqr": "0.1.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3"
+  }
+}

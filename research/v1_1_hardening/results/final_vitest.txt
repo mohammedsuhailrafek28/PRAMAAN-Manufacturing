@@ -1,0 +1,13 @@
+
+ RUN  v5.0.5 <USER_HOME>/AppData/Local/Temp/claude/<WORKSPACE_ID>/c62f2fee-8f85-4474-86ce-f8aea199b730/scratchpad/hd/recall-ui
+
+
+ Test Files  26 passed (26)
+      Tests  370 passed (370)
+   Start at  14:01:26
+   Duration  31.92s (environment 42%, tests 38%, setup 10%, import 5%, transform 3%, worker 1%)
+
+Environment  jsdom was created 26 times · 86.76s total, 42% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+

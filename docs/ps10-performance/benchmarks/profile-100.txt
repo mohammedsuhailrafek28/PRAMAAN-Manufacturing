@@ -1,0 +1,36 @@
+         10180995 function calls (9496579 primitive calls) in 8.328 seconds
+
+   Ordered by: cumulative time
+   List reduced from 247 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    8.329    8.329 <WORKSPACE>\ps10-impact-performance\application\service.py:317(snapshot)
+        1    0.033    0.033    8.323    8.323 <WORKSPACE>\ps10-impact-performance\application\service.py:358(_snapshot)
+      400    0.103    0.000    6.045    0.015 <WORKSPACE>\ps10-impact-performance\integration\pramaan_integration\ledger.py:206(_verified_rows)
+      100    0.014    0.000    4.558    0.046 <WORKSPACE>\ps10-impact-performance\application\audit.py:171(decide)
+     5429    0.018    0.000    3.779    0.001 <WORKSPACE>\ps10-impact-performance\integration\pramaan_integration\profile.py:43(digest)
+     5429    0.015    0.000    3.707    0.001 <WORKSPACE>\ps10-impact-performance\.venv\Lib\site-packages\rfc8785\_impl.py:177(dumps)
+320967/5429    1.090    0.000    3.684    0.001 <WORKSPACE>\ps10-impact-performance\.venv\Lib\site-packages\rfc8785\_impl.py:188(dump)
+      200    0.023    0.000    3.465    0.017 <WORKSPACE>\ps10-impact-performance\integration\pramaan_integration\ledger.py:237(snapshot)
+      200    0.015    0.000    3.196    0.016 <WORKSPACE>\ps10-impact-performance\integration\pramaan_integration\ledger.py:229(watermark)
+      396    0.046    0.000    2.445    0.006 <WORKSPACE>\ps10-impact-performance\integration\pramaan_integration\profile.py:186(decode)
+   479707    0.784    0.000    1.673    0.000 <WORKSPACE>\ps10-impact-performance\.venv\Lib\site-packages\rfc8785\_impl.py:79(_serialize_str)
+    11484    0.235    0.000    1.594    0.000 <WORKSPACE>\ps10-impact-performance\integration\pramaan_integration\profile.py:89(validate_native)
+398691/58621    0.613    0.000    1.231    0.000 <USER_HOME>\AppData\Local\Programs\Python\Python312\Lib\copy.py:118(deepcopy)
+    27192    0.052    0.000    1.102    0.000 <WORKSPACE>\ps10-impact-performance\integration\pramaan_integration\profile.py:47(timestamp)
+     3828    0.071    0.000    1.018    0.000 <WORKSPACE>\ps10-impact-performance\integration\pramaan_integration\profile.py:166(encode_event)
+24752/9613    0.180    0.000    1.013    0.000 <USER_HOME>\AppData\Local\Programs\Python\Python312\Lib\copy.py:217(_deepcopy_dict)
+    27192    0.076    0.000    0.945    0.000 {built-in method strptime}
+    27192    0.072    0.000    0.869    0.000 <USER_HOME>\AppData\Local\Programs\Python\Python312\Lib\_strptime.py:650(_strptime_datetime)
+    27192    0.407    0.000    0.797    0.000 <USER_HOME>\AppData\Local\Programs\Python\Python312\Lib\_strptime.py:392(_strptime)
+      100    0.004    0.000    0.714    0.007 <WORKSPACE>\ps10-impact-performance\application\audit.py:150(append)
+  2144895    0.551    0.000    0.551    0.000 {method 'write' of '_io.BytesIO' objects}
+    43771    0.163    0.000    0.515    0.000 {built-in method builtins.sorted}
+      600    0.004    0.000    0.490    0.001 <WORKSPACE>\ps10-impact-performance\integration\pramaan_integration\ledger.py:107(_config)
+   809230    0.403    0.000    0.403    0.000 {method 'encode' of 'str' objects}
+   480164    0.370    0.000    0.370    0.000 {method 'sub' of 're.Pattern' objects}
+21591/17294    0.040    0.000    0.352    0.000 <USER_HOME>\AppData\Local\Programs\Python\Python312\Lib\copy.py:191(_deepcopy_list)
+   274488    0.121    0.000    0.348    0.000 <WORKSPACE>\ps10-impact-performance\.venv\Lib\site-packages\rfc8785\_impl.py:238(<lambda>)
+     9610    0.024    0.000    0.316    0.000 <USER_HOME>\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py:299(loads)
+      101    0.054    0.001    0.300    0.003 <WORKSPACE>\ps10-impact-performance\application\audit.py:101(journal_bytes_key)
+  1438805    0.295    0.000    0.300    0.000 {built-in method builtins.isinstance}

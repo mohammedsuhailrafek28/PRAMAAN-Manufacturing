@@ -1,0 +1,164 @@
+{
+  "motors": 10000,
+  "ledgerMB": 349.700096,
+  "hardware": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "sqlite": "3.49.1",
+    "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD"
+  },
+  "hybrid": {
+    "coldRebuildMs": 49524.77040000667,
+    "coldInfo": {
+      "motors": 10000,
+      "events": 95700,
+      "contentDigest": "d6397ada31f146d3c43120017ba55d3ab33c112891f19e885d394295b5578665",
+      "evidenceGeneration": "cf2d68606fddcf51b52cbeadf22819a73d6dc62748a9139100da441c13027f60",
+      "databaseImageBytes": 349700096,
+      "sqliteMmapLimitBytes": 1073741824,
+      "evidenceBytes": 295512094,
+      "motorsVerified": 10000,
+      "motorsReused": 0
+    },
+    "noopRebuildMs": 1991.8814999982715,
+    "mmapBytes": 1073741824,
+    "normal": {
+      "query": {
+        "n": 21,
+        "p50Ms": 593.7284999963595,
+        "p95Ms": 709.4142999994801,
+        "minMs": 539.8925999907078,
+        "maxMs": 748.84590000147
+      },
+      "readyJson": {
+        "n": 21,
+        "p50Ms": 496.1150000017369,
+        "p95Ms": 518.6688000103459,
+        "minMs": 470.41430001263507,
+        "maxMs": 519.5948000036879
+      },
+      "firstReadyJsonMs": 671.2220000044908
+    }
+  },
+  "baseline864393d": {
+    "coldRebuildMs": 86345.38870000688,
+    "normal": {
+      "query": {
+        "n": 21,
+        "p50Ms": 938.9987000031397,
+        "p95Ms": 1093.1219999911264,
+        "minMs": 861.7974000080721,
+        "maxMs": 1190.9810999932233
+      },
+      "readyJson": {
+        "n": 21,
+        "p50Ms": 795.9063000016613,
+        "p95Ms": 879.1120000096271,
+        "minMs": 759.7666000074241,
+        "maxMs": 924.2299999896204
+      },
+      "firstReadyJsonMs": 1110.019400002784
+    },
+    "equalToHybridAnswers": true
+  },
+  "baselinePlusMmap": {
+    "coldRebuildMs": 93870.05450000288,
+    "normal": {
+      "query": {
+        "n": 21,
+        "p50Ms": 603.4431000007316,
+        "p95Ms": 783.6683000059566,
+        "minMs": 540.2336999977706,
+        "maxMs": 908.8748999929521
+      },
+      "readyJson": {
+        "n": 21,
+        "p50Ms": 503.14349999825936,
+        "p95Ms": 566.6599000105634,
+        "minMs": 479.01229999843054,
+        "maxMs": 569.0735999960452
+      },
+      "firstReadyJsonMs": 910.8024000015575
+    },
+    "equalToHybridAnswers": true
+  },
+  "harmlessWriteRecovery": {
+    "openClose": {
+      "firstQueryAfterWriteMs": 2287.284499994712,
+      "nextQueryMs": 606.8825999973342,
+      "reAnchorsSoFar": 1,
+      "served": true,
+      "sameAnswerAsBefore": true
+    },
+    "clockTicks": {
+      "firstQueryAfterWriteMs": 2066.775500003132,
+      "nextQueryMs": 754.9124999932246,
+      "reAnchorsSoFar": 2,
+      "served": true,
+      "sameAnswerAsBefore": true
+    },
+    "announce": {
+      "firstQueryAfterWriteMs": 2162.2708999930182,
+      "nextQueryMs": 561.6815999965183,
+      "reAnchorsSoFar": 3,
+      "served": true,
+      "sameAnswerAsBefore": true
+    },
+    "baselineAfterOpenClose": "EVIDENCE_CHANGED_REBUILD_REQUIRED"
+  },
+  "evidenceChange": {
+    "rejectionMs": 1908.1779999978608,
+    "refusal": "EVIDENCE_CHANGED_REBUILD_REQUIRED",
+    "staleServed": false,
+    "incrementalRebuildMs": 1928.6766000004718,
+    "incrementalInfo": {
+      "motors": 10000,
+      "events": 95701,
+      "contentDigest": "a01186e6d1847c4a88e473e909fdabb645febfaab42abded2929460ee7696478",
+      "evidenceGeneration": "4ef7a3f89bf2990645e6f054990eb2866ce7a5ce502f4148c61d21c7269f1cf9",
+      "databaseImageBytes": 349704192,
+      "sqliteMmapLimitBytes": 1073741824,
+      "evidenceBytes": 295515412,
+      "motorsVerified": 1,
+      "motorsReused": 9999
+    },
+    "normalAfter": {
+      "n": 5,
+      "p50Ms": 493.8198000018019,
+      "p95Ms": 532.3328400001628,
+      "minMs": 485.94579999917187,
+      "maxMs": 540.199399998528
+    },
+    "baselineRejection": "EVIDENCE_CHANGED_REBUILD_REQUIRED",
+    "baselineRebuildAfterOneEventMs": 87379.40410000738
+  },
+  "concurrentWrites": {
+    "seconds": 30,
+    "evidenceWriterHz": 1,
+    "evidenceEventsAppended": 30,
+    "harmlessWrites": 58,
+    "queriesServed": 1,
+    "queriesRefused": 7,
+    "rebuilds": 7,
+    "rebuildMs": {
+      "n": 7,
+      "p50Ms": 2129.681000005803,
+      "p95Ms": 2312.8516600030707,
+      "minMs": 2003.0136999994284,
+      "maxMs": 2323.287999999593
+    },
+    "servedQueryMs": {
+      "n": 1,
+      "p50Ms": 699.9502999969991,
+      "p95Ms": 699.9502999969991,
+      "minMs": 699.9502999969991,
+      "maxMs": 699.9502999969991
+    },
+    "reAnchors": 0,
+    "otherErrors": [],
+    "writerErrors": [],
+    "servedEventCountsNonDecreasing": true,
+    "everyServedCountWithinLedger": true,
+    "finalReaderEventsEqualLedger": true
+  }
+}

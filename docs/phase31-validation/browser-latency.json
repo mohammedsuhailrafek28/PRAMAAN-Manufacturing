@@ -1,0 +1,5 @@
+{
+  "methodology": "Chrome loopback production build, seeded 5 motors plus one new 16-event motor; one measured workflow; wall-clock button click through visible decision assertion (includes browser assertion polling)",
+  "assemblyVisibleMs": 1491,
+  "replacementVisibleMs": 884
+}

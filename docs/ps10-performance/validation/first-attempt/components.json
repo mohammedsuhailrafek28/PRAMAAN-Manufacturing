@@ -1,0 +1,200 @@
+{
+  "mode": "ORIGINAL_COMPONENT_CHECKS_NOT_REQUIRED_SUMMARY",
+  "base": "6709b0c6f521006cf6332caeecec6b08dbd44e84",
+  "sourceCommit": "e4fd1d5b7a9a779a1e36be483296c0719a48dd4f",
+  "checks": {
+    "infra": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 1.2600108999977238,
+      "passCheck": true
+    },
+    "engine": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 41.018973500002176,
+      "passCheck": true
+    },
+    "integration": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 2.5734764000008,
+      "passCheck": true
+    },
+    "test_application": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 13.117164999996021,
+      "passCheck": true
+    },
+    "test_remediation": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 27.77103380000335,
+      "passCheck": true
+    },
+    "test_hardening": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 14.827825100001064,
+      "passCheck": true
+    },
+    "test_checkpoints": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 9.87866280000162,
+      "passCheck": true
+    },
+    "test_unified": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 9.222952399999485,
+      "passCheck": true
+    },
+    "test_checkpoint_ops": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 5.579938599999878,
+      "passCheck": true
+    },
+    "test_consolidated_safety": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 14.622024399999646,
+      "passCheck": true
+    },
+    "test_d5": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 2.559204500001215,
+      "passCheck": true
+    },
+    "test_d6": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 1.9590502999999444,
+      "passCheck": true
+    },
+    "test_lot_identity_ab": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 142.41535909999948,
+      "passCheck": true
+    },
+    "test_v11_hardening": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 15.041860000004817,
+      "passCheck": true
+    },
+    "test_format_v3": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 8.383449000000837,
+      "passCheck": true
+    },
+    "test_scoped_containment": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 28.24997170000279,
+      "passCheck": true
+    },
+    "test_stale_recovery": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 16.526949400002195,
+      "passCheck": true
+    },
+    "test_ship_gate": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 9.208872899995185,
+      "passCheck": true
+    },
+    "test_evidence_package": {
+      "exit": 1,
+      "countMatches": false,
+      "seconds": 0.6307308000032208,
+      "passCheck": false
+    },
+    "test_federation": {
+      "exit": 1,
+      "countMatches": false,
+      "seconds": 0.3843935999975656,
+      "passCheck": false
+    },
+    "test_f5_f6_integration": {
+      "exit": 1,
+      "countMatches": false,
+      "seconds": 0.3567929000055301,
+      "passCheck": false
+    },
+    "focused": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 10.24575840000034,
+      "passCheck": true
+    },
+    "standards-safety": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 11.05969520000508,
+      "passCheck": true
+    },
+    "foundation": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 1.3919777999981306,
+      "passCheck": true
+    },
+    "exporter": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 1.348669399994833,
+      "passCheck": true
+    },
+    "snapshot": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 0.6664674000057857,
+      "passCheck": true
+    },
+    "typecheck": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 4.302746699999261,
+      "passCheck": true
+    },
+    "build": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 5.162371999998868,
+      "passCheck": true
+    },
+    "vitest": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 52.66822390000016,
+      "passCheck": true
+    },
+    "browser-version": {
+      "exit": 0,
+      "countMatches": true,
+      "seconds": 2.9438200000004144,
+      "passCheck": true
+    },
+    "playwright": {
+      "passCheck": false,
+      "error": "PORTS_BUSY; no other process stopped"
+    }
+  },
+  "sourceProvenance": {
+    "baseline": "4a9e8f2c11e5e12bfd6926bfb9f9a0ee0dd3fa57",
+    "files": 126,
+    "engineTreeUnmodified": true,
+    "foundationTreeUnmodified": true,
+    "integrationTreeUnmodified": true
+  },
+  "existingFrozenFilesChanged": [],
+  "allComponentChecksPass": false
+}

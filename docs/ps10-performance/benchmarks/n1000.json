@@ -1,0 +1,67 @@
+{
+  "base": "6709b0c6f521006cf6332caeecec6b08dbd44e84",
+  "motors": 1000,
+  "seed": {
+    "seconds": 10.479877199999464,
+    "counts": {
+      "events": 9570,
+      "captures": 990,
+      "motors": 1000
+    }
+  },
+  "verified": {
+    "motors": 1000,
+    "events": 9570,
+    "contentDigest": "282c65df2dc12c6c166ba6d6efbc677c339d02737a5c4838fef522b0799af79e",
+    "databaseImageBytes": 35016704
+  },
+  "coldVerifiedIndexBuildMs": 9658.805499995651,
+  "warmQuery": {
+    "n": 21,
+    "p50Ms": 104.58210000069812,
+    "p95Ms": 121.64369999663904,
+    "minMs": 91.383400002087,
+    "maxMs": 127.32500000129221
+  },
+  "warmQueryPlusJson": {
+    "n": 21,
+    "p50Ms": 107.71660000318661,
+    "p95Ms": 126.56799999967916,
+    "minMs": 93.98869999859016,
+    "maxMs": 131.31609999982174
+  },
+  "firstReadyJsonMs": 99.85959999903571,
+  "readyJsonWarm": {
+    "n": 21,
+    "p50Ms": 93.3904000048642,
+    "p95Ms": 102.80369999964023,
+    "minMs": 81.44049999827985,
+    "maxMs": 112.66669999895385
+  },
+  "responseBytes": 348507,
+  "correctness": {
+    "expectedCandidates": 270,
+    "actualCandidates": 270,
+    "missed": [],
+    "extra": [],
+    "missedShipmentLinks": [],
+    "extraShipmentLinks": []
+  },
+  "scenarios": {
+    "de": 50,
+    "nde": 50,
+    "removed": 50,
+    "sighting": 50,
+    "gap": 50,
+    "empty": 10,
+    "double": 10,
+    "clean": 730
+  },
+  "hardware": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "sqlite": "3.49.1",
+    "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD"
+  },
+  "semantics": "Recorded potential impact only, no current decisions/clearance; dense historic/uncertain candidates included"
+}

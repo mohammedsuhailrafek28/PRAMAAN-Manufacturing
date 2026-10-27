@@ -1,0 +1,44 @@
+{
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sqlite": "3.49.1",
+  "dataset": {
+    "seed": "deterministic motor index 0..99; no randomness",
+    "motors": 100,
+    "eventsPerMotor": 8,
+    "events": 800,
+    "captures": 800,
+    "relationshipsPerMotor": 4
+  },
+  "methodology": "20 warm-up iterations, then round-robin over 100 motors; sequential genealogy, decision, cached-engine; perf_counter_ns; file-backed SQLite WAL; schema/hash/original-byte validation included in first two; no concurrent writers; no cold-cache or production claim",
+  "syntheticIngestionSeconds": 4.127572400000645,
+  "latency": {
+    "genealogyWithValidation": {
+      "unit": "ms",
+      "p50": 5.7193,
+      "p95": 10.3078,
+      "p99": 14.5919,
+      "mean": 6.322849333333333,
+      "samples": 300
+    },
+    "decisionWithValidation": {
+      "unit": "ms",
+      "p50": 7.2937,
+      "p95": 12.8824,
+      "p99": 18.2887,
+      "mean": 8.064966,
+      "samples": 300
+    },
+    "engineOnlyCachedInput": {
+      "unit": "ms",
+      "p50": 0.35,
+      "p95": 0.6929,
+      "p99": 1.0173,
+      "mean": 0.404656,
+      "samples": 300
+    }
+  },
+  "decisionCounts": {
+    "EXCLUDED_WITH_EVIDENCE": 300
+  }
+}

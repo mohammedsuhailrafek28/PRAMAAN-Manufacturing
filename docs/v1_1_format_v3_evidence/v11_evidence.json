@@ -1,0 +1,218 @@
+{
+ "ndeRecovery": {
+  "eligibleAfterRenewal": true,
+  "eventsPreserved": true,
+  "ineligibleBeforeRenewal": true
+ },
+ "registryCustody": [
+  {
+   "action": "RECALL_HOLD",
+   "bindingStatus": "DISCREPANCY",
+   "changes": [
+    {
+     "alias": "NSB-204",
+     "change": "ALIAS_REMOVED",
+     "lot": "BR-204"
+    },
+    {
+     "alias": "NSB-204",
+     "change": "ALIAS_ADDED",
+     "lot": "BR-312"
+    },
+    {
+     "alias": "NSB-204",
+     "change": "ALIAS_REDIRECTED",
+     "new": [
+      "BR-312"
+     ],
+     "old": [
+      "BR-204"
+     ]
+    }
+   ],
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "evaluatorAction": "RELEASE_ELIGIBLE",
+   "label": "alias redirected",
+   "reasons": [
+    "REGISTRY_BINDING_DISCREPANCY"
+   ]
+  },
+  {
+   "action": "RECALL_HOLD",
+   "bindingStatus": "DISCREPANCY",
+   "changes": [
+    {
+     "change": "FIELD_CHANGED",
+     "field": "supplierId",
+     "lot": "BR-310",
+     "new": "SUP-NSB-01",
+     "old": "SUP-KAV-02",
+     "supplierId": "SUP-KAV-02"
+    }
+   ],
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "evaluatorAction": "RELEASE_ELIGIBLE",
+   "label": "supplier changed",
+   "reasons": [
+    "REGISTRY_BINDING_DISCREPANCY",
+    "SUPPLIER_SCOPE_MISMATCH"
+   ]
+  },
+  {
+   "action": "RECALL_HOLD",
+   "bindingStatus": "DISCREPANCY",
+   "changes": [
+    {
+     "change": "FIELD_CHANGED",
+     "field": "effectiveFrom",
+     "lot": "BR-310",
+     "new": "2030-01-01T00:00:00Z",
+     "old": "2026-01-01T00:00:00Z",
+     "supplierId": "SUP-KAV-02"
+    }
+   ],
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "evaluatorAction": "RELEASE_ELIGIBLE",
+   "label": "effective date moved",
+   "reasons": [
+    "NOT_YET_EFFECTIVE",
+    "REGISTRY_BINDING_DISCREPANCY"
+   ]
+  },
+  {
+   "action": "RECALL_HOLD",
+   "bindingStatus": "DISCREPANCY",
+   "changes": [
+    {
+     "change": "FIELD_CHANGED",
+     "field": "status",
+     "lot": "BR-310",
+     "new": "WITHDRAWN",
+     "old": "ACTIVE",
+     "supplierId": "SUP-KAV-02"
+    }
+   ],
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "evaluatorAction": "RELEASE_ELIGIBLE",
+   "label": "withdrawn",
+   "reasons": [
+    "REGISTRY_BINDING_DISCREPANCY",
+    "WITHDRAWN"
+   ]
+  },
+  {
+   "action": "RECALL_HOLD",
+   "bindingStatus": "DISCREPANCY",
+   "changes": [
+    {
+     "change": "FIELD_CHANGED",
+     "field": "supplierName",
+     "lot": "BR-204",
+     "new": "Someone Else",
+     "old": "Northstar Bearings \u2014 synthetic supplier",
+     "supplierId": "SUP-NSB-01"
+    }
+   ],
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "evaluatorAction": "RELEASE_ELIGIBLE",
+   "label": "modified",
+   "reasons": [
+    "REGISTRY_BINDING_DISCREPANCY"
+   ]
+  },
+  {
+   "action": "RECALL_HOLD",
+   "bindingStatus": "DISCREPANCY",
+   "changes": [
+    {
+     "change": "ENTRY_REMOVED",
+     "lot": "BR-420",
+     "supplierId": "SUP-KAV-02"
+    }
+   ],
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "evaluatorAction": "RELEASE_ELIGIBLE",
+   "label": "rolled back (entry removed)",
+   "reasons": [
+    "REGISTRY_BINDING_DISCREPANCY"
+   ]
+  },
+  {
+   "action": "RECALL_HOLD",
+   "bindingStatus": "DISCREPANCY",
+   "changes": [
+    {
+     "change": "DOCUMENT_FIELD_CHANGED",
+     "field": "version",
+     "new": 0,
+     "old": 1
+    }
+   ],
+   "checkpoint": "ANCHORED_CURRENT",
+   "eligible": false,
+   "evaluatorAction": "RELEASE_ELIGIBLE",
+   "label": "rolled back (version)",
+   "reasons": [
+    "REGISTRY_BINDING_DISCREPANCY"
+   ]
+  }
+ ],
+ "replay": [
+  {
+   "label": "old checkpoint + new registry",
+   "status": "DISCREPANCY"
+  },
+  {
+   "label": "new checkpoint + old registry",
+   "status": "DISCREPANCY"
+  }
+ ],
+ "retroactiveRegistration": {
+  "underOldCheckpoint": {
+   "MTR-90001": {
+    "currentReleaseEligible": false
+   },
+   "MTR-90002": {
+    "currentReleaseEligible": false
+   }
+  }
+ },
+ "sidecarAdvisory": [
+  {
+   "label": "missing",
+   "sidecar": "ABSENT",
+   "status": "DISCREPANCY"
+  },
+  {
+   "label": "garbage",
+   "sidecar": "INVALID",
+   "status": "DISCREPANCY"
+  },
+  {
+   "label": "digest-mismatch",
+   "sidecar": "VALID",
+   "status": "DISCREPANCY"
+  },
+  {
+   "label": "other-checkpoint",
+   "sidecar": "INVALID",
+   "status": "DISCREPANCY"
+  },
+  {
+   "label": "forged-document",
+   "sidecar": "INVALID",
+   "status": "DISCREPANCY"
+  }
+ ],
+ "sighting": {
+  "action": "RECALL_HOLD",
+  "evaluatorUnchanged": true,
+  "rawPreserved": "ZZ-9 (scratched)"
+ }
+}

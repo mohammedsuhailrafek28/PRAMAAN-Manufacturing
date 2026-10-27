@@ -1,0 +1,118 @@
+
+====================================================================================================
+ISSUER SIDE: recalled motor MTR-DEMO-2 (affected lot BR-204, DE bearing); checkpoint is ANCHORED_CURRENT; issuer key pinned out of band
+====================================================================================================
+  issued customer  -> urn:demo:customer:pumpco       2532 bytes
+  issued supplier  -> urn:demo:supplier:northstar    2702 bytes
+  issued auditor   -> urn:demo:auditor:regulator     6648 bytes
+
+====================================================================================================
+SUCCESS 1/3: CUSTOMER verifies offline (no supplier, lot or other-motor detail exists in the file)
+====================================================================================================
+ACCEPTED (cryptographic checks only)
+  signature              : VALID_UNDER_PINNED_ISSUER_KEY
+  claim commitments      : VALID (4 disclosed of 24 committed digests incl. decoys)
+  intended recipient     : MATCHES
+  validity window        : WITHIN_WINDOW_BY_VERIFIER_CLOCK (the clock is not signed or attested)
+  checkpoint binding     : ISSUER_ASSERTED_ONLY
+  freshness / revocation : UNKNOWN_WITHOUT_EXTERNAL_EVIDENCE
+  physical product truth : UNVERIFIED
+  profile / audience     : customer / urn:demo:customer:pumpco
+  disclosed claims:
+    evidenceFinding = "AFFECTED"
+    recallId = "RC-026-014"
+    operationalAction = "RECALL_HOLD"
+    motorSerial = "MTR-DEMO-2"
+  not disclosed: 20 committed digests are not opened (hidden claims and decoys are indistinguishable)
+  Informational evidence only. Not a release clearance, shipment permission or finding. Physical product truth is not verified.
+
+====================================================================================================
+SUCCESS 2/3: SUPPLIER verifies offline (lot and supplier, no motor or customer identity)
+====================================================================================================
+ACCEPTED (cryptographic checks only)
+  signature              : VALID_UNDER_PINNED_ISSUER_KEY
+  claim commitments      : VALID (7 disclosed of 24 committed digests incl. decoys)
+  intended recipient     : MATCHES
+  validity window        : WITHIN_WINDOW_BY_VERIFIER_CLOCK (the clock is not signed or attested)
+  checkpoint binding     : ISSUER_ASSERTED_ONLY
+  freshness / revocation : UNKNOWN_WITHOUT_EXTERNAL_EVIDENCE
+  physical product truth : UNVERIFIED
+  profile / audience     : supplier / urn:demo:supplier:northstar
+  disclosed claims:
+    recallId = "RC-026-014"
+    part = "BR-6205"
+    lot = "BR-204"
+    evidenceFinding = "AFFECTED"
+    supplierId = "SUP-NSB-01"
+    operationalAction = "RECALL_HOLD"
+    slot = "DE"
+  not disclosed: 17 committed digests are not opened (hidden claims and decoys are indistinguishable)
+  Informational evidence only. Not a release clearance, shipment permission or finding. Physical product truth is not verified.
+
+====================================================================================================
+SUCCESS 3/3: AUDITOR verifies offline WITH the checkpoint (opened event row re-hashes to the checkpoint's row digest)
+====================================================================================================
+ACCEPTED (cryptographic checks only)
+  signature              : VALID_UNDER_PINNED_ISSUER_KEY
+  claim commitments      : VALID (16 disclosed of 24 committed digests incl. decoys)
+  intended recipient     : MATCHES
+  validity window        : WITHIN_WINDOW_BY_VERIFIER_CLOCK (the clock is not signed or attested)
+  checkpoint binding     : CLAIMS_BOUND_TO_CHECKPOINT_ROW (opened event row re-hashes to the checkpoint's row digest; the checkpoint itself is same-host custody)
+  freshness / revocation : UNKNOWN_WITHOUT_EXTERNAL_EVIDENCE
+  physical product truth : UNVERIFIED
+  profile / audience     : auditor / urn:demo:auditor:regulator
+  disclosed claims:
+    headHash = "9f2fb20ca0d5bb6efb553450bcd7e2f5750fbb937a4adb435fdf943bb1baae25"
+    operationalAction = "RECALL_HOLD"
+    supplierId = "SUP-NSB-01"
+    installEventId = "urn:pramaan:MTR-DEMO-2:ASSY:1"
+    motorSerial = "MTR-DEMO-2"
+    evidenceFinding = "AFFECTED"
+    lot = "BR-204"
+    registryDigest = "cdce64ba9dfa6452b340962f55f393e5a214bddcf8bb7e6b2ea116aaf65760cc"
+    recallId = "RC-026-014"
+    policyDigest = "409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934"
+    eventRowIndex = 69
+    slot = "DE"
+    part = "BR-6205"
+    sequence = 13
+    decisionId = "A31-MTR-DEMO-2-409f180754f32dc930eec271fd89c02ddcb37ea95865cd7c2784fbbd258e1934-9ec0c05eeaeb4bbfb60af6c7e0fce5e9-v1"
+    eventRow = [opened ledger row, 10 fields]
+  not disclosed: 8 committed digests are not opened (hidden claims and decoys are indistinguishable)
+  Informational evidence only. Not a release clearance, shipment permission or finding. Physical product truth is not verified.
+
+====================================================================================================
+NEGATIVE 1: the customer package presented by/for the supplier (audience mismatch)
+====================================================================================================
+REJECTED: AUDIENCE_MISMATCH package is for 'urn:demo:customer:pumpco'
+
+====================================================================================================
+NEGATIVE 2: one disclosed value edited after signing (motorSerial -> MTR-OTHER-9)
+====================================================================================================
+REJECTED: DISCLOSURE_NOT_COMMITTED motorSerial
+
+====================================================================================================
+NEGATIVE 3: signed by a different key (attacker)
+====================================================================================================
+REJECTED: WRONG_ISSUER_KEY kid does not match the pinned key
+
+====================================================================================================
+NEGATIVE 4: expired package (verified one day after issue)
+====================================================================================================
+REJECTED: EXPIRED
+
+====================================================================================================
+NEGATIVE 5: auditor claim (lot) contradicts the opened ledger row bound to the checkpoint
+====================================================================================================
+REJECTED: EVENT_ROW_CLAIM_MISMATCH lot
+
+====================================================================================================
+ISSUER REFUSAL: a release-eligible motor (MTR-DEMO-1) gets no package: packages are never clearance
+====================================================================================================
+  REFUSED: operational action 'RELEASE_ELIGIBLE': packages describe held motors only and are never issued as clearance
+
+====================================================================================================
+PRIVACY: bytes each recipient holds (everything decoded) searched for forbidden strings
+====================================================================================================
+  customer  leaks: none
+  supplier  leaks: none

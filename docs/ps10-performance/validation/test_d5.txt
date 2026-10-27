@@ -1,0 +1,11 @@
+test_legacy_rows_keep_their_historical_verdict (application.test_d5.D5BindingTests.test_legacy_rows_keep_their_historical_verdict) ... ok
+test_legitimate_sequences_still_verify (application.test_d5.D5BindingTests.test_legitimate_sequences_still_verify) ... ok
+test_older_watermark_after_newer_one_is_rejected (application.test_d5.D5BindingTests.test_older_watermark_after_newer_one_is_rejected) ... ok
+test_unannounced_policy_is_rejected_even_when_hashes_are_recomputed (application.test_d5.D5BindingTests.test_unannounced_policy_is_rejected_even_when_hashes_are_recomputed) ... ok
+test_watermark_beyond_the_ledger_is_rejected (application.test_d5.D5BindingTests.test_watermark_beyond_the_ledger_is_rejected)
+The ledger will not build a manifest above what it holds, so the forge is not constructible through it. The bound is ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.609s
+
+OK

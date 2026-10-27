@@ -1,0 +1,24 @@
+test_fleet_membership_changes_are_not_silently_omitted (performance.test_impact_query.ImpactTests.test_fleet_membership_changes_are_not_silently_omitted) ... ok
+test_invalid_query_never_returns_a_negative_result (performance.test_impact_query.ImpactTests.test_invalid_query_never_returns_a_negative_result) ... ok
+test_native_mutation_cannot_be_used_after_rebuild (performance.test_impact_query.ImpactTests.test_native_mutation_cannot_be_used_after_rebuild) ... ok
+test_new_evidence_cannot_use_old_index (performance.test_impact_query.ImpactTests.test_new_evidence_cannot_use_old_index) ... ok
+test_preserves_hit_unknown_sighting_and_unassembled_motor (performance.test_impact_query.ImpactTests.test_preserves_hit_unknown_sighting_and_unassembled_motor) ... ok
+test_raw_capture_mutation_same_heads_and_counts_is_detected (performance.test_impact_query.ImpactTests.test_raw_capture_mutation_same_heads_and_counts_is_detected) ... ok
+test_read_only_no_publication_or_database_mutation (performance.test_impact_query.ImpactTests.test_read_only_no_publication_or_database_mutation) ... ok
+test_rebuild_cannot_erase_known_fleet_members (performance.test_impact_query.ImpactTests.test_rebuild_cannot_erase_known_fleet_members) ... ok
+test_recomputed_configuration_hash_cannot_rewrite_accepted_provisioning (performance.test_impact_query.ImpactTests.test_recomputed_configuration_hash_cannot_rewrite_accepted_provisioning) ... ok
+test_registry_edit_invalidates_proof (performance.test_impact_query.ImpactTests.test_registry_edit_invalidates_proof) ... ok
+test_rejection_blocks_even_with_prior_good_evidence (performance.test_impact_query.ImpactTests.test_rejection_blocks_even_with_prior_good_evidence) ... ok
+test_replacement_and_late_correction_keep_historical_exposure_and_sightings (performance.test_impact_query.ImpactTests.test_replacement_and_late_correction_keep_historical_exposure_and_sightings) ... ok
+test_response_cannot_mutate_cached_proof (performance.test_impact_query.ImpactTests.test_response_cannot_mutate_cached_proof) ... ok
+test_restart_requires_full_verification_and_errors_are_neutral (performance.test_impact_query.ImpactTests.test_restart_requires_full_verification_and_errors_are_neutral) ... ok
+test_serialized_response_cache_is_immutable_and_still_rehashes (performance.test_impact_query.ImpactTests.test_serialized_response_cache_is_immutable_and_still_rehashes) ... ok
+test_shipments_are_verified_recorded_claims_not_authorization (performance.test_impact_query.ImpactTests.test_shipments_are_verified_recorded_claims_not_authorization) ... ok
+test_transaction_linearization_against_concurrent_capture (performance.test_impact_query.ImpactTests.test_transaction_linearization_against_concurrent_capture) ... ok
+test_unknown_query_includes_entire_fleet (performance.test_impact_query.ImpactTests.test_unknown_query_includes_entire_fleet) ... ok
+test_warm_reuse_keeps_verification_content_bound (performance.test_impact_query.ImpactTests.test_warm_reuse_keeps_verification_content_bound) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 9.398s
+
+OK

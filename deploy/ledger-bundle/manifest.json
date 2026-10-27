@@ -1,0 +1,162 @@
+{
+  "format": "SYNTHETIC_REVIEW2_SINGLE_LEDGER",
+  "notice": "Synthetic claims; local self-custodied reference is NOT independently protected custody or release authorization",
+  "database": "ledger.sqlite",
+  "staging": "(not shipped)",
+  "reference": "demo-reference.json",
+  "preview": {
+    "records": 73,
+    "accepted": 37,
+    "acceptedForLedgerCapture": 32,
+    "acceptedStagedOnly": 5,
+    "acceptedAlreadyImported": 0,
+    "rejected": 8,
+    "unresolved": 28,
+    "issuesByCategory": {
+      "contradiction": 6,
+      "duplicate": 2,
+      "held": 8,
+      "identity": 3,
+      "missing": 15,
+      "ordering": 2,
+      "validation": 5,
+      "warning": 4
+    },
+    "bySystem": {
+      "ERP": {
+        "ACCEPTED": 13,
+        "REJECTED": 2,
+        "UNRESOLVED": 5
+      },
+      "LOGISTICS": {
+        "ACCEPTED": 3,
+        "UNRESOLVED": 4
+      },
+      "MES": {
+        "ACCEPTED": 16,
+        "REJECTED": 4,
+        "UNRESOLVED": 16
+      },
+      "QUALITY": {
+        "ACCEPTED": 2,
+        "UNRESOLVED": 1
+      },
+      "SCADA": {
+        "ACCEPTED": 3,
+        "REJECTED": 2,
+        "UNRESOLVED": 2
+      }
+    },
+    "ledgerEventsPlanned": 45,
+    "unitsToCreate": 8
+  },
+  "imported": {
+    "records": 73,
+    "accepted": 37,
+    "acceptedForLedgerCapture": 32,
+    "acceptedStagedOnly": 5,
+    "acceptedAlreadyImported": 0,
+    "rejected": 8,
+    "unresolved": 28,
+    "issuesByCategory": {
+      "contradiction": 6,
+      "duplicate": 2,
+      "held": 8,
+      "identity": 3,
+      "missing": 15,
+      "ordering": 2,
+      "validation": 5,
+      "warning": 4
+    },
+    "bySystem": {
+      "ERP": {
+        "ACCEPTED": 13,
+        "REJECTED": 2,
+        "UNRESOLVED": 5
+      },
+      "LOGISTICS": {
+        "ACCEPTED": 3,
+        "UNRESOLVED": 4
+      },
+      "MES": {
+        "ACCEPTED": 16,
+        "REJECTED": 4,
+        "UNRESOLVED": 16
+      },
+      "QUALITY": {
+        "ACCEPTED": 2,
+        "UNRESOLVED": 1
+      },
+      "SCADA": {
+        "ACCEPTED": 3,
+        "REJECTED": 2,
+        "UNRESOLVED": 2
+      }
+    },
+    "ledgerEventsPlanned": 45,
+    "unitsToCreate": 8
+  },
+  "repeated": {
+    "records": 73,
+    "accepted": 38,
+    "acceptedForLedgerCapture": 0,
+    "acceptedStagedOnly": 0,
+    "acceptedAlreadyImported": 38,
+    "rejected": 7,
+    "unresolved": 28,
+    "issuesByCategory": {
+      "contradiction": 6,
+      "duplicate": 1,
+      "held": 8,
+      "identity": 3,
+      "missing": 10,
+      "ordering": 2,
+      "validation": 5
+    },
+    "bySystem": {
+      "ERP": {
+        "ACCEPTED": 14,
+        "REJECTED": 1,
+        "UNRESOLVED": 5
+      },
+      "LOGISTICS": {
+        "ACCEPTED": 3,
+        "UNRESOLVED": 4
+      },
+      "MES": {
+        "ACCEPTED": 16,
+        "REJECTED": 4,
+        "UNRESOLVED": 16
+      },
+      "QUALITY": {
+        "ACCEPTED": 2,
+        "UNRESOLVED": 1
+      },
+      "SCADA": {
+        "ACCEPTED": 3,
+        "REJECTED": 2,
+        "UNRESOLVED": 2
+      }
+    },
+    "ledgerEventsPlanned": 0,
+    "unitsToCreate": 0
+  },
+  "policy": {
+    "policyId": "RC-026-014/P1",
+    "exposureBasis": "CURRENT_INSTALLATION",
+    "damageInspection": null
+  },
+  "recordedEvaluation": {
+    "MTR-27002": {
+      "finding": "AFFECTED",
+      "action": "RECALL_HOLD"
+    },
+    "MTR-27003": {
+      "finding": "UNRESOLVED",
+      "action": "RECALL_HOLD"
+    }
+  },
+  "machiningEventId": "urn:pramaan:MTR-27002:MACHINING:1",
+  "inspectionEventId": "urn:pramaan:MTR-27002:QC:1",
+  "eventCount": 47
+}

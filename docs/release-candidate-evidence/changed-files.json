@@ -1,0 +1,1041 @@
+{
+  "againstBranded748": [
+    {
+      "status": "M",
+      "path": "application/anchors.py"
+    },
+    {
+      "status": "M",
+      "path": "application/audit.py"
+    },
+    {
+      "status": "A",
+      "path": "application/checkpoint_benchmark.py"
+    },
+    {
+      "status": "M",
+      "path": "application/server.py"
+    },
+    {
+      "status": "M",
+      "path": "application/service.py"
+    },
+    {
+      "status": "A",
+      "path": "application/test_checkpoints.py"
+    },
+    {
+      "status": "A",
+      "path": "docs/H1_H2_APPROVED_OPTION_A_SPEC.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/H1_H2_INDEPENDENT_AUDIT_HANDOFF.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/RELEASE_CANDIDATE_AUDIT.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/RELEASE_CANDIDATE_PRECHANGE_REVIEW.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/RELEASE_CANDIDATE_TEST_MATRIX.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/h1-h2-validation/R18-measured.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/h1-h2-validation/summary.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/adversarial-before.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/application-tests.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/audit-browser-final.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/audit-browser-first-attempt.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/audit-browser.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/backend-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/backend_probe.py"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/baseline-browser.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/baseline-unit.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/browser-port-collision.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/build.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/changed-files.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/ci-inventory-comparison.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/engine-tests.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/evidence-files.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/exporter-tests.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/foundation-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/foundation-tests.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/http-status-before.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/integrated-browser.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/integrated-unit.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/integration-tests.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/latency-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/latency_probe.py"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/mobile-7d838b6d523a4219a7cd_3ef05203d1cc4c540d96.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/mobile-7d838b6d523a4219a7cd_556704c20fa28cedd51e.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/mobile-7d838b6d523a4219a7cd_56d7873dec6eda625028.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/mobile-7d838b6d523a4219a7cd_c4585f349e2a2cace01a.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/pins.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/public-preview-scan.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/review-metadata.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/source-provenance-verification.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/validation-summary.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/playwright.audit.config.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/playwright.rc.config.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/App.tsx"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/components/StatusChips.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/contract/ConsoleClaims.tsx"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/contract/gate.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/contract/views.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/data/RecallDataSource.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/data/freshness.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/impact/projection.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/passport/qr.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/views/Case06Comparison.tsx"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/views/DecisionExplanation.tsx"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/views/DecisionHistory.tsx"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/views/FleetBoard.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/e2e/checkpoint.spec.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/e2e/independent-audit.spec.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/backend-current-contract.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/checkpoint.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/independent-audit.test.tsx"
+    }
+  ],
+  "againstAuditedF928": [
+    {
+      "status": "M",
+      "path": "application/anchors.py"
+    },
+    {
+      "status": "M",
+      "path": "application/audit.py"
+    },
+    {
+      "status": "A",
+      "path": "application/checkpoint_benchmark.py"
+    },
+    {
+      "status": "M",
+      "path": "application/server.py"
+    },
+    {
+      "status": "M",
+      "path": "application/service.py"
+    },
+    {
+      "status": "A",
+      "path": "application/test_checkpoints.py"
+    },
+    {
+      "status": "A",
+      "path": "docs/DPP_QR_EXPLORER.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/EVIDENCE_GUIDED_INVESTIGATION_IMPLEMENTATION.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/FRONTEND_PHASE_A.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/H1_H2_APPROVED_OPTION_A_SPEC.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/H1_H2_INDEPENDENT_AUDIT_HANDOFF.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/RECALL_IMPACT_GRAPH.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/RELEASE_CANDIDATE_AUDIT.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/RELEASE_CANDIDATE_PRECHANGE_REVIEW.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/RELEASE_CANDIDATE_TEST_MATRIX.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/THREE_FEATURE_INTEGRATION_PREP.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/01-overview-desktop.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/02-components-history.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/03-evidence-drilldown.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/04-timeline.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/05-qr-label.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/06-preview-mode.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/07-backend-offline.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/mobile-components.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/mobile-overview.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/mobile-qr.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/mobile-recall.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/dpp-screenshots/mobile-timeline.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/h1-h2-validation/R18-measured.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/h1-h2-validation/summary.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/01-lot-chooser.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/02-graph-overview.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/03-trace-and-details.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/04-historical-removal.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/05-list-with-issues.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/06-raw-lot.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/07-nde-scope.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/08-mobile-list.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/09-mobile-graph.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/10-large-window.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/11-live-verified.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/12-live-not-current.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/13-live-withdrawn.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/impact-screenshots/14-unanchored.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/investigation-screenshots/01-overview-before.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/investigation-screenshots/02-shared-gap-cluster.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/investigation-screenshots/03-untrusted-cluster.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/investigation-screenshots/04-evidence-page.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/investigation-screenshots/05-overview-after-update.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/investigation-screenshots/06-live-seeded.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/investigation-screenshots/07-live-update.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/investigation-screenshots/08-backend-offline.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/investigation-screenshots/mobile-cluster.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/investigation-screenshots/mobile-overview.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/adversarial-before.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/application-tests.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/audit-browser-final.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/audit-browser-first-attempt.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/audit-browser.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/backend-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/backend_probe.py"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/baseline-browser.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/baseline-unit.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/browser-port-collision.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/build.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/changed-files.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/ci-inventory-comparison.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/engine-tests.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/evidence-files.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/exporter-tests.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/foundation-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/foundation-tests.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/http-status-before.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/integrated-browser.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/integrated-unit.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/integration-tests.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/latency-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/latency_probe.py"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/mobile-7d838b6d523a4219a7cd_3ef05203d1cc4c540d96.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/mobile-7d838b6d523a4219a7cd_556704c20fa28cedd51e.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/mobile-7d838b6d523a4219a7cd_56d7873dec6eda625028.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/mobile-7d838b6d523a4219a7cd_c4585f349e2a2cace01a.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/pins.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/public-preview-scan.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/review-metadata.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/source-provenance-verification.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/release-candidate-evidence/validation-summary.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/docs/FRONTEND_BRANDED_VIEWS_IMPLEMENTATION.md"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/impact.html"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/investigation.html"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/package-lock.json"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/package.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/passport.html"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/playwright.audit.config.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/playwright.gate.config.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/playwright.h1h2.config.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/playwright.rc.config.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/public/data/impact-demo.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/public/data/investigation-demo.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/public/data/passport-preview.json"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/public/data/snapshot.json"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/App.tsx"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/components/StatusChips.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/contract/ClearanceChip.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/contract/ConsoleClaims.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/contract/clearance.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/contract/envelope.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/contract/gate.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/contract/gated.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/contract/liveLoad.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/contract/testing.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/contract/views.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/data/RecallDataSource.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/data/freshness.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/domain/types.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/ImpactApp.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/ImpactGraphView.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/ImpactList.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/ImpactWorkspace.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/NodeDetails.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/impact.css"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/impactSource.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/layout.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/main.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/projection.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/route.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/impact/syntheticScale.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/investigation/InvestigationApp.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/investigation/InvestigationWorkspace.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/investigation/diff.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/investigation/investigation.css"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/investigation/investigationSource.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/investigation/main.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/investigation/projection.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/investigation/route.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/investigation/taxonomy.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/passport/PassportApp.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/passport/PassportExplorer.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/passport/main.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/passport/passport.css"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/passport/passportSource.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/passport/projection.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/passport/qr.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/src/passport/route.ts"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/views/Case06Comparison.tsx"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/views/DecisionExplanation.tsx"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/views/DecisionHistory.tsx"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/src/views/FleetBoard.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/copy-dist.mjs"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/e2e/checkpoint.spec.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/e2e/gate.spec.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/e2e/impact.spec.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/e2e/independent-audit.spec.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/e2e/passport.spec.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/e2e/workspace.spec.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/fixtures/h1h2/anchor_invalid.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/fixtures/h1h2/current.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/fixtures/h1h2/invalid_request.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/fixtures/h1h2/prefix_only.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/fixtures/h1h2/unanchored.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/fixtures/h1h2/verifying.json"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/arch-guards.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/backend-current-contract.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/branded-pages.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/branding.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/checkpoint.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/gate-fuzz.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/gate.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/impact-app.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/impact-projection.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/impactHelpers.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/independent-audit.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/investigation-app.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/investigation-projection.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/investigationHelpers.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/passport-app.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/passport-projection.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/passport-qr.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/passportHelpers.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/preview-privacy.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/standalone-gate.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tools/capture_h1h2_envelopes.py"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/tools/export_snapshot.py"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tools/generate_impact_demo.py"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tools/generate_investigation_demo.py"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tools/preview_sanitize.py"
+    },
+    {
+      "status": "M",
+      "path": "recall-ui/vite.config.ts"
+    }
+  ],
+  "backendBeyondExactH1": [],
+  "originalTestPathsAgainst748": [
+    {
+      "status": "A",
+      "path": "recall-ui/tests/e2e/checkpoint.spec.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/e2e/independent-audit.spec.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/backend-current-contract.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/checkpoint.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "recall-ui/tests/unit/independent-audit.test.tsx"
+    }
+  ]
+}

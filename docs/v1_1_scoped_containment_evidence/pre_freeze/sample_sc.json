@@ -1,0 +1,101 @@
+{
+ "acceptDisagreements": [],
+ "agree": 4,
+ "cases": 2,
+ "expectedHoldButEligible": [],
+ "independentEvidence": false,
+ "motors": 4,
+ "results": [
+  {
+   "caseId": "SAMPLE-04-isolated-sighting-others-renewed",
+   "checkpoint": "ANCHORED_CURRENT",
+   "motors": {
+    "MTR-91021": {
+     "agrees": true,
+     "contested": false,
+     "eligible": false,
+     "expectedCaptureRefusedAtStep": null,
+     "expectedMustHold": true,
+     "held": true,
+     "reasons": [
+      "UNREGISTERED"
+     ]
+    },
+    "MTR-91022": {
+     "agrees": true,
+     "contested": false,
+     "eligible": true,
+     "expectedCaptureRefusedAtStep": null,
+     "expectedMustHold": false,
+     "held": false,
+     "reasons": []
+    }
+   },
+   "refusedSteps": {},
+   "registryBinding": "OK",
+   "split": "development",
+   "steps": [
+    {
+     "do": "accept_checkpoint",
+     "result": "ACCEPTED",
+     "step": 5
+    },
+    {
+     "acceptAgrees": true,
+     "do": "accept_checkpoint",
+     "expectAccepted": true,
+     "result": "ACCEPTED",
+     "step": 7
+    }
+   ]
+  },
+  {
+   "caseId": "SAMPLE-05-same-label-on-two-motors-no-renewal",
+   "checkpoint": "ANCHORED_PREFIX_ONLY",
+   "motors": {
+    "MTR-91021": {
+     "agrees": true,
+     "contested": false,
+     "eligible": false,
+     "expectedCaptureRefusedAtStep": null,
+     "expectedMustHold": true,
+     "held": true,
+     "reasons": [
+      "UNREGISTERED"
+     ]
+    },
+    "MTR-91022": {
+     "agrees": true,
+     "contested": false,
+     "eligible": false,
+     "expectedCaptureRefusedAtStep": null,
+     "expectedMustHold": true,
+     "held": true,
+     "reasons": [
+      "UNREGISTERED"
+     ]
+    }
+   },
+   "refusedSteps": {
+    "8": "REFUSED: an exclusion rests on lot identity that is not established for ['MTR-91021', 'MTR-91022'] and isolation to that motor is not established; acknowledgeme"
+   },
+   "registryBinding": "OK",
+   "split": "development",
+   "steps": [
+    {
+     "do": "accept_checkpoint",
+     "result": "ACCEPTED",
+     "step": 5
+    },
+    {
+     "acceptAgrees": true,
+     "do": "accept_checkpoint",
+     "expectAccepted": false,
+     "result": "REFUSED",
+     "step": 8
+    }
+   ]
+  }
+ ],
+ "sampleSelfCheckOnly": true
+}

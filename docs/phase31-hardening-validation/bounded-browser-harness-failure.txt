@@ -1,0 +1,88 @@
+
+> recall-investigation-ui@0.1.0 test:e2e
+> playwright test
+
+npm.cmd : [WebServer] (node:35260) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:2 char:1
++ npm.cmd run test:e2e > ../.local-browser-recheck.log 2>&1; Write-Outp ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 29 tests using 2 workers
+
+(node:34420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:11248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\e2e\hardening.spec.ts:22:1 › external capture writer withdraws displayed exclusion without an API command (6.4s)
+  x   2 tests\e2e\hardening.spec.ts:7:1 › old successful proxy snapshot cannot renew operational clearance; recovery stays live (8.5s)
+(node:26216) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  3 tests\e2e\hardening.spec.ts:37:1 › fresh timestamp cannot conceal journal version rollback (3.0s)
+  ok  5 tests\e2e\investigation.spec.ts:9:1 › demo workflow: fleet -> unit -> explanation -> history (1.1s)
+  ok  6 tests\e2e\investigation.spec.ts:32:1 › case 06 before / after shows the safety improvement (748ms)
+  ok  7 tests\e2e\investigation.spec.ts:43:1 › lot investigation (550ms)
+  ok  8 tests\e2e\investigation.spec.ts:49:1 › mobile layout has no horizontal page scroll (903ms)
+  ok  9 tests\e2e\investigation.spec.ts:61:1 › invalid fixture is refused in the browser (467ms)
+  ok 10 tests\e2e\investigation.spec.ts:84:5 › axe: fleet (light) (2.0s)
+  ok  4 tests\e2e\hardening.spec.ts:47:1 › suspension invalidates lease before fresh verification; delayed body stays hidden (6.2s)
+  ok 12 tests\e2e\investigation.spec.ts:84:5 › axe: decision (light) (1.6s)
+  ok 11 tests\e2e\investigation.spec.ts:84:5 › axe: fleet (dark) (2.4s)
+  ok 14 tests\e2e\investigation.spec.ts:84:5 › axe: genealogy (light) (1.5s)
+  ok 13 tests\e2e\investigation.spec.ts:84:5 › axe: decision (dark) (1.7s)
+  ok 15 tests\e2e\investigation.spec.ts:84:5 › axe: genealogy (dark) (1.5s)
+  ok 16 tests\e2e\investigation.spec.ts:84:5 › axe: history (light) (1.6s)
+  ok 17 tests\e2e\investigation.spec.ts:84:5 › axe: history (dark) (1.9s)
+  ok 18 tests\e2e\investigation.spec.ts:84:5 › axe: events (light) (2.0s)
+  ok 19 tests\e2e\investigation.spec.ts:84:5 › axe: events (dark) (1.6s)
+  ok 20 tests\e2e\investigation.spec.ts:84:5 › axe: lot (light) (2.7s)
+  ok 21 tests\e2e\investigation.spec.ts:84:5 › axe: lot (dark) (3.1s)
+  ok 22 tests\e2e\investigation.spec.ts:84:5 › axe: case06 (light) (1.6s)
+  ok 23 tests\e2e\investigation.spec.ts:84:5 › axe: case06 (dark) (1.7s)
+  ok 25 tests\e2e\live.spec.ts:52:1 › live responsive and accessibility review (4.5s)
+  ok 26 tests\e2e\live.spec.ts:69:1 › backend failure has no implicit fixture fallback (466ms)
+  ok 24 tests\e2e\live.spec.ts:6:1 › live manufacturing capture, genealogy, recall, replacement and late withdrawal (10.8s)
+  ok 27 tests\e2e\remediation.spec.ts:8:1 › actual backend shutdown revokes live release presentation (4.8s)
+  ok 29 tests\e2e\remediation.spec.ts:41:1 › NDE-only affected motor is held by unspecified recall scope through real API (1.9s)
+  ok 28 tests\e2e\remediation.spec.ts:23:1 › live long identifiers: decision, history and keyboard-scrollable genealogy at 390px (4.5s)
+
+
+  1) tests\e2e\hardening.spec.ts:7:1 › old successful proxy snapshot cannot renew operational clearance; recovery stays live
+
+    Error: expect(locator).toBeDisabled() failed
+
+    Locator: getByRole('button', { name: 'Create unit', exact: true })
+    Expected: disabled
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeDisabled" getByRole('button', { name: 'Create unit', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Create unit', exact: true })
+
+
+      13 |  await expect(page.getByTestId('load-error')).toBeVisible({timeout:8000});
+      14 |  await expect(page.getByTestId('chip-action')).toHaveCount(0);
+    > 15 |  await expect(page.getByRole('button',{name:'Create unit',exact:true})).toBeDisabled();
+         |                                                                         ^
+      16 |  await expect(page.getByText(/historical, not operational clearance/)).toBeVisible();
+      17 |  await page.unroute('**/api/snapshot');
+      18 |  await expect(page.getByTestId('chip-action').first()).toContainText('Release eligible',{timeout:8000});
+        at <WORKSPACE>\phase31-a31-hardening\recall-ui\tests\e2e\hardening.spec.ts:15:73
+
+    Error Context: test-results\hardening-old-successful-p-b01e9-earance-recovery-stays-live\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\hardening-old-successful-p-b01e9-earance-recovery-stays-live\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\hardening-old-successful-p-b01e9-earance-recovery-stays-live\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\e2e\hardening.spec.ts:7:1 › old successful proxy snapshot cannot renew operational clearance; recovery stays live
+  28 passed (49.3s)

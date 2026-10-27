@@ -1,0 +1,18 @@
+{
+ "mappingId": "erp.lot_issue", "version": 1,
+ "description": "ERP bearing-lot issue export (CSV, semicolon-delimited, local plant time, day-first date). One row = one lot issued to one motor position.",
+ "sourceSystem": "ERP", "adapter": "erp_lot_issue", "format": "csv", "delimiter": ";", "encoding": "utf-8",
+ "timestamps": {"field": "occurredAt", "timezone": "Asia/Kolkata", "formats": ["%d.%m.%Y %H:%M:%S"]},
+ "valueMaps": {"slot": {"DE": "DE", "DRIVE END": "DE", "D-END": "DE", "NDE": "NDE", "NON-DRIVE END": "NDE", "N-END": "NDE"}},
+ "fields": {
+  "recordId": {"source": ["BELNR", "POSNR"], "required": true, "transforms": ["strip"]},
+  "motorSerial": {"source": "MOTOR_NO", "required": true, "transforms": ["motor_serial"], "pattern": "MTR-[A-Z0-9-]{3,30}"},
+  "occurredAt": {"source": "ISSUE_TS", "required": true},
+  "slot": {"source": "POSITION", "required": true, "transforms": ["strip", "upper"], "valueMap": "slot"},
+  "lot": {"source": "BEARING_LOT", "required": true},
+  "serial": {"source": "BEARING_SERIAL", "transforms": ["strip", "null_if_blank"]},
+  "rawMaterialLot": {"source": "STEEL_LOT", "required": true, "transforms": ["strip"]},
+  "supplierId": {"source": "VENDOR_ID", "required": true, "transforms": ["strip"]},
+  "supplierName": {"source": "VENDOR_NAME", "required": true, "transforms": ["collapse_space"]}
+ }
+}

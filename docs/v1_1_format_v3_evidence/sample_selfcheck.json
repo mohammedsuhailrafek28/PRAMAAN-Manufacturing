@@ -1,0 +1,81 @@
+{
+ "agree": 3,
+ "cases": 3,
+ "expectedHoldButEligible": [],
+ "independentEvidence": false,
+ "motors": 3,
+ "results": [
+  {
+   "caseId": "SAMPLE-01-retroactive-registration",
+   "checkpoint": "ANCHORED_CURRENT",
+   "motors": {
+    "MTR-91011": {
+     "agrees": true,
+     "contested": false,
+     "eligible": true,
+     "expectedCaptureRefusedAtStep": null,
+     "expectedMustHold": false,
+     "held": false,
+     "reasons": []
+    }
+   },
+   "refusedSteps": {},
+   "registryBinding": "OK",
+   "split": "development",
+   "steps": [
+    {
+     "do": "accept_checkpoint",
+     "result": "ACCEPTED",
+     "step": 4
+    }
+   ]
+  },
+  {
+   "caseId": "SAMPLE-02-unknown-nde-recovery",
+   "checkpoint": "ANCHORED_CURRENT",
+   "motors": {
+    "MTR-91012": {
+     "agrees": true,
+     "contested": false,
+     "eligible": true,
+     "expectedCaptureRefusedAtStep": null,
+     "expectedMustHold": false,
+     "held": false,
+     "reasons": []
+    }
+   },
+   "refusedSteps": {},
+   "registryBinding": "OK",
+   "split": "development",
+   "steps": [
+    {
+     "do": "accept_checkpoint",
+     "result": "ACCEPTED",
+     "step": 4
+    }
+   ]
+  },
+  {
+   "caseId": "SAMPLE-03-unverified-sighting",
+   "checkpoint": "ANCHORED_PREFIX_ONLY",
+   "motors": {
+    "MTR-91013": {
+     "agrees": true,
+     "contested": false,
+     "eligible": false,
+     "expectedCaptureRefusedAtStep": null,
+     "expectedMustHold": true,
+     "held": true,
+     "reasons": [
+      "UNREGISTERED"
+     ]
+    }
+   },
+   "refusedSteps": {},
+   "registryBinding": "OK",
+   "split": "development",
+   "steps": []
+  }
+ ],
+ "sampleSelfCheckOnly": true
+}

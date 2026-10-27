@@ -1,0 +1,107 @@
+{
+  "stage": "Corrected fixture, whole image digest, before ready-JSON response cache and in-process rollback guards",
+  "results": [
+    {
+      "motors": 100,
+      "seed": {
+        "seconds": 0.7863431000005221,
+        "counts": {
+          "events": 957,
+          "captures": 99,
+          "motors": 100
+        }
+      },
+      "coldVerifiedIndexBuildMs": 1104.6721000020625,
+      "warmQuery": {
+        "n": 21,
+        "p50Ms": 14.491199995973147,
+        "p95Ms": 18.595899993670173,
+        "minMs": 11.233599994739052,
+        "maxMs": 19.416700000874698
+      },
+      "warmQueryPlusJson": {
+        "n": 21,
+        "p50Ms": 14.953799996874295,
+        "p95Ms": 19.01729999372037,
+        "minMs": 11.698599999363068,
+        "maxMs": 20.02340000035474
+      },
+      "correctness": {
+        "expectedCandidates": 27,
+        "actualCandidates": 27,
+        "missed": [],
+        "extra": [],
+        "missedShipmentLinks": [],
+        "extraShipmentLinks": []
+      }
+    },
+    {
+      "motors": 1000,
+      "seed": {
+        "seconds": 11.74519870000222,
+        "counts": {
+          "events": 9570,
+          "captures": 990,
+          "motors": 1000
+        }
+      },
+      "coldVerifiedIndexBuildMs": 15593.716999996104,
+      "warmQuery": {
+        "n": 21,
+        "p50Ms": 113.07500000111759,
+        "p95Ms": 125.18649999401532,
+        "minMs": 104.7476000021561,
+        "maxMs": 134.3699999997625
+      },
+      "warmQueryPlusJson": {
+        "n": 21,
+        "p50Ms": 117.52030000207014,
+        "p95Ms": 139.5561000026646,
+        "minMs": 108.1726999982493,
+        "maxMs": 140.29479999589967
+      },
+      "correctness": {
+        "expectedCandidates": 270,
+        "actualCandidates": 270,
+        "missed": [],
+        "extra": [],
+        "missedShipmentLinks": [],
+        "extraShipmentLinks": []
+      }
+    },
+    {
+      "motors": 10000,
+      "seed": {
+        "seconds": 99.77854420000222,
+        "counts": {
+          "events": 95700,
+          "captures": 9900,
+          "motors": 10000
+        }
+      },
+      "coldVerifiedIndexBuildMs": 120057.83230000088,
+      "warmQuery": {
+        "n": 21,
+        "p50Ms": 1108.023199994932,
+        "p95Ms": 1209.5278999986476,
+        "minMs": 1048.526499995205,
+        "maxMs": 1328.2839999956195
+      },
+      "warmQueryPlusJson": {
+        "n": 21,
+        "p50Ms": 1146.685100000468,
+        "p95Ms": 1253.115200001048,
+        "minMs": 1079.1515999953845,
+        "maxMs": 1381.8320999998832
+      },
+      "correctness": {
+        "expectedCandidates": 2700,
+        "actualCandidates": 2700,
+        "missed": [],
+        "extra": [],
+        "missedShipmentLinks": [],
+        "extraShipmentLinks": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.png binary
+*.pyc binary
+# Preserve the engine's pinned historical CRLF evidence artifact byte-for-byte.
+recall-engine/fixtures/validate_original_output.txt -text
+
+# Reference ledger bundle: byte-exact, never normalised
+deploy/ledger-bundle/* -text

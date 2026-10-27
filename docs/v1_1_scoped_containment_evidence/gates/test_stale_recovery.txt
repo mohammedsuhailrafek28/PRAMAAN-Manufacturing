@@ -1,0 +1,13 @@
+test_full_recovery_cycle_restores_eligibility_only_through_operator_acceptance (application.test_stale_recovery.Recovery.test_full_recovery_cycle_restores_eligibility_only_through_operator_acceptance) ... ok
+test_known_gap_the_ordinary_ship_route_is_not_gated_by_checkpoint_state (application.test_stale_recovery.Recovery.test_known_gap_the_ordinary_ship_route_is_not_gated_by_checkpoint_state)
+DOCUMENTS A GAP REPORTED TO THE OWNER, not a desired behaviour. The ordinary POST /api/units/<m>/ship route records a shipment FACT whether or not the ... ok
+test_not_applicable_while_current_or_unanchored (application.test_stale_recovery.Recovery.test_not_applicable_while_current_or_unanchored) ... ok
+test_propose_needs_configured_custody (application.test_stale_recovery.Recovery.test_propose_needs_configured_custody) ... ok
+test_recovery_cannot_release_a_motor_whose_sighting_is_still_open (application.test_stale_recovery.Recovery.test_recovery_cannot_release_a_motor_whose_sighting_is_still_open) ... ok
+test_recovery_capture_and_proposal_never_make_anything_eligible_or_activate_anything (application.test_stale_recovery.Recovery.test_recovery_capture_and_proposal_never_make_anything_eligible_or_activate_anything) ... ok
+test_surface_is_whitelisted_and_leaks_no_decision_or_eligibility (application.test_stale_recovery.Recovery.test_surface_is_whitelisted_and_leaks_no_decision_or_eligibility) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 14.092s
+
+OK

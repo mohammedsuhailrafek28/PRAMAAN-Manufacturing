@@ -1,0 +1,247 @@
+{
+  "base": "6709b0c6f521006cf6332caeecec6b08dbd44e84",
+  "changes": [
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/DESIGN.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/REPORT.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/SUMMARY.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/before-response-cache.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/benchmarks/n100.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/benchmarks/n1000.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/benchmarks/n10000.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/benchmarks/profile-100.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/change-inventory.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/evidence-index.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/exploratory-before.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/hardware.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/required-gates.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/source-verification.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/browser-version.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/build.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/components.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/engine.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/expanded-safety.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/exporter.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/first-attempt/components.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/first-attempt/playwright-config.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/first-attempt/test_evidence_package.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/first-attempt/test_f5_f6_integration.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/first-attempt/test_federation.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/focused.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/foundation.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/foundation.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/infra.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/integration.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/playwright.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/snapshot.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/standards-safety.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_application.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_checkpoint_ops.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_checkpoints.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_consolidated_safety.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_d5.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_d6.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_evidence_package.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_f5_f6_integration.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_federation.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_format_v3.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_hardening.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_lot_identity_ab.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_remediation.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_scoped_containment.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_ship_gate.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_stale_recovery.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_unified.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/test_v11_hardening.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/typecheck.txt"
+    },
+    {
+      "status": "A",
+      "path": "docs/ps10-performance/validation/vitest.txt"
+    },
+    {
+      "status": "A",
+      "path": "performance/__init__.py"
+    },
+    {
+      "status": "A",
+      "path": "performance/benchmark.py"
+    },
+    {
+      "status": "A",
+      "path": "performance/impact_query.py"
+    },
+    {
+      "status": "A",
+      "path": "performance/package.json"
+    },
+    {
+      "status": "A",
+      "path": "performance/playwright.config.ts"
+    },
+    {
+      "status": "A",
+      "path": "performance/run_validation.py"
+    },
+    {
+      "status": "A",
+      "path": "performance/test_impact_query.py"
+    }
+  ],
+  "originalTrackedPathsModified": [],
+  "noOriginalTestsModified": true
+}

@@ -1,0 +1,14 @@
+clone HEAD 11724e3c4593f569cac38863ffbb39fcd747ec19; branch research/v1-1-safety-hardening; python 3.12.10
+application.test_application: Ran 7 tests in 9.653s | OK
+application.test_checkpoint_ops: Ran 4 tests in 3.680s | OK
+application.test_checkpoints: Ran 23 tests in 7.351s | OK
+application.test_consolidated_safety: Ran 12 tests in 10.385s | OK
+application.test_d5: Ran 5 tests in 1.062s | OK
+application.test_d6: Ran 3 tests in 0.722s | OK
+application.test_hardening: Ran 13 tests in 10.133s | OK
+application.test_remediation: Ran 16 tests in 19.903s | OK
+application.test_unified: Ran 10 tests in 6.987s | OK
+application.test_lot_identity_ab: Ran 19 tests in 135.097s | OK
+application.test_v11_hardening: Ran 17 tests in 11.476s | OK
+reproduce_v1_0 exit 0; v1.0 eligible: ['MTR-91001', 'MTR-91002', 'MTR-91003', 'MTR-91005', 'MTR-91006']
+candidate eligible: []; refusedForIdentity: ['MTR-91001', 'MTR-91002', 'MTR-91005', 'MTR-91006']

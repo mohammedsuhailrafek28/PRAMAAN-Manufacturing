@@ -1,0 +1,143 @@
+{
+ "kind": "SYNTHETIC_OVERLAY",
+ "note": "The manufacturing fixtures contain no shipment or supplier data. This file is invented for the UI demonstration only and is labelled as such everywhere it is shown. Nothing here feeds the recall engine.",
+ "suppliers": {
+  "BR-204": "Supplier S1 (synthetic)",
+  "BR-207": "Supplier S1 (synthetic)",
+  "BR-310": "Supplier S2 (synthetic)",
+  "BR-312": "Supplier S2 (synthetic)",
+  "BR-150": "Supplier S3 (synthetic)",
+  "BR-500": "Supplier S3 (synthetic)"
+ },
+ "shipments": {
+  "case-01": {
+   "shipmentId": "SHP-2600",
+   "shippedAt": "2026-09-12T09:00:00Z",
+   "customer": "Customer A (synthetic)",
+   "destination": "Site 1 (synthetic)"
+  },
+  "case-02": null,
+  "case-03": null,
+  "case-04": {
+   "shipmentId": "SHP-2603",
+   "shippedAt": "2026-09-15T09:00:00Z",
+   "customer": "Customer D (synthetic)",
+   "destination": "Site 4 (synthetic)"
+  },
+  "case-04b": null,
+  "case-04c": {
+   "shipmentId": "SHP-2605",
+   "shippedAt": "2026-09-17T09:00:00Z",
+   "customer": "Customer A (synthetic)",
+   "destination": "Site 1 (synthetic)"
+  },
+  "case-05": {
+   "shipmentId": "SHP-2606",
+   "shippedAt": "2026-09-18T09:00:00Z",
+   "customer": "Customer B (synthetic)",
+   "destination": "Site 2 (synthetic)"
+  },
+  "case-05b": {
+   "shipmentId": "SHP-2607",
+   "shippedAt": "2026-09-19T09:00:00Z",
+   "customer": "Customer C (synthetic)",
+   "destination": "Site 3 (synthetic)"
+  },
+  "case-06": {
+   "shipmentId": "SHP-2608",
+   "shippedAt": "2026-09-20T09:00:00Z",
+   "customer": "Customer D (synthetic)",
+   "destination": "Site 4 (synthetic)"
+  },
+  "case-06b": {
+   "shipmentId": "SHP-2609",
+   "shippedAt": "2026-09-21T09:00:00Z",
+   "customer": "Customer E (synthetic)",
+   "destination": "Site 5 (synthetic)"
+  },
+  "case-06c": {
+   "shipmentId": "SHP-2610",
+   "shippedAt": "2026-09-12T09:00:00Z",
+   "customer": "Customer A (synthetic)",
+   "destination": "Site 1 (synthetic)"
+  },
+  "case-06d": {
+   "shipmentId": "SHP-2611",
+   "shippedAt": "2026-09-13T09:00:00Z",
+   "customer": "Customer B (synthetic)",
+   "destination": "Site 2 (synthetic)"
+  },
+  "case-06e": {
+   "shipmentId": "SHP-2612",
+   "shippedAt": "2026-09-14T09:00:00Z",
+   "customer": "Customer C (synthetic)",
+   "destination": "Site 3 (synthetic)"
+  },
+  "case-06f": {
+   "shipmentId": "SHP-2613",
+   "shippedAt": "2026-09-15T09:00:00Z",
+   "customer": "Customer D (synthetic)",
+   "destination": "Site 4 (synthetic)"
+  },
+  "case-07": {
+   "shipmentId": "SHP-2614",
+   "shippedAt": "2026-09-16T09:00:00Z",
+   "customer": "Customer E (synthetic)",
+   "destination": "Site 5 (synthetic)"
+  },
+  "case-08": {
+   "shipmentId": "SHP-2615",
+   "shippedAt": "2026-09-17T09:00:00Z",
+   "customer": "Customer A (synthetic)",
+   "destination": "Site 1 (synthetic)"
+  },
+  "case-08e": {
+   "shipmentId": "SHP-2616",
+   "shippedAt": "2026-09-18T09:00:00Z",
+   "customer": "Customer B (synthetic)",
+   "destination": "Site 2 (synthetic)"
+  },
+  "case-08f": {
+   "shipmentId": "SHP-2617",
+   "shippedAt": "2026-09-19T09:00:00Z",
+   "customer": "Customer C (synthetic)",
+   "destination": "Site 3 (synthetic)"
+  },
+  "case-08g": {
+   "shipmentId": "SHP-2618",
+   "shippedAt": "2026-09-20T09:00:00Z",
+   "customer": "Customer D (synthetic)",
+   "destination": "Site 4 (synthetic)"
+  },
+  "case-08h": {
+   "shipmentId": "SHP-2619",
+   "shippedAt": "2026-09-21T09:00:00Z",
+   "customer": "Customer E (synthetic)",
+   "destination": "Site 5 (synthetic)"
+  },
+  "case-08i": {
+   "shipmentId": "SHP-2620",
+   "shippedAt": "2026-09-12T09:00:00Z",
+   "customer": "Customer A (synthetic)",
+   "destination": "Site 1 (synthetic)"
+  },
+  "case-08j": {
+   "shipmentId": "SHP-2621",
+   "shippedAt": "2026-09-13T09:00:00Z",
+   "customer": "Customer B (synthetic)",
+   "destination": "Site 2 (synthetic)"
+  },
+  "case-08k": {
+   "shipmentId": "SHP-2622",
+   "shippedAt": "2026-09-14T09:00:00Z",
+   "customer": "Customer C (synthetic)",
+   "destination": "Site 3 (synthetic)"
+  },
+  "case-08l": {
+   "shipmentId": "SHP-2623",
+   "shippedAt": "2026-09-15T09:00:00Z",
+   "customer": "Customer D (synthetic)",
+   "destination": "Site 4 (synthetic)"
+  }
+ }
+}

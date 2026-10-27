@@ -1,0 +1,290 @@
+{
+  "scope": "12 authored P1 synthetic histories; not factory evidence; truth not available to decision code",
+  "scenarios": [
+    {
+      "scenario": "clean replacement",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "operationalAction": "RELEASE_ELIGIBLE",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "reasonCodes": [
+        "REPLACED_WITH_UNAFFECTED_LOT"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-CLEAN:e1",
+        "urn:pramaan:M-CLEAN:e2",
+        "urn:pramaan:M-CLEAN:e3",
+        "urn:pramaan:M-CLEAN:e4",
+        "urn:pramaan:M-CLEAN:e5",
+        "urn:pramaan:M-CLEAN:e6",
+        "urn:pramaan:M-CLEAN:e7",
+        "urn:pramaan:M-CLEAN:e8"
+      ]
+    },
+    {
+      "scenario": "missing baseline, physically safe",
+      "syntheticUnsafe": false,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "operationalAction": "RECALL_HOLD",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": true,
+      "reasonCodes": [
+        "NO_TRUSTED_BASELINE",
+        "CURRENT_STATE_UNVERIFIED"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-NO-BASE:e1",
+        "urn:pramaan:M-NO-BASE:e2",
+        "urn:pramaan:M-NO-BASE:e3"
+      ]
+    },
+    {
+      "scenario": "double installation",
+      "syntheticUnsafe": true,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "operationalAction": "RECALL_HOLD",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "reasonCodes": [
+        "DOUBLE_OCCUPANCY",
+        "CURRENT_STATE_UNVERIFIED"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-DOUBLE:e1",
+        "urn:pramaan:M-DOUBLE:e2",
+        "urn:pramaan:M-DOUBLE:e3",
+        "urn:pramaan:M-DOUBLE:e4",
+        "urn:pramaan:M-DOUBLE:e5",
+        "urn:pramaan:M-DOUBLE:e6",
+        "urn:pramaan:M-DOUBLE:e7",
+        "urn:pramaan:M-DOUBLE:e8",
+        "urn:pramaan:M-DOUBLE:e9"
+      ]
+    },
+    {
+      "scenario": "same-lot wrong-slot physical removal",
+      "syntheticUnsafe": true,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "operationalAction": "RECALL_HOLD",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "reasonCodes": [
+        "AMBIGUOUS_SLOT_ATTRIBUTION"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-WRONG:e1",
+        "urn:pramaan:M-WRONG:e2",
+        "urn:pramaan:M-WRONG:e3",
+        "urn:pramaan:M-WRONG:e4",
+        "urn:pramaan:M-WRONG:e5",
+        "urn:pramaan:M-WRONG:e6",
+        "urn:pramaan:M-WRONG:e7",
+        "urn:pramaan:M-WRONG:e8"
+      ]
+    },
+    {
+      "scenario": "same-lot correct physical removal, indistinguishable records",
+      "syntheticUnsafe": false,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "operationalAction": "RECALL_HOLD",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": true,
+      "reasonCodes": [
+        "AMBIGUOUS_SLOT_ATTRIBUTION"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-CORRECT:e1",
+        "urn:pramaan:M-CORRECT:e2",
+        "urn:pramaan:M-CORRECT:e3",
+        "urn:pramaan:M-CORRECT:e4",
+        "urn:pramaan:M-CORRECT:e5",
+        "urn:pramaan:M-CORRECT:e6",
+        "urn:pramaan:M-CORRECT:e7",
+        "urn:pramaan:M-CORRECT:e8"
+      ]
+    },
+    {
+      "scenario": "independently verified slot",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "operationalAction": "RELEASE_ELIGIBLE",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "reasonCodes": [
+        "REPLACED_WITH_UNAFFECTED_LOT"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-VERIFIED:e1",
+        "urn:pramaan:M-VERIFIED:e2",
+        "urn:pramaan:M-VERIFIED:e3",
+        "urn:pramaan:M-VERIFIED:e4",
+        "urn:pramaan:M-VERIFIED:e5",
+        "urn:pramaan:M-VERIFIED:e6",
+        "urn:pramaan:M-VERIFIED:e7",
+        "urn:pramaan:M-VERIFIED:e8",
+        "urn:pramaan:M-VERIFIED:e9"
+      ]
+    },
+    {
+      "scenario": "derived verification cannot settle wrong-slot risk",
+      "syntheticUnsafe": true,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "operationalAction": "RECALL_HOLD",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "reasonCodes": [
+        "AMBIGUOUS_SLOT_ATTRIBUTION"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-DERIVED:e1",
+        "urn:pramaan:M-DERIVED:e2",
+        "urn:pramaan:M-DERIVED:e3",
+        "urn:pramaan:M-DERIVED:e4",
+        "urn:pramaan:M-DERIVED:e5",
+        "urn:pramaan:M-DERIVED:e6",
+        "urn:pramaan:M-DERIVED:e7",
+        "urn:pramaan:M-DERIVED:e8"
+      ]
+    },
+    {
+      "scenario": "true affected-bearing untrusted observation",
+      "syntheticUnsafe": true,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "operationalAction": "RECALL_HOLD",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "reasonCodes": [
+        "UNTRUSTED_AFFECTED_OBSERVATION"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-OBS:e1",
+        "urn:pramaan:M-OBS:e2",
+        "urn:pramaan:M-OBS:e3",
+        "urn:pramaan:M-OBS:e4",
+        "urn:pramaan:M-OBS:e5",
+        "urn:pramaan:M-OBS:e6",
+        "urn:pramaan:M-OBS:e7",
+        "urn:pramaan:M-OBS:e8",
+        "urn:pramaan:M-OBS:e9"
+      ]
+    },
+    {
+      "scenario": "false affected-bearing untrusted observation",
+      "syntheticUnsafe": false,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "operationalAction": "RECALL_HOLD",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": true,
+      "reasonCodes": [
+        "UNTRUSTED_AFFECTED_OBSERVATION"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-FALSE-ALARM:e1",
+        "urn:pramaan:M-FALSE-ALARM:e2",
+        "urn:pramaan:M-FALSE-ALARM:e3",
+        "urn:pramaan:M-FALSE-ALARM:e4",
+        "urn:pramaan:M-FALSE-ALARM:e5",
+        "urn:pramaan:M-FALSE-ALARM:e6",
+        "urn:pramaan:M-FALSE-ALARM:e7",
+        "urn:pramaan:M-FALSE-ALARM:e8",
+        "urn:pramaan:M-FALSE-ALARM:e9"
+      ]
+    },
+    {
+      "scenario": "observation resolved by later independent verification",
+      "syntheticUnsafe": false,
+      "expectedFinding": "EXCLUDED_WITH_EVIDENCE",
+      "actualFinding": "EXCLUDED_WITH_EVIDENCE",
+      "operationalAction": "RELEASE_ELIGIBLE",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "reasonCodes": [
+        "REPLACED_WITH_UNAFFECTED_LOT"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-RESOLVED:e1",
+        "urn:pramaan:M-RESOLVED:e2",
+        "urn:pramaan:M-RESOLVED:e3",
+        "urn:pramaan:M-RESOLVED:e4",
+        "urn:pramaan:M-RESOLVED:e5",
+        "urn:pramaan:M-RESOLVED:e6",
+        "urn:pramaan:M-RESOLVED:e7",
+        "urn:pramaan:M-RESOLVED:e8",
+        "urn:pramaan:M-RESOLVED:e10"
+      ]
+    },
+    {
+      "scenario": "unobserved affected component during capture gap",
+      "syntheticUnsafe": true,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "operationalAction": "RECALL_HOLD",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "reasonCodes": [
+        "MATERIAL_CAPTURE_GAP"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-GAP:e1",
+        "urn:pramaan:M-GAP:e2",
+        "urn:pramaan:M-GAP:e3",
+        "urn:pramaan:M-GAP:e4",
+        "urn:pramaan:M-GAP:e5",
+        "urn:pramaan:M-GAP:e6",
+        "urn:pramaan:M-GAP:e7",
+        "urn:pramaan:M-GAP:e8"
+      ]
+    },
+    {
+      "scenario": "late correction reveals affected replacement",
+      "syntheticUnsafe": true,
+      "expectedFinding": "UNRESOLVED",
+      "actualFinding": "UNRESOLVED",
+      "operationalAction": "RECALL_HOLD",
+      "behaviorMatches": true,
+      "falseRelease": false,
+      "unnecessaryHold": false,
+      "reasonCodes": [
+        "LATE_CLAIM_RISK_INCREASING"
+      ],
+      "supportingEventIds": [
+        "urn:pramaan:M-CORRECTION:e1",
+        "urn:pramaan:M-CORRECTION:e2",
+        "urn:pramaan:M-CORRECTION:e3",
+        "urn:pramaan:M-CORRECTION:e4",
+        "urn:pramaan:M-CORRECTION:e5",
+        "urn:pramaan:M-CORRECTION:e6",
+        "urn:pramaan:M-CORRECTION:e7",
+        "urn:pramaan:M-CORRECTION:e8",
+        "urn:pramaan:M-CORRECTION:e9"
+      ]
+    }
+  ],
+  "total": 12,
+  "behaviorAgreements": 12,
+  "unsafeScenarios": 6,
+  "safeScenarios": 6,
+  "falseReleases": 0,
+  "unnecessaryHolds": 3
+}

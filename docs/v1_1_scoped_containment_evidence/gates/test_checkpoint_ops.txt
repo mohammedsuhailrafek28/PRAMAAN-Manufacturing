@@ -1,0 +1,9 @@
+test_full_cycle_candidate_is_inert_until_accepted_and_activated (application.test_checkpoint_ops.OperatorWorkflowTests.test_full_cycle_candidate_is_inert_until_accepted_and_activated) ... ok
+test_no_overwrite_of_an_accepted_checkpoint (application.test_checkpoint_ops.OperatorWorkflowTests.test_no_overwrite_of_an_accepted_checkpoint) ... ok
+test_refusals (application.test_checkpoint_ops.OperatorWorkflowTests.test_refusals) ... ok
+test_three_generations_through_the_workflow (application.test_checkpoint_ops.OperatorWorkflowTests.test_three_generations_through_the_workflow) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 4.220s
+
+OK

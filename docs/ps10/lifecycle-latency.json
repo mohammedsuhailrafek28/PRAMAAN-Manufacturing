@@ -1,0 +1,70 @@
+{
+ "fleet5": {
+  "motors": 5,
+  "inProcess": {
+   "captureOnly": {
+    "n": 12,
+    "p50Ms": 68.54,
+    "p95Ms": 100.49,
+    "maxMs": 108.78
+   },
+   "captureToVisibleInLifecycleView": {
+    "n": 12,
+    "p50Ms": 277.01,
+    "p95Ms": 368.4,
+    "maxMs": 376.04
+   }
+  },
+  "http": {
+   "commandsSent": 12,
+   "eventsActuallyInLedger": 12,
+   "postCommand": {
+    "n": 12,
+    "p50Ms": 849.12,
+    "p95Ms": 1260.29,
+    "maxMs": 1357.27
+   },
+   "readLifecycle": {
+    "n": 12,
+    "p50Ms": 272.95,
+    "p95Ms": 304.49,
+    "maxMs": 305.14
+   },
+   "captureToVisibleOverHttp": {
+    "n": 12,
+    "p50Ms": 1117.78,
+    "p95Ms": 1564.78,
+    "maxMs": 1662.41
+   },
+   "errors": {}
+  }
+ },
+ "fleet50": {
+  "motors": 50,
+  "inProcess": {
+   "captureOnly": {
+    "n": 12,
+    "p50Ms": 70.75,
+    "p95Ms": 87.01,
+    "maxMs": 91.83
+   },
+   "captureToVisibleInLifecycleView": {
+    "n": 12,
+    "p50Ms": 2138.05,
+    "p95Ms": 2170.16,
+    "maxMs": 2171.23
+   }
+  },
+  "http": {
+   "commandsSent": 12,
+   "eventsActuallyInLedger": 12,
+   "postCommand": null,
+   "readLifecycle": null,
+   "captureToVisibleOverHttp": null,
+   "errors": {
+    "503:VERIFYING": 12
+   }
+  }
+ },
+ "note": "Loopback, single process, synthetic. Each HTTP read derives a full verified snapshot; cost grows with fleet size (see the core-performance audit)."
+}

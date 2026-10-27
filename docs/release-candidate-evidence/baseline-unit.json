@@ -1,0 +1,4061 @@
+{
+  "numTotalTestSuites": 84,
+  "numPassedTestSuites": 73,
+  "numFailedTestSuites": 11,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 297,
+  "numPassedTests": 287,
+  "numFailedTests": 10,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1792755313856,
+  "success": false,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "status chips"
+          ],
+          "fullName": "status chips shows finding, action and review as three separate text-labelled chips",
+          "status": "passed",
+          "title": "shows finding, action and review as three separate text-labelled chips",
+          "duration": 110.22779999999966,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "App states"
+          ],
+          "fullName": "App states shows a loading state, then the fleet board",
+          "status": "passed",
+          "title": "shows a loading state, then the fleet board",
+          "duration": 929.7122999999992,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "App states"
+          ],
+          "fullName": "App states refuses an invalid fixture and lists the problems instead of showing decisions",
+          "status": "passed",
+          "title": "refuses an invalid fixture and lists the problems instead of showing decisions",
+          "duration": 63.529600000000755,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "App states"
+          ],
+          "fullName": "App states shows a load error when the source fails",
+          "status": "passed",
+          "title": "shows a load error when the source fails",
+          "duration": 13.914600000000064,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "App states"
+          ],
+          "fullName": "App states filters motors by evidence finding and switches policy",
+          "status": "passed",
+          "title": "filters motors by evidence finding and switches policy",
+          "duration": 547.5735000000004,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation views"
+          ],
+          "fullName": "investigation views explains a decision with reasons, ambiguity and capture gaps",
+          "status": "passed",
+          "title": "explains a decision with reasons, ambiguity and capture gaps",
+          "duration": 142.70859999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation views"
+          ],
+          "fullName": "investigation views shows supersession and the notification obligation in decision history",
+          "status": "passed",
+          "title": "shows supersession and the notification obligation in decision history",
+          "duration": 176.86249999999927,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation views"
+          ],
+          "fullName": "investigation views warns when a decision cites events missing from the log",
+          "status": "passed",
+          "title": "warns when a decision cites events missing from the log",
+          "duration": 157.64830000000075,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation views"
+          ],
+          "fullName": "investigation views reports an unknown unit instead of crashing",
+          "status": "passed",
+          "title": "reports an unknown unit instead of crashing",
+          "duration": 72.27799999999843,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation views"
+          ],
+          "fullName": "investigation views renders the genealogy graph with a table alternative",
+          "status": "passed",
+          "title": "renders the genealogy graph with a table alternative",
+          "duration": 162.58740000000034,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation views"
+          ],
+          "fullName": "investigation views lot investigation lists motors holding the recalled lot",
+          "status": "passed",
+          "title": "lot investigation lists motors holding the recalled lot",
+          "duration": 485.3593000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation views"
+          ],
+          "fullName": "investigation views case 06 comparison reads original EXCLUDED versus current UNRESOLVED from the data",
+          "status": "passed",
+          "title": "case 06 comparison reads original EXCLUDED versus current UNRESOLVED from the data",
+          "duration": 100.0661,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755320797,
+      "endTime": 1792755323761.0662,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/app.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "architecture: who may build, unwrap or read clearance"
+          ],
+          "fullName": "architecture: who may build, unwrap or read clearance makeGated / makeHistorical are called only by the gate (and defined in gated.ts)",
+          "status": "passed",
+          "title": "makeGated / makeHistorical are called only by the gate (and defined in gated.ts)",
+          "duration": 7.4996000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture: who may build, unwrap or read clearance"
+          ],
+          "fullName": "architecture: who may build, unwrap or read clearance makePreview is called only by the explicit preview adapters",
+          "status": "passed",
+          "title": "makePreview is called only by the explicit preview adapters",
+          "duration": 1.2206000000005588,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture: who may build, unwrap or read clearance"
+          ],
+          "fullName": "architecture: who may build, unwrap or read clearance only gated.ts mints a clearance",
+          "status": "passed",
+          "title": "only gated.ts mints a clearance",
+          "duration": 1.0956000000005588,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture: who may build, unwrap or read clearance"
+          ],
+          "fullName": "architecture: who may build, unwrap or read clearance only views.ts unwraps a view into a raw snapshot",
+          "status": "passed",
+          "title": "only views.ts unwraps a view into a raw snapshot",
+          "duration": 1.0129000000006272,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture: who may build, unwrap or read clearance"
+          ],
+          "fullName": "architecture: who may build, unwrap or read clearance test-only constructors are never imported by production code",
+          "status": "passed",
+          "title": "test-only constructors are never imported by production code",
+          "duration": 1.3374000000003434,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture: who may build, unwrap or read clearance"
+          ],
+          "fullName": "architecture: who may build, unwrap or read clearance pages and components never read the raw decision, eligibility or release fields",
+          "status": "passed",
+          "title": "pages and components never read the raw decision, eligibility or release fields",
+          "duration": 3.5653999999994994,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture: who may build, unwrap or read clearance"
+          ],
+          "fullName": "architecture: who may build, unwrap or read clearance standalone pages do not import a projection core or read a raw snapshot from a load",
+          "status": "passed",
+          "title": "standalone pages do not import a projection core or read a raw snapshot from a load",
+          "duration": 2.9378999999998996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture: who may build, unwrap or read clearance"
+          ],
+          "fullName": "architecture: who may build, unwrap or read clearance a load carries a branded view, never a raw snapshot or a boolean `verified`",
+          "status": "passed",
+          "title": "a load carries a branded view, never a raw snapshot or a boolean `verified`",
+          "duration": 1.1315000000004147,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture: who may build, unwrap or read clearance"
+          ],
+          "fullName": "architecture: who may build, unwrap or read clearance ?mode=preview is read only from location.search in the page entry points, never from fetched data",
+          "status": "passed",
+          "title": "?mode=preview is read only from location.search in the page entry points, never from fetched data",
+          "duration": 1.840400000000045,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture: who may build, unwrap or read clearance"
+          ],
+          "fullName": "architecture: who may build, unwrap or read clearance only the contract module may render the release wording",
+          "status": "passed",
+          "title": "only the contract module may render the release wording",
+          "duration": 1.118399999999383,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755318974,
+      "endTime": 1792755318997.1184,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/arch-guards.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "rejects an unavailable backend without requesting fixtures",
+          "status": "passed",
+          "title": "rejects an unavailable backend without requesting fixtures",
+          "duration": 10.416199999999662,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "refuses contradictory backend decisions",
+          "status": "passed",
+          "title": "refuses contradictory backend decisions",
+          "duration": 15.491400000000795,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "passes the local token and validates the returned mutation snapshot",
+          "status": "passed",
+          "title": "passes the local token and validates the returned mutation snapshot",
+          "duration": 14.706300000000738,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "bounds a hung backend request and aborts its transport",
+          "status": "passed",
+          "title": "bounds a hung backend request and aborts its transport",
+          "duration": 35.20889999999963,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "also bounds a response whose JSON body never completes",
+          "status": "passed",
+          "title": "also bounds a response whose JSON body never completes",
+          "duration": 32.17309999999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "rejects a successful stale replay instead of treating arrival as verification",
+          "status": "passed",
+          "title": "rejects a successful stale replay instead of treating arrival as verification",
+          "duration": 16.801000000000386,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "late older concurrent request cannot overwrite the latest accepted response",
+          "status": "passed",
+          "title": "late older concurrent request cannot overwrite the latest accepted response",
+          "duration": 18.393300000000636,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755320156,
+      "endTime": 1792755320299.3933,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/backend-source.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "passport: a motor whose own eligibility is withheld"
+          ],
+          "fullName": "passport: a motor whose own eligibility is withheld keeps the recorded finding but never states clearance or 'no hold recorded'",
+          "status": "passed",
+          "title": "keeps the recorded finding but never states clearance or 'no hold recorded'",
+          "duration": 209.0563000000002,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport: a motor whose own eligibility is withheld"
+          ],
+          "fullName": "passport: a motor whose own eligibility is withheld another motor in the same snapshot is unaffected",
+          "status": "passed",
+          "title": "another motor in the same snapshot is unaffected",
+          "duration": 30.07130000000052,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport: a motor whose own eligibility is withheld"
+          ],
+          "fullName": "passport: a motor whose own eligibility is withheld the cleared motor keeps the original wording when its eligibility is honest",
+          "status": "passed",
+          "title": "the cleared motor keeps the original wording when its eligibility is honest",
+          "duration": 50.711599999999635,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport: a motor whose own eligibility is withheld"
+          ],
+          "fullName": "passport: a motor whose own eligibility is withheld a historical view and a preview never show current recall status",
+          "status": "passed",
+          "title": "a historical view and a preview never show current recall status",
+          "duration": 102.45330000000013,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation"
+          ],
+          "fullName": "investigation a historical view shows no tasks and no decision content",
+          "status": "passed",
+          "title": "a historical view shows no tasks and no decision content",
+          "duration": 63.4985999999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation"
+          ],
+          "fullName": "investigation a preview shows labelled synthetic evaluator output and never a clearance chip",
+          "status": "passed",
+          "title": "a preview shows labelled synthetic evaluator output and never a clearance chip",
+          "duration": 186.63860000000022,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation"
+          ],
+          "fullName": "investigation a live gated view with one motor's eligibility withheld still lists its tasks, without a clearance for it",
+          "status": "passed",
+          "title": "a live gated view with one motor's eligibility withheld still lists its tasks, without a clearance for it",
+          "duration": 165.4400999999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755320365,
+      "endTime": 1792755321174.4402,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/branded-pages.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "type-level: a raw snapshot, a string or a cast is not a view or a clearance"
+          ],
+          "fullName": "type-level: a raw snapshot, a string or a cast is not a view or a clearance is enforced by tsc via @ts-expect-error",
+          "status": "passed",
+          "title": "is enforced by tsc via @ts-expect-error",
+          "duration": 70.72710000000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "runtime brand checks"
+          ],
+          "fullName": "runtime brand checks refuse raw, cloned, spread and JSON-round-tripped views",
+          "status": "passed",
+          "title": "refuse raw, cloned, spread and JSON-round-tripped views",
+          "duration": 27.175000000000182,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "runtime brand checks"
+          ],
+          "fullName": "runtime brand checks kinds are exclusive: gated, historical and preview never satisfy each other's guard",
+          "status": "passed",
+          "title": "kinds are exclusive: gated, historical and preview never satisfy each other's guard",
+          "duration": 13.741799999999785,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "runtime brand checks"
+          ],
+          "fullName": "runtime brand checks a historical view carries no decisions, eligibility, comparison or checkpoint even if the source had them",
+          "status": "passed",
+          "title": "a historical view carries no decisions, eligibility, comparison or checkpoint even if the source had them",
+          "duration": 8.283799999999246,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "runtime brand checks"
+          ],
+          "fullName": "runtime brand checks a preview never carries trust metadata, whatever the dataset file claims",
+          "status": "passed",
+          "title": "a preview never carries trust metadata, whatever the dataset file claims",
+          "duration": 3.800699999999779,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "runtime brand checks"
+          ],
+          "fullName": "runtime brand checks facts exposed to components have no decision, eligibility, comparison or checkpoint keys",
+          "status": "passed",
+          "title": "facts exposed to components have no decision, eligibility, comparison or checkpoint keys",
+          "duration": 3.5843000000004395,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "clearance is per motor, minted only by clearanceOf"
+          ],
+          "fullName": "clearance is per motor, minted only by clearanceOf a cleared motor gets a minted clearance; a hold motor gets HOLD",
+          "status": "passed",
+          "title": "a cleared motor gets a minted clearance; a hold motor gets HOLD",
+          "duration": 6.114799999999377,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "clearance is per motor, minted only by clearanceOf"
+          ],
+          "fullName": "clearance is per motor, minted only by clearanceOf T7: eligibility withheld for one motor does not downgrade or delete the others",
+          "status": "passed",
+          "title": "T7: eligibility withheld for one motor does not downgrade or delete the others",
+          "duration": 15.07629999999972,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "clearance is per motor, minted only by clearanceOf"
+          ],
+          "fullName": "clearance is per motor, minted only by clearanceOf eligibility true for a motor whose decisions hold is still HOLD (never cleared by the flag alone)",
+          "status": "passed",
+          "title": "eligibility true for a motor whose decisions hold is still HOLD (never cleared by the flag alone)",
+          "duration": 3.5234999999993306,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "clearance is per motor, minted only by clearanceOf"
+          ],
+          "fullName": "clearance is per motor, minted only by clearanceOf an unknown motor and a motor without decisions are NOT_CLEARED",
+          "status": "passed",
+          "title": "an unknown motor and a motor without decisions are NOT_CLEARED",
+          "duration": 4.425699999999779,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "clearance is per motor, minted only by clearanceOf"
+          ],
+          "fullName": "clearance is per motor, minted only by clearanceOf a cast or cloned clearance renders nothing and a minted one is not copyable",
+          "status": "passed",
+          "title": "a cast or cloned clearance renders nothing and a minted one is not copyable",
+          "duration": 111.07490000000053,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "clearance is per motor, minted only by clearanceOf"
+          ],
+          "fullName": "clearance is per motor, minted only by clearanceOf claimFor fails closed: no resolver, a hold, or an unknown action never yields clearance",
+          "status": "passed",
+          "title": "claimFor fails closed: no resolver, a hold, or an unknown action never yields clearance",
+          "duration": 2.1471999999994296,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "projections through the wrappers"
+          ],
+          "fullName": "projections through the wrappers investigation over a gated view: the cleared motor shows the clearance chip, others do not",
+          "status": "passed",
+          "title": "investigation over a gated view: the cleared motor shows the clearance chip, others do not",
+          "duration": 27.36120000000028,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "projections through the wrappers"
+          ],
+          "fullName": "projections through the wrappers a preview carries labelled synthetic recorded actions and never a clearance",
+          "status": "passed",
+          "title": "a preview carries labelled synthetic recorded actions and never a clearance",
+          "duration": 60.140300000000025,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "projections through the wrappers"
+          ],
+          "fullName": "projections through the wrappers impact: current mode needs a gated view and preview mode needs a preview",
+          "status": "passed",
+          "title": "impact: current mode needs a gated view and preview mode needs a preview",
+          "duration": 26.120900000000802,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "projections through the wrappers"
+          ],
+          "fullName": "projections through the wrappers passport: a gated view without a live lease is unavailable; with it, only the cleared motor is cleared",
+          "status": "passed",
+          "title": "passport: a gated view without a live lease is unavailable; with it, only the cleared motor is cleared",
+          "duration": 5.393199999999524,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "rendering of a recorded claim"
+          ],
+          "fullName": "rendering of a recorded claim withheld clearance is stated honestly and never as release",
+          "status": "passed",
+          "title": "withheld clearance is stated honestly and never as release",
+          "duration": 8.554399999999987,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "rendering of a recorded claim"
+          ],
+          "fullName": "rendering of a recorded claim a preview claim is labelled synthetic evaluator output and is not a ClearanceChip",
+          "status": "passed",
+          "title": "a preview claim is labelled synthetic evaluator output and is not a ClearanceChip",
+          "duration": 6.326399999999921,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755320374,
+      "endTime": 1792755320779.3264,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/branding.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "derived views"
+          ],
+          "fullName": "derived views counts add up to the engine's decisions",
+          "status": "passed",
+          "title": "counts add up to the engine's decisions",
+          "duration": 5.4273999999995794,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "derived views"
+          ],
+          "fullName": "derived views classifies against synthetic truth",
+          "status": "passed",
+          "title": "classifies against synthetic truth",
+          "duration": 1.0379999999995562,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "derived views"
+          ],
+          "fullName": "derived views case 06: the original engine falsely releases, the current engine does not",
+          "status": "passed",
+          "title": "case 06: the original engine falsely releases, the current engine does not",
+          "duration": 1.0221000000001368,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "derived views"
+          ],
+          "fullName": "derived views builds genealogy and lot investigations from install records",
+          "status": "passed",
+          "title": "builds genealogy and lot investigations from install records",
+          "duration": 1.9844999999995707,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "derived views"
+          ],
+          "fullName": "derived views flags cited events missing from the event log",
+          "status": "passed",
+          "title": "flags cited events missing from the event log",
+          "duration": 2.946600000000217,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755324013,
+      "endTime": 1792755324025.9465,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/derive.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "accepts current timestamp and budgets only remaining server lease",
+          "status": "passed",
+          "title": "accepts current timestamp and budgets only remaining server lease",
+          "duration": 21.839899999999943,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "rejects old, invalid, future/skewed, unanchored and absent metadata",
+          "status": "passed",
+          "title": "rejects old, invalid, future/skewed, unanchored and absent metadata",
+          "duration": 57.86399999999958,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "rejects journal rollback, same sequence rewrite, and replaced archive",
+          "status": "passed",
+          "title": "rejects journal rollback, same sequence rewrite, and replaced archive",
+          "duration": 41.1308999999992,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "rejects evidence watermark and decision version regression",
+          "status": "passed",
+          "title": "rejects evidence watermark and decision version regression",
+          "duration": 24.79370000000017,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755324234,
+      "endTime": 1792755324380.7937,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/freshness.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "gate fuzz: 12,000 mutated real envelopes"
+          ],
+          "fullName": "gate fuzz: 12,000 mutated real envelopes SEGREGATED / CURRENT verdicts only ever occur under their exact structural conditions",
+          "status": "passed",
+          "title": "SEGREGATED / CURRENT verdicts only ever occur under their exact structural conditions",
+          "duration": 20324.7924,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Decision-2 table"
+          ],
+          "fullName": "Decision-2 table PREFIX_ONLY: segregated only with H2 VERIFIED + integer anchoredSequence; missing/unknown/contradictory is WITHHELD",
+          "status": "passed",
+          "title": "PREFIX_ONLY: segregated only with H2 VERIFIED + integer anchoredSequence; missing/unknown/contradictory is WITHHELD",
+          "duration": 12.634400000002643,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Decision-2 table"
+          ],
+          "fullName": "Decision-2 table UNANCHORED: only explicitly unverified local claims",
+          "status": "passed",
+          "title": "UNANCHORED: only explicitly unverified local claims",
+          "duration": 4.5195999999996275,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Decision-2 table"
+          ],
+          "fullName": "Decision-2 table ELIGIBILITY_WITHHELD is per-motor only: the snapshot stays CURRENT",
+          "status": "passed",
+          "title": "ELIGIBILITY_WITHHELD is per-motor only: the snapshot stays CURRENT",
+          "duration": 1.7194999999992433,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755319063,
+      "endTime": 1792755339407.7195,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/gate-fuzz.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "gate: real captured envelopes"
+          ],
+          "fullName": "gate: real captured envelopes FE-01 CURRENT: only the eligible motor is cleared",
+          "status": "passed",
+          "title": "FE-01 CURRENT: only the eligible motor is cleared",
+          "duration": 12.964599999999336,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: real captured envelopes"
+          ],
+          "fullName": "gate: real captured envelopes FE-02 PREFIX_ONLY is segregated, never verified, and nothing is current release",
+          "status": "passed",
+          "title": "FE-02 PREFIX_ONLY is segregated, never verified, and nothing is current release",
+          "duration": 11.786999999999352,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: real captured envelopes"
+          ],
+          "fullName": "gate: real captured envelopes FE-03 UNANCHORED is segregated as unverified local claims, with no lease required",
+          "status": "passed",
+          "title": "FE-03 UNANCHORED is segregated as unverified local claims, with no lease required",
+          "duration": 4.307399999999689,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: real captured envelopes"
+          ],
+          "fullName": "gate: real captured envelopes FE-04/05/06 structured error bodies: ANCHOR_INVALID, VERIFYING and 400 are WITHHELD with distinct causes",
+          "status": "passed",
+          "title": "FE-04/05/06 structured error bodies: ANCHOR_INVALID, VERIFYING and 400 are WITHHELD with distinct causes",
+          "duration": 6.975900000000365,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: real captured envelopes"
+          ],
+          "fullName": "gate: real captured envelopes FE-04 a 409 whose body is not the structured ANCHOR_INVALID shape is TRANSPORT, never a historical view",
+          "status": "passed",
+          "title": "FE-04 a 409 whose body is not the structured ANCHOR_INVALID shape is TRANSPORT, never a historical view",
+          "duration": 32.342899999999645,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) FE-07 legacy envelope (anchored status, no checkpoint/eligibility) is never CURRENT",
+          "status": "passed",
+          "title": "FE-07 legacy envelope (anchored status, no checkpoint/eligibility) is never CURRENT",
+          "duration": 7.982100000000173,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) FE-08 each strict field alone missing is WITHHELD",
+          "status": "passed",
+          "title": "FE-08 each strict field alone missing is WITHHELD",
+          "duration": 172.38880000000063,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) FE-09 unknown / near-miss checkpoint states are UNKNOWN_STATE",
+          "status": "passed",
+          "title": "FE-09 unknown / near-miss checkpoint states are UNKNOWN_STATE",
+          "duration": 125.79359999999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) FE-04 checkpoint.state ANCHOR_INVALID inside a 200 body is WITHHELD",
+          "status": "passed",
+          "title": "FE-04 checkpoint.state ANCHOR_INVALID inside a 200 body is WITHHELD",
+          "duration": 19.752300000000105,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) FE-10/11/12/13 contradictory state/status/h2/required combinations are CONTRADICTORY",
+          "status": "passed",
+          "title": "FE-10/11/12/13 contradictory state/status/h2/required combinations are CONTRADICTORY",
+          "duration": 49.44210000000021,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) FE-14/15/16 eligibility contradictions are CONTRADICTORY",
+          "status": "passed",
+          "title": "FE-14/15/16 eligibility contradictions are CONTRADICTORY",
+          "duration": 23.02559999999994,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) FE-16 eligible=true in PREFIX_ONLY or UNANCHORED is CONTRADICTORY (never promoted)",
+          "status": "passed",
+          "title": "FE-16 eligible=true in PREFIX_ONLY or UNANCHORED is CONTRADICTORY (never promoted)",
+          "duration": 10.229300000000876,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) PREFIX_ONLY whose H2 proof is not VERIFIED is WITHHELD (evidence must pass the available checks)",
+          "status": "passed",
+          "title": "PREFIX_ONLY whose H2 proof is not VERIFIED is WITHHELD (evidence must pass the available checks)",
+          "duration": 48.025399999999536,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) FE-17/18 decision invariants and unknown actions are WITHHELD (INTEGRITY)",
+          "status": "passed",
+          "title": "FE-17/18 decision invariants and unknown actions are WITHHELD (INTEGRITY)",
+          "duration": 9.614700000000084,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) FE-27 unknown extra top-level fields do not change the verdict",
+          "status": "passed",
+          "title": "FE-27 unknown extra top-level fields do not change the verdict",
+          "duration": 6.031600000000253,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: strict metadata (FE-07..FE-16)"
+          ],
+          "fullName": "gate: strict metadata (FE-07..FE-16) a CURRENT motor whose own eligibility is withheld stays CURRENT: findings kept, only that motor's clearance is NOT_CLEARED",
+          "status": "passed",
+          "title": "a CURRENT motor whose own eligibility is withheld stays CURRENT: findings kept, only that motor's clearance is NOT_CLEARED",
+          "duration": 5.717200000000048,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: lease (FE-23)"
+          ],
+          "fullName": "gate: lease (FE-23) expired, skewed, malformed, non-finite and over-long leases are LEASE_EXPIRED",
+          "status": "passed",
+          "title": "expired, skewed, malformed, non-finite and over-long leases are LEASE_EXPIRED",
+          "duration": 53.99330000000009,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: regression and ordering, by structure not message text (FE-22/FE-32)"
+          ],
+          "fullName": "gate: regression and ordering, by structure not message text (FE-22/FE-32) lower sequence, same sequence with a different head, other archive, older verifiedAt are REGRESSION",
+          "status": "passed",
+          "title": "lower sequence, same sequence with a different head, other archive, older verifiedAt are REGRESSION",
+          "duration": 18.651299999999537,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: regression and ordering, by structure not message text (FE-22/FE-32)"
+          ],
+          "fullName": "gate: regression and ordering, by structure not message text (FE-22/FE-32) a removed event or removed unit or lower decision version is REGRESSION",
+          "status": "passed",
+          "title": "a removed event or removed unit or lower decision version is REGRESSION",
+          "duration": 13.954099999999926,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: regression and ordering, by structure not message text (FE-22/FE-32)"
+          ],
+          "fullName": "gate: regression and ordering, by structure not message text (FE-22/FE-32) the regression verdict does not depend on any message text",
+          "status": "passed",
+          "title": "the regression verdict does not depend on any message text",
+          "duration": 9.204399999999623,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: regression and ordering, by structure not message text (FE-22/FE-32)"
+          ],
+          "fullName": "gate: regression and ordering, by structure not message text (FE-22/FE-32) FE-19/20/21 tracker: CURRENT -> PREFIX_ONLY -> WITHHELD -> PREFIX_ONLY keeps the watermark and never reuses a view",
+          "status": "passed",
+          "title": "FE-19/20/21 tracker: CURRENT -> PREFIX_ONLY -> WITHHELD -> PREFIX_ONLY keeps the watermark and never reuses a view",
+          "duration": 10.389100000000326,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: regression and ordering, by structure not message text (FE-22/FE-32)"
+          ],
+          "fullName": "gate: regression and ordering, by structure not message text (FE-22/FE-32) FE-32 an older CURRENT arriving after a newer PREFIX_ONLY is dropped as REGRESSION",
+          "status": "passed",
+          "title": "FE-32 an older CURRENT arriving after a newer PREFIX_ONLY is dropped as REGRESSION",
+          "duration": 6.11160000000018,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "gate: regression and ordering, by structure not message text (FE-22/FE-32)"
+          ],
+          "fullName": "gate: regression and ordering, by structure not message text (FE-22/FE-32) WITHHELD output and tracker state never carry a motor id, finding or action",
+          "status": "passed",
+          "title": "WITHHELD output and tracker state never carry a motor id, finding or action",
+          "duration": 12.301000000000386,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture guards (FE-ARCH-1/2)"
+          ],
+          "fullName": "architecture guards (FE-ARCH-1/2) no standalone adapter classifies by message text or calls the legacy freshness check",
+          "status": "passed",
+          "title": "no standalone adapter classifies by message text or calls the legacy freshness check",
+          "duration": 18.45260000000053,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "architecture guards (FE-ARCH-1/2)"
+          ],
+          "fullName": "architecture guards (FE-ARCH-1/2) only src/contract may treat an action as current clearance",
+          "status": "passed",
+          "title": "only src/contract may treat an action as current clearance",
+          "duration": 17.1908999999996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755319051,
+      "endTime": 1792755319762.191,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/gate.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "routes"
+          ],
+          "fullName": "routes accepts only the documented address forms and rejects hostile ones",
+          "status": "passed",
+          "title": "accepts only the documented address forms and rejects hostile ones",
+          "duration": 9.944899999999507,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data states the lot, scope, counts and the limits of ledger records",
+          "status": "passed",
+          "title": "states the lot, scope, counts and the limits of ledger records",
+          "duration": 742.1736000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data never renders customer, destination or operator identifiers",
+          "status": "passed",
+          "title": "never renders customer, destination or operator identifiers",
+          "duration": 921.5533999999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data copies the engine decision and labels exclusion as scoped, not safe",
+          "status": "passed",
+          "title": "copies the engine decision and labels exclusion as scoped, not safe",
+          "duration": 255.54479999999967,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data renders a removed component as historical and says removal is not elimination",
+          "status": "passed",
+          "title": "renders a removed component as historical and says removal is not elimination",
+          "duration": 482.4971999999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data explains that a shipment record is not delivery",
+          "status": "passed",
+          "title": "explains that a shipment record is not delivery",
+          "duration": 310.4900000000016,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data lists link-integrity problems with their cited records",
+          "status": "passed",
+          "title": "lists link-integrity problems with their cited records",
+          "duration": 253.88739999999962,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data filters motors by engine finding and says hidden motors are not cleared",
+          "status": "passed",
+          "title": "filters motors by engine finding and says hidden motors are not cleared",
+          "duration": 515.0293999999994,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data works for a raw-material lot and an unknown lot",
+          "status": "passed",
+          "title": "works for a raw-material lot and an unknown lot",
+          "duration": 32.11909999999989,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data is deterministic: the same snapshot gives the same headline",
+          "status": "passed",
+          "title": "is deterministic: the same snapshot gives the same headline",
+          "duration": 27.521999999999025,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data has no control that mutates anything: only view controls, filters and selection",
+          "status": "passed",
+          "title": "has no control that mutates anything: only view controls, filters and selection",
+          "duration": 249.22910000000047,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "keyboard and list fallback"
+          ],
+          "fullName": "keyboard and list fallback selects a graph node with Enter and shows its ledger records",
+          "status": "passed",
+          "title": "selects a graph node with Enter and shows its ledger records",
+          "duration": 198.65250000000015,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "keyboard and list fallback"
+          ],
+          "fullName": "keyboard and list fallback the list shows every node with its recorded links and opens details",
+          "status": "passed",
+          "title": "the list shows every node with its recorded links and opens details",
+          "duration": 202.17929999999978,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "keyboard and list fallback"
+          ],
+          "fullName": "keyboard and list fallback traces back to the source and highlights only recorded links",
+          "status": "passed",
+          "title": "traces back to the source and highlights only recorded links",
+          "duration": 218.04399999999987,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "withdrawal"
+          ],
+          "fullName": "withdrawal withholds recall status and labels the genealogy not current when not verified",
+          "status": "passed",
+          "title": "withholds recall status and labels the genealogy not current when not verified",
+          "duration": 121.85900000000038,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "withdrawal"
+          ],
+          "fullName": "withdrawal withholds status again when the lease expires",
+          "status": "passed",
+          "title": "withholds status again when the lease expires",
+          "duration": 199.0601000000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "withdrawal"
+          ],
+          "fullName": "withdrawal withdraws everything on an outage and substitutes no fixture",
+          "status": "passed",
+          "title": "withdraws everything on an outage and substitutes no fixture",
+          "duration": 160.92599999999948,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "withdrawal"
+          ],
+          "fullName": "withdrawal shows an error, not data, when the first load fails",
+          "status": "passed",
+          "title": "shows an error, not data, when the first load fails",
+          "duration": 5.775700000000143,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "withdrawal"
+          ],
+          "fullName": "withdrawal withholds status while the tab is hidden",
+          "status": "passed",
+          "title": "withholds status while the tab is hidden",
+          "duration": 161.60829999999987,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "adapters"
+          ],
+          "fullName": "adapters live adapter sends only GET to the snapshot endpoint and verifies freshness",
+          "status": "failed",
+          "title": "live adapter sends only GET to the snapshot endpoint and verifies freshness",
+          "duration": 14.849500000000262,
+          "failureMessages": [
+            "GateWithheldError: Current status unavailable (withheld): required checkpoint or eligibility metadata is missing.\n    at liveLoad (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/contract/liveLoad.ts:26:39)\n    at LiveImpactSource.load (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/impact/impactSource.ts:50:15)\n    at <WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/impact-app.test.tsx:230:18\n    at async file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:20"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "adapters"
+          ],
+          "fullName": "adapters live adapter marks an unverified snapshot and refuses a regression",
+          "status": "failed",
+          "title": "live adapter marks an unverified snapshot and refuses a regression",
+          "duration": 8.977699999999459,
+          "failureMessages": [
+            "GateWithheldError: Current status unavailable (withheld): required checkpoint or eligibility metadata is missing.\n    at liveLoad (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/contract/liveLoad.ts:26:39)\n    at LiveImpactSource.load (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/impact/impactSource.ts:50:15)\n    at <WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/impact-app.test.tsx:245:21\n    at async file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:20"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "adapters"
+          ],
+          "fullName": "adapters live adapter turns HTTP failure into an error",
+          "status": "passed",
+          "title": "live adapter turns HTTP failure into an error",
+          "duration": 2.856999999999971,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "adapters"
+          ],
+          "fullName": "adapters preview adapter is labelled, never verified, and tags the authored origin",
+          "status": "passed",
+          "title": "preview adapter is labelled, never verified, and tags the authored origin",
+          "duration": 82.1182000000008,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "adapters"
+          ],
+          "fullName": "adapters preview adapter refuses unknown datasets and foreign documents",
+          "status": "passed",
+          "title": "preview adapter refuses unknown datasets and foreign documents",
+          "duration": 1.4437999999991007,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "large graph"
+          ],
+          "fullName": "large graph draws a window of motors and keeps every record in the list",
+          "status": "passed",
+          "title": "draws a window of motors and keeps every record in the list",
+          "duration": 9851.418100000003,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755320508,
+      "endTime": 1792755335543.4182,
+      "status": "failed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/impact-app.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) connects the lot to exactly the motors whose records name it, separately from claim-only motors",
+          "status": "passed",
+          "title": "connects the lot to exactly the motors whose records name it, separately from claim-only motors",
+          "duration": 7.538000000000466,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) justifies every edge with a recorded reference, and none without",
+          "status": "passed",
+          "title": "justifies every edge with a recorded reference, and none without",
+          "duration": 8.031799999999748,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) draws no edge from a similar identifier alone",
+          "status": "passed",
+          "title": "draws no edge from a similar identifier alone",
+          "duration": 2.884700000000521,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) shows DE and NDE placement against the recall scope without calling an out-of-scope slot safe",
+          "status": "passed",
+          "title": "shows DE and NDE placement against the recall scope without calling an out-of-scope slot safe",
+          "duration": 3.8987999999999374,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) keeps a removed bearing as historical and never treats removal as elimination",
+          "status": "passed",
+          "title": "keeps a removed bearing as historical and never treats removal as elimination",
+          "duration": 1.0778999999993175,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) carries the evaluator's finding unchanged for every motor and counts motors by it",
+          "status": "passed",
+          "title": "carries the evaluator's finding unchanged for every motor and counts motors by it",
+          "duration": 3.5252000000000407,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) flags ambiguous slot attribution, lot-level identity, capture gaps and withdrawn exclusions as uncertainty",
+          "status": "passed",
+          "title": "flags ambiguous slot attribution, lot-level identity, capture gaps and withdrawn exclusions as uncertainty",
+          "duration": 0.836500000000342,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) shows an untrusted affected-lot observation as a dashed claim, not a confirmed link",
+          "status": "passed",
+          "title": "shows an untrusted affected-lot observation as a dashed claim, not a confirmed link",
+          "duration": 0.6544999999996435,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) reports the authored link problems as issues",
+          "status": "passed",
+          "title": "reports the authored link problems as issues",
+          "duration": 7.458299999999326,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) records shipments as shipment records only, and leaves unshipped motors unshipped",
+          "status": "passed",
+          "title": "records shipments as shipment records only, and leaves unshipped motors unshipped",
+          "duration": 4.871200000000499,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) leaks no customer, destination or operator identifier",
+          "status": "passed",
+          "title": "leaks no customer, destination or operator identifier",
+          "duration": 2.60359999999946,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits)"
+          ],
+          "fullName": "lot BR-204, recall scope DE (actual engine decisions plus labelled authored link edits) states the recall scope and the watermark",
+          "status": "passed",
+          "title": "states the recall scope and the watermark",
+          "duration": 0.6473000000005413,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "recall status withheld (verification failed)"
+          ],
+          "fullName": "recall status withheld (verification failed) keeps recorded linkage but removes findings, actions, flags and decision-derived uncertainty",
+          "status": "passed",
+          "title": "keeps recorded linkage but removes findings, actions, flags and decision-derived uncertainty",
+          "duration": 2.145999999999731,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "selection variants"
+          ],
+          "fullName": "selection variants a lot not named by the recall is traced with no recall claim",
+          "status": "passed",
+          "title": "a lot not named by the recall is traced with no recall claim",
+          "duration": 6.469500000000153,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "selection variants"
+          ],
+          "fullName": "selection variants an unknown lot gives an empty graph and says it is unknown",
+          "status": "passed",
+          "title": "an unknown lot gives an empty graph and says it is unknown",
+          "duration": 4.763500000000022,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "selection variants"
+          ],
+          "fullName": "selection variants a raw-material lot traces forward only through recorded allocation references",
+          "status": "passed",
+          "title": "a raw-material lot traces forward only through recorded allocation references",
+          "duration": 12.045199999999568,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "selection variants"
+          ],
+          "fullName": "selection variants lists the lots the ledger records",
+          "status": "passed",
+          "title": "lists the lots the ledger records",
+          "duration": 19.429700000000594,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "selection variants"
+          ],
+          "fullName": "selection variants NDE-only scope: the recalled lot in DE is outside scope, in NDE it is in scope",
+          "status": "passed",
+          "title": "NDE-only scope: the recalled lot in DE is outside scope, in NDE it is in scope",
+          "duration": 4.836900000000242,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "tracing and filtering walk only recorded edges"
+          ],
+          "fullName": "tracing and filtering walk only recorded edges traces forward from a raw-material claim to shipments and backward from a shipment to the claim",
+          "status": "passed",
+          "title": "traces forward from a raw-material claim to shipments and backward from a shipment to the claim",
+          "duration": 10.736299999999574,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "tracing and filtering walk only recorded edges"
+          ],
+          "fullName": "tracing and filtering walk only recorded edges filters by the evaluator's finding and reports how many motors it hides",
+          "status": "passed",
+          "title": "filters by the evaluator's finding and reports how many motors it hides",
+          "duration": 0.9731000000001586,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "purity and independence"
+          ],
+          "fullName": "purity and independence does not mutate its input and is deterministic",
+          "status": "passed",
+          "title": "does not mutate its input and is deterministic",
+          "duration": 25.381799999999203,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "purity and independence"
+          ],
+          "fullName": "purity and independence imports only snapshot types and does no I/O",
+          "status": "passed",
+          "title": "imports only snapshot types and does no I/O",
+          "duration": 9.172700000000077,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "a large synthetic fleet (authored clones of real motors)"
+          ],
+          "fullName": "a large synthetic fleet (authored clones of real motors) projects thousands of nodes quickly and deterministically, with every edge still justified",
+          "status": "passed",
+          "title": "projects thousands of nodes quickly and deterministically, with every edge still justified",
+          "duration": 3004.4799999999996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755320032,
+      "endTime": 1792755323179.48,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/impact-projection.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data shows the watermark, ordered groups and the read-only boundary",
+          "status": "passed",
+          "title": "shows the watermark, ordered groups and the read-only boundary",
+          "duration": 290.15030000000024,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data has no assignment, completion, approval or resolution control anywhere",
+          "status": "passed",
+          "title": "has no assignment, completion, approval or resolution control anywhere",
+          "duration": 414.0140000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data separates notification obligations from the evidence groups",
+          "status": "passed",
+          "title": "separates notification obligations from the evidence groups",
+          "duration": 166.11169999999947,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verified live data"
+          ],
+          "fullName": "verified live data filters groups by class using a native select",
+          "status": "passed",
+          "title": "filters groups by class using a native select",
+          "duration": 513.3747999999996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "a cluster page explains the four required parts for each motor"
+          ],
+          "fullName": "a cluster page explains the four required parts for each motor shows the decision, the evidence class, the supporting records and the investigation guidance",
+          "status": "passed",
+          "title": "shows the decision, the evidence class, the supporting records and the investigation guidance",
+          "duration": 116.27259999999933,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "a cluster page explains the four required parts for each motor"
+          ],
+          "fullName": "a cluster page explains the four required parts for each motor links a supporting record to its evidence page with hashes and the limits of hashes",
+          "status": "failed",
+          "title": "links a supporting record to its evidence page with hashes and the limits of hashes",
+          "duration": 59.89900000000034,
+          "failureMessages": [
+            "Error: expect(element).toHaveTextContent()\n\nExpected element to have text content:\n  OP-OBSERVATION-21\nReceived:\n  \u2190 All groups \u00b7 Back to the groupLedger record urn:pramaan:MTR-26005:HANDHELD:1MotorMTR-26005Record typeSLOT_STATE_VERIFIEDSource (as recorded)HANDHELD:MTR-26005 \u00b7 sequence 1Actor (as recorded; a claim)ACTOR-04Occurred (claimed)2026-10-20 08:07 UTC \u00b7 clock SYNTHETIC_SIMULATEDRecorded2026-10-20 08:07 UTCWork orderNot recordedSupersedesNothingEvidence referencesdemo-record:MTR-26005:HANDHELD:1 ComponenttypeBEARINGSlotDEIdentitygranularityLOTObservedpartBR-6205ObservedlotBR-204MethodHANDHELD_LABEL_READProvisionaltrueCapture hash1b03842411386539d25bb2e83a53b44d86982bcebe7ea362eff4dc34b4e01cdfEvent chain hashad2d39b0116852c93b2b5bee533405c100def2c3f94ac87cac66188edff8859eThe hashes show that this record is in the ledger unchanged since capture. They do not show that what the record says is true.Items that cite this recordUntrusted affected-lot observation\n    at Proxy.__VITEST_EXTEND_ASSERTION__ (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/index.aTZaPVhf.js:2601:12)\n    at Proxy.<anonymous> (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/index.aTZaPVhf.js:1958:14)\n    at Proxy.methodWrapper (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/chai/index.js:1737:25)\n    at <WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/investigation-app.test.tsx:92:18\n    at async file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:20"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "a cluster page explains the four required parts for each motor"
+          ],
+          "fullName": "a cluster page explains the four required parts for each motor handles unknown groups, unknown records and malformed addresses without throwing",
+          "status": "passed",
+          "title": "handles unknown groups, unknown records and malformed addresses without throwing",
+          "duration": 71.5632000000005,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verification failure withdraws current claims"
+          ],
+          "fullName": "verification failure withdraws current claims shows no tasks for an unverified (historical) snapshot",
+          "status": "passed",
+          "title": "shows no tasks for an unverified (historical) snapshot",
+          "duration": 23.284099999999853,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verification failure withdraws current claims"
+          ],
+          "fullName": "verification failure withdraws current claims withdraws tasks after a failed refresh but keeps only the last watermark, labelled not current",
+          "status": "passed",
+          "title": "withdraws tasks after a failed refresh but keeps only the last watermark, labelled not current",
+          "duration": 110.17320000000018,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verification failure withdraws current claims"
+          ],
+          "fullName": "verification failure withdraws current claims shows an error and no fixture data when the first load fails",
+          "status": "passed",
+          "title": "shows an error and no fixture data when the first load fails",
+          "duration": 29.293899999998757,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verification failure withdraws current claims"
+          ],
+          "fullName": "verification failure withdraws current claims withdraws tasks when the verification lease expires",
+          "status": "passed",
+          "title": "withdraws tasks when the verification lease expires",
+          "duration": 85.53240000000005,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "verification failure withdraws current claims"
+          ],
+          "fullName": "verification failure withdraws current claims withdraws tasks while the tab is hidden and restores them after a new verified load",
+          "status": "passed",
+          "title": "withdraws tasks while the tab is hidden and restores them after a new verified load",
+          "duration": 168.15600000000086,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "updates arrive from the verified snapshot, never from a manual action"
+          ],
+          "fullName": "updates arrive from the verified snapshot, never from a manual action drops a task and notes a re-evaluation when a newer verified snapshot changes the decisions",
+          "status": "passed",
+          "title": "drops a task and notes a re-evaluation when a newer verified snapshot changes the decisions",
+          "duration": 210.41040000000066,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "preview mode is explicit, labelled and never current"
+          ],
+          "fullName": "preview mode is explicit, labelled and never current labels the data as a preview and shows no verified watermark",
+          "status": "passed",
+          "title": "labels the data as a preview and shows no verified watermark",
+          "duration": 265.3786999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "keyboard and structure"
+          ],
+          "fullName": "keyboard and structure reaches navigation, the filter and group links with native focusable elements in order",
+          "status": "passed",
+          "title": "reaches navigation, the filter and group links with native focusable elements in order",
+          "duration": 654.9904999999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "live adapter is GET-only and reuses the unchanged freshness boundary"
+          ],
+          "fullName": "live adapter is GET-only and reuses the unchanged freshness boundary requests only /api/snapshot with GET and accepts a fresh anchored snapshot",
+          "status": "failed",
+          "title": "requests only /api/snapshot with GET and accepts a fresh anchored snapshot",
+          "duration": 9.98279999999977,
+          "failureMessages": [
+            "GateWithheldError: Current status unavailable (withheld): required checkpoint or eligibility metadata is missing.\n    at liveLoad (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/contract/liveLoad.ts:26:39)\n    at LiveInvestigationSource.load (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/investigation/investigationSource.ts:50:15)\n    at <WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/investigation-app.test.tsx:205:18\n    at async file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:20"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "live adapter is GET-only and reuses the unchanged freshness boundary"
+          ],
+          "fullName": "live adapter is GET-only and reuses the unchanged freshness boundary marks an unanchored snapshot unverified and throws on regression",
+          "status": "failed",
+          "title": "marks an unanchored snapshot unverified and throws on regression",
+          "duration": 8.96230000000105,
+          "failureMessages": [
+            "GateWithheldError: Current status unavailable (withheld): required checkpoint or eligibility metadata is missing.\n    at liveLoad (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/contract/liveLoad.ts:26:39)\n    at LiveInvestigationSource.load (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/investigation/investigationSource.ts:50:15)\n    at <WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/investigation-app.test.tsx:213:21\n    at async file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:20"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "live adapter is GET-only and reuses the unchanged freshness boundary"
+          ],
+          "fullName": "live adapter is GET-only and reuses the unchanged freshness boundary bounds a hung request",
+          "status": "passed",
+          "title": "bounds a hung request",
+          "duration": 36.338300000001254,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755320465,
+      "endTime": 1792755323704.3384,
+      "status": "failed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/investigation-app.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "actual seeded cases (no shared gap exists in seeded data)"
+          ],
+          "fullName": "actual seeded cases (no shared gap exists in seeded data) turns each seeded hold into one task of the right class",
+          "status": "passed",
+          "title": "turns each seeded hold into one task of the right class",
+          "duration": 5.1854000000003,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "actual seeded cases (no shared gap exists in seeded data)"
+          ],
+          "fullName": "actual seeded cases (no shared gap exists in seeded data) lists affected and released motors as having no evidence items, not as tasks",
+          "status": "passed",
+          "title": "lists affected and released motors as having no evidence items, not as tasks",
+          "duration": 1.0034999999998035,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "actual seeded cases (no shared gap exists in seeded data)"
+          ],
+          "fullName": "actual seeded cases (no shared gap exists in seeded data) every seeded cluster is a single motor because source ids are per motor",
+          "status": "passed",
+          "title": "every seeded cluster is a single motor because source ids are per motor",
+          "duration": 2.7081000000007407,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "actual seeded cases (no shared gap exists in seeded data)"
+          ],
+          "fullName": "actual seeded cases (no shared gap exists in seeded data) grounds the capture gap in the exact source, window and slot",
+          "status": "passed",
+          "title": "grounds the capture gap in the exact source, window and slot",
+          "duration": 2.3684000000002925,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "actual seeded cases (no shared gap exists in seeded data)"
+          ],
+          "fullName": "actual seeded cases (no shared gap exists in seeded data) grounds the untrusted observation in the rejection reasons, actor claim, method and event",
+          "status": "failed",
+          "title": "grounds the untrusted observation in the rejection reasons, actor claim, method and event",
+          "duration": 23.95890000000054,
+          "failureMessages": [
+            "AssertionError: expected { slot: 'DE', \u2026(11) } to match object { slot: 'DE', \u2026(5) }\n(6 matching properties omitted from actual)\n    at Proxy.<anonymous> (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/index.aTZaPVhf.js:2066:10)\n    at Proxy.<anonymous> (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/index.aTZaPVhf.js:1958:14)\n    at Proxy.methodWrapper (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/chai/index.js:1737:25)\n    at <WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/investigation-projection.test.ts:38:24\n    at file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:1632:35\n    at file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:26\n    at file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3338:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3333:10)\n    at file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3318:20"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "actual seeded cases (no shared gap exists in seeded data)"
+          ],
+          "fullName": "actual seeded cases (no shared gap exists in seeded data) grounds the ambiguity in the removal, candidate slots and assurance level",
+          "status": "passed",
+          "title": "grounds the ambiguity in the removal, candidate slots and assurance level",
+          "duration": 1.9949999999998909,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "authored demonstration: shared exact keys form shared clusters"
+          ],
+          "fullName": "authored demonstration: shared exact keys form shared clusters clusters the three untrusted observations on identical rejection, actor, method and lot",
+          "status": "failed",
+          "title": "clusters the three untrusted observations on identical rejection, actor, method and lot",
+          "duration": 9.95679999999993,
+          "failureMessages": [
+            "AssertionError: expected 'policy=RC-026-014/P1 | class=UNTRUSTE\u2026' to contain 'actorClaim=OP-OBSERVATION-21'\n    at <WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/investigation-projection.test.ts:58:19\n    at file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:1632:35\n    at file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:26\n    at file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3338:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3333:10)\n    at file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3318:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3276:10)\n    at file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3904:64"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "authored demonstration: shared exact keys form shared clusters"
+          ],
+          "fullName": "authored demonstration: shared exact keys form shared clusters clusters the lot-level ambiguities (one seeded, two demo extras)",
+          "status": "passed",
+          "title": "clusters the lot-level ambiguities (one seeded, two demo extras)",
+          "duration": 0.7908999999999651,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "authored demonstration: shared exact keys form shared clusters"
+          ],
+          "fullName": "authored demonstration: shared exact keys form shared clusters clusters the two authored-source capture gaps and keeps the seeded gap separate",
+          "status": "passed",
+          "title": "clusters the two authored-source capture gaps and keeps the seeded gap separate",
+          "duration": 0.7479999999995925,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "authored demonstration: shared exact keys form shared clusters"
+          ],
+          "fullName": "authored demonstration: shared exact keys form shared clusters keeps authored and seeded origins distinguishable",
+          "status": "passed",
+          "title": "keeps authored and seeded origins distinguishable",
+          "duration": 0.6840000000001965,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "authored demonstration: shared exact keys form shared clusters"
+          ],
+          "fullName": "authored demonstration: shared exact keys form shared clusters gives an identity-only motor an explicit baseline task",
+          "status": "passed",
+          "title": "gives an identity-only motor an explicit baseline task",
+          "duration": 0.7516999999998006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "authored demonstration: shared exact keys form shared clusters"
+          ],
+          "fullName": "authored demonstration: shared exact keys form shared clusters adds a raw-material-lot context group from the ledger's own lineage, labelled as a supplier claim",
+          "status": "passed",
+          "title": "adds a raw-material-lot context group from the ledger's own lineage, labelled as a supplier claim",
+          "duration": 1.2164000000002488,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "authored demonstration: shared exact keys form shared clusters"
+          ],
+          "fullName": "authored demonstration: shared exact keys form shared clusters shows no lot context for an observation of a lot the ledger never traced to that motor",
+          "status": "passed",
+          "title": "shows no lot context for an observation of a lot the ledger never traced to that motor",
+          "duration": 0.524199999999837,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "an evidence update changes the projection without any manual closing"
+          ],
+          "fullName": "an evidence update changes the projection without any manual closing drops the task of a motor whose assembly record arrived, with no closure state anywhere",
+          "status": "passed",
+          "title": "drops the task of a motor whose assembly record arrived, with no closure state anywhere",
+          "duration": 0.7359000000005835,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "an evidence update changes the projection without any manual closing"
+          ],
+          "fullName": "an evidence update changes the projection without any manual closing keeps a task whose new evidence did not answer it, now under a newer decision version",
+          "status": "passed",
+          "title": "keeps a task whose new evidence did not answer it, now under a newer decision version",
+          "duration": 0.944999999999709,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "an evidence update changes the projection without any manual closing"
+          ],
+          "fullName": "an evidence update changes the projection without any manual closing leaves unrelated tasks identical",
+          "status": "passed",
+          "title": "leaves unrelated tasks identical",
+          "duration": 1.0205999999998312,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "priority order is a published lexicographic key, not a score"
+          ],
+          "fullName": "priority order is a published lexicographic key, not a score puts serious untrusted observations and withdrawn exclusions ahead of larger clusters",
+          "status": "passed",
+          "title": "puts serious untrusted observations and withdrawn exclusions ahead of larger clusters",
+          "duration": 12.861799999999675,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "priority order is a published lexicographic key, not a score"
+          ],
+          "fullName": "priority order is a published lexicographic key, not a score then orders by distinct motors, then class rank, then key text",
+          "status": "passed",
+          "title": "then orders by distinct motors, then class rank, then key text",
+          "duration": 9.100999999999658,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "priority order is a published lexicographic key, not a score"
+          ],
+          "fullName": "priority order is a published lexicographic key, not a score invents no numeric score or probability",
+          "status": "passed",
+          "title": "invents no numeric score or probability",
+          "duration": 11.887099999999919,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "exact equality only: nothing fuzzy"
+          ],
+          "fullName": "exact equality only: nothing fuzzy splits a group when one grounded field differs",
+          "status": "passed",
+          "title": "splits a group when one grounded field differs",
+          "duration": 16.55789999999979,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "exact equality only: nothing fuzzy"
+          ],
+          "fullName": "exact equality only: nothing fuzzy does not join gaps whose window differs by one second",
+          "status": "passed",
+          "title": "does not join gaps whose window differs by one second",
+          "duration": 10.367499999999382,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "exact equality only: nothing fuzzy"
+          ],
+          "fullName": "exact equality only: nothing fuzzy does not join gaps from different sources over the same window",
+          "status": "passed",
+          "title": "does not join gaps from different sources over the same window",
+          "duration": 8.854699999999866,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "exact equality only: nothing fuzzy"
+          ],
+          "fullName": "exact equality only: nothing fuzzy assigns every task to exactly one primary cluster with a unique id",
+          "status": "passed",
+          "title": "assigns every task to exactly one primary cluster with a unique id",
+          "duration": 16.11580000000049,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "taxonomy completeness: nothing silently disappears"
+          ],
+          "fullName": "taxonomy completeness: nothing silently disappears classifies every engine reason code, flag and glossary code explicitly",
+          "status": "passed",
+          "title": "classifies every engine reason code, flag and glossary code explicitly",
+          "duration": 3.1090000000003783,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "taxonomy completeness: nothing silently disappears"
+          ],
+          "fullName": "taxonomy completeness: nothing silently disappears keeps the withdrawn exclusion as an obligation, never a task",
+          "status": "passed",
+          "title": "keeps the withdrawn exclusion as an obligation, never a task",
+          "duration": 20.64589999999953,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "taxonomy completeness: nothing silently disappears"
+          ],
+          "fullName": "taxonomy completeness: nothing silently disappears shows an unknown reason code as an unclassified item",
+          "status": "passed",
+          "title": "shows an unknown reason code as an unclassified item",
+          "duration": 8.785499999999956,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "taxonomy completeness: nothing silently disappears"
+          ],
+          "fullName": "taxonomy completeness: nothing silently disappears shows an unknown flag as an unclassified item, non-blocking",
+          "status": "passed",
+          "title": "shows an unknown flag as an unclassified item, non-blocking",
+          "duration": 6.458999999999833,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "taxonomy completeness: nothing silently disappears"
+          ],
+          "fullName": "taxonomy completeness: nothing silently disappears shows a held unresolved motor that lists no evidence reason",
+          "status": "passed",
+          "title": "shows a held unresolved motor that lists no evidence reason",
+          "duration": 7.104900000000271,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "taxonomy completeness: nothing silently disappears"
+          ],
+          "fullName": "taxonomy completeness: nothing silently disappears falls back to a code-only task when a listed reason has no detail in the snapshot",
+          "status": "passed",
+          "title": "falls back to a code-only task when a listed reason has no detail in the snapshot",
+          "duration": 8.141000000000531,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "taxonomy completeness: nothing silently disappears"
+          ],
+          "fullName": "taxonomy completeness: nothing silently disappears accounts for every non-informational reason of every held decision in the scenario",
+          "status": "passed",
+          "title": "accounts for every non-informational reason of every held decision in the scenario",
+          "duration": 14.697900000000118,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "other evidence classes"
+          ],
+          "fullName": "other evidence classes separates a rejected verification from an untrusted affected observation",
+          "status": "passed",
+          "title": "separates a rejected verification from an untrusted affected observation",
+          "duration": 7.038300000000163,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "other evidence classes"
+          ],
+          "fullName": "other evidence classes does not duplicate the untrusted observation as rejected evidence",
+          "status": "passed",
+          "title": "does not duplicate the untrusted observation as rejected evidence",
+          "duration": 6.6710000000002765,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "other evidence classes"
+          ],
+          "fullName": "other evidence classes turns a recorded conflict into a conflicting-records task",
+          "status": "passed",
+          "title": "turns a recorded conflict into a conflicting-records task",
+          "duration": 8.740799999999581,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "other evidence classes"
+          ],
+          "fullName": "other evidence classes lists a non-blocking untrusted sighting outside the policy scope without blocking claims",
+          "status": "passed",
+          "title": "lists a non-blocking untrusted sighting outside the policy scope without blocking claims",
+          "duration": 8.743800000000192,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "other evidence classes"
+          ],
+          "fullName": "other evidence classes produces no tasks when no recall has been announced",
+          "status": "passed",
+          "title": "produces no tasks when no recall has been announced",
+          "duration": 6.123599999999897,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "static guidance is reviewed text that coaches no evidence"
+          ],
+          "fullName": "static guidance is reviewed text that coaches no evidence never tells anyone what a record should say or to approve trust",
+          "status": "passed",
+          "title": "never tells anyone what a record should say or to approve trust",
+          "duration": 8.789499999999862,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "static guidance is reviewed text that coaches no evidence"
+          ],
+          "fullName": "static guidance is reviewed text that coaches no evidence states the limitations, including that resolving an item does not itself release a motor",
+          "status": "passed",
+          "title": "states the limitations, including that resolving an item does not itself release a motor",
+          "duration": 0.5452999999997701,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "privacy, purity and independence"
+          ],
+          "fullName": "privacy, purity and independence carries no customer or destination and no shipment authorization claim",
+          "status": "passed",
+          "title": "carries no customer or destination and no shipment authorization claim",
+          "duration": 19.98319999999967,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "privacy, purity and independence"
+          ],
+          "fullName": "privacy, purity and independence does not mutate its input, is deterministic, and copies decisions unchanged",
+          "status": "passed",
+          "title": "does not mutate its input, is deterministic, and copies decisions unchanged",
+          "duration": 52.740499999999884,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "privacy, purity and independence"
+          ],
+          "fullName": "privacy, purity and independence imports only the snapshot types and the reviewed taxonomy, and does no I/O",
+          "status": "passed",
+          "title": "imports only the snapshot types and the reviewed taxonomy, and does no I/O",
+          "duration": 7.86410000000069,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755320062,
+      "endTime": 1792755320403.864,
+      "status": "failed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/investigation-projection.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "passport page"
+          ],
+          "fullName": "passport page shows identity, components and the recall card for a verified live snapshot",
+          "status": "passed",
+          "title": "shows identity, components and the recall card for a verified live snapshot",
+          "duration": 781.6821,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page"
+          ],
+          "fullName": "passport page withholds recall status and labels records when verification is unavailable",
+          "status": "passed",
+          "title": "withholds recall status and labels records when verification is unavailable",
+          "duration": 121.47519999999986,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page"
+          ],
+          "fullName": "passport page never presents a historical release as current: unverified exclusion shows nothing about clearance",
+          "status": "passed",
+          "title": "never presents a historical release as current: unverified exclusion shows nothing about clearance",
+          "duration": 48.233400000000074,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page"
+          ],
+          "fullName": "passport page wording for a verified exclusion is a recall statement, not an authorization",
+          "status": "passed",
+          "title": "wording for a verified exclusion is a recall statement, not an authorization",
+          "duration": 28.605999999999767,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page"
+          ],
+          "fullName": "passport page withdraws recall status and marks records stale when the backend fails after a good load",
+          "status": "failed",
+          "title": "withdraws recall status and marks records stale when the backend fails after a good load",
+          "duration": 63.60649999999987,
+          "failureMessages": [
+            "Error: expect(element).toBeInTheDocument()\n\nelement could not be found in the document\n    at Proxy.__VITEST_EXTEND_ASSERTION__ (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/index.aTZaPVhf.js:2601:12)\n    at Proxy.<anonymous> (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/index.aTZaPVhf.js:1958:14)\n    at Proxy.methodWrapper (file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/chai/index.js:1737:25)\n    at <WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/passport-app.test.tsx:66:57\n    at async file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:20"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page"
+          ],
+          "fullName": "passport page shows an error and no content (no fixture substitution) when the first load fails",
+          "status": "passed",
+          "title": "shows an error and no content (no fixture substitution) when the first load fails",
+          "duration": 32.764899999999216,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page"
+          ],
+          "fullName": "passport page withdraws recall status immediately when the tab is hidden and requires a new verified snapshot",
+          "status": "passed",
+          "title": "withdraws recall status immediately when the tab is hidden and requires a new verified snapshot",
+          "duration": 137.6300999999994,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page"
+          ],
+          "fullName": "passport page lets the lease expire without a new snapshot",
+          "status": "passed",
+          "title": "lets the lease expire without a new snapshot",
+          "duration": 113.29389999999967,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page"
+          ],
+          "fullName": "passport page never shows recall status for a preview source, even if flagged verified",
+          "status": "passed",
+          "title": "never shows recall status for a preview source, even if flagged verified",
+          "duration": 53.78200000000015,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "routes and states"
+          ],
+          "fullName": "routes and states rejects a malformed identifier without a QR",
+          "status": "passed",
+          "title": "rejects a malformed identifier without a QR",
+          "duration": 27.187699999999495,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "routes and states"
+          ],
+          "fullName": "routes and states reports an unknown motor without showing another motor",
+          "status": "passed",
+          "title": "reports an unknown motor without showing another motor",
+          "duration": 27.92540000000008,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "routes and states"
+          ],
+          "fullName": "routes and states lists passports on the index and links to each",
+          "status": "passed",
+          "title": "lists passports on the index and links to each",
+          "duration": 118.60189999999966,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "interactive views"
+          ],
+          "fullName": "interactive views expands replacement history with keyboard and shows the removed bearing as historical",
+          "status": "passed",
+          "title": "expands replacement history with keyboard and shows the removed bearing as historical",
+          "duration": 151.97670000000016,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "interactive views"
+          ],
+          "fullName": "interactive views drills from a claim to its event, source claim and hashes",
+          "status": "passed",
+          "title": "drills from a claim to its event, source claim and hashes",
+          "duration": 44.26929999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "interactive views"
+          ],
+          "fullName": "interactive views filters the timeline and keeps gaps visible",
+          "status": "passed",
+          "title": "filters the timeline and keeps gaps visible",
+          "duration": 246.03839999999946,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "interactive views"
+          ],
+          "fullName": "interactive views lists not-recorded and unverified items on the overview",
+          "status": "passed",
+          "title": "lists not-recorded and unverified items on the overview",
+          "duration": 70.76029999999992,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "interactive views"
+          ],
+          "fullName": "interactive views shows the QR label with route-only text and the loopback warning",
+          "status": "passed",
+          "title": "shows the QR label with route-only text and the loopback warning",
+          "duration": 65.55669999999918,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "interactive views"
+          ],
+          "fullName": "interactive views has landmarks, a skip link and an operable section navigation",
+          "status": "passed",
+          "title": "has landmarks, a skip link and an operable section navigation",
+          "duration": 170.34330000000045,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "interactive views"
+          ],
+          "fullName": "interactive views exposes no customer, destination or operator identifiers anywhere in any section",
+          "status": "passed",
+          "title": "exposes no customer, destination or operator identifiers anywhere in any section",
+          "duration": 586.5313000000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "read-only adapters"
+          ],
+          "fullName": "read-only adapters live adapter issues only GET /api/snapshot and classifies results",
+          "status": "failed",
+          "title": "live adapter issues only GET /api/snapshot and classifies results",
+          "duration": 12.336499999999432,
+          "failureMessages": [
+            "GateWithheldError: Current status unavailable (withheld): required checkpoint or eligibility metadata is missing.\n    at liveLoad (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/contract/liveLoad.ts:26:39)\n    at LivePassportSource.load (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/passport/passportSource.ts:49:15)\n    at <WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/passport-app.test.tsx:216:19\n    at async file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:20"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "read-only adapters"
+          ],
+          "fullName": "read-only adapters live adapter withholds everything on regression and on HTTP failure",
+          "status": "failed",
+          "title": "live adapter withholds everything on regression and on HTTP failure",
+          "duration": 8.129399999999805,
+          "failureMessages": [
+            "GateWithheldError: Current status unavailable (withheld): required checkpoint or eligibility metadata is missing.\n    at liveLoad (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/contract/liveLoad.ts:26:39)\n    at LivePassportSource.load (<WORKSPACE>/manufacturing-frontend-audit/recall-ui/src/passport/passportSource.ts:49:15)\n    at <WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/passport-app.test.tsx:231:5\n    at async file:///<WORKSPACE>/manufacturing-frontend-audit/recall-ui/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:20"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "read-only adapters"
+          ],
+          "fullName": "read-only adapters live adapter times out a hung request and aborts transport",
+          "status": "passed",
+          "title": "live adapter times out a hung request and aborts transport",
+          "duration": 36.62239999999838,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "read-only adapters"
+          ],
+          "fullName": "read-only adapters preview adapter is explicit, not live, and never claims verification",
+          "status": "passed",
+          "title": "preview adapter is explicit, not live, and never claims verification",
+          "duration": 7.606499999999869,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755320393,
+      "endTime": 1792755323350.6064,
+      "status": "failed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/passport-app.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "identifier handling"
+          ],
+          "fullName": "identifier handling rejects malformed identifiers and unknown motors without leaking other motors",
+          "status": "passed",
+          "title": "rejects malformed identifiers and unknown motors without leaking other motors",
+          "duration": 30.567299999999705,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "component replacement history (MTR-26004)"
+          ],
+          "fullName": "component replacement history (MTR-26004) shows the replacement as the current DE claim and the original as removed history",
+          "status": "passed",
+          "title": "shows the replacement as the current DE claim and the original as removed history",
+          "duration": 5.088999999999942,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "component replacement history (MTR-26004)"
+          ],
+          "fullName": "component replacement history (MTR-26004) links every claim to installation, manufacture and material records that exist as events",
+          "status": "passed",
+          "title": "links every claim to installation, manufacture and material records that exist as events",
+          "duration": 3.3040000000000873,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "component replacement history (MTR-26004)"
+          ],
+          "fullName": "component replacement history (MTR-26004) carries supplier information only as a claim",
+          "status": "passed",
+          "title": "carries supplier information only as a claim",
+          "duration": 2.6885999999994965,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "component replacement history (MTR-26004)"
+          ],
+          "fullName": "component replacement history (MTR-26004) reports the capture gap and the removed bearing's evidence hashes",
+          "status": "passed",
+          "title": "reports the capture gap and the removed bearing's evidence hashes",
+          "duration": 1.068699999999808,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "chronology"
+          ],
+          "fullName": "chronology lists every recorded event once, ordered by claimed occurrence",
+          "status": "passed",
+          "title": "lists every recorded event once, ordered by claimed occurrence",
+          "duration": 9.565099999999802,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "chronology"
+          ],
+          "fullName": "chronology describes shipment as a record, never an authorization, and omits customer and destination",
+          "status": "passed",
+          "title": "describes shipment as a record, never an authorization, and omits customer and destination",
+          "duration": 4.3301000000001295,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "privacy and invention"
+          ],
+          "fullName": "privacy and invention never projects customer, destination, shipment id or operator identifiers",
+          "status": "passed",
+          "title": "never projects customer, destination, shipment id or operator identifiers",
+          "duration": 77.42190000000028,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "privacy and invention"
+          ],
+          "fullName": "privacy and invention states what is not recorded rather than inventing it",
+          "status": "passed",
+          "title": "states what is not recorded rather than inventing it",
+          "duration": 40.5613000000003,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "privacy and invention"
+          ],
+          "fullName": "privacy and invention handles a partially recorded motor (identity only)",
+          "status": "passed",
+          "title": "handles a partially recorded motor (identity only)",
+          "duration": 3.8665000000000873,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "privacy and invention"
+          ],
+          "fullName": "privacy and invention handles an assembled but unshipped motor",
+          "status": "passed",
+          "title": "handles an assembled but unshipped motor",
+          "duration": 8.074600000000828,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "privacy and invention"
+          ],
+          "fullName": "privacy and invention does not let an unverified field observation redefine the current occupant (MTR-26005)",
+          "status": "passed",
+          "title": "does not let an unverified field observation redefine the current occupant (MTR-26005)",
+          "duration": 6.443199999999706,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "recall context is separate and gated"
+          ],
+          "fullName": "recall context is separate and gated is unavailable, with no decision content at all, unless verification is asserted",
+          "status": "passed",
+          "title": "is unavailable, with no decision content at all, unless verification is asserted",
+          "duration": 19.628600000000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "recall context is separate and gated"
+          ],
+          "fullName": "recall context is separate and gated copies the engine decision unchanged when verified",
+          "status": "passed",
+          "title": "copies the engine decision unchanged when verified",
+          "duration": 16.280500000000757,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "recall context is separate and gated"
+          ],
+          "fullName": "recall context is separate and gated reports no recall when none is announced",
+          "status": "passed",
+          "title": "reports no recall when none is announced",
+          "duration": 11.19669999999951,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "read-only and deterministic"
+          ],
+          "fullName": "read-only and deterministic does not mutate its input and is deterministic",
+          "status": "passed",
+          "title": "does not mutate its input and is deterministic",
+          "duration": 18.833999999999833,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "read-only and deterministic"
+          ],
+          "fullName": "read-only and deterministic imports no recall logic, networking or storage",
+          "status": "passed",
+          "title": "imports no recall logic, networking or storage",
+          "duration": 17.296000000000276,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755319730,
+      "endTime": 1792755320009.296,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/passport-projection.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "route-only QR payload"
+          ],
+          "fullName": "route-only QR payload encodes the passport page and the identifier only",
+          "status": "passed",
+          "title": "encodes the passport page and the identifier only",
+          "duration": 5.552999999999884,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "route-only QR payload"
+          ],
+          "fullName": "route-only QR payload discards any query or fragment on the page address, including preview mode",
+          "status": "passed",
+          "title": "discards any query or fragment on the page address, including preview mode",
+          "duration": 0.6337000000003172,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "route-only QR payload"
+          ],
+          "fullName": "route-only QR payload refuses to generate for malformed identifiers",
+          "status": "passed",
+          "title": "refuses to generate for malformed identifiers",
+          "duration": 3.3871999999992113,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "route-only QR payload"
+          ],
+          "fullName": "route-only QR payload contains no customer, destination, operator, evidence, hash or verdict text",
+          "status": "passed",
+          "title": "contains no customer, destination, operator, evidence, hash or verdict text",
+          "duration": 10.47149999999965,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "generated QR codes decode back to the exact route"
+          ],
+          "fullName": "generated QR codes decode back to the exact route round-trips every unit in the snapshot",
+          "status": "passed",
+          "title": "round-trips every unit in the snapshot",
+          "duration": 291.77919999999995,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "generated QR codes decode back to the exact route"
+          ],
+          "fullName": "generated QR codes decode back to the exact route is deterministic for the same input",
+          "status": "passed",
+          "title": "is deterministic for the same input",
+          "duration": 10.119599999999991,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "generated QR codes decode back to the exact route"
+          ],
+          "fullName": "generated QR codes decode back to the exact route differs between units",
+          "status": "passed",
+          "title": "differs between units",
+          "duration": 15.263299999999617,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755319700,
+      "endTime": 1792755320038.2632,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/passport-qr.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "preview JSON privacy"
+          ],
+          "fullName": "preview JSON privacy public/passport-preview.json has no customer, destination or operator identifier",
+          "status": "passed",
+          "title": "public/passport-preview.json has no customer, destination or operator identifier",
+          "duration": 16.07340000000022,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "preview JSON privacy"
+          ],
+          "fullName": "preview JSON privacy public/investigation-demo.json has no customer, destination or operator identifier",
+          "status": "passed",
+          "title": "public/investigation-demo.json has no customer, destination or operator identifier",
+          "duration": 51.73849999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "preview JSON privacy"
+          ],
+          "fullName": "preview JSON privacy public/impact-demo.json has no customer, destination or operator identifier",
+          "status": "passed",
+          "title": "public/impact-demo.json has no customer, destination or operator identifier",
+          "duration": 28.57390000000032,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "preview JSON privacy"
+          ],
+          "fullName": "preview JSON privacy public/snapshot.json has no customer, destination or operator identifier",
+          "status": "passed",
+          "title": "public/snapshot.json has no customer, destination or operator identifier",
+          "duration": 46.43090000000029,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "preview JSON privacy"
+          ],
+          "fullName": "preview JSON privacy public/passport-preview.json has no customer, destination or operator identifier",
+          "status": "passed",
+          "title": "public/passport-preview.json has no customer, destination or operator identifier",
+          "duration": 12.947799999999916,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "preview JSON privacy"
+          ],
+          "fullName": "preview JSON privacy public/investigation-demo.json has no customer, destination or operator identifier",
+          "status": "passed",
+          "title": "public/investigation-demo.json has no customer, destination or operator identifier",
+          "duration": 47.41159999999945,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "preview JSON privacy"
+          ],
+          "fullName": "preview JSON privacy public/impact-demo.json has no customer, destination or operator identifier",
+          "status": "passed",
+          "title": "public/impact-demo.json has no customer, destination or operator identifier",
+          "duration": 17.431300000000192,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "preview JSON privacy"
+          ],
+          "fullName": "preview JSON privacy public/snapshot.json has no customer, destination or operator identifier",
+          "status": "passed",
+          "title": "public/snapshot.json has no customer, destination or operator identifier",
+          "duration": 32.15979999999945,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "preview JSON privacy"
+          ],
+          "fullName": "preview JSON privacy sanitised previews still validate as snapshots (and never as a live/verified source)",
+          "status": "passed",
+          "title": "sanitised previews still validate as snapshots (and never as a live/verified source)",
+          "duration": 7.263500000000022,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "preview JSON privacy"
+          ],
+          "fullName": "preview JSON privacy no served file under public/ contains a sensitive identifier",
+          "status": "passed",
+          "title": "no served file under public/ contains a sensitive identifier",
+          "duration": 9.198099999999613,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755324065,
+      "endTime": 1792755324335.198,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/preview-privacy.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-02 PREFIX_ONLY: no clearance wording anywhere and the checkpoint requirement is stated",
+          "status": "passed",
+          "title": "FE-02 PREFIX_ONLY: no clearance wording anywhere and the checkpoint requirement is stated",
+          "duration": 202.16340000000037,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-03 UNANCHORED: no clearance wording and no claim of external verification",
+          "status": "passed",
+          "title": "FE-03 UNANCHORED: no clearance wording and no claim of external verification",
+          "duration": 100.15909999999985,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-04 ANCHOR_INVALID: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-04 ANCHOR_INVALID: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 112.44970000000012,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-05 VERIFYING: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-05 VERIFYING: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 25.165800000000672,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-06 INVALID_REQUEST: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-06 INVALID_REQUEST: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 51.251499999999396,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-07 legacy envelope: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-07 legacy envelope: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 52.14189999999962,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-09 unknown state: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-09 unknown state: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 26.464200000000346,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-25 network failure: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-25 network failure: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 13.081900000000132,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-19 CURRENT -> PREFIX_ONLY on the next poll removes the cleared view",
+          "status": "passed",
+          "title": "FE-19 CURRENT -> PREFIX_ONLY on the next poll removes the cleared view",
+          "duration": 134.16600000000017,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-21 CURRENT -> ANCHOR_INVALID leaves nothing from the earlier snapshot",
+          "status": "passed",
+          "title": "FE-21 CURRENT -> ANCHOR_INVALID leaves nothing from the earlier snapshot",
+          "duration": 101.90090000000055,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states FE-22 regression (older snapshot after a newer one) withdraws everything",
+          "status": "passed",
+          "title": "FE-22 regression (older snapshot after a newer one) withdraws everything",
+          "duration": 111.28389999999945,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "passport page under strict H1/H2 states"
+          ],
+          "fullName": "passport page under strict H1/H2 states only GET /api/snapshot is ever requested",
+          "status": "passed",
+          "title": "only GET /api/snapshot is ever requested",
+          "duration": 48.0014000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-02 PREFIX_ONLY: no clearance wording anywhere and the checkpoint requirement is stated",
+          "status": "passed",
+          "title": "FE-02 PREFIX_ONLY: no clearance wording anywhere and the checkpoint requirement is stated",
+          "duration": 22.34180000000015,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-03 UNANCHORED: no clearance wording and no claim of external verification",
+          "status": "passed",
+          "title": "FE-03 UNANCHORED: no clearance wording and no claim of external verification",
+          "duration": 37.73769999999968,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-04 ANCHOR_INVALID: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-04 ANCHOR_INVALID: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 42.23620000000028,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-05 VERIFYING: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-05 VERIFYING: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 19.116299999999683,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-06 INVALID_REQUEST: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-06 INVALID_REQUEST: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 19.98909999999978,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-07 legacy envelope: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-07 legacy envelope: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 28.838399999999638,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-09 unknown state: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-09 unknown state: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 24.829799999999523,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-25 network failure: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-25 network failure: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 10.25839999999971,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-19 CURRENT -> PREFIX_ONLY on the next poll removes the cleared view",
+          "status": "passed",
+          "title": "FE-19 CURRENT -> PREFIX_ONLY on the next poll removes the cleared view",
+          "duration": 91.32250000000022,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-21 CURRENT -> ANCHOR_INVALID leaves nothing from the earlier snapshot",
+          "status": "passed",
+          "title": "FE-21 CURRENT -> ANCHOR_INVALID leaves nothing from the earlier snapshot",
+          "duration": 112.82200000000012,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states FE-22 regression (older snapshot after a newer one) withdraws everything",
+          "status": "passed",
+          "title": "FE-22 regression (older snapshot after a newer one) withdraws everything",
+          "duration": 114.20669999999973,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "investigation page under strict H1/H2 states"
+          ],
+          "fullName": "investigation page under strict H1/H2 states only GET /api/snapshot is ever requested",
+          "status": "passed",
+          "title": "only GET /api/snapshot is ever requested",
+          "duration": 21.95809999999983,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-02 PREFIX_ONLY: no clearance wording anywhere and the checkpoint requirement is stated",
+          "status": "passed",
+          "title": "FE-02 PREFIX_ONLY: no clearance wording anywhere and the checkpoint requirement is stated",
+          "duration": 61.66690000000017,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-03 UNANCHORED: no clearance wording and no claim of external verification",
+          "status": "passed",
+          "title": "FE-03 UNANCHORED: no clearance wording and no claim of external verification",
+          "duration": 39.46270000000004,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-04 ANCHOR_INVALID: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-04 ANCHOR_INVALID: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 19.28530000000046,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-05 VERIFYING: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-05 VERIFYING: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 43.125599999999395,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-06 INVALID_REQUEST: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-06 INVALID_REQUEST: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 21.14969999999994,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-07 legacy envelope: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-07 legacy envelope: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 25.21929999999975,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-09 unknown state: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-09 unknown state: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 41.11229999999887,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-25 network failure: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "status": "passed",
+          "title": "FE-25 network failure: WITHHELD shows no motor-specific finding, hold, genealogy or label",
+          "duration": 14.90519999999924,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-19 CURRENT -> PREFIX_ONLY on the next poll removes the cleared view",
+          "status": "passed",
+          "title": "FE-19 CURRENT -> PREFIX_ONLY on the next poll removes the cleared view",
+          "duration": 109.17840000000069,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-21 CURRENT -> ANCHOR_INVALID leaves nothing from the earlier snapshot",
+          "status": "passed",
+          "title": "FE-21 CURRENT -> ANCHOR_INVALID leaves nothing from the earlier snapshot",
+          "duration": 78.1839,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states FE-22 regression (older snapshot after a newer one) withdraws everything",
+          "status": "passed",
+          "title": "FE-22 regression (older snapshot after a newer one) withdraws everything",
+          "duration": 100.80299999999988,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "impact page under strict H1/H2 states"
+          ],
+          "fullName": "impact page under strict H1/H2 states only GET /api/snapshot is ever requested",
+          "status": "passed",
+          "title": "only GET /api/snapshot is ever requested",
+          "duration": 59.73949999999968,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "FE-01 the CURRENT state still renders for a cleared motor (the gate does not over-block)"
+          ],
+          "fullName": "FE-01 the CURRENT state still renders for a cleared motor (the gate does not over-block) passport shows the verified recall card for the eligible motor only",
+          "status": "passed",
+          "title": "passport shows the verified recall card for the eligible motor only",
+          "duration": 286.77689999999893,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755320520,
+      "endTime": 1792755322947.7769,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/standalone-gate.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "validateSnapshot"
+          ],
+          "fullName": "validateSnapshot accepts the real exported snapshot",
+          "status": "passed",
+          "title": "accepts the real exported snapshot",
+          "duration": 12.694700000000012,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validateSnapshot"
+          ],
+          "fullName": "validateSnapshot rejects a wrong schema version",
+          "status": "passed",
+          "title": "rejects a wrong schema version",
+          "duration": 12.679799999999886,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validateSnapshot"
+          ],
+          "fullName": "validateSnapshot rejects a release-eligible action on an unresolved finding",
+          "status": "passed",
+          "title": "rejects a release-eligible action on an unresolved finding",
+          "duration": 10.283300000000054,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validateSnapshot"
+          ],
+          "fullName": "validateSnapshot rejects an unknown finding and a missing unit decision",
+          "status": "passed",
+          "title": "rejects an unknown finding and a missing unit decision",
+          "duration": 11.998499999999694,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validateSnapshot"
+          ],
+          "fullName": "validateSnapshot the fixture source reports HTTP and JSON failures",
+          "status": "passed",
+          "title": "the fixture source reports HTTP and JSON failures",
+          "duration": 10.861499999999978,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792755324278,
+      "endTime": 1792755324336.8616,
+      "status": "passed",
+      "message": "",
+      "name": "<WORKSPACE>/manufacturing-frontend-audit/recall-ui/tests/unit/validate.test.ts"
+    }
+  ]
+}

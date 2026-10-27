@@ -1,0 +1,19 @@
+test_a_shipment_that_succeeded_cannot_be_repeated (application.test_ship_gate.ShipGate.test_a_shipment_that_succeeded_cannot_be_repeated) ... ok
+test_a_stale_ticket_cannot_authorize_a_later_state (application.test_ship_gate.ShipGate.test_a_stale_ticket_cannot_authorize_a_later_state)
+Tickets are bound to one ledger state: replaying an old ticket after the ledger moved is refused by the insert guard. ... ok
+test_ledger_change_between_the_eligibility_check_and_the_write_is_refused (application.test_ship_gate.ShipGate.test_ledger_change_between_the_eligibility_check_and_the_write_is_refused) ... ok
+test_normal_current_eligible_shipment_succeeds (application.test_ship_gate.ShipGate.test_normal_current_eligible_shipment_succeeds) ... ok
+test_prefix_only_checkpoint_is_refused (application.test_ship_gate.ShipGate.test_prefix_only_checkpoint_is_refused) ... ok
+test_recall_hold_is_refused (application.test_ship_gate.ShipGate.test_recall_hold_is_refused) ... ok
+test_registry_discrepancy_is_refused (application.test_ship_gate.ShipGate.test_registry_discrepancy_is_refused) ... ok
+test_unanchored_is_refused (application.test_ship_gate.ShipGate.test_unanchored_is_refused) ... ok
+test_unauthenticated_ticket_free_shipment_is_only_possible_through_the_named_fixture_path (application.test_ship_gate.ShipGate.test_unauthenticated_ticket_free_shipment_is_only_possible_through_the_named_fixture_path) ... ok
+test_unresolved_lot_identity_is_refused (application.test_ship_gate.ShipGate.test_unresolved_lot_identity_is_refused) ... ok
+test_unverified_sighting_is_refused (application.test_ship_gate.ShipGate.test_unverified_sighting_is_refused) ... ok
+test_direct_api_is_refused_when_the_ui_would_be_blocked_and_client_claims_change_nothing (application.test_ship_gate.ShipGateHttp.test_direct_api_is_refused_when_the_ui_would_be_blocked_and_client_claims_change_nothing) ... ok
+test_direct_api_ships_a_current_eligible_motor (application.test_ship_gate.ShipGateHttp.test_direct_api_ships_a_current_eligible_motor) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 8.330s
+
+OK

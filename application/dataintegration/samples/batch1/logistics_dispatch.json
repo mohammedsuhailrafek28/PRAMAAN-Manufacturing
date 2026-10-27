@@ -1,0 +1,124 @@
+{
+ "exportedFrom": "synthetic-tms",
+ "shipments": [
+  {
+   "shipment": {
+    "id": "SHP-9001",
+    "dispatchedAt": "2026-10-02T09:30:00+05:30"
+   },
+   "unit": {
+    "serial": "MTR-27001"
+   },
+   "consignee": {
+    "name": "Aster Pump Systems — synthetic customer",
+    "destination": "Coimbatore distribution centre"
+   },
+   "carrier": {
+    "name": "Synthetic Freight Co",
+    "tracking": "TRK-9001"
+   }
+  },
+  {
+   "shipment": {
+    "id": "SHP-9002",
+    "dispatchedAt": "2026-10-02T10:00:00+05:30"
+   },
+   "unit": {
+    "serial": "MTR-27002"
+   },
+   "consignee": {
+    "name": "Aster Pump Systems — synthetic customer",
+    "destination": "Coimbatore distribution centre"
+   },
+   "carrier": {
+    "name": "Synthetic Freight Co",
+    "tracking": "TRK-9002"
+   }
+  },
+  {
+   "shipment": {
+    "id": "SHP-9003",
+    "dispatchedAt": "2026-10-02T10:30:00+05:30"
+   },
+   "unit": {
+    "serial": "MTR-27003"
+   },
+   "consignee": {
+    "name": "Aster Pump Systems — synthetic customer",
+    "destination": "Coimbatore distribution centre"
+   },
+   "carrier": {
+    "name": "Synthetic Freight Co",
+    "tracking": "TRK-9003"
+   }
+  },
+  {
+   "shipment": {
+    "id": "SHP-9010",
+    "dispatchedAt": "2026-10-02T11:00:00+05:30"
+   },
+   "unit": {
+    "serial": "MTR-27005"
+   },
+   "consignee": {
+    "name": "Aster Pump Systems — synthetic customer",
+    "destination": "Coimbatore distribution centre"
+   },
+   "carrier": {
+    "name": "Synthetic Freight Co",
+    "tracking": "TRK-9010"
+   }
+  },
+  {
+   "shipment": {
+    "id": "SHP-9010",
+    "dispatchedAt": "2026-10-02T11:30:00+05:30"
+   },
+   "unit": {
+    "serial": "MTR-27006"
+   },
+   "consignee": {
+    "name": "Aster Pump Systems — synthetic customer",
+    "destination": "Coimbatore distribution centre"
+   },
+   "carrier": {
+    "name": "Synthetic Freight Co",
+    "tracking": "TRK-9010"
+   }
+  },
+  {
+   "shipment": {
+    "id": "SHP-9007",
+    "dispatchedAt": "2026-10-01T16:37:00+05:30"
+   },
+   "unit": {
+    "serial": "MTR-27007"
+   },
+   "consignee": {
+    "name": "Aster Pump Systems — synthetic customer",
+    "destination": "Coimbatore distribution centre"
+   },
+   "carrier": {
+    "name": "Synthetic Freight Co",
+    "tracking": "TRK-9007"
+   }
+  },
+  {
+   "shipment": {
+    "id": "SHP-9008",
+    "dispatchedAt": "2026-10-02T12:30:00+05:30"
+   },
+   "unit": {
+    "serial": "MTR-27008"
+   },
+   "consignee": {
+    "name": "Aster Pump Systems — synthetic customer",
+    "destination": "Coimbatore distribution centre"
+   },
+   "carrier": {
+    "name": "Synthetic Freight Co",
+    "tracking": "TRK-9008"
+   }
+  }
+ ]
+}

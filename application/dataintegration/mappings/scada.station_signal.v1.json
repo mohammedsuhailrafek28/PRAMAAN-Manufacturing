@@ -1,0 +1,21 @@
+{
+ "mappingId": "scada.station_signal", "version": 1,
+ "description": "SCADA / historian tag samples exported as JSON with nested asset and measurement objects. Staged only: the ledger has no process-signal event type.",
+ "sourceSystem": "SCADA", "adapter": "scada_signal", "format": "json", "recordsPath": "samples",
+ "timestamps": {"field": "occurredAt", "timezone": "UTC", "formats": ["iso"]},
+ "options": {"tagRanges": {
+   "PRESS_FORCE_KN": {"unit": "kN", "min": 0, "max": 60},
+   "TORQUE_NM": {"unit": "N.m", "min": 0, "max": 400},
+   "BEARING_TEMP_C": {"unit": "degC", "min": -20, "max": 150}}},
+ "fields": {
+  "recordId": {"source": "sampleId", "required": true, "transforms": ["strip"]},
+  "motorSerial": {"source": "asset.motor", "transforms": ["motor_serial", "null_if_blank"], "pattern": "MTR-[A-Z0-9-]{3,30}"},
+  "occurredAt": {"source": "ts", "required": true},
+  "stationId": {"source": "asset.station", "required": true, "transforms": ["strip", "upper"]},
+  "workOrderId": {"source": "asset.order", "transforms": ["strip", "upper", "null_if_blank"]},
+  "tag": {"source": "measurement.tag", "required": true, "transforms": ["strip", "upper"]},
+  "value": {"source": "measurement.value", "required": true, "transforms": ["strip", "decimal_comma"]},
+  "unit": {"source": "measurement.unit", "required": true, "transforms": ["strip"]},
+  "signalQuality": {"source": "measurement.quality", "required": true, "transforms": ["strip", "upper"], "allowed": ["GOOD", "UNCERTAIN", "BAD"]}
+ }
+}

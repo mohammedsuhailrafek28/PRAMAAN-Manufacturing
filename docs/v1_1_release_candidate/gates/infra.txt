@@ -1,0 +1,12 @@
+test_a_failed_gate_is_recorded_and_fails_the_run (test_infra.InfrastructureTests.test_a_failed_gate_is_recorded_and_fails_the_run) ... ok
+test_expected_counts_are_exact_and_cover_every_application_module (test_infra.InfrastructureTests.test_expected_counts_are_exact_and_cover_every_application_module) ... ok
+test_frozen_fixture_change_is_fatal (test_infra.InfrastructureTests.test_frozen_fixture_change_is_fatal) ... ok
+test_hosted_ansi_count_is_checked_without_relaxing_count_or_exit (test_infra.InfrastructureTests.test_hosted_ansi_count_is_checked_without_relaxing_count_or_exit) ... ok
+test_missing_or_mismatched_artifact_is_fatal (test_infra.InfrastructureTests.test_missing_or_mismatched_artifact_is_fatal) ... ok
+test_nonzero_exit_cannot_become_success (test_infra.InfrastructureTests.test_nonzero_exit_cannot_become_success) ... ok
+test_workflow_is_read_only_pinned_and_does_not_skip_drafts (test_infra.InfrastructureTests.test_workflow_is_read_only_pinned_and_does_not_skip_drafts) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.335s
+
+OK

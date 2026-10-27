@@ -1,0 +1,22 @@
+test_a_clean_motor_gets_no_package_and_no_message_creates_eligibility (application.test_f5_f6_integration.OneEvidenceSet.test_a_clean_motor_gets_no_package_and_no_message_creates_eligibility) ... ok
+test_f5_packages_for_the_same_motors_the_factories_counted (application.test_f5_f6_integration.OneEvidenceSet.test_f5_packages_for_the_same_motors_the_factories_counted) ... ok
+test_f6_operations_leave_f5_keys_and_packages_alone (application.test_f5_f6_integration.OneEvidenceSet.test_f6_operations_leave_f5_keys_and_packages_alone) ... ok
+test_identity_guard_hold_is_reported_by_both_features_without_becoming_clearance (application.test_f5_f6_integration.OneEvidenceSet.test_identity_guard_hold_is_reported_by_both_features_without_becoming_clearance) ... ok
+test_issuing_and_verifying_f5_changes_neither_ledgers_checkpoints_nor_federation_stores (application.test_f5_f6_integration.OneEvidenceSet.test_issuing_and_verifying_f5_changes_neither_ledgers_checkpoints_nor_federation_stores) ... ok
+test_f6_channel_never_carries_what_f5_recipients_receive_and_vice_versa (application.test_f5_f6_integration.Privacy.test_f6_channel_never_carries_what_f5_recipients_receive_and_vice_versa) ... ok
+test_the_f5_supplier_package_discloses_a_local_lot_that_f6_deliberately_withholds (application.test_f5_f6_integration.Privacy.test_the_f5_supplier_package_discloses_a_local_lot_that_f6_deliberately_withholds)
+Documented P2: two explicit, separate channels with different purposes. A factory that wants F6's minimal disclosure toward the supplier must not ALSO issue F5 supplier packages. ... ok
+test_a_different_local_recall_refuses_the_alert_scope_and_keeps_its_own (application.test_f5_f6_integration.Sequencing.test_a_different_local_recall_refuses_the_alert_scope_and_keeps_its_own) ... ok
+test_a_local_recall_then_the_supplier_alert_is_adopted_without_changing_the_ledger (application.test_f5_f6_integration.Sequencing.test_a_local_recall_then_the_supplier_alert_is_adopted_without_changing_the_ledger) ... ok
+test_f5_issuance_is_refused_while_the_ledger_is_newer_than_the_checkpoint_after_adoption (application.test_f5_f6_integration.Sequencing.test_f5_issuance_is_refused_while_the_ledger_is_newer_than_the_checkpoint_after_adoption) ... ok
+test_f5_notices_and_f6_notices_both_deny_independent_authentication_and_clearance (application.test_f5_f6_integration.TrustBoundaries.test_f5_notices_and_f6_notices_both_deny_independent_authentication_and_clearance) ... ok
+test_neither_feature_imports_the_other_and_global_state_is_restored (application.test_f5_f6_integration.TrustBoundaries.test_neither_feature_imports_the_other_and_global_state_is_restored) ... ok
+test_one_key_used_by_both_features_still_gives_no_cross_protocol_acceptance (application.test_f5_f6_integration.TrustBoundaries.test_one_key_used_by_both_features_still_gives_no_cross_protocol_acceptance)
+Operator error worst case: the SAME Ed25519 key is the F5 issuer key and a pinned F6 factory/supplier key. ... ok
+test_the_only_ledger_write_in_either_feature_is_announce (application.test_f5_f6_integration.TrustBoundaries.test_the_only_ledger_write_in_either_feature_is_announce) ... ok
+test_trust_roots_are_separate_files_with_separate_keys (application.test_f5_f6_integration.TrustBoundaries.test_trust_roots_are_separate_files_with_separate_keys) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 9.237s
+
+OK

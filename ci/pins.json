@@ -1,0 +1,18 @@
+{
+  "python": "3.12.10",
+  "node": "v24.17.0",
+  "npm": "11.13.0",
+  "chrome": {
+    "version": "155.0.8059.84",
+    "url": "https://storage.googleapis.com/chrome-for-testing-public/155.0.8059.84/win64/chrome-win64.zip",
+    "sha256": "507f2a031441d10c62b5e3d4e863f09ac1198a571c1419976cbd8387f639afde"
+  },
+  "gs1": {
+    "repository": "https://github.com/gs1/EPCIS.git",
+    "commit": "6f71468231838e424bb5dfa836e006e8dc69615c",
+    "files": {
+      "EPCIS-JSON-Schema.json": "d5ca9b1cad2c403679d9b07fb768108142d73e1dd024198ed64774b56b62227b",
+      "epcis-context.jsonld": "b5c7cc9367ab638ecb77feb0b9aea222a427d9740bf3dda1b183fc3d4390714f"
+    }
+  }
+}

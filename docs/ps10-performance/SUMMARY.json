@@ -1,0 +1,83 @@
+{
+  "status": "PARTIAL_PERFORMANCE_OBJECTIVE_REVISE",
+  "base": "6709b0c6f521006cf6332caeecec6b08dbd44e84",
+  "branch": "feature/ps10-performance",
+  "functionalCodeCommit": "0343a3c572af466cf7bba96cdc1f13e7d82d6179",
+  "componentsAllPass": true,
+  "componentChecks": 31,
+  "appTests": 257,
+  "requiredOverallGate": "FAILED_UNAPPROVED_NEW_PATHS",
+  "protectedFileChanges": [],
+  "metrics": [
+    {
+      "motors": 100,
+      "events": 957,
+      "documents": 99,
+      "warmReadyJSON": {
+        "n": 21,
+        "p50Ms": 11.290699992969166,
+        "p95Ms": 13.447800003632437,
+        "minMs": 9.155799998552538,
+        "maxMs": 13.512800003809389
+      },
+      "firstLotJSONMs": 12.689300005149562,
+      "coldBuildMs": 1012.1778000029735,
+      "correctness": {
+        "expectedCandidates": 27,
+        "actualCandidates": 27,
+        "missed": [],
+        "extra": [],
+        "missedShipmentLinks": [],
+        "extraShipmentLinks": []
+      }
+    },
+    {
+      "motors": 1000,
+      "events": 9570,
+      "documents": 990,
+      "warmReadyJSON": {
+        "n": 21,
+        "p50Ms": 93.3904000048642,
+        "p95Ms": 102.80369999964023,
+        "minMs": 81.44049999827985,
+        "maxMs": 112.66669999895385
+      },
+      "firstLotJSONMs": 99.85959999903571,
+      "coldBuildMs": 9658.805499995651,
+      "correctness": {
+        "expectedCandidates": 270,
+        "actualCandidates": 270,
+        "missed": [],
+        "extra": [],
+        "missedShipmentLinks": [],
+        "extraShipmentLinks": []
+      }
+    },
+    {
+      "motors": 10000,
+      "events": 95700,
+      "documents": 9900,
+      "warmReadyJSON": {
+        "n": 21,
+        "p50Ms": 1050.2768000005744,
+        "p95Ms": 1120.8255000019562,
+        "minMs": 957.599699999264,
+        "maxMs": 1140.792899997905
+      },
+      "firstLotJSONMs": 1198.0844999998226,
+      "coldBuildMs": 127641.79200000217,
+      "correctness": {
+        "expectedCandidates": 2700,
+        "actualCandidates": 2700,
+        "missed": [],
+        "extra": [],
+        "missedShipmentLinks": [],
+        "extraShipmentLinks": []
+      }
+    }
+  ],
+  "pushed": false,
+  "merged": false,
+  "tagged": false,
+  "deployed": false
+}

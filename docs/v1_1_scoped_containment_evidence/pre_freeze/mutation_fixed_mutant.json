@@ -1,0 +1,12 @@
+{
+ "contained_needs_no_acknowledgement": {
+  "failed": [
+   "test_sighted_motor_stays_held_while_unrelated_motors_are_renewed"
+  ],
+  "ran": 21
+ },
+ "unmutated": {
+  "failed": [],
+  "ran": 21
+ }
+}

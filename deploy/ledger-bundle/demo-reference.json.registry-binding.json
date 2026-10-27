@@ -1,0 +1,109 @@
+{
+ "checkpointSha256": "efcc3d394f475b9825274b75d1d8c34c516dfd31ab3313be9d5fa59464f7b53a",
+ "custodyNote": "Same-host binding. Detects unreviewed drift; not independent verification, not authentication, not proof of physical lot identity.",
+ "format": "PRAMAAN_REGISTRY_BINDING_RESEARCH_V1",
+ "registryDigest": "cdce64ba9dfa6452b340962f55f393e5a214bddcf8bb7e6b2ea116aaf65760cc",
+ "registryDocument": {
+  "administeredBy": "Manufacturer (synthetic demonstration; not a real supplier or authority)",
+  "entries": [
+   {
+    "aliases": [
+     "NSB-204"
+    ],
+    "canonical": "BR-204",
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "part": "BR-6205",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "rawMaterialLot": "STEEL-26-410",
+    "status": "ACTIVE",
+    "supplierId": "SUP-NSB-01",
+    "supplierName": "Northstar Bearings \u2014 synthetic supplier"
+   },
+   {
+    "aliases": [],
+    "canonical": "BR-310",
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "part": "BR-6205",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "rawMaterialLot": "STEEL-26-518",
+    "status": "ACTIVE",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+   },
+   {
+    "aliases": [],
+    "canonical": "BR-312",
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "part": "BR-6205",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "rawMaterialLot": "STEEL-26-518",
+    "status": "ACTIVE",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+   },
+   {
+    "aliases": [],
+    "canonical": "BR-901",
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "part": "BR-6205",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "rawMaterialLot": "STEEL-26-518",
+    "status": "ACTIVE",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+   },
+   {
+    "aliases": [],
+    "canonical": "BR-205",
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "part": "BR-6205",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "rawMaterialLot": "STEEL-26-518",
+    "status": "ACTIVE",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+   },
+   {
+    "aliases": [],
+    "canonical": "BR-311",
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "part": "BR-6205",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "rawMaterialLot": "STEEL-26-518",
+    "status": "ACTIVE",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+   },
+   {
+    "aliases": [],
+    "canonical": "BR-420",
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveTo": null,
+    "issuer": "MANUFACTURER-LOCAL-SYNTHETIC-REGISTRY",
+    "part": "BR-6205",
+    "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+    "rawMaterialLot": "STEEL-26-518",
+    "status": "WITHDRAWN",
+    "supplierId": "SUP-KAV-02",
+    "supplierName": "Kaveri Precision \u2014 synthetic supplier"
+   }
+  ],
+  "note": "Fixture convention BR-###; locally authored; membership does not prove physical bearing identity.",
+  "provenance": "LOCALLY_AUTHORED_SYNTHETIC",
+  "registryId": "PRAMAAN-SYNTHETIC-LOT-REGISTRY",
+  "version": 1
+ },
+ "registryProvenance": "LOCALLY_AUTHORED_SYNTHETIC"
+}

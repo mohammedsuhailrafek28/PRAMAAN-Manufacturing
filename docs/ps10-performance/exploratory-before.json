@@ -1,0 +1,38 @@
+{
+  "rowDigestRuns": [
+    {
+      "motors": 100,
+      "warmQuery": {
+        "n": 15,
+        "p50Ms": 31.70980000140844,
+        "p95Ms": 37.59663999953773,
+        "minMs": 23.375799995847046,
+        "maxMs": 38.185199999134056
+      },
+      "coldMs": 1051.0509999949136,
+      "missedCandidates": 0,
+      "extraCandidates": 0,
+      "missedShipmentLinks": 26,
+      "extraShipmentLinks": 26,
+      "classification": "EXPLORATORY_INVALID_FIXTURE_IDS_NOT_CONFIRMATORY"
+    },
+    {
+      "motors": 1000,
+      "warmQuery": {
+        "n": 15,
+        "p50Ms": 293.36879999755183,
+        "p95Ms": 342.1559300004446,
+        "minMs": 231.04410000087228,
+        "maxMs": 363.7194999973872
+      },
+      "coldMs": 10815.268500002276,
+      "missedCandidates": 0,
+      "extraCandidates": 0,
+      "missedShipmentLinks": 260,
+      "extraShipmentLinks": 260,
+      "classification": "EXPLORATORY_INVALID_FIXTURE_IDS_NOT_CONFIRMATORY"
+    }
+  ],
+  "initialFocused": "14 passed,1 error: shipment safeguard probe used an already-shipped motor, corrected to a fresh assembled motor",
+  "stopped10000": "Cancelled before completion after fixture identity defect found; no valid result"
+}

@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "module": "commonjs", "moduleResolution": "node", "noEmit": false, "incremental": false, "isolatedModules": false, "plugins": [], "resolveJsonModule": true, "baseUrl": ".", "rootDir": ".", "outDir": ".sim-test-build", "types": ["node"] },
+  "include": ["tests/simulate.test.ts"],
+  "exclude": ["node_modules"]
+}

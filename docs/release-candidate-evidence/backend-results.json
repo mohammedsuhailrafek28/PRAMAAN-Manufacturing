@@ -1,0 +1,41 @@
+{
+  "D6": {
+    "status": 200,
+    "journalBefore": 3,
+    "journalAfter": 5
+  },
+  "D2": {
+    "/api/motors/MTR-DEPENDENCY-002/decisions": {
+      "status": 200,
+      "rawRelease": true,
+      "checkpoint": false,
+      "currentEligibility": false,
+      "wholeSnapshotState": "ANCHORED_PREFIX_ONLY"
+    },
+    "/api/lots/BR-310/investigation": {
+      "status": 200,
+      "rawRelease": true,
+      "checkpoint": false,
+      "currentEligibility": false,
+      "wholeSnapshotState": "ANCHORED_PREFIX_ONLY"
+    }
+  },
+  "D3": {
+    "status": 400,
+    "error": "INVALID_REQUEST"
+  },
+  "D4": {
+    "thirdExport": "BLOCKED",
+    "code": "PREFIX_MISMATCH"
+  },
+  "D8": {
+    "skippedIntermediate": "ANCHORED_CURRENT"
+  },
+  "D5": {
+    "unannouncedPolicy": "VERIFIED"
+  },
+  "D9": {
+    "status": 409,
+    "error": "RESOLUTION_FORBIDDEN"
+  }
+}

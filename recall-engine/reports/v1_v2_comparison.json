@@ -1,0 +1,413 @@
+{
+  "A": {
+    "e1_vs_o1": {
+      "evaluations": 25,
+      "decisionAgree": 25,
+      "fullAgree": 25,
+      "flagAgree": 25,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 13,
+          "decision": 13,
+          "full": 13
+        },
+        "RC-009/P2": {
+          "n": 12,
+          "decision": 12,
+          "full": 12
+        }
+      }
+    },
+    "e2_vs_o1": {
+      "evaluations": 25,
+      "decisionAgree": 24,
+      "fullAgree": 23,
+      "flagAgree": 24,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 13,
+          "decision": 12,
+          "full": 12
+        },
+        "RC-009/P2": {
+          "n": 12,
+          "decision": 12,
+          "full": 11
+        }
+      }
+    },
+    "e2_vs_o2": {
+      "evaluations": 35,
+      "decisionAgree": 35,
+      "fullAgree": 35,
+      "flagAgree": 35,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 18,
+          "decision": 18,
+          "full": 18
+        },
+        "RC-009/P2": {
+          "n": 17,
+          "decision": 17,
+          "full": 17
+        }
+      }
+    },
+    "e1_vs_o2": {
+      "evaluations": 35,
+      "decisionAgree": 32,
+      "fullAgree": 27,
+      "flagAgree": 32,
+      "byPolicy": {
+        "RC-009/P1": {
+          "n": 18,
+          "decision": 15,
+          "full": 14
+        },
+        "RC-009/P2": {
+          "n": 17,
+          "decision": 17,
+          "full": 13
+        }
+      }
+    },
+    "e1_vs_o2_disagreements": [
+      "case-06 P1",
+      "case-06 P2",
+      "case-06c P1",
+      "case-06c P2",
+      "case-06e P1",
+      "case-06e P2",
+      "case-06d P1",
+      "case-06d P2"
+    ],
+    "e2_vs_o2_disagreements": [],
+    "e2_vs_o1_divergences": [
+      {
+        "caseId": "case-06",
+        "policyId": "RC-009/P1",
+        "v1Expected": "EXCLUDED_WITH_EVIDENCE",
+        "v2Engine": "UNRESOLVED",
+        "classification": "INTENDED_SAFETY_DIVERGENCE (v1 expectation is a false release against ground truth)",
+        "diffs": [
+          "evidenceFinding: expected EXCLUDED_WITH_EVIDENCE got UNRESOLVED",
+          "operationalAction: expected RELEASE_ELIGIBLE got RECALL_HOLD",
+          "reviewRequired: expected False got True",
+          "reasonCodes: expected ['REPLACED_WITH_UNAFFECTED_LOT'] got ['AMBIGUOUS_SLOT_ATTRIBUTION']",
+          "DE.reconciliation: expected CLEAN got AMBIGUOUS_ATTRIBUTION",
+          "flags: expected ['KNOWN_LIMITATION_LOT_LEVEL_SLOT_AMBIGUITY'] got []"
+        ]
+      },
+      {
+        "caseId": "case-06",
+        "policyId": "RC-009/P2",
+        "v1Expected": "AFFECTED",
+        "v2Engine": "AFFECTED",
+        "classification": "DECLARED_DETAIL_ONLY_CHANGE (decision unchanged)",
+        "diffs": [
+          "DE.reconciliation: expected CLEAN got AMBIGUOUS_ATTRIBUTION"
+        ]
+      }
+    ]
+  },
+  "B": {
+    "groundTruthAffectedCases": [
+      "case-06",
+      "case-06b",
+      "case-06c",
+      "case-06d"
+    ],
+    "e1_false_releases": [
+      "case-06 P1",
+      "case-06c P1"
+    ],
+    "e2_false_releases": [],
+    "e1_releases_p1": [
+      "case-01 P1",
+      "case-04 P1",
+      "case-06 P1",
+      "case-06c P1",
+      "case-06e P1",
+      "case-06f P1",
+      "case-07 P1"
+    ],
+    "e2_releases_p1": [
+      "case-01 P1",
+      "case-04 P1",
+      "case-06f P1",
+      "case-07 P1"
+    ],
+    "e1_releases_all": [
+      "case-01 P1",
+      "case-04 P1",
+      "case-04 P2",
+      "case-06 P1",
+      "case-06c P1",
+      "case-06e P1",
+      "case-06f P1",
+      "case-07 P1"
+    ],
+    "e2_releases_all": [
+      "case-01 P1",
+      "case-04 P1",
+      "case-04 P2",
+      "case-06f P1",
+      "case-07 P1"
+    ],
+    "e2_releases_without_ground_truth": [
+      "case-01 P1",
+      "case-04 P1",
+      "case-04 P2"
+    ]
+  },
+  "C": {
+    "unaffectedMotors": [
+      "case-06e",
+      "case-06f",
+      "case-07"
+    ],
+    "e1": {
+      "released": [
+        "case-06e",
+        "case-06f",
+        "case-07"
+      ],
+      "heldUnresolved": [],
+      "heldAffected": []
+    },
+    "e2": {
+      "released": [
+        "case-06f",
+        "case-07"
+      ],
+      "heldUnresolved": [
+        "case-06e"
+      ],
+      "heldAffected": []
+    }
+  },
+  "D": [
+    {
+      "caseId": "case-06",
+      "policyId": "RC-009/P1",
+      "truth": "AFFECTED",
+      "v1": {
+        "finding": "EXCLUDED_WITH_EVIDENCE",
+        "action": "RELEASE_ELIGIBLE",
+        "review": false,
+        "reasons": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ],
+        "flags": [
+          "KNOWN_LIMITATION_LOT_LEVEL_SLOT_AMBIGUITY"
+        ]
+      },
+      "v2": {
+        "finding": "UNRESOLVED",
+        "action": "RECALL_HOLD",
+        "review": true,
+        "reasons": [
+          "AMBIGUOUS_SLOT_ATTRIBUTION"
+        ],
+        "flags": []
+      }
+    },
+    {
+      "caseId": "case-06b",
+      "policyId": "RC-009/P1",
+      "truth": "AFFECTED",
+      "v1": {
+        "finding": "AFFECTED",
+        "action": "RECALL_HOLD",
+        "review": false,
+        "reasons": [
+          "VERIFIED_AFFECTED_LOT_PRESENT"
+        ],
+        "flags": [
+          "SLOT_RECORD_CONFLICT"
+        ]
+      },
+      "v2": {
+        "finding": "AFFECTED",
+        "action": "RECALL_HOLD",
+        "review": false,
+        "reasons": [
+          "VERIFIED_AFFECTED_LOT_PRESENT"
+        ],
+        "flags": [
+          "SLOT_RECORD_CONFLICT"
+        ]
+      }
+    },
+    {
+      "caseId": "case-06c",
+      "policyId": "RC-009/P1",
+      "truth": "AFFECTED",
+      "v1": {
+        "finding": "EXCLUDED_WITH_EVIDENCE",
+        "action": "RELEASE_ELIGIBLE",
+        "review": false,
+        "reasons": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ],
+        "flags": [
+          "KNOWN_LIMITATION_LOT_LEVEL_SLOT_AMBIGUITY"
+        ]
+      },
+      "v2": {
+        "finding": "UNRESOLVED",
+        "action": "RECALL_HOLD",
+        "review": true,
+        "reasons": [
+          "AMBIGUOUS_SLOT_ATTRIBUTION"
+        ],
+        "flags": []
+      }
+    },
+    {
+      "caseId": "case-06d",
+      "policyId": "RC-009/P1",
+      "truth": "AFFECTED",
+      "v1": {
+        "finding": "UNRESOLVED",
+        "action": "RECALL_HOLD",
+        "review": true,
+        "reasons": [
+          "REMOVAL_OBSERVATION_MISMATCH",
+          "CURRENT_STATE_UNVERIFIED"
+        ],
+        "flags": []
+      },
+      "v2": {
+        "finding": "UNRESOLVED",
+        "action": "RECALL_HOLD",
+        "review": true,
+        "reasons": [
+          "REMOVAL_OBSERVATION_MISMATCH",
+          "CURRENT_STATE_UNVERIFIED",
+          "REMOVAL_SERIAL_IN_OTHER_SLOT"
+        ],
+        "flags": []
+      }
+    },
+    {
+      "caseId": "case-06e",
+      "policyId": "RC-009/P1",
+      "truth": "UNAFFECTED",
+      "v1": {
+        "finding": "EXCLUDED_WITH_EVIDENCE",
+        "action": "RELEASE_ELIGIBLE",
+        "review": false,
+        "reasons": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ],
+        "flags": [
+          "KNOWN_LIMITATION_LOT_LEVEL_SLOT_AMBIGUITY"
+        ]
+      },
+      "v2": {
+        "finding": "UNRESOLVED",
+        "action": "RECALL_HOLD",
+        "review": true,
+        "reasons": [
+          "AMBIGUOUS_SLOT_ATTRIBUTION"
+        ],
+        "flags": []
+      }
+    },
+    {
+      "caseId": "case-06f",
+      "policyId": "RC-009/P1",
+      "truth": "UNAFFECTED",
+      "v1": {
+        "finding": "EXCLUDED_WITH_EVIDENCE",
+        "action": "RELEASE_ELIGIBLE",
+        "review": false,
+        "reasons": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ],
+        "flags": []
+      },
+      "v2": {
+        "finding": "EXCLUDED_WITH_EVIDENCE",
+        "action": "RELEASE_ELIGIBLE",
+        "review": false,
+        "reasons": [
+          "REPLACED_WITH_UNAFFECTED_LOT"
+        ],
+        "flags": []
+      }
+    }
+  ],
+  "E": {
+    "safety_regressions": [],
+    "released_in_v1_now_held": [
+      {
+        "case": "case-06",
+        "policy": "RC-009/P1",
+        "v1": "EXCLUDED_WITH_EVIDENCE",
+        "v2": "UNRESOLVED",
+        "truth": "AFFECTED",
+        "assessment": "INTENDED (v1 release was false)"
+      },
+      {
+        "case": "case-06c",
+        "policy": "RC-009/P1",
+        "v1": "EXCLUDED_WITH_EVIDENCE",
+        "v2": "UNRESOLVED",
+        "truth": "AFFECTED",
+        "assessment": "INTENDED (v1 release was false)"
+      },
+      {
+        "case": "case-06e",
+        "policy": "RC-009/P1",
+        "v1": "EXCLUDED_WITH_EVIDENCE",
+        "v2": "UNRESOLVED",
+        "truth": "UNAFFECTED",
+        "assessment": "USEFULNESS COST (truth UNAFFECTED, now held)"
+      }
+    ],
+    "held_in_v1_now_released": [],
+    "other_differences": [
+      {
+        "case": "case-06d",
+        "policy": "RC-009/P1",
+        "detail": "same finding, reasons/flags differ",
+        "v1": [
+          "REMOVAL_OBSERVATION_MISMATCH",
+          "CURRENT_STATE_UNVERIFIED"
+        ],
+        "v2": [
+          "REMOVAL_OBSERVATION_MISMATCH",
+          "CURRENT_STATE_UNVERIFIED",
+          "REMOVAL_SERIAL_IN_OTHER_SLOT"
+        ]
+      }
+    ],
+    "behavioral_regressions_vs_o2": [],
+    "unexplained_vs_o1": []
+  },
+  "gate": {
+    "zeroFalseReleases": true,
+    "releasesNonZero": true,
+    "noSafetyRegression": true,
+    "noBehavioralRegression": true,
+    "pass": true
+  },
+  "truth": {
+    "case-06": "AFFECTED",
+    "case-06b": "AFFECTED",
+    "case-06c": "AFFECTED",
+    "case-06d": "AFFECTED",
+    "case-06e": "UNAFFECTED",
+    "case-06f": "UNAFFECTED",
+    "case-07": "UNAFFECTED"
+  },
+  "transition": {
+    "evaluations": 35,
+    "unchangedFromV1": 23,
+    "changed": 2,
+    "added": 10
+  }
+}

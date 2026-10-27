@@ -1,0 +1,66 @@
+.venv/Scripts/python.exe : test_clean_prefix_extension_and_restart
+(application.test_hardening.AnchorTests.test_clean_prefix_extension_and_restart) ... ok
+At line:2 char:1
++ .venv/Scripts/python.exe -m unittest application.test_hardening appli ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_clean_pref...restart) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+test_drop_journal_and_head_reset_schema_cannot_match_external_archive
+(application.test_hardening.AnchorTests.test_drop_journal_and_head_reset_schema_cannot_match_external_archive) ... ok
+test_forged_resolution_extension_rejected
+(application.test_hardening.AnchorTests.test_forged_resolution_extension_rejected) ... ok
+test_historical_resolution_entries_are_not_rewritten
+(application.test_hardening.AnchorTests.test_historical_resolution_entries_are_not_rewritten) ... ok
+test_old_valid_sqlite_backup_does_not_extend_latest_anchor
+(application.test_hardening.AnchorTests.test_old_valid_sqlite_backup_does_not_extend_latest_anchor) ... ok
+test_owner_file_missing_replaced_and_operational_enforcement
+(application.test_hardening.AnchorTests.test_owner_file_missing_replaced_and_operational_enforcement) ... ok
+test_public_resolution_callback_cannot_authorize_and_obligation_persists
+(application.test_hardening.AnchorTests.test_public_resolution_callback_cannot_authorize_and_obligation_persists) ...
+ok
+test_rewritten_journal_and_head_fail_anchored_prefix_even_if_locally_valid
+(application.test_hardening.AnchorTests.test_rewritten_journal_and_head_fail_anchored_prefix_even_if_locally_valid)
+... ok
+test_truncated_journal_fails_structural_checks
+(application.test_hardening.AnchorTests.test_truncated_journal_fails_structural_checks) ... ok
+test_wrong_archive_tampered_checksum_and_recomputed_policy
+(application.test_hardening.AnchorTests.test_wrong_archive_tampered_checksum_and_recomputed_policy) ... ok
+test_no_http_resolution_endpoint (application.test_hardening.HttpHardeningTests.test_no_http_resolution_endpoint) ...
+ok
+test_authorized_resolution_is_explicit_and_audited_not_delivery
+(application.test_remediation.RemediationTests.test_authorized_resolution_is_explicit_and_audited_not_delivery) ... ok
+test_delete_all_history_detected_and_not_reset
+(application.test_remediation.RemediationTests.test_delete_all_history_detected_and_not_reset) ... ok
+test_history_tamper_truncation_and_identity
+(application.test_remediation.RemediationTests.test_history_tamper_truncation_and_identity) ... ok
+test_irrelevant_capture_is_receipt_not_material_version
+(application.test_remediation.RemediationTests.test_irrelevant_capture_is_receipt_not_material_version) ... ok
+test_legacy_bundle_replays_without_rewriting_rows_or_reinterpreting_scope (application.test_remediation.RemediationTest
+s.test_legacy_bundle_replays_without_rewriting_rows_or_reinterpreting_scope) ... ok
+test_legacy_history_seal_detects_legacy_table_changes
+(application.test_remediation.RemediationTests.test_legacy_history_seal_detects_legacy_table_changes) ... ok
+test_material_observation_revision_and_replay
+(application.test_remediation.RemediationTests.test_material_observation_revision_and_replay) ... ok
+test_obligation_survives_unrelated_observation_and_reopen
+(application.test_remediation.RemediationTests.test_obligation_survives_unrelated_observation_and_reopen) ... ok
+test_pinned_provenance_no_git_dependency
+(application.test_remediation.RemediationTests.test_pinned_provenance_no_git_dependency) ... ok
+test_rejected_motor_blocks_fleet_explicitly_not_stale_release
+(application.test_remediation.RemediationTests.test_rejected_motor_blocks_fleet_explicitly_not_stale_release) ... ok
+test_removing_journal_and_head_still_cannot_reset_history
+(application.test_remediation.RemediationTests.test_removing_journal_and_head_still_cannot_reset_history) ... ok
+test_scope_cartesian_regression (application.test_remediation.RemediationTests.test_scope_cartesian_regression) ... ok
+test_scope_invalid_and_immutable (application.test_remediation.RemediationTests.test_scope_invalid_and_immutable) ...
+ok
+test_synthetic_clock_has_no_trust_attestation
+(application.test_remediation.RemediationTests.test_synthetic_clock_has_no_trust_attestation) ... ok
+test_notifications_endpoint_keeps_outstanding_obligation
+(application.test_remediation.ScopeHttpTests.test_notifications_endpoint_keeps_outstanding_obligation) ... ok
+test_scope_contradictions_rejected_by_http
+(application.test_remediation.ScopeHttpTests.test_scope_contradictions_rejected_by_http) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 28.266s
+
+OK

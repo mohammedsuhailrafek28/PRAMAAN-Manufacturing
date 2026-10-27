@@ -1,0 +1,19 @@
+test_federation (unittest.loader._FailedTest.test_federation) ... ERROR
+
+======================================================================
+ERROR: test_federation (unittest.loader._FailedTest.test_federation)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_federation
+Traceback (most recent call last):
+  File "<USER_HOME>\AppData\Local\Programs\Python\Python312\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\ps10-impact-performance\application\test_federation.py", line 16, in <module>
+    from cryptography.hazmat.primitives import serialization
+ModuleNotFoundError: No module named 'cryptography'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

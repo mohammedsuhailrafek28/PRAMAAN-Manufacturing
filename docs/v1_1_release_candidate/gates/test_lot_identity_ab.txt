@@ -1,0 +1,25 @@
+test_api_refuses_bad_lots_and_exposes_guard_consistently (application.test_lot_identity_ab.Api.test_api_refuses_bad_lots_and_exposes_guard_consistently) ... ok
+test_guard_shared_by_snapshot_decisions_investigation_and_review (application.test_lot_identity_ab.Api.test_guard_shared_by_snapshot_decisions_investigation_and_review) ... ok
+test_alias_is_stored_canonical_and_judged_as_recalled (application.test_lot_identity_ab.Capture.test_alias_is_stored_canonical_and_judged_as_recalled) ... ok
+test_conflicting_aliases_and_supplier_scopes_refuse (application.test_lot_identity_ab.Capture.test_conflicting_aliases_and_supplier_scopes_refuse) ... ok
+test_matrix_bad_lots_never_clear_and_leave_no_residue (application.test_lot_identity_ab.Capture.test_matrix_bad_lots_never_clear_and_leave_no_residue) ... ok
+test_registered_lots_incl_adjacent_are_not_held (application.test_lot_identity_ab.Capture.test_registered_lots_incl_adjacent_are_not_held) ... ok
+test_resembles_is_only_an_investigation_hint (application.test_lot_identity_ab.Capture.test_resembles_is_only_an_investigation_hint) ... ok
+test_supplier_scope_comes_from_registry (application.test_lot_identity_ab.Capture.test_supplier_scope_comes_from_registry) ... ok
+test_ack_required_for_legitimate_exclusions_and_recorded (application.test_lot_identity_ab.CheckpointReview.test_ack_required_for_legitimate_exclusions_and_recorded) ... ok
+test_no_checkpoint_renewal_launders_ambiguity (application.test_lot_identity_ab.CheckpointReview.test_no_checkpoint_renewal_launders_ambiguity) ... ok
+test_registry_change_between_propose_and_accept_is_refused (application.test_lot_identity_ab.CheckpointReview.test_registry_change_between_propose_and_accept_is_refused) ... ok
+test_review_requires_ack_and_refuses_identity_unsafe_regardless (application.test_lot_identity_ab.CheckpointReview.test_review_requires_ack_and_refuses_identity_unsafe_regardless) ... ok
+test_interrupted_operations_fail_closed_and_retry_is_refused_without_new_events (application.test_lot_identity_ab.Interrupted.test_interrupted_operations_fail_closed_and_retry_is_refused_without_new_events) ... ok
+test_bypassed_bad_lots_are_held_and_reported_separately (application.test_lot_identity_ab.ReadSide.test_bypassed_bad_lots_are_held_and_reported_separately) ... ok
+test_bypassed_registered_lots_are_not_held (application.test_lot_identity_ab.ReadSide.test_bypassed_registered_lots_are_not_held) ... ok
+test_registry_change_after_capture_changes_read_side (application.test_lot_identity_ab.ReadSide.test_registry_change_after_capture_changes_read_side) ... ok
+test_registry_unavailable_fails_closed (application.test_lot_identity_ab.ReadSide.test_registry_unavailable_fails_closed) ... ok
+test_repair_path_for_legacy_unknown_lot (application.test_lot_identity_ab.ReadSide.test_repair_path_for_legacy_unknown_lot)
+Documented limit: an unknown DE occupant can be replaced with a registered lot (then eligible); an unknown NDE occupant cannot be repaired in-app. ... ok
+test_supplier_scope_mismatch_and_unregistered_recall_lot (application.test_lot_identity_ab.ReadSide.test_supplier_scope_mismatch_and_unregistered_recall_lot) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 123.922s
+
+OK

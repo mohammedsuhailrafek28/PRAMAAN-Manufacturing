@@ -1,0 +1,18 @@
+test_clean_prefix_extension_and_restart (application.test_hardening.AnchorTests.test_clean_prefix_extension_and_restart) ... ok
+test_cli_canonical_export_verify_and_no_overwrite (application.test_hardening.AnchorTests.test_cli_canonical_export_verify_and_no_overwrite) ... ok
+test_drop_journal_and_head_reset_schema_cannot_match_external_archive (application.test_hardening.AnchorTests.test_drop_journal_and_head_reset_schema_cannot_match_external_archive) ... ok
+test_forged_resolution_extension_rejected (application.test_hardening.AnchorTests.test_forged_resolution_extension_rejected) ... ok
+test_historical_resolution_entries_are_not_rewritten (application.test_hardening.AnchorTests.test_historical_resolution_entries_are_not_rewritten) ... ok
+test_old_valid_sqlite_backup_does_not_extend_latest_anchor (application.test_hardening.AnchorTests.test_old_valid_sqlite_backup_does_not_extend_latest_anchor) ... ok
+test_owner_file_missing_replaced_and_operational_enforcement (application.test_hardening.AnchorTests.test_owner_file_missing_replaced_and_operational_enforcement) ... ok
+test_public_resolution_callback_cannot_authorize_and_obligation_persists (application.test_hardening.AnchorTests.test_public_resolution_callback_cannot_authorize_and_obligation_persists) ... ok
+test_rewritten_journal_and_head_fail_anchored_prefix_even_if_locally_valid (application.test_hardening.AnchorTests.test_rewritten_journal_and_head_fail_anchored_prefix_even_if_locally_valid) ... ok
+test_truncated_journal_fails_structural_checks (application.test_hardening.AnchorTests.test_truncated_journal_fails_structural_checks) ... ok
+test_wrong_archive_tampered_checksum_and_recomputed_policy (application.test_hardening.AnchorTests.test_wrong_archive_tampered_checksum_and_recomputed_policy) ... ok
+test_no_http_resolution_endpoint (application.test_hardening.HttpHardeningTests.test_no_http_resolution_endpoint) ... ok
+test_unanchored_http_only_serves_historical_envelope (application.test_hardening.HttpHardeningTests.test_unanchored_http_only_serves_historical_envelope) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 9.353s
+
+OK

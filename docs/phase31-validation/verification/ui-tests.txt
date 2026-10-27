@@ -1,0 +1,12 @@
+
+> recall-investigation-ui@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 <WORKSPACE>/phase31-clean-verification/recall-ui
+
+
+ Test Files  4 passed (4)
+      Tests  27 passed (27)
+   Start at  16:35:49
+   Duration  3.91s (environment 54%, transform 14%, tests 14%, setup 11%, import 7%, worker 1%)

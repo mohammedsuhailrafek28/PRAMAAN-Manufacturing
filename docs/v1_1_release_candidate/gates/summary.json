@@ -1,0 +1,321 @@
+{
+  "status": "PASSED",
+  "invocation": "97c47e415bc543c38405dfe03875cd00",
+  "commit": "f7027bf385bb35fd4a7de64dacedda8f3dec4872",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "node": "v24.17.0",
+  "chrome": "155.0.8059.84",
+  "gates": {
+    "K": {
+      "baseline": "4a9e8f2c11e5e12bfd6926bfb9f9a0ee0dd3fa57",
+      "files": 126,
+      "engineTreeUnmodified": true,
+      "foundationTreeUnmodified": true,
+      "integrationTreeUnmodified": true
+    },
+    "infra": {
+      "exitCode": 0,
+      "seconds": 0.955,
+      "command": [
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ci",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    "A": {
+      "exitCode": 0,
+      "seconds": 34.114,
+      "command": [
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-t",
+        ".",
+        "-v"
+      ]
+    },
+    "B": {
+      "exitCode": 0,
+      "seconds": 0.891,
+      "command": [
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+        "experiments/foundation/interop.py",
+        "--gs1-checkout",
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\cc6\\.tmp-ci-tools\\gs1",
+        "--output",
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\cc6\\.tmp-ci-results\\foundation.json"
+      ]
+    },
+    "C": {
+      "exitCode": 0,
+      "seconds": 2.099,
+      "command": [
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "integration_tests",
+        "-t",
+        ".",
+        "-v"
+      ]
+    },
+    "D": {
+      "test_application": {
+        "exitCode": 0,
+        "seconds": 9.975,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_application",
+          "-v"
+        ]
+      },
+      "test_remediation": {
+        "exitCode": 0,
+        "seconds": 19.419,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_remediation",
+          "-v"
+        ]
+      },
+      "test_hardening": {
+        "exitCode": 0,
+        "seconds": 11.079,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_hardening",
+          "-v"
+        ]
+      },
+      "test_checkpoints": {
+        "exitCode": 0,
+        "seconds": 7.476,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_checkpoints",
+          "-v"
+        ]
+      },
+      "test_unified": {
+        "exitCode": 0,
+        "seconds": 7.533,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_unified",
+          "-v"
+        ]
+      },
+      "test_checkpoint_ops": {
+        "exitCode": 0,
+        "seconds": 4.439,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_checkpoint_ops",
+          "-v"
+        ]
+      },
+      "test_consolidated_safety": {
+        "exitCode": 0,
+        "seconds": 11.37,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_consolidated_safety",
+          "-v"
+        ]
+      },
+      "test_d5": {
+        "exitCode": 0,
+        "seconds": 2.266,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_d5",
+          "-v"
+        ]
+      },
+      "test_d6": {
+        "exitCode": 0,
+        "seconds": 1.667,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_d6",
+          "-v"
+        ]
+      },
+      "test_lot_identity_ab": {
+        "exitCode": 0,
+        "seconds": 124.603,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_lot_identity_ab",
+          "-v"
+        ]
+      },
+      "test_v11_hardening": {
+        "exitCode": 0,
+        "seconds": 11.488,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_v11_hardening",
+          "-v"
+        ]
+      },
+      "test_format_v3": {
+        "exitCode": 0,
+        "seconds": 6.785,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_format_v3",
+          "-v"
+        ]
+      },
+      "test_scoped_containment": {
+        "exitCode": 0,
+        "seconds": 22.558,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_scoped_containment",
+          "-v"
+        ]
+      },
+      "test_stale_recovery": {
+        "exitCode": 0,
+        "seconds": 14.26,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_stale_recovery",
+          "-v"
+        ]
+      },
+      "test_ship_gate": {
+        "exitCode": 0,
+        "seconds": 8.7,
+        "command": [
+          "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "application.test_ship_gate",
+          "-v"
+        ]
+      }
+    },
+    "E": {
+      "exitCode": 0,
+      "seconds": 8.174,
+      "command": [
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+        "ci/standards.py",
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\cc6\\.tmp-ci-tools\\gs1"
+      ]
+    },
+    "J": {
+      "exitCode": 0,
+      "seconds": 8.174,
+      "command": [
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+        "ci/standards.py",
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\cc6\\.tmp-ci-tools\\gs1"
+      ]
+    },
+    "F": {
+      "exitCode": 0,
+      "seconds": 0.905,
+      "command": [
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "recall-ui/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    "snapshot": {
+      "exitCode": 0,
+      "seconds": 0.415,
+      "command": [
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\gv\\Scripts\\python.exe",
+        "recall-ui/tools/export_snapshot.py",
+        "--check"
+      ]
+    },
+    "typecheck": {
+      "exitCode": 0,
+      "seconds": 2.623,
+      "command": [
+        "npm.cmd",
+        "run",
+        "typecheck"
+      ]
+    },
+    "G": {
+      "exitCode": 0,
+      "seconds": 3.338,
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ]
+    },
+    "H": {
+      "exitCode": 0,
+      "seconds": 29.785,
+      "command": [
+        "npm.cmd",
+        "test"
+      ]
+    },
+    "I": {
+      "exitCode": 0,
+      "seconds": 559.281,
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:e2e",
+        "--",
+        "--config",
+        "<USER_HOME>\\AppData\\Local\\Temp\\claude\\<WORKSPACE_ID>\\c62f2fee-8f85-4474-86ce-f8aea199b730\\scratchpad\\cc6\\ci\\playwright.config.ts"
+      ]
+    }
+  }
+}

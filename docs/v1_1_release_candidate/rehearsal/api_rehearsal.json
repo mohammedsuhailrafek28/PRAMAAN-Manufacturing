@@ -1,0 +1,124 @@
+{
+ "allPassed": true,
+ "steps": [
+  {
+   "step": "1 seeded demo starts ANCHORED_CURRENT",
+   "ok": true,
+   "detail": {
+    "state": "ANCHORED_CURRENT",
+    "eligible": {
+     "MTR-26001": false,
+     "MTR-26002": false,
+     "MTR-26003": true,
+     "MTR-26004": false,
+     "MTR-26005": false
+    }
+   }
+  },
+  {
+   "step": "2 capture MTR-DEMO-1 (DE BR-310)",
+   "ok": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "step": "2 capture MTR-DEMO-2 (DE BR-204)",
+   "ok": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "step": "3 capture moved the ledger past the checkpoint: nothing is current",
+   "ok": true,
+   "detail": {
+    "state": "ANCHORED_PREFIX_ONLY"
+   }
+  },
+  {
+   "step": "4 shipping a clean motor while the checkpoint is stale is REFUSED",
+   "ok": true,
+   "detail": {
+    "status": 409,
+    "body": {
+     "error": "SHIPMENT_REFUSED"
+    }
+   }
+  },
+  {
+   "step": "5 restricted recovery surface has no ship route",
+   "ok": true,
+   "detail": {}
+  },
+  {
+   "step": "6 operator checkpoint cycle renews: DEMO-1 eligible, DEMO-2 (recalled DE lot) held",
+   "ok": true,
+   "detail": {
+    "state": "ANCHORED_CURRENT",
+    "eligible": {
+     "MTR-26001": false,
+     "MTR-26002": false,
+     "MTR-26003": true,
+     "MTR-26004": false,
+     "MTR-26005": false,
+     "MTR-DEMO-1": true,
+     "MTR-DEMO-2": false
+    },
+    "cycle": {
+     "contained": [],
+     "acknowledged": [
+      "MTR-DEMO-1"
+     ],
+     "status": "LOCAL_CUSTODY_ACCEPTANCE_OPERATOR_ASSERTED_NOT_INDEPENDENT"
+    }
+   }
+  },
+  {
+   "step": "7 shipping the recall-held motor is REFUSED even with client-supplied eligibility claims",
+   "ok": true,
+   "detail": {
+    "status": 409
+   }
+  },
+  {
+   "step": "8 shipping the current, eligible motor succeeds",
+   "ok": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "step": "9 the shipment itself requires the next checkpoint cycle (nothing is current)",
+   "ok": true,
+   "detail": {
+    "state": "ANCHORED_PREFIX_ONLY"
+   }
+  },
+  {
+   "step": "10 unverified sighting on MTR-26003: that motor stays held, the others renew",
+   "ok": true,
+   "detail": {
+    "state": "ANCHORED_CURRENT",
+    "eligible": {
+     "MTR-26001": false,
+     "MTR-26002": false,
+     "MTR-26003": false,
+     "MTR-26004": false,
+     "MTR-26005": false,
+     "MTR-DEMO-1": true,
+     "MTR-DEMO-2": false
+    },
+    "cycle": {
+     "contained": [
+      "MTR-26003"
+     ],
+     "acknowledged": [
+      "MTR-26003"
+     ],
+     "status": "LOCAL_CUSTODY_ACCEPTANCE_OPERATOR_ASSERTED_NOT_INDEPENDENT"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "incremental": false,
+    "isolatedModules": false,
+    "jsx": "react-jsx",
+    "rootDir": ".",
+    "outDir": "../.local/frontend-compat-compiled"
+  },
+  "include": ["tests/compat.test.ts", "tests/graph.test.ts", "tests/unified.test.ts", "tests/consistency.test.ts"],
+  "exclude": ["node_modules"]
+}

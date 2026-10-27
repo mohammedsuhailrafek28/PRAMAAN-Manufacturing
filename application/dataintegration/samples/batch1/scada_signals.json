@@ -1,0 +1,110 @@
+{
+ "exportedFrom": "synthetic-historian",
+ "samples": [
+  {
+   "sampleId": "S-00001",
+   "ts": "2026-10-01T05:06:00Z",
+   "asset": {
+    "station": "PRESS-01",
+    "motor": "MTR-27001",
+    "order": "WO-5001"
+   },
+   "measurement": {
+    "tag": "PRESS_FORCE_KN",
+    "value": 18.4,
+    "unit": "kN",
+    "quality": "GOOD"
+   }
+  },
+  {
+   "sampleId": "S-00002",
+   "ts": "2026-10-01T05:07:00Z",
+   "asset": {
+    "station": "PRESS-01",
+    "motor": "",
+    "order": "WO-5001"
+   },
+   "measurement": {
+    "tag": "TORQUE_NM",
+    "value": "112,5",
+    "unit": "N.m",
+    "quality": "GOOD"
+   }
+  },
+  {
+   "sampleId": "S-00003",
+   "ts": "2026-10-01T05:11:00Z",
+   "asset": {
+    "station": "PRESS-01",
+    "motor": "MTR-27001",
+    "order": "WO-5001"
+   },
+   "measurement": {
+    "tag": "BEARING_TEMP_C",
+    "value": 41.2,
+    "unit": "degC",
+    "quality": "GOOD"
+   }
+  },
+  {
+   "sampleId": "S-00004",
+   "ts": "2026-10-01T05:08:00Z",
+   "asset": {
+    "station": "PRESS-01",
+    "motor": "MTR-27001",
+    "order": "WO-5001"
+   },
+   "measurement": {
+    "tag": "PRESS_FORCE_KN",
+    "value": 9999,
+    "unit": "kN",
+    "quality": "GOOD"
+   }
+  },
+  {
+   "sampleId": "S-00005",
+   "ts": "2026-10-01T05:09:00Z",
+   "asset": {
+    "station": "PRESS-01",
+    "motor": "MTR-27001",
+    "order": "WO-5001"
+   },
+   "measurement": {
+    "tag": "TORQUE_NM",
+    "value": 100,
+    "unit": "N.m",
+    "quality": "BAD"
+   }
+  },
+  {
+   "sampleId": "S-00006",
+   "ts": "2026-10-01T05:10:00Z",
+   "asset": {
+    "station": "PRESS-01",
+    "motor": "",
+    "order": "WO-NOSUCH"
+   },
+   "measurement": {
+    "tag": "TORQUE_NM",
+    "value": 101,
+    "unit": "N.m",
+    "quality": "GOOD"
+   }
+  },
+  {
+   "sampleId": "S-00007",
+   "ts": "2026-10-01T23:30:00Z",
+   "asset": {
+    "station": "PRESS-01",
+    "motor": "MTR-27001",
+    "order": "WO-5001"
+   },
+   "measurement": {
+    "tag": "BEARING_TEMP_C",
+    "value": 40.0,
+    "unit": "degC",
+    "quality": "GOOD"
+   }
+  }
+ ]
+}

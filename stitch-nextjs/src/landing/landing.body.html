@@ -1,0 +1,839 @@
+
+<!-- ========================================================================= -->
+<!-- TOP APP BAR / BRAND HEADER (PRESERVED) -->
+<!-- ========================================================================= -->
+<header class="w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<!-- Brand & PS10 Identifier -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-brand-graphite flex items-center justify-center text-white shadow-sm font-mono font-bold text-sm tracking-wider">
+<span class="text-brand-bronze text-base leading-none">■</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-black tracking-tight text-brand-graphite text-lg">PRAMAAN</span>
+<span class="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-brand-slate/10 text-brand-slate font-semibold">PS10 // IND-4.0</span>
+</div>
+<span class="text-[9px] font-mono tracking-widest uppercase text-brand-alloy -mt-0.5">MANUFACTURING INTELLIGENCE</span>
+</div>
+</div>
+<!-- Live Pipeline Heartbeat -->
+<div class="hidden md:flex items-center gap-6 font-mono text-xs text-brand-slate/80">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+</span>
+<span class="text-slate-600">CHECKPOINT: <span class="font-semibold text-brand-graphite">hash-chained</span></span>
+</div>
+<div class="h-3.5 w-px bg-slate-200"></div>
+<div class="text-slate-600">ANCHOR: <span class="font-semibold text-brand-graphite">LOCAL CHECKPOINT</span></div>
+</div>
+<!-- Action Button / Passport Access -->
+<div class="flex items-center gap-3 font-mono text-xs">
+<span class="hidden sm:inline-block text-[11px] text-slate-500">SESSION: SYNTHETIC DEMO</span>
+<a class="px-3.5 py-1.5 rounded border border-slate-300 hover:border-brand-cyan hover:text-brand-cyan bg-white font-medium transition text-xs flex items-center gap-1.5 shadow-sm" href="#passport-section">
+<span class="">CONSOLE_LOGIN</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- SECTION 01: MAIN HERO SECTION (EXACTLY PRESERVED AS REQUIRED) -->
+<!-- ========================================================================= -->
+<section class="relative w-full bg-tech-grid border-b border-slate-200/80 overflow-hidden" id="hero">
+<div class="max-w-7xl mx-auto px-6 py-6 lg:py-10 flex flex-col justify-center min-h-[calc(100vh-4rem)]">
+<!-- MAIN GRID CONTAINER: LEFT HERO COPY + RIGHT 3D CANVAS & ANNOTATIONS -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-20 min-h-[620px] overflow-visible">
+<!-- LEFT COLUMN: EDITORIAL STATEMENT & CALLS TO ACTION -->
+<div class="lg:col-span-5 flex flex-col justify-center pr-0 lg:pr-4 z-20">
+<!-- Contextual pill -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200/90 text-sky-800 text-xs font-mono mb-5 w-fit shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>
+<span class="tracking-wide">INDUSTRY 4.0 // DIGITAL PRODUCT PASSPORT</span>
+</div>
+<!-- Headline with highlighted "Verified" -->
+<h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-brand-graphite tracking-tight leading-[1.08] mb-6 font-sans">
+          Every Component.<br>
+          Every Connection.<br>
+<span class="text-brand-verified bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent relative">
+            Verified.
+            <!-- Underline accent -->
+<svg class="absolute -bottom-1 left-0 w-full h-2 text-sky-400/40" fill="none" preserveAspectRatio="none" viewBox="0 0 200 8">
+<path d="M0 7C50 1 150 1 200 7" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</span>
+</h1>
+<!-- Subheading Description -->
+<p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal mb-8 max-w-xl">
+          Evidence-based traceability for critical industrial powertrains. From raw ingot smelters to final drive assemblies, PRAMAAN links recorded production evidence to tamper-evident digital passports to eliminate uncertainty before it stops the production line.
+        </p>
+<!-- CTA Buttons -->
+<div class="flex flex-wrap items-center gap-4 mb-8">
+<a class="group relative inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-brand-graphite hover:bg-slate-800 text-white font-semibold text-sm tracking-wide transition shadow-lg shadow-slate-900/10 active:scale-[0.98]" href="#passport-section">
+<span class="flex items-center gap-2">
+              Explore Product Passport
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</a>
+<a class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border-2 border-slate-300 hover:border-brand-cyan hover:bg-sky-50/50 text-brand-slate hover:text-brand-cyan font-semibold text-sm tracking-wide transition active:scale-[0.98] shadow-xs" href="#impact-analysis-section">
+<span class="flex items-center gap-2">
+<svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Run Impact Analysis
+            </span>
+</a>
+</div>
+<!-- Micro Telemetry Specs Row -->
+<div class="pt-6 border-t border-slate-200/90 flex flex-wrap items-center gap-6 font-mono text-xs text-slate-500">
+<div>
+<span class="text-slate-400 block text-[10px]">STANDARD</span>
+<span class="font-semibold text-slate-800">Synthetic demonstration data</span>
+</div>
+<div class="h-6 w-px bg-slate-200"></div>
+<div>
+<span class="text-slate-400 block text-[10px]">CONSENSUS</span>
+<span class="font-semibold text-slate-800">Rule-based decisions</span>
+</div>
+<div class="h-6 w-px bg-slate-200"></div>
+<div>
+<span class="text-slate-400 block text-[10px]">AUDIT RUNTIME</span>
+<span class="font-semibold text-brand-cyan">Measured live in app</span>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: 3D EXPLODED GEARBOX CANVAS & DYNAMIC CALLOUT LABELS -->
+<div class="lg:col-span-7 relative w-full h-[620px] min-h-[560px] flex items-center justify-center overflow-visible">
+<!-- FLOATING TOP-RIGHT: PRODUCT INTEGRITY VERIFICATION PANEL -->
+<div class="absolute -top-3 right-2 sm:right-4 z-30 w-72 sm:w-80 telemetry-card rounded-lg p-3.5 shadow-xl animate-float-slow">
+<div class="flex items-center justify-between border-b border-sky-100 pb-2 mb-2.5">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-sky-500 shadow-[0_0_8px_#0284c7]"></div>
+<span class="font-mono text-[11px] font-bold tracking-wider text-slate-800 uppercase">Integrity Verification</span>
+</div>
+<span class="font-mono text-[9px] px-1.5 py-0.5 rounded bg-sky-100/80 text-sky-800 font-semibold border border-sky-200">HASH-CHAINED</span>
+</div>
+<div class="space-y-2 font-mono text-xs">
+<div class="flex items-center justify-between text-slate-600">
+<span class="text-[11px]">Active Node</span>
+<span class="font-semibold text-slate-900 bg-slate-100 px-1.5 py-0.5 rounded text-[11px]">GEARBOX-GBX-442</span>
+</div>
+<div class="flex items-center justify-between text-slate-600">
+<span class="text-[11px]">Material Provenance</span>
+<span class="font-semibold text-emerald-700 flex items-center gap-1 text-[11px]">
+<svg class="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 01-1.414 0l-4-4a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+                Recorded lot match
+              </span>
+</div>
+<div class="flex items-center justify-between text-slate-600">
+<span class="text-[11px]">Assembly Tolerance</span>
+<span class="font-semibold text-sky-700 text-[11px]">Not recorded</span>
+</div>
+<div class="pt-1 border-t border-sky-100/80 flex items-center justify-between text-[10px] text-slate-500">
+<span class="">Digital Passport: <span class="text-slate-700">Demo passport</span></span>
+<span class="text-emerald-600 font-bold">READY</span>
+</div>
+</div>
+</div>
+<!-- Central Glow & Radial Light Field -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-sky-400/15 via-blue-500/10 to-transparent blur-3xl"></div>
+<div class="absolute w-[340px] h-[340px] rounded-full border border-sky-300/30"></div>
+<div class="absolute w-[480px] h-[480px] rounded-full border border-dashed border-slate-300/40"></div>
+</div>
+<!-- 3D Three.js Interactive Container (WebGL Canvas) -->
+<div class="relative w-full h-[600px] min-h-[560px] cursor-grab active:cursor-grabbing z-10 overflow-visible" id="threejs-canvas-container">
+<canvas class="w-full h-full block" id="gearbox-canvas" width="881" height="750" style="width: 705px; height: 600px;"></canvas>
+<!-- DYNAMIC 3D PROJECTED TECHNICAL CALLOUT LABELS -->
+<div class="absolute inset-0 pointer-events-none z-20 overflow-visible" id="labels-overlay">
+<!-- 1. DRIVE GEAR ANNOTATION -->
+<div class="dynamic-tag" id="tag-drivegear" style="opacity: 1; left: 352.5px; top: 260.461px;">
+<div class="group flex flex-col items-center">
+<div class="bg-white/95 backdrop-blur-md border border-sky-300 px-3 py-1.5 rounded-md shadow-md text-xs font-mono text-slate-800 flex items-center gap-2 hover:border-sky-500 transition cursor-default">
+<span class="w-2 h-2 rounded-full bg-sky-500 ring-2 ring-sky-200"></span>
+<span class="font-bold">Drive Gear</span>
+<span class="text-[10px] text-slate-400 border-l border-slate-200 pl-1.5 font-mono">22T // 42CrMo4</span>
+</div>
+<div class="w-px h-8 bg-gradient-to-b from-sky-500 to-transparent"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-sky-500 ring-4 ring-sky-300/50 -mt-0.5"></div>
+</div>
+</div>
+<!-- 2. BEARING ANNOTATION -->
+<div class="dynamic-tag" id="tag-bearing" style="opacity: 1; left: 352.5px; top: 324.588px;">
+<div class="group flex flex-col items-center">
+<div class="bg-white/95 backdrop-blur-md border border-sky-400 px-3 py-1.5 rounded-md shadow-lg text-xs font-mono text-slate-800 flex items-center gap-2 hover:border-sky-600 transition cursor-default">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+</span>
+<span class="font-bold text-sky-950">Bearing</span>
+<span class="text-[10px] text-sky-700 bg-sky-50 font-semibold px-1 py-0.5 rounded border border-sky-200">SKF-6312 [TRACEABLE]</span>
+</div>
+<div class="w-px h-8 bg-gradient-to-b from-sky-500 to-sky-400"></div>
+<div class="w-2 h-2 rounded-full bg-sky-500 ring-4 ring-sky-300/60 -mt-0.5"></div>
+</div>
+</div>
+<!-- 3. SPACER ANNOTATION -->
+<div class="dynamic-tag" id="tag-spacer" style="opacity: 1; left: 352.5px; top: 241.759px;">
+<div class="group flex flex-col items-center">
+<div class="w-1.5 h-1.5 rounded-full bg-brand-bronze ring-4 ring-amber-300/50 mb-[-2px]"></div>
+<div class="w-px h-8 bg-gradient-to-t from-brand-bronze to-transparent"></div>
+<div class="bg-white/95 backdrop-blur-md border border-amber-200 px-3 py-1.5 rounded-md shadow-md text-xs font-mono text-slate-800 flex items-center gap-2 hover:border-brand-bronze transition cursor-default">
+<span class="w-2 h-2 rounded-full bg-brand-bronze"></span>
+<span class="font-bold">Spacer</span>
+<span class="text-[10px] text-amber-700 bg-amber-50 px-1 rounded font-mono">CuSn8 Bronze</span>
+</div>
+</div>
+</div>
+<!-- 4. END CAP ANNOTATION -->
+<div class="dynamic-tag" id="tag-endcap" style="opacity: 1; left: 352.5px; top: 163.577px;">
+<div class="group flex flex-col items-center">
+<div class="w-1.5 h-1.5 rounded-full bg-slate-600 ring-4 ring-slate-300/50 mb-[-2px]"></div>
+<div class="w-px h-8 bg-gradient-to-t from-slate-600 to-transparent"></div>
+<div class="bg-white/95 backdrop-blur-md border border-slate-300 px-3 py-1.5 rounded-md shadow-md text-xs font-mono text-slate-800 flex items-center gap-2 hover:border-slate-500 transition cursor-default">
+<span class="w-2 h-2 rounded-full bg-slate-600"></span>
+<span class="font-bold">End Cap</span>
+<span class="text-[10px] text-slate-500 font-mono">M8 Flange ×8</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 3D Interaction Cue Badge -->
+<div class="absolute bottom-3 right-4 z-20 pointer-events-none flex items-center gap-2 px-3 py-1.5 rounded bg-white/80 backdrop-blur-md border border-slate-200 text-[11px] font-mono text-slate-500 shadow-sm">
+<svg class="w-3.5 h-3.5 text-sky-500 animate-spin" fill="none" stroke="currentColor" style="animation-duration: 6s;" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">DRAG TO ORBIT // AUTO-EXPLODED VIEW</span>
+</div>
+</div>
+</div>
+<!-- BOTTOM TELEMETRY FOOTER STRIP -->
+<div class="mt-8 pt-4 border-t border-slate-200/80 flex flex-wrap items-center justify-between text-xs text-slate-500 font-mono gap-4">
+<div class="flex items-center gap-3">
+<span class="font-semibold text-slate-700">TRACE STATUS:</span>
+<span class="text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded text-[11px] font-bold">ALL 4 NODES RECONCILED</span>
+<span class="text-slate-400">|</span>
+<span class="text-slate-600">EVIDENCE CHAIN ENGINE</span>
+</div>
+<div class="flex items-center gap-4 text-[11px]">
+<span class="">IMMUTABLE ANCHOR: <strong class="text-slate-800">#BR-204-EVD</strong></span>
+<span class="text-slate-400">•</span>
+<span class="">PROOF TIME: <strong class="text-slate-800">2026-03-29 14:22 UTC</strong></span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 02: DIGITAL PRODUCT PASSPORT -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-28 border-b border-slate-200/80 bg-white" id="passport-section"><div class="max-w-7xl mx-auto px-6 lg:px-8"><div class="mb-12 max-w-3xl reveal-item"><div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-600 uppercase tracking-wider mb-4"><span class="">SEC_02 // DIGITAL PRODUCT PASSPORT</span></div><h2 class="text-3xl sm:text-4xl font-extrabold text-brand-graphite tracking-tight mb-3">Find the record behind the product.</h2><p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">Recorded specifications, component lineage and decision evidence for every serialized industrial actuator.</p></div><div class="mb-8 p-4 rounded-xl tech-panel border-sky-200/80 bg-sky-50/30 reveal-item"><div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4"><div class="flex-1 relative"><div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-mono text-xs">IDENTIFIER:</div><input class="w-full pl-28 pr-4 py-2.5 bg-white border border-slate-300 rounded-lg font-mono text-sm text-brand-graphite font-semibold focus:outline-none focus:ring-2 focus:ring-brand-cyan focus:border-brand-cyan" id="passport-search-input" placeholder="Scan or enter SN..." type="text" value="MTR-26002"></div><div class="flex items-center gap-2 flex-wrap"><span class="font-mono text-xs text-slate-500 uppercase">Quick Tokens:</span><div class="flex items-center gap-1.5 font-mono text-xs"><button class="token-btn px-2.5 py-1 rounded border border-slate-200 bg-white hover:border-brand-cyan hover:text-brand-cyan transition text-slate-600" onclick="selectToken('MTR-26001')">MTR-26001</button><button class="token-btn active-token px-2.5 py-1 rounded border border-brand-cyan bg-sky-100 text-sky-900 font-bold transition" onclick="selectToken('MTR-26002')">MTR-26002</button><button class="token-btn px-2.5 py-1 rounded border border-slate-200 bg-white hover:border-brand-cyan hover:text-brand-cyan transition text-slate-600" onclick="selectToken('MTR-26003')">MTR-26003</button><button class="token-btn px-2.5 py-1 rounded border border-slate-200 bg-white hover:border-brand-cyan hover:text-brand-cyan transition text-slate-600" onclick="selectToken('MTR-26004')">MTR-26004</button><button class="token-btn px-2.5 py-1 rounded border border-slate-200 bg-white hover:border-brand-cyan hover:text-brand-cyan transition text-slate-600" onclick="selectToken('MTR-26005')">MTR-26005</button></div></div></div></div><div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"><div class="lg:col-span-7 space-y-6 reveal-item"><div class="tech-panel rounded-xl p-6 border border-slate-200 shadow-sm"><div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100"><div><span class="text-xs font-mono text-slate-400 uppercase block">Product Record Category</span><h3 class="text-xl font-bold text-brand-graphite">55kW Industrial IE4 Super-Premium Motor</h3></div><div class="flex items-center gap-2"><span class="font-mono text-xs px-2.5 py-1 rounded bg-amber-50 text-amber-800 border border-amber-300 font-bold">CAUTION: SLOT_AUDIT_PENDING</span></div></div><div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-b border-slate-100 font-mono text-xs"><div><span class="text-slate-400 block text-[10px] uppercase">Frame Size</span><span class="font-bold text-slate-800 text-sm">225M B3</span></div><div><span class="text-slate-400 block text-[10px] uppercase">Standard</span><span class="font-semibold text-slate-800">Not recorded</span></div><div><span class="text-slate-400 block text-[10px] uppercase">Serial Master</span><span class="font-bold text-brand-cyan text-sm">MTR-26002</span></div><div><span class="text-slate-400 block text-[10px] uppercase">Passport reference</span><span class="font-semibold text-slate-800">Demo passport</span></div></div><div class="pt-4 space-y-3"><h4 class="text-xs font-mono font-bold uppercase text-slate-500 tracking-wider">Material and Lifecycle Record</h4><div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs"><div class="p-3 rounded-lg bg-slate-50 border border-slate-200"><span class="text-slate-500 text-[11px] block">Carbon Footprint</span><span class="text-lg font-bold text-brand-graphite">Not recorded <span class="text-xs font-normal text-slate-500"></span></span><div class="w-full bg-slate-200 h-1.5 rounded-full mt-2 overflow-hidden"><div class="bg-emerald-500 h-full w-[42%]"></div></div><span class="text-[10px] text-emerald-700 block mt-1">Not in backend</span></div><div class="p-3 rounded-lg bg-slate-50 border border-slate-200"><span class="text-slate-500 text-[11px] block">Recycled Steel</span><span class="text-lg font-bold text-brand-graphite">Not recorded <span class="text-xs font-normal text-slate-500"></span></span><div class="w-full bg-slate-200 h-1.5 rounded-full mt-2 overflow-hidden"><div class="bg-sky-500 h-full w-[0%]"></div></div><span class="text-[10px] text-slate-600 block mt-1">Arc-Furnace Billet</span></div><div class="p-3 rounded-lg bg-slate-50 border border-slate-200"><span class="text-slate-500 text-[11px] block">Circular Disassembly</span><span class="text-lg font-bold text-brand-graphite">Not recorded</span><div class="w-full bg-slate-200 h-1.5 rounded-full mt-2 overflow-hidden"><div class="bg-blue-500 h-full w-[0%]"></div></div><span class="text-[10px] text-slate-600 block mt-1">Modular Fastening</span></div></div></div></div><div class="tech-panel rounded-xl p-5 border border-slate-200"><div class="flex items-center justify-between mb-3 font-mono"><h4 class="text-xs font-bold uppercase text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500"></span>Bill of Materials (BOM) Sub-Tier Lineage</h4><span class="text-[11px] text-slate-500">4 Sub-Assemblies Indexed</span></div><div class="overflow-x-auto"><table class="w-full text-left font-mono text-xs"><thead><tr class="border-b border-slate-200 text-slate-400 text-[10px] uppercase"><th class="py-2 pr-3">Sub-Assembly</th><th class="py-2 px-3">Batch / Lot</th><th class="py-2 px-3">Material Grade</th><th class="py-2 pl-3 text-right">Integrity Status</th></tr></thead><tbody class="divide-y divide-slate-100"><tr><td class="py-2.5 pr-3 font-semibold text-slate-800">Stator Core Stack</td><td class="py-2.5 px-3 text-slate-600">LOT-ST-9912</td><td class="py-2.5 px-3 text-slate-500">M400-50A Silicon Steel</td><td class="py-2.5 pl-3 text-right"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 text-[10px]">VERIFIED</span></td></tr><tr><td class="py-2.5 pr-3 font-semibold text-slate-800">Copper Winding Coil</td><td class="py-2.5 px-3 text-slate-600">LOT-CW-0428</td><td class="py-2.5 px-3 text-slate-500">Cu-ETP 99.9% Oxygen-Free</td><td class="py-2.5 pl-3 text-right"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 text-[10px]">VERIFIED</span></td></tr><tr class="bg-amber-50/60"><td class="py-2.5 pr-3 font-bold text-amber-900 flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path></svg>Drive-End Bearing (DE)</td><td class="py-2.5 px-3 font-bold text-red-700">Lot BR-204 [RECALLED]</td><td class="py-2.5 px-3 text-slate-700">100Cr6 High Carbon Steel</td><td class="py-2.5 pl-3 text-right"><span class="px-2 py-0.5 rounded bg-red-100 text-red-800 font-bold border border-red-300 text-[10px]">RECALL HOLD</span></td></tr><tr><td class="py-2.5 pr-3 font-semibold text-slate-800">Non-Drive Bearing (NDE)</td><td class="py-2.5 px-3 text-slate-600">Lot BR-198 [VALID]</td><td class="py-2.5 px-3 text-slate-500">100Cr6 Standard Race</td><td class="py-2.5 pl-3 text-right"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 text-[10px]">VALIDATED</span></td></tr></tbody></table></div></div></div><div class="lg:col-span-5 space-y-6 reveal-item"><div class="tech-panel rounded-xl overflow-hidden border border-slate-200 shadow-sm"><div class="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between font-mono text-xs"><span class="font-bold text-slate-700 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>DIGITAL TWIN INSPECTOR // MTR-26002</span><div class="flex items-center gap-2"><button class="px-2 py-0.5 rounded border border-slate-300 bg-white hover:bg-slate-100 text-[11px] text-slate-700 font-mono transition" id="toggle-wireframe-btn">MODE: SOLID</button></div></div><div class="relative h-64 bg-slate-900 flex items-center justify-center overflow-hidden"><svg class="w-full h-full text-sky-400/80 p-6 transition-all duration-300" fill="none" id="digital-twin-svg" stroke="currentColor" viewBox="0 0 400 240"><ellipse cx="200" cy="120" rx="140" ry="60" stroke="rgba(56, 189, 248, 0.4)" stroke-dasharray="4 2" stroke-width="1.5"></ellipse><ellipse cx="200" cy="120" rx="100" ry="40" stroke="rgba(56, 189, 248, 0.7)" stroke-width="1.5"></ellipse><rect height="80" rx="12" stroke="#38bdf8" stroke-width="2" width="180" x="110" y="80"></rect><line stroke="#0ea5e9" stroke-width="1.5" x1="130" x2="130" y1="80" y2="60"></line><line stroke="#0ea5e9" stroke-width="1.5" x1="160" x2="160" y1="80" y2="60"></line><line stroke="#0ea5e9" stroke-width="1.5" x1="190" x2="190" y1="80" y2="60"></line><line stroke="#0ea5e9" stroke-width="1.5" x1="220" x2="220" y1="80" y2="60"></line><line stroke="#0ea5e9" stroke-width="1.5" x1="250" x2="250" y1="80" y2="60"></line><rect fill="#0284c7" height="16" rx="2" stroke="#38bdf8" stroke-width="1" width="60" x="290" y="112"></rect><circle class="animate-pulse" cx="280" cy="120" fill="rgba(245, 158, 11, 0.25)" r="16" stroke="#f59e0b" stroke-width="2"></circle><circle cx="280" cy="120" fill="#f59e0b" r="4"></circle><circle cx="120" cy="120" r="10" stroke="#10b981" stroke-width="1.5"></circle><circle cx="120" cy="120" fill="#10b981" r="3"></circle></svg><div class="absolute top-4 right-4 bg-amber-500/90 text-white font-mono text-[10px] px-2.5 py-1 rounded shadow-lg backdrop-blur-sm border border-amber-300 font-bold animate-pulse">▲ SLOT DE BEARING: SUSPECT LOT BR-204?</div><div class="absolute bottom-3 left-4 text-[10px] font-mono text-slate-400">AXIS: +Z-VECTOR // 3000 RPM NOMINAL</div></div><div class="p-4 bg-white border-t border-slate-200 font-mono text-xs space-y-2"><div class="flex items-center justify-between text-slate-600"><span class="">Telemetry Timestamp:</span><span class="font-semibold text-slate-800">2026-03-29 13:58:02.410 UTC</span></div><div class="flex items-center justify-between text-slate-600"><span class="">Rework Record Anchor:</span><span class="font-semibold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">#RW-994 (Unassigned Slot)</span></div></div></div><div class="space-y-3 font-mono text-xs"><div class="p-3.5 rounded-lg border border-amber-200 bg-amber-50/70 flex items-start gap-3"><div class="w-4 h-4 rounded-full bg-amber-500 text-white flex items-center justify-center text-[10px] font-bold mt-0.5">!</div><div><span class="font-bold text-amber-900 block">AWAITING RECORD SIGNATURE</span><p class="text-amber-800 text-[11px] mt-0.5 leading-normal">Sub-tier supplier Precision Bearings AG has not countersigned the replacement hash for Serial MTR-26002 following Rework Ticket #RW-994.</p></div></div><div class="p-3.5 rounded-lg border border-sky-200 bg-sky-50/70 flex items-start gap-3"><div class="w-4 h-4 rounded-full bg-sky-600 text-white flex items-center justify-center text-[10px] font-bold mt-0.5">✓</div><div><span class="font-bold text-sky-950 block">OFFLINE CHECK: NOT CLAIMED</span><p class="text-sky-800 text-[11px] mt-0.5 leading-normal">Offline operation is not evidenced in this demo.</p></div></div></div></div></div></div></section>
+<!-- ========================================================================= -->
+<!-- SECTION 03 — MANUFACTURING GENEALOGY -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-20 lg:py-28 border-b border-slate-200/80 bg-[#f5faff] bg-subtle-grid" id="genealogy-section">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Header -->
+<div class="mb-12 max-w-3xl reveal-item">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-sky-100 border border-sky-200 font-mono text-[11px] text-sky-800 uppercase tracking-wider mb-4">
+<span class="">SEC_03 // LINEAGE FORENSICS &amp; ISOMORPHIC GRAPH</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-graphite tracking-tight mb-3">
+        Trace the chain of custody.
+      </h2>
+<p class="text-base sm:text-lg text-slate-600">
+        Deterministic multi-tier provenance across material smelters, component machining, final assembly, and distribution hubs.
+      </p>
+</div>
+<!-- Interactive Exploration Mode Controls -->
+<div class="mb-8 flex flex-wrap items-center justify-between gap-4 p-3 rounded-lg bg-white border border-slate-200 shadow-sm reveal-item">
+<div class="flex items-center gap-2">
+<span class="font-mono text-xs text-slate-500 uppercase">Analysis Vector:</span>
+<div class="inline-flex rounded-md shadow-xs" id="trace-mode-toggle" role="group">
+<button class="mode-btn px-3 py-1.5 text-xs font-mono font-medium rounded-l-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 active-mode" type="button">
+            Forward Trace (Material → Shipment)
+          </button>
+<button class="mode-btn px-3 py-1.5 text-xs font-mono font-medium border-t border-b border-r border-slate-300 bg-white text-slate-700 hover:bg-slate-50" type="button">
+            Backward Trace (Shipment → Mine/Heat)
+          </button>
+<button class="mode-btn px-3 py-1.5 text-xs font-mono font-medium rounded-r-md border-t border-b border-r border-slate-300 bg-white text-slate-700 hover:bg-slate-50" type="button">
+            Bidirectional Reconcile
+          </button>
+</div>
+</div>
+<div class="font-mono text-xs text-slate-600 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="">Hash-chained record</span>
+</div>
+</div>
+<!-- 5-Stage Interactive Relationship Graph -->
+<div class="relative overflow-x-auto pb-6 reveal-item">
+<div class="min-w-[980px] grid grid-cols-5 gap-4 relative">
+<!-- Connecting Line Background across nodes -->
+<div class="absolute top-1/2 left-10 right-10 h-0.5 bg-slate-200 -translate-y-6 z-0"></div>
+<!-- Node 1: Material -->
+<div class="relative z-10 tech-panel rounded-xl p-4 border-2 border-emerald-300 bg-white shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono text-[10px] text-slate-400 uppercase font-semibold">STAGE 01 // ORIGIN</span>
+<span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">PASS VERIFIED</span>
+</div>
+<h4 class="font-bold text-slate-900 text-sm mb-1">Raw Steel Heat</h4>
+<p class="font-mono text-[11px] text-slate-600 mb-2">HT-4402 Nord-Steel Smelter</p>
+<div class="space-y-1 font-mono text-[10px] text-slate-500 border-t border-slate-100 pt-2">
+<div class="">Furnace Temp: <span class="text-slate-800 font-semibold">1612°C</span></div>
+<div class="">Carbon Content: <span class="text-slate-800 font-semibold">0.98%</span></div>
+<div class="">Billet Ingot ID: <span class="text-slate-800 font-semibold">#NS-8842-A</span></div>
+</div>
+</div>
+<div class="mt-4 pt-2 border-t border-slate-100 font-mono text-[9px] text-emerald-600 font-semibold flex items-center gap-1">
+<span class="">● CHECKPOINT ANCHOR</span>
+</div>
+</div>
+<!-- Node 2: Component -->
+<div class="relative z-10 tech-panel rounded-xl p-4 border-2 border-red-400 bg-white shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono text-[10px] text-slate-400 uppercase font-semibold">STAGE 02 // SUB-TIER</span>
+<span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-red-100 text-red-800 border border-red-300">HOLD RECALL LOT</span>
+</div>
+<h4 class="font-bold text-red-950 text-sm mb-1">Precision Bearings AG</h4>
+<p class="font-mono text-[11px] text-red-700 font-bold mb-2">Lot BR-204 [Sub-Batch #098]</p>
+<div class="space-y-1 font-mono text-[10px] text-slate-500 border-t border-slate-100 pt-2">
+<div class="">CNC Lathe: <span class="text-slate-800 font-semibold">Line 04 (±0.002mm)</span></div>
+<div class="">Vibe Anomaly: <span class="text-red-600 font-bold">+4.2% Spike</span></div>
+<div class="">Rework Ticket: <span class="text-amber-700 font-semibold">#RW-994</span></div>
+</div>
+</div>
+<div class="mt-4 pt-2 border-t border-slate-100 font-mono text-[9px] text-red-600 font-semibold flex items-center gap-1">
+<span class="">▲ FATIGUE FAILURE PREDICTED</span>
+</div>
+</div>
+<!-- Node 3: Receiving QA -->
+<div class="relative z-10 tech-panel rounded-xl p-4 border-2 border-amber-300 bg-white shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono text-[10px] text-slate-400 uppercase font-semibold">STAGE 03 // INBOUND</span>
+<span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-100 text-amber-800 border border-amber-300">DISCREPANCY</span>
+</div>
+<h4 class="font-bold text-slate-900 text-sm mb-1">Receiving QA Gate</h4>
+<p class="font-mono text-[11px] text-slate-600 mb-2">Carton B-4089 / Dock 02</p>
+<div class="space-y-1 font-mono text-[10px] text-slate-500 border-t border-slate-100 pt-2">
+<div class="">Scanner: <span class="text-slate-800 font-semibold">OPTI-992 Scanner</span></div>
+<div class="">Signature: <span class="text-amber-700 font-semibold">Unrecognized X999</span></div>
+<div class="">Lot Mix Check: <span class="text-amber-700 font-bold">Ambiguous Bin</span></div>
+</div>
+</div>
+<div class="mt-4 pt-2 border-t border-slate-100 font-mono text-[9px] text-amber-700 font-semibold flex items-center gap-1">
+<span class="">! PHYSICAL VS LEDGER GAP</span>
+</div>
+</div>
+<!-- Node 4: Integration -->
+<div class="relative z-10 tech-panel rounded-xl p-4 border border-slate-300 bg-white shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono text-[10px] text-slate-400 uppercase font-semibold">STAGE 04 // ASSEMBLY</span>
+<span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-sky-50 text-sky-800 border border-sky-200">SEALED</span>
+</div>
+<h4 class="font-bold text-slate-900 text-sm mb-1">Plant 12 Final Assembly</h4>
+<p class="font-mono text-[11px] text-brand-cyan font-bold mb-2">Motor MTR-26002</p>
+<div class="space-y-1 font-mono text-[10px] text-slate-500 border-t border-slate-100 pt-2">
+<div class="">Stator Lock: <span class="text-slate-800 font-semibold">42.4 Nm Torque</span></div>
+<div class="">End Cap Bolts: <span class="text-slate-800 font-semibold">8x Fastened M8</span></div>
+<div class="">Cell Rob: <span class="text-slate-800 font-semibold">ROBO-CELL-09</span></div>
+</div>
+</div>
+<div class="mt-4 pt-2 border-t border-slate-100 font-mono text-[9px] text-sky-600 font-semibold flex items-center gap-1">
+<span class="">● REWORKED WITHOUT RE-TAG</span>
+</div>
+</div>
+<!-- Node 5: Logistics -->
+<div class="relative z-10 tech-panel rounded-xl p-4 border-2 border-red-300 bg-white shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono text-[10px] text-slate-400 uppercase font-semibold">STAGE 05 // OUTBOUND</span>
+<span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-red-100 text-red-800 border border-red-300">HOLD INTERCEPTED</span>
+</div>
+<h4 class="font-bold text-slate-900 text-sm mb-1">Freight Hub Munich</h4>
+<p class="font-mono text-[11px] text-slate-600 mb-2">Pallet SHP-9022 / Bay 14</p>
+<div class="space-y-1 font-mono text-[10px] text-slate-500 border-t border-slate-100 pt-2">
+<div class="">Telematics Lock: <span class="text-red-700 font-bold">Imposed</span></div>
+<div class="">Carrier EDI: <span class="text-slate-800 font-semibold">TR-88190 Halted</span></div>
+<div class="">Destination: <span class="text-slate-800 font-semibold">OEM Plant Gävle</span></div>
+</div>
+</div>
+<div class="mt-4 pt-2 border-t border-slate-100 font-mono text-[9px] text-red-600 font-semibold flex items-center gap-1">
+<span class="">■ PREVENTATIVE ESCROW ACTIVE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Edge Inspection Telemetry Panel -->
+<div class="mt-6 p-4 rounded-xl tech-panel border-slate-300 bg-white shadow-sm reveal-item">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 font-mono text-xs">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-100 border border-slate-300 flex items-center justify-center font-bold text-slate-700">
+            §
+          </div>
+<div>
+<div class="font-bold text-slate-900">EDGE CUSTODY INSPECTION &amp; CRYPTOGRAPHIC HANDOFF</div>
+<div class="text-[11px] text-slate-500">ECDSA secp256k1 Signature Verified: <span class="text-brand-cyan">0x4a91c3ff082b9911e3b5e408ad92110c71a</span></div>
+</div>
+</div>
+<div class="flex items-center gap-6 text-[11px] text-slate-600">
+<div class="">Record source: <strong class="text-slate-900">synthetic demo</strong></div>
+<div class="h-3.5 w-px bg-slate-300"></div>
+<div class="">Custody Transfer: <span class="text-emerald-700 font-bold">Recorded claim</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 04 — DEFECT IMPACT ANALYSIS -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-20 lg:py-28 border-b border-slate-200/80 bg-white" id="impact-analysis-section">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Header -->
+<div class="mb-12 max-w-3xl reveal-item">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-amber-100 border border-amber-300 font-mono text-[11px] text-amber-900 uppercase tracking-wider mb-4">
+<span class="">SEC_04 // INVESTIGATION CONSOLE &amp; DOWNSTREAM EXPOSURE</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-graphite tracking-tight mb-3">
+        See what a defect can touch.
+      </h2>
+<p class="text-base sm:text-lg text-slate-600">
+        Instantaneous blast-radius calculation when sub-tier batches fail quality thresholds. Never speculate on contamination scope.
+      </p>
+</div>
+<!-- Active Recall Context Banner -->
+<div class="mb-8 p-4 rounded-xl border border-red-200 bg-red-50/70 reveal-item">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 font-mono text-xs">
+<div class="flex items-start md:items-center gap-3">
+<span class="px-2 py-1 rounded bg-red-600 text-white font-bold text-[10px]">ACTIVE RECALL INCIDENT</span>
+<div>
+<span class="font-bold text-red-950 text-sm">Lot BR-204: Fatigue Failure in Batch SN-88</span>
+<span class="block text-red-800 text-[11px]">Primary defect: Micro-cracking in bearing race raceway under dynamic loading &gt; 45 kN.</span>
+</div>
+</div>
+<div class="flex items-center gap-3 text-red-900">
+<span class="text-right">
+<strong class="block text-base leading-none font-bold">5 Motors in scope</strong>
+<span class="text-[10px] text-red-700">Tracked Across 4 Manufacturing Plants</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Downstream Exposure Result Dashboard -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 reveal-item">
+<div class="tech-panel p-4 rounded-xl border-l-4 border-l-red-500">
+<span class="font-mono text-[10px] text-slate-400 uppercase block mb-1">Direct Affected</span>
+<div class="text-3xl font-extrabold text-red-600 font-mono">01</div>
+<div class="font-mono text-xs text-slate-700 font-semibold mt-1">MTR-26001</div>
+<span class="font-mono text-[10px] text-red-600 block mt-0.5">Physical confirmation pending</span>
+</div>
+<div class="tech-panel p-4 rounded-xl border-l-4 border-l-amber-500">
+<span class="font-mono text-[10px] text-slate-400 uppercase block mb-1">Unresolved Ambiguity</span>
+<div class="text-3xl font-extrabold text-amber-600 font-mono">03</div>
+<div class="font-mono text-xs text-slate-700 font-semibold mt-1">MTR-26002, 004, 005</div>
+<span class="font-mono text-[10px] text-amber-700 block mt-0.5">Slot ambiguity &amp; telemetry gap</span>
+</div>
+<div class="tech-panel p-4 rounded-xl border-l-4 border-l-emerald-500">
+<span class="font-mono text-[10px] text-slate-400 uppercase block mb-1">Excluded with Proof</span>
+<div class="text-3xl font-extrabold text-emerald-600 font-mono">01</div>
+<div class="font-mono text-xs text-slate-700 font-semibold mt-1">MTR-26003</div>
+<span class="font-mono text-[10px] text-emerald-700 block mt-0.5">Alternative lot BR-198 recorded</span>
+</div>
+<div class="tech-panel p-4 rounded-xl border-l-4 border-l-slate-800">
+<span class="font-mono text-[10px] text-slate-400 uppercase block mb-1">Recall Hold Enforced</span>
+<div class="text-3xl font-extrabold text-slate-900 font-mono">02</div>
+<div class="font-mono text-xs text-slate-700 font-semibold mt-1">Munich &amp; Gävle</div>
+<span class="font-mono text-[10px] text-slate-500 block mt-0.5">Plant interlocks active</span>
+</div>
+</div>
+<!-- Evidence Lens Rationale Panel: MTR-26002 Ambiguity -->
+<div class="tech-panel rounded-xl p-6 border-2 border-amber-200 bg-amber-50/20 reveal-item">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-amber-100 border border-amber-300 text-amber-800 flex items-center justify-center font-bold text-lg shrink-0">
+          🔍
+        </div>
+<div class="flex-1">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+<h4 class="font-bold text-slate-900 text-base">
+              Evidence Lens Rationale: Ambiguity Explanation for Serial MTR-26002
+            </h4>
+<span class="px-2.5 py-0.5 rounded font-mono text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-300">
+              REWORK RECORD ANOMALY DETECTED
+            </span>
+</div>
+<p class="text-sm text-slate-700 leading-relaxed mb-4">
+            During factory pre-shipment testing at Plant 12, mechanical rework ticket <strong>#RW-994</strong> was filed. A damaged bearing was unpressed and replaced from quarantine stock. However, the maintenance technician omitted the positional metadata qualifier: the traveler record does not disambiguate whether the replaced component was in the <strong>Drive-End (DE)</strong> or <strong>Non-Drive-End (NDE)</strong> housing pocket.
+          </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
+<div class="p-3 bg-white rounded-lg border border-slate-200">
+<span class="text-slate-400 block text-[10px] uppercase font-semibold">Physical Reality</span>
+<span class="text-slate-800 font-medium mt-1 block">One bearing is Lot BR-204 (Defective); One bearing is Lot BR-198 (Certified Pass).</span>
+</div>
+<div class="p-3 bg-white rounded-lg border border-slate-200">
+<span class="text-slate-400 block text-[10px] uppercase font-semibold">Ledger Safety Action</span>
+<span class="text-red-700 font-bold mt-1 block">Conservative lock enforced: Motor MTR-26002 flagged as Contaminated until physical acoustic teardown.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 05 — MANUFACTURING LIFECYCLE -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-20 lg:py-28 border-b border-slate-200/80 bg-[#f5faff] bg-subtle-grid" id="lifecycle-section">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Header -->
+<div class="mb-12 max-w-3xl reveal-item">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-sky-100 border border-sky-200 font-mono text-[11px] text-sky-800 uppercase tracking-wider mb-4">
+<span class="">SEC_05 // DETERMINISTIC EVENT CHRONOLOGY</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-graphite tracking-tight mb-3">
+        Keep every event visible.
+      </h2>
+<p class="text-base sm:text-lg text-slate-600">
+        Append-only ledger timestamps tracking physical transformation from raw billet to commissioned drive.
+      </p>
+</div>
+<!-- Sequential 6-Stage Timeline -->
+<div class="relative max-w-4xl mx-auto reveal-item">
+<!-- Vertical Connecting Line -->
+<div class="absolute top-4 bottom-4 left-6 sm:left-32 w-0.5 bg-slate-300"></div>
+<div class="space-y-8">
+<!-- Event 1: Received -->
+<div class="relative flex items-start gap-4 sm:gap-8 group">
+<div class="hidden sm:block w-28 text-right font-mono text-xs text-slate-400 pt-1 shrink-0">
+            2026-02-12<br><span class="text-[10px] text-slate-500">04:18 UTC</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-white border-2 border-emerald-500 flex items-center justify-center shrink-0 z-10 shadow-sm">
+<span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+</div>
+<div class="flex-1 tech-panel rounded-xl p-4 border border-slate-200 bg-white">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+<h4 class="font-bold text-slate-900 text-sm">01 // Material Ingot Received</h4>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                LOCAL CHECKPOINT ANCHOR
+              </span>
+</div>
+<p class="text-xs text-slate-600 mb-2">
+              Nord-Steel Ingot Billet HT-4402 received at Precision Machining Hub. Spectrometric purity test signed off with zero variances.
+            </p>
+<div class="font-mono text-[10px] text-slate-400">HASH: 7f83b165...9482af8 | SOURCE: SYNTHETIC</div>
+</div>
+</div>
+<!-- Event 2: Machined -->
+<div class="relative flex items-start gap-4 sm:gap-8 group">
+<div class="hidden sm:block w-28 text-right font-mono text-xs text-slate-400 pt-1 shrink-0">
+            2026-02-14<br><span class="text-[10px] text-slate-500">11:42 UTC</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-white border-2 border-emerald-500 flex items-center justify-center shrink-0 z-10 shadow-sm">
+<span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+</div>
+<div class="flex-1 tech-panel rounded-xl p-4 border border-slate-200 bg-white">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+<h4 class="font-bold text-slate-900 text-sm">02 // Precision CNC Machining Complete</h4>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                AUTHENTICATED EDGE TELEMETRY
+              </span>
+</div>
+<p class="text-xs text-slate-600 mb-2">
+              Precision Bearings CNC Line 04. Raceway surface roughness Ra 0.04 µm verified by optical micrometer tool head.
+            </p>
+<div class="font-mono text-[10px] text-slate-400">HASH: 3c19e84b...bb2104c | TOLERANCE: not recorded</div>
+</div>
+</div>
+<!-- Event 3: Inspected -->
+<div class="relative flex items-start gap-4 sm:gap-8 group">
+<div class="hidden sm:block w-28 text-right font-mono text-xs text-slate-400 pt-1 shrink-0">
+            2026-02-16<br><span class="text-[10px] text-slate-500">08:05 UTC</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-white border-2 border-amber-500 flex items-center justify-center shrink-0 z-10 shadow-sm">
+<span class="w-3 h-3 rounded-full bg-amber-500 animate-pulse"></span>
+</div>
+<div class="flex-1 tech-panel rounded-xl p-4 border border-amber-200 bg-white">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+<h4 class="font-bold text-slate-900 text-sm">03 // Optical QA Inspection Flagged</h4>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-100 text-amber-800 border border-amber-300">
+                DISCREPANCY X999 RECORDED
+              </span>
+</div>
+<p class="text-xs text-slate-600 mb-2">
+              Optical QA Station 03 flagged micro-scratch on outer race flange. Non-conformance alert logged with quarantine ticket.
+            </p>
+<div class="font-mono text-[10px] text-amber-800">HASH: 5a77cd01...224bba7 | SCANNER: OPTI-992</div>
+</div>
+</div>
+<!-- Event 4: Reworked -->
+<div class="relative flex items-start gap-4 sm:gap-8 group">
+<div class="hidden sm:block w-28 text-right font-mono text-xs text-slate-400 pt-1 shrink-0">
+            2026-02-17<br><span class="text-[10px] text-slate-500">14:22 UTC</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-white border-2 border-red-500 flex items-center justify-center shrink-0 z-10 shadow-sm">
+<span class="w-3 h-3 rounded-full bg-red-500"></span>
+</div>
+<div class="flex-1 tech-panel rounded-xl p-4 border border-red-200 bg-white">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+<h4 class="font-bold text-slate-900 text-sm">04 // Manual Bay Rework #RW-994</h4>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-red-100 text-red-800 border border-red-300">
+                UNVERIFIED CLAIM // AMBIGUOUS SLOT
+              </span>
+</div>
+<p class="text-xs text-slate-600 mb-2">
+              Bay 3 technician manually replaced bearing race. Claim recorded without barcode scanner positional latch, creating slot ambiguity.
+            </p>
+<div class="font-mono text-[10px] text-red-700">HASH: 9c34a4f1...bb732a1 | REASON: OMITTED DE/NDE TAG</div>
+</div>
+</div>
+<!-- Event 5: Assembled -->
+<div class="relative flex items-start gap-4 sm:gap-8 group">
+<div class="hidden sm:block w-28 text-right font-mono text-xs text-slate-400 pt-1 shrink-0">
+            2026-02-18<br><span class="text-[10px] text-slate-500">16:33 UTC</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-white border-2 border-sky-500 flex items-center justify-center shrink-0 z-10 shadow-sm">
+<span class="w-3 h-3 rounded-full bg-sky-500"></span>
+</div>
+<div class="flex-1 tech-panel rounded-xl p-4 border border-slate-200 bg-white">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+<h4 class="font-bold text-slate-900 text-sm">05 // Powertrain Final Integration</h4>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-sky-50 text-sky-800 border border-sky-200">
+                AUTHENTICATED TORQUE LOG
+              </span>
+</div>
+<p class="text-xs text-slate-600 mb-2">
+              Stator lock completed at Plant 12 with pneumatic wrench calibrated to 42.4 Nm. Serial MTR-26002 generated and sealed.
+            </p>
+<div class="font-mono text-[10px] text-slate-400">HASH: 8e45cc20...9100d8f | TOOL ID: WRENCH-CAL-04</div>
+</div>
+</div>
+<!-- Event 6: Shipped -->
+<div class="relative flex items-start gap-4 sm:gap-8 group">
+<div class="hidden sm:block w-28 text-right font-mono text-xs text-slate-400 pt-1 shrink-0">
+            2026-02-20<br><span class="text-[10px] text-slate-500">07:11 UTC</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-white border-2 border-slate-700 flex items-center justify-center shrink-0 z-10 shadow-sm">
+<span class="w-3 h-3 rounded-full bg-slate-700"></span>
+</div>
+<div class="flex-1 tech-panel rounded-xl p-4 border border-slate-300 bg-white">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+<h4 class="font-bold text-slate-900 text-sm">06 // Outbound Freight Dispatch Intercepted</h4>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-100 text-slate-800 border border-slate-300">
+                ACTIVE TELEMATICS HOLD
+              </span>
+</div>
+<p class="text-xs text-slate-600 mb-2">
+              Dispatch Pallet SHP-9022 flagged at Trans-European Hub dock gate. Electronic airway bill suspended under automated safety embargo.
+            </p>
+<div class="font-mono text-[10px] text-slate-500">HASH: 110ab78f...cc09812 | DOCK ESCROW: LOCKED</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 06 — INTEGRITY & AUDIT TRAIL -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-20 lg:py-28 border-b border-slate-200/80 bg-white" id="audit-trail-section">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Header -->
+<div class="mb-12 max-w-3xl reveal-item">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-700 uppercase tracking-wider mb-4">
+<span class="">SEC_06 // CRYPTOGRAPHIC AUDIT LEDGER</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-graphite tracking-tight mb-3">
+        Trust the record, not the assumption.
+      </h2>
+<p class="text-base sm:text-lg text-slate-600">
+        Hash-chained records make retroactive changes to assembly records, QA measurements and bills of materials detectable.
+      </p>
+</div>
+<!-- Filter Buttons Bar -->
+<div class="flex items-center gap-2 mb-6 flex-wrap font-mono text-xs reveal-item" id="audit-filter-bar">
+<button class="audit-filter-btn px-3 py-1.5 rounded border border-slate-900 bg-slate-900 text-white font-semibold" onclick="filterAudit('all')">All Records (5)</button>
+<button class="audit-filter-btn px-3 py-1.5 rounded border border-slate-200 bg-white text-slate-700 hover:border-slate-300" onclick="filterAudit('verified')">Verified Pass (2)</button>
+<button class="audit-filter-btn px-3 py-1.5 rounded border border-slate-200 bg-white text-slate-700 hover:border-slate-300" onclick="filterAudit('hold')">Recall Hold (1)</button>
+<button class="audit-filter-btn px-3 py-1.5 rounded border border-slate-200 bg-white text-slate-700 hover:border-slate-300" onclick="filterAudit('ambiguous')">Ambiguity Review (1)</button>
+<button class="audit-filter-btn px-3 py-1.5 rounded border border-slate-200 bg-white text-slate-700 hover:border-slate-300" onclick="filterAudit('unavailable')">Unavailable Data (1)</button>
+</div>
+<!-- Audit Ledger Table -->
+<div class="tech-panel rounded-xl overflow-hidden border border-slate-200 shadow-sm mb-8 reveal-item">
+<div class="overflow-x-auto">
+<table class="w-full text-left font-mono text-xs">
+<thead class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase text-[10px]">
+<tr>
+<th class="py-3 px-4">Proof ID</th>
+<th class="py-3 px-4">Evidence Description</th>
+<th class="py-3 px-4">Source Node</th>
+<th class="py-3 px-4">Event Hash</th>
+<th class="py-3 px-4 text-right">Integrity Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100" id="audit-table-body">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/80 transition" data-status="verified">
+<td class="py-3 px-4 font-bold text-slate-900">EV-9402</td>
+<td class="py-3 px-4 text-slate-700 font-sans font-medium">Dyno Heat &amp; Torque Trace</td>
+<td class="py-3 px-4 text-slate-500">Dyno-Station-03</td>
+<td class="py-3 px-4 text-slate-400">7f83b165...9482af8</td>
+<td class="py-3 px-4 text-right">
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 text-[10px]">PASS VERIFIED</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/80 transition bg-amber-50/30" data-status="ambiguous">
+<td class="py-3 px-4 font-bold text-amber-900">EV-9411</td>
+<td class="py-3 px-4 text-slate-700 font-sans font-medium">Rework Ticket Claim #RW-994</td>
+<td class="py-3 px-4 text-slate-500">Handheld Tech-402</td>
+<td class="py-3 px-4 text-slate-400">9c34a4f1...bb732a1</td>
+<td class="py-3 px-4 text-right">
+<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-300 text-[10px]">AMBIGUOUS REVIEW</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/80 transition bg-red-50/30" data-status="hold">
+<td class="py-3 px-4 font-bold text-red-900">EV-8820</td>
+<td class="py-3 px-4 text-slate-700 font-sans font-medium">Ingot Defect Certificate BR-204</td>
+<td class="py-3 px-4 text-slate-500">SKF Line Integration Feed</td>
+<td class="py-3 px-4 text-slate-400">1a56e890...42e03f1</td>
+<td class="py-3 px-4 text-right">
+<span class="px-2 py-0.5 rounded bg-red-100 text-red-800 font-bold border border-red-300 text-[10px]">DEFECTIVE HOLD</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/80 transition" data-status="unavailable">
+<td class="py-3 px-4 font-bold text-slate-600">EV-7104</td>
+<td class="py-3 px-4 text-slate-700 font-sans font-medium">Optical Surface Scan</td>
+<td class="py-3 px-4 text-slate-500">Sensor-GW-07 (Offline)</td>
+<td class="py-3 px-4 text-slate-400">00000000...TIMEOUT</td>
+<td class="py-3 px-4 text-right">
+<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-bold border border-slate-300 text-[10px]">UNAVAILABLE / AIR GAP TIMEOUT</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50/80 transition" data-status="verified">
+<td class="py-3 px-4 font-bold text-slate-900">EV-6901</td>
+<td class="py-3 px-4 text-slate-700 font-sans font-medium">Billet Ingot Chemistry Assay</td>
+<td class="py-3 px-4 text-slate-500">Nord-Steel Lab Gateway</td>
+<td class="py-3 px-4 text-slate-400">b8849c21...881f9a0</td>
+<td class="py-3 px-4 text-right">
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 text-[10px]">PASS VERIFIED</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Regulatory Compliance Panel -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal-item">
+<div class="p-4 rounded-xl tech-panel border border-slate-200">
+<div class="flex items-center gap-2 mb-2 font-mono text-xs font-bold text-slate-800">
+<span class="w-2.5 h-2.5 rounded bg-brand-cyan"></span>
+          NONCONFORMING-PRODUCT EVIDENCE TRAIL
+        </div>
+<p class="text-xs text-slate-600 leading-relaxed font-sans">
+          PRAMAAN automates control of non-conforming outputs. Once a lot recall is anchored, all downstream shipping paperwork and EDI gateways automatically reject release without multi-party engineering sign-off.
+        </p>
+</div>
+<div class="p-4 rounded-xl tech-panel border border-slate-200">
+<div class="flex items-center gap-2 mb-2 font-mono text-xs font-bold text-slate-800">
+<span class="w-2.5 h-2.5 rounded bg-emerald-600"></span>
+          LOCAL CHECKPOINT ANCHOR
+        </div>
+<p class="text-xs text-slate-600 leading-relaxed font-sans">
+          The ledger head hash can be exported as a checkpoint and re-verified later. In this demo the checkpoint is self-exported, not independently custodied.
+        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 07 — FINAL CALL TO ACTION -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-20 lg:py-28 border-b border-slate-200/80 bg-[#f5faff] bg-tech-grid" id="cta-section">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Editorial Column -->
+<div class="lg:col-span-6 reveal-item">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-sky-100 border border-sky-200 font-mono text-[11px] text-sky-800 uppercase tracking-wider mb-4">
+<span class="">SEC_07 // SYSTEM COMMISSIONING</span>
+</div>
+<h2 class="text-3xl sm:text-5xl font-extrabold text-brand-graphite tracking-tight mb-5 leading-tight">
+          Trace the evidence.<br>
+<span class="text-brand-cyan">Move with confidence.</span>
+</h2>
+<p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
+          Deploy evidence-based product passports across your powertrain manufacturing footprint. Find recall exposure before parts leave the dock.
+        </p>
+<!-- Live Latency / Determinism Specs -->
+<div class="flex items-center gap-8 font-mono border-t border-slate-200 pt-6">
+<div>
+<div class="text-2xl sm:text-3xl font-extrabold text-brand-cyan">Live</div>
+<div class="text-[11px] text-slate-500 uppercase tracking-wider">Measured Request Latency</div>
+</div>
+<div class="h-10 w-px bg-slate-300"></div>
+<div>
+<div class="text-2xl sm:text-3xl font-extrabold text-slate-900">Rules</div>
+<div class="text-[11px] text-slate-500 uppercase tracking-wider">Deterministic Rule Engine</div>
+</div>
+</div>
+</div>
+<!-- Right Action Card -->
+<div class="lg:col-span-6 reveal-item">
+<div class="tech-panel rounded-2xl p-6 sm:p-8 border border-slate-300 shadow-xl bg-white relative">
+<div class="font-mono text-xs text-slate-400 uppercase tracking-wider mb-1">PRAMAAN RUNTIME INGESTION</div>
+<h3 class="text-xl font-bold text-slate-900 mb-4">Initialize Plant Node or Query Passport</h3>
+<form class="space-y-4 font-mono text-xs" onsubmit="event.preventDefault();">
+<div>
+<label class="block text-slate-600 uppercase text-[11px] mb-1.5 font-semibold">ENTERPRISE API KEY / SERIAL NUMBER</label>
+<div class="relative">
+<input class="w-full px-3.5 py-3 rounded-lg border border-slate-300 bg-slate-50 text-slate-900 font-mono text-xs focus:ring-2 focus:ring-brand-cyan focus:border-brand-cyan" type="text" value="PRM-KEY-LIVE-094-PROD">
+<span class="absolute right-3 top-3 text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">VALIDATED</span>
+</div>
+</div>
+<div class="pt-2 flex flex-col sm:flex-row gap-3">
+<a class="flex-1 inline-flex items-center justify-center px-5 py-3 rounded-lg bg-brand-graphite hover:bg-slate-800 text-white font-sans font-semibold text-sm transition shadow-md text-center" href="/dashboard">
+                Open Product Passport
+              </a>
+<button class="flex-1 inline-flex items-center justify-center px-5 py-3 rounded-lg border-2 border-slate-300 hover:border-brand-cyan hover:bg-sky-50/50 text-slate-700 font-sans font-semibold text-sm transition text-center" type="button">
+                Schedule Plant Audit
+              </button>
+</div>
+</form>
+<div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between font-mono text-[10px] text-slate-400">
+<span class="">READY FOR SAP / SIEMENS TEAMCENTER INGEST</span>
+<span class="">REST &amp; gRPC ENDPOINTS UP</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- REFINED INDUSTRIAL FOOTER -->
+<!-- ========================================================================= -->
+<footer class="w-full bg-white border-t border-slate-200/80 py-8 font-mono text-xs text-slate-500">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded bg-brand-graphite text-white flex items-center justify-center text-xs font-bold">■</div>
+<span class="font-bold text-slate-900 font-sans tracking-tight">PRAMAAN SYSTEM PS10</span>
+<span class="text-slate-400">|</span>
+<span class="">SYNTHETIC DEMO DATA</span>
+</div>
+<div class="flex items-center gap-6 text-[11px]">
+<span class="">STATUS: <strong class="text-emerald-600">ALL SERVICES OPERATIONAL</strong></span>
+<span class="">EPOCH: #88204</span>
+<span class="">© 2026 PRAMAAN TECHNOLOGIES</span>
+</div>
+</div>
+</footer>
+<!-- ========================================================================= -->
+<!-- THREE.JS INTERACTIVE 3D EXPLODED GEARBOX IMPLEMENTATION (PRESERVED) -->
+<!-- ========================================================================= -->

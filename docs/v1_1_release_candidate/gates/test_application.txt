@@ -1,0 +1,12 @@
+test_append_only_material_and_policy (application.test_application.ApplicationTests.test_append_only_material_and_policy) ... ok
+test_full_manufacturing_flow_and_reopen (application.test_application.ApplicationTests.test_full_manufacturing_flow_and_reopen) ... ok
+test_manufactured_identity_mismatch_is_blocked (application.test_application.ApplicationTests.test_manufactured_identity_mismatch_is_blocked) ... ok
+test_seed_safety_cases_and_idempotence (application.test_application.ApplicationTests.test_seed_safety_cases_and_idempotence) ... ok
+test_unknown_is_not_empty_and_no_phantom_shipment (application.test_application.ApplicationTests.test_unknown_is_not_empty_and_no_phantom_shipment) ... ok
+test_api_reads_provenance_genealogy_decisions_and_obligations (application.test_application.HttpTests.test_api_reads_provenance_genealogy_decisions_and_obligations) ... ok
+test_commands_require_local_token_and_no_cross_origin (application.test_application.HttpTests.test_commands_require_local_token_and_no_cross_origin) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 9.181s
+
+OK

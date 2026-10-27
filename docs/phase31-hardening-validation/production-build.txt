@@ -1,0 +1,14 @@
+
+> recall-investigation-ui@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+âœ“ 32 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.45 kB â”‚ gzip:  0.29 kB
+dist/assets/index-ZIhnwS5J.css    9.93 kB â”‚ gzip:  2.93 kB
+dist/assets/index-Cn7AwVwz.js   277.15 kB â”‚ gzip: 84.74 kB â”‚ map: 1,185.36 kB
+
+âœ“ built in 280ms

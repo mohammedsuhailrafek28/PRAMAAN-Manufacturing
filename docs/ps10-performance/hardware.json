@@ -1,0 +1,7 @@
+{
+  "processor": "AMD Ryzen 7 250 w/ Radeon 780M Graphics        ",
+  "os": "Microsoft Windows 11 Home Single Language",
+  "physicalMemoryBytes": 16435761152,
+  "logicalProcessors": 16,
+  "benchmarkIsolation": "Shared developer machine; no dedicated CPU or filesystem cache reset"
+}

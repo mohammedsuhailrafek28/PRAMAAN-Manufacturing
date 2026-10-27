@@ -1,0 +1,322 @@
+{
+  "scope": "Synthetic profile validation, in-memory SQLite capture/query, native-contract adapter; no production engine execution",
+  "schemaSha256": "d5ca9b1cad2c403679d9b07fb768108142d73e1dd024198ed64774b56b62227b",
+  "contextSha256": "b5c7cc9367ab638ecb77feb0b9aea222a427d9740bf3dda1b183fc3d4390714f",
+  "packages": {
+    "jsonschema": "4.26.0",
+    "rfc8785": "0.1.4",
+    "PyLD": "2.0.4"
+  },
+  "checks": {
+    "all_events_validate_and_capture": true,
+    "jsonld_expansion_retains_private_metadata": true,
+    "jsonld_expand_compact_preserves_trace_values": true,
+    "component_to_motor_install_remove_history": true,
+    "exact_native_roundtrip_including_slot_source_sequence_times_and_evidence": true,
+    "repository_record_time_does_not_replace_source_recorded_at": true,
+    "removal_preserves_install_reference": true,
+    "identical_retry_is_idempotent": true,
+    "same_id_changed_slot_is_rejected": true,
+    "base_schema_allows_missing_manufacturing_profile": true,
+    "bare_epcis_cannot_invent_slot_or_provenance": true,
+    "conflicting_action_is_rejected": true,
+    "missing_slot_rejected": true,
+    "duplicate_source_sequence_rejected": true,
+    "unbound_removal_rejected": true,
+    "invalid_epcis_timestamp_rejected": true,
+    "failed_capture_leaves_original_history_intact": true,
+    "jcs_key_order_invariance": true,
+    "jcs_detects_slot_change": true,
+    "jcs_detects_source_sequence_change": true,
+    "stored_byte_mutation_detected": true
+  },
+  "passed": 21,
+  "genealogyEvents": [
+    {
+      "type": "AssociationEvent",
+      "eventID": "https://example.org/events/research-2",
+      "eventTime": "2026-10-21T08:01:00Z",
+      "eventTimeZoneOffset": "+00:00",
+      "recordTime": "2026-10-21T09:00:00Z",
+      "action": "ADD",
+      "trace": {
+        "eventType": "COMPONENT_INSTALLED",
+        "schemaVersion": 1,
+        "sourceId": "RESEARCH-STATION",
+        "sourceSeq": 2,
+        "motorSerial": "RESEARCH-M001",
+        "workOrderId": "RESEARCH-WO1",
+        "recallId": null,
+        "timeSource": "DEVICE_SYNCED",
+        "recordedAt": "2026-10-21T08:01:04Z",
+        "actorId": "RESEARCH-OPERATOR",
+        "evidenceRefs": [
+          "research-scan-2"
+        ],
+        "supersedesEventId": null,
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "part": "RESEARCH-6205",
+          "lot": "RESEARCH-LOT-A",
+          "serial": "RESEARCH-B001",
+          "identityGranularity": "SERIAL"
+        }
+      },
+      "parentID": "https://example.org/motors/RESEARCH-M001",
+      "childEPCs": [
+        "https://example.org/bearings/RESEARCH-B001"
+      ],
+      "bizStep": "assembling"
+    },
+    {
+      "type": "AssociationEvent",
+      "eventID": "https://example.org/events/research-5",
+      "eventTime": "2026-10-21T08:04:00Z",
+      "eventTimeZoneOffset": "+00:00",
+      "recordTime": "2026-10-21T09:00:00Z",
+      "action": "DELETE",
+      "trace": {
+        "eventType": "COMPONENT_REMOVED",
+        "schemaVersion": 1,
+        "sourceId": "RESEARCH-STATION",
+        "sourceSeq": 5,
+        "motorSerial": "RESEARCH-M001",
+        "workOrderId": "RESEARCH-WO2",
+        "recallId": null,
+        "timeSource": "DEVICE_SYNCED",
+        "recordedAt": "2026-10-21T08:04:04Z",
+        "actorId": "RESEARCH-OPERATOR",
+        "evidenceRefs": [
+          "research-scan-5"
+        ],
+        "supersedesEventId": null,
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "observedPart": "RESEARCH-6205",
+          "observedLot": "RESEARCH-LOT-A",
+          "observedSerial": "RESEARCH-B001",
+          "identityGranularity": "SERIAL",
+          "endsInstallEventId": "https://example.org/events/research-2"
+        }
+      },
+      "parentID": "https://example.org/motors/RESEARCH-M001",
+      "childEPCs": [
+        "https://example.org/bearings/RESEARCH-B001"
+      ],
+      "bizStep": "disassembling"
+    }
+  ],
+  "engineInput": {
+    "caseId": "foundation-research-only",
+    "captureCoverage": {
+      "coveragePolicy": "RESEARCH-COVERAGE",
+      "sessions": [
+        {
+          "sourceId": "RESEARCH-STATION",
+          "from": "2026-10-21T08:00:00Z",
+          "to": "2026-10-21T08:10:00Z"
+        }
+      ]
+    },
+    "events": [
+      {
+        "eventType": "WORK_ORDER_OPENED",
+        "schemaVersion": 1,
+        "sourceId": "RESEARCH-STATION",
+        "sourceSeq": 1,
+        "motorSerial": "RESEARCH-M001",
+        "workOrderId": "RESEARCH-WO1",
+        "recallId": null,
+        "timeSource": "DEVICE_SYNCED",
+        "recordedAt": "2026-10-21T08:00:04Z",
+        "actorId": "RESEARCH-OPERATOR",
+        "evidenceRefs": [
+          "research-scan-1"
+        ],
+        "supersedesEventId": null,
+        "payload": {
+          "orderType": "BUILD",
+          "expectedChanges": [
+            {
+              "slot": "DE",
+              "action": "INSTALL"
+            }
+          ]
+        },
+        "eventId": "https://example.org/events/research-1",
+        "occurredAt": "2026-10-21T08:00:00Z"
+      },
+      {
+        "eventType": "COMPONENT_INSTALLED",
+        "schemaVersion": 1,
+        "sourceId": "RESEARCH-STATION",
+        "sourceSeq": 2,
+        "motorSerial": "RESEARCH-M001",
+        "workOrderId": "RESEARCH-WO1",
+        "recallId": null,
+        "timeSource": "DEVICE_SYNCED",
+        "recordedAt": "2026-10-21T08:01:04Z",
+        "actorId": "RESEARCH-OPERATOR",
+        "evidenceRefs": [
+          "research-scan-2"
+        ],
+        "supersedesEventId": null,
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "part": "RESEARCH-6205",
+          "lot": "RESEARCH-LOT-A",
+          "serial": "RESEARCH-B001",
+          "identityGranularity": "SERIAL"
+        },
+        "eventId": "https://example.org/events/research-2",
+        "occurredAt": "2026-10-21T08:01:00Z"
+      },
+      {
+        "eventType": "WORK_ORDER_CLOSED",
+        "schemaVersion": 1,
+        "sourceId": "RESEARCH-STATION",
+        "sourceSeq": 3,
+        "motorSerial": "RESEARCH-M001",
+        "workOrderId": "RESEARCH-WO1",
+        "recallId": null,
+        "timeSource": "DEVICE_SYNCED",
+        "recordedAt": "2026-10-21T08:02:04Z",
+        "actorId": "RESEARCH-OPERATOR",
+        "evidenceRefs": [
+          "research-scan-3"
+        ],
+        "supersedesEventId": null,
+        "payload": {
+          "disposition": "COMPLETED"
+        },
+        "eventId": "https://example.org/events/research-3",
+        "occurredAt": "2026-10-21T08:02:00Z"
+      },
+      {
+        "eventType": "WORK_ORDER_OPENED",
+        "schemaVersion": 1,
+        "sourceId": "RESEARCH-STATION",
+        "sourceSeq": 4,
+        "motorSerial": "RESEARCH-M001",
+        "workOrderId": "RESEARCH-WO2",
+        "recallId": null,
+        "timeSource": "DEVICE_SYNCED",
+        "recordedAt": "2026-10-21T08:03:04Z",
+        "actorId": "RESEARCH-OPERATOR",
+        "evidenceRefs": [
+          "research-scan-4"
+        ],
+        "supersedesEventId": null,
+        "payload": {
+          "orderType": "REWORK",
+          "expectedChanges": [
+            {
+              "slot": "DE",
+              "action": "REMOVE"
+            }
+          ]
+        },
+        "eventId": "https://example.org/events/research-4",
+        "occurredAt": "2026-10-21T08:03:00Z"
+      },
+      {
+        "eventType": "COMPONENT_REMOVED",
+        "schemaVersion": 1,
+        "sourceId": "RESEARCH-STATION",
+        "sourceSeq": 5,
+        "motorSerial": "RESEARCH-M001",
+        "workOrderId": "RESEARCH-WO2",
+        "recallId": null,
+        "timeSource": "DEVICE_SYNCED",
+        "recordedAt": "2026-10-21T08:04:04Z",
+        "actorId": "RESEARCH-OPERATOR",
+        "evidenceRefs": [
+          "research-scan-5"
+        ],
+        "supersedesEventId": null,
+        "payload": {
+          "componentType": "BEARING",
+          "slot": "DE",
+          "observedPart": "RESEARCH-6205",
+          "observedLot": "RESEARCH-LOT-A",
+          "observedSerial": "RESEARCH-B001",
+          "identityGranularity": "SERIAL",
+          "endsInstallEventId": "https://example.org/events/research-2"
+        },
+        "eventId": "https://example.org/events/research-5",
+        "occurredAt": "2026-10-21T08:04:00Z"
+      },
+      {
+        "eventType": "WORK_ORDER_CLOSED",
+        "schemaVersion": 1,
+        "sourceId": "RESEARCH-STATION",
+        "sourceSeq": 6,
+        "motorSerial": "RESEARCH-M001",
+        "workOrderId": "RESEARCH-WO2",
+        "recallId": null,
+        "timeSource": "DEVICE_SYNCED",
+        "recordedAt": "2026-10-21T08:05:04Z",
+        "actorId": "RESEARCH-OPERATOR",
+        "evidenceRefs": [
+          "research-scan-6"
+        ],
+        "supersedesEventId": null,
+        "payload": {
+          "disposition": "COMPLETED"
+        },
+        "eventId": "https://example.org/events/research-6",
+        "occurredAt": "2026-10-21T08:05:00Z"
+      }
+    ]
+  },
+  "integrityMetadata": [
+    {
+      "eventId": "https://example.org/events/research-1",
+      "rawSha256": "2dc0ff0b5dae21504eb6d53a36a72ddfc81db5889c54412a8b77cf1355fa3c76",
+      "contextBoundJcsSha256": "c78504562470da227a9cfd13f326905a1c9c4b42d7db555d23e22c455355fceb"
+    },
+    {
+      "eventId": "https://example.org/events/research-2",
+      "rawSha256": "208b5161e4cd558e37d0776bdf4f8b7862a8f4306792a5189fbe04ac9902579b",
+      "contextBoundJcsSha256": "0410b3eb8ddd45bc4bc8ce42a86803f4b72b86c357603463088fdd5e013e6c6f"
+    },
+    {
+      "eventId": "https://example.org/events/research-3",
+      "rawSha256": "f633e4385d66519fe9562e4eaede2451832ff93f310470021920e5519beee906",
+      "contextBoundJcsSha256": "316f611d4568a7441bb6ec1dff1f842414b61cfa7071d152645043e0799d121c"
+    },
+    {
+      "eventId": "https://example.org/events/research-4",
+      "rawSha256": "1565d9c48cdb06a7fe08ffcc7d44d29c3df50f1a9f201ffbbb36fe355dc66429",
+      "contextBoundJcsSha256": "b820014a5b00af6d18041b351cf7d03db21656162670d1329b590f400a31119e"
+    },
+    {
+      "eventId": "https://example.org/events/research-5",
+      "rawSha256": "1c1c17363d485349656b4b66ba8aa7408e03816c64b4d51aed1cb15be3164b75",
+      "contextBoundJcsSha256": "5bb852de823b433bf881b7951d1b16107e59141bb052858c5fdbce090bfde71d"
+    },
+    {
+      "eventId": "https://example.org/events/research-6",
+      "rawSha256": "8950cc153ea3b51bde0bc0bc921301a0494932ddb3ae4d14dac6f4ddfd8bcad1",
+      "contextBoundJcsSha256": "0ed88779465a39b761222a27c03bfde821a06c3cacd278fde3414f49a87bdcbb"
+    }
+  ],
+  "integrity": {
+    "raw": "SHA-256 exact event bytes",
+    "canonical": "RFC8785 over event + approved context + pinned context digest",
+    "gs1CbvHash": "NOT implemented or claimed",
+    "signatures": "NOT verified or claimed"
+  },
+  "limitations": [
+    "No recall decisions; documented input contract only",
+    "One fixed motor/component identity map",
+    "No quantity, transformation, concurrency or fleet benchmark",
+    "No upstream service executed",
+    "No absence/completeness claim from filtered genealogy",
+    "Source metadata are claims, not authenticated facts",
+    "JCS is not JSON-LD/RDF or GS1 CBV canonicalization"
+  ]
+}

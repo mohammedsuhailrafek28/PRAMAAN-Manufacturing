@@ -1,0 +1,64 @@
+{
+ "malformedBlocks": 10,
+ "registryOnlyUpdate": {
+  "accepted": true,
+  "newJournalEntries": 0
+ },
+ "replayMatrix": [
+  {
+   "binding": "OK",
+   "eligible": true,
+   "label": "c0+A",
+   "state": "ANCHORED_CURRENT"
+  },
+  {
+   "binding": "DISCREPANCY",
+   "eligible": false,
+   "label": "c0+B",
+   "state": "ANCHORED_CURRENT"
+  },
+  {
+   "binding": "DISCREPANCY",
+   "eligible": false,
+   "label": "c1+A",
+   "state": "ANCHORED_CURRENT"
+  },
+  {
+   "binding": "OK",
+   "eligible": true,
+   "label": "c1+B",
+   "state": "ANCHORED_CURRENT"
+  }
+ ],
+ "unsafeMotorAcrossFormats": {
+  "acceptWithAllAcknowledgements": "REFUSED",
+  "v2": "held",
+  "v3Candidate": "held"
+ },
+ "v2": {
+  "checkpoint": {
+   "anchoredSequence": 2,
+   "checkpointRequired": false,
+   "h2": "VERIFIED",
+   "state": "ANCHORED_CURRENT"
+  },
+  "eligible": false,
+  "status": "UNBOUND_LEGACY_FORMAT"
+ },
+ "v3BodyFields": [
+  "archiveId",
+  "engineTreeId",
+  "format",
+  "hardeningProfile",
+  "headHash",
+  "ledger",
+  "legacyDigest",
+  "policyDigest",
+  "previousCheckpointHash",
+  "publicationProfile",
+  "registryBinding",
+  "sequence",
+  "state",
+  "verifierVersion"
+ ]
+}

@@ -1,0 +1,122 @@
+{
+  "baselines": {
+    "provenance": {
+      "baseline": "4a9e8f2c11e5e12bfd6926bfb9f9a0ee0dd3fa57",
+      "files": 126,
+      "engineTreeUnmodified": true,
+      "foundationTreeUnmodified": true,
+      "integrationTreeUnmodified": true
+    },
+    "engine": {
+      "command": [
+        "<WORKSPACE>\\phase31-a31-hardening-clean\\.venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-t",
+        ".",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 33.061,
+      "output": "engine-tests.txt"
+    },
+    "foundation": {
+      "command": [
+        "<WORKSPACE>\\phase31-a31-hardening-clean\\.venv\\Scripts\\python.exe",
+        "experiments/foundation/interop.py",
+        "--gs1-checkout",
+        "<WORKSPACE>\\foundation-upstream\\EPCIS",
+        "--output",
+        "<WORKSPACE>\\phase31-a31-hardening-clean\\docs\\phase31-hardening-validation\\foundation-results.json"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.986,
+      "output": "foundation-tests.txt"
+    },
+    "integration": {
+      "command": [
+        "<WORKSPACE>\\phase31-a31-hardening-clean\\.venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "integration_tests",
+        "-t",
+        ".",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.965,
+      "output": "integration-tests.txt"
+    }
+  },
+  "checks": {
+    "application": {
+      "exitCode": 0,
+      "elapsedSeconds": 9.648
+    },
+    "remediation": {
+      "exitCode": 0,
+      "elapsedSeconds": 19.92
+    },
+    "hardening": {
+      "exitCode": 0,
+      "elapsedSeconds": 9.918
+    },
+    "exporter": {
+      "exitCode": 0,
+      "elapsedSeconds": 0.623
+    },
+    "snapshot": {
+      "exitCode": 0,
+      "elapsedSeconds": 0.283
+    },
+    "ui": {
+      "exitCode": 0,
+      "elapsedSeconds": 4.946
+    },
+    "build": {
+      "exitCode": 0,
+      "elapsedSeconds": 3.28
+    },
+    "browser": {
+      "exitCode": 0,
+      "elapsedSeconds": 45.167
+    }
+  },
+  "liveConformance": {
+    "documents": 58,
+    "gs1SchemaPassed": true,
+    "scope": "Generated supported-profile documents; not a full EPCIS repository certification"
+  },
+  "retainedConformance": {
+    "documents": 2,
+    "events": 19,
+    "schemaPassed": true,
+    "jsonldTraceRoundtripPassed": true,
+    "schemaSha256": "d5ca9b1cad2c403679d9b07fb768108142d73e1dd024198ed64774b56b62227b",
+    "contextSha256": "b5c7cc9367ab638ecb77feb0b9aea222a427d9740bf3dda1b183fc3d4390714f",
+    "scope": "Two complete generated documents; no full repository runtime or complete EPCIS certification"
+  },
+  "retainedSafety": {
+    "scope": "12 authored P1 synthetic histories; not factory evidence; truth not available to decision code",
+    "total": 12,
+    "behaviorAgreements": 12,
+    "unsafeScenarios": 6,
+    "safeScenarios": 6,
+    "falseReleases": 0,
+    "unnecessaryHolds": 3
+  },
+  "expandedSafety": {
+    "scope": "25 authored local synthetic decisions; DE/NDE scope matrix plus ambiguity, gaps, observation, replacement, missing baseline and double installation. Physical truth is supplied only here, not to decision code. Not factory safety evidence.",
+    "total": 25,
+    "unsafeCases": 14,
+    "safeCases": 11,
+    "behaviorAgreements": 25,
+    "falseReleases": 0,
+    "unnecessaryHolds": 3
+  }
+}

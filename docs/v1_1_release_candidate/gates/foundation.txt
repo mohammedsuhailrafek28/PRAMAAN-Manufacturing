@@ -1,0 +1,1 @@
+21 feasibility checks passed; <USER_HOME>\AppData\Local\Temp\claude\<WORKSPACE_ID>\c62f2fee-8f85-4474-86ce-f8aea199b730\scratchpad\cc6\.tmp-ci-results\foundation.json

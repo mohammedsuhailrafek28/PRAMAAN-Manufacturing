@@ -1,0 +1,18 @@
+{
+ "mappingId": "quality.inspection", "version": 1,
+ "description": "Quality-inspection record export (CSV, tab-delimited, local time). Recorded claims only; staged, never turned into a ledger verification or a clearance.",
+ "sourceSystem": "QUALITY", "adapter": "quality_inspection", "format": "csv", "delimiter": "\t", "encoding": "utf-8",
+ "timestamps": {"field": "occurredAt", "timezone": "Asia/Kolkata", "formats": ["%Y-%m-%d %H:%M"]},
+ "valueMaps": {"result": {"PASS": "PASS", "OK": "PASS", "FAIL": "FAIL", "NOK": "FAIL", "NOT OK": "FAIL"}, "slot": {"DE": "DE", "NDE": "NDE"}},
+ "fields": {
+  "recordId": {"source": "INSPECTION_NO", "required": true, "transforms": ["strip"]},
+  "motorSerial": {"source": "MOTOR", "required": true, "transforms": ["motor_serial"], "pattern": "MTR-[A-Z0-9-]{3,30}"},
+  "occurredAt": {"source": "INSPECTED_AT", "required": true},
+  "protocolId": {"source": "PROTOCOL", "required": true, "transforms": ["strip"]},
+  "result": {"source": "OUTCOME", "required": true, "transforms": ["strip", "upper"], "valueMap": "result"},
+  "inspectorId": {"source": "INSPECTOR", "required": true, "transforms": ["strip"]},
+  "qualifiedFor": {"source": "QUALIFIED_FOR", "transforms": ["strip", "upper", "null_if_blank"]},
+  "slot": {"source": "POSITION", "transforms": ["strip", "upper", "null_if_blank"], "valueMap": "slot"},
+  "lot": {"source": "LOT", "transforms": ["null_if_blank"]}
+ }
+}

@@ -1,0 +1,14 @@
+test_chain_rules_v2_to_v3_v3_to_v3_and_no_downgrade (application.test_format_v3.Format.test_chain_rules_v2_to_v3_v3_to_v3_and_no_downgrade) ... ok
+test_malformed_binding_blocks_are_integrity_failures_even_when_resealed (application.test_format_v3.Format.test_malformed_binding_blocks_are_integrity_failures_even_when_resealed) ... ok
+test_missing_or_forged_live_registry_fails_closed_at_start (application.test_format_v3.Format.test_missing_or_forged_live_registry_fails_closed_at_start) ... ok
+test_registry_only_update_with_no_new_ledger_events (application.test_format_v3.Format.test_registry_only_update_with_no_new_ledger_events) ... ok
+test_replay_rollback_and_substitution_matrix (application.test_format_v3.Format.test_replay_rollback_and_substitution_matrix) ... ok
+test_v2_history_is_unchanged_and_v2_never_grants_current_eligibility (application.test_format_v3.Format.test_v2_history_is_unchanged_and_v2_never_grants_current_eligibility) ... ok
+test_v3_body_is_v2_plus_a_checksummed_registry_binding (application.test_format_v3.Format.test_v3_body_is_v2_plus_a_checksummed_registry_binding) ... ok
+test_v2_to_v3_migration_cannot_launder_an_unsafe_motor (application.test_format_v3.NeverCreatesEligibility.test_v2_to_v3_migration_cannot_launder_an_unsafe_motor) ... ok
+test_v3_root_renewal_and_forged_v3_conversion_cannot_launder_an_unsafe_motor (application.test_format_v3.NeverCreatesEligibility.test_v3_root_renewal_and_forged_v3_conversion_cannot_launder_an_unsafe_motor) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 6.704s
+
+OK

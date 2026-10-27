@@ -1,0 +1,10 @@
+{
+  "archiveId": "8322f95011cc4e6d83c7d9e17cd6c01a",
+  "sequence": 10,
+  "headHash": "bb0f7f3d0d9783b28485bae334fd019d54710b09e60458f986bded3f6de98326",
+  "events": 47,
+  "motors": 9,
+  "checkpointState": "ANCHORED_CURRENT",
+  "anchoredSequence": 10,
+  "notice": "Synthetic reference ledger. The checkpoint is a self-exported demo reference, NOT independent custody, external anchoring or release authorization."
+}

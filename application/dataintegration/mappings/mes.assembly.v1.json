@@ -1,0 +1,27 @@
+{
+ "mappingId": "mes.assembly", "version": 1,
+ "description": "MES assembly-station event export (CSV, comma-delimited, ISO-8601 with offset). OPEN / INSTALL / REMOVE / CLOSE rows of build and rework orders.",
+ "sourceSystem": "MES", "adapter": "mes_assembly", "format": "csv", "delimiter": ",", "encoding": "utf-8",
+ "timestamps": {"field": "occurredAt", "timezone": "UTC", "formats": ["iso"]},
+ "valueMaps": {
+  "event": {"OPEN": "OPEN", "ORDER_OPEN": "OPEN", "INSTALL": "INSTALL", "FIT": "INSTALL", "REMOVE": "REMOVE", "CLOSE": "CLOSE", "ORDER_CLOSE": "CLOSE"},
+  "orderType": {"BUILD": "BUILD", "NEW": "BUILD", "REWORK": "REWORK", "REPAIR": "REWORK"},
+  "slot": {"DE": "DE", "NDE": "NDE"},
+  "disposition": {"COMPLETED": "COMPLETED", "DONE": "COMPLETED", "CANCELLED": "CANCELLED"}
+ },
+ "fields": {
+  "recordId": {"source": "EVENT_ID", "required": true, "transforms": ["strip"]},
+  "motorSerial": {"source": "MOTOR_SERIAL", "required": true, "transforms": ["motor_serial"], "pattern": "MTR-[A-Z0-9-]{3,30}"},
+  "occurredAt": {"source": "EVENT_TIME", "required": true},
+  "event": {"source": "EVENT_CODE", "required": true, "transforms": ["strip", "upper"], "valueMap": "event"},
+  "workOrderId": {"source": "ORDER_NO", "required": true, "transforms": ["strip", "upper"]},
+  "orderType": {"source": "ORDER_TYPE", "transforms": ["strip", "upper", "null_if_blank"], "valueMap": "orderType"},
+  "slots": {"source": "SLOTS", "transforms": ["strip", "upper", "null_if_blank"]},
+  "slot": {"source": "SLOT", "transforms": ["strip", "upper", "null_if_blank"], "valueMap": "slot"},
+  "lot": {"source": "LOT", "transforms": ["null_if_blank"]},
+  "serial": {"source": "SERIAL", "transforms": ["strip", "null_if_blank"]},
+  "disposition": {"source": "DISPOSITION", "transforms": ["strip", "upper", "null_if_blank"], "valueMap": "disposition"},
+  "station": {"source": "STATION", "transforms": ["strip", "null_if_blank"]},
+  "operatorId": {"source": "OPERATOR", "transforms": ["strip", "null_if_blank"]}
+ }
+}

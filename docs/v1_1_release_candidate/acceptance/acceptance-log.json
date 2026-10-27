@@ -1,0 +1,120 @@
+{
+  "totalMs": 43220,
+  "browserErrors": [
+    "console: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "console: Pattern attribute value MTR-[A-Z0-9-]{3,30} is not a valid regular expression: Uncaught SyntaxError: Invalid regular expression: /MTR-[A-Z0-9-]{3,30}/v: Invalid character class",
+    "console: Failed to load resource: net::ERR_CONNECTION_RESET",
+    "console: Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "console: Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "console: Failed to load resource: net::ERR_CONNECTION_RESET",
+    "console: Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "console: Failed to load resource: net::ERR_CONNECTION_RESET",
+    "pageerror: TypeError: Failed to fetch",
+    "console: Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "console: Failed to load resource: net::ERR_CONNECTION_REFUSED"
+  ],
+  "steps": [
+    {
+      "step": "0:00 server up (runbook command), console current",
+      "result": "PASS",
+      "ms": 3118,
+      "detail": "state=ANCHORED_CURRENT; eligible=MTR-26003,MTR-DEMO-1; holds=5"
+    },
+    {
+      "step": "0:20 DPP / passport recall context (MTR-26003)",
+      "result": "PASS",
+      "ms": 566,
+      "detail": "No recall hold recorded under this policy"
+    },
+    {
+      "step": "0:30 genealogy (shipped fixture motor MTR-26001)",
+      "result": "PASS",
+      "ms": 1132,
+      "detail": "shipment note present"
+    },
+    {
+      "step": "0:40 evidence investigation",
+      "result": "PASS",
+      "ms": 1069,
+      "detail": "cards=3"
+    },
+    {
+      "step": "0:50 impact graph lot BR-204",
+      "result": "PASS",
+      "ms": 1342,
+      "detail": "Lot BR-204 is named by recall RC-026-014 for slot DE. 4 motors have a ledger-recorded link to it (2 affected, 2 unresolv"
+    },
+    {
+      "step": "1:00 workspace capture (new unit MTR-DEMO-3) moves ledger past checkpoint: console withholds decisions",
+      "result": "PASS",
+      "ms": 1569,
+      "detail": "workbench visible while stale: 0; warning=\"Do not ship or release any motor while this state persists. No current\""
+    },
+    {
+      "step": "1:30 API ship of the clean eligible-after-cycle motor DEMO-1 while stale is refused",
+      "result": "PASS",
+      "ms": 519,
+      "detail": "409 SHIPMENT_REFUSED"
+    },
+    {
+      "step": "2:00 recovery workspace visible in stale console",
+      "result": "PASS",
+      "ms": 141,
+      "detail": "Mode: stale checkpoint recovery. Allowed: observe, replace, propose."
+    },
+    {
+      "step": "2:15 operator checkpoint cycle (propose, accept with typed digest, restart with --previous-anchor)",
+      "result": "PASS",
+      "ms": 3805,
+      "detail": "{\"contained\":[],\"acknowledged\":[],\"status\":\"LOCAL_CUSTODY_ACCEPTANCE_OPERATOR_ASSERTED_NOT_INDEPENDENT\"}"
+    },
+    {
+      "step": "3:00 console current: DEMO-1 release eligible, DEMO-2 recall hold",
+      "result": "PASS",
+      "ms": 706,
+      "detail": "DEMO-2 chip=\"ACTION\nRecall hold\""
+    },
+    {
+      "step": "3:00 DPP for MTR-DEMO-2 (hold) ",
+      "result": "PASS",
+      "ms": 502,
+      "detail": "Held under the recall policy"
+    },
+    {
+      "step": "ITEM 3 workbench \"Record synthetic shipment\" on recall-held MTR-DEMO-2 (refusal path)",
+      "result": "PASS",
+      "ms": 7809,
+      "detail": "{\"early\":\"Skip to content Recall Investigation Motors Product passports Evidence investigation Recall impact graph Lot investigation Case comparison Fixture demo mode Recall data could not be loaded Current sta\",\"late\":\"Skip to content Recall Investigation Motors Product passports Evidence investigation Recall impact graph Lot investigation Case comparison Fixture demo mode Live ledger. Synthetic manufacturing data; \",\"loadError\":0,\"checkpointRequired\":0,\"shipment\":false}"
+    },
+    {
+      "step": "3:30 API ship DEMO-2 with forged claims refused",
+      "result": "PASS",
+      "ms": 325,
+      "detail": "409 SHIPMENT_REFUSED"
+    },
+    {
+      "step": "3:30 workbench shipment of current eligible MTR-DEMO-1 (success path) ",
+      "result": "PASS",
+      "ms": 8030,
+      "detail": "{\"early\":\"Skip to content Recall Investigation Motors Product passports Evidence investigation Recall impact graph Lot investigation Case comparison Fixture demo mode\",\"late\":\"Skip to content Recall Investigation Motors Product passports Evidence investigation Recall impact graph Lot investigation Case comparison Fixture demo mode Checkpoint required Do not ship or release \",\"loadError\":0,\"checkpointRequired\":1,\"shipment\":true}"
+    },
+    {
+      "step": "3:45 cycle, then genealogy shows the recorded shipment",
+      "result": "PASS",
+      "ms": 4323,
+      "detail": "{\"contained\":[],\"acknowledged\":[],\"status\":\"LOCAL_CUSTODY_ACCEPTANCE_OPERATOR_ASSERTED_NOT_INDEPENDENT\"} | shipment note present"
+    },
+    {
+      "step": "4:15 unverified sighting ZZ-9 on MTR-26003 via workspace, then cycle: that motor held",
+      "result": "PASS",
+      "ms": 6143,
+      "detail": "{\"contained\":[\"MTR-26003\"],\"acknowledged\":[\"MTR-26003\"],\"status\":\"LOCAL_CUSTODY_ACCEPTANCE_OPERATOR_ASSERTED_NOT_INDEPENDENT\"} chip=\"ACTION\nRecall hold\"; DEMO-1 eligible=true"
+    },
+    {
+      "step": "4:30 investigation after sighting",
+      "result": "PASS",
+      "ms": 568,
+      "detail": "cards=5"
+    }
+  ]
+}

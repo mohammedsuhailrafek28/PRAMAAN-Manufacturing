@@ -1,0 +1,142 @@
+.venv/Scripts/python.exe : test_append_only_material_and_policy
+(application.test_application.ApplicationTests.test_append_only_material_and_policy) ... ok
+At line:2 char:1
++ .venv/Scripts/python.exe -m unittest discover -s application -t . -v  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_append_onl..._policy) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+test_full_manufacturing_flow_and_reopen
+(application.test_application.ApplicationTests.test_full_manufacturing_flow_and_reopen) ... ok
+test_manufactured_identity_mismatch_is_blocked
+(application.test_application.ApplicationTests.test_manufactured_identity_mismatch_is_blocked) ... ok
+test_seed_safety_cases_and_idempotence
+(application.test_application.ApplicationTests.test_seed_safety_cases_and_idempotence) ... ok
+test_unknown_is_not_empty_and_no_phantom_shipment
+(application.test_application.ApplicationTests.test_unknown_is_not_empty_and_no_phantom_shipment) ... ok
+test_api_reads_provenance_genealogy_decisions_and_obligations
+(application.test_application.HttpTests.test_api_reads_provenance_genealogy_decisions_and_obligations) ... ok
+test_commands_require_local_token_and_no_cross_origin
+(application.test_application.HttpTests.test_commands_require_local_token_and_no_cross_origin) ... ok
+test_R10_unevaluated_capture (application.test_checkpoints.StrictCheckpointTests.test_R10_unevaluated_capture) ... ok
+test_R11_v1_never_current (application.test_checkpoints.StrictCheckpointTests.test_R11_v1_never_current) ... ok
+test_R12_export_racing_independent_writer
+(application.test_checkpoints.StrictCheckpointTests.test_R12_export_racing_independent_writer) ... ok
+test_R13_atomic_no_overwrite_and_interrupted_write
+(application.test_checkpoints.StrictCheckpointTests.test_R13_atomic_no_overwrite_and_interrupted_write) ... ok
+test_R14_candidate_has_no_trust_effect
+(application.test_checkpoints.StrictCheckpointTests.test_R14_candidate_has_no_trust_effect) ... ok
+test_R15_successor_requires_explicit_previous_link
+(application.test_checkpoints.StrictCheckpointTests.test_R15_successor_requires_explicit_previous_link) ... ok
+test_R16_legacy_without_manifest_never_current
+(application.test_checkpoints.StrictCheckpointTests.test_R16_legacy_without_manifest_never_current) ... ok
+test_R17_fixed_error_codes_only (application.test_checkpoints.StrictCheckpointTests.test_R17_fixed_error_codes_only)
+... ok
+test_R17_http_integrity_availability_and_unexpected_errors_sanitized (application.test_checkpoints.StrictCheckpointTest
+s.test_R17_http_integrity_availability_and_unexpected_errors_sanitized) ... ok
+test_R19_policy_after_empty_checkpoint
+(application.test_checkpoints.StrictCheckpointTests.test_R19_policy_after_empty_checkpoint) ... ok
+test_R1_in_process_rollback (application.test_checkpoints.StrictCheckpointTests.test_R1_in_process_rollback) ... ok
+test_R2_restart_latest_checkpoint_rejects_older_database
+(application.test_checkpoints.StrictCheckpointTests.test_R2_restart_latest_checkpoint_rejects_older_database) ... ok
+test_R3_intermediate_rollback_after_restart_is_prefix_only
+(application.test_checkpoints.StrictCheckpointTests.test_R3_intermediate_rollback_after_restart_is_prefix_only) ... ok
+test_R4_exact_checkpoint_restart_residual_is_undetectable
+(application.test_checkpoints.StrictCheckpointTests.test_R4_exact_checkpoint_restart_residual_is_undetectable) ... ok
+test_R5_capture_withholds_globally_holds_remain
+(application.test_checkpoints.StrictCheckpointTests.test_R5_capture_withholds_globally_holds_remain) ... ok
+test_R6_forged_evaluation_rehashed
+(application.test_checkpoints.StrictCheckpointTests.test_R6_forged_evaluation_rehashed) ... ok
+test_R7_forged_derived_fields (application.test_checkpoints.StrictCheckpointTests.test_R7_forged_derived_fields) ... ok
+test_R8_orphan_obligation (application.test_checkpoints.StrictCheckpointTests.test_R8_orphan_obligation) ... ok
+test_R9_resolution_forbidden (application.test_checkpoints.StrictCheckpointTests.test_R9_resolution_forbidden) ... ok
+test_current_requires_no_obligation_and_verified_replay
+(application.test_checkpoints.StrictCheckpointTests.test_current_requires_no_obligation_and_verified_replay) ... ok
+test_owner_clarification_historical_resolution_preserved_export_blocked (application.test_checkpoints.StrictCheckpointT
+ests.test_owner_clarification_historical_resolution_preserved_export_blocked) ... ok
+test_shared_structural_byte_cache_does_not_trust_forged_publication (application.test_checkpoints.StrictCheckpointTests
+.test_shared_structural_byte_cache_does_not_trust_forged_publication) ... ok
+test_unknown_journal_kind_rejected
+(application.test_checkpoints.StrictCheckpointTests.test_unknown_journal_kind_rejected) ... ok
+test_clean_prefix_extension_and_restart
+(application.test_hardening.AnchorTests.test_clean_prefix_extension_and_restart) ... ok
+test_cli_canonical_export_verify_and_no_overwrite
+(application.test_hardening.AnchorTests.test_cli_canonical_export_verify_and_no_overwrite) ... ok
+test_drop_journal_and_head_reset_schema_cannot_match_external_archive
+(application.test_hardening.AnchorTests.test_drop_journal_and_head_reset_schema_cannot_match_external_archive) ... ok
+test_forged_resolution_extension_rejected
+(application.test_hardening.AnchorTests.test_forged_resolution_extension_rejected) ... ok
+test_historical_resolution_entries_are_not_rewritten
+(application.test_hardening.AnchorTests.test_historical_resolution_entries_are_not_rewritten) ... ERROR
+test_old_valid_sqlite_backup_does_not_extend_latest_anchor
+(application.test_hardening.AnchorTests.test_old_valid_sqlite_backup_does_not_extend_latest_anchor) ... ok
+test_owner_file_missing_replaced_and_operational_enforcement
+(application.test_hardening.AnchorTests.test_owner_file_missing_replaced_and_operational_enforcement) ... ok
+test_public_resolution_callback_cannot_authorize_and_obligation_persists
+(application.test_hardening.AnchorTests.test_public_resolution_callback_cannot_authorize_and_obligation_persists) ...
+ok
+test_rewritten_journal_and_head_fail_anchored_prefix_even_if_locally_valid
+(application.test_hardening.AnchorTests.test_rewritten_journal_and_head_fail_anchored_prefix_even_if_locally_valid)
+... ok
+test_truncated_journal_fails_structural_checks
+(application.test_hardening.AnchorTests.test_truncated_journal_fails_structural_checks) ... ok
+test_wrong_archive_tampered_checksum_and_recomputed_policy
+(application.test_hardening.AnchorTests.test_wrong_archive_tampered_checksum_and_recomputed_policy) ... ok
+test_no_http_resolution_endpoint (application.test_hardening.HttpHardeningTests.test_no_http_resolution_endpoint) ...
+ok
+test_unanchored_http_only_serves_historical_envelope
+(application.test_hardening.HttpHardeningTests.test_unanchored_http_only_serves_historical_envelope) ... ok
+test_authorized_resolution_is_explicit_and_audited_not_delivery
+(application.test_remediation.RemediationTests.test_authorized_resolution_is_explicit_and_audited_not_delivery) ... ok
+test_delete_all_history_detected_and_not_reset
+(application.test_remediation.RemediationTests.test_delete_all_history_detected_and_not_reset) ... ok
+test_history_tamper_truncation_and_identity
+(application.test_remediation.RemediationTests.test_history_tamper_truncation_and_identity) ... ok
+test_irrelevant_capture_is_receipt_not_material_version
+(application.test_remediation.RemediationTests.test_irrelevant_capture_is_receipt_not_material_version) ... ok
+test_legacy_bundle_replays_without_rewriting_rows_or_reinterpreting_scope (application.test_remediation.RemediationTest
+s.test_legacy_bundle_replays_without_rewriting_rows_or_reinterpreting_scope) ... ok
+test_legacy_history_seal_detects_legacy_table_changes
+(application.test_remediation.RemediationTests.test_legacy_history_seal_detects_legacy_table_changes) ... ok
+test_material_observation_revision_and_replay
+(application.test_remediation.RemediationTests.test_material_observation_revision_and_replay) ... ok
+test_obligation_survives_unrelated_observation_and_reopen
+(application.test_remediation.RemediationTests.test_obligation_survives_unrelated_observation_and_reopen) ... ok
+test_pinned_provenance_no_git_dependency
+(application.test_remediation.RemediationTests.test_pinned_provenance_no_git_dependency) ... ok
+test_rejected_motor_blocks_fleet_explicitly_not_stale_release
+(application.test_remediation.RemediationTests.test_rejected_motor_blocks_fleet_explicitly_not_stale_release) ... ok
+test_removing_journal_and_head_still_cannot_reset_history
+(application.test_remediation.RemediationTests.test_removing_journal_and_head_still_cannot_reset_history) ... ok
+test_scope_cartesian_regression (application.test_remediation.RemediationTests.test_scope_cartesian_regression) ... ok
+test_scope_invalid_and_immutable (application.test_remediation.RemediationTests.test_scope_invalid_and_immutable) ...
+ok
+test_synthetic_clock_has_no_trust_attestation
+(application.test_remediation.RemediationTests.test_synthetic_clock_has_no_trust_attestation) ... ok
+test_notifications_endpoint_keeps_outstanding_obligation
+(application.test_remediation.ScopeHttpTests.test_notifications_endpoint_keeps_outstanding_obligation) ... ok
+test_scope_contradictions_rejected_by_http
+(application.test_remediation.ScopeHttpTests.test_scope_contradictions_rejected_by_http) ... ok
+
+======================================================================
+ERROR: test_historical_resolution_entries_are_not_rewritten
+(application.test_hardening.AnchorTests.test_historical_resolution_entries_are_not_rewritten)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\manufacturing-release-candidate\application\test_hardening.py",
+line 115, in test_historical_resolution_entries_are_not_rewritten
+    self.app.db.commit(); anchor=export_anchor(self.app)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\manufacturing-release-candidate\application\anchors.py", line
+135, in export_anchor
+    app.audit.verify_publications()
+  File "<WORKSPACE>\manufacturing-release-candidate\application\audit.py", line 227,
+in verify_publications
+    elif kind=='OBLIGATION_RESOLVED':raise IntegrityFailure('RESOLUTION_FORBIDDEN')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+application.audit.IntegrityFailure: RESOLUTION_FORBIDDEN
+
+----------------------------------------------------------------------
+Ran 59 tests in 45.697s
+
+FAILED (errors=1)

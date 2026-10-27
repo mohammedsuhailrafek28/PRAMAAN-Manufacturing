@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-23",
+  "branch": "integration/manufacturing-release-candidate",
+  "status": "REVISE_BLOCKED",
+  "repository": "https://github.com/mohammedsuhailrafek28/PRAMAAN-Manufacturing.git",
+  "mainObserved": "6e772e856aed7914c67e2a5e7e66bfb6fc0d27c0",
+  "frontendProductionCommit": "75c3d778e31ea4cfbd6ee0059af5424cb1fca9d9",
+  "h1ImportMerge": "8419351a034d75feba91da2344874bd58fd6b767",
+  "latestTestOnlyCommit": "317b2d060410f18640253d948e1d85d11fb917cb",
+  "host": "Windows shared developer machine",
+  "processor": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
+  "logicalProcessors": 16,
+  "python": "3.12.10",
+  "node": "24.17.0",
+  "npm": "11.13.0",
+  "chrome": "155.0.8059.80",
+  "hostedPinnedChrome": "155.0.8059.84",
+  "hostedExactFinalRun": "NOT_RUN"
+}

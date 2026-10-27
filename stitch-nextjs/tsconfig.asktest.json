@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "module": "commonjs", "moduleResolution": "node", "noEmit": false, "incremental": false, "isolatedModules": false, "plugins": [], "resolveJsonModule": true, "rootDir": ".", "outDir": ".ask-test-build", "types": ["node"] },
+  "include": ["tests/ask.test.ts", "src/ask/ground.ts", "src/ask/answer.ts", "src/ask/handler.ts"],
+  "exclude": ["node_modules"]
+}
